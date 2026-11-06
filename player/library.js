@@ -1,0 +1,201 @@
+/* Local pack library. Packs are inert course JSON stored on this device. */
+(function () {
+  const PREFIX = "lorekeeper:pack:";
+  const MAX_CHARS = 4_500_000;
+  const SLUG = /^[a-z0-9][a-z0-9-]*$/;
+  const DANGEROUS = new Set(["__proto__", "constructor", "prototype"]);
+
+  function fail(message) {
+    throw new Error(message);
+  }
+
+  function validCourse(course, slug) {
+    if (!course || typeof course !== "object") fail("A course is missing.");
+    if (!course.unit || course.unit.slug !== slug) fail(`Course "${slug}" has the wrong unit slug.`);
+    if (!Array.isArray(course.modules)) fail(`Course "${slug}" has no modules.`);
+    for (const module of course.modules) {
+      if (!Array.isArray(module.lessons)) fail(`Course "${slug}" has a module without lessons.`);
+    }
+  }
+
+  function validatePack(data) {
+    if (!data || data.format !== "lorekeeper.pack" || Number(data.version) !== 1) {
+      fail("This is not a Lorekeeper pack.");
+    }
+    if (!SLUG.test(String(data.id || ""))) fail("The pack id is invalid.");
+    if (!Array.isArray(data.courses) || !data.courses.length) fail("The pack has no courses.");
+
+    const clean = {
+      format: "lorekeeper.pack",
+      version: 1,
+      id: String(data.id),
+      title: String(data.title || data.id),
+      author: String(data.author || ""),
+      licence: String(data.licence || ""),
+      createdAt: String(data.createdAt || ""),
+      courses: [],
+    };
+
+    for (const raw of data.courses) {
+      if (!raw || typeof raw !== "object") fail("A course entry is invalid.");
+      const slug = String(raw.slug || "");
+      if (!SLUG.test(slug) || DANGEROUS.has(slug)) fail(`Invalid course slug "${slug}".`);
+      if (!raw.course || typeof raw.course !== "object") fail(`Course "${slug}" is missing.`);
+      validCourse(raw.course, slug);
+      if (!raw.stories || typeof raw.stories !== "object") fail(`Course "${slug}" has no story map.`);
+
+      const stories = {};
+      for (const [src, story] of Object.entries(raw.stories)) {
+        if (!story || typeof story !== "object" || !story.inkVersion || !story.root) {
+          fail(`Story "${src}" is not compiled Ink JSON.`);
+        }
+        stories[src] = story;
+      }
+
+      for (const module of raw.course.modules) {
+        for (const lesson of module.lessons) {
+          for (const block of lesson.blocks || []) {
+            if (block.type === "story" && !stories[block.src]) {
+              fail(`Course "${slug}" is missing the story "${block.src}".`);
+            }
+          }
+        }
+      }
+
+      clean.courses.push({
+        slug,
+        title: String(raw.title || raw.course.unit.title || slug),
+        theme: String(raw.theme || raw.course.unit.theme || "ink"),
+        level: String(raw.level || raw.course.unit.level || "beginner"),
+        tags: Array.isArray(raw.tags) ? raw.tags.map(String) : [],
+        pitch: String(raw.pitch || raw.course.unit.pitch || ""),
+        start: String(raw.start || raw.course.unit.start || ""),
+        course: raw.course,
+        stories,
+      });
+    }
+    return clean;
+  }
+
+  function sizeOf(pack) {
+    return JSON.stringify(pack).length;
+  }
+
+  function getPack(id) {
+    const raw = localStorage.getItem(`${PREFIX}${id}`);
+    if (!raw) return null;
+    try {
+      return validatePack(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  }
+
+  function packs() {
+    const result = [];
+    for (const key of Object.keys(localStorage)) {
+      if (!key.startsWith(PREFIX)) continue;
+      const pack = getPack(key.slice(PREFIX.length));
+      if (pack) result.push(pack);
+    }
+    return result;
+  }
+
+  function courses() {
+    return packs().flatMap((pack) =>
+      pack.courses.map((entry) => ({
+        slug: entry.slug,
+        title: entry.title,
+        theme: entry.theme,
+        tags: entry.tags,
+        level: entry.level,
+        pitch: entry.pitch,
+        start: entry.start,
+        modules: entry.course.modules.length,
+        lessons: entry.course.modules.reduce((sum, module) => sum + module.lessons.length, 0),
+        source: "local",
+        packId: pack.id,
+      }))
+    );
+  }
+
+  function course(slug) {
+    for (const pack of packs()) {
+      const entry = pack.courses.find((item) => item.slug === slug);
+      if (entry) {
+        return { packId: pack.id, course: entry.course, stories: entry.stories };
+      }
+    }
+    return null;
+  }
+
+  function story(slug, src) {
+    return course(slug)?.stories?.[src] || null;
+  }
+
+  function store(data, reservedSlugs = []) {
+    const pack = validatePack(data);
+    if (sizeOf(pack) > MAX_CHARS) fail("This pack is too large for browser storage.");
+    const existing = getPack(pack.id);
+    const ownSlugs = new Set((existing?.courses || []).map((entry) => entry.slug));
+    const reserved = new Set(reservedSlugs);
+    const conflict = pack.courses.find(
+      (entry) => reserved.has(entry.slug) && !ownSlugs.has(entry.slug)
+    );
+    if (conflict) {
+      fail(`"${conflict.slug}" is already a built-in course. Pack course slugs must be unique.`);
+    }
+    try {
+      localStorage.setItem(`${PREFIX}${pack.id}`, JSON.stringify(pack));
+    } catch (error) {
+      fail(error?.name === "QuotaExceededError" ? "Browser storage is full." : "The pack could not be saved.");
+    }
+    return pack;
+  }
+
+  async function parseFile(file) {
+    if (!file) fail("Choose a pack file.");
+    if (file.size > MAX_CHARS) fail("This pack is too large for browser storage.");
+    let data;
+    try {
+      data = JSON.parse(await file.text());
+    } catch {
+      fail("The pack is not valid JSON.");
+    }
+    return validatePack(data);
+  }
+
+  function removePack(id) {
+    const pack = getPack(id);
+    if (!pack) return null;
+    localStorage.removeItem(`${PREFIX}${id}`);
+    for (const entry of pack.courses) {
+      localStorage.removeItem(`lorekeeper:progress:${entry.slug}`);
+      for (const key of Object.keys(localStorage)) {
+        if (key.startsWith(`lorekeeper:sql:${entry.slug}:`) || key.startsWith(`lorekeeper:code:${entry.slug}:`)) {
+          localStorage.removeItem(key);
+        }
+      }
+    }
+    try {
+      const path = JSON.parse(localStorage.getItem("lorekeeper:path") || "null");
+      const slugs = new Set(pack.courses.map((entry) => entry.slug));
+      if (path && slugs.has(path.course)) localStorage.removeItem("lorekeeper:path");
+    } catch {
+      /* ignore */
+    }
+    return pack;
+  }
+
+  window.LorekeeperLibrary = {
+    validatePack,
+    parseFile,
+    store,
+    packs,
+    courses,
+    course,
+    story,
+    removePack,
+    getPack,
+  };
+})();

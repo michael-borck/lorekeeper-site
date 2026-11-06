@@ -820,9 +820,13 @@
       status.textContent = "Loading story...";
       try {
         const ink = await loadInk();
-        const response = await fetch(new URL(block.src, state.courseBaseUrl));
-        if (!response.ok) throw new Error(`Story not found (${response.status})`);
-        const data = await response.json();
+        let data = window.LorekeeperLibrary?.story(state.course.unit.slug, block.src);
+        if (!data) {
+          if (!state.courseBaseUrl) throw new Error("Story not found in this pack.");
+          const response = await fetch(new URL(block.src, state.courseBaseUrl));
+          if (!response.ok) throw new Error(`Story not found (${response.status})`);
+          data = await response.json();
+        }
         story = new ink.Story(data);
         if (block.start) story.ChoosePathString(block.start);
         status.textContent = "";

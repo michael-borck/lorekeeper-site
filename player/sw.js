@@ -9,6 +9,7 @@ const SHELL = [
   "./badges.js",
   "./art.js",
   "./progress-file.js",
+  "./library.js",
   "./wayfinder.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",

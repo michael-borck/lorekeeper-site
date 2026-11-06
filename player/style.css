@@ -1173,3 +1173,15 @@ html[data-theme="pixel"] .wayfinder-option,
 html[data-theme="pixel"] .wayfinder-cta { border-radius: 0; }
 html[data-theme="storybook"] .trail-card,
 html[data-theme="storybook"] .wayfinder-cta { box-shadow: 0 8px 20px rgba(74, 52, 28, 0.1); }
+
+/* Local packs -------------------------------------------------------- */
+
+.course-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.course-row .course-card { flex: 1; }
+.pack-remove { align-self: center; white-space: nowrap; }
+.picker-tools { display: flex; gap: 8px; align-items: center; margin-top: 16px; }
+.local-tag { border-color: var(--accent-border); color: var(--accent); }

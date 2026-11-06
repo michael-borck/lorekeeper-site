@@ -51,6 +51,7 @@
 
     for (const key of keys) {
       if (!key.startsWith(PREFIX)) continue;
+      if (key.startsWith("lorekeeper:pack:")) continue;
       let value = "";
       try {
         value = localStorage.getItem(key) || "";
@@ -163,6 +164,7 @@
       for (const [key, value] of Object.entries(data.other)) {
         if (typeof value !== "string") continue;
         if (!key.startsWith(PREFIX) || RESERVED.has(key) || !safeKey(key.replace(PREFIX, ""))) continue;
+        if (key.startsWith("lorekeeper:pack:")) continue;
         if (key.startsWith("lorekeeper:progress:") || /^lorekeeper:(sql|code):/.test(key)) continue;
         clean.other[key] = value;
       }

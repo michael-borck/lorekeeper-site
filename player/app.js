@@ -2,6 +2,7 @@ const state = {
   index: null,
   course: null,
   courseBaseUrl: null,
+  coursePack: null,
   progress: { completed: {} },
   currentId: null,
 };
@@ -76,6 +77,12 @@ async function init() {
     );
     return;
   }
+  const localCourses = window.LorekeeperLibrary?.courses() || [];
+  const remoteSlugs = new Set(index.courses.map((course) => course.slug));
+  index.courses = [
+    ...index.courses,
+    ...localCourses.filter((course) => !remoteSlugs.has(course.slug)),
+  ];
   state.index = index;
   window.LorekeeperWayfinder?.init();
   warmOffline();
@@ -88,18 +95,26 @@ async function init() {
 }
 
 async function loadCourse(slug) {
-  const meta = state.index.courses.find((course) => course.slug === slug);
-  const courseUrl = new URL(meta ? `../build/${meta.slug}/course.json` : slug, location.href);
+  const local = window.LorekeeperLibrary?.course(slug);
   let course;
-  try {
-    course = await getJSON(courseUrl.href);
-  } catch {
-    fatal(`Could not load course "${slug}".`);
-    return;
+  if (local) {
+    course = local.course;
+    state.courseBaseUrl = null;
+    state.coursePack = local.packId;
+  } else {
+    const meta = state.index.courses.find((item) => item.slug === slug);
+    const courseUrl = new URL(meta ? `../build/${meta.slug}/course.json` : slug, location.href);
+    try {
+      course = await getJSON(courseUrl.href);
+    } catch {
+      fatal(`Could not load course "${slug}".`);
+      return;
+    }
+    state.courseBaseUrl = new URL(".", courseUrl).href;
+    state.coursePack = null;
   }
 
   state.course = course;
-  state.courseBaseUrl = new URL(".", courseUrl).href;
   applyTheme(savedTheme() || course.unit.theme || "pixel", false);
   loadProgress();
   window.LorekeeperBadges?.init();
@@ -658,22 +673,78 @@ function renderPicker() {
         ${state.index.courses
           .map(
             (course) => `
-          <a class="course-card" href="?course=${encodeURIComponent(course.slug)}">
-            <span class="course-card-emblem">${
-              window.LorekeeperArt ? window.LorekeeperArt.courseEmblem(course.slug) : ""
-            }</span>
-            <span class="course-card-body">
-              <span class="title">${escapeHtml(course.title)}</span>
-              <span class="meta">${course.modules} modules · ${course.lessons} lessons
-                <span class="skin-tag">${escapeHtml(window.LorekeeperArt ? window.LorekeeperArt.skinName(course.theme) : (course.theme || "ink"))}</span>
+          <div class="course-row">
+            <a class="course-card" href="?course=${encodeURIComponent(course.slug)}">
+              <span class="course-card-emblem">${
+                window.LorekeeperArt ? window.LorekeeperArt.courseEmblem(course.slug) : ""
+              }</span>
+              <span class="course-card-body">
+                <span class="title">${escapeHtml(course.title)}</span>
+                <span class="meta">${course.modules} modules · ${course.lessons} lessons
+                  <span class="skin-tag">${escapeHtml(window.LorekeeperArt ? window.LorekeeperArt.skinName(course.theme) : (course.theme || "ink"))}</span>
+                  ${course.source === "local" ? '<span class="skin-tag local-tag">Local pack</span>' : ""}
+                </span>
               </span>
-            </span>
-          </a>`
+            </a>
+            ${
+              course.source === "local"
+                ? `<button class="ghost small pack-remove" type="button" data-pack-remove="${escapeHtml(course.packId || "")}">Remove</button>`
+                : ""
+            }
+          </div>`
           )
           .join("")}
       </div>
+      <div class="picker-tools">
+        <button id="pack-import" class="btn" type="button">Import a pack</button>
+        <input id="pack-file" type="file" accept=".json,application/json" hidden>
+      </div>
     </div>`;
+  bindPickerTools();
   window.LorekeeperWayfinder?.renderPicker();
+}
+
+function bindPickerTools() {
+  const importButton = document.getElementById("pack-import");
+  const fileInput = document.getElementById("pack-file");
+  if (importButton && fileInput) {
+    importButton.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      if (!confirm("Packs can contain exercise test code. Only import packs you trust. Continue?")) {
+        event.target.value = "";
+        return;
+      }
+      try {
+        const pack = await window.LorekeeperLibrary.parseFile(file);
+        const existing = window.LorekeeperLibrary.getPack(pack.id);
+        if (existing && !confirm(`Replace local pack "${existing.title}"?`)) {
+          event.target.value = "";
+          return;
+        }
+        const reserved = state.index.courses
+          .filter((course) => course.source !== "local")
+          .map((course) => course.slug);
+        window.LorekeeperLibrary.store(pack, reserved);
+        toast(`Imported ${pack.title}.`);
+        setTimeout(() => location.reload(), 500);
+      } catch (error) {
+        toast(error.message || "Import failed.");
+        event.target.value = "";
+      }
+    });
+  }
+  document.querySelectorAll("[data-pack-remove]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.packRemove;
+      const pack = window.LorekeeperLibrary.getPack(id);
+      if (!pack) return;
+      if (!confirm(`Remove "${pack.title}" and its local progress from this device?`)) return;
+      window.LorekeeperLibrary.removePack(id);
+      location.reload();
+    });
+  });
 }
 
 function fatal(message) {
@@ -737,6 +808,7 @@ async function warmOffline() {
   if (!controller) return;
   fetch(new URL("../build/index.json", location.href)).catch(() => {});
   for (const course of state.index.courses) {
+    if (course.source === "local") continue;
     const courseUrl = new URL(`../build/${course.slug}/course.json`, location.href);
     fetch(courseUrl)
       .then((response) => (response.ok ? response.json() : null))
