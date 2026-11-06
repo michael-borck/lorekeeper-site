@@ -1,0 +1,1522 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "systems-analysis-and-design",
+  "title": "Frame the System, Guide the AI: Systems Analysis and Design in the AI Era",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T13:49:50+00:00",
+  "courses": [
+    {
+      "slug": "systems-analysis-and-design",
+      "title": "Frame the System, Guide the AI: Systems Analysis and Design in the AI Era",
+      "theme": "storybook",
+      "level": "beginner",
+      "tags": [
+        "analysis",
+        "design",
+        "requirements",
+        "systems",
+        "ai",
+        "governance"
+      ],
+      "pitch": "Frame the problem, make requirements checkable, model the decisions and hand over a system that may contain AI.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T13:49:50+00:00",
+        "unit": {
+          "slug": "systems-analysis-and-design",
+          "title": "Frame the System, Guide the AI: Systems Analysis and Design in the AI Era",
+          "theme": "storybook",
+          "tags": [
+            "analysis",
+            "design",
+            "requirements",
+            "systems",
+            "ai",
+            "governance"
+          ],
+          "level": "beginner",
+          "pitch": "Frame the problem, make requirements checkable, model the decisions and hand over a system that may contain AI.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "frame-the-problem",
+            "title": "Frame the Problem",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "The Brief Is Not the System",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>\"We need an app so people can book tools.\" That is a request. An agent can build it before lunch. The system is still unknown.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The tool library coordinator has a problem she can feel but has not described. Members ring during opening hours and ask whether the ladder is free. Volunteers write reservations in a paper diary, then forget to check the group chat. Two people sometimes promise the same drill. At the end of the month, the treasurer cannot tell which deposits were refunded.</p>\n<p>The coordinator's request is a solution: an app. It may be the right solution. It is not yet a problem statement.</p>\n<p>Analysis begins by separating three things:</p>\n<ul>\n<li><strong>The request</strong>: what someone thinks they want built.</li>\n<li><strong>The problem</strong>: what is going wrong in the current work.</li>\n<li><strong>The outcome</strong>: what would be better if the problem were solved.</li>\n</ul>\n<p>The request can change. The problem should survive a change of solution. If the only thing you know is \"build an app\", you cannot tell whether a shared calendar, a revised procedure or an off-the-shelf booking service would serve the library better.</p>\n<p>A problem statement describes the gap between the current state and the intended future state. The current state records what happens now, who does it, where it breaks and what it costs. Use numbers where you can: reservations a week, double bookings a month, volunteer hours on the phone, tools missing from the shelf. The future state names the outcome in the language of the organisation, not the software.</p>\n<p>An output is a thing delivered: an app, a dashboard, a report. An outcome is a change in the work: fewer double bookings, faster handover, fewer unanswered calls. Projects often measure outputs because they are easy to count. A delivered app is not evidence that the problem changed. The library could have a beautiful booking app and still double-book the ladder because the volunteers keep a parallel paper diary.</p>\n<p>AI makes this distinction harder to hold. A capable agent can turn a vague request into a polished brief, a data model and a working prototype in one session. The artefact looks like analysis. Often it is the request, restated with more confidence.</p>\n<p>An agent asked to \"write the problem statement\" will produce a fluent statement from the request alone. It cannot know the lost reservations, the volunteer workaround or the treasurer's reconciliation problem unless you supply them. Treat the first draft as a hypothesis to test, not a finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Doctor&#x27;s Visit</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A patient arrives and asks for antibiotics. The doctor could write the prescription and finish the consultation in two minutes. The request is clear. The problem is not.</p>\n<p>The doctor asks what changed, when it started, what makes it worse, what the patient has already tried and what else is going on. The answers may point to a bacterial infection, a viral illness, a side effect or something unrelated. The request was a solution. The diagnosis is the problem statement.</p>\n<p>Systems analysis works the same way. The client arrives with a solution because solutions are easier to describe than problems. AI has made solutions cheaper to produce, which makes the diagnosis more important, not less. A wrong prescription is still wrong when it arrives in seconds.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Problem with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Interrogate the Request</h3>\n<p>Give your AI partner the request and ask it to separate the stated solution from the underlying problem. Ask for questions, not answers.</p>\n<pre><code class=\"language-text\">Here is a client request: &quot;We need an app so people can book tools.&quot;\nList every question you would need answered before you could describe the\nproblem. Do not propose a solution. Group the questions by what they ask\nabout: the work today, the people, the evidence, the constraints or the\ndefinition of better.\n</code></pre>\n<p>A useful answer will ask about the current process, the frequency of failure, the people involved, the cost of the workaround and what the client would accept as success. If the AI starts designing screens, stop it. You asked for diagnosis.</p>\n<h3>Exploration 2: Generate Rival Problems</h3>\n<p>Ask for several problem statements that would all explain the same request. The differences expose what you have not confirmed.</p>\n<pre><code class=\"language-text\">Here is the request and what I know about the current work:\n[paste your notes]\n\nWrite three rival problem statements that could each explain why the\nclient asked for an app. For each one, name the evidence that would\nsupport it and the evidence that would rule it out. Do not choose one.\n</code></pre>\n<p>If all three read the same, you have not given the model enough evidence. If they diverge, you have a research plan.</p>\n<h3>Exploration 3: Build an Assumptions Log</h3>\n<p>An assumption is a belief that needs a check. Ask the AI to find the assumptions hidden in a draft problem statement.</p>\n<pre><code class=\"language-text\">Here is my draft problem statement:\n[paste it]\n\nList every assumption it makes about people, data, policy, money,\ntechnology or support. For each one, write the question that would test it\nand name the person most likely to know the answer.\n</code></pre>\n<p>Keep the log beside the problem statement. An assumption that fails changes the scope. An unknown that nobody has decided is not a requirement.</p>\n<h3>Exploration 4: The AI Feature Trap</h3>\n<p>If the request is \"add AI\", the same method applies. An AI feature is a solution. Ask what decision or task changes, who is accountable for the decision, what evidence the model needs and what happens when it is wrong.</p>\n<pre><code class=\"language-text\">The client wants an AI assistant to answer tool availability questions.\nWrite the problem statement without naming AI. What task changes? Who\ndoes it now? What would better look like? What would the assistant need\nto know? What must a human still decide?\n</code></pre>\n<p>If the answer is \"the assistant answers questions\", you have restated the feature. Keep asking until you reach the work.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A problem statement can be one paragraph:</p>\n<blockquote>\n<p>Volunteers spend six to eight hours a week answering availability questions and reconciling the paper diary. Members cannot see whether a tool is free, and two people are occasionally promised the same item. The library needs a single reservation record that members and volunteers can trust, with a process for deposits and overdue returns that the treasurer can reconcile.</p>\n</blockquote>\n<p>Notice what is missing: a database, a framework, a mobile app or a model. Those are design choices. The statement leaves room for them.</p>\n<p>Use this template:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Problem statement: [project]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Current state</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Who does the work, what happens, where it breaks and what it costs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Future state</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What would be better, for whom, and how we would notice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Request</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What the client asked for, in their words.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Assumptions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Beliefs that need a check, each with an owner.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Unknowns</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Questions nobody has answered yet.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>AI-added claims</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Anything an assistant introduced that is not supported by the evidence.\n```</p>\n<p>Test the statement with one question: could two different solutions satisfy it? If not, you have smuggled a design into the problem.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Organisations pay for outputs and expect outcomes. The gap between them is where projects fail quietly. A system can be delivered on time, pass acceptance and still leave the work unchanged because the analysis never named the work.</p>\n<p>AI raises the cost of a bad problem statement. A traditional project might spend weeks discovering it was solving the wrong problem. An AI-assisted team can build the wrong system in days, integrate it and call the speed progress.</p>\n<p>A clear problem statement also protects the team from solution shopping. When a vendor demonstrates a product, the team can ask which problem it solves and what evidence would show the problem changed. That is a stronger position than comparing feature lists.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Take the coordinator's request and write the current state, future state, request, two assumptions and two unknowns.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Ask an AI to write three rival problem statements for the tool library. For each, name one piece of evidence that would confirm it and one that would rule it out.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Find a real project request from your work or study. Rewrite it as a problem statement with no technology named. Ask a colleague whether two different solutions could satisfy it.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Take an AI-generated project brief. Mark every claim that could not have come from the request. Identify which of those claims are assumptions and which are inventions.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Write a problem statement for an AI-enabled system. Separate the task the model supports, the decision a human owns, the evidence the model needs and the fallback when it is wrong.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A request is a proposed solution; the problem is the gap in the work.</li>\n<li>A problem statement records the current state, the future state and the cost of the gap.</li>\n<li>Outputs are delivered things; outcomes are changes in the work.</li>\n<li>AI can draft a plausible problem statement from almost nothing. The evidence still has to come from the work.</li>\n<li>Assumptions and unknowns belong in the record, not inside the requirements.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the client's request in their own words</li>\n<li>[ ] Described the current state with at least one measurable cost</li>\n<li>[ ] Named the outcome without naming a technology</li>\n<li>[ ] Recorded assumptions and unknowns separately</li>\n<li>[ ] Marked any AI-added claim that lacks evidence</li>\n<li>[ ] Tested whether two different solutions could satisfy the statement</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which part of the request turned out to be a solution rather than a problem?</li>\n<li>What assumption would be most expensive if it were wrong?</li>\n<li>Where did the AI sound most confident, and what evidence was missing?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The problem statement names a gap. The next chapter identifies who experiences it, who can block it and who has to live with the answer.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Stakeholders and Their Work",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The person who asks for the system is rarely the only person who has to live with it. An AI can role-play the missing people. It cannot go and find them.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A stakeholder is anyone who affects the system, is affected by it, or can stop it succeeding. That includes people who never appear in the requirements meeting.</p>\n<p>For the tool library:</p>\n<ul>\n<li><strong>Members</strong> want to know a tool is available before they travel.</li>\n<li><strong>Volunteers</strong> want fewer interruptions and a record they can trust.</li>\n<li><strong>The coordinator</strong> wants the desk to run with less chasing.</li>\n<li><strong>The treasurer</strong> wants deposits and refunds to reconcile.</li>\n<li><strong>The insurer</strong> wants evidence that loans and maintenance are controlled.</li>\n<li><strong>The council</strong> provides the venue and may have procurement rules.</li>\n<li><strong>Accessibility users</strong> need the booking path to work with keyboards, screen readers and small screens.</li>\n<li><strong>The person who supports the system</strong> may be a volunteer with no IT background.</li>\n<li><strong>People who are not members yet</strong> may be excluded by an email-only sign-up.</li>\n</ul>\n<p>If the system uses an AI model, the list grows. The model provider is a supply-chain stakeholder. The people whose data trains or prompts the model are data subjects. A human reviewer may own the final decision. Someone has to monitor quality after launch. None of those roles existed in the paper diary.</p>\n<p>A useful first cut separates primary, secondary and tertiary stakeholders. Primary stakeholders use the system or depend on its output. Secondary stakeholders build, support, regulate or supply it. Tertiary stakeholders are affected indirectly. The boundary is a judgement. Make the judgement visible so it can be revisited.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Village Fete</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A village fete needs a committee, stallholders, volunteers, attendees, neighbours and the council. The committee chair asks for a website with a booking form. That request sounds simple until the analysis starts.</p>\n<p>The stallholders need to know where to park and when to arrive. Neighbours care about noise and road closures. Attendees need to know whether the event is accessible and whether dogs are allowed. The council needs a risk assessment and proof of insurance. The treasurer needs to reconcile stall fees. The volunteers need a rota that does not collapse when two people swap shifts.</p>\n<p>The chair speaks for the event but does not hold all the knowledge. A website designed only from the chair's description can be technically correct and practically useless. The missing stakeholders are not edge cases. They are the people who make the event work.</p>\n<p>An AI assistant can produce a convincing list of fete stakeholders in seconds. It can also invent a tidy consensus: stallholders want online booking, attendees want a mobile app, neighbours support the event. The list looks complete because it is fluent. The evidence is still missing.</p>\n<p>Synthetic stakeholders are useful for rehearsal, not evidence. A model asked to \"represent a volunteer\" will produce a plausible volunteer, not the person who worked last Tuesday. Never replace an interview with a simulation and call it research.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Stakeholders with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Missing Voices</h3>\n<p>Ask your AI partner to generate a stakeholder list from the problem statement, then look for the gaps.</p>\n<pre><code class=\"language-text\">Here is my problem statement:\n[paste it]\n\nList the stakeholders who affect, are affected by or can block this\nsystem. Group them as primary, secondary and tertiary. For each one,\nname the goal they care about and the evidence they would use to judge\nsuccess. Mark any group you think is commonly forgotten.\n</code></pre>\n<p>The last instruction matters. AI tends to list the obvious roles. The commonly forgotten groups are where the risk sits: support staff, accessibility users, people who avoid the system, and the people who inherit it after launch.</p>\n<h3>Exploration 2: Rehearse an Interview</h3>\n<p>Use the AI to rehearse an interview with a stakeholder you have not met. Rehearsal is the point.</p>\n<pre><code class=\"language-text\">Role-play a volunteer at a community tool library. I am the analyst.\nAnswer only from the role I describe. Do not volunteer information.\nIf I ask a vague question, give a vague answer. If I ask about your\nwork, describe what happened last Tuesday.\n\nRole: You open the desk at 9am, manage the paper diary, answer the phone,\ncheck tools back in and chase overdue returns. You have no IT training.\n</code></pre>\n<p>Ask what happened last Tuesday. Ask about the last disagreement, the last double booking and the last time someone gave up. Then take those questions to a real person. The simulation helps you practise. It does not replace the source.</p>\n<h3>Exploration 3: Attack the Map for Blind Spots</h3>\n<p>A stakeholder map can look complete and still be wrong. Ask the AI to attack it.</p>\n<pre><code class=\"language-text\">Here is my stakeholder table:\n[paste it]\n\nWho is missing? Which group has high interest but low power, and whose\nneeds might be ignored? Which group can block the project without being\nin the room? Where is there a conflict between two stakeholders, and who\nshould decide it?\n</code></pre>\n<p>Record the conflicts. A map that shows only harmony is a map of the sponsor's hopes.</p>\n<h3>Exploration 4: Map the AI Supply Chain</h3>\n<p>If the system includes a model, map the new dependencies.</p>\n<pre><code class=\"language-text\">The tool library wants an AI assistant to answer availability questions.\nList the stakeholders added by this decision: model provider, data\nsubjects, human reviewer, support owner, security, privacy, procurement\nand anyone affected by a wrong answer. For each, name the decision they\nown and the evidence they need.\n</code></pre>\n<p>A model provider that changes a hosted model without notice is a stakeholder with power and no seat at your desk. Put it on the map.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A stakeholder table is a working document, not a decoration.</p>\n<table>\n<thead>\n<tr>\n<th>Stakeholder</th>\n<th>Goal</th>\n<th>Pain today</th>\n<th>Influence</th>\n<th>Involvement</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Member</td>\n<td>Reserve a tool and know it will be there</td>\n<td>Cannot see availability; wasted trips</td>\n<td>Low individually, high collectively</td>\n<td>Interviews, usability tests</td>\n</tr>\n<tr>\n<td>Volunteer</td>\n<td>Run the desk without disputes</td>\n<td>Paper diary and group chat disagree</td>\n<td>High at the desk</td>\n<td>Shadowing, co-design</td>\n</tr>\n<tr>\n<td>Coordinator</td>\n<td>Reduce chasing and double bookings</td>\n<td>No single record</td>\n<td>High</td>\n<td>Sponsor, decision-maker</td>\n</tr>\n<tr>\n<td>Treasurer</td>\n<td>Reconcile deposits and refunds</td>\n<td>No reliable transaction view</td>\n<td>Medium</td>\n<td>Requirements review</td>\n</tr>\n<tr>\n<td>Council</td>\n<td>Meet venue and procurement rules</td>\n<td>Unknown compliance burden</td>\n<td>High</td>\n<td>Constraint review</td>\n</tr>\n<tr>\n<td>Support volunteer</td>\n<td>Fix problems after launch</td>\n<td>No runbook or access model</td>\n<td>Medium</td>\n<td>Handover review</td>\n</tr>\n<tr>\n<td>Accessibility user</td>\n<td>Complete the task without assistance</td>\n<td>Unknown until tested</td>\n<td>Low formally, high in evidence</td>\n<td>Usability testing</td>\n</tr>\n<tr>\n<td>Model provider</td>\n<td>Supply a working, stable service</td>\n<td>Unknown roadmap and limits</td>\n<td>High</td>\n<td>Contract and change review</td>\n</tr>\n<tr>\n<td>Human reviewer</td>\n<td>Catch wrong answers</td>\n<td>No clear authority or time</td>\n<td>Medium</td>\n<td>Workflow design</td>\n</tr>\n</tbody>\n</table>\n<p>The table is not complete. It is a prompt for the next question.</p>\n<p>Conflict is analysis. The coordinator wants fewer no-shows. Members want instant booking. Volunteers want the right to hold a tool for a regular. The treasurer wants a deposit on expensive items. The insurer wants a recorded condition check. Do not smooth the conflict into \"the system should be flexible\". Name the trade-off and the decision-maker.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Most adoption failures are stakeholder failures, not technology failures. The system works, but the desk still uses the paper diary because nobody asked the volunteers what would make them switch. The dashboard exists, but the treasurer still reconciles by hand because the export does not match the bank statement.</p>\n<p>AI adds two familiar risks in a new form. The first is automation bias: people accept a model's answer because it is fluent and fast. The second is responsibility drift: everyone assumes someone else checks the output. Both are stakeholder design problems. Name the human who owns the decision, the evidence they see and the moment they are expected to intervene.</p>\n<p>Stakeholder analysis is also risk management. The council can stop the project through procurement. The insurer can impose a condition that changes the workflow. A model provider can change a price or a policy. The support volunteer can become a single point of failure. These are not edge cases to handle later. They are design constraints.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Add two stakeholders to the tool library table that are missing. For each, write one goal, one pain and one question you would ask.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Draw a power and interest map for the tool library. Place each stakeholder and write one engagement action for each quadrant.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Interview someone who does the work in a real process. Ask about the last three cases, including one that went wrong. Write the three stories as evidence, not opinions.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Identify one conflict between two stakeholders. Write both positions fairly, then name the decision-maker and the criterion they should use.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Map the stakeholders added by an AI feature. Include the model provider, data subjects, the human reviewer and the support owner. For each, state the decision they own and the evidence they need.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Stakeholders include users, builders, supporters, regulators and people affected indirectly.</li>\n<li>AI features add model providers, data subjects, reviewers and monitoring owners.</li>\n<li>Power and interest decide how to involve people, not whose needs matter.</li>\n<li>Synthetic stakeholders are rehearsal tools, not evidence.</li>\n<li>Conflicts are requirements for a decision, not noise to smooth away.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the primary, secondary and tertiary stakeholders</li>\n<li>[ ] Spoke to at least one person who does the work</li>\n<li>[ ] Recorded influence and involvement separately</li>\n<li>[ ] Named a conflict and its decision-maker</li>\n<li>[ ] Included at least one group that is commonly forgotten</li>\n<li>[ ] Mapped the supply chain if the system uses a model</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which stakeholder was easiest to miss, and why?</li>\n<li>What did a story tell you that a feature request would not?</li>\n<li>Where could responsibility drift hide in an AI-enabled version of this system?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The stakeholder map names who matters. The next chapter draws the boundary around what the system will and will not be responsible for, including the model.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Scope, Context and Constraints",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Scope is not a list of features. It is a decision about what the system is responsible for, and what it is allowed to decide.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A context diagram shows the system as one box and the external entities it exchanges information with. It deliberately hides the inside. That is the point: before you decompose the system, agree what is inside it.</p>\n<p>For the tool library, the system might exchange information with:</p>\n<ul>\n<li>members, through a booking interface</li>\n<li>volunteers, through a desk view</li>\n<li>a payment provider, for deposits and refunds</li>\n<li>an email or SMS service, for confirmations and reminders</li>\n<li>the council's asset register, if tools are council property</li>\n<li>the insurer's records, if condition or incident reports are required</li>\n</ul>\n<p>Each arrow is a flow of information or material. \"Member requests reservation\" is a flow. \"System sends reminder\" is a flow. \"Tool\" is not a data flow unless the system tracks the physical item.</p>\n<p>If the system includes an AI assistant, the context changes. The assistant may exchange prompts with a model provider, read a knowledge base, write an audit log and hand a recommendation to a volunteer. The model provider becomes an external entity. The human reviewer becomes part of the boundary, not an implementation detail.</p>\n<p>A scope statement has three lists:</p>\n<p><strong>In scope.</strong> The work the system will do. \"Record reservations, loans, returns, deposits and condition checks for tools owned by the library.\"</p>\n<p><strong>Out of scope.</strong> The work it will not do, even if related. \"Repair scheduling, volunteer rostering, membership payments and the council's asset register.\"</p>\n<p><strong>Not now.</strong> Work deferred to a later decision. \"Damage charges, waitlists and an AI assistant may be added after the first release.\"</p>\n<p>The third list matters. \"Out of scope\" sounds permanent and can start an argument. \"Not now\" records intent without promising a date.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Shared Kitchen</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A community hall has a shared kitchen. One group uses it for a weekly lunch. Another runs a cooking class. A third hires it for events. The kitchen works because everyone agrees what is inside the room and what is borrowed from elsewhere.</p>\n<p>The hall committee asks for a booking system. The scope question is not \"what screens should it have?\" It is \"what does the system own?\" Does it own the room, the equipment, the cleaning rota, the key cabinet, the fridge contents and the waste collection? Each one adds an interface and a responsibility.</p>\n<p>If the booking system also promises to answer questions about allergens, it now depends on recipe data, a qualified reviewer and a policy for liability. The screen is small. The boundary is not.</p>\n<p>AI makes the boundary harder to see because the model can appear to own a task. A volunteer asks \"Is the ladder free?\" and the assistant answers. Did the system own the answer, or did it own only a draft that a volunteer confirms? The scope statement must say.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Scope with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Draw the Context Without the Inside</h3>\n<p>Ask the AI to produce a context inventory, not a design.</p>\n<pre><code class=\"language-text\">Here is the problem statement for a community tool library:\n[paste it]\n\nList every external entity the system must exchange information with.\nFor each one, name the flow, the direction, who owns the external entity\nand what the system should do when that entity is unavailable.\nDo not describe screens, databases or internal components.\n</code></pre>\n<p>The last instruction keeps the model at the boundary. If it starts designing tables, it has crossed into solution design before the scope is agreed.</p>\n<h3>Exploration 2: Test the Boundary</h3>\n<p>Take a proposed feature and ask where it sits.</p>\n<pre><code class=\"language-text\">The committee wants the system to answer availability questions with an\nAI assistant. For each activity below, decide whether it is in scope,\nout of scope or not now, and explain the boundary:\n- read the reservation diary\n- decide whether a tool is available\n- promise the tool to a member\n- suggest an alternative tool\n- override a volunteer's decision\n- log the conversation\n- monitor answer quality\n</code></pre>\n<p>The exercise exposes a common failure. \"Answer questions\" sounds like one feature. It contains reading, deciding, promising, explaining and monitoring. Each has a different owner and risk.</p>\n<h3>Exploration 3: Find Hidden Dependencies</h3>\n<p>Ask the AI to list what the system would depend on if the AI assistant were added.</p>\n<pre><code class=\"language-text\">An AI assistant will answer tool availability questions from the\nreservation database and a policy document. List every dependency this\ncreates: data quality, model provider, prompt changes, evaluation,\nlogging, privacy, cost, latency, human review and fallback.\nFor each, state what happens if it fails.\n</code></pre>\n<p>A dependency that fails silently is a scope hole. A model that returns a confident wrong answer is not \"unavailable\". It is a failure mode that needs a boundary decision.</p>\n<h3>Exploration 4: Write the Not Now List</h3>\n<p>The \"not now\" list is a design tool. Ask the AI to argue for deferral.</p>\n<pre><code class=\"language-text\">Here is the first release scope:\n[paste it]\n\nList the features people are likely to request during the build.\nFor each, write the smallest version that could wait, the risk of adding\nit now and the condition that would justify adding it later.\n</code></pre>\n<p>This gives the team a defensible answer when the first \"while you're here\" request arrives.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A context diagram is simple to draw and easy to fake. Use a table when the diagram would hide the hard parts.</p>\n<table>\n<thead>\n<tr>\n<th>Interface</th>\n<th>Direction</th>\n<th>What crosses</th>\n<th>Owner</th>\n<th>Failure behaviour</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Payment provider</td>\n<td>Out and back</td>\n<td>Deposit, refund, status</td>\n<td>Treasurer</td>\n<td>Reservation held; payment marked pending</td>\n</tr>\n<tr>\n<td>Email service</td>\n<td>Out</td>\n<td>Confirmation, reminder</td>\n<td>Coordinator</td>\n<td>Booking valid; message retried or shown at desk</td>\n</tr>\n<tr>\n<td>Council asset register</td>\n<td>In</td>\n<td>Asset ID, ownership</td>\n<td>Council</td>\n<td>Manual entry fallback</td>\n</tr>\n<tr>\n<td>Desk browser</td>\n<td>In and out</td>\n<td>Reservation, loan, return</td>\n<td>Volunteers</td>\n<td>Paper fallback for the day</td>\n</tr>\n<tr>\n<td>Model provider</td>\n<td>Out and back</td>\n<td>Prompt, completion, usage</td>\n<td>Vendor</td>\n<td>Assistant unavailable; desk uses the reservation list</td>\n</tr>\n<tr>\n<td>Knowledge base</td>\n<td>In</td>\n<td>Policy, tool guidance</td>\n<td>Coordinator</td>\n<td>Assistant refuses rather than guesses</td>\n</tr>\n<tr>\n<td>Human reviewer</td>\n<td>In</td>\n<td>Confirmation, correction</td>\n<td>Volunteer</td>\n<td>Recommendation is advisory until confirmed</td>\n</tr>\n</tbody>\n</table>\n<p>For each interface, ask what happens when it is unavailable. A dependency that fails silently is a scope hole.</p>\n<p>Constraints are limits the solution must respect. They are not preferences.</p>\n<ul>\n<li><strong>Budget</strong>: the library can spend a fixed amount a year on software and model usage.</li>\n<li><strong>Time</strong>: the system must be ready before the spring tool drive.</li>\n<li><strong>Policy</strong>: deposits may need council approval.</li>\n<li><strong>Legacy</strong>: the council's asset IDs must be used.</li>\n<li><strong>Accessibility</strong>: the booking path must meet the organisation's accessibility standard.</li>\n<li><strong>Data</strong>: personal information must be minimal, and model prompts must not leak it.</li>\n<li><strong>Support</strong>: the system must be maintainable by a volunteer with browser-level skills.</li>\n<li><strong>Environment</strong>: the desk has an old laptop and unreliable Wi-Fi.</li>\n<li><strong>Model terms</strong>: the provider may change the model, price or data policy.</li>\n</ul>\n<p>Constraints narrow the option space. They belong in the analysis, not in a footnote after the design is chosen.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Scope failures are expensive because they are discovered late. A system that quietly owns a decision, a data source or a support obligation will be blamed when that responsibility fails.</p>\n<p>AI adds a new version of the problem. The assistant can appear to take responsibility for an answer while the organisation remains legally and professionally responsible. A scope statement that says \"the assistant answers availability questions\" is too vague to govern. It needs to say who confirms, who can override, what is logged and what happens when the model is wrong.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Draw a context diagram for the tool library with four external entities and their flows. Mark one interface that fails silently today.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Write an in scope, out of scope and not now list for the first release. Include the AI assistant in one of the lists and justify the choice.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Add the AI assistant to the context diagram. Identify every new external entity, data flow and human review point.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Write the failure behaviour for each AI dependency: model unavailable, model slow, model wrong, model policy changed, data missing. State what the user sees and who is responsible.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Take a project with an existing scope statement. Find one responsibility that is implied but not written down. Rewrite the boundary so the responsibility has an owner and a failure behaviour.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Scope is a decision about responsibility, not a feature list.</li>\n<li>Context diagrams show flows across the boundary and hide the inside.</li>\n<li>AI adds model providers, data sources, human reviewers and monitoring to the context.</li>\n<li>Every external interface needs an owner and a failure behaviour.</li>\n<li>\"Not now\" is a useful third list between in scope and out of scope.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Drew a context diagram with flows rather than internal features</li>\n<li>[ ] Wrote in scope, out of scope and not now lists</li>\n<li>[ ] Gave every external interface an owner and a failure behaviour</li>\n<li>[ ] Decided what the AI assistant may decide, draft or only suggest</li>\n<li>[ ] Named the constraint that would change the design if it changed</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which boundary decision was hardest to make, and who owns it?</li>\n<li>Where could the AI appear to own a responsibility the organisation still holds?</li>\n<li>What \"not now\" item is most likely to be pulled into the first release?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The boundary is agreed. The next chapter turns the work inside it into functional requirements that describe tasks, rules and failure paths.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "The synthetic stakeholder",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The committee wants an AI assistant for the tool library. An agent has\nproduced a stakeholder map, a scope statement and a list of needs. The\ndocument is clear, confident and complete-looking. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "evidence",
+                        "label": "Interview the volunteers, treasurer and an accessibility user, then test the boundary",
+                        "outcome": "<p>The interviews contradict part of the generated map. Volunteers\ndo not want the assistant to confirm bookings, the treasurer needs\ndeposit status in the answer, and the accessibility user cannot\nuse the proposed chat widget. You revise the scope and the human\ndecision before design starts.</p>",
+                        "effects": {
+                          "Evidence": "Real work, not simulation",
+                          "Scope": "Revised before build",
+                          "Risk": "Visible"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A generated stakeholder map is a rehearsal. The evidence comes from the people who do the work.</p>"
+                      },
+                      {
+                        "id": "accept",
+                        "label": "Accept the generated map because it covers the obvious roles",
+                        "outcome": "<p>The build follows a plausible model of the work. The desk still\nkeeps the paper diary because the assistant confirms bookings\nwithout the volunteer's authority.</p>",
+                        "effects": {
+                          "Evidence": "Synthetic",
+                          "Scope": "Plausible but wrong",
+                          "Risk": "Discovered at launch"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Fluency is not evidence. The missing stakeholder is usually the one who keeps the current system alive.</p>"
+                      },
+                      {
+                        "id": "personas",
+                        "label": "Ask the agent to generate five more detailed personas",
+                        "outcome": "<p>The document grows. The personas disagree in interesting ways, but\nnone of them is a real volunteer, and the conflicts remain invented.</p>",
+                        "effects": {
+                          "Detail": "Higher",
+                          "Evidence": "Still synthetic",
+                          "Risk": "Unchanged"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>More simulation is still simulation. Use it to prepare questions, then go and ask them.</p>"
+                      },
+                      {
+                        "id": "survey",
+                        "label": "Survey members only, because they are the largest group",
+                        "outcome": "<p>The survey captures member preferences and misses the desk\nworkflow, the treasurer's reconciliation and the support burden.\nThe largest group is not the whole system.</p>",
+                        "effects": {
+                          "Coverage": "Partial",
+                          "Evidence": "Skewed",
+                          "Risk": "Operational"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Stakeholder analysis includes the people who run and support the system, not only its largest user group.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Use AI to generate candidate stakeholders, questions and conflicts.\nThen test the map against real work. The boundary decision belongs to\nthe people who will live with it.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "requirements-as-evidence",
+            "title": "Requirements as Evidence",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Functional Requirements: Tasks and Rules",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A feature describes what the system has. A functional requirement describes what someone can do with it, and what happens when the happy path fails.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Functional requirements describe the behaviour the system must provide. They are written from the point of view of an actor trying to achieve a goal.</p>\n<p>A useful functional requirement names:</p>\n<ul>\n<li>the actor</li>\n<li>the trigger that starts the task</li>\n<li>the information the actor needs</li>\n<li>the normal flow</li>\n<li>the exceptions that can interrupt it</li>\n<li>the state the system is in afterwards</li>\n</ul>\n<p>A use case is a compact way to hold that information. It is not a diagram language. It is a structured story that a builder, a tester and a client can all read.</p>\n<p>Business rules are different. They constrain behaviour: a member may borrow at most three tools, a deposit is required above a value threshold, a tool cannot be reserved while it is under maintenance. A rule can apply across many use cases. Keep rules separate so they can be changed without rewriting every task.</p>\n<p>For AI-enabled systems, the boundary between behaviour and rule matters more. \"The assistant recommends an alternative tool\" is functional behaviour. \"The assistant must not promise a tool is available\" is a rule. \"A volunteer confirms before the reservation is held\" is a human decision point. If you mix them into \"the AI handles availability\", you have written a wish.</p>\n<p>Do not write requirements as model hopes: \"the AI will understand the request\", \"the model will know which tool is best\", \"the assistant will handle edge cases\". A model is not an actor with judgement you can rely on. Write the observable behaviour, the input, the output and the fallback.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Restaurant Order</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A restaurant menu is a list of things the kitchen can produce. It is not the same as the service a customer receives.</p>\n<p>The customer arrives, asks for a table, orders, eats and pays. The normal flow is easy to describe. The exceptions are where the system lives: the dish is sold out, the customer has an allergy, the card is declined, the kitchen runs late, the order is wrong.</p>\n<p>A menu that says \"we serve food\" is not a functional requirement. A requirement says who can order, what they can order, what the kitchen confirms, what happens when an item is unavailable and what the customer is told.</p>\n<p>AI assistants often arrive as a menu item: \"add a chatbot\". The analysis question is what task the customer is trying to complete, what the assistant is allowed to confirm and what happens when it does not know.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Functional Requirements with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn Goals into Use Cases</h3>\n<p>Ask the AI to produce use cases from the problem statement, not screens.</p>\n<pre><code class=\"language-text\">Here is the problem statement and scope for a community tool library:\n[paste them]\n\nWrite the use cases implied by the work. For each one, name the actor,\nthe goal, the trigger, the information required, the normal flow and at\nleast two exceptions. Do not describe screens or database tables.\n</code></pre>\n<p>A good answer will include reserve, collect, return, cancel, extend and report a problem. If every use case has only a happy path, the model has described a demo, not a system.</p>\n<h3>Exploration 2: Generate the Exception List</h3>\n<p>Exceptions are the requirements people forget to ask for. Ask for them directly.</p>\n<pre><code class=\"language-text\">For the use case &quot;reserve a tool&quot;, list every exception a volunteer\nwould have to handle: unavailable, maintenance, expired membership,\nunpaid deposit, duplicate reservation, no contact details, tool missing\nfrom the shelf, member cancels, volunteer overrides. For each, write the\nexpected system response and who decides.\n</code></pre>\n<p>The output is a test list. It is also a scope negotiation. Every exception needs an owner.</p>\n<h3>Exploration 3: Separate Behaviour from Business Rules</h3>\n<p>Ask the AI to classify statements.</p>\n<pre><code class=\"language-text\">Here is a draft requirements list:\n[paste it]\n\nClassify each statement as a functional requirement, a business rule, a\nnon-functional requirement, an assumption or a design decision. Rewrite\nanything that mixes two categories into separate statements.\n</code></pre>\n<p>This is a useful check on your own writing. \"The system must allow members to reserve tools if they have no overdue items and their deposit is paid\" contains a behaviour and two rules. Split them.</p>\n<h3>Exploration 4: Specify the Human Decision</h3>\n<p>For an AI feature, write the use case around the human decision, not the model call.</p>\n<pre><code class=\"language-text\">The tool library wants an assistant that suggests an alternative when a\nrequested tool is unavailable. Write the use case with the volunteer as\nthe actor. Include the assistant's recommendation, the evidence shown,\nthe volunteer's decision, the override, what is logged and what happens\nwhen the assistant is unavailable.\n</code></pre>\n<p>If the use case still reads \"the assistant decides\", the human has been designed out.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A use case brief can fit on one page.</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Use case: Reserve a tool</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Actor:</strong> Member\n<strong>Goal:</strong> Hold an available tool for collection.\n<strong>Trigger:</strong> Member selects a tool and a collection date.\n<strong>Preconditions:</strong> Member is active; tool is in the catalogue.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Main flow</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Member selects a tool and date.</li>\n<li>System checks availability and membership status.</li>\n<li>System shows the deposit and collection conditions.</li>\n<li>Member confirms.</li>\n<li>System records the reservation and sends a confirmation.</li>\n<li>Volunteer sees the reservation at the desk.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exceptions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Tool unavailable: offer waitlist or alternative.</li>\n<li>Deposit unpaid: hold the reservation for 24 hours.</li>\n<li>Duplicate reservation: show the existing booking.</li>\n<li>Tool under maintenance: block reservation and show the reason.</li>\n<li>Assistant unavailable: desk uses the reservation list.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Postconditions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Reservation is recorded, or the member is told why it could not be.\n```</p>\n<p>The exceptions are not appendix material. They are the requirements that decide whether the system is usable on a bad day.</p>\n<p>Business rules sit beside the use case:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business rules</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>BR-01: A member may hold at most three reservations at once.</li>\n<li>BR-02: A deposit is required for tools valued above $200.</li>\n<li>BR-03: A tool under maintenance cannot be reserved.</li>\n<li>BR-04: A volunteer may override availability with a recorded reason.</li>\n<li>BR-05: The assistant may recommend, but may not confirm, a reservation.\n```</li>\n</ul>\n<p>Notice BR-05. It defines the limit of the AI's authority in one sentence. That sentence is more useful than a page about responsible AI.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Functional requirements are where business intent becomes observable behaviour. A rule that lives only in a policy document will be interpreted differently by every volunteer and every model.</p>\n<p>AI features need explicit authority. Who may promise, confirm, refuse, override or escalate? If the answer is \"the assistant\", the organisation has delegated a decision without deciding it. If the answer is \"the volunteer, with a recommendation\", the workflow and the evidence need to be designed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Write the main flow and two exceptions for \"return a tool\".</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Turn three statements from a project brief into use cases. Name one exception for each.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Write five business rules for the tool library. For each, name the use case it constrains and the person who owns it.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Write the use case for an AI assistant that recommends alternatives. Make the human decision, the evidence and the fallback explicit.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Take an existing feature request and classify every sentence as behaviour, rule, quality, assumption or design decision. Rewrite the mixed statements.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Functional requirements describe observable behaviour from an actor's point of view.</li>\n<li>Use cases hold the actor, goal, trigger, flow, exceptions and postcondition.</li>\n<li>Business rules constrain behaviour and belong beside the use cases.</li>\n<li>AI features need explicit authority: recommend, confirm, refuse, override, escalate.</li>\n<li>Exception paths are requirements, not edge cases.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote at least one use case with a normal flow and two exceptions</li>\n<li>[ ] Separated business rules from behaviour</li>\n<li>[ ] Named the human decision in every AI feature</li>\n<li>[ ] Defined what happens when the model is unavailable or wrong</li>\n<li>[ ] Checked that no requirement relies on the model \"understanding\" the context</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which exception changed the design most?</li>\n<li>Where did a business rule hide inside a feature request?</li>\n<li>What decision did the AI feature try to take from a person?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The behaviour is defined. The next chapter adds the qualities the system must have while it behaves: speed, safety, privacy, accessibility and trust.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Non-Functional Requirements: Qualities and Constraints",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>\"It works\" is not a quality requirement. It is the start of a conversation about how well, for whom, under what load and at what cost.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Non-functional requirements describe how well the system must behave. They cover qualities such as performance, availability, security, privacy, accessibility, usability, maintainability, recoverability and compliance.</p>\n<p>They are easy to write badly because the words sound like requirements. \"The system must be secure.\" \"The site must be easy to use.\" \"The AI must be accurate.\" None of those can be checked. Each one can be read in several ways.</p>\n<p>A quality scenario makes the requirement testable. It names:</p>\n<ul>\n<li>the source of the stimulus</li>\n<li>the stimulus</li>\n<li>the system's response</li>\n<li>the measure that decides whether the response is acceptable</li>\n</ul>\n<p>For example: \"When a member on a phone with a slow connection opens the booking page, the page must show the available tools within three seconds for 90% of requests.\" That is a requirement someone can test.</p>\n<p>AI adds qualities that traditional SAD did not have to carry: accuracy on a defined evaluation set, safety under adversarial input, latency and cost per request, privacy of prompts, stability under model updates, and the ability to explain or escalate. The same discipline applies. Name the measure and the condition.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A bridge is not specified by saying \"make it strong\". It is specified by loads, spans, materials, wind, maintenance intervals and inspection rules. The requirements are numbers attached to conditions.</p>\n<p>A bridge that carries a bicycle is not inadequate because it cannot carry a truck. It is inadequate if it fails under the load it was designed for. Quality is fitness for purpose in a named context.</p>\n<p>Software qualities work the same way. A booking page for a volunteer desk at 9am has a different availability requirement from a payment system that must run all day. A model that answers questions about opening hours has a different accuracy requirement from a model that recommends a structural repair.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Quality Scenarios with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn Vague Qualities into Scenarios</h3>\n<p>Ask the AI to interrogate each adjective.</p>\n<pre><code class=\"language-text\">Here are my draft quality requirements:\n[paste them]\n\nFor each one, write three questions that would expose what it means:\nwho is affected, under what conditions, and what observable result would\ncount as acceptable. Do not invent a number until the condition is clear.\n</code></pre>\n<p>The output gives you the raw material for a scenario. \"Fast\" becomes \"on the desk laptop, over the library Wi-Fi, during the Saturday morning rush\".</p>\n<h3>Exploration 2: Write the Quality Scenario</h3>\n<p>Use a fixed structure so the scenario cannot hide.</p>\n<pre><code class=\"language-text\">Turn this quality requirement into a quality scenario:\n&quot;The AI assistant must be accurate.&quot;\n\nUse this structure:\n- Source:\n- Stimulus:\n- Environment:\n- Response:\n- Measure:\n\nThen write a second scenario for a different population or condition.\n</code></pre>\n<p>A useful answer will distinguish overall accuracy from accuracy on the cases that matter: overdue tools, restricted tools, tools under maintenance, misspellings and questions the assistant should refuse.</p>\n<h3>Exploration 3: Stress the Trade-offs</h3>\n<p>Quality requirements conflict. Ask the AI to make the trade-offs visible.</p>\n<pre><code class=\"language-text\">The tool library wants the assistant to be fast, cheap, private, accurate\nand available. For each pair, describe the tension and the decision the\norganisation has to make. Do not pretend all five can be maximised.\n</code></pre>\n<p>Latency and cost trade against larger models and more retrieval. Privacy trades against sending data to a hosted provider. Availability trades against dependence on that provider. The output is a set of decisions, not a scorecard.</p>\n<h3>Exploration 4: Design the Quality Gate</h3>\n<p>Ask what evidence would show the quality held after launch.</p>\n<pre><code class=\"language-text\">For each quality scenario, name the evidence we would collect, how often\nwe would review it, who owns the review and what would trigger a fallback\nor rollback.\n</code></pre>\n<p>A quality requirement with no monitoring is a launch-day hope.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A quality scenario table keeps the requirement, the measure and the owner together.</p>\n<table>\n<thead>\n<tr>\n<th>Quality</th>\n<th>Scenario</th>\n<th>Measure</th>\n<th>Owner</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Performance</td>\n<td>Member opens booking page on a phone over library Wi-Fi</td>\n<td>Available tools visible within 3 seconds for 90% of requests</td>\n<td>Coordinator</td>\n</tr>\n<tr>\n<td>Availability</td>\n<td>Desk opens at 9am on a Saturday</td>\n<td>Booking view available 99.5% of desk hours</td>\n<td>Support volunteer</td>\n</tr>\n<tr>\n<td>Accuracy</td>\n<td>Assistant answers availability questions from the reservation list</td>\n<td>95% correct on a 200-case evaluation set, with no false \"available\" answer for a tool on loan</td>\n<td>Volunteer lead</td>\n</tr>\n<tr>\n<td>Safety</td>\n<td>Assistant receives a request for a restricted or dangerous tool</td>\n<td>Refuses and directs the member to a volunteer</td>\n<td>Coordinator</td>\n</tr>\n<tr>\n<td>Privacy</td>\n<td>Member asks about their own reservations</td>\n<td>Assistant reveals only that member's data</td>\n<td>Treasurer and privacy owner</td>\n</tr>\n<tr>\n<td>Cost</td>\n<td>Assistant handles a month of desk questions</td>\n<td>Model spend under the agreed monthly cap</td>\n<td>Treasurer</td>\n</tr>\n<tr>\n<td>Accessibility</td>\n<td>Keyboard-only member completes a reservation</td>\n<td>Full task completed without a mouse, with visible focus</td>\n<td>Accessibility reviewer</td>\n</tr>\n<tr>\n<td>Recoverability</td>\n<td>Model provider is unavailable</td>\n<td>Desk can complete reservations from the list within one minute</td>\n<td>Support volunteer</td>\n</tr>\n</tbody>\n</table>\n<p>The numbers are examples, not universal truths. The organisation sets them from evidence and context.</p>\n<p>A quality scenario template:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Quality scenario: [name]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Source:</strong> Who or what produces the stimulus.\n<strong>Stimulus:</strong> The event or input.\n<strong>Environment:</strong> Load, device, network, data, time.\n<strong>Response:</strong> What the system must do.\n<strong>Measure:</strong> The threshold and the population.\n<strong>Evidence:</strong> How we will know after launch.\n<strong>Owner:</strong> Who reviews the evidence.\n<strong>Fallback:</strong> What happens when the measure is not met.\n```</p>\n<p>For AI qualities, the measure needs a named evaluation set and a named slice. \"95% accurate\" means little if the set is the same examples used to tune the prompt, or if the failures are concentrated on the members who need the most help.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Quality requirements are where cost, risk and trust meet. A system that is fast but leaks personal data is not a good system. A model that is accurate on average and wrong on the cases that matter is not accurate in the sense the organisation needs.</p>\n<p>AI vendors often present quality as a model property. The organisation experiences it as a service property: latency, price, availability, data handling, change notice and support. Those belong in the requirements and the contract.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Rewrite \"the site must be easy to use\" as a quality scenario with a source, stimulus, response and measure.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Write three quality scenarios for the booking system: performance, accessibility and recoverability.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Write two accuracy scenarios for the AI assistant using different populations or conditions. Explain why one overall number would hide the difference.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Identify a conflict between two quality requirements in your project. Describe the trade-off and who should decide it.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Design the post-launch evidence for one AI quality requirement. Include the evaluation set, review frequency, owner, threshold and fallback.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Non-functional requirements describe how well the system must behave.</li>\n<li>Quality scenarios name the source, stimulus, environment, response and measure.</li>\n<li>AI adds accuracy, safety, privacy, cost, latency, drift and explainability to the quality set.</li>\n<li>A measure needs a population and an evaluation set, not just a percentage.</li>\n<li>Every quality requirement needs evidence and an owner after launch.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Converted at least three vague qualities into scenarios</li>\n<li>[ ] Named the population and the evaluation set for any AI accuracy measure</li>\n<li>[ ] Identified a trade-off and its decision-maker</li>\n<li>[ ] Named who reviews the evidence after launch</li>\n<li>[ ] Defined a fallback when the quality target is missed</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which quality requirement was hardest to make measurable?</li>\n<li>Where could an average score hide a failure that matters?</li>\n<li>What would you monitor in the first month after launch?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The qualities are named. The next chapter turns behaviour and quality into requirements that can be checked, including the cases where a probabilistic system must be judged by evidence rather than a single pass.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Requirements That Can Be Checked",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A requirement nobody can check is a preference with a version number.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A checkable requirement states an observable condition and the evidence that would settle whether it holds. The evidence can be a test, an inspection, a measurement, a review or a recorded decision. The important part is that two people could reach the same conclusion without negotiating after the fact.</p>\n<p>Useful requirements share a set of qualities. They are:</p>\n<ul>\n<li>necessary, because something in the problem depends on them</li>\n<li>unambiguous, because a reader can picture the result</li>\n<li>complete enough to act on</li>\n<li>consistent with the other requirements</li>\n<li>feasible within the constraints</li>\n<li>verifiable</li>\n<li>traceable to a source</li>\n</ul>\n<p>The words \"fast\", \"easy\", \"secure\", \"robust\", \"flexible\" and \"user-friendly\" are not requirements until they are tied to a condition and a measure. The same is true of \"intelligent\", \"accurate\" and \"reliable\" for an AI feature.</p>\n<p>A requirement can be checked by:</p>\n<ul>\n<li>a test that runs and fails when the behaviour is wrong</li>\n<li>an inspection of a document or artefact</li>\n<li>a measurement against a threshold</li>\n<li>a review by a named role</li>\n<li>a demonstration with a defined script and evidence</li>\n</ul>\n<p>For probabilistic systems, one successful demonstration is not enough. The requirement needs a sample, a metric and a threshold. \"The assistant answered correctly when I tried it\" is an anecdote. \"The assistant answered 95% of 200 held-out cases correctly, with no false availability claims\" is evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Court Case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A court does not accept a story because it is coherent. It asks what the evidence supports, who can be cross-examined and what would change the conclusion.</p>\n<p>A witness saying \"I am certain\" is not proof. A contemporaneous record, a chain of custody and a consistent account are stronger. The standard is not \"the story sounds right\". It is \"the evidence meets the required standard\".</p>\n<p>Requirements work the same way. A demo can be persuasive and still fail the standard. The analysis question is what evidence would settle the claim, who would review it and what would count as a failure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Checkable Requirements with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Ambiguity Hunt</h3>\n<p>Ask the AI to find words that do too much work.</p>\n<pre><code class=\"language-text\">Here is a draft requirement:\n&quot;The system should provide a secure, user-friendly booking experience\nthat is fast on mobile.&quot;\n\nList every word or phrase that could be read in more than one way.\nFor each, write the question that would expose the ambiguity and the\nobservable evidence that would settle it.\n</code></pre>\n<p>The output is a list of requirements hiding inside one sentence. \"Secure\" might mean authentication, authorisation, encryption, audit logging or all four. \"Fast\" needs a device, a network and a percentile.</p>\n<h3>Exploration 2: Write Given, When, Then</h3>\n<p>Turn a requirement into a scenario.</p>\n<pre><code class=\"language-text\">Write acceptance criteria for &quot;a member can reserve an available tool&quot;\nusing Given, When, Then. Include one happy path, one unavailable tool,\none expired membership and one duplicate reservation.\n</code></pre>\n<p>A good set reads like a test script. The conditions are concrete. The expected result is observable. The exceptions are not left to the reader.</p>\n<h3>Exploration 3: Design the Evaluation Set</h3>\n<p>For an AI feature, ask what evidence would be needed beyond a demo.</p>\n<pre><code class=\"language-text\">The assistant answers tool availability questions. Design an evaluation\nset of 200 cases. Include common questions, rare tools, misspellings,\nambiguous requests, questions that should be refused, and cases where\nthe reservation data is stale. Define the metric, the threshold and the\nslice that matters most.\n</code></pre>\n<p>If the model helps design the set, keep a held-out portion it never sees. A test set used to tune the prompt is a rehearsal, not an exam.</p>\n<h3>Exploration 4: Attack the Evidence</h3>\n<p>Ask the AI to find ways a passing result could be misleading.</p>\n<pre><code class=\"language-text\">Here is my acceptance evidence for an AI feature:\n[paste it]\n\nList the ways this evidence could pass while the system still fails in\nuse. Consider cherry-picked cases, leaked test data, stale data, unusual\ninputs, automation bias, missing human review and silent model changes.\nFor each, name the additional evidence that would close the gap.\n</code></pre>\n<p>This is the AI equivalent of cross-examination. It is more useful than another round of demo polish.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A requirement record keeps the statement, the source, the check and the evidence together.</p>\n<table>\n<thead>\n<tr>\n<th>ID</th>\n<th>Requirement</th>\n<th>Source</th>\n<th>Check</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>FR-04</td>\n<td>A volunteer can override availability with a recorded reason</td>\n<td>Volunteer interview</td>\n<td>Test override flow and audit entry</td>\n<td>Test run and sample log</td>\n</tr>\n<tr>\n<td>FR-09</td>\n<td>The assistant recommends an alternative but cannot confirm a reservation</td>\n<td>Committee decision</td>\n<td>Scenario with a wrong recommendation</td>\n<td>Test run and review notes</td>\n</tr>\n<tr>\n<td>NFR-03</td>\n<td>The booking view is available 99.5% of desk hours</td>\n<td>Coordinator</td>\n<td>Monthly availability report</td>\n<td>Monitoring dashboard</td>\n</tr>\n<tr>\n<td>NFR-07</td>\n<td>The assistant answers 95% of held-out availability cases correctly, with no false availability claim</td>\n<td>Volunteer lead</td>\n<td>Evaluation run on 200 cases</td>\n<td>Evaluation report with failures</td>\n</tr>\n<tr>\n<td>NFR-09</td>\n<td>A member can complete a reservation by keyboard only</td>\n<td>Accessibility review</td>\n<td>Scripted keyboard walkthrough</td>\n<td>Review record and recording</td>\n</tr>\n</tbody>\n</table>\n<p>A requirement is not finished until the check is named. A check is not finished until the evidence is stored.</p>\n<p>For AI features, include the failure cases in the acceptance set:</p>\n<ul>\n<li>the answer is correct but the data is stale</li>\n<li>the answer is correct on common tools and wrong on restricted ones</li>\n<li>the assistant refuses when it should answer</li>\n<li>the assistant answers when it should refuse</li>\n<li>the assistant reveals another member's information</li>\n<li>the model provider returns an error or a changed model</li>\n<li>the human reviewer overrides the recommendation</li>\n</ul>\n<p>The requirement should say what happens in each case. \"The assistant is accurate\" does not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Checkable requirements are how a project survives handover, audit and a change of vendor. They are also how an organisation avoids paying for a demo twice: once to build it and once to discover it does not meet the need.</p>\n<p>For AI, checkable requirements protect against benchmark theatre. A vendor can show a high score on a public benchmark and still fail on your data, your users and your failure cases. The organisation needs its own evaluation set and its own threshold.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Rewrite \"the system should be secure\" as three checkable requirements with different evidence.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Write Given, When, Then criteria for one use case, including two exceptions.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Design a 20-case evaluation set for a simple AI feature. Include at least four cases that should be refused.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Take an existing acceptance report and identify every claim that rests on a single successful demonstration. Write the evidence that would strengthen it.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Write the acceptance strategy for an AI-enabled system. Include the held-out set, the metric, the threshold, the human review, the fallback and the post-launch monitoring.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A checkable requirement names observable evidence, not just an intention.</li>\n<li>Ambiguous adjectives need a condition, a measure and a population.</li>\n<li>Given, When, Then turns behaviour into a testable scenario.</li>\n<li>AI acceptance needs a held-out evaluation set, a metric and a threshold.</li>\n<li>Attack the evidence before the vendor or the demo does.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Rewrote at least three vague requirements as checkable statements</li>\n<li>[ ] Named the evidence for each requirement</li>\n<li>[ ] Included failure and refusal cases in the AI evaluation set</li>\n<li>[ ] Kept a held-out portion the model has not seen</li>\n<li>[ ] Named who reviews the evidence and what happens when it fails</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which requirement was hardest to make checkable, and why?</li>\n<li>Where could a passing test still hide a real failure?</li>\n<li>What evidence would you want to see before trusting an AI vendor's claim?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The requirements can be checked. The next chapter chooses the models that answer the open design questions, including the questions created by an AI-enabled system.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: requirements as evidence",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the difference between a functional requirement and a business rule?",
+                        "options": [
+                          "A functional requirement describes observable behaviour; a business rule constrains behaviour across use cases",
+                          "A functional requirement is technical; a business rule is a preference",
+                          "A business rule is a feature; a functional requirement is a policy",
+                          "There is no useful difference"
+                        ],
+                        "answer": 0,
+                        "explanation": "Keep behaviour and rules separate so each can be changed and tested without rewriting the other."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Which statement is a quality scenario rather than a vague quality?",
+                        "options": [
+                          "On the desk laptop over library Wi-Fi, the booking view shows available tools within 3 seconds for 90% of requests",
+                          "The booking page must be fast",
+                          "The system must be user-friendly",
+                          "The assistant must be intelligent"
+                        ],
+                        "answer": 0,
+                        "explanation": "A quality scenario names the source, stimulus, environment, response and measure."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does an AI accuracy requirement need before it can be checked?",
+                        "options": [
+                          "A named evaluation set, metric, threshold and population",
+                          "A statement that the model is accurate",
+                          "A successful demonstration",
+                          "A larger model"
+                        ],
+                        "answer": 0,
+                        "explanation": "Accuracy is meaningless without the set it was measured on and the slice that matters."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "Why keep a held-out portion of the evaluation set?",
+                        "options": [
+                          "So the evidence tests the system on cases it was not tuned against",
+                          "To make the evaluation smaller",
+                          "To hide failures from the vendor",
+                          "To avoid writing acceptance criteria"
+                        ],
+                        "answer": 0,
+                        "explanation": "A set used to tune the prompt is a rehearsal. A held-out set is the exam."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Which evidence is strongest for a requirement that the assistant never promises an unavailable tool?",
+                        "options": [
+                          "A held-out evaluation with false-availability cases and a recorded failure rate of zero",
+                          "The assistant answered correctly in a demo",
+                          "The vendor says the model is reliable",
+                          "The prompt tells the model not to lie"
+                        ],
+                        "answer": 0,
+                        "explanation": "Test the failure case directly. A prompt instruction is not evidence of behaviour."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What makes a requirement traceable?",
+                        "options": [
+                          "It links to a source, a check, evidence and an owner",
+                          "It is written in a template",
+                          "It has an ID",
+                          "It appears in the slide deck"
+                        ],
+                        "answer": 0,
+                        "explanation": "Traceability is the chain from intent to evidence, not a numbering scheme."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What is the AI failure mode in requirements work?",
+                        "options": [
+                          "Writing model hopes such as \"the AI will understand\" instead of observable behaviour and fallbacks",
+                          "Using too many test cases",
+                          "Involving users too early",
+                          "Writing requirements down"
+                        ],
+                        "answer": 0,
+                        "explanation": "A model is not an actor with judgement you can rely on. Write the behaviour, the input, the output and the fallback."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "models-and-decisions",
+            "title": "Models and Decisions",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Model the System",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A model is a question made visible. If it does not change a decision, it is decoration.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Analysis and design use models to make a system easier to reason about. A model is a simplified representation of something: the boundary, the data, the states, the decisions or the interactions.</p>\n<p>Different questions need different models.</p>\n<ul>\n<li>A <strong>context diagram</strong> answers: what is inside the system, and what crosses the boundary?</li>\n<li>A <strong>use case</strong> answers: who is trying to achieve what, and what can interrupt them?</li>\n<li>A <strong>data model</strong> answers: what things does the system need to remember, and how are they related?</li>\n<li>A <strong>state model</strong> answers: what states can an entity be in, and what moves it between them?</li>\n<li>A <strong>decision model</strong> answers: who decides, on what evidence, with what authority?</li>\n<li>A <strong>human-AI interaction model</strong> answers: what does the model propose, what does the human see, and when can the human override?</li>\n</ul>\n<p>The smallest useful set is the set that answers the open questions. Modelling everything is a way to avoid deciding anything.</p>\n<p>For AI-enabled systems, two models are often missing. The first is the decision model: who owns the output, who reviews it and who can override it. The second is the data provenance model: where the training, prompt and retrieval data came from, how fresh it is and what happens when it is wrong.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Map</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A road map, a geological map and a property map can describe the same place. None is complete. Each is useful for a different decision.</p>\n<p>A road map that shows every building but no distances is not better than a simpler map. It is harder to use. A geological map used to plan a delivery route is the wrong model, however accurate it is.</p>\n<p>System models work the same way. A detailed data model does not help a sponsor decide whether to buy or build. A context diagram does not help a developer design a table. Choose the model for the decision in front of you.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Models with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Ask Which Question the Model Answers</h3>\n<p>Before generating a diagram, ask what decision it supports.</p>\n<pre><code class=\"language-text\">Here is the open question:\n[paste it]\n\nWhich model would help answer it: context, use case, data, state, decision\nor human-AI interaction? Recommend the smallest model, explain what it\nwill show and name what it will deliberately hide.\n</code></pre>\n<p>This prevents the common failure where the team produces a comprehensive model set and still cannot decide anything.</p>\n<h3>Exploration 2: Build the State Model</h3>\n<p>State models expose exceptions that use cases miss.</p>\n<pre><code class=\"language-text\">Model the lifecycle of a tool in a community tool library. Include the\nstates available, reserved, on loan, overdue, under maintenance and\nretired. For each transition, name the event, the actor and the rule.\nThen find one state that a simple &quot;available or unavailable&quot; model would\nhide.\n</code></pre>\n<p>The hidden state is usually where the operational problem lives: a tool that is reserved but not collected, or returned but not checked.</p>\n<h3>Exploration 3: Model the Decision</h3>\n<p>For an AI feature, model the decision rather than the model call.</p>\n<pre><code class=\"language-text\">The assistant recommends an alternative tool when one is unavailable.\nDraw a decision model showing the member request, the assistant\nrecommendation, the evidence shown to the volunteer, the volunteer's\ndecision, the override path and the audit record. Mark where the system\nmay act and where a human must act.\n</code></pre>\n<p>If the model has no human decision, the organisation has automated a decision it may still be accountable for.</p>\n<h3>Exploration 4: Model the Data Provenance</h3>\n<p>Ask where the AI's knowledge comes from.</p>\n<pre><code class=\"language-text\">The assistant answers questions from the reservation database and a\npolicy document. Draw a provenance model showing the source, owner, update\nfrequency, quality check and failure behaviour for each data source.\nMark any source with no owner.\n</code></pre>\n<p>A source with no owner is a future incident.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A small model set for the tool library might include:</p>\n<table>\n<thead>\n<tr>\n<th>Question</th>\n<th>Model</th>\n<th>What it decides</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>What is inside the system?</td>\n<td>Context diagram</td>\n<td>Boundary and interfaces</td>\n</tr>\n<tr>\n<td>Who does what, and what interrupts it?</td>\n<td>Use cases</td>\n<td>Behaviour and exceptions</td>\n</tr>\n<tr>\n<td>What must be remembered?</td>\n<td>Data model</td>\n<td>Entities, relationships and ownership</td>\n</tr>\n<tr>\n<td>What states can a tool be in?</td>\n<td>State model</td>\n<td>Availability, maintenance and overdue rules</td>\n</tr>\n<tr>\n<td>Who decides when the assistant is wrong?</td>\n<td>Decision model</td>\n<td>Authority, review and override</td>\n</tr>\n<tr>\n<td>Where does the AI's knowledge come from?</td>\n<td>Provenance model</td>\n<td>Data quality and freshness</td>\n</tr>\n</tbody>\n</table>\n<p>A data model might start with:</p>\n<ul>\n<li><strong>Member</strong>: identity, contact, membership status, deposit status</li>\n<li><strong>Tool</strong>: catalogue ID, name, condition, deposit value, state</li>\n<li><strong>Reservation</strong>: member, tool, collection date, status</li>\n<li><strong>Loan</strong>: reservation, collection time, return time, condition out, condition in</li>\n<li><strong>Maintenance record</strong>: tool, reason, start, end, owner</li>\n</ul>\n<p>The relationships matter as much as the entities. A reservation without a member is not a reservation. A loan without a condition check is an unverified handover.</p>\n<p>A state model for a tool:</p>\n<pre><code class=\"language-text\">available -&gt; reserved -&gt; on loan -&gt; available\n                    \\-&gt; overdue -&gt; on loan or returned\navailable -&gt; under maintenance -&gt; available or retired\nreserved -&gt; available (cancelled or not collected)\n</code></pre>\n<p>The diagram is small. It exposes rules that a feature list hides: what happens when a reservation expires, who can move a tool to maintenance and whether an overdue tool can be reserved.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Models are negotiation tools. They let a volunteer, a coordinator, a developer and a sponsor argue about the same object without reading code.</p>\n<p>AI makes model generation cheap, which makes model selection more important. An agent can produce a data model, a class diagram and a sequence diagram in seconds. None of them will tell you whether the tool library needs deposits, whether a reservation can be transferred or who may override a maintenance block.</p>\n<p>The value is in the argument the model starts, not the diagram it produces.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Draw a state model for a tool. Mark one state a simple available/unavailable model would miss.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Build a data model for members, tools, reservations and loans. Name one relationship that carries a business rule.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Choose one open question in your project and select the smallest model that would answer it. Explain what the model hides.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Draw a decision model for an AI recommendation. Mark the system action, the human review and the override.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Build a provenance model for an AI feature. For every data source, name the owner, freshness requirement, quality check and failure behaviour.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Models are selected for the decision they support, not for completeness.</li>\n<li>Context, use case, data, state, decision and provenance models answer different questions.</li>\n<li>AI features need a decision model and a provenance model, not only a system diagram.</li>\n<li>A source with no owner is a future incident.</li>\n<li>The argument a model starts is more valuable than the diagram itself.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the question each model answers</li>\n<li>[ ] Built a state model that exposes at least one hidden exception</li>\n<li>[ ] Modelled who decides when an AI recommendation is wrong</li>\n<li>[ ] Mapped where the AI's data comes from and who owns it</li>\n<li>[ ] Removed at least one model that answered no open question</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which model changed your understanding of the problem?</li>\n<li>What did the state model reveal that the use cases missed?</li>\n<li>Where could a model look complete while hiding a decision?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The models expose the decisions. The next chapter compares the options and records why one was chosen.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Options, Trade-offs and Decisions",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A design decision is a bet about the future. Record what you bet, what you gave up and what would make you change your mind.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Once the problem, stakeholders, scope, requirements and models are clear enough, the team compares solution options. The options are rarely \"build\" versus \"do nothing\". They usually include:</p>\n<ul>\n<li><strong>Buy</strong> a product that already does most of the work.</li>\n<li><strong>Configure</strong> a platform or low-code tool around the existing process.</li>\n<li><strong>Build</strong> a custom system because the workflow is the differentiator.</li>\n<li><strong>Extend</strong> an existing system with a module, integration or automation.</li>\n<li><strong>Keep the manual process</strong> and improve the procedure.</li>\n<li><strong>Use an AI service</strong> for a bounded task, rather than building a model.</li>\n</ul>\n<p>Each option has a total cost, a risk profile, a support burden and an exit path. A decision matrix makes the comparison visible. It does not make the decision for you.</p>\n<p>For AI-enabled systems, add options such as a hosted model API, a vendor product with AI features, retrieval over your own documents, a fine-tuned model or a rules-based assistant. The cheapest model call is not the cheapest system. Evaluation, monitoring, privacy review, prompt maintenance and provider changes all carry cost.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a House Purchase</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A couple wants more space. The options include moving to a larger house, extending the current one, converting the garage, renting a studio or changing how the rooms are used.</p>\n<p>Each option has a different mix of upfront cost, disruption, ongoing cost, flexibility and risk. Moving might be cheaper per square metre but costs school changes and stamp duty. Extending keeps the location but adds planning risk. The garage conversion is fastest but may not solve the family's actual problem.</p>\n<p>A decision matrix helps, but the couple still has to decide what they value. The analysis makes the trade-off explicit. It does not remove the judgement.</p>\n<p>Software options work the same way. A custom build can fit the workflow and create a maintenance obligation. A product can be cheap to start and expensive to leave. An AI API can be fast to integrate and dependent on a vendor's roadmap.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Options with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Generate the Option Set</h3>\n<p>Ask for options that are genuinely different.</p>\n<pre><code class=\"language-text\">Here is the problem statement, scope and requirements:\n[paste them]\n\nList the realistic solution options, including buy, configure, build,\nextend, manual process and an AI service. For each one, describe what\nit would mean in practice, what it would not solve and what it would\nmake harder. Do not recommend one yet.\n</code></pre>\n<p>If every option is a variation of the same product, the model has narrowed too early. Ask for the option a cost-conscious board member would propose and the option a frustrated volunteer would propose.</p>\n<h3>Exploration 2: Build the Evaluation Criteria</h3>\n<p>The criteria come from the requirements, not from the vendor's brochure.</p>\n<pre><code class=\"language-text\">From these requirements, propose evaluation criteria for the options.\nInclude fit to the work, total cost of ownership, risk, time to value,\nsupport, data rights, exit path and compliance. Weight the criteria for\na small community organisation with one part-time coordinator and no IT\nstaff. Explain each weight.\n</code></pre>\n<p>Weights are decisions. A board that values lower ongoing cost above flexibility will choose differently from a board that values control. Record the weights before scoring.</p>\n<h3>Exploration 3: Score and Sensitise</h3>\n<p>A matrix is useful when you test whether the answer is stable.</p>\n<pre><code class=\"language-text\">Score the options against the weighted criteria on a 1 to 5 scale.\nShow the calculation. Then test what happens if the most uncertain\nweight changes by 20%. Which decision is stable, and which one is\nsensitive to the assumption?\n</code></pre>\n<p>A decision that flips under a small change is not ready. It needs more evidence or a smaller first step.</p>\n<h3>Exploration 4: Write the Decision Record</h3>\n<p>An Architecture Decision Record (ADR) captures the decision and its consequences.</p>\n<pre><code class=\"language-text\">Write an ADR for the chosen option using this structure:\n- Context\n- Decision\n- Options considered\n- Consequences\n- Evidence\n- Conditions that would reopen the decision\n</code></pre>\n<p>The last section is the one teams forget. A decision without a reopening condition becomes a belief.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A decision matrix for the tool library might look like this. The scores are illustrative.</p>\n<table>\n<thead>\n<tr>\n<th>Criterion</th>\n<th style=\"text-align: right;\">Weight</th>\n<th style=\"text-align: right;\">Buy product</th>\n<th style=\"text-align: right;\">Configure low-code</th>\n<th style=\"text-align: right;\">Custom build</th>\n<th style=\"text-align: right;\">AI service</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Fit to the work</td>\n<td style=\"text-align: right;\">25</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">5</td>\n<td style=\"text-align: right;\">3</td>\n</tr>\n<tr>\n<td>Total cost over three years</td>\n<td style=\"text-align: right;\">20</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">2</td>\n<td style=\"text-align: right;\">3</td>\n</tr>\n<tr>\n<td>Time to first value</td>\n<td style=\"text-align: right;\">10</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">2</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td>Support and maintenance</td>\n<td style=\"text-align: right;\">20</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">2</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td>Data rights and privacy</td>\n<td style=\"text-align: right;\">10</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">5</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td>Exit path</td>\n<td style=\"text-align: right;\">10</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">4</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td style=\"text-align: right;\">5</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">3</td>\n<td style=\"text-align: right;\">2</td>\n<td style=\"text-align: right;\">3</td>\n</tr>\n<tr>\n<td><strong>Weighted score</strong></td>\n<td style=\"text-align: right;\"><strong>100</strong></td>\n<td style=\"text-align: right;\"><strong>3.25</strong></td>\n<td style=\"text-align: right;\"><strong>3.60</strong></td>\n<td style=\"text-align: right;\"><strong>3.05</strong></td>\n<td style=\"text-align: right;\"><strong>2.55</strong></td>\n</tr>\n</tbody>\n</table>\n<p>The scores are less important than the conversation. A custom build wins on fit and control. It loses on cost, support and risk. The library has no IT staff, so the support score matters more than the fit score. A configured product may be the better first step, with a custom extension only if the workflow proves to be the differentiator.</p>\n<p>A decision record:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>ADR-001: Use a configured booking product for the first release</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Context</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The library needs reservations, deposits, reminders and a volunteer desk\nview. It has no IT staff and a limited annual budget. The workflow is\nclose to standard.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Decision</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Configure an existing booking product and add a small integration for\ncouncil asset IDs. Do not build a custom reservation system in the first\nrelease.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Options considered</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Buy and configure a booking product</li>\n<li>Build a custom system</li>\n<li>Use a low-code platform</li>\n<li>Keep the manual process with a shared calendar</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Consequences</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Faster launch and lower support burden. Less control over the interface\nand a dependency on the vendor's roadmap. The deposit workflow must be\ntested against the treasurer's reconciliation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evidence</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Two vendor demonstrations, a three-year cost estimate, a reference call\nwith a similar organisation and a prototype of the asset-ID integration.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reopen if</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The vendor cannot support deposits, the annual cost exceeds the budget,\nor the volunteer workflow requires more than three workarounds.\n```</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Option analysis is where analysis meets procurement. A team that cannot compare options will default to the loudest request or the most familiar technology.</p>\n<p>AI changes the option space in two directions. It makes custom builds cheaper to attempt, which can tempt a team to build what it should buy. It also makes vendor products harder to compare, because every product now claims AI. The criteria should focus on the work, the evidence and the exit, not the feature list.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> List four realistic options for the tool library, including keeping the manual process.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Choose five evaluation criteria and assign weights. Explain each weight in one sentence.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Score three options against your criteria and calculate the weighted result. Identify the assumption the decision is most sensitive to.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write an ADR for a real decision in your project, including the options rejected and the conditions that would reopen it.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Compare a hosted AI service with a custom or rules-based alternative. Include evaluation, monitoring, privacy, provider change and total cost over three years.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Options include buy, configure, build, extend, manual process and AI service.</li>\n<li>A decision matrix makes trade-offs visible but does not remove judgement.</li>\n<li>Weights reflect what the organisation values, not what the vendor sells.</li>\n<li>Test whether the decision is stable under a reasonable change in assumptions.</li>\n<li>An ADR records the context, decision, consequences and reopening conditions.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Listed at least four genuinely different options</li>\n<li>[ ] Derived criteria from the requirements</li>\n<li>[ ] Recorded the weights before scoring</li>\n<li>[ ] Tested the decision against a changed assumption</li>\n<li>[ ] Wrote an ADR with a reopening condition</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which option looked cheapest at first and most expensive over time?</li>\n<li>What did the weighted matrix reveal that the discussion had missed?</li>\n<li>What would have to change for you to reopen the decision?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The decision is recorded. The next chapter connects requirements, models, decisions and evidence so the whole system can be defended and changed without losing the thread.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "The option paper",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The committee wants the AI assistant, a new booking system and a\nmember portal. A vendor demo looked excellent. A developer says AI\nmakes a custom build cheap. The treasurer wants the lowest annual\ncost. You have one week to recommend an option.</p>",
+                    "options": [
+                      {
+                        "id": "evaluate",
+                        "label": "Compare buy, configure, build and AI service on fit, total cost, risk and exit",
+                        "outcome": "<p>The option paper shows that a configured booking product covers\nthe core work, while a custom build creates a support burden the\nlibrary cannot carry. The AI assistant is scoped as a bounded\nadd-on with a fallback. The committee decides with evidence.</p>",
+                        "effects": {
+                          "Decision": "Defensible",
+                          "Cost": "Visible over three years",
+                          "Risk": "Named"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A demo is not an option analysis. Compare total cost, support, data rights and exit, not just the feature list.</p>"
+                      },
+                      {
+                        "id": "demo",
+                        "label": "Choose the vendor with the best demo",
+                        "outcome": "<p>The demo covered the happy path. The deposit reconciliation,\naccessibility and provider-change costs appear after signing.</p>",
+                        "effects": {
+                          "Decision": "Demo-led",
+                          "Cost": "Underestimated",
+                          "Risk": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Demos are designed to persuade. The requirements decide.</p>"
+                      },
+                      {
+                        "id": "custom",
+                        "label": "Build custom because AI makes development cheap",
+                        "outcome": "<p>The first version arrives quickly. The library inherits hosting,\nsecurity, evaluation, prompt maintenance and a system nobody on\nstaff can support. The cheap build becomes an expensive dependency.</p>",
+                        "effects": {
+                          "Speed": "Fast start",
+                          "Cost": "Deferred",
+                          "Support": "Unfunded"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>AI lowers the cost of a first build, not the cost of ownership.</p>"
+                      },
+                      {
+                        "id": "cheapest",
+                        "label": "Pick the lowest annual licence because budget is tight",
+                        "outcome": "<p>The licence is cheap. The migration, integration and staff time\nare not. The three-year cost is higher than the option paper\nwould have shown.</p>",
+                        "effects": {
+                          "Decision": "Price-led",
+                          "Cost": "Misleading",
+                          "Risk": "Operational"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Total cost includes integration, training, support, evaluation and exit.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Record the criteria and weights before scoring. Test whether the\ndecision changes when the most uncertain assumption moves. Write the\nADR, including the conditions that would reopen it.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "slug": "defend-and-hand-over",
+            "title": "Defend and Hand Over",
+            "lessons": [
+              {
+                "id": "04-01",
+                "title": "Traceability and the Design Record",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>If you cannot trace a decision to its evidence, you have a story, not a design.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Traceability links the parts of the work so a change can be followed from intent to evidence.</p>\n<p>A useful chain looks like this:</p>\n<p><strong>Goal -&gt; requirement -&gt; model -&gt; decision -&gt; check -&gt; evidence</strong></p>\n<p>The goal explains why the work exists. The requirement states what must be true. The model shows how the team reasoned about it. The decision records what was chosen. The check tests it. The evidence shows the result.</p>\n<p>Traceability is not a document for its own sake. It answers practical questions:</p>\n<ul>\n<li>If this requirement changes, what else has to change?</li>\n<li>If this test fails, which goal is at risk?</li>\n<li>If the vendor changes the model, which claims become uncertain?</li>\n<li>If an auditor asks why the system works this way, where is the answer?</li>\n</ul>\n<p>For AI-enabled systems, the chain includes more objects: the model version, the prompt version, the evaluation set, the threshold, the human review record and the incident log. A model change without a trace to the evaluation is a silent design change.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Library Catalogue</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A library catalogue does not hold the books. It records what the library has, where each item came from, where it is, who can borrow it and what happened to it.</p>\n<p>When a book is reported missing, the catalogue helps answer the practical questions: which copy, which loan, which borrower, which return, which shelf. Without it, the library has shelves of books and no way to prove what it owns.</p>\n<p>A design record is the catalogue for the system. It does not contain the system. It records the decisions, the evidence and the links that make the system explainable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Traceability with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Chain</h3>\n<p>Ask the AI to trace one requirement end to end.</p>\n<pre><code class=\"language-text\">Here is the goal, a requirement, the model and the decision:\n[paste them]\n\nBuild a trace from goal to evidence. Name the model that supports the\nrequirement, the decision that implements it, the check that tests it and\nthe evidence that proves the check ran. Mark any gap.\n</code></pre>\n<p>The gaps are the useful output. A requirement with no check, a decision with no requirement and a test with no owner are all traceability failures.</p>\n<h3>Exploration 2: Run a Change Impact</h3>\n<p>Traceability earns its place when something changes.</p>\n<pre><code class=\"language-text\">The library now wants a deposit for every reservation, not only for\nexpensive tools. Starting from the requirement, trace the impact on\nbusiness rules, use cases, data model, state model, decision record,\nchecks and handover. List what must change and what can stay.\n</code></pre>\n<p>A change that touches every artefact is a sign the original boundary was too tight. A change that touches nothing is a sign the trace is incomplete.</p>\n<h3>Exploration 3: Trace the AI Claim</h3>\n<p>AI features need a different trace.</p>\n<pre><code class=\"language-text\">The assistant is claimed to answer availability questions correctly 95%\nof the time. Trace that claim to the model version, prompt version,\nevaluation set, metric, threshold, reviewer and review date. Mark any\npart of the claim that cannot be reproduced.\n</code></pre>\n<p>If the evaluation set is not versioned, the claim cannot be reproduced. If the model version is not recorded, the claim belongs to a model that may no longer be in use.</p>\n<h3>Exploration 4: Write the Design Record</h3>\n<p>Ask the AI to turn the artefacts into a readable record.</p>\n<pre><code class=\"language-text\">Create a design record index for this project. List the goals,\nrequirements, models, decisions, checks, evidence, assumptions, open\nquestions and AI dependencies. For each, name the owner and the last\nupdate. Do not invent entries.\n</code></pre>\n<p>The index is a map of what exists, not a substitute for the artefacts.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A traceability matrix can be small.</p>\n<table>\n<thead>\n<tr>\n<th>Goal</th>\n<th>Requirement</th>\n<th>Model</th>\n<th>Decision</th>\n<th>Check</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Reduce double bookings</td>\n<td>FR-01: one active reservation per tool</td>\n<td>State model</td>\n<td>ADR-001 configured product</td>\n<td>Reservation conflict test</td>\n<td>Test run 2026-10-14</td>\n</tr>\n<tr>\n<td>Treasurer can reconcile deposits</td>\n<td>FR-07: deposit status visible</td>\n<td>Data model</td>\n<td>ADR-003 payment integration</td>\n<td>Reconciliation scenario</td>\n<td>Finance review notes</td>\n</tr>\n<tr>\n<td>Assistant does not promise a tool</td>\n<td>BR-05: recommendation only</td>\n<td>Decision model</td>\n<td>ADR-004 human confirmation</td>\n<td>Override and wrong-answer test</td>\n<td>Evaluation report</td>\n</tr>\n<tr>\n<td>Assistant stays useful after launch</td>\n<td>NFR-07: 95% on held-out cases</td>\n<td>Provenance model</td>\n<td>ADR-005 monthly evaluation</td>\n<td>Monthly evaluation run</td>\n<td>Dashboard and review log</td>\n</tr>\n</tbody>\n</table>\n<p>The matrix is not the whole record. It is the index that tells you where to look.</p>\n<p>For AI systems, add a model and prompt register:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>AI register</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Item</th>\n<th>Version</th>\n<th>Owner</th>\n<th>Last reviewed</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Model</td>\n<td>vendor-model-2026-10</td>\n<td>Coordinator</td>\n<td>2026-10-14</td>\n<td>Evaluation report</td>\n</tr>\n<tr>\n<td>Prompt</td>\n<td>v3</td>\n<td>Volunteer lead</td>\n<td>2026-10-14</td>\n<td>Prompt change note</td>\n</tr>\n<tr>\n<td>Evaluation set</td>\n<td>eval-2026-10</td>\n<td>Volunteer lead</td>\n<td>2026-10-14</td>\n<td>200 cases, 20 held out</td>\n</tr>\n<tr>\n<td>Threshold</td>\n<td>95%, no false available</td>\n<td>Coordinator</td>\n<td>2026-10-14</td>\n<td>Acceptance record</td>\n</tr>\n<tr>\n<td>Human review</td>\n<td>Volunteer confirms</td>\n<td>Coordinator</td>\n<td>2026-10-14</td>\n<td>Workflow test</td>\n</tr>\n<tr>\n<td>Incident log</td>\n<td>Tool library assistant</td>\n<td>Support volunteer</td>\n<td>Ongoing</td>\n<td>Incident records</td>\n</tr>\n<tr>\n<td>```</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>The register answers the question every audit eventually asks: which system produced this output, and what evidence did you have at the time?</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Traceability reduces the cost of change and the cost of doubt. When a regulator, auditor or client asks why a decision was made, the record answers without reconstructing the meeting from memory.</p>\n<p>AI increases the need because the system can change without anyone editing the repository. A hosted model can be updated, a prompt can be edited in a console, a retrieval source can go stale. Without a register, the organisation cannot tell whether the system it tested is the system it is running.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 9.1 (Level 1).</strong> Trace one requirement from goal to evidence. Mark any missing link.</p>\n<p><strong>Exercise 9.2 (Level 2).</strong> Build a traceability matrix for five requirements in your project.</p>\n<p><strong>Exercise 9.3 (Level 3).</strong> Run a change impact for a new business rule. List every artefact that must change.</p>\n<p><strong>Exercise 9.4 (Level 4).</strong> Write the AI register for an AI feature, including model, prompt, evaluation set, threshold and review owner.</p>\n<p><strong>Exercise 9.5 (Level 5).</strong> Take an AI claim from a vendor or internal team and try to reproduce it from the available evidence. State exactly what is missing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Traceability links goals, requirements, models, decisions, checks and evidence.</li>\n<li>The chain answers change, audit and failure questions.</li>\n<li>AI systems also need model, prompt, evaluation and incident traces.</li>\n<li>A claim that cannot be reproduced is not yet evidence.</li>\n<li>The design record is an index to the artefacts, not a replacement for them.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced at least one requirement end to end</li>\n<li>[ ] Identified a gap in the trace</li>\n<li>[ ] Ran a change impact and found every affected artefact</li>\n<li>[ ] Recorded the model, prompt and evaluation versions for an AI feature</li>\n<li>[ ] Named the owner of each trace entry</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which gap in the trace was most surprising?</li>\n<li>What change would be hardest to trace today?</li>\n<li>Which AI claim in your project could not be reproduced from the record?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The record explains the system. The final chapter hands it over with the operational evidence, the monitoring and the open questions intact.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-02",
+                "title": "The Handover and the Last 20%",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A system is not finished when it works on the builder's laptop. It is finished when someone else can run it, check it, afford it and recover it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Handover is the transfer of operational responsibility. It includes the evidence that the system meets its requirements, the knowledge someone needs to run it, the access model, the support path, the monitoring, the fallback and the open questions.</p>\n<p>A handover pack usually contains:</p>\n<ul>\n<li>the problem statement and scope</li>\n<li>the requirements and traceability matrix</li>\n<li>the design decisions and the AI register</li>\n<li>the acceptance evidence and known gaps</li>\n<li>the runbook for common failures</li>\n<li>the support and escalation path</li>\n<li>the access and data ownership model</li>\n<li>the monitoring, review and incident process</li>\n<li>the training material</li>\n<li>the cost model and the exit plan</li>\n</ul>\n<p>The \"last 20%\" is the work that turns a working build into an operable system. It is not a final sprint of features. It is the work that makes the first month survivable.</p>\n<p>For AI-enabled systems, handover includes model monitoring, evaluation refresh, prompt change control, provider change notice, fallback when the model is wrong or unavailable, and an incident process for harmful or misleading output. A model that works on launch day is not a handover. It is a starting condition.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Hotel Opening</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A hotel is not ready when the rooms are furnished. It is ready when the front desk can check a guest in, housekeeping can turn a room, maintenance can fix a leak, the kitchen can serve breakfast, the fire alarm works, the booking system reconciles and the night manager knows who to call at 3am.</p>\n<p>The opening checklist is not a list of features. It is a list of conditions that make the operation survivable. The hotel can open with one restaurant closed. It cannot open without a working fire exit.</p>\n<p>Software handover works the same way. The team can launch without a nice-to-have report. It cannot launch without a way to restore the reservation record, a support contact, a fallback when the assistant is wrong and a named owner for the system.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Handover with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Operational Checklist</h3>\n<p>Ask the AI to work from failure, not features.</p>\n<pre><code class=\"language-text\">Here is the system scope and the AI dependencies:\n[paste them]\n\nWrite a handover checklist by working backwards from failure. Include:\ndata loss, reservation corruption, payment failure, model outage, wrong\nmodel answer, privacy incident, staff turnover, provider price change and\nloss of the person who built it. For each, name the evidence that the\nteam can recover.\n</code></pre>\n<p>A checklist that only covers the happy path is a launch plan, not a handover.</p>\n<h3>Exploration 2: Test the Runbook</h3>\n<p>Ask the AI to find the gaps in the runbook.</p>\n<pre><code class=\"language-text\">Here is the runbook:\n[paste it]\n\nAct as a new support volunteer at 9am on a Saturday. The assistant is\nreturning wrong availability answers and the coordinator is unavailable.\nWalk through the runbook step by step. Mark every place where you would\nhave to guess, call someone or stop.\n</code></pre>\n<p>The gaps are the training needs. The runbook is not finished until a new person can follow it under pressure.</p>\n<h3>Exploration 3: Design the Monitoring</h3>\n<p>Monitoring is part of acceptance for an AI system.</p>\n<pre><code class=\"language-text\">Design the first-month monitoring for the tool library assistant.\nInclude answer accuracy, false availability claims, refusal rate, human\noverride rate, latency, cost, privacy incidents and user reports.\nFor each metric, name the threshold, the review frequency, the owner and\nthe action when the threshold is crossed.\n</code></pre>\n<p>A metric with no action is a dashboard. A metric with an owner and an action is a control.</p>\n<h3>Exploration 4: Measure the Outcome</h3>\n<p>Ask whether the system changed the work.</p>\n<pre><code class=\"language-text\">The goal was to reduce double bookings and volunteer time on the phone.\nDesign the post-launch review. Include the baseline, the measures, the\nreview date, the people involved and the decision the review will make.\nDo not measure page views.\n</code></pre>\n<p>The outcome measures come from the problem statement. If the project cannot name them, it was measuring outputs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A handover pack is a set of links, not a folder of unread PDFs.</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Handover: tool library system</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Accepted</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>FR-01 to FR-12 verified; see traceability matrix</li>\n<li>NFR-01, NFR-03, NFR-07, NFR-09 verified; see evaluation and review records</li>\n<li>Known gaps: waitlist not included; damage charges deferred</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Run</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Runbook: <code>docs/runbook.md</code></li>\n<li>Support: volunteer lead, weekday mornings; escalation to coordinator</li>\n<li>Access: role list and offboarding steps</li>\n<li>Backup and restore: tested 2026-10-20; restore time 40 minutes</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>AI</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Model and prompt versions: see AI register</li>\n<li>Evaluation: monthly on 200 held-out cases; owner: volunteer lead</li>\n<li>Fallback: assistant disabled; desk uses reservation list</li>\n<li>Incident: wrong answer or privacy event logged and reviewed within one week</li>\n<li>Provider change: review notice, rerun evaluation before accepting</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Measure</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Baseline: 6 double bookings per month; 7 hours per week on availability calls</li>\n<li>Review: 30 days and 90 days after launch</li>\n<li>Decision: continue, adjust, or replace</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Open questions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Is the deposit workflow acceptable to the treasurer?</li>\n<li>Does the assistant work on the old desk laptop?</li>\n<li>Who owns the evaluation set after the volunteer lead leaves?\n```</li>\n</ul>\n<p>The pack is short because it links to the evidence. It does not repeat every document.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Handover is where the benefits case is tested. A system can be delivered and still fail to change the work because nobody owns the process, the training or the monitoring.</p>\n<p>AI systems need an owner after launch. The model provider will change something. The data will drift. A user will find a failure the evaluation set missed. The organisation needs a named person who can decide whether to retrain, change the prompt, add a rule, disable the assistant or accept the risk.</p>\n<p>The last 20% is also where the cost becomes real. Model usage, evaluation, monitoring and support are ongoing costs. A handover that does not name them is a budget surprise.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 10.1 (Level 1).</strong> Write a five-item handover checklist for the booking system.</p>\n<p><strong>Exercise 10.2 (Level 2).</strong> Write the runbook for one failure: the assistant is unavailable at 9am on a Saturday.</p>\n<p><strong>Exercise 10.3 (Level 3).</strong> Design the first-month monitoring for the assistant, including thresholds, owners and actions.</p>\n<p><strong>Exercise 10.4 (Level 4).</strong> Write the post-launch review plan for the problem statement. Include the baseline, outcome measures, review dates and decision.</p>\n<p><strong>Exercise 10.5 (Level 5).</strong> Produce a complete handover pack for a real or simulated system, including acceptance evidence, known gaps, AI register, runbook, support path, monitoring, cost and open questions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Handover transfers operational responsibility, not just files.</li>\n<li>The last 20% covers acceptance evidence, runbook, support, access, monitoring and recovery.</li>\n<li>AI systems need model monitoring, evaluation refresh, prompt control, fallback and incident handling.</li>\n<li>Monitoring needs thresholds, owners and actions.</li>\n<li>The post-launch review measures the outcome in the problem statement, not page views.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the evidence that the system meets its requirements</li>\n<li>[ ] Listed the known gaps and the open questions</li>\n<li>[ ] Tested the runbook with someone who did not build the system</li>\n<li>[ ] Assigned an owner for AI monitoring and incident response</li>\n<li>[ ] Defined the outcome measures and review dates</li>\n<li>[ ] Named the ongoing cost and the exit plan</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What would break first in the first month?</li>\n<li>Who owns the system after handover, and do they have the authority they need?</li>\n<li>What outcome would prove the project was worth doing?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The system is handed over. The appendices collect the templates, checklists and registers used through the book so you can apply them to your own project.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-03",
+                "title": "Checkpoint: defend and hand over",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the traceability chain?",
+                        "options": [
+                          "Goal, requirement, model, decision, check, evidence",
+                          "Screen, button, database, server, log",
+                          "Vendor, contract, invoice, renewal",
+                          "Idea, slide, meeting, launch"
+                        ],
+                        "answer": 0,
+                        "explanation": "The chain shows why the system exists and what evidence supports each decision."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What belongs in an AI register?",
+                        "options": [
+                          "Model version, prompt version, evaluation set, threshold, review owner and incidents",
+                          "Only the model name",
+                          "The vendor's marketing page",
+                          "The full prompt history in the chat window"
+                        ],
+                        "answer": 0,
+                        "explanation": "The register answers which system produced an output and what evidence existed at the time."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why is a monthly evaluation needed after launch?",
+                        "options": [
+                          "The model, data, prompts and user behaviour can change after acceptance",
+                          "To justify the licence fee",
+                          "To replace the runbook",
+                          "Because dashboards are required"
+                        ],
+                        "answer": 0,
+                        "explanation": "A system tested at launch is not necessarily the system running six months later."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What must a handover fallback include?",
+                        "options": [
+                          "Who does the task, what they use and how quickly when the model is unavailable or wrong",
+                          "A promise that the model will not fail",
+                          "A link to the vendor's status page",
+                          "A note to call the developer"
+                        ],
+                        "answer": 0,
+                        "explanation": "A fallback is a workable process with an owner, not an apology."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Which is an outcome measure for the tool library?",
+                        "options": [
+                          "Double bookings per month and volunteer hours on availability calls",
+                          "Page views and login count",
+                          "Number of features shipped",
+                          "Model parameters"
+                        ],
+                        "answer": 0,
+                        "explanation": "Outcome measures come from the problem statement, not from usage vanity metrics."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What makes a monitoring metric a control?",
+                        "options": [
+                          "A threshold, an owner and an action when it is crossed",
+                          "A colourful chart",
+                          "A daily email with no owner",
+                          "A number on a slide"
+                        ],
+                        "answer": 0,
+                        "explanation": "A metric without an action is a dashboard. A control has a decision attached."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What is the last 20%?",
+                        "options": [
+                          "The operational work that makes the system runnable, supportable and recoverable",
+                          "The final 20 features",
+                          "The last sprint before launch",
+                          "The remaining code comments"
+                        ],
+                        "answer": 0,
+                        "explanation": "The last 20% turns a working build into a system someone else can operate."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

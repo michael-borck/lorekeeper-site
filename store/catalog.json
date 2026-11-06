@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:59:40+00:00",
+  "updatedAt": "2026-11-06T13:49:50+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "d223af8fff738cdd7ed1ab17fb11abd4d27eec9f5e3f20a9c4e21190385b357c",
+      "sha256": "c44931912cd7b3364549c07c6ddad61327e658de9c93cc27e1e21b6f984940a7",
       "keyId": "c72e49ccf7055c89",
-      "signature": "O29qQ7yAcsT0HzudguKMPRNjs7ET8NnZcbpOqOLVHcFIVmm+hkngGjWrmn911UI88D/SlbVUEzvwY3yQJ5VsBg==",
+      "signature": "7/lbuwpG5j8mS5ynpJSqbVfOeXKB6kcAzfBbNBHm2uYgMoH65GFNp41qW+zxUh8oppwDVLsjZ6/abHx5V9DcBA==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "5c0203b20330bb7bcb48cab10f386cdcfafb14faa3eccaa7a6145b8b17025d9f",
+      "sha256": "943c5ad07529add253639031a280aa2be01605cbbef4a5d7988dc3a6a42c1a4a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "uDOOQDtSGk8ZRC1hmQNGHrttLYACFR3JAKruHY42gD8XlsNEdGpwyHrcIWiv/4xeVhVS2z3hmdKjU4/8QAljDw==",
+      "signature": "zbxXYt65KiMx94UcowRATtyzkxLXdNn3WGPSg8v6dPhNy29P/JM/LRhDctodkNXL5a8k70sxGh318y55u0H7Bw==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "2f3462c1706fb442b60f013561b5a4c8909546ebdcf9c8cd73dde7f3882d1fba",
+      "sha256": "6b523b3aed82fea1b3ce7adc36bb3bf937eaf1b8b55b42ac7bc9ad6e0851a961",
       "keyId": "c72e49ccf7055c89",
-      "signature": "hmbW3aRx8Q0UAqeX9pTrDA3kFSxkMZW3B9wR97+5W0TC85vsMTa+xOpa9bypDVMurgm/8F9A0cRlsNcMPgM2BQ==",
+      "signature": "efCU5nzlWRLsLnDTVCAAW9q74DNcCOW7ZWkWAm4LtwFShcXf+gfl6meOw6Fr4VTKNHGnYOmbZwpNVk2R6uCWDg==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "3bdf13d3b99fa5b20c463437754d579185f1c1aa88e77169d5aa0f3bba05bd3a",
+      "sha256": "95816b9b9f97d90c0e5d1f5749ba75a1a87081467e3eb95b97f02718f3e74f7e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "mMIM5D+6YZCJo/n7FvBsF/UvsiUoOR9Be/qDmDTv3YY/bhLOHr02olkEIoXWB3NVJhY+A0fDQUoMsAXAEVWxBA==",
+      "signature": "Ap3tfmfd4ij0Aty+RGxmVlzfNp6wHftRXo2S2TRdXIE74Gw5+bIq8E6zeBl5lQe7ndeDUdMao1XRjGC1cwDLDw==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "5e17d5441df53c9653ffa81bb8a5f2f10ec2e8df8a398ef29848627ce2552a6b",
+      "sha256": "8bee4216519a75840fa7ca4726609c7e549691d0b5d678bffa0907d0667ba83e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "+LVGUu/KVDba/2aOrggqsfLKroKngivv/rHza75SdTOxoD52AC5wNcoFZi1pYHN1l/TSqUvOonEWFVIsO4XsAw==",
+      "signature": "YDXhhMdsoIUYeadCOnq8UnN0yqd31V+Z0QiA6vgkR6woqNddpbqhdDQQFZM1v5YtLrHFCTdc9oPCP0xJwobzCw==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,10 +139,35 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "0ebf6d49d4be5491a38bf7db1680a4418f12b6e4707019c8830e2fffd3028efd",
+      "sha256": "e43114539e2d7ddab98c694c49689e4a34a23278faf521745c8c098723189578",
       "keyId": "c72e49ccf7055c89",
-      "signature": "VkvjBbzDA+qjafknbWGAJMF/bWWC6ZGXgad85dXkfQn3372xdi1AJLwwYrDbizbrZoqBF43J+WoH6crWvsQFCg==",
+      "signature": "/MRpV7SExo3UpEIMh+iQDMYRqzRblVLyhSpNreyBpcegdd8tM2EpnkE/Cd9seTQnYlOW67coPh1D4vDadzZdBA==",
       "url": "packs/build-web-guide-ai.json"
+    },
+    {
+      "id": "systems-analysis-and-design",
+      "title": "Frame the System, Guide the AI: Systems Analysis and Design in the AI Era",
+      "description": "Frame the problem, make requirements checkable, model the decisions and hand over a system that may contain AI.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "storybook",
+      "tags": [
+        "analysis",
+        "design",
+        "requirements",
+        "systems",
+        "ai",
+        "governance"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 14,
+      "size": 154171,
+      "sha256": "4184e7b54f0038977351a1809e3f8425b0ad172536db4d140f6d846534ed7cc5",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "kuRrejcauOSe98hfF1Pndq55SPvf9poE9STH/OyKpiLjWPruEXb8dJvuTcE2HX1N3YhVxg03HkBieO0FLkAvAA==",
+      "url": "packs/systems-analysis-and-design.json"
     }
   ]
 }
