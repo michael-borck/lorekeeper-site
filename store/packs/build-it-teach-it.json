@@ -1,0 +1,1668 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "build-it-teach-it",
+  "title": "Build It, Teach It: Hands-on AI Projects for the Classroom",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T23:56:13+00:00",
+  "courses": [
+    {
+      "slug": "build-it-teach-it",
+      "title": "Build It, Teach It: Hands-on AI Projects for the Classroom",
+      "theme": "storybook",
+      "level": "beginner",
+      "tags": [
+        "ai",
+        "education",
+        "projects",
+        "teaching",
+        "rag",
+        "agents"
+      ],
+      "pitch": "Build small AI systems and teach the ideas underneath them, with project and classroom tracks.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T23:56:13+00:00",
+        "unit": {
+          "slug": "build-it-teach-it",
+          "title": "Build It, Teach It: Hands-on AI Projects for the Classroom",
+          "theme": "storybook",
+          "tags": [
+            "ai",
+            "education",
+            "projects",
+            "teaching",
+            "rag",
+            "agents"
+          ],
+          "level": "beginner",
+          "pitch": "Build small AI systems and teach the ideas underneath them, with project and classroom tracks.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-lab",
+            "title": "The Lab",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "One Call, Many Wrappers",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Every module in the lab is a model call with one extra idea around it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>HandsOnAI looks like many tools: chat, RAG, agents, workflows, loops, evaluation, vision and voice. Underneath, the shape is the same.</p>\n<p>A model receives a payload and returns text. Everything else is a wrapper:</p>\n<ul>\n<li><strong>Chat</strong> adds a system prompt and a message list.</li>\n<li><strong>RAG</strong> searches documents and pastes the results into the prompt.</li>\n<li><strong>Agent</strong> gives the model tools and a loop.</li>\n<li><strong>Workflow</strong> organises stages as folders with review gates.</li>\n<li><strong>Loop</strong> repeats a step until a goal is met.</li>\n<li><strong>Evaluation</strong> asks a model to judge output against criteria.</li>\n<li><strong>Vision</strong> converts an image into tokens in the same request.</li>\n<li><strong>Voice</strong> converts speech to text and text to speech around the chat call.</li>\n</ul>\n<p>The package is small on purpose. It is a learning lab, not a production framework. The goal is to make the concept visible, not to hide it.</p>\n<p>That has a consequence for teaching: you do not need to cover every module. Teach the shape, then let the projects explore the wrappers.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Food Truck</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A food truck sells many dishes. The base is the same: a vehicle, a kitchen, a service window and a queue.</p>\n<p>A new cuisine changes the ingredients and the menu, not the fact that someone cooks and someone serves.</p>\n<p>HandsOnAI is the truck. The modules are the menu. The model call is the kitchen.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Shape with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Map the Wrapper</h3>\n<p>Ask the AI to map each module to the call it wraps.</p>\n<pre><code class=\"language-text\">Here are the HandsOnAI modules:\n[paste the list]\n\nFor each one, name what it adds around the model call. Include the new\ninput, the new state, the new loop or the new output. Mark any module\nthat is a side door rather than a stop on the main path.\n</code></pre>\n<p>A good answer will put vision and voice at the edges and the core loop through chat, RAG, agent, workflow and evaluation.</p>\n<h3>Exploration 2: Find the Shared Failure</h3>\n<p>Ask what can go wrong in every wrapper.</p>\n<pre><code class=\"language-text\">Every module ultimately calls a model. List the failures that can appear\nin all of them, regardless of the wrapper. Include a fluent wrong answer,\na missing source, a tool error, a loop that will not stop and a cost\noverrun.\n</code></pre>\n<p>The shared failures are the teaching opportunities.</p>\n<h3>Exploration 3: Choose the Depth</h3>\n<p>Ask what to skip.</p>\n<pre><code class=\"language-text\">A teacher has six hours for an introduction. The students can run\nPython but have not built an AI system. Choose three modules to build\nand two to demonstrate. Explain the sequence and what you would leave\nout.\n</code></pre>\n<p>The answer is a curriculum decision, not a feature list.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A module map:</p>\n<table>\n<thead>\n<tr>\n<th>Module</th>\n<th>Wrapper</th>\n<th>New input</th>\n<th>New risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Chat</td>\n<td>System prompt and transcript</td>\n<td>Prompt history</td>\n<td>Hallucination, memory cost</td>\n</tr>\n<tr>\n<td>RAG</td>\n<td>Search before the call</td>\n<td>Documents</td>\n<td>Stale index, unsupported citation</td>\n</tr>\n<tr>\n<td>Agent</td>\n<td>Tools and a loop</td>\n<td>Tool results</td>\n<td>Tool misuse, runaway loop</td>\n</tr>\n<tr>\n<td>Workflow</td>\n<td>Folders and review gates</td>\n<td>Stage outputs</td>\n<td>Vague stage contract</td>\n</tr>\n<tr>\n<td>Loop</td>\n<td>Repetition and a goal</td>\n<td>Goal check</td>\n<td>Optimising the wrong measure</td>\n</tr>\n<tr>\n<td>Evaluation</td>\n<td>A judge</td>\n<td>Criteria</td>\n<td>Bias, inconsistency</td>\n</tr>\n<tr>\n<td>Vision</td>\n<td>Image tokens</td>\n<td>Image</td>\n<td>Miscounting, confident nonsense</td>\n</tr>\n<tr>\n<td>Voice</td>\n<td>Speech converters</td>\n<td>Audio</td>\n<td>Noise, latency, turn-taking</td>\n</tr>\n</tbody>\n</table>\n<p>The map is the course outline.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the quickstart chat example. Then print the payload it sends. Mark which parts belong to the model and which belong to the wrapper.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Teach the shape before the modules. A student who can say \"RAG is search plus a prompt\" has a mental model that survives a change of framework.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Name the wrapper that chat adds.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Map three modules to their wrappers.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Explain why the package is small on purpose.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Choose three modules for a six-hour introduction and justify the choice.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Design a one-hour lesson that teaches the shared shape without covering every module.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Every module is a model call plus a wrapper.</li>\n<li>The wrappers add prompts, evidence, tools, structure, repetition, judgement or senses.</li>\n<li>The lab is small on purpose.</li>\n<li>Teach the shape, then choose the modules.</li>\n<li>Shared failures are teaching opportunities.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Mapped the wrappers</li>\n<li>[ ] Named the shared failures</li>\n<li>[ ] Chose a teaching depth</li>\n<li>[ ] Ran one module</li>\n<li>[ ] Identified what to skip</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which wrapper was hardest to explain?</li>\n<li>Where does the model end and the wrapper begin?</li>\n<li>What would you teach first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The shape is clear. The next chapter sets up a lab that can run it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Set Up the Lab",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A classroom lab fails on setup before it fails on AI.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>HandsOnAI needs Python 3.10+, the package and an OpenAI-compatible provider. There are three common setups:</p>\n<ul>\n<li><strong>Local Ollama</strong>: runs on the student machine or a lab machine. Private, offline-capable, limited by hardware.</li>\n<li><strong>Shared classroom server</strong>: one Ollama server on the network. Consistent, centralised, easier to monitor.</li>\n<li><strong>Cloud provider</strong>: an API key and a hosted model. Least setup, but data leaves the room and costs money.</li>\n</ul>\n<p>The configuration is three environment variables:</p>\n<pre><code class=\"language-bash\">export HANDS_ON_AI_SERVER=&quot;http://localhost:11434&quot;\nexport HANDS_ON_AI_MODEL=&quot;llama3&quot;\nexport HANDS_ON_AI_API_KEY=&quot;&quot;\n</code></pre>\n<p>A local server needs no key. A hosted provider does. Never put a real key in a script, a slide or a repository.</p>\n<p>The diagnostic command is:</p>\n<pre><code class=\"language-bash\">handsonai doctor\n</code></pre>\n<p>Run it before class. It prints the server, model and key status, and checks the connection.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Science Lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A science lab is prepared before the students arrive: equipment, reagents, safety rules and a trial run.</p>\n<p>If the equipment is missing, the lesson becomes a troubleshooting session. If the safety rules are unclear, the lesson becomes an incident.</p>\n<p>A classroom AI lab needs the same preparation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Setup with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Provider</h3>\n<p>Ask the AI to compare the options for a specific class.</p>\n<pre><code class=\"language-text\">A class of 25 students has old laptops, limited Wi-Fi and a strict\nprivacy policy. Compare local Ollama, a shared classroom server and a\ncloud provider. Recommend one and name the trade-offs.\n</code></pre>\n<p>The answer should consider hardware, privacy, bandwidth, cost and support.</p>\n<h3>Exploration 2: Build the Checklist</h3>\n<p>Ask for a pre-class checklist.</p>\n<pre><code class=\"language-text\">Write a setup checklist for a HandsOnAI class. Include Python, the\npackage, the provider, the model, the diagnostic command, a test script,\nthe API key policy and a fallback if the network fails.\n</code></pre>\n<p>The fallback is part of the plan.</p>\n<h3>Exploration 3: Test the Failure</h3>\n<p>Ask what students see when the server is down.</p>\n<pre><code class=\"language-text\">The Ollama server is not running. Write the message a student should\nsee and the three checks they should make. Do not let the error look\nlike a model answer.\n</code></pre>\n<p>A setup failure should be diagnosable in minutes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A classroom setup checklist:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab setup</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Machines</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Python 3.10+</li>\n<li>[ ] Package installed</li>\n<li>[ ] Model available</li>\n<li>[ ] <code>handsonai doctor</code> passes</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Provider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Local, shared or cloud</li>\n<li>[ ] Server URL</li>\n<li>[ ] Model name</li>\n<li>[ ] Key policy</li>\n<li>[ ] Cost limit</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Test script</li>\n<li>[ ] Offline fallback</li>\n<li>[ ] Privacy and disclosure</li>\n<li>[ ] Support contact\n```</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the setup on one machine. Install the package, run <code>handsonai doctor</code>, run a chat call, and record the output. Then stop the server and record the failure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A shared server reduces setup variance. A local model protects privacy. A cloud provider gives access to stronger models. The choice is a teaching and policy decision, not only a technical one.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Name the three environment variables.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Run <code>handsonai doctor</code> and record the result.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Compare local, shared and cloud for a class of 25.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Write the offline fallback for a network failure.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Produce a complete classroom setup plan with a privacy and cost decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The lab needs Python, the package and a provider.</li>\n<li>Local, shared and cloud setups have different trade-offs.</li>\n<li>Three environment variables configure the provider.</li>\n<li>Run the doctor before class.</li>\n<li>A fallback is part of the setup.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Chose a provider</li>\n<li>[ ] Ran the doctor</li>\n<li>[ ] Tested one call</li>\n<li>[ ] Tested one failure</li>\n<li>[ ] Wrote the fallback</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which setup would you choose for your class?</li>\n<li>What failed first?</li>\n<li>What would you prepare before the students arrive?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lab runs. The next chapter starts with chat, the module every other module wraps.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Chat, Prompts and Memory",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A chat model is stateless. The memory is a message list your code keeps.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A chat request has two kinds of message:</p>\n<ul>\n<li><strong>system</strong>: the standing instruction that sets role, tone and rules</li>\n<li><strong>user</strong>: the question or instruction for this turn</li>\n</ul>\n<p>The model returns an assistant message. The next call starts fresh unless the application resends the earlier messages.</p>\n<p>That is the whole mechanism behind \"memory\". A chat product stores the transcript and sends it again on each turn. More history means more tokens, more cost and a larger payload. The context window is the limit.</p>\n<p>A bot is a function that calls the model with a fixed system prompt. A personality is a system prompt with a name.</p>\n<p>Prompting improves when you are specific, provide context, show an example and define the output format.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Conversation at a Counter</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A clerk serves one customer at a time. When the next customer arrives, the clerk does not remember the previous conversation unless the notes are on the desk.</p>\n<p>The transcript is the notes. The system prompt is the shop's policy card.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Chat with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Change the System Prompt</h3>\n<p>Ask the AI to compare two system prompts.</p>\n<pre><code class=\"language-text\">Here are two system prompts for the same question:\n[paste them]\n\nExplain what changes in the answer and what stays the same. Which\ninstruction is tone, which is constraint, and which is a claim the model\ncannot verify?\n</code></pre>\n<p>A good answer will separate style from substance.</p>\n<h3>Exploration 2: Test the Memory</h3>\n<p>Ask what the model sees on the second turn.</p>\n<pre><code class=\"language-text\">A chat sends: system &quot;You are a tutor&quot;, user &quot;My name is Sam&quot;, assistant\nreply, user &quot;What is my name?&quot;. List the messages in the second request\nand explain why the answer can use the name.\n</code></pre>\n<p>The model is not remembering. The code resent the transcript.</p>\n<h3>Exploration 3: Find the Cost</h3>\n<p>Ask what grows with the conversation.</p>\n<pre><code class=\"language-text\">A conversation has 20 turns. Explain what grows on each turn: tokens,\ncost, latency and the risk of hitting the context window. Propose one\nway to keep the conversation useful without resending everything.\n</code></pre>\n<p>Summarisation, retrieval and a shorter system prompt are all options.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A chat record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>System prompt</td>\n<td>Tutor, one step at a time</td>\n</tr>\n<tr>\n<td>User turn</td>\n<td>Explain a loop</td>\n</tr>\n<tr>\n<td>Assistant reply</td>\n<td>Explanation and question</td>\n</tr>\n<tr>\n<td>History</td>\n<td>Two messages</td>\n</tr>\n<tr>\n<td>Tokens</td>\n<td>Usage from the call</td>\n</tr>\n<tr>\n<td>Cache</td>\n<td>Enabled or not</td>\n</tr>\n<tr>\n<td>Limit</td>\n<td>Context window and cost</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run a <code>Conversation</code> with three turns. Print the message list before each call. Then set <code>HANDS_ON_AI_CACHE</code> and run the same prompt twice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The stateless model is a core AI-literacy idea. A student who understands it can explain why a chat forgets, why a long conversation costs more and why a fresh chat behaves like a stranger.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain the difference between the system and user messages.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Run a three-turn conversation and print the history.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Compare a system prompt that changes tone with one that adds a constraint.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Measure the token growth over five turns.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Design a memory strategy for a long classroom activity.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Chat sends system and user messages and receives an assistant reply.</li>\n<li>The model is stateless; memory is a resent transcript.</li>\n<li>More history means more tokens and cost.</li>\n<li>A bot is a function with a fixed system prompt.</li>\n<li>Specific prompts and examples improve the answer.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Explained the stateless call</li>\n<li>[ ] Printed a transcript</li>\n<li>[ ] Compared two system prompts</li>\n<li>[ ] Measured token growth</li>\n<li>[ ] Chose a memory strategy</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What surprised you about memory?</li>\n<li>Which system prompt changed the answer most?</li>\n<li>When is a fresh chat the right choice?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Chat is the base. The next chapter adds evidence with RAG.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Checkpoint: the lab",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the shared shape behind every HandsOnAI module?",
+                        "options": [
+                          "One model call wrapped in plain Python",
+                          "A separate framework for each module",
+                          "A database and a web server",
+                          "A fine-tuned model per task"
+                        ],
+                        "answer": 0,
+                        "explanation": "Chat, RAG, agents, workflows, loops, evaluation, vision and voice add wrappers around the call."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Why is the package small on purpose?",
+                        "options": [
+                          "To make the concept visible and readable",
+                          "Because it is unfinished",
+                          "Because production code is unnecessary",
+                          "Because models cannot scale"
+                        ],
+                        "answer": 0,
+                        "explanation": "It is a learning lab, not a production framework. The gaps are the next lesson."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What are the three common classroom providers?",
+                        "options": [
+                          "Local Ollama, a shared classroom server and a cloud provider",
+                          "Wi-Fi, Bluetooth and USB",
+                          "OpenAI, a spreadsheet and a database",
+                          "Docker, Podman and Kubernetes"
+                        ],
+                        "answer": 0,
+                        "explanation": "Each has different trade-offs for privacy, cost, bandwidth and support."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What does `handsonai doctor` do?",
+                        "options": [
+                          "Checks the provider, model and key configuration",
+                          "Trains the model",
+                          "Grades the student",
+                          "Generates a project"
+                        ],
+                        "answer": 0,
+                        "explanation": "Run it before class. Most setup failures are a server that is not running or a model that was never downloaded."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Why does a chat model appear to remember?",
+                        "options": [
+                          "The application resends the transcript on each turn",
+                          "The model has permanent memory",
+                          "The server stores your name",
+                          "The model is fine-tuned on the conversation"
+                        ],
+                        "answer": 0,
+                        "explanation": "The model is stateless. Memory is a message list your code keeps."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What grows with a long conversation?",
+                        "options": [
+                          "Tokens, cost, latency and the risk of hitting the context window",
+                          "The model's parameter count",
+                          "The number of providers",
+                          "The licence"
+                        ],
+                        "answer": 0,
+                        "explanation": "Each turn resends the history. Summarise, retrieve or start fresh when needed."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What is a bot in HandsOnAI?",
+                        "options": [
+                          "A function that calls the model with a fixed system prompt",
+                          "A new model",
+                          "A database",
+                          "A web server"
+                        ],
+                        "answer": 0,
+                        "explanation": "A personality is a system prompt with a name."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "the-modules",
+            "title": "The Modules",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Grounding: RAG",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Retrieval-augmented generation is search plus a prompt with the results in it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model answers from two things: the prompt in front of it and what it learned during training. It does not know your notes, your policy or today's timetable.</p>\n<p>RAG adds evidence:</p>\n<ol>\n<li><strong>Index</strong> the documents: load, chunk, embed and save.</li>\n<li><strong>Ask</strong> a question: embed the question, fetch the closest chunks, put them in the prompt, call the model.</li>\n</ol>\n<p>The model still does the language work. The retriever does the finding. Both are needed.</p>\n<p>The teaching points are the failure points:</p>\n<ul>\n<li>a document that was never indexed is invisible</li>\n<li>a stale index returns the old rule</li>\n<li>a chunk boundary can cut an answer in half</li>\n<li>a cited passage may not support the claim</li>\n<li>the model may answer beyond the evidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Library Card Catalogue</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A librarian does not reread every book when you ask a question. They use the catalogue to find a few passages, then read them with you.</p>\n<p>The catalogue is the index. The passages are the context. The librarian's explanation is the model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering RAG with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Separate the Phases</h3>\n<p>Ask the AI to separate indexing from answering.</p>\n<pre><code class=\"language-text\">Here is a RAG description:\n[paste it]\n\nList the steps that happen once at indexing time and the steps that\nhappen on every question. Mark which steps cost a model call.\n</code></pre>\n<p>The separation prevents most confusion about RAG.</p>\n<h3>Exploration 2: Test the Evidence</h3>\n<p>Ask what a citation proves.</p>\n<pre><code class=\"language-text\">A RAG answer cites a document. Explain what the citation proves and what\nit does not. Design a check that confirms the cited passage supports the\nclaim.\n</code></pre>\n<p>A citation label is not support. The passage is.</p>\n<h3>Exploration 3: Break the Index</h3>\n<p>Ask what happens when the source changes.</p>\n<pre><code class=\"language-text\">A policy changes, but the index is a week old. Explain what the bot\nreturns and how the class would detect the staleness. Propose a fix.\n</code></pre>\n<p>Re-indexing is a maintenance task, not a one-off setup step.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A RAG record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Documents</td>\n<td>Source, owner and date</td>\n</tr>\n<tr>\n<td>Index</td>\n<td>Chunk size, embedding model, location</td>\n</tr>\n<tr>\n<td>Question</td>\n<td>What the user asked</td>\n</tr>\n<tr>\n<td>Retrieved</td>\n<td>Chunk IDs and scores</td>\n</tr>\n<tr>\n<td>Answer</td>\n<td>The model response</td>\n</tr>\n<tr>\n<td>Citation</td>\n<td>Document and passage</td>\n</tr>\n<tr>\n<td>Check</td>\n<td>Does the passage support the claim?</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Coverage and freshness</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Index a small folder of notes. Ask three questions: one answerable, one partly answerable and one not in the documents. Record the retrieved chunks and the answer for each.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>RAG is the best module for teaching evidence. The student can see the source, the retrieved passage and the answer. The discussion is whether the passage actually supports the claim.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain RAG in one sentence.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> List the indexing steps and the answering steps.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Ask one answerable and one unanswerable question.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Check whether a cited passage supports the answer.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Design a small evaluation set for retrieval quality.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>RAG is search plus a prompt with evidence.</li>\n<li>Indexing happens once; answering happens per question.</li>\n<li>A citation is not proof; the passage is.</li>\n<li>Stale indexes and chunk boundaries cause failures.</li>\n<li>RAG is the best module for teaching evidence.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Separated indexing from answering</li>\n<li>[ ] Asked an unanswerable question</li>\n<li>[ ] Checked one citation</li>\n<li>[ ] Found one limitation</li>\n<li>[ ] Planned a re-index</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which retrieved chunk was most useful?</li>\n<li>What did the bot answer without evidence?</li>\n<li>How would you keep the index fresh?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The answer has evidence. The next chapter gives the model tools.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Tools: Agents",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A tool is a function the model may request. The harness decides whether it runs.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An agent adds two things to chat: tools and a loop.</p>\n<p>A tool in HandsOnAI is a function with a simple contract:</p>\n<ul>\n<li>a name</li>\n<li>a description the model reads</li>\n<li>one string input</li>\n<li>one string output</li>\n</ul>\n<p>The model proposes a tool call. The harness runs the function and adds the result to the transcript. The model reads the result and decides what to do next.</p>\n<p>ReAct is the readable pattern: Thought, Action, Action Input, Observation, repeat, Final Answer.</p>\n<p>The safety boundary is the tool list. A calculator is low risk. A file write, an email send or a payment is high risk. The model does not grant itself permission. The harness exposes the tools.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Workshop</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A craftsperson has a bench and a set of tools. The apprentice can ask for a tool, but the supervisor decides which tools are on the bench.</p>\n<p>An agent is the apprentice. The tool list is the bench. The harness is the supervisor.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Agents with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Write the Tool Description</h3>\n<p>Ask the AI to turn a function into a tool description.</p>\n<pre><code class=\"language-text\">Here is a Python function:\n[paste it]\n\nWrite the tool name, description and input format a model would need to\nuse it correctly. Include one example input and the error message for a\nbad input.\n</code></pre>\n<p>The description is part of the interface.</p>\n<h3>Exploration 2: Trace the Loop</h3>\n<p>Ask for a step-by-step trace.</p>\n<pre><code class=\"language-text\">Here is an agent run:\n[paste the trace]\n\nLabel each Thought, Action, Action Input, Observation and Final Answer.\nMark where the model changed its plan after an observation.\n</code></pre>\n<p>The trace is the lesson.</p>\n<h3>Exploration 3: Find the Dangerous Tool</h3>\n<p>Ask what should not be on the bench.</p>\n<pre><code class=\"language-text\">List the tools in this agent and classify each as read-only, write,\ncommunicate or financial. Recommend which ones need a human approval\ngate and what the gate should check.\n</code></pre>\n<p>A tool inventory is a risk assessment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A tool record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Name</td>\n<td>calculator</td>\n</tr>\n<tr>\n<td>Description</td>\n<td>Evaluate a Python arithmetic expression</td>\n</tr>\n<tr>\n<td>Input</td>\n<td>Expression string</td>\n</tr>\n<tr>\n<td>Output</td>\n<td>Result string</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>Low</td>\n</tr>\n<tr>\n<td>Gate</td>\n<td>None</td>\n</tr>\n<tr>\n<td>Test</td>\n<td><code>2 + 2</code> returns 4</td>\n</tr>\n<tr>\n<td>Failure</td>\n<td>Bad input returns an error string</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Register one custom tool and run an agent that needs it. Print the trace. Then add a second tool and a question that needs both.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Agents teach decomposition, tool contracts and oversight. The visible trace is the assessment artefact: the student can explain why the agent chose a tool and where the result came from.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain the tool contract.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Write a description for a simple tool.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Run an agent and label the trace.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Classify three tools by risk and add one approval gate.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Build a two-tool agent for a classroom task and document the failure modes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>An agent adds tools and a loop.</li>\n<li>A tool is a named function with a description and a string contract.</li>\n<li>The model proposes; the harness runs.</li>\n<li>The tool list is the safety boundary.</li>\n<li>The trace is the teaching artefact.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote a tool description</li>\n<li>[ ] Ran an agent</li>\n<li>[ ] Labeled the trace</li>\n<li>[ ] Classified the tools</li>\n<li>[ ] Added a gate</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which tool description mattered most?</li>\n<li>Where did the model change its plan?</li>\n<li>Which tool would you never expose without approval?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The agent acts. The next chapter adds structure, repetition and judgement.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Workflows, Loops and Judges",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Structure is how a small model becomes a reliable process.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Three modules add control:</p>\n<ul>\n<li><strong>Workflow</strong>: numbered stage folders, each with instructions and an output. One stage runs at a time, and a person reviews before the next.</li>\n<li><strong>Loop</strong>: repeat a step until a goal is met. <code>run_loop</code> stops on a goal or a maximum number of iterations. <code>run_ratchet</code> keeps only improvements.</li>\n<li><strong>Evaluation</strong>: an LLM judge scores output against stated criteria.</li>\n</ul>\n<p>They answer different questions:</p>\n<ul>\n<li>Workflow: what are the stages, and where is the review gate?</li>\n<li>Loop: when do we stop, and what counts as better?</li>\n<li>Judge: how good is the output, against what standard?</li>\n</ul>\n<p>A judge is a model producing a score. It can be biased, inconsistent and fooled by confidence. Calibrate it against human marks before trusting it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Production Line</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A production line has stations, inspection benches and a stop rule. Each station does one job, and the inspector decides whether the work moves on.</p>\n<p>A workflow is the line. A loop is the repetition. A judge is the inspector.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Control with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Design the Stages</h3>\n<p>Ask the AI to turn a task into a workflow.</p>\n<pre><code class=\"language-text\">Turn this task into a three-stage workflow:\n[paste the task]\n\nFor each stage, write the instruction, the input, the output and the\nreview question. Explain what a person should check before the next\nstage runs.\n</code></pre>\n<p>A stage without a review question is a black box.</p>\n<h3>Exploration 2: Define the Goal</h3>\n<p>Ask for a stopping rule.</p>\n<pre><code class=\"language-text\">A loop improves a paragraph until it is clear and under 100 words.\nWrite the goal check, the maximum iterations and the evidence that the\nloop stopped for the right reason.\n</code></pre>\n<p>The goal is a test, not a feeling.</p>\n<h3>Exploration 3: Calibrate the Judge</h3>\n<p>Ask how to trust the score.</p>\n<pre><code class=\"language-text\">A judge scores 20 answers from 1 to 5. Design a calibration check\nagainst your own marks. Include the agreement measure, the disagreements\nyou would read closely and the cases where the judge should not be used.\n</code></pre>\n<p>A judge is a signal, not a verdict.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A control record:</p>\n<table>\n<thead>\n<tr>\n<th>Module</th>\n<th>Use</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Workflow</td>\n<td>Research, outline, draft</td>\n<td>Stage outputs and review notes</td>\n</tr>\n<tr>\n<td>Loop</td>\n<td>Improve until clear</td>\n<td>Goal check and iteration log</td>\n</tr>\n<tr>\n<td>Ratchet</td>\n<td>Keep only improvements</td>\n<td>Score log and best version</td>\n</tr>\n<tr>\n<td>Judge</td>\n<td>Score 20 answers</td>\n<td>Criteria, scores, human comparison</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Build a three-stage workflow with a review after each stage. Then build a loop with a goal check. Compare what each structure makes visible.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Structure is the difference between a demo and a process. Students can see the stage outputs, the loop log and the judge's reasoning. Those artefacts are easier to assess than a final paragraph.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Explain the difference between a workflow and a loop.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Write three stages for a writing task.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Define a goal check and a maximum iteration count.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Calibrate a judge against five human marks.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Build a workflow with a judge at the review gate and document the failure modes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Workflows add stages and review gates.</li>\n<li>Loops add repetition and a stopping rule.</li>\n<li>Ratchets keep only improvements.</li>\n<li>Judges score against criteria and need calibration.</li>\n<li>Structure makes the process visible and assessable.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Designed a workflow</li>\n<li>[ ] Defined a goal check</li>\n<li>[ ] Ran a loop</li>\n<li>[ ] Calibrated a judge</li>\n<li>[ ] Named one failure mode</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which structure made the work clearest?</li>\n<li>Where did the loop stop?</li>\n<li>When would you not trust the judge?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The process is structured. The next chapter adds senses.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Vision and Voice",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Images and speech are input formats, not a new kind of intelligence.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A vision-language model converts an image into tokens and reads them alongside your text. <code>describe(\"photo.jpg\", \"What is in this photo?\")</code> is the same call with one more input type.</p>\n<p>A voice agent converts speech to text, calls the chat model, and converts the reply to speech. <code>transcribe</code> and <code>speak</code> are format converters.</p>\n<p>The limitations are the lesson:</p>\n<ul>\n<li>Vision miscounts, misses small text and gets spatial detail wrong.</li>\n<li>A confident description can invent details.</li>\n<li>Speech recognition struggles with noise and accents.</li>\n<li>Voice latency adds up at every step.</li>\n<li>Turn-taking and interruption are engineering problems, not model problems.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Translator</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A translator converts one language into another so the same conversation can happen. The translator does not make the speaker wiser.</p>\n<p>Vision and voice are translators at the edges of the same conversation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Senses with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Test the Description</h3>\n<p>Ask the AI to compare a description with the image.</p>\n<pre><code class=\"language-text\">Here is an image description from a VLM:\n[paste it]\n\nList the claims that a person could verify from the image and the claims\nthat could be invented. Design three questions that would test the\nmodel's counting, small-text reading and spatial accuracy.\n</code></pre>\n<p>The questions expose the limits.</p>\n<h3>Exploration 2: Design the Voice Loop</h3>\n<p>Ask for the simplest voice agent.</p>\n<pre><code class=\"language-text\">Design a voice loop using speech-to-text, chat and text-to-speech.\nInclude the recording step, the turn-taking rule, the latency budget and\nthe failure when the microphone is unavailable.\n</code></pre>\n<p>The hard part is around the model, not inside it.</p>\n<h3>Exploration 3: Find the Accessibility Use</h3>\n<p>Ask for a useful classroom application.</p>\n<pre><code class=\"language-text\">Design a vision or voice activity that improves accessibility rather\nthan replacing a student's work. Include the task, the check and the\nprivacy question.\n</code></pre>\n<p>Alt-text generation, spoken feedback and translation are candidates.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A senses record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Input</td>\n<td>Image or audio</td>\n</tr>\n<tr>\n<td>Converter</td>\n<td>VLM, STT or TTS</td>\n</tr>\n<tr>\n<td>Model</td>\n<td>Name and version</td>\n</tr>\n<tr>\n<td>Output</td>\n<td>Text or audio</td>\n</tr>\n<tr>\n<td>Check</td>\n<td>Counting, small text, noise or latency</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>What the model cannot see or hear</td>\n</tr>\n<tr>\n<td>Privacy</td>\n<td>Where the file goes</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Describe one image and ask three questions: what is visible, how many objects, and what text is present. Compare the answers with the image. Then run a short speech-to-text test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Vision and voice are engaging, which makes them good hooks. The lesson is the limitation: a fluent description is not a measurement, and a voice interface is not a conversation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Explain why vision is the same call with a new input.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Describe an image and check one claim.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Test counting, small text and spatial detail.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Design a voice loop with turn-taking.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Build an accessibility activity with a privacy and accuracy check.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Vision and voice are input converters around the same call.</li>\n<li>Vision is unreliable for counting, small text and spatial detail.</li>\n<li>Voice adds latency, noise and turn-taking problems.</li>\n<li>Engaging demos still need checks.</li>\n<li>Accessibility is a strong use case.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Described one image</li>\n<li>[ ] Tested three limitations</li>\n<li>[ ] Designed a voice loop</li>\n<li>[ ] Named a privacy question</li>\n<li>[ ] Found an accessibility use</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which vision claim was wrong?</li>\n<li>Where did voice latency appear?</li>\n<li>What would make the activity accessible?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The modules are mapped. The next chapter chooses a project.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-05",
+                "title": "Checkpoint: the modules",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does RAG add to the call?",
+                        "options": [
+                          "A search for relevant text before the prompt",
+                          "A fine-tuned model",
+                          "A larger context window",
+                          "A voice interface"
+                        ],
+                        "answer": 0,
+                        "explanation": "Index once, then fetch and paste evidence into the prompt per question."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What does a citation in a RAG answer prove?",
+                        "options": [
+                          "That a source was attached, not that it supports the claim",
+                          "That the answer is correct",
+                          "That the document is current",
+                          "That the model read the whole document"
+                        ],
+                        "answer": 0,
+                        "explanation": "Check the cited passage. The label is not evidence."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is the tool contract in HandsOnAI?",
+                        "options": [
+                          "A named function with a description, one string input and one string output",
+                          "A class with many methods",
+                          "A database schema",
+                          "A model checkpoint"
+                        ],
+                        "answer": 0,
+                        "explanation": "The model reads the description to decide when and how to use the tool."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the safety boundary for an agent?",
+                        "options": [
+                          "The tool list the harness exposes",
+                          "The model's confidence",
+                          "The prompt length",
+                          "The provider"
+                        ],
+                        "answer": 0,
+                        "explanation": "The model proposes; the harness decides what can run. Treat each tool as a permission."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is the difference between a workflow and a loop?",
+                        "options": [
+                          "A workflow has stages and review gates; a loop repeats until a goal",
+                          "A workflow is automatic; a loop is manual",
+                          "A workflow uses tools; a loop does not",
+                          "There is no difference"
+                        ],
+                        "answer": 0,
+                        "explanation": "The workflow is the line. The loop is the repetition. The judge is the inspector."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is an LLM judge?",
+                        "options": [
+                          "A model asked to score output against criteria",
+                          "A human grader",
+                          "A deterministic test",
+                          "A model that trains another model"
+                        ],
+                        "answer": 0,
+                        "explanation": "A judge is useful but biased and inconsistent. Calibrate it against human marks."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What do vision and voice add?",
+                        "options": [
+                          "Input and output converters around the same call",
+                          "A new kind of intelligence",
+                          "A larger model",
+                          "A database"
+                        ],
+                        "answer": 0,
+                        "explanation": "Images become tokens; speech becomes text and back. The chat shape remains."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "the-projects",
+            "title": "The Projects",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Choose a Project",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The best project is the smallest one that teaches the thing you came to learn.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A project has a difficulty, a time, a module and a learning focus. Choosing well means matching those to the objective, not picking the most impressive demo.</p>\n<p>A useful project brief states:</p>\n<ul>\n<li>the learning objective</li>\n<li>the module</li>\n<li>the difficulty and time</li>\n<li>the inputs and outputs</li>\n<li>the check</li>\n<li>the extension</li>\n<li>the risk</li>\n</ul>\n<p>The project gallery has more than forty options. Most are chat projects, which is useful: chat is the base every other module wraps.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Recipe</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A recipe tells you the dish, the time, the ingredients and the skill. You do not choose a wedding cake for a ten-minute lesson.</p>\n<p>A project brief is a recipe for learning.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Project with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Match Objective to Module</h3>\n<p>Ask the AI to choose from the objective.</p>\n<pre><code class=\"language-text\">My learning objective is: [paste it]\nThe time is: [90 minutes]\nThe students know: [Python basics]\n\nRecommend a HandsOnAI module and project. Explain why it fits, what it\nleaves out and what the student will be able to explain afterwards.\n</code></pre>\n<p>A good answer starts with the objective, not the project list.</p>\n<h3>Exploration 2: Cut the Scope</h3>\n<p>Ask what to remove.</p>\n<pre><code class=\"language-text\">Here is my project idea:\n[paste it]\n\nCut it to the smallest version that still teaches the objective. Name\nthe features to defer and the one check that proves the core works.\n</code></pre>\n<p>The smallest version is the one that fits the lesson.</p>\n<h3>Exploration 3: Find the Risk</h3>\n<p>Ask what could go wrong.</p>\n<pre><code class=\"language-text\">The project uses a model, student data and a chat interface. List the\ntechnical, privacy, cost and assessment risks. For each, name the\nmitigation.\n</code></pre>\n<p>A project plan without risk is a demo plan.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A project brief:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Project: [name]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Objective:</strong>\n<strong>Module:</strong>\n<strong>Difficulty:</strong>\n<strong>Time:</strong>\n<strong>Inputs:</strong>\n<strong>Outputs:</strong>\n<strong>Core check:</strong>\n<strong>Extension:</strong>\n<strong>Risk:</strong>\n<strong>Evidence:</strong>\n```</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Choose one project from the gallery. Write the brief. Cut it to the smallest version. Run the core check.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A project brief makes assessment easier. The student knows what \"done\" means, and the teacher can see whether the objective was met without judging polish.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> Name the four project attributes.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Write a project brief for a chat activity.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Cut a project to its smallest useful version.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Name three risks and mitigations.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Match three objectives to three projects and justify the choices.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Match difficulty, time, module and focus to the objective.</li>\n<li>Start with the objective, not the gallery.</li>\n<li>Cut to the smallest version that teaches the thing.</li>\n<li>Name the core check.</li>\n<li>Plan the risk.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote a project brief</li>\n<li>[ ] Cut the scope</li>\n<li>[ ] Named the core check</li>\n<li>[ ] Named three risks</li>\n<li>[ ] Chose the evidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which project tempted you, and why?</li>\n<li>What did you cut?</li>\n<li>What is the smallest proof?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The project is chosen. The next chapter builds and reviews it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Build and Review",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A project is finished when someone else can run it and explain what it does.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A reliable project has six steps:</p>\n<ol>\n<li><strong>Plan</strong>: the brief, the inputs and the check.</li>\n<li><strong>Scaffold</strong>: the smallest runnable file.</li>\n<li><strong>Implement</strong>: one feature at a time.</li>\n<li><strong>Test</strong>: the core check and one failure.</li>\n<li><strong>Document</strong>: run instructions, inputs, outputs and limits.</li>\n<li><strong>Show</strong>: a short demo and an explanation.</li>\n</ol>\n<p>The review is part of the build. A peer should be able to run the project, read the code and explain the model call.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Workshop</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A maker does not declare a chair finished because it looks like a chair. Someone sits on it. The joints are checked, the instructions are written and the next maker can reproduce it.</p>\n<p>A project review is the sit test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Review with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Plan the Scaffold</h3>\n<p>Ask for the smallest runnable version.</p>\n<pre><code class=\"language-text\">Here is the project brief:\n[paste it]\n\nWrite the smallest runnable scaffold. It should run one prompt and print\nthe result. Name the next feature and the check for it.\n</code></pre>\n<p>A scaffold that does not run is not a scaffold.</p>\n<h3>Exploration 2: Review the Code</h3>\n<p>Ask for a review against the brief.</p>\n<pre><code class=\"language-text\">Here is the project code and brief:\n[paste them]\n\nCheck the code against the brief. Does it meet the objective? Is the\nmodel call visible? Are errors handled? Is the secret outside the code?\nList the gaps in priority order.\n</code></pre>\n<p>The review is not a style opinion. It is a check against the brief.</p>\n<h3>Exploration 3: Test the Demo</h3>\n<p>Ask for a demo script.</p>\n<pre><code class=\"language-text\">Write a three-minute demo script for this project. Include the input,\nthe expected output, one failure and the explanation of the model call.\n</code></pre>\n<p>The demo is evidence of understanding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A review checklist:</p>\n<ul>\n<li>[ ] The project runs from the README</li>\n<li>[ ] The objective is visible</li>\n<li>[ ] The model call is in one place</li>\n<li>[ ] The secret is outside the code</li>\n<li>[ ] One success and one failure are tested</li>\n<li>[ ] The limitation is documented</li>\n<li>[ ] The demo explains the idea</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Build the scaffold. Add one feature. Test the core check. Ask a peer to run it from the README without your help.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The review checklist is the assessment rubric. It rewards understanding, not polish. A small project that runs and explains itself is better than a large one that does not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 9.1 (Level 1).</strong> List the six build steps.</p>\n<p><strong>Exercise 9.2 (Level 2).</strong> Write the smallest runnable scaffold.</p>\n<p><strong>Exercise 9.3 (Level 3).</strong> Test one success and one failure.</p>\n<p><strong>Exercise 9.4 (Level 4).</strong> Review a peer's project against the brief.</p>\n<p><strong>Exercise 9.5 (Level 5).</strong> Write the README and demo script for your project.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Plan, scaffold, implement, test, document and show.</li>\n<li>The review is part of the build.</li>\n<li>A peer must be able to run and explain it.</li>\n<li>Test one success and one failure.</li>\n<li>The demo explains the model call.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the scaffold</li>\n<li>[ ] Added one feature</li>\n<li>[ ] Tested the core check</li>\n<li>[ ] Wrote the README</li>\n<li>[ ] Ran a peer review</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What broke first?</li>\n<li>What did the peer misunderstand?</li>\n<li>What would you cut next time?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The project works. The next chapter maps the gallery.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "The Project Gallery",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The gallery is a menu, not a checklist. Choose one project and finish it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>HandsOnAI ships projects across the modules:</p>\n<ul>\n<li><strong>Chat</strong>: personality bots, quizzes, journals, simulations, games, tutors, converters.</li>\n<li><strong>RAG</strong>: first RAG bot, QA CLI, PDF question answering, hybrid reasoning.</li>\n<li><strong>Agent</strong>: calculator, date tool, unit conversion, custom tool, multi-tool problem solving, evaluation.</li>\n<li><strong>Workflow</strong>: build a pipeline.</li>\n<li><strong>Loop</strong>: improve until good, build a Ralph loop.</li>\n<li><strong>Eval</strong>: judge your bot.</li>\n<li><strong>Vision</strong>: the talking picture.</li>\n<li><strong>Voice</strong>: the world's smallest Pipecat.</li>\n</ul>\n<p>The projects share a template: difficulty, time, learning focus, module, overview, instructions, extensions and assessment.</p>\n<p>The teaching risk is project sprawl. A student who starts five projects finishes none.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Menu</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A menu with forty dishes is not a meal. You choose one, eat it and decide what to try next.</p>\n<p>The gallery is a menu. The lesson is the meal.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Gallery with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose by Objective</h3>\n<p>Ask the AI to shortlist three projects.</p>\n<pre><code class=\"language-text\">Here is the learning objective and the time:\n[paste them]\n\nShortlist three projects from the HandsOnAI gallery that fit. For each,\nname the module, the core check and the reason it fits. Recommend one.\n</code></pre>\n<p>The objective filters the menu.</p>\n<h3>Exploration 2: Compare Difficulty</h3>\n<p>Ask what changes with difficulty.</p>\n<pre><code class=\"language-text\">Compare a beginner chat project with an intermediate agent project.\nExplain the difference in code, concepts, time and assessment. Which\none teaches more per hour for a first course?\n</code></pre>\n<p>More difficulty is not more learning.</p>\n<h3>Exploration 3: Plan the Showcase</h3>\n<p>Ask how to present the project.</p>\n<pre><code class=\"language-text\">Design a five-minute showcase for a project. Include the objective, the\ndemo, one failure, the model call and the reflection. Do not let the\ndemo hide the limitation.\n</code></pre>\n<p>The showcase is an assessment opportunity.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A gallery shortlist:</p>\n<table>\n<thead>\n<tr>\n<th>Project</th>\n<th>Module</th>\n<th>Time</th>\n<th>Core check</th>\n<th>Fit</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Quiz bot</td>\n<td>Chat</td>\n<td>45-60 min</td>\n<td>Score and feedback</td>\n<td>Lists, loops, parsing</td>\n</tr>\n<tr>\n<td>First RAG bot</td>\n<td>RAG</td>\n<td>45 min</td>\n<td>Answer cites a source</td>\n<td>Evidence</td>\n</tr>\n<tr>\n<td>Calculator agent</td>\n<td>Agent</td>\n<td>30-45 min</td>\n<td>Correct calculation via tool</td>\n<td>Tool contract</td>\n</tr>\n<tr>\n<td>Improve until good</td>\n<td>Loop</td>\n<td>45 min</td>\n<td>Goal check and log</td>\n<td>Iteration</td>\n</tr>\n<tr>\n<td>Judge your bot</td>\n<td>Eval</td>\n<td>45 min</td>\n<td>Score and human comparison</td>\n<td>Assessment</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Choose one project. Write the brief, the core check and the showcase plan. Do not start a second project until the first runs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A completed small project is a better portfolio piece than five unfinished ones. The gallery supports choice; the brief creates focus.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 10.1 (Level 1).</strong> Name the project categories.</p>\n<p><strong>Exercise 10.2 (Level 2).</strong> Shortlist three projects for one objective.</p>\n<p><strong>Exercise 10.3 (Level 3).</strong> Compare two projects by learning per hour.</p>\n<p><strong>Exercise 10.4 (Level 4).</strong> Write a showcase plan with a failure.</p>\n<p><strong>Exercise 10.5 (Level 5).</strong> Build one project and map it to three learning objectives.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The gallery covers chat, RAG, agents, workflows, loops, evaluation, vision and voice.</li>\n<li>Projects share a template.</li>\n<li>Choose by objective, not by novelty.</li>\n<li>Finish one project before starting another.</li>\n<li>The showcase is part of the assessment.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Shortlisted three projects</li>\n<li>[ ] Chose one</li>\n<li>[ ] Wrote the core check</li>\n<li>[ ] Planned the showcase</li>\n<li>[ ] Resisted the second project</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which project fits your objective?</li>\n<li>What did you leave out?</li>\n<li>What will you show?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The project is chosen. The next chapter turns it into a lesson.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-04",
+                "title": "The project that grew",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>A student starts a quiz bot. By the second hour it has a database, a\nleaderboard, a login system and three unfinished modules. The core\nquiz does not run. The class ends in twenty minutes. Choose the next\nmove.</p>",
+                    "options": [
+                      {
+                        "id": "cut",
+                        "label": "Cut back to one quiz question, one score and one feedback message, then run the core check",
+                        "outcome": "<p>The student finishes a small working project. The quiz asks a\nquestion, checks the answer and gives feedback. The extensions are\nlisted as future work. The demo runs.</p>",
+                        "effects": {
+                          "Scope": "Small",
+                          "Evidence": "Running",
+                          "Learning": "Visible"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>The best project is the smallest one that teaches the objective.</p>"
+                      },
+                      {
+                        "id": "finish",
+                        "label": "Push on and finish the login system before the demo",
+                        "outcome": "<p>The login system takes the remaining time. The quiz still does not\nrun, and the student cannot demonstrate the learning objective.</p>",
+                        "effects": {
+                          "Scope": "Larger",
+                          "Evidence": "Missing",
+                          "Learning": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Finishing the wrong feature is not progress.</p>"
+                      },
+                      {
+                        "id": "demo",
+                        "label": "Demo the design and explain what it would do",
+                        "outcome": "<p>The idea is clear and the code is not. The assessment cannot tell\nwhether the student can build the model call or test the result.</p>",
+                        "effects": {
+                          "Story": "Good",
+                          "Evidence": "None",
+                          "Learning": "Unproven"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A design is not a working project. Show one real check.</p>"
+                      },
+                      {
+                        "id": "new",
+                        "label": "Start a simpler project from the gallery and abandon the quiz bot",
+                        "outcome": "<p>The student starts again with twenty minutes left. The new project\nis also unfinished, and the first attempt is lost.</p>",
+                        "effects": {
+                          "Scope": "Reset",
+                          "Time": "Wasted",
+                          "Learning": "Shallow"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Cut the current project before replacing it.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Cut to the core check, run it, document the extension and show the\nmodel call. A finished small project beats an unfinished large one.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "slug": "the-classroom",
+            "title": "The Classroom",
+            "lessons": [
+              {
+                "id": "04-01",
+                "title": "Teach with the Lab",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A lesson plan is a sequence of questions, not a tour of features.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>HandsOnAI supports three teaching shapes:</p>\n<ul>\n<li><strong>Guided tour (1 hour)</strong>: demonstrate the shape, run one module, discuss the limits.</li>\n<li><strong>Mini-project workshop (2-3 hours)</strong>: plan, build, test and show one project.</li>\n<li><strong>Multi-week unit</strong>: chat, then RAG or agents, then a project and a showcase.</li>\n</ul>\n<p>The lesson plan names:</p>\n<ul>\n<li>the learning objective</li>\n<li>the prior knowledge</li>\n<li>the demonstration</li>\n<li>the student task</li>\n<li>the check</li>\n<li>the discussion</li>\n<li>the extension</li>\n</ul>\n<p>A live demo can fail. That is a teaching opportunity if the failure is predictable and the fallback is ready.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Cooking Class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A cooking class does not show forty recipes. It teaches one technique, demonstrates it, lets the students cook and tastes the result together.</p>\n<p>The technique is the objective. The recipe is the project. The tasting is the assessment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Lesson with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Write the Objective</h3>\n<p>Ask the AI to start with what students will be able to explain.</p>\n<pre><code class=\"language-text\">Write a learning objective for a 90-minute HandsOnAI lesson. The students\nknow Python basics. The objective must be observable in a short demo or\nexplanation, not a vague appreciation of AI.\n</code></pre>\n<p>A good objective uses a verb: explain, build, test, compare.</p>\n<h3>Exploration 2: Plan the Flow</h3>\n<p>Ask for a timed sequence.</p>\n<pre><code class=\"language-text\">Turn this objective into a 90-minute lesson. Include the demonstration,\nthe student build, the check, the discussion and the buffer. Mark where\nthe model might fail and what the fallback is.\n</code></pre>\n<p>The buffer is part of the plan.</p>\n<h3>Exploration 3: Differentiate</h3>\n<p>Ask for three levels.</p>\n<pre><code class=\"language-text\">The class has beginners, students with some Python and a few advanced\nstudents. Adapt the same project for each group without changing the\nobjective. Name the extension for the advanced group.\n</code></pre>\n<p>The objective stays; the scaffold changes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A 90-minute lesson:</p>\n<table>\n<thead>\n<tr>\n<th>Time</th>\n<th>Activity</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>10</td>\n<td>Hook and objective</td>\n<td>Students can restate the goal</td>\n</tr>\n<tr>\n<td>15</td>\n<td>Demo one module</td>\n<td>Students see input and output</td>\n</tr>\n<tr>\n<td>15</td>\n<td>Plan the project</td>\n<td>Brief and core check</td>\n</tr>\n<tr>\n<td>30</td>\n<td>Build</td>\n<td>Running scaffold</td>\n</tr>\n<tr>\n<td>10</td>\n<td>Test and peer review</td>\n<td>One success and one failure</td>\n</tr>\n<tr>\n<td>10</td>\n<td>Showcase and discussion</td>\n<td>Explanation and limitation</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write a 90-minute lesson for one project. Include the demo, the build, the check, the discussion and the fallback. Run the demo once before class.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lesson is not the tool. The tool is the example. The objective, the check and the discussion are what the students take away.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 11.1 (Level 1).</strong> Name the three teaching shapes.</p>\n<p><strong>Exercise 11.2 (Level 2).</strong> Write one observable objective.</p>\n<p><strong>Exercise 11.3 (Level 3).</strong> Plan a 90-minute flow.</p>\n<p><strong>Exercise 11.4 (Level 4).</strong> Adapt the same project for three levels.</p>\n<p><strong>Exercise 11.5 (Level 5).</strong> Run the lesson and revise the timing from evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Teach a sequence of questions, not a feature tour.</li>\n<li>Name the objective, task, check and discussion.</li>\n<li>Use the 1-hour, workshop or multi-week shape.</li>\n<li>Prepare a fallback for a demo failure.</li>\n<li>Differentiate the scaffold, not the objective.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote an observable objective</li>\n<li>[ ] Planned the flow</li>\n<li>[ ] Prepared the fallback</li>\n<li>[ ] Adapted for three levels</li>\n<li>[ ] Tested the demo</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which part of the lesson took longest?</li>\n<li>Where did the demo fail?</li>\n<li>What did the students explain well?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lesson runs. The final chapter assesses it and keeps it safe.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-02",
+                "title": "Assess, Disclose and Keep It Safe",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Assessment should reward understanding, not the polished output of a model.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A HandsOnAI project can be assessed through:</p>\n<ul>\n<li><strong>Portfolio</strong>: the project, the code and the README.</li>\n<li><strong>Demonstration</strong>: a short run and an explanation.</li>\n<li><strong>Reflection</strong>: what the student learned about the model's limits.</li>\n<li><strong>Peer review</strong>: whether another student can run and explain it.</li>\n<li><strong>Test evidence</strong>: one success and one failure.</li>\n</ul>\n<p>The assessment should make the model call visible. A student who cannot explain the call has not learned the module.</p>\n<p>AI use also needs a policy:</p>\n<ul>\n<li><strong>Disclosure</strong>: when and how AI was used.</li>\n<li><strong>Privacy</strong>: what data may be sent to which provider.</li>\n<li><strong>Cost</strong>: who pays and what the limit is.</li>\n<li><strong>Accessibility</strong>: whether the tool works for every student.</li>\n<li><strong>Academic integrity</strong>: which tasks must be the student's own.</li>\n<li><strong>Safety</strong>: what the bot may not do.</li>\n</ul>\n<p>A local model is easier to approve for sensitive material. A hosted model needs a contract and a data review.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Driving Test</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A driving test does not reward the smoothest passenger. It checks whether the driver can handle the car, the rules and an unexpected event.</p>\n<p>A project assessment checks whether the student can run the project, explain the model call and handle a failure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Assessment with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Rubric</h3>\n<p>Ask the AI to turn the objective into a rubric.</p>\n<pre><code class=\"language-text\">Here is the project objective and the core check:\n[paste them]\n\nWrite a four-level rubric for understanding, evidence, explanation and\nresponsible use. Do not reward polish over understanding.\n</code></pre>\n<p>A good rubric names what the student can explain.</p>\n<h3>Exploration 2: Write the Disclosure</h3>\n<p>Ask for a student-facing AI-use statement.</p>\n<pre><code class=\"language-text\">Write a short AI-use disclosure for a HandsOnAI project. Include which\ntools were used, what they helped with, what was checked and what the\nstudent wrote themselves.\n</code></pre>\n<p>Disclosure is a habit, not a punishment.</p>\n<h3>Exploration 3: Check the Data</h3>\n<p>Ask what leaves the room.</p>\n<pre><code class=\"language-text\">The project sends student text to a model. List the privacy, cost and\naccessibility questions the instructor must answer before the lesson.\nInclude local versus hosted, retention and consent.\n</code></pre>\n<p>A classroom activity is a data-processing decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An assessment record:</p>\n<table>\n<thead>\n<tr>\n<th>Element</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Objective</td>\n<td>Brief and demo</td>\n</tr>\n<tr>\n<td>Core check</td>\n<td>Test output</td>\n</tr>\n<tr>\n<td>Explanation</td>\n<td>Student describes the model call</td>\n</tr>\n<tr>\n<td>Failure</td>\n<td>One tested failure</td>\n</tr>\n<tr>\n<td>Responsible use</td>\n<td>Disclosure and data policy</td>\n</tr>\n<tr>\n<td>Reflection</td>\n<td>What the model cannot do</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write the rubric, the disclosure statement and the data policy for your lesson. Ask one student or colleague to explain the model call without notes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Assessment is the last chance to teach. The rubric tells students what matters: understanding, evidence and responsible use, not a fluent final answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 12.1 (Level 1).</strong> Name four assessment methods.</p>\n<p><strong>Exercise 12.2 (Level 2).</strong> Write a four-level rubric.</p>\n<p><strong>Exercise 12.3 (Level 3).</strong> Write an AI-use disclosure.</p>\n<p><strong>Exercise 12.4 (Level 4).</strong> Answer the privacy, cost and accessibility questions for your class.</p>\n<p><strong>Exercise 12.5 (Level 5).</strong> Run the assessment and compare the rubric with the student's explanation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Assess understanding, not polish.</li>\n<li>Use a portfolio, demo, reflection, peer review and test evidence.</li>\n<li>Disclose AI use.</li>\n<li>Decide the data, cost and accessibility policy.</li>\n<li>A local model is easier to approve for sensitive material.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the rubric</li>\n<li>[ ] Wrote the disclosure</li>\n<li>[ ] Answered the data questions</li>\n<li>[ ] Checked accessibility</li>\n<li>[ ] Ran the explanation check</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which assessment caught the most understanding?</li>\n<li>What did the disclosure reveal?</li>\n<li>What data decision was hardest?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The course is assessed. The appendices collect the module map, the project template and the classroom checklist.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-03",
+                "title": "Checkpoint: teach and assess",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What should a lesson plan start with?",
+                        "options": [
+                          "An observable learning objective",
+                          "A list of features",
+                          "The model leaderboard",
+                          "The final project"
+                        ],
+                        "answer": 0,
+                        "explanation": "The objective is the technique. The project is the recipe. The assessment is the tasting."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the 1-hour guided tour?",
+                        "options": [
+                          "A demonstration, one hands-on modification and a discussion",
+                          "A full multi-week project",
+                          "A lecture with no computer",
+                          "A production deployment"
+                        ],
+                        "answer": 0,
+                        "explanation": "The guided tour introduces the shape without covering every module."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What should an assessment reward?",
+                        "options": [
+                          "Understanding, evidence and responsible use, not polish",
+                          "The longest README",
+                          "The most features",
+                          "The most confident demo"
+                        ],
+                        "answer": 0,
+                        "explanation": "A student who can explain the model call has learned the module."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What should an AI-use disclosure include?",
+                        "options": [
+                          "Which tools were used, what they helped with, what was checked and what the student wrote",
+                          "Only the model name",
+                          "Nothing",
+                          "The API key"
+                        ],
+                        "answer": 0,
+                        "explanation": "Disclosure is a habit, not a punishment."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What data question must a classroom answer?",
+                        "options": [
+                          "What data goes to which provider, how long it is kept and who can see it",
+                          "Only the model size",
+                          "Only the price",
+                          "Only the licence"
+                        ],
+                        "answer": 0,
+                        "explanation": "A local model is easier to approve for sensitive material. A hosted model needs a contract and a review."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is the best evidence of understanding?",
+                        "options": [
+                          "A short demo and an explanation of the model call",
+                          "A polished slide deck",
+                          "A large codebase",
+                          "A high model score"
+                        ],
+                        "answer": 0,
+                        "explanation": "The demonstration and explanation show whether the student can run and justify the work."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What should happen after the lesson?",
+                        "options": [
+                          "Record what failed, revise the plan and remove keys and student data",
+                          "Delete the repository",
+                          "Publish the keys",
+                          "Start a bigger project"
+                        ],
+                        "answer": 0,
+                        "explanation": "The after-class review is how the next run improves."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
