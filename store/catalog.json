@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T14:45:02+00:00",
+  "updatedAt": "2026-11-06T21:55:23+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "eb36bbdc592dc49587099d0827d75cc03cd0e5aed95611b7df67d7891d014e48",
+      "sha256": "0da9471eda1c078441a58c150e57b540686e61e5e8143a4427bd3deb546aeb9e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "5woMAkUWq00dSVkBAI0SraXaBCfcLhXwrI2+r8nVNZ4VG0G/f/vrCaye4NjOi3EjtM+MPefuzxdvQslV49CADA==",
+      "signature": "vl1MjYPIxz200twnZ00O65VbgAtCHDiErRamUt3TLzMM/21tBfvmioFey0fEsKncZfZse+4PukoslJgRIaKjBQ==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "72f27d33075df3fadd8b30d929fb95b88e33ad9b3ef98e44b0adcc217836cff8",
+      "sha256": "9d3b3e28394880cb2e3d13f4241da3e50a1d2580ad31f32524dc630597e60db3",
       "keyId": "c72e49ccf7055c89",
-      "signature": "rqaGbi+IM3G6IwEdrZw4Ot1cVL3Q7xlGEV1uGjoDE0J2nGp262i/BlzvZ45PWoBo6Rhp3aqSvuXX1mWMnfq4Cg==",
+      "signature": "U1RL45KujJsz7TabgtDkePJ9N1IJ6WWrqiuH/P3X7tGLwIIeqUQxAfe1WH+KRY9HTegkHXv3zTaNVZ2N+ytKAw==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "d156a1ee1038cc1a2051a3ea333aba79d26d7b8618fbd17bb1dc56d4df35cd29",
+      "sha256": "71c53ee0a5eb92565be7194b5e12c098de95417e6746e7b255f8ae7cc15709c4",
       "keyId": "c72e49ccf7055c89",
-      "signature": "iKbyQtB9MuUwDIUmrPkjXxe9ksUghf6o8QpIfu5vC23GeDWG9mxw91YOzmRqVpmDAxJmDdToacYCp7b32el7Cw==",
+      "signature": "2hoXuRmFUiy1agZNza/zH1WosND/QgDesYCCAhj+LTuocUOGNjsekNQR66nqaRClQmnq8KV7wYnPF9OLCpN+Dg==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "fade9c5e9f0391229c54f200d15ddd1c50d1a8699d4410aec1dd5afdec61d183",
+      "sha256": "2a352a6d1d1b413ee77416145c0bcccc53a99d0745b655a7b268eb492185a92d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "vGNIbgoNKU4UQkCj9V+DdNRfWwOQ6CDHRs30wHR6p1c67wNLcdE8/TzQwW3Kdl5i11mjt+CSqDN1XuKBq2nTBQ==",
+      "signature": "zeqgDoMkELrlsv/9Tt19JAEWGXvdir8CL9Wmxyq3Y+eHmbjyiuDEXEUleamTVSOvR0eiiPW4NVhi3OzCQOvYAg==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "067e85ee18bdda620a57f9f779c401d26eb1192430ad11688202d45784ef065a",
+      "sha256": "2923dc5595de3d98510d016c03e16bdbf4ed8d95fc477ea9b2d01b81ea868b63",
       "keyId": "c72e49ccf7055c89",
-      "signature": "mwvu67R1+UfvwPBeXIwYMTnF3gBU5XwACMcLqyVI+L+peZ9ZaC2dbjzyNXuUTY6OyaGHrZOXpjKs5C/CLq+pAw==",
+      "signature": "juA2PRJrNE+AwTYQCVsvPgp/hy8gt3wD1+Lht9vBfDdPjrwFTE1jLS9JD+NgC3cAHq9cTeSFyzO++fGKed1rCw==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "56db9c03f89eb95a892a3a87399179870fa5936fb4ecbbf9632b867cb274ea18",
+      "sha256": "e23ca1d6965faa28d55462f073694b172ac1d99ccfbd5dc82aefaca91b95068d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "gKrSro8pjXokadcUNG5seQuwc9RZRe5Y6wm5z3O3K1TuFN+rEXdreCa0P+ghZNuHBgi0gJRURyLz5e3GDiSJCw==",
+      "signature": "y2/Dbc8Ms4mnbm0fsUseBEkwsFCw/wU5j/FRspblzjAEJCvQ4hZJmyC3TNoYPCUtmtJJV3QOxK4GU0G8KKTCAw==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,9 +164,9 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "d6fe5d1ffd6b569babe96048a9ab76f3644028882401a79b57ad066dff384a33",
+      "sha256": "2d086beeccab67780afc86639287e6954a395ebb02f46a78e3ee7565ab4c102b",
       "keyId": "c72e49ccf7055c89",
-      "signature": "p+DUdlrmYyQC/bqwodGau05mQMCiC4xlE8wcViGGwhF/eGXgYw9xSeyH0u3bOz/vpd3OoMXoSw4W/X/Qqjo0Bg==",
+      "signature": "STwAItPsFmpVKVhWVdd7n07zKoqFs7LoT3GtpKfQfmV+qdHnz/NevLS4Mau7T8eK5qsPLnEdy8qYNv9c465vBQ==",
       "url": "packs/systems-analysis-and-design.json"
     },
     {
@@ -187,9 +187,9 @@
       "courses": 1,
       "lessons": 11,
       "size": 108882,
-      "sha256": "11722e9240b79f7651fc272f6ebb6bdbe507b45069dc6a4e06f7d7ccadfcc14a",
+      "sha256": "565554f2f096e9c7ad526f9599ec9f3d620796f9fbef90730a815f32c2012a1a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "QQ+O1WSp/N0MCGvnoPqZ8do8YmwqrYMhnf7srXq4F5yXvTO+DlvKIn0IKJ4KH7j2vaHCzVED4D1owndtwfBbAA==",
+      "signature": "kbKTzRnS3pUj8AesDOjMJRyzo1aLCEhoKBD6qDwVdOkxHasb8toBwEqutyDPKnYm1huD/nUkL7u/lE4A4r8wDg==",
       "url": "packs/follow-the-trace.json"
     },
     {
@@ -211,9 +211,9 @@
       "courses": 1,
       "lessons": 15,
       "size": 131881,
-      "sha256": "9a63aa94ee26bcb91fed5617167fab451eac2ace03d2da85f68693ed1d6c574c",
+      "sha256": "70ad341814af5a62a1f8f066a4b616a5f9fcd259d85c17f84d54f885da4ca34d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "fV/fTEfIy6sSbC+BKvKU24CRhq/QcFHVSeW6tlWlAwv4ryd0i2L0BS8RV3W/06mOrVFlkWkmT5qQpKO7FCKhAw==",
+      "signature": "76OVsjpaz0d5zruLP/uwsfrh1/oNEln/a4/Ro+CifB5HkgqSWltT/IB6Og11zf5A+D9LjrbmrqJghfrJg77MBw==",
       "url": "packs/the-human-edge.json"
     },
     {
@@ -235,10 +235,34 @@
       "courses": 1,
       "lessons": 11,
       "size": 106711,
-      "sha256": "2f4fefcfd4dfaf0ef05220e5349f4d624d1f1c565449a59d754d2bc5d8cd7c86",
+      "sha256": "88f38ca84f3621eba06db6713f5b4c30cbfd7c3217b01ff861e219a390040b4e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "PJlOvZhw2MJk4IVhkmol1CJHvWfRrKZNwhgXwtAGvqv4iHXtAXUox7wmcEk6b+EytpiDkontovo+QOnsnwxgCQ==",
+      "signature": "kBk+IkA784mL0V7UPBTROHIzCj6rYrZGEpd549bsWfqdodAuWZyo5rTD5eQSNUcX58WolFpmlp+8sf+K996XDA==",
       "url": "packs/test-the-claim.json"
+    },
+    {
+      "id": "substantiate-dont-assume",
+      "title": "Substantiate, Don't Assume: Why the Auditor's Opinion Matters More Than Ever in the Age of AI",
+      "description": "Test the claim, weigh the evidence and form a defensible audit opinion.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "storybook",
+      "tags": [
+        "audit",
+        "assurance",
+        "risk",
+        "evidence",
+        "ai"
+      ],
+      "level": "intermediate",
+      "courses": 1,
+      "lessons": 16,
+      "size": 217625,
+      "sha256": "6c03116468e0e5d691250051db527a7fb742a1ccc74a5a99d15c7df6917775d0",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "ty9iB2oCZpPWeNxB+jWg50FXBF0Id8iq7nv3o53I9fxRSFzh4nHI+0z2vKRgN+r/qpzs8T0BOZ+EwuMuvJ33Aw==",
+      "url": "packs/substantiate-dont-assume.json"
     }
   ]
 }
