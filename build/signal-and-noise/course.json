@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-06T11:23:26+00:00",
+  "generated_at": "2026-11-06T11:33:33+00:00",
   "unit": {
     "slug": "signal-and-noise",
     "title": "Signal & Noise: An Enterprise Systems Field Guide",
@@ -26,7 +26,7 @@
       "lessons": [
         {
           "id": "01-01",
-          "title": "Enterprise technology estates and working with AI",
+          "title": "The estate as layers",
           "kind": "reading",
           "xp": 10,
           "blocks": [
@@ -37,22 +37,6 @@
             {
               "type": "html",
               "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Describe the layers of an enterprise technology estate and where the CloudCore service pod sits.</li>\n<li>Explain the five habits of working with AI: predict, ask with context, verify, challenge and decide.</li>\n<li>Provision an Ubuntu Server host and explain the choices behind the install.</li>\n<li>Record the first conversation log and the host build evidence.</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
             },
             {
               "type": "html",
@@ -72,84 +56,20 @@
             },
             {
               "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Start with the <a href=\"resources/install-simulation.html\">install simulation</a>, or open the\n<a href=\"\">online simulation</a>. It walks through the virtual hardware, the\nUEFI setup, the boot menu and the Ubuntu Server installer. The installer is simulated. The\nreal host is an Ubuntu container shell, and the estate runs in containers.</p>\n<p>Then follow the <a href=\"https://github.com/michael-borck/enterprise-estate-labs/blob/main/modules/module-00-setup/README.md\">environment setup</a>,\ndownload the lab pack, and run:</p>\n<pre><code class=\"language-bash\">./start.sh host\n./start.sh m03\n</code></pre>\n<p>The host shell is where you do the OS work. The estate is the CloudCore service pod.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The build record from the simulation, with the choices you made.</li>\n<li>The first commands on the host: OS release, kernel, disk, memory and address.</li>\n<li>The package installation, user creation and <code>sudo</code> test.</li>\n<li>The first estate state running, with the web tier reachable.</li>\n<li>Your first annotated conversation log: one place AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The business decision</h2>"
             },
             {
               "type": "html",
               "html": "<p>David Wilson, the Cloud Infrastructure Architect, needs a host that can be rebuilt. Decide:</p>\n<ol>\n<li>Which Ubuntu release and why.</li>\n<li>The host size: CPU, memory and disk.</li>\n<li>The network choice: DHCP or a static address.</li>\n<li>What you install at build time and what you leave for later.</li>\n</ol>\n<p>State the cost, the risk and the rebuild path. Record it in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 2 looks inside the host: the kernel, user space, system calls, services and\nconfiguration. You will use the same host all semester. The container estate grows on top\nof it, one layer at a time.</p>"
             }
           ]
         },
         {
           "id": "01-02",
-          "title": "Workshop: Provision the CloudCore host",
+          "title": "Inspect the host",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer portal pod</p>\n<p>We are standing up the first CloudCore customer portal pod. I need a clean Ubuntu host,\nan administrative account, and the first service state running. Record the choices so we\ncan rebuild it later.</p>\n<p>Do not hand me a screenshot of a finished machine. I need to know why it is that machine.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Provision an Ubuntu Server host, record the install decisions, and bring up the first\nCloudCore estate state. By the end of the session you will have a host shell, a build\nrecord, and the web tier running.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Install Docker or Podman using the\n<a href=\"https://github.com/michael-borck/enterprise-estate-labs/blob/main/modules/module-00-setup/README.md\">environment setup guide</a>.\nThe launcher finds whichever engine you installed. You do not need to choose one.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 1: The install simulation</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Open the <a href=\"resources/install-simulation.html\">install simulation</a>. Work through the screens:</p>\n<ol>\n<li>Choose the Ubuntu release.</li>\n<li>Choose the network and hostname.</li>\n<li>Choose the storage layout.</li>\n<li>Create the administrative user.</li>\n<li>Enable SSH and choose the package set.</li>\n<li>Review the build record and download it.</li>\n</ol>\n<p>If you make a choice the installer would reject, the simulation explains why. Read the\nfeedback and fix it. Keep the build record; it is evidence.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 2: Start the host</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Download the lab pack and open the host shell:</p>\n<pre><code class=\"language-bash\">git clone https://github.com/michael-borck/enterprise-estate-labs.git\ncd enterprise-estate-labs\n./start.sh host\n</code></pre>\n<p>The first run builds a small Ubuntu image. You are the <code>student</code> user. The default <code>sudo</code>\npassword is <code>cloudcore</code>. Change it:</p>\n<pre><code class=\"language-bash\">passwd\n</code></pre>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 3: Inspect the host</h2>"
@@ -157,54 +77,112 @@
             {
               "type": "html",
               "html": "<p>In the host shell, record what you are running:</p>\n<pre><code class=\"language-bash\">cat /etc/os-release\nuname -r\ndf -h\nfree -h\ncat /sys/fs/cgroup/memory.max\ncat /sys/fs/cgroup/cpu.max\nip -brief addr\n</code></pre>\n<p>Answer:</p>\n<ol>\n<li>Which Ubuntu release is this?</li>\n<li>Which kernel is it using? Is it the same kernel as the machine running the container?</li>\n<li>How much memory does <code>free -h</code> show? What does <code>/sys/fs/cgroup/memory.max</code> show? Why are they different?</li>\n<li>How much disk does it see? Is it the 20 GB from the simulation?</li>\n<li>Which interface has an address, and what is the address?</li>\n<li>What does the difference between the simulation and the host tell you about what the simulation covers?</li>\n</ol>\n<p><code>free</code> reads <code>/proc/meminfo</code>, which is not namespaced, so it can show the host's memory. The\ncgroup file shows the container's actual limit. The lab host is fixed at 2 GB and 2 CPUs.\nThe simulation is where you make the sizing decision. The host's root filesystem is the\ncontainer runtime's storage, not a 20 GB block device.</p>\n<p>Install a tool and create a user:</p>\n<pre><code class=\"language-bash\">sudo apt update\nsudo apt install -y tree\nsudo adduser teammate\nsudo groupadd cloudcore-ops\nsudo usermod -aG cloudcore-ops teammate\nid teammate\n</code></pre>\n<p>Record what changed and why.</p>\n<p><strong>Predict before you act:</strong> what will <code>id teammate</code> show after the <code>usermod</code>? Write it down,\nthen run the command and compare.</p>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "01-03",
+          "title": "Checkpoint: the host and the estate",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 4: Start the estate</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "Which layer sits directly above the operating system in the estate?",
+                  "options": [
+                    "The service runtime, such as Docker or Podman",
+                    "The laptop",
+                    "Identity and access",
+                    "Storage backups"
+                  ],
+                  "answer": 0,
+                  "explanation": "The runtime runs on the OS and hosts the service containers."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What does the install simulation cover that the host shell does not?",
+                  "options": [
+                    "Hardware sizing and install choices",
+                    "Kernel scheduling",
+                    "Container networking",
+                    "The customer portal"
+                  ],
+                  "answer": 0,
+                  "explanation": "The simulation is for the build decision. The real host is a fixed 2 GB, 2 CPU Ubuntu container."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "Why can `free -h` show more memory than `/sys/fs/cgroup/memory.max`?",
+                  "options": [
+                    "`/proc/meminfo` is not namespaced, so it can show the host view",
+                    "`free` rounds up to the nearest gigabyte",
+                    "The cgroup file is always wrong",
+                    "The container has no memory limit"
+                  ],
+                  "answer": 0,
+                  "explanation": "The cgroup file is the enforceable container limit. `free` reads the host view."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "Which list is the five AI habits in this module?",
+                  "options": [
+                    "Predict, ask with context, verify, challenge, decide",
+                    "Prompt, copy, paste, trust, ship",
+                    "Install, configure, restart, log, forget",
+                    "Search, summarise, generate, accept, deploy"
+                  ],
+                  "answer": 0,
+                  "explanation": "The habit is to predict first, give context, verify against the host, challenge the answer and make the decision yourself."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "What makes a host rebuildable?",
+                  "options": [
+                    "Recorded choices, a build record and a repeatable build path",
+                    "A long uptime",
+                    "A single administrator password",
+                    "Disabling logging"
+                  ],
+                  "answer": 0,
+                  "explanation": "A rebuild is only possible when the choices and the path are recorded, not remembered."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What is the difference between the host and the estate?",
+                  "options": [
+                    "The host is the Ubuntu machine; the estate is the service layer running on it",
+                    "The host is Docker; the estate is Ubuntu",
+                    "The host is the network; the estate is storage",
+                    "They are the same thing with different names"
+                  ],
+                  "answer": 0,
+                  "explanation": "The host is the base. The estate is the services, network, storage and identity on top."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01-04",
+          "title": "Build order",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>In a second terminal, from the lab pack:</p>\n<pre><code class=\"language-bash\">./start.sh m03\n./start.sh status\n./start.sh console\n</code></pre>\n<p>Inside the tools container:</p>\n<pre><code class=\"language-bash\">curl http://web/\n</code></pre>\n<p>You should see the CloudCore estate page. The host shell is the Ubuntu machine. The estate\nis the service layer on the same container runtime.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 5: The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>David needs a host that can be rebuilt. Write a short decision record:</p>\n<table>\n<thead>\n<tr>\n<th>Choice</th>\n<th>What you chose</th>\n<th>Why</th>\n<th>Cost or risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Release</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Host size</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Network</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Build-time packages</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Rebuild path</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>State what you would change if the pod had to run ten times the traffic.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The build record from the simulation.</li>\n<li>The host commands and output from Part 3.</li>\n<li>The <code>id teammate</code> result and your prediction.</li>\n<li>The estate web page from Part 4.</li>\n<li>The decision record from Part 5.</li>\n<li>One place where AI was wrong, vague or over-confident. Record the claim, the check and\n  the correction.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"What is the difference between a virtual machine and a container, and which one is the\n  CloudCore host?\"</li>\n<li>\"A server has 2 GB of RAM and runs a web tier, a database and a reverse proxy in\n  containers. Is that enough? What would you measure?\"</li>\n<li>\"Where does the container get its kernel from, and what does that mean for the host?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about the boot process and\n  the kernel?\"</li>\n</ul>\n<p>If the AI says a container is a small virtual machine, ask it to name the kernel the\ncontainer is using. Record the correction.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>What did the simulation hide, and what did the host shell show?</li>\n<li>What can you do on the host that you cannot do inside a container?</li>\n<li>Why does the unit use containers for the services instead of installing them directly?</li>\n<li>What would you put in the build record so another engineer could rebuild the host?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Then <code>exit</code> from the host shell. The host's home directory is kept. To start it clean:</p>\n<pre><code class=\"language-bash\">./start.sh host reset\n</code></pre>"
+              "type": "order",
+              "prompt": "<p>Put the install decisions in the order you would make them in the simulation.</p>",
+              "items": [
+                "Choose the Ubuntu release",
+                "Choose the network and hostname",
+                "Choose the storage layout",
+                "Create the administrative user",
+                "Enable SSH and choose the package set",
+                "Review the build record"
+              ],
+              "explanation": "<p>The release and the network identity come first, then storage, the admin user,\nremote access and the package set. Review the record before you build.</p>"
             }
           ]
         }
@@ -217,7 +195,7 @@
       "lessons": [
         {
           "id": "02-01",
-          "title": "Operating system structure",
+          "title": "Kernel, services and logs",
           "kind": "reading",
           "xp": 10,
           "blocks": [
@@ -228,22 +206,6 @@
             {
               "type": "html",
               "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain the kernel and user space and how a system call crosses the boundary.</li>\n<li>Explain how a service is defined, started, stopped, supervised and logged.</li>\n<li>Read a configuration file and a log to diagnose a service fault.</li>\n<li>Compare the container's supervisor model with systemd on a real Linux host.</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
             },
             {
               "type": "html",
@@ -268,79 +230,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> heartbeat</p>\n<p>The heartbeat service stopped writing and nobody noticed. That is the real problem. I need\nto know why it stopped, how we would have caught it, and how we should run it on a real\nhost and in the container.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>The lab uses the host shell. Follow the activity, then bring the evidence into your\nportfolio.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The service status before and after the change.</li>\n<li>The configuration file and the log.</li>\n<li>The fault, the failed state and the fix.</li>\n<li>Your explanation of why <code>reread</code> and <code>update</code> are both needed.</li>\n<li>Your recommendation for how CloudCore should run the service.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>David needs a service model, not a one-off repair. Choose one:</p>\n<ol>\n<li>systemd on a real Linux host.</li>\n<li><code>supervisord</code> in the container.</li>\n<li>The container runtime's restart policy.</li>\n<li>Manual start with a runbook.</li>\n</ol>\n<p>State who owns the service, what restarts it, how you would know it failed, and what happens\nat 3am. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 3 follows the process into the kernel: CPU scheduling, virtual memory, cgroups and\ncontainers. The service model from this week is the base for the container health checks and\nresource limits you will see there.</p>"
             }
           ]
         },
         {
           "id": "02-02",
-          "title": "Workshop: Inside the host and the heartbeat service",
+          "title": "Read the service trail",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> heartbeat</p>\n<p>The heartbeat service stopped writing and nobody noticed. That is the real problem. I need\nto know why it stopped, how we would have caught it, and how we should run it on a real\nhost and in the container.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Look inside the host: the kernel boundary, the process, the service, the configuration and\nthe log. Break the heartbeat service, diagnose it, fix it, and recommend a service model.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh host\nsudo supervisord -c /etc/supervisor/supervisord.conf\nsudo supervisorctl status\n</code></pre>\n<p>The heartbeat should be <code>RUNNING</code>. If it is not, check the supervisor and the config before\nyou change anything.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>What does <code>supervisorctl status</code> show when the service is healthy?</li>\n<li>What happens to the log when you stop the service?</li>\n<li>What happens if the command path in the config is wrong?</li>\n<li>What do <code>reread</code> and <code>update</code> each do?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: The kernel boundary</h2>"
@@ -372,46 +270,111 @@
             {
               "type": "html",
               "html": "<p>Edit the config again and change the command to a path that does not exist:</p>\n<pre><code class=\"language-ini\">command=/usr/local/bin/heartbeat-missing.sh\n</code></pre>\n<p>Apply the change:</p>\n<pre><code class=\"language-bash\">sudo supervisorctl reread\nsudo supervisorctl update\nsudo supervisorctl status\n</code></pre>\n<ol>\n<li>What state is the service in?</li>\n<li>What does the supervisor log say?</li>\n</ol>\n<pre><code class=\"language-bash\">sudo tail -n 20 /var/log/supervisor/supervisord.log\n</code></pre>\n<ol start=\"3\">\n<li>Fix the command path. Apply the change again. Confirm <code>RUNNING</code>.</li>\n<li>What would you monitor so this failure is caught before a person reports it?</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "02-03",
+          "title": "Checkpoint: boundary, supervisor, evidence",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 5: The service model</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What is the difference between the kernel and user space?",
+                  "options": [
+                    "The kernel is privileged and manages hardware; user space runs services and applications",
+                    "The kernel runs in the browser; user space runs on the host",
+                    "User space is privileged; the kernel is optional",
+                    "They are the same layer with different names"
+                  ],
+                  "answer": 0,
+                  "explanation": "The kernel schedules, manages memory and talks to hardware. User space is where services and shells run."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What is a system call?",
+                  "options": [
+                    "The controlled boundary where user space asks the kernel to do something",
+                    "A function that runs only in JavaScript",
+                    "A network protocol",
+                    "A file permission"
+                  ],
+                  "answer": 0,
+                  "explanation": "A process cannot touch hardware directly. It asks the kernel through a system call."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What is PID 1 in a container?",
+                  "options": [
+                    "The first user-space process, usually the container's main process",
+                    "The kernel process",
+                    "The first login shell",
+                    "The supervisor's log file"
+                  ],
+                  "answer": 0,
+                  "explanation": "PID 1 is the main process. It has special signal and reaping responsibilities."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What does `supervisorctl reread` do?",
+                  "options": [
+                    "Reads changed configuration files without applying them yet",
+                    "Restarts every service",
+                    "Deletes the supervisor log",
+                    "Changes the kernel version"
+                  ],
+                  "answer": 0,
+                  "explanation": "`reread` notices changes. `update` applies them, including restarts."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "A service points at a command that does not exist. What should you read first?",
+                  "options": [
+                    "The supervisor state and the supervisor log",
+                    "The browser cache",
+                    "The DNS zone file",
+                    "The host's CPU temperature"
+                  ],
+                  "answer": 0,
+                  "explanation": "The state tells you it failed; the log tells you why."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What should you monitor so a stopped heartbeat is caught before a person reports it?",
+                  "options": [
+                    "Service state and log freshness or heartbeat age",
+                    "Only whether the host is powered on",
+                    "Only the disk size",
+                    "Only the number of users"
+                  ],
+                  "answer": 0,
+                  "explanation": "A process can be present and still be unhealthy. Monitor the evidence the service produces."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "02-04",
+          "title": "Diagnose the service",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>David needs a recommendation, not only a repair. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who restarts it</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>systemd on a real host</td>\n<td>systemd</td>\n<td>Unit file and host access</td>\n<td>Another unit to maintain</td>\n</tr>\n<tr>\n<td><code>supervisord</code> in the container</td>\n<td>supervisord</td>\n<td>Container-specific config</td>\n<td>The container is not the host</td>\n</tr>\n<tr>\n<td>Container restart policy</td>\n<td>The container runtime</td>\n<td>Less control inside the container</td>\n<td>Restarts the whole container</td>\n</tr>\n<tr>\n<td>Manual start with a runbook</td>\n<td>A person</td>\n<td>Cheap now</td>\n<td>Fails at 3am</td>\n</tr>\n</tbody>\n</table>\n<p>State who owns the service, what restarts it, how you would know it failed, and what\nhappens at 3am.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The <code>supervisorctl status</code> before and after the interval change.</li>\n<li>The configuration file and the log line.</li>\n<li>The failed state and the supervisor log entry.</li>\n<li>The exact fix and why it worked.</li>\n<li>Your recommendation for CloudCore, with monitoring.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"What is the difference between a process and a service?\"</li>\n<li>\"How does systemd restart a failed service, and where does the restart policy live?\"</li>\n<li>\"Where does <code>supervisord</code> fit in a container that does not run systemd?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about PID 1, signals and\n  log rotation?\"</li>\n</ul>\n<p>If the AI says <code>systemctl</code> works in the container, try it and record what happens.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>What is the difference between a process and a service?</li>\n<li>What do <code>reread</code> and <code>update</code> each do, and why are both needed?</li>\n<li>Why did the service fail, and what did the log tell you?</li>\n<li>What would you monitor to catch this before a colleague reports it?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">exit\n./start.sh host reset\n</code></pre>\n<p>The reset removes the container and its home volume. The image is unchanged, so the next run\nstarts with the default heartbeat config.</p>"
+              "type": "order",
+              "prompt": "<p>Put the service change and diagnosis steps in a safe order.</p>",
+              "items": [
+                "Edit the supervisor configuration",
+                "Run supervisorctl reread",
+                "Run supervisorctl update",
+                "Check supervisorctl status",
+                "Read the supervisor and service logs"
+              ],
+              "explanation": "<p>Edit, reread to load the change, update to apply it, check the state, then read the\nlogs. Reading the log before applying the change tells you about the old state.</p>"
             }
           ]
         }
@@ -438,22 +401,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -475,79 +422,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer web portal</p>\n<p>Customers report that the portal becomes slow when several people use it at once.\nThe page loads, so this is not an outage. The service is running, but it is not\nkeeping up.</p>\n</blockquote>\n<p>The ticket is a performance problem with a business decision at the end. You will need\nevidence before you recommend a fix.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m03</code>. Follow <code>modules/module-03-containers/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>Your prediction, written before the first load test.</li>\n<li><code>./start.sh stats</code> before, during and after the load.</li>\n<li>The exact command you used and why.</li>\n<li>One sentence explaining why you limit the container rather than the host.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Martin needs one recommendation, not a list. Choose one of these and defend it:</p>\n<ol>\n<li>Raise the web container's CPU limit.</li>\n<li>Add a second web container and share the load.</li>\n<li>Reduce the work each request does.</li>\n<li>Leave the limit and accept slower responses at peak.</li>\n</ol>\n<p>State the cost, the risk and the evidence that supports your choice. A larger limit\ncosts host capacity. More replicas cost memory and add a routing problem. Doing nothing\nrisks the customer. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The checkpoint in Week 7 asks you to predict consequences, not recite commands. If you\ncan explain why a CPU limit slows a service while a memory limit kills it, you have the\nmodel this module is trying to build. Module 4 follows a request off the host and into\nthe network.</p>"
             }
           ]
         },
         {
           "id": "03-02",
-          "title": "Workshop: Containers and resource limits",
+          "title": "Watch the limit",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer web portal</p>\n<p>Customers report that the portal becomes slow when several people use it at once.\nThe page loads, so this is not an outage. The service is running, but it is not\nkeeping up.</p>\n<p>I need to know whether we should spend more on the host, change the service, or\ntell customers to expect slower responses at peak. Evidence, please, not an opinion.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Bring up the first estate state, observe a container under load, and explain what the\nresource limits are doing. By the end of the session you will have a recommendation for\nMartin and the evidence behind it.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Run <code>./start.sh m03</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-03-containers/LAB-GUIDE.md</code>. The launcher\nfinds the container runtime for you. You do not need to choose one.</p>\n<p>Check that the estate is up and that the tools container can reach the web tier:</p>\n<pre><code class=\"language-bash\">./start.sh status\n./start.sh console\ncurl http://web/\n</code></pre>\n<p>You should see the CloudCore estate page. If you do not, fix that before you go further.\nA load test against a broken service measures nothing.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything. Keep the answers; you will compare them with\nwhat happens.</p>\n<ol>\n<li>The web container is limited to 0.25 CPU. What will a client see under a steady\n   stream of requests?</li>\n<li>What will <code>./start.sh stats</code> show for the web container's CPU percentage?</li>\n<li>If you lower the limit to 0.05 CPU, what changes for the client, and what changes\n   for the container?</li>\n<li>What would have to happen for the container to be killed rather than slowed?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: What is running</h2>"
@@ -571,46 +454,154 @@
             {
               "type": "html",
               "html": "<p>From the host, lower the web container's CPU limit:</p>\n<pre><code class=\"language-bash\">./start.sh limit web 0.05\n</code></pre>\n<p>You do not need the container name. The launcher finds it.</p>\n<p>Run the load loop again and observe <code>./start.sh stats</code>. Then restore the limit:</p>\n<pre><code class=\"language-bash\">./start.sh limit web 0.25\n</code></pre>\n<p>Record what changed, what you expected, and what actually happened.</p>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "03-03",
+          "title": "Checkpoint: the process budget",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 4: Make the recommendation</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "How is a container different from a virtual machine?",
+                  "options": [
+                    "It is an isolated process tree sharing the host kernel, not a separate kernel",
+                    "It has its own kernel and virtual hardware",
+                    "It always runs faster than a VM",
+                    "It cannot be limited"
+                  ],
+                  "answer": 0,
+                  "explanation": "A container uses namespaces and cgroups on the host kernel. A VM virtualises hardware and runs its own kernel."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What does a namespace give a process?",
+                  "options": [
+                    "A private view of PIDs, network, mounts or hostname",
+                    "More physical memory",
+                    "A separate kernel",
+                    "A permanent IP address"
+                  ],
+                  "answer": 0,
+                  "explanation": "Namespaces isolate what the process can see. They do not allocate hardware."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What does a cgroup do?",
+                  "options": [
+                    "Accounts for and limits CPU, memory, processes or I/O",
+                    "Creates a private network",
+                    "Encrypts the filesystem",
+                    "Schedules a cron job"
+                  ],
+                  "answer": 0,
+                  "explanation": "Cgroups enforce budgets and account for usage."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What usually happens when a container hits a CPU limit?",
+                  "options": [
+                    "It is throttled and becomes slower",
+                    "It is killed immediately",
+                    "It gets a new IP address",
+                    "It loses its filesystem"
+                  ],
+                  "answer": 0,
+                  "explanation": "CPU is time-sliced. Hitting the limit throttles the group. A memory limit is what usually kills."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "What happens when a container hits a hard memory limit?",
+                  "options": [
+                    "The kernel may kill the process with an out-of-memory error",
+                    "The CPU gets faster",
+                    "The container gets more disk",
+                    "The network is disabled"
+                  ],
+                  "answer": 0,
+                  "explanation": "Memory cannot be throttled the same way. The OOM killer ends the process."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What should come before raising a CPU limit?",
+                  "options": [
+                    "Evidence from stats and load showing the limit is the bottleneck",
+                    "A guess that more CPU will help",
+                    "A larger disk",
+                    "A new hostname"
+                  ],
+                  "answer": 0,
+                  "explanation": "A recommendation needs evidence. Otherwise you may spend capacity without fixing the cause."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "03-04",
+          "title": "Choose the fix",
+          "kind": "scenario",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>Choose one option for Martin:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Cost</th>\n<th>Risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Raise the CPU limit</td>\n<td>More host capacity, higher bill</td>\n<td>Less protection for other services</td>\n</tr>\n<tr>\n<td>Add a second web container</td>\n<td>More memory and a routing layer</td>\n<td>More moving parts to operate</td>\n</tr>\n<tr>\n<td>Reduce work per request</td>\n<td>Engineering time</td>\n<td>Might not be enough at peak</td>\n</tr>\n<tr>\n<td>Leave it and manage expectations</td>\n<td>No extra cost</td>\n<td>Customer patience and reputation</td>\n</tr>\n</tbody>\n</table>\n<p>Write a short recommendation. Include the number you would set, the evidence that\nsupports it, and the condition under which you would revisit it.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Add these to your conversation log and portfolio:</p>\n<ul>\n<li>Your four predictions, written before the tests.</li>\n<li><code>./start.sh stats</code> before, during and after the load, with the command and time.</li>\n<li>The exact limit change you made and why you chose that value.</li>\n<li>One sentence explaining why you limit the container rather than the host.</li>\n<li>Your recommendation to Martin, with cost and risk.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Explain what a container CPU limit does to a process inside the container, and what it\n  does not do to the host.\"</li>\n<li>\"A web container is limited to 0.25 CPU. What will a client observe under sustained\n  load, and what will the container itself observe?\"</li>\n<li>\"Which cgroup file stores the CPU quota, and what do the two numbers mean?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about memory pressure\n  and the host kernel?\"</li>\n</ul>\n<p>If the AI cannot name the mechanism or the file, ask again with the specific question.\nRecord the correction. Do not edit the log to make it look cleaner.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>A CPU limit slows a service. A memory limit kills it. Why the difference?</li>\n<li>Why is the CPU percentage able to exceed 100%?</li>\n<li>What evidence would convince Martin to spend more on the host?</li>\n<li>What would you monitor so that this ticket is raised by a system before a customer\n   raises it?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the volumes in place unless you need a clean state. <code>./start.sh reset m03</code> removes\nthem.</p>"
+              "type": "scenario",
+              "prompt": "<p>The portal is slow under load. The stats show the web container reaching its CPU\nlimit while the database is mostly idle. Choose the response you would recommend.</p>",
+              "options": [
+                {
+                  "id": "reduce",
+                  "label": "Reduce the work per request",
+                  "outcome": "<p>You profile the request path and remove repeated work. Response time improves\nwithout adding host capacity.</p>",
+                  "effects": {
+                    "Cost": "Engineering time",
+                    "Peak protection": "Medium",
+                    "Risk": "The change may not be enough"
+                  },
+                  "recommended": true,
+                  "feedback": "<p>Start with the cause if the evidence shows avoidable work. Revisit the limit after the change.</p>"
+                },
+                {
+                  "id": "raise",
+                  "label": "Raise the web CPU limit",
+                  "outcome": "<p>The container gets more CPU. The portal improves until the next traffic increase,\nand other services have less headroom.</p>",
+                  "effects": {
+                    "Cost": "More host capacity",
+                    "Peak protection": "High now",
+                    "Risk": "Less protection for other services"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>A valid option when the work is necessary and the host has headroom. Measure before and after.</p>"
+                },
+                {
+                  "id": "replica",
+                  "label": "Add a second web container",
+                  "outcome": "<p>Two containers share the load. Peak capacity improves, but you now operate a\nrouting layer and another process to monitor.</p>",
+                  "effects": {
+                    "Cost": "More memory and routing",
+                    "Peak protection": "High",
+                    "Risk": "More moving parts"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>Good for horizontal scale, but it does not fix an inefficient request.</p>"
+                },
+                {
+                  "id": "leave",
+                  "label": "Leave the limit and manage expectations",
+                  "outcome": "<p>Nothing changes. The portal is slow at peak and customers notice. The cost is\nreputation, not infrastructure.</p>",
+                  "effects": {
+                    "Cost": "None now",
+                    "Peak protection": "Low",
+                    "Risk": "Customer patience"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>Doing nothing is a decision. It needs an explicit owner and a review trigger.</p>"
+                }
+              ],
+              "debrief": "<p>The right answer depends on the evidence. Name the bottleneck, the cost, the risk and\nthe condition under which you would revisit the choice.</p>"
             }
           ]
         }
