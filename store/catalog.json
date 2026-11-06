@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T14:21:31+00:00",
+  "updatedAt": "2026-11-06T14:45:02+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "959fea7878e6b54ee2cd1ca115e366bc697886cb037e4793d3022af419b147f7",
+      "sha256": "eb36bbdc592dc49587099d0827d75cc03cd0e5aed95611b7df67d7891d014e48",
       "keyId": "c72e49ccf7055c89",
-      "signature": "xDYM532sGfRKxDiBYrYWGg/n79D3bZlm3qZW1cPyI5JZAcAd45tbqEc/R7Sf/gkhslpFXfmVt54sq2YAqlmqAg==",
+      "signature": "5woMAkUWq00dSVkBAI0SraXaBCfcLhXwrI2+r8nVNZ4VG0G/f/vrCaye4NjOi3EjtM+MPefuzxdvQslV49CADA==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "5a396db8a4238268b631760ef3839d13f390fb53597949609d708f910d49ad01",
+      "sha256": "72f27d33075df3fadd8b30d929fb95b88e33ad9b3ef98e44b0adcc217836cff8",
       "keyId": "c72e49ccf7055c89",
-      "signature": "e6WuUu5SMrRNgKq4r3NkFe0GfFdWF6O0f2/YYnDWSF3v3E/hUK392HrEwKhc3x/jLvr05QxY4KqnTbuWbSynDA==",
+      "signature": "rqaGbi+IM3G6IwEdrZw4Ot1cVL3Q7xlGEV1uGjoDE0J2nGp262i/BlzvZ45PWoBo6Rhp3aqSvuXX1mWMnfq4Cg==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "0da75940ba9a915ae67a6c8ab98e53bd4e5ece60a1218b1d68266a4656588022",
+      "sha256": "d156a1ee1038cc1a2051a3ea333aba79d26d7b8618fbd17bb1dc56d4df35cd29",
       "keyId": "c72e49ccf7055c89",
-      "signature": "MdQ/1+CCQZQ1gQSvshc0lOTMfZOBwVsMIfRQu41nqEzF8z/nril7VYVQfo5L80iQo1A0ydQI6gEsSvSppX6oAA==",
+      "signature": "iKbyQtB9MuUwDIUmrPkjXxe9ksUghf6o8QpIfu5vC23GeDWG9mxw91YOzmRqVpmDAxJmDdToacYCp7b32el7Cw==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "670d5d5aeb1b80e2195475052230c0a53045fda160f2f9f15817757e8e533d0e",
+      "sha256": "fade9c5e9f0391229c54f200d15ddd1c50d1a8699d4410aec1dd5afdec61d183",
       "keyId": "c72e49ccf7055c89",
-      "signature": "5fMv++s6q5IcFGhLsm/MboXPNgFPvTjQvOQm0s4sNnGIo+xVMGQUKf423qFPDZCZqq2+IhHutHV/QGvLb4CSAw==",
+      "signature": "vGNIbgoNKU4UQkCj9V+DdNRfWwOQ6CDHRs30wHR6p1c67wNLcdE8/TzQwW3Kdl5i11mjt+CSqDN1XuKBq2nTBQ==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "5cb3b829cc9cbc49267ee301156a4ac59d8477faaca54a2ea5c12ce14750266e",
+      "sha256": "067e85ee18bdda620a57f9f779c401d26eb1192430ad11688202d45784ef065a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "gllBHRcqepL6l3NDhC+0Aj9ljnaEcK2+OZh37gobNseYTk5QGCBdHE2yzxeWSs8whE3T8ZLQUtf5FsmFxoEtDg==",
+      "signature": "mwvu67R1+UfvwPBeXIwYMTnF3gBU5XwACMcLqyVI+L+peZ9ZaC2dbjzyNXuUTY6OyaGHrZOXpjKs5C/CLq+pAw==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "dc73352e96989be039047d78f710844ff132cd7a8d847322374fee175cecac31",
+      "sha256": "56db9c03f89eb95a892a3a87399179870fa5936fb4ecbbf9632b867cb274ea18",
       "keyId": "c72e49ccf7055c89",
-      "signature": "0/5gdgJ5QRnRIUXF+TBzahpjYA6aaWnMQEoga5kNMGCxOsh8Iy2NSGZWSn/xn2GOd//VolcjBRYXwh+Kj9jOBQ==",
+      "signature": "gKrSro8pjXokadcUNG5seQuwc9RZRe5Y6wm5z3O3K1TuFN+rEXdreCa0P+ghZNuHBgi0gJRURyLz5e3GDiSJCw==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,9 +164,9 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "6507f06fba39ec61b84105af18628d68b49b6c4c60423156e87cad9693d33834",
+      "sha256": "d6fe5d1ffd6b569babe96048a9ab76f3644028882401a79b57ad066dff384a33",
       "keyId": "c72e49ccf7055c89",
-      "signature": "auUtQrTuTh7ImBaDd/MBggXkv/z3EHa2REIx/CFGvhzE+Zaz/mPo5vTI/azs9KbJ2mdASPvM68nf/ib3L16WBw==",
+      "signature": "p+DUdlrmYyQC/bqwodGau05mQMCiC4xlE8wcViGGwhF/eGXgYw9xSeyH0u3bOz/vpd3OoMXoSw4W/X/Qqjo0Bg==",
       "url": "packs/systems-analysis-and-design.json"
     },
     {
@@ -187,9 +187,9 @@
       "courses": 1,
       "lessons": 11,
       "size": 108882,
-      "sha256": "b6f8a23bcc0ae78ceb9d81c54cd772d49618e5e382b2a608489cf64022da9dec",
+      "sha256": "11722e9240b79f7651fc272f6ebb6bdbe507b45069dc6a4e06f7d7ccadfcc14a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "WfzuU3X0xSmXhyeSPm2rt10KAL+hdfF6SJLVOk7SL4pgvwqLXM8eUddc+V1+22mBffUvTljEungfGIk8fwOCDg==",
+      "signature": "QQ+O1WSp/N0MCGvnoPqZ8do8YmwqrYMhnf7srXq4F5yXvTO+DlvKIn0IKJ4KH7j2vaHCzVED4D1owndtwfBbAA==",
       "url": "packs/follow-the-trace.json"
     },
     {
@@ -211,10 +211,34 @@
       "courses": 1,
       "lessons": 15,
       "size": 131881,
-      "sha256": "1c293d981aef6a6c38ff85f0199643e22f5826946749254519d3249bd10dd52e",
+      "sha256": "9a63aa94ee26bcb91fed5617167fab451eac2ace03d2da85f68693ed1d6c574c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Xm4weH6eHnVzgMkLKCjYqCOVKlz6n8gYkS/lXBwlE9F0U4F88+LMQnpoiFXH+2MuflGLJtQ6G5ck73EdNHeECg==",
+      "signature": "fV/fTEfIy6sSbC+BKvKU24CRhq/QcFHVSeW6tlWlAwv4ryd0i2L0BS8RV3W/06mOrVFlkWkmT5qQpKO7FCKhAw==",
       "url": "packs/the-human-edge.json"
+    },
+    {
+      "id": "test-the-claim",
+      "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
+      "description": "A guided workbook for scoping, evidencing and reporting the Tessera security audit.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "storybook",
+      "tags": [
+        "audit",
+        "security",
+        "essential-eight",
+        "evidence",
+        "governance"
+      ],
+      "level": "intermediate",
+      "courses": 1,
+      "lessons": 11,
+      "size": 106711,
+      "sha256": "2f4fefcfd4dfaf0ef05220e5349f4d624d1f1c565449a59d754d2bc5d8cd7c86",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "PJlOvZhw2MJk4IVhkmol1CJHvWfRrKZNwhgXwtAGvqv4iHXtAXUox7wmcEk6b+EytpiDkontovo+QOnsnwxgCQ==",
+      "url": "packs/test-the-claim.json"
     }
   ]
 }

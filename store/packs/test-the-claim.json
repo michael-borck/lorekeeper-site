@@ -1,0 +1,1300 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "test-the-claim",
+  "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T14:45:02+00:00",
+  "courses": [
+    {
+      "slug": "test-the-claim",
+      "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
+      "theme": "storybook",
+      "level": "intermediate",
+      "tags": [
+        "audit",
+        "security",
+        "essential-eight",
+        "evidence",
+        "governance"
+      ],
+      "pitch": "A guided workbook for scoping, evidencing and reporting the Tessera security audit.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T14:45:02+00:00",
+        "unit": {
+          "slug": "test-the-claim",
+          "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
+          "theme": "storybook",
+          "tags": [
+            "audit",
+            "security",
+            "essential-eight",
+            "evidence",
+            "governance"
+          ],
+          "level": "intermediate",
+          "pitch": "A guided workbook for scoping, evidencing and reporting the Tessera security audit.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "plan-and-scope",
+            "title": "Plan and Scope",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "The Assurance Question",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The board does not need a policy. It needs to know whether the policy is true.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An audit starts with a question someone needs answered. In security, the question is usually some version of: are our controls real, and can we prove it?</p>\n<p>Tessera's board has a specific reason to ask. The company has just come through a breach. The policies may say the right things. The board wants to know whether the organisation actually does them.</p>\n<p>That is an assurance question. It is not the same as \"do we have a policy?\" or \"did we pass a checklist?\" It asks whether the evidence supports the claim.</p>\n<p>Three distinctions matter:</p>\n<ul>\n<li><strong>Advisory audit versus certification.</strong> An advisory audit helps the organisation find and fix gaps. Certification is a formal, accredited process with defined scope and surveillance. Tessera has hired an adviser, not a certifier.</li>\n<li><strong>A control versus a document.</strong> A policy is a written claim about how the organisation intends to operate. A control is the practice that actually reduces risk.</li>\n<li><strong>Assurance versus assurance theatre.</strong> A report that repeats management's assurances is not assurance. A report that tests them is.</li>\n</ul>\n<p>An audit is also a snapshot. It describes the controls at the time they were tested. It is not a warranty that they will hold next week.</p>\n<p>The auditor's job is to make a judgement that another professional could examine. That means naming the criteria, gathering evidence, corroborating the important claims and recording what could not be tested.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Building Inspection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A building inspection does not begin with a clipboard of defects. It begins with a question: is this building safe and compliant for its intended use?</p>\n<p>The inspector reads the plans, checks the actual structure, tests the alarms, looks at maintenance records and asks the facilities manager what happens when something fails. The plans are a claim. The inspection is the test.</p>\n<p>A building can have a beautiful fire policy and a locked fire exit. The inspector reports the exit, the evidence and the consequence. The report is useful because it distinguishes the document from the building.</p>\n<p>A security audit works the same way. The policy library is the plan. The interviews, logs and evidence are the building. The report says what the evidence supports.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Assurance Question with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn a Concern into Questions</h3>\n<p>Give the AI the board's concern and ask for answerable questions.</p>\n<pre><code class=\"language-text\">Here is the board's concern:\n[paste it]\n\nWrite five assurance questions the audit must answer. Each question must\nname the control or practice, the evidence that would answer it and the\ndecision it informs. Do not write questions that can be answered by\nreading a policy alone.\n</code></pre>\n<p>A good answer will separate \"is the control designed?\" from \"is it operating?\" and \"can we prove it?\" Those are different tests.</p>\n<h3>Exploration 2: Separate Assurance from Repetition</h3>\n<p>Ask the AI to critique a weak audit question.</p>\n<pre><code class=\"language-text\">Here is a draft audit question:\n&quot;Does Tessera have an incident response policy?&quot;\n\nRewrite it as an assurance question. Explain what the original question\nwould miss and what evidence the rewritten question requires.\n</code></pre>\n<p>The original can be answered by a document. The rewrite asks whether the policy is approved, known, tested and followed.</p>\n<h3>Exploration 3: Test the Scope of the Claim</h3>\n<p>Ask what the board might infer from a report that does not state its limits.</p>\n<pre><code class=\"language-text\">An audit report says &quot;Tessera meets the Essential Eight&quot; without a scope\nsection. List the assumptions a board might make and the limitations the\nreport should state. Include endpoint controls, sampling, timing and\nevidence access.\n</code></pre>\n<p>The output becomes the outline of the scope and limitation sections.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A one-page engagement brief:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Assurance engagement: [client]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Decision this informs</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Who will use the report, and for what.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Concern</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What prompted the audit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What the audit must answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Criteria</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The standard or framework used to judge the control.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Systems, controls, people, period and evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Out of scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What will not be tested.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Limitations</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What cannot be tested and why.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Report date</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The snapshot date.\n```</p>\n<p>The brief is not a contract yet. It is the shared understanding that prevents the report from answering a different question.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 1: Frame the assurance question.</strong></p>\n<ol>\n<li>Open the <a href=\"https://github.com/michael-borck/security-audit-lab/blob/main/LAB-GUIDE.md\">engagement guide</a> and read the board's concern.</li>\n<li>Write the decision the report informs, in one sentence.</li>\n<li>Write five assurance questions. For each, name the evidence and the decision it serves.</li>\n<li>Mark any question a policy alone could answer, then rewrite it.</li>\n<li>Record the brief in the workbench plan.</li>\n</ol>\n<p><strong>Deliverable:</strong> a one-page engagement brief with decision, concern, questions, criteria and limitations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Start with the lab's engagement guide and the workbench's opening brief:</p>\n<ul>\n<li><a href=\"https://securityaudit.borck.education/\">Security Audit Lab</a></li>\n<li><a href=\"https://github.com/michael-borck/security-audit-lab/blob/main/LAB-GUIDE.md\">Engagement guide</a></li>\n</ul>\n<p>Read the board's concern before you open the policies. Write the assurance questions first. The workbench will not choose them for you.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Boards do not buy audits. They buy confidence in a decision: whether to accept a risk, fund a fix, renew a contract or tell a regulator what happened.</p>\n<p>An audit that repeats management's claims gives the board false confidence. An audit that tests the claims gives it something it can act on. The difference is not the length of the report. It is whether the evidence can carry the conclusion.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Write three assurance questions for Tessera's board.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Explain the difference between an advisory audit and an ISO 27001 certification.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Take a policy statement and write the evidence you would need to show it is operating, not just approved.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Write the scope and limitation section for an audit where the auditor cannot access endpoints.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Critique an audit report that claims \"the organisation meets the standard\". Identify the missing scope, evidence and limitation statements.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>An audit answers an assurance question, not a document question.</li>\n<li>A policy is a claim; a control is the practice the evidence supports.</li>\n<li>Advisory audit and certification are different engagements.</li>\n<li>An audit is a snapshot, not a warranty.</li>\n<li>The report must state what was tested and what was not.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the board's decision, not only the topic</li>\n<li>[ ] Separated design from operation</li>\n<li>[ ] Named the criteria</li>\n<li>[ ] Wrote the scope and the out-of-scope list</li>\n<li>[ ] Named at least one limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which assurance question is hardest to answer with evidence?</li>\n<li>Where could a policy be true on paper and false in practice?</li>\n<li>What would the board do differently with a defensible Partial?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The question is framed. The next chapter chooses the controls, the criteria and the scope rationale.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Scope, Criteria and the Board",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>You cannot audit everything. Scope is the professional judgement about what matters enough to test.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Scope defines what the audit covers. Criteria define what \"good\" means. The board defines the decision the audit serves.</p>\n<p>The <strong>criteria</strong> for Tessera are the ACSC <strong>Essential Eight</strong> mitigation strategies. The Essential Eight is a set of controls for Australian organisations: application control, patching applications, Office macro settings, user application hardening, restricting administrative privileges, patching operating systems, multi-factor authentication and regular backups.</p>\n<p>An audit does not have to cover all eight. It has to cover the ones that matter for the client and the decision, and say why.</p>\n<p><strong>Materiality</strong> is the idea that some controls matter more than others in this context. A cloud-services company recovering from a breach may care most about privileged access, multi-factor authentication and backups. A different organisation may care most about application control and patching.</p>\n<p><strong>Scope rationale</strong> is the sentence that explains the choice. \"We assessed MFA, privileged access and backups because the breach involved credential misuse and data recovery\" is a rationale. \"We assessed all eight because they are the Essential Eight\" is a checklist, not a judgement.</p>\n<p>The lab also names a hard limit. You have Tessera's documents, people and logs, but not its endpoints. Three controls, application control, Office macro settings and user application hardening, can only be partly tested. You can inspect the standard and interview the SOE team. You cannot independently verify enforcement. That limitation belongs in the scope, not in a footnote.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Health Check</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A health check does not test every possible condition. It tests the things that matter for this person, at this age, with this history.</p>\n<p>The doctor chooses the tests, explains why and records what was not tested. A normal result on the tests that were run is not a guarantee of perfect health. It is evidence about the questions that were asked.</p>\n<p>A security audit works the same way. The scope is the set of tests. The criteria are the standard for a healthy result. The limitations are what the tests cannot see.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Scope with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Controls</h3>\n<p>Ask the AI to propose a scope from the client's context.</p>\n<pre><code class=\"language-text\">Here is Tessera's situation:\n[paste the brief]\n\nThe criteria are the ACSC Essential Eight. Propose a scope of four\ncontrols for an advisory audit after a credential-related breach. For\neach control, write why it matters for this client, what evidence you\nwould expect and what you cannot test without endpoint access.\n</code></pre>\n<p>A good answer will connect the scope to the breach, not to a generic checklist.</p>\n<h3>Exploration 2: Attack the Scope</h3>\n<p>Ask what the scope leaves out and who might disagree.</p>\n<pre><code class=\"language-text\">Here is my proposed scope:\n[paste it]\n\nWho would disagree with this scope, and why? What risk does it leave\nuntested? What would you add or remove if the board had to make a\nfunding decision in four weeks?\n</code></pre>\n<p>Scope is a negotiation. The output should give you the arguments for the scope meeting.</p>\n<h3>Exploration 3: Write the Rationale</h3>\n<p>Ask for a short, board-readable rationale.</p>\n<pre><code class=\"language-text\">Write a scope rationale of no more than 150 words. It must name the\ncontrols, the client context, the decision, the evidence available and\nthe limitation. Do not use the phrase &quot;best practice&quot;.\n</code></pre>\n<p>If the rationale could be pasted into any audit, it is not a rationale.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A scope table:</p>\n<table>\n<thead>\n<tr>\n<th>Control</th>\n<th>In scope</th>\n<th>Why it matters</th>\n<th>Evidence</th>\n<th>Limitation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Multi-factor authentication</td>\n<td>Yes</td>\n<td>Credential misuse in the breach</td>\n<td>Policy, IAM logs, interviews</td>\n<td>Sample only</td>\n</tr>\n<tr>\n<td>Restrict administrative privileges</td>\n<td>Yes</td>\n<td>Privilege escalation risk</td>\n<td>Access register, approvals, logs</td>\n<td>No endpoint inspection</td>\n</tr>\n<tr>\n<td>Regular backups</td>\n<td>Yes</td>\n<td>Recovery after ransomware</td>\n<td>Restore test, backup logs, interviews</td>\n<td>One restore sample</td>\n</tr>\n<tr>\n<td>Application control</td>\n<td>Partial</td>\n<td>Endpoint control</td>\n<td>Standard, SOE interview</td>\n<td>Enforcement not verified</td>\n</tr>\n<tr>\n<td>Patching applications</td>\n<td>Yes</td>\n<td>Known exploited vulnerabilities</td>\n<td>Patch reports, sample devices</td>\n<td>Report may be stale</td>\n</tr>\n<tr>\n<td>Office macro settings</td>\n<td>Partial</td>\n<td>Endpoint control</td>\n<td>Standard, SOE interview</td>\n<td>Enforcement not verified</td>\n</tr>\n<tr>\n<td>User application hardening</td>\n<td>Partial</td>\n<td>Endpoint control</td>\n<td>Standard, SOE interview</td>\n<td>Enforcement not verified</td>\n</tr>\n<tr>\n<td>Patching operating systems</td>\n<td>No</td>\n<td>Lower priority for this decision</td>\n<td></td>\n<td>Out of scope</td>\n</tr>\n</tbody>\n</table>\n<p>The table is more useful than a list because it shows the evidence and the limitation beside the decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 2: Scope the engagement.</strong></p>\n<ol>\n<li>Read enough of Tessera to explain the business and the breach in three sentences.</li>\n<li>Choose four controls to assess and write a one-sentence rationale for each.</li>\n<li>Name the evidence you expect and the limitation for each control.</li>\n<li>Add the endpoint limitation for the three controls you cannot fully test.</li>\n<li>Record the scope and rationale in the workbench.</li>\n</ol>\n<p><strong>Deliverable:</strong> a scope table with control, rationale, evidence and limitation, plus a 150-word rationale.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbench asks you to choose controls and write a scoping rationale before fieldwork:</p>\n<ul>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n<li><a href=\"https://tessera.locoensayo.org/docs/policies.html\">Tessera policy library</a></li>\n<li><a href=\"https://tessera.locoensayo.org/docs/support/statement_of_applicability.html\">Statement of Applicability</a></li>\n</ul>\n<p>Read enough of Tessera to understand the business before you choose. Scope is a judgement about this client, not a vote on the framework.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Scope protects the board from false comfort. A report that says \"all eight controls were assessed\" but only inspected documents is less honest than a report that says \"five controls were tested, three were partly tested and the endpoint limitation is recorded\".</p>\n<p>The scope also protects the auditor. It defines what the report is and is not claiming. When the next incident happens, the scope and limitation sections explain what the audit could reasonably have seen.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> List the eight Essential Eight controls.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Choose four controls for Tessera and write one sentence of rationale for each.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Write the scope and limitation section for an audit that cannot access endpoints. Name the three partly tested controls.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Argue for a different scope from the one you chose. State what risk your alternative tests and what it leaves out.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Write a 150-word scope rationale for a board that has to decide whether to fund a remediation program.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Scope is a professional judgement about what matters enough to test.</li>\n<li>Criteria define what good means; for Tessera, the criteria are the Essential Eight.</li>\n<li>Materiality connects the scope to the client's context and decision.</li>\n<li>The scope rationale explains the choice, not just the framework.</li>\n<li>Limitations belong in the scope, not in a footnote.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the controls in scope and out of scope</li>\n<li>[ ] Connected the scope to the breach and the board decision</li>\n<li>[ ] Wrote the evidence expected for each control</li>\n<li>[ ] Named the endpoint limitation</li>\n<li>[ ] Wrote a rationale that could not be pasted into another audit</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which control would you defend as the highest priority?</li>\n<li>What risk does your scope leave untested?</li>\n<li>How would you explain the limitation to a board member?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The scope is set. The next chapter turns it into an engagement plan.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Plan the Engagement",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A plan is how you stop the audit becoming a tour of everything the client has.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An audit plan turns scope into work. It names the controls, the evidence, the people, the sequence and the time.</p>\n<p>The auditor's method has three evidence-gathering moves:</p>\n<ul>\n<li><strong>Inspect</strong> a document, register or record.</li>\n<li><strong>Inquire</strong> of a person who knows.</li>\n<li><strong>Observe</strong> the system through logs, reports or a demonstration.</li>\n</ul>\n<p>Each move answers a different question. Inspection tells you what the organisation says it does. Inquiry tells you what people believe or report. Observation tells you what the system recorded.</p>\n<p>The strongest finding uses more than one. A policy says MFA is required. The IAM log shows enforcement. An interview explains the exception process. Together they support a rating. Alone, each is a claim, a belief or a partial record.</p>\n<p>A plan also names the sample. You cannot read every log or interview every employee. Sampling is a judgement, and it should be explained. A sample of one restore test is weak evidence for \"backups work\". A sample of the last six months is stronger.</p>\n<p>The plan should include the limitation. If endpoint enforcement cannot be observed, say so before fieldwork begins, not after the report is challenged.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Restaurant Kitchen</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A restaurant inspection plan does not say \"check the kitchen\". It says which stations, which records, which staff and which times.</p>\n<p>The inspector will look at the temperature log, watch a service, ask the chef about the busiest hour, and check the cleaning schedule against the actual surfaces. The plan chooses a sample that represents the operation. It also records what cannot be seen, such as the supplier's kitchen.</p>\n<p>A security audit plan works the same way. The evidence room is the kitchen. The plan says which parts to inspect, who to ask and what to observe, and what the sample can and cannot represent.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Plan with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Evidence Matrix</h3>\n<p>Ask the AI to map each control to evidence and method.</p>\n<pre><code class=\"language-text\">Here is the audit scope:\n[paste it]\n\nBuild an evidence matrix with columns for control, inspect, inquire,\nobserve, sample, expected evidence and limitation. For each control,\nname at least one item from each method where possible.\n</code></pre>\n<p>The matrix exposes controls with only one source. Those are the controls most likely to be under-evidenced.</p>\n<h3>Exploration 2: Choose the Interviews</h3>\n<p>Ask who can answer each question and who can corroborate.</p>\n<pre><code class=\"language-text\">Here are the scoped controls and the evidence matrix:\n[paste them]\n\nList the roles to interview. For each control, name the primary source\nand one corroborating source. Explain why the role would know and what\nthey might not know.\n</code></pre>\n<p>A single interview is a lead. The plan should name the corroboration before fieldwork, not after the answer is inconvenient.</p>\n<h3>Exploration 3: Test the Sample</h3>\n<p>Ask whether the sample can support the claim.</p>\n<pre><code class=\"language-text\">The plan will inspect one restore test and two months of MFA logs.\nCritique the sample. What could it miss? What would make it more\nrepresentative? What should the report say about the limitation?\n</code></pre>\n<p>A sample that cannot support the claim is not evidence. It is an anecdote with a date.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An engagement plan:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Audit plan: Tessera</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Controls, period, systems and evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Criteria</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Essential Eight, with the specific maturity or target for each control.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Method</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Inspect, inquire, observe, corroborate.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evidence matrix</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Control, source, sample, owner, limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Interviews</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Role, control, reason, corroboration.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Schedule</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Kickoff, fieldwork, evidence review, draft, board.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Limitations</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Endpoint access, sampling, record completeness, time zone.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Deliverables</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Findings, ratings, report, evidence appendix.\n```</p>\n<p>The plan is not a guarantee that the evidence exists. It is a statement of where you will look and what you will do if it does not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 3: Plan the evidence.</strong></p>\n<ol>\n<li>Build the evidence matrix for your four controls.</li>\n<li>Name the primary and corroborating source for each control.</li>\n<li>Choose the sample for each test and state what it can and cannot represent.</li>\n<li>Book the evidence review before the draft.</li>\n<li>Record the plan in the workbench.</li>\n</ol>\n<p><strong>Deliverable:</strong> an evidence matrix, interview list, sample plan and limitations section.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbench holds the plan, scope and evidence room. Start with the engagement guide's method:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/security-audit-lab/blob/main/LAB-GUIDE.md\">Engagement guide</a></li>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n</ul>\n<p>The workbench gives you everything Tessera has. Working out which items bear on a control is the audit. The plan is where you decide what to inspect, who to ask and what to observe.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Audit time is expensive. A plan that collects everything wastes the client's money and the auditor's attention. A plan that collects too little produces a rating the evidence cannot support.</p>\n<p>The plan is also a communication tool. It tells the client what will be tested, what will be asked and what will not be covered. Surprises at the report stage are usually a planning failure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain the difference between inspect, inquire and observe.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Build an evidence matrix for three controls.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Choose a sample for one control and explain what it can and cannot represent.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Plan the interviews for one control. Name the primary and corroborating sources.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Write a complete engagement plan for Tessera, including scope, evidence, sample, schedule and limitations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A plan turns scope into evidence, people, sequence and time.</li>\n<li>Inspect, inquire and observe answer different questions.</li>\n<li>The strongest finding uses more than one source.</li>\n<li>Sampling is a judgement and must be explained.</li>\n<li>Limitations belong in the plan, not only in the report.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Mapped each control to at least two evidence types</li>\n<li>[ ] Named the sample for each test</li>\n<li>[ ] Named the primary and corroborating interview sources</li>\n<li>[ ] Wrote the limitations before fieldwork</li>\n<li>[ ] Scheduled the evidence review before the draft</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which control has the weakest evidence plan?</li>\n<li>Which interview is most likely to produce a claim rather than evidence?</li>\n<li>What would make you change the plan during fieldwork?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The plan is set. The next chapter starts with the documents, where every claim is written down.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "The generous scope",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The board wants assurance over all eight Essential Eight controls in\nfour weeks. You have Tessera's documents, staff and logs, but no\nendpoint access. The chair says: \"Just cover everything and mark what\nyou cannot test.\" Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "scoped",
+                        "label": "Scope four material controls, record the endpoint limitation and explain the choice to the board",
+                        "outcome": "<p>The scope is defensible. MFA, privileged access, backups and\npatching are tested with documents, interviews and logs. The three\nendpoint controls are marked partly assessed, with the limitation\nstated. The board understands what the report can and cannot say.</p>",
+                        "effects": {
+                          "Coverage": "Focused",
+                          "Evidence": "Sufficient",
+                          "Limitation": "Explicit"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Scope is a professional judgement about what matters enough to test, not a promise to cover everything.</p>"
+                      },
+                      {
+                        "id": "all",
+                        "label": "Assess all eight from documents and interviews, and call it complete",
+                        "outcome": "<p>The report covers every control and tests none of the endpoint\ncontrols independently. The board reads \"assessed\" as assurance.\nThe limitation is buried in an appendix.</p>",
+                        "effects": {
+                          "Coverage": "Wide",
+                          "Evidence": "Thin",
+                          "Risk": "False comfort"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A control assessed only from documents is a claim, not an operating control.</p>"
+                      },
+                      {
+                        "id": "refuse",
+                        "label": "Refuse the engagement because endpoint access is unavailable",
+                        "outcome": "<p>The board loses the assurance it can have. The documents, people and\nlogs still support useful findings on several controls.</p>",
+                        "effects": {
+                          "Coverage": "None",
+                          "Evidence": "Unused",
+                          "Decision": "Delayed"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A limitation is not a reason to refuse. It is a reason to scope honestly.</p>"
+                      },
+                      {
+                        "id": "ai",
+                        "label": "Ask an AI to choose the scope from the policy library",
+                        "outcome": "<p>The AI proposes a generic eight-control audit with no view of the\nbreach, the board decision or the endpoint limitation.</p>",
+                        "effects": {
+                          "Speed": "Fast",
+                          "Rationale": "Generic",
+                          "Risk": "Misaligned"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>AI can help draft the scope. The client context and the limitation are yours.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Choose the controls that matter for this client and decision. Write the\nlimitation before fieldwork, not after the report is challenged.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "gather-evidence",
+            "title": "Gather Evidence",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Inspect: Documents Are Claims",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A policy is evidence that someone wrote a policy. It is not evidence that the organisation follows it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Inspection is the audit method that reads what the organisation has written down: policies, standards, procedures, registers, statements of applicability, reports and records.</p>\n<p>Documents are useful. They show intent, ownership, approval and the organisation's own description of its controls. They also carry metadata: who approved them, when, which version, what changed and whether they are current.</p>\n<p>But a document is a claim. \"MFA is required for all remote access\" is a claim about the standard. It does not show that MFA is enforced, that exceptions are controlled or that the log matches the policy.</p>\n<p>When you inspect a document, ask:</p>\n<ul>\n<li>Is it current, approved and owned?</li>\n<li>Is the claim specific enough to test?</li>\n<li>What evidence would show it is operating?</li>\n<li>Does another document contradict it?</li>\n<li>What does it not cover?</li>\n</ul>\n<p>A Statement of Applicability is a special case. It maps controls to the organisation's claims about implementation. It is useful for orientation and for finding gaps between what the organisation says it does and what its evidence shows. It is not the audit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A passport is evidence of identity, but it is not the person. It can be checked for authenticity, expiry, consistency and issuing authority. It can be compared with a face, a ticket and a travel history.</p>\n<p>A forged passport can look perfect. A real passport can belong to someone who is not the person in front of you. The document is a claim that needs corroboration.</p>\n<p>A policy is the same. It can be well written, approved and current. It still needs evidence that the practice matches the words.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Document Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Testable Claims</h3>\n<p>Ask the AI to extract claims, not summaries.</p>\n<pre><code class=\"language-text\">Here is a policy excerpt:\n[paste it]\n\nExtract every claim that could be tested in an audit. For each claim,\nwrite the evidence that would show it is operating and the evidence that\nwould show it is only aspirational. Do not summarise the policy.\n</code></pre>\n<p>A useful answer will separate \"must\", \"should\" and \"may\". A \"should\" is often a gap in practice.</p>\n<h3>Exploration 2: Check the Metadata</h3>\n<p>Ask what the document's own record says about its reliability.</p>\n<pre><code class=\"language-text\">Here are the document properties and version history:\n[paste them]\n\nWhat does the metadata tell you about ownership, approval, currency and\nchange control? What questions would you ask before treating this\ndocument as current?\n</code></pre>\n<p>An undated policy is a claim with no time. A policy approved by someone who has left is a claim with no owner.</p>\n<h3>Exploration 3: Compare the SoA with the Evidence</h3>\n<p>Ask the AI to find mismatches, not to resolve them.</p>\n<pre><code class=\"language-text\">Here is the Statement of Applicability entry for MFA:\n[paste it]\n\nHere are the evidence items available:\n[paste them]\n\nList the claims in the SoA, the evidence that could support each one and\nthe evidence that is missing. Do not rate the control. Mark what needs\ncorroboration.\n</code></pre>\n<p>The output is an evidence plan, not a finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A document inspection record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Document</td>\n<td>Access Control Policy</td>\n</tr>\n<tr>\n<td>Version and date</td>\n<td>v4.2, 2026-08-14</td>\n</tr>\n<tr>\n<td>Owner</td>\n<td>Chief Information Security Officer</td>\n</tr>\n<tr>\n<td>Approved by</td>\n<td>Risk Committee</td>\n</tr>\n<tr>\n<td>Claim tested</td>\n<td>MFA required for remote access</td>\n</tr>\n<tr>\n<td>Specific enough?</td>\n<td>Yes, names remote access and exceptions</td>\n</tr>\n<tr>\n<td>Corroboration needed</td>\n<td>IAM logs, exception register, interview</td>\n</tr>\n<tr>\n<td>Contradictions</td>\n<td>Service desk guide says MFA optional for contractors</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Policy does not state enforcement method</td>\n</tr>\n</tbody>\n</table>\n<p>The contradiction is a finding in itself. It shows the organisation's documents disagree, which is a control weakness even before the logs are checked.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 4: Inspect the documents.</strong></p>\n<ol>\n<li>Select three documents relevant to your scoped controls.</li>\n<li>Record the version, owner, approval date and claim tested for each.</li>\n<li>Extract one testable claim from each and name the corroborating evidence.</li>\n<li>Find one contradiction or gap between documents.</li>\n<li>Record the inspection in the workbench.</li>\n</ol>\n<p><strong>Deliverable:</strong> three document inspection records with claims, metadata, corroboration and limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Tessera's policy library and Statement of Applicability are the main inspection sources:</p>\n<ul>\n<li><a href=\"https://tessera.locoensayo.org/docs/policies.html\">Tessera policies</a></li>\n<li><a href=\"https://tessera.locoensayo.org/docs/support/statement_of_applicability.html\">Statement of Applicability</a></li>\n</ul>\n<p>The workbench evidence room contains more than the policy library. Not every document is relevant to every control. Choosing the right ones is part of the audit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Documents are how organisations scale intent. They are also how organisations create the illusion of control. A policy that nobody follows is worse than no policy, because it gives the board false comfort.</p>\n<p>An auditor who only reads documents will rate the organisation's ambition, not its practice. The report will look thorough and tell the board nothing about the risk.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain why a policy is a claim rather than evidence of operation.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Extract three testable claims from a Tessera policy.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Compare a SoA entry with the available evidence. List what is claimed and what is missing.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Find a contradiction between two documents. Explain what it means for the control.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Write the document inspection section of an audit report, including the claims, the evidence and the limitations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Documents show intent, ownership and claims, not operation.</li>\n<li>Test whether a claim is current, approved and specific enough to test.</li>\n<li>The Statement of Applicability is an orientation tool, not the audit.</li>\n<li>Contradictions between documents are findings.</li>\n<li>Every document claim needs corroboration.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Checked the document's version, owner and approval</li>\n<li>[ ] Extracted claims rather than summaries</li>\n<li>[ ] Named the evidence that would show operation</li>\n<li>[ ] Found one contradiction or gap</li>\n<li>[ ] Recorded what the document does not cover</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which policy claim was hardest to test?</li>\n<li>Where did two documents disagree?</li>\n<li>What would you ask the document owner?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The documents state the claims. The next chapter asks the people who are supposed to follow them.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Inquire: Interviews and Corroboration",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Ask for evidence, not assurance. \"We take security seriously\" is not a finding.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Inquiry is the audit method that asks people what happens. It is how you learn about exceptions, workarounds, ownership and the parts of the process that never made it into a document.</p>\n<p>An interview is evidence when it is done well. It becomes a liability when it is treated as confirmation.</p>\n<p>The auditor's rules:</p>\n<ul>\n<li><strong>Ask the right person.</strong> The policy owner knows the intent. The operator knows the work. The person who approves exceptions knows where the control bends.</li>\n<li><strong>Ask for evidence, not assurance.</strong> \"Show me the last restore test\" is better than \"are backups tested?\"</li>\n<li><strong>Ask open questions.</strong> \"Walk me through the last time this failed\" produces more than \"do you follow the process?\"</li>\n<li><strong>Do not lead.</strong> A leading question tells the person the answer you want.</li>\n<li><strong>Corroborate.</strong> One person's claim is a lead. A document, a log or a second interview makes it evidence.</li>\n<li><strong>Record the conversation.</strong> Date, role, question, answer, evidence offered, follow-up.</li>\n</ul>\n<p>The lab's interviewees are AI chatbots playing staff. That is useful for practice, but it changes the evidence. A simulated person can be helpful, consistent and available. It is still a simulation, not a witness. Use the interviews to learn the organisation and test your questions, then corroborate with documents and logs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Job Reference</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A job reference can be warm, specific and completely misleading. The referee may be kind, may not have worked with the candidate recently, or may be repeating what the candidate told them.</p>\n<p>A careful employer asks for examples, dates, outcomes and a second reference. The first reference is a lead. The pattern across references, records and interview performance is evidence.</p>\n<p>An audit interview works the same way. The first answer is a lead. The pattern across roles, documents and logs is evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Interview Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Draft the Questions</h3>\n<p>Ask for open questions tied to controls.</p>\n<pre><code class=\"language-text\">Here are the scoped controls and the evidence matrix:\n[paste them]\n\nWrite interview questions for the control owner, the operator and the\nperson who approves exceptions. Use open questions. Ask for a recent\nexample, the evidence they would show and what happens when the process\nfails. Do not ask &quot;do you comply?&quot;.\n</code></pre>\n<p>A good set will produce stories, not yes or no answers.</p>\n<h3>Exploration 2: Role-Play the Interviewee</h3>\n<p>Use the AI to rehearse, then check the answers against evidence.</p>\n<pre><code class=\"language-text\">Role-play the Tessera service desk lead. Answer my questions as that\nperson would. If I ask for assurance, give me a general answer. If I ask\nfor a recent example, describe one. Do not volunteer evidence I have not\nasked for.\n</code></pre>\n<p>After the rehearsal, list the claims the interviewee made and the evidence that would corroborate each one. The role-play is practice, not proof.</p>\n<h3>Exploration 3: Find the Assurance Language</h3>\n<p>Ask the AI to flag answers that are assurances rather than evidence.</p>\n<pre><code class=\"language-text\">Here is an interview transcript:\n[paste it]\n\nMark every answer that is an assurance, an opinion or a claim without\nevidence. For each, write the follow-up question that would turn it into\nevidence.\n</code></pre>\n<p>Common assurances: \"we have a process\", \"it is reviewed regularly\", \"the team is careful\", \"we have never had an incident\". Each is a prompt for a follow-up.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An interview record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Interviewee</td>\n<td>Service desk lead</td>\n</tr>\n<tr>\n<td>Role and control</td>\n<td>MFA exceptions</td>\n</tr>\n<tr>\n<td>Date</td>\n<td>2026-09-12</td>\n</tr>\n<tr>\n<td>Question</td>\n<td>Walk me through the last MFA exception</td>\n</tr>\n<tr>\n<td>Answer</td>\n<td>Contractor needed access for a legacy system</td>\n</tr>\n<tr>\n<td>Evidence offered</td>\n<td>Exception ticket EX-1042</td>\n</tr>\n<tr>\n<td>Corroboration</td>\n<td>Exception register, IAM log</td>\n</tr>\n<tr>\n<td>Follow-up</td>\n<td>Who approves, how long, is it reviewed?</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>One case; does not show frequency</td>\n</tr>\n</tbody>\n</table>\n<p>The record is not a transcript. It is enough for another auditor to see what was asked, what was claimed and what evidence followed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 5: Inquire of the right people.</strong></p>\n<ol>\n<li>Choose two staff whose roles bear on your controls.</li>\n<li>Ask for a recent example, not an assurance.</li>\n<li>Record three claims, the evidence offered and the follow-up question.</li>\n<li>Name one corroborating source for each claim.</li>\n<li>Record the interviews in the workbench.</li>\n</ol>\n<p><strong>Deliverable:</strong> two interview records with claims, evidence, corroboration and limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Tessera has a dozen staff you can interview:</p>\n<ul>\n<li><a href=\"https://tessera.locoensayo.org/chatbots/\">Tessera staff</a></li>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n</ul>\n<p>Most are irrelevant to any given control. Working out who matters is part of the audit. Ask for evidence, then corroborate it in the evidence room.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Interviews are where the auditor learns how the organisation really works. They are also where the auditor is most likely to be charmed.</p>\n<p>A confident operator can make a weak control sound strong. A nervous operator can make a strong control sound weak. The evidence decides, not the manner.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain the difference between an assurance and a piece of evidence.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Write five open interview questions for one control.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Interview a Tessera staff member and record one claim with the evidence that would corroborate it.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Find three assurance statements in an interview and rewrite each as a follow-up question.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Write the inquiry section of an audit report, including the interviews, the claims, the corroboration and the limitations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Inquiry is evidence when it is planned, recorded and corroborated.</li>\n<li>Ask for a recent example and the evidence behind it.</li>\n<li>Leading questions produce the answer you asked for.</li>\n<li>One interview is a lead, not a finding.</li>\n<li>Simulated interviewees are practice, not witnesses.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Interviewed the right role for the control</li>\n<li>[ ] Asked for a recent example</li>\n<li>[ ] Recorded the claim and the evidence offered</li>\n<li>[ ] Named the corroborating source</li>\n<li>[ ] Marked at least one assurance as a follow-up</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which answer sounded convincing but was not evidence?</li>\n<li>Who else could corroborate the claim?</li>\n<li>What did the interview teach you that the policy did not?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The people have described the work. The next chapter looks at what the systems recorded.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Observe: Logs and System Evidence",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A log is a record of what the system noticed. It is not a record of everything that happened.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Observation is the audit method that examines what the system recorded: logs, reports, dashboards, registers, backups and test results.</p>\n<p>Logs are often the strongest evidence because they are generated by the system rather than written for the auditor. They are also easy to overread.</p>\n<p>Ask:</p>\n<ul>\n<li>What does the log record, and what does it not record?</li>\n<li>Is the record complete for the period?</li>\n<li>Is the clock reliable and in a known time zone?</li>\n<li>Was the log protected from modification?</li>\n<li>Is the sample representative?</li>\n<li>Does the log show the control operating, or only an event?</li>\n</ul>\n<p>A log that shows MFA challenges does not prove every remote login used MFA. A backup log that shows a successful job does not prove the restore works. A patch report that shows 98 percent compliance does not show which 2 percent are missing or what they are.</p>\n<p>Observation is strongest when it is combined with inspection and inquiry. The policy states the requirement. The operator explains the exception. The log shows whether the requirement held.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through CCTV</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A security camera records what passes in front of the lens. It does not record the room behind the camera, the conversation outside the frame or the person who turned it off.</p>\n<p>The footage can still be strong evidence. It has a timestamp, a location and a sequence. It also has blind spots. A good investigator states the blind spots.</p>\n<p>A log is a camera with a narrower lens. It records the events the system was configured to capture, in the format it was configured to use, for as long as the retention policy allowed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Log Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Log for What It Shows</h3>\n<p>Ask the AI to describe the evidence, not the conclusion.</p>\n<pre><code class=\"language-text\">Here is a log excerpt:\n[paste it]\n\nDescribe what the log records, the time range, the events, the fields\nand the gaps. Do not conclude that the control is met. Mark what the log\ncannot show.\n</code></pre>\n<p>A good answer will notice missing days, unusual formats and events that should be present but are not.</p>\n<h3>Exploration 2: Test Completeness</h3>\n<p>Ask what would make the record unreliable.</p>\n<pre><code class=\"language-text\">The audit period is six months. The log covers four months and has a\ntwo-week gap. Explain how this affects the evidence for the control.\nWhat should the report say? What additional evidence would help?\n</code></pre>\n<p>A gap is not automatically a fail. It is a limitation that changes the confidence of the rating.</p>\n<h3>Exploration 3: Challenge the Sample</h3>\n<p>Ask whether the sample supports the claim.</p>\n<pre><code class=\"language-text\">The auditor inspected one restore test and one month of backup logs.\nThe control claim is &quot;backups are tested regularly&quot;. Critique the\nevidence. What would a stronger sample look like for a six-month audit?\n</code></pre>\n<p>A single successful test can support \"a restore worked once\". It cannot support \"restores are tested regularly\".</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A log evidence record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Source</td>\n<td>IAM authentication log</td>\n</tr>\n<tr>\n<td>Period</td>\n<td>2026-03-01 to 2026-08-31</td>\n</tr>\n<tr>\n<td>Records</td>\n<td>184,220 events</td>\n</tr>\n<tr>\n<td>Control tested</td>\n<td>MFA for remote access</td>\n</tr>\n<tr>\n<td>Observed</td>\n<td>99.6% of remote logins challenged</td>\n</tr>\n<tr>\n<td>Exception</td>\n<td>74 logins from a legacy VPN</td>\n</tr>\n<tr>\n<td>Gap</td>\n<td>Two weeks missing in May</td>\n</tr>\n<tr>\n<td>Corroboration</td>\n<td>Exception register, service desk interview</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Read-only sample; no endpoint enforcement check</td>\n</tr>\n</tbody>\n</table>\n<p>The exception and the gap are not footnotes. They are the parts of the evidence that decide the rating.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 6: Observe the system evidence.</strong></p>\n<ol>\n<li>Select two logs or reports relevant to your controls.</li>\n<li>Record the period, fields, record count and owner.</li>\n<li>Find one gap and one exception.</li>\n<li>Explain what the sample can and cannot support.</li>\n<li>Record the observation and the endpoint limitation in the workbench.</li>\n</ol>\n<p><strong>Deliverable:</strong> two log evidence records with sample, gap, exception and limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbench evidence room contains Tessera's logs and reports. The lab's endpoint limitation matters here:</p>\n<ul>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n<li><a href=\"https://github.com/michael-borck/security-audit-lab/blob/main/LAB-GUIDE.md\">Engagement guide: scope limitations</a></li>\n</ul>\n<p>You can read the logs Tessera provides. You cannot independently verify endpoint enforcement for application control, macro settings or user application hardening. Record the limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Logs are how the organisation proves operation. They are also how it discovers that the control it thought was universal has a legacy exception.</p>\n<p>A board does not need every log line. It needs to know what the evidence shows, what it does not show and what the organisation is doing about the gap. The auditor's job is to make that visible without drowning the reader.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Explain why a log is not a complete record of what happened.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Read a Tessera log and record the period, fields and one gap.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Test whether a sample supports a control claim. State the limitation.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Find an exception in the logs and explain how it changes the rating.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Write the observation section of an audit report, including the evidence, the sample, the gap and the limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Logs record what the system noticed, not everything that happened.</li>\n<li>Completeness, time, retention and protection affect reliability.</li>\n<li>A sample can support a narrow claim, not a universal one.</li>\n<li>Exceptions and gaps shape the rating.</li>\n<li>The endpoint limitation is part of the evidence record.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Recorded the log period and fields</li>\n<li>[ ] Found one gap or exception</li>\n<li>[ ] Explained what the sample can and cannot support</li>\n<li>[ ] Corroborated the log with another source</li>\n<li>[ ] Recorded the endpoint limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which log gave the strongest evidence, and why?</li>\n<li>What did the log fail to show?</li>\n<li>How would you explain a two-week gap to the board?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The evidence is gathered. The next chapter turns it into a rating and a limitation.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: evidence and corroboration",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does a policy prove on its own?",
+                        "options": [
+                          "That someone wrote and approved a claim about how the organisation intends to operate",
+                          "That the control is operating",
+                          "That the board has assurance",
+                          "That the log matches the claim"
+                        ],
+                        "answer": 0,
+                        "explanation": "A policy is a claim. It needs evidence of operation."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What makes an interview useful as audit evidence?",
+                        "options": [
+                          "A recent example, a recorded claim and corroboration from another source",
+                          "A confident assurance from a senior person",
+                          "A yes answer to \"do you comply\"",
+                          "A long conversation with no notes"
+                        ],
+                        "answer": 0,
+                        "explanation": "One person's claim is a lead. Corroboration makes it evidence."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why is a log not a complete record of what happened?",
+                        "options": [
+                          "It records what the system was configured to capture, for the period it retained",
+                          "It always records every event",
+                          "It cannot be tampered with",
+                          "It has no time zone"
+                        ],
+                        "answer": 0,
+                        "explanation": "Logs have configuration, retention, gaps and blind spots."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is triangulation?",
+                        "options": [
+                          "Using more than one independent source to support the same claim",
+                          "Asking the same person twice",
+                          "Running the same query twice",
+                          "Using three tools from the same vendor"
+                        ],
+                        "answer": 0,
+                        "explanation": "A policy, an interview and a log that agree are stronger than any one of them."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What should you record when endpoints cannot be inspected?",
+                        "options": [
+                          "The limitation and how it affects the confidence of the rating",
+                          "Nothing, because the audit is incomplete",
+                          "That the control is not met",
+                          "That the policy is sufficient"
+                        ],
+                        "answer": 0,
+                        "explanation": "Limitations change confidence and belong beside the finding."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "How should AI be used in evidence gathering?",
+                        "options": [
+                          "To draft questions, map evidence and challenge a claim, with every output verified",
+                          "To decide the rating",
+                          "To replace the interview",
+                          "To assume missing evidence is fine"
+                        ],
+                        "answer": 0,
+                        "explanation": "AI can speed the work. It cannot supply the evidence or own the judgement."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "When is a sample sufficient?",
+                        "options": [
+                          "When it can support the specific claim being made, and the limitation is stated",
+                          "When it is convenient",
+                          "When it is a single successful test",
+                          "When the client says it is enough"
+                        ],
+                        "answer": 0,
+                        "explanation": "A sample of one can support 'a restore worked once', not 'restores are tested regularly'."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "substantiate",
+            "title": "Substantiate",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Rate, Substantiate, Record the Limit",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A rating is a judgement about evidence. It is not a reward for a good policy.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A control rating states how well the evidence supports the control objective. It is not a score for effort, maturity or intention.</p>\n<p>A simple rating set:</p>\n<ul>\n<li><strong>Met</strong>: the evidence shows the control is designed and operating as required.</li>\n<li><strong>Partial</strong>: some elements operate, but there are gaps, exceptions or insufficient evidence.</li>\n<li><strong>Not met</strong>: the evidence shows the control is not operating, or the gap is material.</li>\n<li><strong>Not assessed</strong>: the control was outside scope or could not be tested.</li>\n</ul>\n<p>The words vary by framework. The judgement does not. The rating has to fit the evidence and the limitation.</p>\n<p>Three qualities make evidence useful:</p>\n<ul>\n<li><strong>Relevant</strong>: it bears on the control objective.</li>\n<li><strong>Reliable</strong>: it comes from a source you can trust for this purpose.</li>\n<li><strong>Sufficient</strong>: there is enough of it to support the rating.</li>\n</ul>\n<p>A policy is relevant and may be reliable as a statement of intent. It is rarely sufficient on its own. A log is relevant and may be reliable as a record of events. It is rarely sufficient if it covers only one week of a six-month period.</p>\n<p><strong>Triangulation</strong> is the use of more than one source. A policy, an interview and a log that agree are stronger than any one of them. If they disagree, the disagreement is the finding.</p>\n<p><strong>Limitation</strong> is the part of the evidence you could not obtain. Endpoint controls you cannot inspect, a log with a two-week gap, a single restore test, an interview with only one operator: each changes the confidence of the rating. Record it beside the rating, not in an appendix nobody reads.</p>\n<p>A <strong>defensible Partial</strong> is a professional result. It says: this part works, this part does not, this part is unknown. A Met built on a policy alone is weaker, even if it sounds better.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Court Judgment</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A court does not rate a case \"good\" or \"bad\". It decides what the evidence proves, to the required standard, and gives reasons.</p>\n<p>The judgment separates the facts found, the evidence for them, the law applied, the conclusion and the sentence. It also records what was not proved. The reasons matter as much as the verdict, because another court has to be able to review them.</p>\n<p>An audit rating is similar. The evidence table is the facts. The criteria are the law. The rating is the conclusion. The limitation is what was not proved. The report has to show the reasoning.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Rating with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Rate from the Evidence Table</h3>\n<p>Ask the AI to rate only what the table supports.</p>\n<pre><code class=\"language-text\">Here is the evidence table for one control:\n[paste it]\n\nPropose a rating of Met, Partial, Not met or Not assessed. For each\nelement, cite the evidence, state the quality (relevance, reliability,\nsufficiency) and name the limitation. If the evidence is insufficient,\nsay so instead of guessing.\n</code></pre>\n<p>A good answer will refuse to rate when the evidence is thin. That refusal is a finding.</p>\n<h3>Exploration 2: Attack the Rating</h3>\n<p>Ask the AI to argue the opposite rating.</p>\n<pre><code class=\"language-text\">I have rated this control Partial. Write the strongest argument for Met\nand the strongest argument for Not met, using only the evidence in the\ntable. Then say which argument is better supported and why.\n</code></pre>\n<p>The exercise exposes whether the rating is stable. If both arguments are strong, the evidence is ambiguous and the report should say so.</p>\n<h3>Exploration 3: Write the Limitation</h3>\n<p>Ask for a limitation that changes the reader's confidence.</p>\n<pre><code class=\"language-text\">The auditor could not inspect endpoints, and one log has a two-week gap.\nWrite the limitation statement for the report. Explain what the auditor\ncould and could not conclude. Do not bury it in a footnote.\n</code></pre>\n<p>A good limitation is specific. \"Limited access\" is not enough. \"Endpoint enforcement could not be independently verified; the rating relies on the SOE standard and the SOE lead's interview\" is useful.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A rating table:</p>\n<table>\n<thead>\n<tr>\n<th>Control</th>\n<th>Rating</th>\n<th>Evidence</th>\n<th>Confidence</th>\n<th>Limitation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>MFA</td>\n<td>Partial</td>\n<td>Policy, IAM log, service desk interview</td>\n<td>Medium</td>\n<td>74 legacy VPN logins; two-week log gap</td>\n</tr>\n<tr>\n<td>Privileged access</td>\n<td>Met</td>\n<td>Access register, approval tickets, quarterly review</td>\n<td>Medium</td>\n<td>No endpoint inspection</td>\n</tr>\n<tr>\n<td>Backups</td>\n<td>Partial</td>\n<td>One restore test, six months of job logs</td>\n<td>Medium</td>\n<td>Single restore sample; no ransomware scenario</td>\n</tr>\n<tr>\n<td>Application control</td>\n<td>Not assessed</td>\n<td>SOE standard, SOE interview</td>\n<td>Low</td>\n<td>Enforcement not verified</td>\n</tr>\n</tbody>\n</table>\n<p>The rating table is the core of the report. The prose explains it; it does not replace it.</p>\n<p>For each rating, write one sentence that says what would change it:</p>\n<ul>\n<li>\"MFA would move to Met if the legacy VPN exception were closed and the log gap explained.\"</li>\n<li>\"Backups would stay Partial until a second restore test and a ransomware recovery scenario are evidenced.\"</li>\n</ul>\n<p>That sentence is the bridge to the recommendation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 7: Rate three controls.</strong></p>\n<ol>\n<li>Choose three scoped controls.</li>\n<li>Build a rating table with evidence, confidence and limitation.</li>\n<li>Write the strongest argument for the opposite rating.</li>\n<li>Write one sentence per control: what would change the rating.</li>\n<li>Record the ratings in the workbench and read the feedback on substantiation.</li>\n</ol>\n<p><strong>Deliverable:</strong> a rating table and a one-page substantiation note for three controls.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbench gives feedback on whether each rating is substantiated:</p>\n<ul>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n</ul>\n<p>The feedback grades evidence, not whether you matched a hidden verdict. A defensible Partial beats an unsupported Met.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Boards prefer clean ratings. Auditors must resist giving them a clean rating the evidence cannot carry.</p>\n<p>A Partial with a clear limitation gives the board a decision: accept the gap, fund the fix or investigate further. A Met with no evidence gives the board comfort it has not earned. The first is useful. The second is a liability.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Explain the difference between relevance, reliability and sufficiency.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Rate one control from your evidence table and state the limitation.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Write the strongest argument for the opposite rating.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Write the limitation statement for a control you could only partly test.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Produce a rating table for all scoped controls, with confidence, limitation and the condition that would change each rating.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A rating is a judgement about evidence, not a reward for a policy.</li>\n<li>Evidence must be relevant, reliable and sufficient.</li>\n<li>Triangulation strengthens a rating; disagreement is a finding.</li>\n<li>Limitations belong beside the rating.</li>\n<li>A defensible Partial is a professional result.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Rated only what the evidence supports</li>\n<li>[ ] Tested the opposite rating</li>\n<li>[ ] Named the limitation for each rating</li>\n<li>[ ] Wrote what would change the rating</li>\n<li>[ ] Recorded the substantiation in the workbench</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which rating was hardest to defend?</li>\n<li>Where did two sources disagree?</li>\n<li>What would you test next if you had another day?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The ratings are substantiated. The final chapter turns them into a report the board can use.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Report to the Board",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The report is not the audit. It is the part of the audit the board can see and act on.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A board report has to do four things:</p>\n<ul>\n<li>state what was audited and why</li>\n<li>present the findings and ratings with evidence</li>\n<li>record the limitations and what they mean</li>\n<li>recommend an action the board can decide</li>\n</ul>\n<p>A useful structure:</p>\n<ul>\n<li><strong>Purpose and authority</strong>: why the audit happened and who commissioned it.</li>\n<li><strong>Scope and criteria</strong>: controls, period, systems, evidence and out-of-scope items.</li>\n<li><strong>Method</strong>: inspect, inquire, observe, corroborate.</li>\n<li><strong>Findings</strong>: one finding per control, with evidence and rating.</li>\n<li><strong>Limitations</strong>: what could not be tested and how that affects confidence.</li>\n<li><strong>Recommendations</strong>: prioritised actions with owners and dates.</li>\n<li><strong>Appendices</strong>: evidence register, interview records, log extracts.</li>\n</ul>\n<p>A finding should be specific enough to argue with. \"MFA is partial\" is a rating. \"MFA is enforced for remote access except 74 legacy VPN logins; the exception is not recorded in the register; the log has a two-week gap in May\" is a finding.</p>\n<p>The report is a snapshot. It describes the controls at the time of testing. It is not a warranty. Say so.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Board Paper</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A board paper does not tell the directors everything the author knows. It gives them the decision, the evidence, the options and the recommendation.</p>\n<p>The detail sits in the appendices. The board reads the finding, the risk and the ask. If a director wants to test the reasoning, the evidence is there.</p>\n<p>An audit report works the same way. The board needs the rating, the evidence summary, the limitation and the recommendation. The auditor needs the full evidence register. One document, layered for different readers.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Report with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Draft Findings from Evidence</h3>\n<p>Ask the AI to write findings only from the rating table.</p>\n<pre><code class=\"language-text\">Here is the rating table:\n[paste it]\n\nWrite one finding per control. Each finding must cite the evidence,\nstate the rating and name the limitation. Do not add a conclusion that\nis not in the table.\n</code></pre>\n<p>Review every citation. An AI can merge two evidence items or invent a detail that sounds plausible.</p>\n<h3>Exploration 2: Find the Overclaims</h3>\n<p>Ask the AI to attack the draft.</p>\n<pre><code class=\"language-text\">Here is the draft report:\n[paste it]\n\nMark every sentence that claims more than the evidence supports. Look\nfor certainty, completeness and causation. Rewrite each overclaim as a\nsentence the evidence can carry.\n</code></pre>\n<p>Common overclaims: \"the control is effective\", \"the organisation is compliant\", \"the risk is managed\", \"the gap has been closed\". Each needs a scope and a date.</p>\n<h3>Exploration 3: Write the Board Summary</h3>\n<p>Ask for a summary from the findings, not the brief.</p>\n<pre><code class=\"language-text\">Using only the findings, limitations and recommendations, write a\none-page board summary. Include the overall assurance position, the\nthree most material gaps, what is uncertain, what action is recommended\nand who owns it. Do not introduce new claims.\n</code></pre>\n<p>The summary should be short enough to read before the meeting and precise enough to support a decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A finding template:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Finding: Multi-factor authentication</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Rating:</strong> Partial</p>\n<p><strong>What we tested:</strong> Remote access, VPN, privileged accounts, exception process.</p>\n<p><strong>What we found:</strong> MFA is enforced for the standard remote access path.\nSeventy-four logins from the legacy VPN were not challenged in the sample.\nThe exception register does not record them. The IAM log has a two-week gap.</p>\n<p><strong>Evidence:</strong> IAM-04, INT-07, REG-02, LOG-11.</p>\n<p><strong>Why it matters:</strong> Credential misuse was a factor in the breach. The\nlegacy path is a residual route.</p>\n<p><strong>Limitation:</strong> Endpoint enforcement was not independently verified.</p>\n<p><strong>What would change the rating:</strong> Closure of the legacy path, a complete\nexception register and a log coverage check.\n```</p>\n<p>The finding is specific, evidenced and limited. The board can decide.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Workbook Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Mission 8: Write the report.</strong></p>\n<ol>\n<li>Assemble your scope, method, findings, ratings and limitations.</li>\n<li>Write one finding per scoped control using the template.</li>\n<li>Write a one-page board summary with the overall position, three material gaps and the recommendation.</li>\n<li>Export the report from the workbench as Markdown or PDF.</li>\n<li>Ask someone who did not do the audit whether they could follow the evidence.</li>\n</ol>\n<p><strong>Deliverable:</strong> a board-ready report with findings, ratings, limitations and recommendations, plus the evidence appendix.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbench assembles the report from your scope, evidence and ratings:</p>\n<ul>\n<li><a href=\"https://securityaudit.borck.education/workbench.html\">Audit Workbench</a></li>\n<li><a href=\"https://github.com/michael-borck/security-audit-lab/blob/main/LAB-GUIDE.md\">Engagement guide</a></li>\n</ul>\n<p>The workbench records and reasons. It does not write the judgement for you. The report is yours.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The report is how the audit changes something. A finding the board cannot understand, or cannot act on, is a cost without a benefit.</p>\n<p>A good report gives the board a decision it can make with the evidence in front of it. It also gives the next auditor a starting point. Both are part of the professional obligation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> List the sections of a board audit report.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Write one finding from your rating table, including evidence and limitation.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Write the limitations section and explain how each limitation affects confidence.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write a one-page board summary with three material gaps and a recommendation.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Produce the full report for your Tessera audit and ask another person to trace one finding back to its evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A board report states purpose, scope, method, findings, limitations and recommendations.</li>\n<li>Findings cite evidence and carry a rating.</li>\n<li>The report is a snapshot, not a warranty.</li>\n<li>Limitations change confidence and belong beside the findings.</li>\n<li>A report that cannot be traced to evidence is not an audit report.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote findings that cite evidence</li>\n<li>[ ] Stated the rating and limitation for each finding</li>\n<li>[ ] Removed every overclaim</li>\n<li>[ ] Wrote a board summary that introduces no new claims</li>\n<li>[ ] Asked someone else to trace a finding to its evidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which finding was hardest to write without overclaiming?</li>\n<li>Which limitation matters most to the board?</li>\n<li>What would you do differently in the next audit?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The workbook is complete. The appendices collect the Essential Eight map and the evidence templates so you can run the audit again.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "The defensible rating",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The MFA policy says all remote access requires MFA. The IAM log shows\n74 legacy VPN logins without a challenge and a two-week gap. The\nservice desk lead says the legacy path is \"being retired\". You cannot\ninspect endpoints. Choose the rating and the record.</p>",
+                    "options": [
+                      {
+                        "id": "partial",
+                        "label": "Rate Partial, cite the evidence, record the endpoint and log limitations, and name what would change the rating",
+                        "outcome": "<p>The rating is defensible. The standard path is evidenced. The legacy\nexception and the log gap are explicit. The board can decide whether\nto fund closure of the legacy path and a log coverage check.</p>",
+                        "effects": {
+                          "Evidence": "Sufficient",
+                          "Confidence": "Medium",
+                          "Board decision": "Clear"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A defensible Partial beats an unsupported Met.</p>"
+                      },
+                      {
+                        "id": "met",
+                        "label": "Rate Met because the policy requires MFA and the service desk says it is enforced",
+                        "outcome": "<p>The rating ignores the log exception and the gap. The board receives\nassurance the evidence does not support.</p>",
+                        "effects": {
+                          "Evidence": "Insufficient",
+                          "Confidence": "False",
+                          "Risk": "High"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A policy and an assurance are not enough. The log contradicts the claim.</p>"
+                      },
+                      {
+                        "id": "notmet",
+                        "label": "Rate Not met because the legacy exception and log gap exist",
+                        "outcome": "<p>The rating overcorrects. The standard remote path is evidenced, and\nthe exception is bounded. A Partial with a limitation is more\naccurate than a blanket Not met.</p>",
+                        "effects": {
+                          "Evidence": "Understated",
+                          "Confidence": "Low",
+                          "Decision": "Skewed"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Rate what the evidence supports, including the part that works.</p>"
+                      },
+                      {
+                        "id": "unassessed",
+                        "label": "Mark Not assessed because endpoints were unavailable",
+                        "outcome": "<p>The endpoint limitation affects confidence, not the entire control.\nThe IAM log and interview still support a finding on the remote access\npath.</p>",
+                        "effects": {
+                          "Evidence": "Ignored",
+                          "Confidence": "None",
+                          "Decision": "Deferred"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A limitation narrows the conclusion. It does not erase the evidence you have.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Rate only what the evidence supports. Put the limitation beside the\nrating, and write the condition that would change it.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
