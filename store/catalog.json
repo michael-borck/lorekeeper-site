@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:41:08+00:00",
+  "updatedAt": "2026-11-06T12:44:14+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "20a6d2c005c188d6c2eab5103bafbaa543bd8558f7fba7ac159bdb5342612720",
+      "sha256": "f2c76c73df2581e7899fe4f2cc3cb194469477b3e741b5e96b17016fccd5230a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "GAyzIy7CPUGbyYtwUFwbsjww2fQuV8k9pKOlpIWkDZdR6Ph/olfbuftjUSaS+eyfOL0h0UV4NnELgcEiHLUOAg==",
+      "signature": "vJFOcNK2zhAHsryAOuGQZtadxxX98qXgtpdmL6SKJJ3VqM6MXf3P5w6YwleXhuHjteFqCiObji7SEhdVJktjDw==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -32,7 +32,7 @@
       "description": "A field guide to software security, malware, cryptography and incident planning.",
       "version": "1.0.0",
       "author": "",
-      "licence": "",
+      "licence": "Course content",
       "theme": "pixel",
       "tags": [
         "security",
@@ -43,10 +43,10 @@
       "level": "beginner",
       "courses": 1,
       "lessons": 24,
-      "size": 104815,
-      "sha256": "99dbd4342a052878a7c9f3c4d93d35d97ecb3c181bcf50f10f88cf8466fa5d64",
+      "size": 104829,
+      "sha256": "53de862ec19d445f4ef74a570c8ff5a1c41fa2e42c915985222e516bd5f425c2",
       "keyId": "c72e49ccf7055c89",
-      "signature": "h0SG+15Kr5Tm/6Y2Xg4bYoZ1sMPBwDcARQDWGCjDZzrVzvo+UyYzQ4EN0WFsvKpMa4vkIaWNfkIMaSDO0NYYAQ==",
+      "signature": "RmJjx7UONWYF3VWnbzcwl9S/Ip/xfgCcDbUQWjH9HCsC0HJBsF9ZLW2HXLpwIMGhoLHTkuCAroHrpxpeifcFBw==",
       "url": "packs/information-security.json"
     },
     {
@@ -55,7 +55,7 @@
       "description": "A field guide to audit evidence, risk, controls and professional judgement.",
       "version": "1.0.0",
       "author": "",
-      "licence": "",
+      "licence": "Course content",
       "theme": "storybook",
       "tags": [
         "audit",
@@ -67,10 +67,10 @@
       "level": "intermediate",
       "courses": 1,
       "lessons": 24,
-      "size": 304307,
-      "sha256": "29c48f19ecbc84914bb01e9580a00289bba220cbb28282259f301478bcf175fc",
+      "size": 304321,
+      "sha256": "2eac2589feebf91646ed5a02e08a79a11c6e297035f0a8f1ef789e8f6cb1b8d2",
       "keyId": "c72e49ccf7055c89",
-      "signature": "FwuCCmwLN4n6dMs2sxwH16hTF1nKeiNL+Ol4BZH3vmhaHd8zeJpwf/qfxm387BoD+AItSRAIu9xiVfkFjWhECw==",
+      "signature": "L5Dt/4fTTopK9CZLKGmy2R6+KxloqwMEBp7mYeUw0NRcD95Ji1Rnw16e3C76jVH+U6eG/k3/5nGR9cwE3WwLDQ==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "a30da0467fbedd2270bc8bba56b7188715c510bdf18f7cecd9cbf7c4f6ce6859",
+      "sha256": "5f078a8d15b88dd0abf34ffd3a2501999c0d3f35d6560d4c13eee1492d07399d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "kjbpenyBnF3v0LD2a88DThGhFbVqFdI+dNfEGki3QRQNGo76JICmOY0gfVQLdAveH7EbghPQ0ErHMXgaLvcDBQ==",
+      "signature": "at0q9pCbH2gCtYUdCaadyZ3OsFIu40Y7/ngxi0TDLDeFgPGWqQTwHHaRIAcYTD7DHNa9p6in2ynT3+xqMoWNDQ==",
       "url": "packs/assume-breach.json"
     }
   ]
