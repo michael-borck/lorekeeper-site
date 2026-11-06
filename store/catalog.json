@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:09:15+00:00",
+  "updatedAt": "2026-11-06T12:25:46+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "ee69bf0087e942d4292cadbc0cdd4593195102d6531cfe27f168f2c9dad2f7e7",
+      "sha256": "3f88aa147e4561fa2bcd4bbe98c941df0c9e81400bc06955b29e1a02610607de",
       "keyId": "c72e49ccf7055c89",
-      "signature": "GzzIZwBdhmrsmYMQsaDZsmpPbwtfsk7oiud3jTnchHsaSHw7bTbyuTYKRQmunxZlcXYJ5NOZyNNupnoOhzevAg==",
+      "signature": "5MuNJAKfv1d0WNgc8UTeE6Ngd/PK6vEviAUUqlYytQ05bOy0tNnoXt6GBmE36ptfb8rWpQXXoLxkA5WQcKcQBA==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,10 +44,34 @@
       "courses": 1,
       "lessons": 24,
       "size": 104815,
-      "sha256": "3ca3927203f0c3b10ea7260a855606e5f2373445c615fd55628f14deb0209b12",
+      "sha256": "20f83792a8fcfd45031eae34814d069166e6c852b051efd2e35597937e320b41",
       "keyId": "c72e49ccf7055c89",
-      "signature": "V5Vl5v0+iLKTSiYz0QET2g0TFkfzdsvywm/XjNxlf3jWkiXWWhvxW7Do7msjq02w/f7w7i+O6fYhRpLdjV2jCg==",
+      "signature": "Os5IYwhADlY+5gZv4APaq7ZzO/+/tqoKxDJn9PunSYGBlvMYS6rxdeyO4K6vJ1rHcFh+uJ5wedkSxWboDxT2Ag==",
       "url": "packs/information-security.json"
+    },
+    {
+      "id": "audit-and-control",
+      "title": "Audit and Control: A Field Guide",
+      "description": "A field guide to audit evidence, risk, controls and professional judgement.",
+      "version": "1.0.0",
+      "author": "",
+      "licence": "",
+      "theme": "storybook",
+      "tags": [
+        "audit",
+        "risk",
+        "controls",
+        "compliance",
+        "security"
+      ],
+      "level": "intermediate",
+      "courses": 1,
+      "lessons": 24,
+      "size": 304307,
+      "sha256": "108b41299646f51cd6375d28abff3b63840af1df94e575fb73f710cec92b4dce",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "tmmYlRHwAIVPEwaxhtd872EbnfO1qq/GFFpQy+xExZauIy6EujGL2MEfX68h/dGTS4hM2d1DbEWBqvXQgMBVBA==",
+      "url": "packs/audit-and-control.json"
     }
   ]
 }
