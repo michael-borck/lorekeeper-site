@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-06T11:58:23+00:00",
+  "generated_at": "2026-11-06T12:01:25+00:00",
   "unit": {
     "slug": "signal-and-noise",
     "title": "Signal & Noise: An Enterprise Systems Field Guide",
@@ -1469,22 +1469,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -1506,79 +1490,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting</p>\n<p>The quarterly reporting service stopped reading the finance report after the identity\nservice was rebuilt. The service account exists and the report exists, but every read\nfails with <code>Permission denied</code>.</p>\n<p>At the same time, we have approved a contractor to read the same report. Read only. The\ncontractor must not be able to change it, and must not see the rest of the finance share.</p>\n</blockquote>\n<p>The ticket contains two problems that look alike and are not. The service account needs\naccess restored. The contractor needs access granted, with a scope and an end date. Both\nare authorisation decisions. Neither is solved by making the share world-readable.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m08</code>. Follow <code>modules/module-08-identity/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>\n<p>The identity service is a local user database with users, groups, a reports share and a\nnarrow <code>sudo</code> rule. A production estate would put the same records in a directory service.\nThe lab keeps the data local so you can read it directly.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The <code>Permission denied</code> error and the identity of the account that hit it.</li>\n<li>The <code>id</code> output for the service account, a working account and the contractor.</li>\n<li><code>getent group reporting</code> before and after the fix.</li>\n<li>The ownership and mode of the reports directory and the report.</li>\n<li>The exact fix, and why it is the smallest safe change.</li>\n<li>The contractor test: which file is readable and which is denied.</li>\n<li>The two <code>sudo</code> tests, and the sudoers rule that explains them.</li>\n<li>One place where AI was wrong, vague or over-confident about identity or permissions.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>Add the contractor to the <code>reporting</code> group for the life of the contract.</li>\n<li>Create a per-contractor group with access to the one report, and remove it at the end date.</li>\n<li>Provide a managed export of the report outside the estate, with no estate access.</li>\n</ol>\n<p>State what the contractor can read, what they cannot read, how the access is removed, who\napproves it, and what the audit trail records. Include the cost and the risk of each\noption. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 9 takes the same decision into the file system. A group is only useful if the\npermission bits and ownership enforce it. Module 11 turns identity, permissions and\nlogging into a security posture and an incident response. The question from this week\nstays the same: who can do this, and how would you prove it later?</p>"
             }
           ]
         },
         {
           "id": "08-02",
-          "title": "Workshop: Identity, groups and least privilege",
+          "title": "Read the identity data",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting</p>\n<p>The quarterly reporting service stopped reading the finance report after the identity\nservice was rebuilt. The service account exists and the report exists, but every read\nfails with <code>Permission denied</code>.</p>\n<p>At the same time, we have approved a contractor to read the same report. Read only. The\ncontractor must not be able to change it, and must not see the rest of the finance share.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Diagnose the service account failure, fix it with the smallest safe change, and recommend\na scoped, removable way to give the contractor read access. Along the way, show that you\ncan tell authentication apart from authorisation and read the identity data the kernel\nactually uses.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Run <code>./start.sh m08</code> in the estate labs repo: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m08\n./start.sh status\n</code></pre>\n<p>The state adds an <code>identity</code> service. It holds a local user database, a reports share and\na narrow <code>sudo</code> rule. In production, the same records would live in a directory service.\nThe lab keeps them local so you can read them.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>The account exists and the file exists. Is the failure authentication or authorisation?</li>\n<li>What identity data would prove your answer?</li>\n<li>The contractor logs in successfully but cannot read the report. Is that a fault?</li>\n<li>If you make the report world-readable, which other accounts gain access?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Observe the failure</h2>"
@@ -1618,62 +1538,124 @@
             {
               "type": "html",
               "html": "<p>The <code>alice</code> account has a narrow privilege rule.</p>\n<pre><code class=\"language-bash\">./start.sh exec --user alice identity sudo -n id\n./start.sh exec --user alice identity sudo -n cat /reports/quarterly.txt\n./start.sh exec identity cat /etc/sudoers.d/ops\n</code></pre>\n<ol>\n<li>Which command may <code>alice</code> run as root?</li>\n<li>What happens when she tries a different command?</li>\n<li>Why is a narrow rule better than adding <code>alice</code> to <code>wheel</code>?</li>\n<li>What would you log to detect misuse of the rule?</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "08-03",
+          "title": "Checkpoint: who may do what",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 6: Map local identity to a directory</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What is the difference between authentication, authorisation and accounting?",
+                  "options": [
+                    "Who you are, what you may do, and what you did",
+                    "Who you are, where you work, and what you own",
+                    "What you may do, who you are, and how fast you did it",
+                    "What you did, what you may do, and who you are"
+                  ],
+                  "answer": 0,
+                  "explanation": "Authentication proves identity. Authorisation decides access. Accounting records actions."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "Why does the kernel use numeric UIDs and GIDs?",
+                  "options": [
+                    "Names are a convenience; the kernel checks numeric identity",
+                    "Numbers are easier to remember",
+                    "Names cannot be changed",
+                    "The kernel has no user database"
+                  ],
+                  "answer": 0,
+                  "explanation": "The user and group names come from files or a directory. Permission checks use the numeric IDs."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What is the difference between a primary and a supplementary group?",
+                  "options": [
+                    "The primary group is on the account and applies to new files; supplementary groups add access",
+                    "The primary group is only for administrators",
+                    "Supplementary groups replace the primary group",
+                    "There is no difference"
+                  ],
+                  "answer": 0,
+                  "explanation": "A process has one primary group for file creation and any number of supplementary groups for access checks."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "The service account lost its reporting group membership. What is the smallest safe fix?",
+                  "options": [
+                    "Restore the group membership",
+                    "Make the report world-readable",
+                    "Add the account to every group",
+                    "Change the report owner to root"
+                  ],
+                  "answer": 0,
+                  "explanation": "The account already exists; the missing relationship is the membership. Restoring it grants only the needed access."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "Why is `chmod 777` the wrong fix?",
+                  "options": [
+                    "It gives every account write access and hides the real permission model",
+                    "It is slower than chown",
+                    "It changes the UID",
+                    "It deletes the group"
+                  ],
+                  "answer": 0,
+                  "explanation": "It solves the symptom by removing the control. The next problem is larger than the first."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What makes a narrow sudo rule safer than adding a user to the admin group?",
+                  "options": [
+                    "It allows only the named command, for a named user",
+                    "It disables logging",
+                    "It gives the user a new password",
+                    "It removes the need for authentication"
+                  ],
+                  "answer": 0,
+                  "explanation": "The rule grants one capability. A broad admin group grants everything."
+                },
+                {
+                  "id": "q7",
+                  "prompt": "Why does a company with thousands of staff use a directory instead of copying local account files?",
+                  "options": [
+                    "One identity and group record, queried centrally, with consistent access and audit",
+                    "It removes the need for passwords",
+                    "It makes every host identical",
+                    "It avoids file permissions"
+                  ],
+                  "answer": 0,
+                  "explanation": "A directory gives one source of truth and a shared way to query identities and groups."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "08-04",
+          "title": "Grant the contractor access",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>Complete the table. The point is that a directory service answers the same questions, not\nthat you memorise LDAP syntax.</p>\n<table>\n<thead>\n<tr>\n<th>Local file or command</th>\n<th>Directory concept</th>\n<th>Question it answers</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/etc/passwd</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>/etc/group</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>getent passwd alice</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>id</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>/etc/sudoers.d/ops</code></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Then answer: why does a company with thousands of staff not copy <code>/etc/passwd</code> to every\nhost? Name two problems that a central directory solves.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 7: Put it back</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh break-m08\n./start.sh exec --user svc-report identity cat /reports/quarterly.txt\n</code></pre>\n<p>The failure returns. This is the reset point for the exercise. If you added the contractor\nto <code>reporting</code>, remove them again.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The <code>Permission denied</code> error and the <code>id</code> output for <code>svc-report</code>.</li>\n<li><code>getent group reporting</code> before and after the fix.</li>\n<li><code>ls -ld /reports</code> and <code>ls -l /reports</code>.</li>\n<li>The exact fix command, and why it is the smallest safe change.</li>\n<li>The contractor test: which file is readable and which is denied.</li>\n<li>The two <code>sudo</code> tests and the rule that explains them.</li>\n<li>Your directory mapping table.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then check the answer against the container:</p>\n<ul>\n<li>\"What is the difference between authentication and authorisation? Give an example from\n  a Linux host.\"</li>\n<li>\"A service account exists and a file exists, but the service gets permission denied.\n  What are the possible causes?\"</li>\n<li>\"Why is adding a user to a group better than making a directory world-writable?\"</li>\n<li>\"What is the least-privilege way to give a contractor read access to one report?\"</li>\n<li>\"Where does this explanation overreach? What does it assume about the directory and the\n  file mode?\"</li>\n</ul>\n<p>Check whether the answer separates identity from permission. If it says \"just chmod 777\",\nask what that does to every other account, then record the correction.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why can an authenticated subject still be denied?</li>\n<li>What is the smallest safe change for the service account, and why?</li>\n<li>Which contractor option is the most precise, and what does it cost?</li>\n<li>What is the end date for the contractor, and who removes the access?</li>\n<li>What would you log so the next access review can answer \"who still needs this?\"</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>Add the contractor to <code>reporting</code> for the life of the contract.</li>\n<li>Create a per-contractor group for one report, with an end date.</li>\n<li>Provide a managed export outside the estate, with no estate access.</li>\n</ol>\n<p>State the scope, the removal, the approver, the audit trail, the cost and the risk. Record\nthe decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>A reset returns the identity service to its good state:</p>\n<pre><code class=\"language-bash\">./start.sh reset m08\n</code></pre>"
+              "type": "order",
+              "prompt": "<p>Put the contractor access steps in the safest order. The contractor needs read\naccess to one report, not the finance share.</p>",
+              "items": [
+                "Confirm the contractor is currently denied",
+                "Create a group scoped to the report",
+                "Grant the group read access to the report",
+                "Add the contractor to the group",
+                "Test the report is readable and the board pack is still denied",
+                "Schedule the access removal"
+              ],
+              "explanation": "<p>Confirm the starting state, create the smallest scope, grant only what the scope\nneeds, add the person, test both the allow and the deny, then plan the removal.</p>"
             }
           ]
         }
@@ -1700,22 +1682,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -1737,79 +1703,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> reporting</p>\n<p>The reporting service has stopped writing its daily output to the finance share. The\nservice is running. The share exists. The error says permission denied.</p>\n<p>I need the output back, and I need to know it will not happen again. I am not\ncomfortable with \"make it world-writable\" as the answer.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m09</code>. Follow <code>modules/module-09-filesystems/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The <code>permission denied</code> error and the writer's UID and GID.</li>\n<li>The ownership and mode of <code>/share</code> before and after the fix.</li>\n<li>The exact command you used, and why it is the smallest safe change.</li>\n<li>Your answer to why <code>chmod 777</code> is the wrong fix.</li>\n<li>Your plan for a second service that also needs to write.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>A dedicated group owns the share, with group write and setgid on the directory.</li>\n<li>An ACL gives the reporting service write access without changing the group model.</li>\n<li>A separate volume per service removes the sharing problem.</li>\n</ol>\n<p>State who can read, who can write, who can delete, what happens when a second service\nneeds access, and how the estate catches the fault before a user reports it. Record the\ndecision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 10 looks at storage beyond one host: volumes, backup, virtualisation and cloud.\nThe permission model from this week is the same model you will apply to backups and\nrestores, where a wrong owner can make a recovery fail silently. Module 11 turns these\ncontrols into a security posture.</p>"
             }
           ]
         },
         {
           "id": "09-02",
-          "title": "Workshop: File systems and access control",
+          "title": "Read the share and fix it",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> reporting</p>\n<p>The reporting service has stopped writing its daily output to the finance share. The\nservice is running. The share exists. The error says permission denied.</p>\n<p>I need the output back, and I need to know it will not happen again. I am not\ncomfortable with \"make it world-writable\" as the answer.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Diagnose a permission failure on a shared volume, fix it with the smallest safe change,\nand explain the ownership model that made it fail.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Run <code>./start.sh m09</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-09-filesystems/LAB-GUIDE.md</code>. The launcher finds\nthe container runtime for you. You do not need to choose one.</p>\n<pre><code class=\"language-bash\">./start.sh status\n./start.sh logs writer\n</code></pre>\n<p>The <code>writer</code> service runs as UID 1000. The shared volume is created as root. On the first\nrun, the writer cannot create <code>/share/report.log</code>. That is the fault you are here to\ndiagnose.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Which user is the writer running as, and which user owns <code>/share</code>?</li>\n<li>Why does the write fail, given that the share exists and the service is running?</li>\n<li>What is the smallest change that lets the writer create and append its own log file?</li>\n<li>What would <code>chmod 777</code> change, and what would it break?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Observe the failure</h2>"
@@ -1833,46 +1735,138 @@
             {
               "type": "html",
               "html": "<ol>\n<li>Why is <code>chmod 777</code> the wrong fix?</li>\n<li>Why is group ownership better than making the file world-writable?</li>\n<li>What would you change if a second service, running as a different UID, also needed to\n   write to the share?</li>\n<li>What would you monitor so this fault is caught before a user reports it?</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "09-03",
+          "title": "Checkpoint: permissions and ownership",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 4: Put it back, then decide</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What does the inode store?",
+                  "options": [
+                    "Metadata such as type, owner, group, mode and data pointers",
+                    "Only the file name",
+                    "The user's password",
+                    "The network route"
+                  ],
+                  "answer": 0,
+                  "explanation": "The name lives in the directory entry. The inode holds the metadata and the data location."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What does execute permission mean on a directory?",
+                  "options": [
+                    "It allows traversal through the directory",
+                    "It lists the names in the directory",
+                    "It deletes the directory",
+                    "It changes the owner"
+                  ],
+                  "answer": 0,
+                  "explanation": "Read lists names, write creates and deletes entries, execute allows you to pass through."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What does the mode 2770 mean for the group?",
+                  "options": [
+                    "Read, write and execute, with setgid on the directory",
+                    "Read only",
+                    "No access",
+                    "Write only"
+                  ],
+                  "answer": 0,
+                  "explanation": "The 7 gives the group rwx. The leading 2 sets the setgid bit so new files inherit the directory group."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "Why is `chmod 777 /share` the wrong fix?",
+                  "options": [
+                    "It gives every account write access and removes the control",
+                    "It changes the group owner",
+                    "It deletes the report",
+                    "It is slower than chown"
+                  ],
+                  "answer": 0,
+                  "explanation": "The service needs write access, not everyone. Fix ownership and group write, not the world."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "What is the smallest safe fix for a writer whose UID needs to write to a group-owned share?",
+                  "options": [
+                    "Put the writer in the share group and give the group write permission",
+                    "Change the file to world-writable",
+                    "Run the writer as root",
+                    "Delete the share"
+                  ],
+                  "answer": 0,
+                  "explanation": "The group model grants only the needed access and keeps other accounts out."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "A second service with a different UID must also write to the share. What should you do?",
+                  "options": [
+                    "Add it to the share group, or use a reviewed ACL for that named identity",
+                    "Give it root",
+                    "Make the share world-writable",
+                    "Copy the file to another host"
+                  ],
+                  "answer": 0,
+                  "explanation": "Extend the existing group model, or use an ACL with a clear owner and review path."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "09-04",
+          "title": "Read the mode",
+          "kind": "fill",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh break-m09\n./start.sh logs writer\n</code></pre>\n<p>The failure returns. This is the reset point for the exercise.</p>\n<p>Now make the decision for Louise. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who it works for</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Dedicated group plus setgid</td>\n<td>Services that can share a group</td>\n<td>Group design and membership</td>\n<td>A new service needs a group change</td>\n</tr>\n<tr>\n<td>ACL for the reporting UID</td>\n<td>One named service</td>\n<td>A second access model to audit</td>\n<td>ACLs drift from the group model</td>\n</tr>\n<tr>\n<td>Separate volume per service</td>\n<td>Services that do not need to share</td>\n<td>More storage and backup paths</td>\n<td>Data duplication if sharing was intended</td>\n</tr>\n</tbody>\n</table>\n<p>State who can read, who can write, who can delete, what happens when a second service\nneeds access, and how the fault is caught next time.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The <code>permission denied</code> error and the writer's UID and GID.</li>\n<li><code>ls -ld /share</code> before and after the fix, with numeric IDs.</li>\n<li>The exact command you used, and why it is the smallest safe change.</li>\n<li>Your answer to why <code>chmod 777</code> is wrong, including integrity and accountability.</li>\n<li>Your plan for a second writer.</li>\n<li>Your recommendation to Louise, with monitoring.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"A container runs as UID 1000 and a named volume is owned by root. Explain why the\n  write fails and what the smallest fix is.\"</li>\n<li>\"Compare <code>chmod 777</code>, group ownership and an ACL for a shared directory used by two\n  services.\"</li>\n<li>\"A file is owned by <code>1000:1000</code> with mode <code>640</code>. A process runs as UID <code>1001</code> in group\n  <code>1000</code>. Which permission bits apply, and why?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about UID mapping on the\n  host and in rootless containers?\"</li>\n</ul>\n<p>If the answer confuses names with numbers, correct it and record the correction.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why does a directory's write bit control deletion of a file?</li>\n<li>Why does the writer see a different <code>/etc/passwd</code> from the host?</li>\n<li>Why is \"it works now\" not the same as \"it is fixed\"?</li>\n<li>What would you monitor so Louise hears about this before the finance team does?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh break-m09\n./start.sh down\n</code></pre>\n<p>Leave the share in the broken state unless you have a reason to leave it fixed. The next\nperson expects the exercise to start from the fault.</p>"
+              "type": "fill",
+              "prompt": "<p>Complete the permission explanation.</p>",
+              "passage": "The mode 2770 means: the owner has rwx, the group has [[1]], and others have [[2]].\n\nThe leading 2 is the [[3]] bit.\n\nchmod 777 is dangerous because it gives [[4]] write access.",
+              "blanks": [
+                {
+                  "answers": [
+                    "rwx",
+                    "read, write and execute",
+                    "read write execute"
+                  ],
+                  "hint": "The group needs to read, write and traverse."
+                },
+                {
+                  "answers": [
+                    "none",
+                    "no access",
+                    "---"
+                  ],
+                  "hint": "Other accounts should not reach the share."
+                },
+                {
+                  "answers": [
+                    "setgid",
+                    "set group id"
+                  ],
+                  "hint": "New files inherit the directory group."
+                },
+                {
+                  "answers": [
+                    "others",
+                    "everyone",
+                    "other users",
+                    "all users"
+                  ],
+                  "hint": "The last permission set is the one to avoid opening."
+                }
+              ]
             }
           ]
         }
@@ -1899,22 +1893,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -1936,79 +1914,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting and customer tickets</p>\n<p>The nightly backup reports success every night. This morning we ran a restore test and the\nrestored database has no customer tickets. The schema is there, the tables are there, and\nthe rows are gone.</p>\n<p>I need the data back in a usable restore, an explanation of why the job reported success,\nand a recommendation for how we store and test backups. Include what it costs and how long\na recovery would take.</p>\n</blockquote>\n<p>The ticket is not \"the backup is broken\". It is \"we cannot tell whether the backup works\".\nThe job's exit code answered a different question from the one the business asked.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m10</code>. Follow <code>modules/module-10-storage/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>\n<p>The state adds a <code>backup</code> service with <code>pg_dump</code>, <code>psql</code>, a backup volume and a restore\nscript. The backup runs against the estate database. The fault is in the dump command, not\nin the job wrapper, so the job keeps reporting success.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The backup log line and the size of the backup file.</li>\n<li>The number of data statements in the backup, before and after the fix.</li>\n<li>The restore output: rows in the live database and rows in the restored database.</li>\n<li>The backup command before and after the fix.</li>\n<li>A second restore that proves the procedure is repeatable.</li>\n<li>Your RPO and RTO, with a reason.</li>\n<li>Your storage recommendation, with cost, risk, the failure it covers and who owns the\n  restore test.</li>\n<li>One place where AI was wrong, vague or over-confident about backup or restore.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Louise needs a resilience design, not a one-off repair. Choose one:</p>\n<ol>\n<li>Local volume snapshots on the same host, with a weekly restore test.</li>\n<li>Offsite object storage with versioning, retention and a documented restore runbook.</li>\n<li>A managed database backup from a cloud provider, with the provider's restore process.</li>\n</ol>\n<p>State the failure each option covers, the RPO and RTO, the cost (storage, transfer, staff\ntime), the risk you accept and the sustainability cost. Say who owns the restore test and\nhow often it runs. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 11 turns the estate into a security posture and an incident response. A backup is a\nsecurity control as well as a resilience control: it is the answer to ransomware and to a\ndeleted table. Module 12 reviews the estate and hands the concepts to the next course. The question\nfrom this week stays: what would you lose, how long would it take to get it back, and how do\nyou know?</p>"
             }
           ]
         },
         {
           "id": "10-02",
-          "title": "Workshop: Prove the backup with a restore",
+          "title": "Inspect, restore, diagnose",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting and customer tickets</p>\n<p>The nightly backup reports success every night. This morning we ran a restore test and the\nrestored database has no customer tickets. The schema is there, the tables are there, and\nthe rows are gone.</p>\n<p>I need the data back in a usable restore, an explanation of why the job reported success,\nand a recommendation for how we store and test backups. Include what it costs and how long\na recovery would take.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Take a backup, restore it into a separate database, find why a successful job produced an\nempty restore, fix the backup, and prove the fix with a repeatable restore. Then choose a\nbackup and storage design with a recovery time you can defend.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Run <code>./start.sh m10</code> in the estate labs repo: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m10\n./start.sh status\n</code></pre>\n<p>The state adds a <code>backup</code> service with <code>pg_dump</code>, <code>psql</code>, a backup volume and a restore\nscript. The estate database holds three customer tickets.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>The backup log says \"backup complete\". Does that prove the data can be restored?</li>\n<li>What is the smallest piece of evidence that would tell you the dump contains rows?</li>\n<li>If the restore is empty, is the fault in the database, the backup command or the restore\n   command?</li>\n<li>What would you set as the RPO and RTO for a customer ticket system, and why?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Take a backup and inspect it</h2>"
@@ -2032,70 +1946,160 @@
             {
               "type": "html",
               "html": "<pre><code class=\"language-bash\">./start.sh exec backup cat /backup/backup.sh\n</code></pre>\n<ol>\n<li>Which option changes what <code>pg_dump</code> writes?</li>\n<li>Why did the job still exit successfully?</li>\n<li>Why did the log still say \"backup complete\"?</li>\n<li>What would a restore test have caught that the job log did not?</li>\n<li>Is this a storage fault, a backup-command fault or a process fault? Defend your answer.</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "10-03",
+          "title": "Checkpoint: a backup is a claim",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 4: Fix and verify</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What is the only real proof that a backup works?",
+                  "options": [
+                    "A successful restore with the expected data",
+                    "A green job status",
+                    "A large backup file",
+                    "A snapshot timestamp"
+                  ],
+                  "answer": 0,
+                  "explanation": "The job can succeed and still produce a useless backup. The restore shows what is recoverable."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What is the difference between a snapshot and a backup?",
+                  "options": [
+                    "A snapshot is a point-in-time copy; a backup is a separate copy kept for recovery",
+                    "A snapshot is always offsite",
+                    "A backup is always faster",
+                    "They are the same thing"
+                  ],
+                  "answer": 0,
+                  "explanation": "A snapshot usually shares the source failure domain. A backup should survive the loss of the source."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What does RPO mean?",
+                  "options": [
+                    "How much data the business can lose",
+                    "How long the service can be down",
+                    "How often the backup runs",
+                    "How large the backup is"
+                  ],
+                  "answer": 0,
+                  "explanation": "Recovery point objective is measured in data loss, usually time. RTO is recovery time."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What does RTO mean?",
+                  "options": [
+                    "How long the service can be down",
+                    "How much data can be lost",
+                    "How many copies are kept",
+                    "How fast the disk is"
+                  ],
+                  "answer": 0,
+                  "explanation": "Recovery time objective is the acceptable time to restore service."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "Why restore into a separate database instead of over the live one?",
+                  "options": [
+                    "It proves the backup without destroying the live data",
+                    "It is always faster",
+                    "It avoids encryption",
+                    "It removes the need for a backup"
+                  ],
+                  "answer": 0,
+                  "explanation": "The live system stays available and the restore is a safe test."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "The backup job exits 0 but the dump has no data rows. What failed?",
+                  "options": [
+                    "The backup command or its options, not necessarily the job wrapper",
+                    "The network cable",
+                    "The monitoring server",
+                    "The certificate"
+                  ],
+                  "answer": 0,
+                  "explanation": "The wrapper reported the command exit, not the usefulness of the output. Count data statements and restore."
+                },
+                {
+                  "id": "q7",
+                  "prompt": "What is the 3-2-1 rule?",
+                  "options": [
+                    "Three copies, two media, one offsite",
+                    "Three servers, two clouds, one password",
+                    "Three backups, two restores, one owner",
+                    "Three disks, two hosts, one region"
+                  ],
+                  "answer": 0,
+                  "explanation": "The rule reduces the chance that one failure removes every copy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "10-04",
+          "title": "Choose the resilience design",
+          "kind": "scenario",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh fix-m10\n./start.sh exec backup sh /backup/backup.sh\n./start.sh exec backup sh /backup/restore.sh\n</code></pre>\n<ol>\n<li>How many tickets are in the live database now?</li>\n<li>How many tickets are in <code>estate_restore</code>?</li>\n<li>Which evidence proves the backup is usable, and which evidence only proves the job ran?</li>\n<li>Run the restore a second time. What does the repeat prove?</li>\n<li>What would you add to the job so this fault is caught automatically next time?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 5: Recovery objectives and storage design</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Complete the table for the CloudCore ticket database.</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Failure it covers</th>\n<th>RPO</th>\n<th>RTO</th>\n<th>Cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Local volume snapshot</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Offsite object storage</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Managed database backup</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Then answer:</p>\n<ol>\n<li>What is a sensible RPO? How much data can the business lose?</li>\n<li>What is a sensible RTO? How long can the service be down?</li>\n<li>What would you encrypt, and where would the key live?</li>\n<li>How often would you run a restore test, and who owns the result?</li>\n<li>What does each option cost in storage, transfer and staff time?</li>\n<li>What is the sustainability cost of keeping every copy forever?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Part 6: Put it back</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh break-m10\n./start.sh exec backup sh /backup/backup.sh\n./start.sh exec backup sh /backup/restore.sh\n</code></pre>\n<p>The restore is empty again. This is the reset point for the exercise.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The backup log line and the file listing.</li>\n<li>The <code>COPY</code> count and the head of the backup file.</li>\n<li>The restore output before and after the fix.</li>\n<li>The backup command before and after the fix.</li>\n<li>A second restore that proves the procedure is repeatable.</li>\n<li>Your RPO and RTO, with a reason.</li>\n<li>Your storage recommendation, with cost, risk, the failure it covers and the owner of the\n  restore test.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then check the answer against the container:</p>\n<ul>\n<li>\"What is the difference between a backup, a snapshot and replication?\"</li>\n<li>\"A backup job exits successfully but the restore has no rows. What could cause that?\"</li>\n<li>\"What are RPO and RTO, and how do they change the backup design?\"</li>\n<li>\"What does the 3-2-1 rule mean, and what does it not protect against?\"</li>\n<li>\"Where does this explanation overreach? What does it assume about the storage and the\n  restore test?\"</li>\n</ul>\n<p>Check whether the answer separates \"the job ran\" from \"the data can be restored\". If it\ntreats a successful exit code as proof, correct it and record the correction.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why did the backup job report success while the restore was empty?</li>\n<li>What is the smallest evidence that proves a backup is usable?</li>\n<li>Which storage option covers the failure you care about, and which failure does it miss?</li>\n<li>What RPO and RTO would you set, and who owns the restore test?</li>\n<li>What would you automate so the next empty restore is caught before a customer sees it?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Louise needs a resilience design, not a one-off repair. Choose one:</p>\n<ol>\n<li>Local volume snapshots on the same host, with a weekly restore test.</li>\n<li>Offsite object storage with versioning, retention and a documented restore runbook.</li>\n<li>A managed database backup from a cloud provider, with the provider's restore process.</li>\n</ol>\n<p>State the failure each option covers, the RPO and RTO, the cost, the risk, the\nsustainability cost and the owner of the restore test. Record the decision in your portfolio\ndecision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>A reset returns the state to a clean Module 10:</p>\n<pre><code class=\"language-bash\">./start.sh reset m10\n</code></pre>"
+              "type": "scenario",
+              "prompt": "<p>Louise needs a backup and hosting design for the ticket database. The current job\nreports success but the restore is empty. Choose the recommendation you would make.</p>",
+              "options": [
+                {
+                  "id": "offsite",
+                  "label": "Offsite object storage with versioning and a restore test",
+                  "outcome": "<p>The backup survives the loss of the host. Versioning and retention protect against\ndeletion and ransomware. A weekly restore test proves the data is usable.</p>",
+                  "effects": {
+                    "Failure covered": "Host or volume loss",
+                    "RPO": "Hours",
+                    "RTO": "Hours",
+                    "Cost": "Storage and transfer",
+                    "Risk": "The restore runbook must be owned"
+                  },
+                  "recommended": true,
+                  "feedback": "<p>This covers the failure that matters while keeping the restore test visible and repeatable.</p>"
+                },
+                {
+                  "id": "snapshot",
+                  "label": "Local volume snapshots and a weekly restore test",
+                  "outcome": "<p>Recovery is fast and cheap, but the snapshot shares the host with the live data. A\nhost loss or a compromised host can remove both.</p>",
+                  "effects": {
+                    "Failure covered": "Accidental file change",
+                    "RPO": "Minutes",
+                    "RTO": "Minutes",
+                    "Cost": "Low",
+                    "Risk": "Shared failure domain"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>Useful as a first line, not as the only copy.</p>"
+                },
+                {
+                  "id": "managed",
+                  "label": "A managed database backup from a cloud provider",
+                  "outcome": "<p>The provider runs the backup and restore. The team owns less, pays more, and\ndepends on the provider's process and retention model.</p>",
+                  "effects": {
+                    "Failure covered": "Database and host loss",
+                    "RPO": "Provider-defined",
+                    "RTO": "Provider-defined",
+                    "Cost": "Higher monthly fee",
+                    "Risk": "Lock-in and less direct control"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>A sound option when the operational burden matters more than cost and portability.</p>"
+                }
+              ],
+              "debrief": "<p>Name the failure each option covers, the RPO and RTO, the cost, the risk you accept, and\nwho owns the restore test.</p>"
             }
           ]
         }
@@ -2243,7 +2247,7 @@
       "lessons": [
         {
           "id": "12-01",
-          "title": "Review and handoff to the next course",
+          "title": "Review and handover",
           "kind": "reading",
           "xp": 10,
           "blocks": [
@@ -2254,22 +2258,6 @@
             {
               "type": "html",
               "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Integrate the estate into one explanation across the host, operating system, network, identity, storage and security layers.</li>\n<li>Demonstrate one part of the portfolio and defend the decisions and trade-offs behind it.</li>\n<li>Diagnose and repair an unseen fault under time pressure, and explain the fix.</li>\n<li>Map the concepts to the next course and to professional practice, and record what the next team needs.</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>\n<p>This is the final teaching week. The portfolio is due at the end of Week 13. The Week 14\nlab is for portfolio demonstrations and a final practical rehearsal.</p>"
             },
             {
               "type": "html",
@@ -2294,71 +2282,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod is moving to a new operations team on Monday. I need a 10-minute walkthrough, a\none-page map, the runbook and the known-fault register. Tell them what is fragile, what\nyou would fix first, and what you deliberately left alone.</p>\n<p>The final practical is in the examination period. Treat the walkthrough as the rehearsal.</p>\n</blockquote>\n<p>The ticket is a handover, not a new build. A good handover names the risk as clearly as the\nsuccess.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module adds no state. Use the full estate:</p>\n<pre><code class=\"language-bash\">./start.sh m11\n</code></pre>\n<p>The workshop has three parts: a portfolio demonstration, a fault drill using the existing\nbreak and fix scenarios, and an oral rehearsal. The tutor may set an unseen fault from any\nof the earlier modules. The method is the same across all of them.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The portfolio demonstration notes: what you showed, what you decided and why.</li>\n<li>The fault drill: the symptom, the evidence, the fix and the verification.</li>\n<li>The oral outline: what you found, what you changed, why it was safe, what you would\n  monitor.</li>\n<li>The handover note: map, runbook, known faults, residual risk and the first fix.</li>\n<li>The final conversation log: where AI helped, where it was wrong, and what you decided.</li>\n<li>One concept you would carry to the next course and one platform-specific detail you would leave\n  behind.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Martin needs to know what the next team should do first. Choose one:</p>\n<ol>\n<li>Fix the highest-risk technical debt, such as the admin path or the secret handling.</li>\n<li>Improve the runbook, monitoring and alerting, with a named owner.</li>\n<li>Reduce cost and idle capacity, and accept the remaining risk.</li>\n</ol>\n<p>State the risk, the cost, the evidence, the owner and what you would deliberately leave\nalone. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>the next course Advanced Business Technologies takes the same estate concepts onto Windows Server,\nActive Directory, Group Policy, IIS and network design. You will meet new commands and new\nproducts. The mental models from this unit are the part that transfers: identity,\nauthorisation, naming, encapsulation, storage, backup, logging and incident response.</p>\n<p>The final practical is a broken estate. The portfolio is the evidence of how you built and\noperated this one. The professional habit is the point: predict, verify, decide and explain.</p>"
             }
           ]
         },
         {
           "id": "12-02",
-          "title": "Workshop: Portfolio demonstration and final practical rehearsal",
+          "title": "Demonstrate, drill, rehearse, hand over",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod is moving to a new operations team on Monday. I need a 10-minute walkthrough, a\none-page map, the runbook and the known-fault register. Tell them what is fragile, what\nyou would fix first, and what you deliberately left alone.</p>\n<p>Treat the walkthrough as the rehearsal for the final practical.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Rehearse the two performances that carry the marks: the portfolio demonstration and the\nfinal practical. Then leave a handover note that a new team could actually use.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Bring up the full estate: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m11\n./start.sh status\n</code></pre>\n<p>The Module 12 workshop adds no state. It uses everything you have built.</p>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Portfolio demonstration</h2>"
@@ -2390,54 +2322,180 @@
             {
               "type": "html",
               "html": "<p>Write one page for the next team:</p>\n<ol>\n<li>The map, with protocols and ports.</li>\n<li>The runbook: start, stop, backup and restore.</li>\n<li>The known-fault register: at least three real faults.</li>\n<li>The residual risks and the first fix.</li>\n<li>The owner and the review date.</li>\n<li>Where the evidence and the conversation log are stored.</li>\n</ol>\n<p>If a step depends on knowledge in your head, the handover is not finished.</p>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "12-03",
+          "title": "Checkpoint: explain the estate",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 5: Final practical preparation</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What makes the estate one system rather than seven subjects?",
+                  "options": [
+                    "The dependency chain between the layers, with evidence at each hop",
+                    "The number of containers",
+                    "The length of the runbook",
+                    "The host's uptime"
+                  ],
+                  "answer": 0,
+                  "explanation": "Integration means you can follow the dependencies and explain what fails where."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "In a fault drill, what should come first?",
+                  "options": [
+                    "Record the symptom in the customer's words and predict the layer",
+                    "Change three things at once",
+                    "Rebuild the estate",
+                    "Restart every service"
+                  ],
+                  "answer": 0,
+                  "explanation": "A prediction focuses the evidence collection. Changing several things destroys the trail."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What makes evidence usable in the oral?",
+                  "options": [
+                    "A specific log, config or command output tied to the claim",
+                    "A confident opinion",
+                    "A screenshot of the dashboard",
+                    "A list of commands"
+                  ],
+                  "answer": 0,
+                  "explanation": "A claim needs a check. The evidence should let someone else repeat the conclusion."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What belongs in a handover?",
+                  "options": [
+                    "The map, runbook, known faults, residual risks, first fix and owner",
+                    "Only the compose file",
+                    "A transcript of every conversation",
+                    "The final status code"
+                  ],
+                  "answer": 0,
+                  "explanation": "The next team needs to operate the estate, not only see that it ran."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "What is residual risk?",
+                  "options": [
+                    "The risk that remains after the controls you chose",
+                    "The risk before any controls",
+                    "A risk that has been deleted",
+                    "The cost of the backup"
+                  ],
+                  "answer": 0,
+                  "explanation": "Every control leaves something. A handover should name what remains and who owns it."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What transfers to the next course when the platform changes?",
+                  "options": [
+                    "",
+                    "The exact product commands",
+                    "The host name",
+                    "The current certificate"
+                  ],
+                  "answer": 0,
+                  "explanation": "Products change. The concepts and the diagnostic method transfer."
+                },
+                {
+                  "id": "q7",
+                  "prompt": "What does a good oral name besides the fix?",
+                  "options": [
+                    "The trade-off, the verification and what would catch the fault sooner",
+                    "Only the command that fixed it",
+                    "The number of files changed",
+                    "The vendor's name"
+                  ],
+                  "answer": 0,
+                  "explanation": "The reasoning, the evidence and the review are the professional practice."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "12-04",
+          "title": "Handover walkthrough",
+          "kind": "viva",
+          "xp": 40,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>Write a short plan for the examination period:</p>\n<ol>\n<li>Which concepts you will revise first, and why.</li>\n<li>Which commands you will practise until they are automatic.</li>\n<li>Which fault family you are least confident about.</li>\n<li>How you will structure the oral in the first two minutes.</li>\n<li>What you will bring: the paper, the evidence, the conversation log if permitted.</li>\n</ol>\n<p>The final practical is individual. The practice is individual too.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The five-minute demonstration notes and the portfolio rubric self-check.</li>\n<li>The fault drill: symptom, evidence, hypothesis, change and verification.</li>\n<li>The three-minute oral outline.</li>\n<li>The one-page handover note.</li>\n<li>The final conversation log: a claim, a check and a correction.</li>\n<li>One concept you would carry to the next course and one platform detail you would leave behind.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these to test your explanation, then check the answer against the estate:</p>\n<ul>\n<li>\"Here is my fault timeline. What evidence is missing, and what would you check next?\"</li>\n<li>\"I changed the group membership instead of the file mode. What is the residual risk?\"</li>\n<li>\"Review my oral outline. Where is the claim unsupported by evidence?\"</li>\n<li>\"What does this explanation assume about the platform that would change on Windows?\"</li>\n</ul>\n<p>Do not ask the AI what is running in the estate. It cannot know. Ask it to test your\nreasoning, then verify against the logs, the config and the command output.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 15 minutes:</p>\n<ol>\n<li>Which layer did you check first in the drill, and was it right?</li>\n<li>What was the smallest safe change, and what did it leave unchanged?</li>\n<li>What is the residual risk in the estate, and who owns it?</li>\n<li>Which concept will you carry to the next course, and which product detail will you leave?</li>\n<li>What would you fix first with one more week?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Martin needs to know what the next team should do first. Choose one:</p>\n<ol>\n<li>Fix the highest-risk technical debt.</li>\n<li>Improve the runbook, monitoring and alerting.</li>\n<li>Reduce cost and idle capacity.</li>\n</ol>\n<p>State the risk, the cost, the evidence, the owner and what you would deliberately leave\nalone. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the estate in a known state. A reset returns it to a clean Module 11:</p>\n<pre><code class=\"language-bash\">./start.sh reset m11\n</code></pre>"
+              "type": "viva",
+              "context": "<p>The examiner is the new operations team. You have ten minutes to hand over the estate\nand explain what you would do first.</p>",
+              "questions": [
+                {
+                  "prompt": "Walk me through the estate and name one trade-off you made.",
+                  "strong_answer": "<p>The customer request resolves the portal name, opens TCP to the proxy, completes\nTLS, and reaches the proxy. The proxy forwards plain HTTP to web, which queries the\ndatabase. The trade-off is TLS termination at the proxy: it centralises certificates\nbut creates one component that must be patched and monitored. The residual risk is\nthe internal plain HTTP hop.</p>",
+                  "signals": [
+                    {
+                      "label": "Names the layers and a protocol per hop",
+                      "pattern": "dns|name|tcp|tls|http|proxy|web|database"
+                    },
+                    {
+                      "label": "Names a trade-off",
+                      "pattern": "trade|cost|risk|instead|alternative"
+                    },
+                    {
+                      "label": "Names residual risk",
+                      "pattern": "residual|remain|accept|risk"
+                    }
+                  ],
+                  "follow_up": ""
+                },
+                {
+                  "prompt": "The final practical gives you a broken estate. What is your first hour?",
+                  "strong_answer": "<p>I write the symptom in the customer's words, predict the most likely layer, then\ncollect the cheapest evidence that can falsify that prediction. I form one\nhypothesis, test it, make the smallest safe change, and verify the cause is gone.\nThen I record the fault, the evidence and the fix.</p>",
+                  "signals": [
+                    {
+                      "label": "Starts with the symptom",
+                      "pattern": "symptom|customer|report|observe"
+                    },
+                    {
+                      "label": "Predicts a layer",
+                      "pattern": "predict|layer|hypothesis|likely"
+                    },
+                    {
+                      "label": "Uses evidence and a small change",
+                      "pattern": "evidence|log|check|small|one|revert"
+                    },
+                    {
+                      "label": "Verifies and records",
+                      "pattern": "verify|record|confirm|document"
+                    }
+                  ],
+                  "follow_up": ""
+                },
+                {
+                  "prompt": "What would you carry to the next platform, and what would you leave behind?",
+                  "strong_answer": "<p>I would carry the concepts: identity and least privilege, naming and resolution,\nencapsulation, storage and recovery, evidence and incident response. I would leave\nthe product-specific commands and paths. The questions stay the same on the next\nplatform; the commands do not.</p>",
+                  "signals": [
+                    {
+                      "label": "Names transferable concepts",
+                      "pattern": "identity|naming|encapsulation|storage|evidence|least privilege"
+                    },
+                    {
+                      "label": "Leaves product detail",
+                      "pattern": "command|product|platform|path|leave"
+                    }
+                  ],
+                  "follow_up": ""
+                }
+              ],
+              "rubric": [
+                "Explains the estate as a dependency chain.",
+                "Names evidence and a smallest safe change.",
+                "Names a trade-off and a residual risk.",
+                "Separates transferable concepts from product detail."
+              ]
             }
           ]
         }
