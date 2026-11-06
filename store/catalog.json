@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:25:46+00:00",
+  "updatedAt": "2026-11-06T12:41:08+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "3f88aa147e4561fa2bcd4bbe98c941df0c9e81400bc06955b29e1a02610607de",
+      "sha256": "20a6d2c005c188d6c2eab5103bafbaa543bd8558f7fba7ac159bdb5342612720",
       "keyId": "c72e49ccf7055c89",
-      "signature": "5MuNJAKfv1d0WNgc8UTeE6Ngd/PK6vEviAUUqlYytQ05bOy0tNnoXt6GBmE36ptfb8rWpQXXoLxkA5WQcKcQBA==",
+      "signature": "GAyzIy7CPUGbyYtwUFwbsjww2fQuV8k9pKOlpIWkDZdR6Ph/olfbuftjUSaS+eyfOL0h0UV4NnELgcEiHLUOAg==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104815,
-      "sha256": "20f83792a8fcfd45031eae34814d069166e6c852b051efd2e35597937e320b41",
+      "sha256": "99dbd4342a052878a7c9f3c4d93d35d97ecb3c181bcf50f10f88cf8466fa5d64",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Os5IYwhADlY+5gZv4APaq7ZzO/+/tqoKxDJn9PunSYGBlvMYS6rxdeyO4K6vJ1rHcFh+uJ5wedkSxWboDxT2Ag==",
+      "signature": "h0SG+15Kr5Tm/6Y2Xg4bYoZ1sMPBwDcARQDWGCjDZzrVzvo+UyYzQ4EN0WFsvKpMa4vkIaWNfkIMaSDO0NYYAQ==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,10 +68,33 @@
       "courses": 1,
       "lessons": 24,
       "size": 304307,
-      "sha256": "108b41299646f51cd6375d28abff3b63840af1df94e575fb73f710cec92b4dce",
+      "sha256": "29c48f19ecbc84914bb01e9580a00289bba220cbb28282259f301478bcf175fc",
       "keyId": "c72e49ccf7055c89",
-      "signature": "tmmYlRHwAIVPEwaxhtd872EbnfO1qq/GFFpQy+xExZauIy6EujGL2MEfX68h/dGTS4hM2d1DbEWBqvXQgMBVBA==",
+      "signature": "FwuCCmwLN4n6dMs2sxwH16hTF1nKeiNL+Ol4BZH3vmhaHd8zeJpwf/qfxm387BoD+AItSRAIu9xiVfkFjWhECw==",
       "url": "packs/audit-and-control.json"
+    },
+    {
+      "id": "assume-breach",
+      "title": "Assume Breach: A First Course in Defensive Security",
+      "description": "A first course in defensive security: what to protect, where to spend, and how to respond.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "pixel",
+      "tags": [
+        "security",
+        "risk",
+        "incident",
+        "foundations"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 18,
+      "size": 186817,
+      "sha256": "a30da0467fbedd2270bc8bba56b7188715c510bdf18f7cecd9cbf7c4f6ce6859",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "kjbpenyBnF3v0LD2a88DThGhFbVqFdI+dNfEGki3QRQNGo76JICmOY0gfVQLdAveH7EbghPQ0ErHMXgaLvcDBQ==",
+      "url": "packs/assume-breach.json"
     }
   ]
 }

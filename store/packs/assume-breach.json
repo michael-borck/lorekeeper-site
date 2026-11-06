@@ -1,0 +1,1713 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "assume-breach",
+  "title": "Assume Breach: A First Course in Defensive Security",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T12:41:08+00:00",
+  "courses": [
+    {
+      "slug": "assume-breach",
+      "title": "Assume Breach: A First Course in Defensive Security",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "security",
+        "risk",
+        "incident",
+        "foundations"
+      ],
+      "pitch": "A first course in defensive security: what to protect, where to spend, and how to respond.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T12:41:08+00:00",
+        "unit": {
+          "slug": "assume-breach",
+          "title": "Assume Breach: A First Course in Defensive Security",
+          "theme": "pixel",
+          "tags": [
+            "security",
+            "risk",
+            "incident",
+            "foundations"
+          ],
+          "level": "beginner",
+          "pitch": "A first course in defensive security: what to protect, where to spend, and how to respond.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "foundations",
+            "title": "Foundations",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Introduction to Information Security",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>What are we protecting, from whom, and how would we even know if we'd succeeded?</em></p>\n</blockquote>\n<p>Begin with a system you can describe, then ask what a failure would harm.\nThis chapter gives names to the protection goals and introduces the learning\nmap used throughout the book. The first paper task starts your dossier.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Define information security and explain the <strong>CIA triad</strong>: confidentiality, integrity,\n  availability.</li>\n<li>Explain when those three can conflict, and what \"balancing CIA\" means in practice.</li>\n<li>Say what a <strong>security control</strong> is, and what <strong>defence in depth</strong> buys you.</li>\n<li>Walk through the <strong>phases of an attack</strong>, and explain why a defender studies them.</li>\n<li>Distinguish <strong>ethical</strong> security work from malicious hacking, and see where the line sits.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Security is a property, not a product</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You cannot buy security in a box. There is no single product, no switch, no certificate that\nmakes a system \"secure.\" Security is not a thing a system <em>has</em>. It is a property of how the\nwhole system behaves, including the people using it. A bank vault with the door propped open is\nnot secure no matter how thick the steel. A perfectly configured server whose administrator\nuses \"password1\" is not secure either. Security depends on how those choices interact. A weakness may expose one asset\nwhile other controls limit the damage.</p>\n<p>That is why this book keeps returning to a defender's habit of mind rather than a checklist.\nChecklists go stale. The habit of asking \"what am I protecting, from whom, and how would I know\nif it failed?\" does not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The CIA triad</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Almost everything in information security can be traced back to protecting one of three\nproperties of information. Together they are called the <strong>CIA triad</strong> (no relation to the\nagency).</p>\n<p><strong>Confidentiality</strong> is keeping information from those who should not see it. When you think of\n\"security,\" this is usually what comes to mind: secrets stay secret. Encryption, access\ncontrols, and passwords are all, at heart, confidentiality mechanisms. A confidentiality\nfailure is a leak: data ending up in the wrong hands.</p>\n<p><strong>Integrity</strong> is keeping information correct and un-tampered. It is less obvious than\nconfidentiality but often matters more. If an attacker cannot <em>read</em> your bank balance but can\n<em>change</em> it, you have a worse problem than a leak. Integrity mechanisms let you detect or\nprevent unauthorised change. A hospital needs to trust that a patient's recorded blood type is\nthe one a doctor entered, not one an attacker altered.</p>\n<p><strong>Availability</strong> is keeping information and systems there when they are needed. A system nobody\ncan reach is no more useful than one that was deleted. Availability is the property attacked by\na denial-of-service, threatened by a <strong>single point of failure</strong>, and protected by backups,\nredundancy, and capacity planning. It is the property people forget until the day the system is\ndown and the business stops.</p>\n<h3>Balancing CIA</h3>\n<p>The CIA properties can conflict, but they do not inevitably work against\neach other. A tested backup can improve both integrity and availability.\nWell-managed access can protect confidentiality while helping authorised\nusers find the right information.</p>\n<p>Trade-offs arise in particular designs. Extra approval steps may delay\nurgent access. More replicas improve availability but create more copies to\nprotect. Preventing every change would preserve an old record while making\na booking system unusable. Ask which harm matters, who is affected, and\nwhat evidence shows the control meets the need. A hospital's emergency-access\narrangement can be different from a newspaper's embargo process without\neither abandoning security.</p>\n<p>A fourth idea often sits alongside the triad: <strong>non-repudiation</strong>, the property that someone\ncannot credibly deny having done something. An audit trail and a digital signature can support a claim about an action.\nThey still depend on trustworthy identity binding, key control and records.\nAn account identifier alone does not prove which human acted or settle a dispute.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Controls and defence in depth</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>security control</strong> is anything you put between an asset and a threat to reduce risk: a\npassword, a firewall, a locked door, a policy, a training session, a backup. Controls come in\nfamiliar flavours: some <strong>prevent</strong> (a lock stops entry), some <strong>detect</strong> (an alarm notices\nit), and some <strong>correct</strong> (a backup restores what was lost). A good defence uses all three,\nbecause prevention eventually fails.</p>\n<p>This is the idea the book is named for. <strong>Defence in depth</strong> means never trusting a single\ncontrol to be enough. You assume each layer <em>will</em> fail, and you put another behind it. A\ncastle did not rely on the outer wall alone. It had a moat, then a wall, then a gate, then an\ninner keep, so that breaching one defence still left the attacker facing the next. A modern\nsystem is the same: a firewall <em>and</em> patched software <em>and</em> least-privilege accounts <em>and</em>\nmonitoring <em>and</em> backups. Layers reduce dependence on any one control. Shared credentials, a common\nadministrator or a shared power supply can still defeat several layers together.</p>\n<p>This is the practical face of <strong>assume breach</strong>. If you assume the attacker will get past your\nfirst control, you stop asking \"is this wall strong enough?\" and start asking \"when this fails,\nwhat catches it?\" That question builds better systems than the search for one perfect wall ever\ncould.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The phases of an attack</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>To defend against attackers, you have to understand how they work. You are not learning this to\nimitate them. You study each step to see what it <em>needs</em>, so you can take that away. Most\nintrusions move through recognisable phases:</p>\n<ol>\n<li><strong>Reconnaissance.</strong> The attacker gathers information about the target from the outside:\n   who works there, what systems they run, what's exposed. Quiet, often legal, and easy to\n   overlook.</li>\n<li><strong>Scanning.</strong> They probe the target directly for live systems, open ports, and running\n   services, mapping the attack surface. In this book you can reason from supplied\n   observations without probing any real system.</li>\n<li><strong>Gaining access.</strong> They exploit a weakness (a flaw, a weak password, a tricked user) to\n   get a foothold.</li>\n<li><strong>Maintaining access.</strong> They entrench, so a reboot or a changed password doesn't lock them\n   out.</li>\n<li><strong>Clearing tracks.</strong> They cover their trail, deleting logs and hiding activity to delay\n   discovery.</li>\n</ol>\n<p>Read that list as a <em>defender</em> and each phase becomes an opportunity. Reconnaissance can be\nmade harder by exposing less. Scanning can be detected. Access can be denied with patching and\nstrong authentication. Persistence and track-clearing can be spotted by monitoring that the\nattacker cannot fully erase. Understanding the attacker's process is where a defender's leverage\ncomes from.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Ethical hacking, and the line</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Much of what you'll learn in this book is, in mechanism, identical to what an attacker does:\nscanning systems, cracking passwords, capturing traffic. The difference is <strong>permission and\npurpose.</strong> An ethical practitioner acts with the owner's authorisation, within an agreed scope,\nto <em>find and fix</em> weaknesses before a real attacker exploits them. Unapproved testing may be unlawful and can harm others. Treat explicit\npermission and agreed scope as prerequisites, not optional courtesy.</p>\n<p>This is where the old \"hats\" come from. A <strong>white hat</strong> works with authorisation, to find and\nfix. A <strong>black hat</strong> breaks in for their own gain or to cause harm. A <strong>grey hat</strong> acts without\npermission while believing the intent is good. Good intentions do not move the line. What\nseparates the three is authorisation.</p>\n<p>That line is sharp and it matters. Practise only in an environment you own or are explicitly\nauthorised to use. The skills are dual-use. Your professionalism is what makes them defensive.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Try it yourself</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Begin with the fictional, paper-based <a href=\"../appendices/defender-dossier.qmd\">Harbour case</a>.\nOptional technical practice requires an explicitly authorised environment with\nchecked boundaries. The <a href=\"../appendices/lab-environment.qmd\">practice appendix</a>\nexplains why a VM, NAT connection or container does not itself establish isolation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A lifecycle to revisit</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use seven activities as a learning map: design, harden, detect, respond,\nrecover, investigate, and audit/learn. People and decisions run through all\nseven. Activities overlap: evidence collection can begin during response,\nand a recovery test can reveal a design flaw before any breach occurs.\nThis is the book's teaching map, not a mandated sequence.\n<a href=\"https://csrc.nist.gov/pubs/sp/800/61/r3/final\">NIST's incident-response guidance</a>\nplaces incident work within continuing risk management.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The <strong>CIA triad</strong> and <strong>defence in depth</strong> are the lenses for the whole book. Almost every\nlater control exists to protect one leg of the triad or to add one more layer. The next chapter\nbegins the technical detail, looking at where software goes wrong and the malware that walks\nthrough the gaps.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Give a real situation where <strong>confidentiality</strong> matters most, one where <strong>integrity</strong>\n   matters most, and one where <strong>availability</strong> matters most. Use three different examples.</li>\n<li>\"More security is always better.\" Describe one case where tightening security actually made\n   things <em>worse</em>. What was traded away?</li>\n<li>Why would a <em>defender</em> bother learning the phases of an attack? What specifically do you gain\n   by understanding how an attacker thinks?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Map an asset</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Read Harbour's facts. In 10 minutes, choose one asset and write a four-column\nrow: harm, plausible threat, control, and evidence that the control works.\nThen name one residual failure. A good row connects a specific harm to a test;\n“use encryption” without saying what it protects is not enough.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Software Security & Malware",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A software flaw can give an attacker a foothold. What happens next depends on the access and controls around it.</em></p>\n</blockquote>\n<p>Software vulnerabilities, stolen credentials and deceptive messages can each\ngive an attacker a foothold. This chapter concentrates on software flaws and\nmalware, then uses a historical breach to show how several failures can connect.\nChapter 10 returns to the criminal market and the evidence left behind.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Distinguish <strong>design flaws</strong> from <strong>implementation flaws</strong>, and explain <strong>attack surface</strong>.</li>\n<li>Explain what <strong>CVE</strong> and <strong>CWE</strong> are, and how <strong>vulnerability disclosure</strong> works\n  (responsible disclosure, zero-day).</li>\n<li>Classify the main families of <strong>malware</strong>: viruses, worms, spyware, adware, trojans, RATs,\n  ransomware, rootkits, and botnets.</li>\n<li>Explain how a <strong>trojan</strong> and a <strong>botnet</strong> actually work, and how we detect and prevent them.</li>\n<li>Trace how a real breach chains several of these together.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where flaws come from</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Software fails in two ways, and the distinction matters because they are fixed differently.</p>\n<p>A <strong>design flaw</strong> is a mistake in the plan. The software does what it was designed to do, and\nthe design itself is insecure. A system that emails you your own password in plain text has no\nbug. It works as intended, and the intention is the problem. Design flaws are expensive because\nfixing them means changing the plan, often after everything has been built on top of it.</p>\n<p>An <strong>implementation flaw</strong> is a mistake in the building. The design was sound, but somewhere in\nthe code a programmer made an error: mishandled a length, trusted an input they shouldn't have,\nforgot a check. Implementation flaws are one reason software needs patching. A patch may also\nchange an insecure design; the categories help us reason but can overlap.</p>\n<p>Every flaw is only a threat if an attacker can reach it. This brings us to <strong>attack surface</strong>:\nthe sum of all the points where an attacker could try to get in. Every open port, every input\nfield, every feature, every piece of installed software adds to it. A defender's instinct,\nseen already in the last chapter, is to <em>reduce</em> attack surface: turn off what you don't use,\nclose what you don't need, and you shrink the number of doors an attacker can try. Attack\nsurface is not fixed. It grows every time you add a feature, install software, or connect a new\nsystem, which is why security is never \"done.\"</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Naming the weaknesses: CVE and CWE</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>When there are millions of flaws across the world's software, you need a way to talk about them\nprecisely. Two catalogues do this. A <strong>CVE</strong> (Common Vulnerabilities and Exposures) is a unique\nidentifier for a vulnerability record, which can identify affected products and versions.\nA shared flaw may affect more than one product; the identifier gives people\na common reference. A <strong>CWE</strong> (Common Weakness\nEnumeration) is one level up: a category of <em>type</em> of flaw (\"improper input validation,\"\n\"use after free\") that recurs across many products. CVEs are the individual cases; CWEs are the\npatterns behind them. The <a href=\"https://www.cve.org/ResourcesSupport/FAQs\">CVE programme</a>\nand <a href=\"https://cwe.mitre.org/\">CWE catalogue</a> describe their different purposes.</p>\n<h3>Disclosure and the zero-day</h3>\n<p>When a researcher finds a flaw, <strong>coordinated vulnerability disclosure</strong> aims\nto get useful information to affected parties while reducing harm. A researcher\nreports through an authorised channel and coordinates with the vendor or a\nrelevant response team. Publication timing must account for active exploitation,\nuser protection and unresponsive vendors; it is not always “wait until patched”.\n<a href=\"https://vuls.cert.org/confluence/display/CVD\">CERT/CC's disclosure guide</a>\nexplains the roles and trade-offs.</p>\n<p>A <strong>zero-day vulnerability</strong> is commonly discussed as a flaw for which\ndefenders do not yet have an available fix, often before public disclosure.\nDistinguish the vulnerability from a zero-day exploit or attack that uses it.\nTerminology varies, so describe whether the vendor knew, whether a patch\nexisted and whether exploitation was observed. Layered controls matter when\npatching cannot yet remove the exposure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Malware: a field guide</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Malware</strong> (malicious software) is the general term for any program written to do harm. The\nfamilies are worth knowing because they spread and survive differently, and each difference is\na place to defend.</p>\n<h3>Viruses and worms</h3>\n<p>A <strong>virus</strong> attaches itself to a legitimate file or program and spreads when that host is run\nand shared. It needs a carrier and, usually, a human to move it. A <strong>macro virus</strong> hides in\nthe scripting built into documents (a spreadsheet or word-processor file), which is why \"enable\nmacros?\" is a question worth treating with suspicion.</p>\n<p>A <strong>worm</strong> is the more dangerous cousin: it spreads <em>on its own</em>, across the network, without\nneeding a host file or a human to carry it. The 1988 Morris Worm, one of the first, showed\nthe pattern that still holds: self-propagating code can move faster than any human response.\nFor a defender, a worm's fuel is connectivity and unpatched systems, so segmentation and\npatching are what starve it.</p>\n<h3>Spyware, adware, and the willing click</h3>\n<p>Not all malware exploits a software flaw. <strong>Spyware</strong> collects information (keystrokes,\nbrowsing, credentials) and reports it back. <strong>Adware</strong> forces unwanted advertising and often\ntracks you to do it. A great deal of malware needs no vulnerability at all: it needs the user\nto <em>agree</em>, to click \"install,\" to run the attachment, to grant the permission. This is the\ntheme that returns in the human-factors chapter: the most patched system in the world can still\nbe undone by one willing click.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Trojans, RATs, and botnets</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>trojan horse</strong> is malware disguised as something desirable: a game, a cracked application,\na useful tool. The user runs it willingly, and while it may even do what it claims, it also does\nsomething else. A <strong>Remote Access Trojan (RAT)</strong> is a nasty variant: it hands the attacker\nremote control of the machine (files, webcam, keystrokes, the lot) as though they were sitting\nat it.</p>\n<p>Scale this up and you get a <strong>botnet</strong>: a network of many compromised machines (\"bots\") under\none attacker's control, taking orders from a command-and-control server. A botnet's owner can\nrent it out to send spam, mine cryptocurrency, or overwhelm a target with a distributed\ndenial-of-service (DDoS) attack. The infamous Zeus family, for example, turned huge numbers of\nordinary PCs into a credential-stealing network. The defender's insight is that a botnet's value\nis <em>aggregate</em>. No single infected machine matters much, which is why individual users\nunderestimate the cost of being compromised.</p>\n<p><strong>Ransomware</strong> can encrypt data and disrupt services; attackers may also steal\ndata and threaten to publish it. Tested, protected backups support recovery\nbut cannot undo disclosure. Paying does not guarantee either restoration or\ndeletion of stolen copies. Response therefore includes containment, assessment\nof exposed data and recovery, not just obtaining a decryption key.\n<a href=\"https://www.cisa.gov/stopransomware/ransomware-guide\">CISA's ransomware guide</a>\ncovers these connected risks.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Rootkits: hiding in the floor</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>rootkit</strong> is malware that subverts a low level of the system (the operating system, or\nbelow it) so that it can hide everything above. By compromising the layer the rest of the\nsystem trusts to report the truth, a rootkit can make its own files, processes, and network\nconnections invisible to the tools you'd normally use to find them. This is why compromised\nmachines are often rebuilt from scratch rather than \"cleaned\": once you can't trust the floor\nyou're standing on, you can't trust anything it tells you.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Defending against malware</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>No single control stops all of this. That is why the book argues for layered defence. Signature-based detection recognises known patterns; other endpoint techniques\nlook at behaviour or suspicious activity. Neither guarantees detection of an\nunfamiliar attack, so endpoint protection must be one layer among many. Patching closes the flaws worms and exploits need. Least privilege\nstops a compromised program reaching everything. Controls limit what software is allowed to run.\nUser education targets the willing click. Monitoring catches the intrusion that gets through\nanyway. \"We have antivirus\" is not a security strategy. It is one thin layer, and a defender\nwho relies on it alone has assumed the breach won't happen.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How it comes together: a real breach</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Real attacks rarely use one flaw. They chain several. The 2013 Target breach is a classic worked\nexample. Attackers first stole network credentials from a <em>third-party contractor</em> (a\nheating-and-cooling vendor with access to Target's systems). They used that foothold to reach the\nretail network and installed point-of-sale malware (the \"BlackPOS\" family) that scraped card data\nfrom checkout terminals. They exfiltrated tens of millions of card records while warning signs\nwent unheeded. Read it as a defender and every stage is a control that could have caught it:\ntighter vendor access, network segmentation, restricted software execution, and someone acting\non the alerts. Several controls offered possible opportunities to interrupt that chain.\nWhich would have worked depends on implementation and timing. The\n<a href=\"https://www.commerce.senate.gov/wp-content/uploads/media/doc/2014%200325%20Target%20Kill%20Chain%20Analysis.pdf\">2014 Senate staff analysis</a>\ndiscusses possible missed opportunities using the public reporting then\navailable; it is not proof of a unique counterfactual.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Incident Zero</em>, a free, print-and-play security game, has a <strong>Hardening</strong> module where you\nspend a limited budget on layered defences and then a pentester attacks. It's the fastest way\nto <em>feel</em> why one control is never enough, and why \"we have antivirus\" is not a security\nstrategy. → <a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The introduction</strong> laid out the phases of an attack, and this chapter fills in the \"gaining\naccess\" phase. Stolen credentials, as in the Target breach, are the entry point the\n<strong>authentication</strong> chapter is about. Botnets and the criminal economy behind malware return in\n<strong>cybercrime, botnets and forensics</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What's the difference between a <strong>design flaw</strong> and an <strong>implementation flaw</strong>? Give an\n   everyday (non-software) analogy for each.</li>\n<li>A worm and a trojan both spread, but they rely on different things. What does each one\n   <em>need</em> to succeed, and which is easier to defend against?</li>\n<li>Skim the Target breach. Write your one-sentence guess at the single change that would most\n   likely have stopped it.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Trace a possible path</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 10 minutes, connect Harbour's shared administrator credential, export\npermissions and backup credentials into a possible attack path. Label the\npath hypothetical. Name two places to interrupt it and one observation\nneeded before claiming this was what happened. Do not invent a malware\ninfection when the supplied evidence only records account activity.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Authentication & Access",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A successful login establishes an identity claim. The next question is what that account is allowed to do.</em></p>\n</blockquote>\n<p>At Harbour, Rae needs to amend a booking but should not be able to export\nevery participant's details. Checking who signs in and limiting what they\ncan do are separate controls. This chapter follows both, including how\nsystems protect password verifiers, recover accounts and end compromised\nsessions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Distinguish <strong>identification</strong>, <strong>authentication</strong>, and <strong>authorisation</strong>, and explain\n  mutual authentication and ID proofing.</li>\n<li>Explain the <strong>three factors</strong> of authentication and what <strong>multi-factor authentication</strong>\n  actually adds.</li>\n<li>Describe how a system <strong>stores</strong> credentials: cryptographic hashing, and why we add\n  <strong>salt</strong>.</li>\n<li>Explain <strong>Windows / NTLM</strong> authentication at a high level and why it matters in practice.</li>\n<li>Analyse <strong>password attacks</strong> (dictionary, brute-force, rainbow tables) and the defences\n  that beat each one: salting, lockout, length.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Three words people mix up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>These three terms are used loosely in everyday speech and precisely in security, and the\nprecision matters.</p>\n<p><strong>Identification</strong> is a <em>claim</em>: you state who you are (a username, an account number, a name).\nIt is just an assertion, and on its own it proves nothing.</p>\n<p><strong>Authentication</strong> is the <em>proof</em> of that claim: you demonstrate that you are who you\nsaid. Typing the password that matches the username is authentication. This is the step\nattackers most want to defeat, because a successful fake here makes everything downstream trust\nthem.</p>\n<p><strong>Authorisation</strong> is what happens <em>after</em>: given that we now believe who you are, what are you\nallowed to do? A verified user is not an all-powerful one. Authentication gets you through the\ndoor. Authorisation decides which rooms you may enter. Keeping these separate lets a\nsystem trust <em>who</em> you are while still limiting <em>what</em> you can do. This is the principle of least\nprivilege in action.</p>\n<p>Two refinements are worth naming. <strong>Mutual authentication</strong> is when <em>both</em> sides prove their\nidentity. Not only does the server check you, but you (or your software) check the server, so\nyou're not handing your credentials to an impostor. <strong>ID proofing</strong> is the harder,\nreal-world problem of establishing identity in the first place. How does a bank know the person\nopening an account is who they claim, <em>before</em> any password exists? Authentication verifies a\nclaim you set up earlier. Proofing is how that claim was trusted to begin with.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The three factors</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>How can you prove who you are? Every method falls into one of three <strong>factors</strong>:</p>\n<ul>\n<li><strong>Something you know</strong>: a password, a PIN, the answer to a question.</li>\n<li><strong>Something you have</strong>: a phone, a hardware token, a smart card.</li>\n<li><strong>Something you are</strong>: a fingerprint, a face, a voice (biometrics).</li>\n</ul>\n<p>Passwords are widely used because they need little special hardware, but\nguessing, reuse and phishing make them risky on their own. Long, unique\npasswords generated and stored with a password manager reduce guessing and\nreuse. Arbitrary complexity rules can encourage predictable substitutions;\nrate limiting addresses repeated online guesses. Neither stops a user\nsubmitting a password to an impostor.</p>\n<h3>Multi-factor authentication</h3>\n<p>One important improvement is to require <strong>more than one factor</strong>:\n<strong>multi-factor authentication (MFA)</strong>. The power comes from <em>combining categories</em>: a password\n(know) plus a code from your phone (have) means stealing the password alone is no longer enough.\nThe \"have\" factor takes many forms: a one-time code, a hardware <strong>token</strong> or key fob, or a\n<strong>smart card</strong> carrying a chip that proves possession. The \"are\" factor, biometrics, is\nconvenient and hard to forget, but carries a permanent trade-off: you can change a breached\npassword, but you cannot change your fingerprint. MFA is strong, but it is not magic. An attacker may still phish a one-time code\nor trick a user into approving a prompt. The type of MFA matters. <strong>Passkeys</strong> and suitable security keys bind an\nauthentication response to the legitimate service, resisting a fake login\nsite in a way a relayed one-time code does not. Their enrolment, device\nprotection and recovery paths still need care. A biometric often unlocks\nan authenticator locally rather than being sent to the website as a password.\n<a href=\"https://pages.nist.gov/800-63-4/sp800-63b/authenticators/\">NIST's authenticator guidance</a>\ndistinguishes these mechanisms.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What a system actually stores</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Here is the idea that surprises most people, and it is the hinge of the whole chapter: <strong>a\nwell-built system does not store your password.</strong> If it did, anyone who stole the database (or\nany administrator) would know every user's secret.</p>\n<p>Instead, the system stores a <strong>password verifier</strong> produced by a purpose-built\npassword-hashing scheme. At login it derives a verifier from the supplied\npassword and stored parameters, then compares the result. A cryptographic\nhash is designed to resist inversion, but attackers can still guess inputs.</p>\n<p>The scheme must make each guess expensive through a suitable work factor,\nand often memory cost. A fast general-purpose hash alone is not appropriate\npassword storage. Libraries implementing schemes such as Argon2id handle\nthese details; do not invent a scheme from hash primitives.\n<a href=\"https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\">OWASP's password-storage guidance</a>\nexplains the choice and parameters.</p>\n<h3>Windows and NTLM</h3>\n<p>Windows' legacy <strong>NTLM</strong> authentication is useful optional background.\nIt uses password-derived credential material in a challenge/response scheme.\nStolen NTLM hash material may enable <strong>pass-the-hash</strong> authentication without\nrecovering the plaintext password. Treat it as a credential, not as harmless\nscrambled data. It is not a model for designing a new password store.\n<a href=\"https://learn.microsoft.com/en-us/windows/win32/secauthn/microsoft-ntlm\">Microsoft's NTLM overview</a>\ndescribes the protocol, and\n<a href=\"https://pages.nist.gov/800-63-4/sp800-63b/security/\">NIST's threat guidance</a>\nincludes reuse of stolen authentication material.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Attacking passwords</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>If attackers can get the hashes but can't reverse them, how do they recover passwords? They\ndon't reverse the hash. They <strong>guess</strong>, hash each guess, and look for a match.</p>\n<p>A <strong>dictionary attack</strong> works through a list of likely passwords (common words, previously\nleaked passwords, predictable patterns) because real people rarely choose randomly. A\n<strong>brute-force attack</strong> tries every possible combination. For a finite candidate space it can exhaust every candidate, but the work may\nbe infeasible. Length helps when it adds unpredictability; a long, well-known\nphrase can still be guessed early. The\naccelerator is a <strong>rainbow table</strong>: a giant precomputed lookup of hashes for enormous\nnumbers of candidate passwords, so the attacker trades storage for speed and skips the\nrecomputation.</p>\n<h3>The fix: salt</h3>\n<p>Rainbow tables have one fatal weakness, and the fix is elegant. Before hashing, the\nsystem adds a unique random value, a <strong>salt</strong>, to each password, and stores the salt alongside\nthe hash. Now two users with the same password have <em>different</em> hashes, and the\nattacker's precomputed rainbow table, built without your specific salt, is worthless. Salting\ndoesn't make any single password harder to <em>guess</em>. It prevents useful reuse of the same precomputed table across different salts.\nThe attacker must work separately for each salt. The password-hashing scheme's\ncost settings, not the salt alone, make each guess expensive.</p>\n<p>Distinguish <strong>online</strong> guessing against a login service from <strong>offline</strong>\nguessing against stolen verifiers. Login rate limits and lockouts do not\nslow an attacker working on their own copy. Long unique passwords, proper\nverifier storage and protection of the database address that different threat.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The maths is rarely the weakest link</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Everything above assumes the attacker has to <em>defeat</em> authentication. Often they go\naround it. A <strong>keylogger</strong> records the password as you type it, before any hashing happens.\n<strong>Social engineering</strong> just asks. A convincing email or phone call, and the user hands the\nsecret over. <strong>Sniffing</strong> captures credentials sent in the clear across a network (which returns\nin the network-security chapter). And stealing the <strong>password file</strong> itself gives the attacker\nthe hashes to work on at leisure. The recurring lesson of this book applies here: the\ncryptography is rarely what fails. The people and the plumbing around it are.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A word on single sign-on</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>One more idea you'll meet: <strong>single sign-on (SSO)</strong> lets you authenticate once and gain access to\nmany systems, and <strong>reduced sign-on</strong> is a lighter version of the same convenience. Users love it,\nand it improves security in one way: fewer passwords means less reuse and fewer\nsticky notes. But it concentrates risk: a compromised identity provider or session may expose several services.\nSSO must still enforce per-service permissions, restricted administration\nand revocation; it need not give every account access to everything. Protect the identity provider and recovery process with appropriate MFA.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Permissions and recovery are part of the design</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A receptionist may need to amend one booking without being allowed to export\nevery participant's details. Enforce that rule on the server for each action,\nnot just by hiding a button. Review access when duties change or people leave.</p>\n<p>Recovery is another entry path. A help desk that bypasses all checks when a\ncaller sounds urgent can undermine strong login controls. Plan an independent\nidentity check, recovery credentials where appropriate, and revocation of\naffected sessions. Changing a password alone does not prove that every\nexisting session has ended.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hashing this chapter relies on is the subject of the next chapter, <strong>cryptography</strong>.\nSniffing for credentials reappears in <strong>network security</strong>, when we capture packets on the\nwire. And stolen credentials, as in the Target breach, are how many intrusions begin, a thread\nrunning back to <strong>software security and malware</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>If a website is breached, why is it so much better for you that they stored a <strong>salted\n   hash</strong> of your password rather than the password itself?</li>\n<li>MFA asks for a second factor. Give a realistic example where MFA still fails, where the\n   attacker gets in anyway. What does that tell you about relying on it?</li>\n<li>Why does adding <strong>salt</strong> defeat a rainbow table, when it doesn't make any single password\n   harder to guess?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Separate login from permission</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 10 minutes, write the actions Mara, Rae and a volunteer should be allowed\nto perform at Harbour. Include one denied action for each role. Add a test\nfor account recovery and session revocation. Success means a legitimate\nlogin does not silently confer bulk-export or administrator rights.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Cryptography",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A sound cipher should remain secure when its design is public and only the key is secret.</em></p>\n</blockquote>\n<p>Cryptography can protect information sent through an untrusted network,\nbut different operations solve different problems. Encrypting a booking,\nhashing an export and signing a message do not provide interchangeable\nassurances. You do not need to derive the algorithms here; you need to\nidentify the protection, its assumptions and the systems it depends on.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain the difference between an <strong>algorithm</strong> and a <strong>key</strong>, and state <strong>Kerckhoff's\n  principle</strong>.</li>\n<li>Distinguish <strong>symmetric (one-key)</strong> from <strong>asymmetric (two-key)</strong> cryptography and say what\n  each is good for.</li>\n<li>Explain <strong>hashing</strong> vs <strong>encryption</strong>, and where digital signatures fit.</li>\n<li>Reason about attacks: brute-forcing small key spaces, known-plaintext and chosen-plaintext\n  attacks.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The algorithm and the key</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Every cipher has two parts, and telling them apart is the foundation of everything else. The\n<strong>algorithm</strong> is the method: the fixed procedure for scrambling and unscrambling. The <strong>key</strong>\nis the secret input that steers it: the particular setting that turns readable <em>plaintext</em> into\nscrambled <em>ciphertext</em> and back. The same algorithm with a different key produces different\noutput. The set of all possible keys is the <strong>key space</strong>, and its size is one measure\nof a cipher's strength: the more keys an attacker would have to try, the better.</p>\n<p>Here is where beginners' intuition usually goes wrong. It feels safer to keep the <em>algorithm</em>\nsecret too. Surely hiding the method helps? <strong>Kerckhoff's principle</strong> says the opposite, and it\nis one of the most important ideas in the whole field:</p>\n<blockquote>\n<p>A cryptosystem should be secure even if everything about it, except the key, is public\nknowledge.</p>\n</blockquote>\n<p>In other words, the security must rest <strong>entirely on the secrecy of the key</strong>, never on the\nsecrecy of the algorithm. This sounds counter-intuitive until you see why it's a <em>strength</em>. Keeping a design secret can limit independent review without demonstrating\nthat the design is sound. If secrecy of the algorithm is the only protection, disclosure removes it. A public algorithm,\npublished and attacked by the world's cryptographers for years, has earned its trust the hard\nway. This is why every cipher you should trust (the ones protecting your web traffic, your\nmessages, your disk) has an openly published algorithm and keeps only the key secret. \"Secret\nsauce\" cryptography is a warning sign.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Symmetric cryptography: one shared key</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The oldest and simplest arrangement is <strong>symmetric</strong> (or one-key) cryptography: the <em>same</em> key\nboth encrypts and decrypts. If you and I share a secret key, I encrypt with it, you decrypt with\nit, and anyone without it sees only noise. Symmetric ciphers are fast and efficient, which is why\nthey do the heavy lifting of bulk encryption: encrypting a whole disk, a database, or a stream\nof network traffic.</p>\n<p>Symmetric cryptography has one stubborn problem, and it's not the maths: <strong>key distribution.</strong>\nBefore we can communicate securely, we both need the same secret key. But how do I get it to\nyou <em>securely</em> in the first place? If we could already send secrets safely, we wouldn't need the\nencryption. For two people who have never met, sharing a key over an untrusted network is\nthe problem the whole system was meant to solve. For centuries this was cryptography's\ncentral limitation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Asymmetric cryptography: a key you can publish</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Asymmetric cryptography</strong> uses a mathematically related public/private\nkey pair. The public key can be shared; the private key must be protected.\nDifferent schemes perform different jobs. Do not assume every pair can\nencrypt, decrypt and sign interchangeably.</p>\n<p>With a public-key encryption scheme, a sender encrypts to the recipient's\npublic key and the recipient decrypts using the private key. But the sender\nmust establish that this really is the recipient's key. Publishing a key\ndoes not by itself solve the problem of authenticating it.</p>\n<p>A <strong>digital signature</strong> is a separate operation: a signing algorithm uses a\nprivate key, and a verification algorithm uses the corresponding public key.\nSigning is not generally “encrypting with the private key”. Verification\nchecks the signature against the message. A valid signature supports a claim\nabout the signing key, subject to trustworthy key identity and control;\nit does not by itself prove a human's intent.\n<a href=\"https://csrc.nist.gov/pubs/fips/186-5/final\">NIST's Digital Signature Standard</a>\ndescribes these distinct signing and verification operations.</p>\n<p>Real systems often combine public-key techniques with fast symmetric\nprotection. In a certificate-authenticated TLS connection, the browser checks\nthe server's certificate and name, the parties establish traffic keys, and\nsymmetric authenticated encryption protects the traffic. Modern key agreement\ncan derive a shared secret rather than sending a symmetric key encrypted\nwith the server's public key.\n<a href=\"https://www.rfc-editor.org/rfc/rfc8446.html\">TLS 1.3</a> separates these steps.\nIf certificate validation fails, do not bypass the warning just to continue.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Hashing: one-way, and not encryption</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>hash function</strong> is often grouped with cryptography but does something different, and the\ndifference matters. Encryption is <em>reversible</em>. With the right key, decryption recovers the original. A cryptographic hash is deliberately <strong>one-way</strong>: it turns any input into a\nfixed-length fingerprint that cannot be reversed to recover the input. You met this in the last\nchapter, where systems store the hash of a password rather than the password itself.</p>\n<p>Encryption aims to protect confidentiality. A cryptographic hash gives a\ncompact comparison value designed to make it infeasible to find a different\ninput with the same digest. Collisions are mathematically possible; “every\nchange must produce a different hash” is not the guarantee.</p>\n<p>To check a downloaded file, compare its digest with an expected value obtained\nthrough a trusted channel. If an attacker replaces both the file and its\nadvertised digest, comparison alone proves nothing about authenticity.\nA keyed message authentication code or a signature can add authentication\nunder the relevant key assumptions.</p>\n<p>Encryption alone also need not detect tampering. <strong>Authenticated encryption</strong>\ncombines confidentiality with an integrity check, rejecting altered protected\ndata. Use a maintained protocol or library rather than assembling your own\ncombination. Key theft, a compromised endpoint or an authorised but malicious\napplication session can still expose the plaintext.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Attacks, and the limits of weak crypto</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Understanding how ciphers <em>fail</em> sharpens the intuition. The simplest failure is a <strong>key space\ntoo small to matter.</strong> The classic Caesar cipher shifts each letter by a fixed amount. But there\nare only twenty-five possible shifts, so an attacker tries them all in seconds. A\n<strong>monoalphabetic substitution</strong> cipher, where each letter maps to another, has an enormous key\nspace yet still falls easily, because it leaks the <em>structure</em> of the language: letter\nfrequencies survive the substitution, and 'e' is still the commonest letter. A big key space\nis necessary but not sufficient. A cipher can be broken by the patterns it fails to hide.</p>\n<p>Cryptographers also reason about what an attacker gets to <em>see</em>. In a <strong>known-plaintext attack</strong>,\nthe attacker has some plaintext <em>and</em> its matching ciphertext and uses the pair to attack the\nkey. In the stronger <strong>chosen-plaintext attack</strong>, they can feed in plaintext of their choosing\nand study the output. A cipher worth trusting must withstand even an adversary with those\nadvantages. That is why real ciphers are published and battered by experts rather than kept\nsecret and hoped over.</p>\n<p>Well-chosen modern cryptography can make direct cryptanalytic attacks\nimpractical. Attackers may instead exploit the surrounding system.\nThey steal the key from a poorly protected file, trick a user into revealing it, exploit a bug\nin the <em>implementation</em> of a sound algorithm, or take the data before it's encrypted or after\nit's decrypted. Even ransomware, which weaponises encryption <em>against</em> you, succeeds through the\nplumbing (how it gets in and what it can reach) rather than by breaking the cipher. The defender must examine both the cryptographic choice and its operating\nconditions; neither should be assumed correct merely because encryption is present.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Password verification uses the hashing ideas introduced in <strong>authentication</strong>. The\nencrypted tunnel a VPN builds rests on the symmetric, asymmetric, and key-exchange ideas here,\nas <strong>VPN and firewalls</strong> will show. And the secure connection behind every reputable website is\nthe hybrid scheme described above, which returns in <strong>web security and data protection</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Why is it a <em>good</em> thing that strong ciphers publish their algorithms openly?</li>\n<li>Symmetric crypto is faster; asymmetric solves key distribution. Sketch how a real system\n   might use <em>both</em>.</li>\n<li>What's the practical difference between <strong>hashing</strong> a message and <strong>encrypting</strong> it? When\n   would you want each?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Choose the protection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 10 minutes, decide what protects Harbour's traffic, stored records and\nbackup comparison values. Explain one limitation of each choice. Your answer\nshould recognise that an application can export plaintext after login, and\nthat a hash beside an editable file needs a separately trusted reference.\nCompare with the worked dossier only after making your choices.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Checkpoint: foundations",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "Which property of the CIA triad does encryption primarily protect?",
+                        "options": [
+                          "Confidentiality",
+                          "Availability",
+                          "Integrity",
+                          "Identity"
+                        ],
+                        "answer": 0,
+                        "explanation": "Encryption keeps the content unreadable to someone without the key. Integrity and availability need other controls."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "A system emails every new user their password in plain text. What kind of flaw is this?",
+                        "options": [
+                          "A design flaw",
+                          "An implementation flaw",
+                          "A network fault",
+                          "A hardware fault"
+                        ],
+                        "answer": 0,
+                        "explanation": "The system works as designed. The design itself is unsafe, so fixing it means changing the plan."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Which of these increases the attack surface?",
+                        "options": [
+                          "An open port with an unused service",
+                          "A closed port",
+                          "A password manager",
+                          "A backup"
+                        ],
+                        "answer": 0,
+                        "explanation": "Every reachable service adds a place to try. Unused services increase the surface without adding value."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What does ransomware usually do?",
+                        "options": [
+                          "Encrypts files and demands payment for the key",
+                          "Steals the monitor",
+                          "Changes the DNS record only",
+                          "Deletes the operating system silently"
+                        ],
+                        "answer": 0,
+                        "explanation": "Ransomware makes data unavailable and sells the recovery path. Backups are the defence that matters."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What does multi-factor authentication add?",
+                        "options": [
+                          "A second factor from a different category",
+                          "A second password",
+                          "A longer username",
+                          "A faster login"
+                        ],
+                        "answer": 0,
+                        "explanation": "Factors are knowledge, possession and inherence. Two passwords are still one factor."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "Why do systems store password hashes rather than encrypted passwords?",
+                        "options": [
+                          "A salted hash is one-way and cannot be reversed into the password",
+                          "Hashing is faster than encryption",
+                          "Hashes are always shorter",
+                          "Encryption cannot be stored"
+                        ],
+                        "answer": 0,
+                        "explanation": "The system only needs to verify a candidate. It does not need the original password."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What does Kerckhoff's principle say?",
+                        "options": [
+                          "The system should stay secure even if everything except the key is public",
+                          "The algorithm must be secret",
+                          "The key must be published",
+                          "Only the vendor may know the design"
+                        ],
+                        "answer": 0,
+                        "explanation": "Security should rest on the key, not on hiding the method."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "The inherited estate",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>You inherit a public web service. It has an old plugin, verbose logs, one\nadministrator account shared by three people, and no recent patches. This\nmorning the logs show a burst of failed logins from one address, followed by\none success. Choose your first move.</p>",
+                    "options": [
+                      {
+                        "id": "contain",
+                        "label": "Isolate the service and preserve the logs",
+                        "outcome": "<p>You remove public access, keep the logs, and start a timeline. The service\nis down for customers, but the evidence is intact and the account can be\ncontained deliberately.</p>",
+                        "effects": {
+                          "Customer impact": "Temporary outage",
+                          "Evidence": "Preserved",
+                          "Risk": "Lower until the account is secured"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Contain first and keep the evidence. Then reset credentials and rebuild from a known state.</p>"
+                      },
+                      {
+                        "id": "reset",
+                        "label": "Reset every password immediately",
+                        "outcome": "<p>The shared admin account is locked and reset. The attacker's session may\nstill be active, and the logs that would show what they touched are now\nharder to interpret.</p>",
+                        "effects": {
+                          "Customer impact": "Low",
+                          "Evidence": "Partly lost",
+                          "Risk": "Attacker may remain"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Credential reset matters, but it is not containment. Preserve the trail first.</p>"
+                      },
+                      {
+                        "id": "patch",
+                        "label": "Patch the plugin and redeploy",
+                        "outcome": "<p>You close one known hole. The service goes back online with the same\nshared account and the same unknown session.</p>",
+                        "effects": {
+                          "Customer impact": "Short outage",
+                          "Evidence": "Untouched",
+                          "Risk": "The original access remains"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Patching is necessary, not sufficient. The compromise already happened.</p>"
+                      },
+                      {
+                        "id": "watch",
+                        "label": "Watch the logs for another day",
+                        "outcome": "<p>You keep the service live. The attacker has more time, and the shared\naccount gives no clear attribution.</p>",
+                        "effects": {
+                          "Customer impact": "None now",
+                          "Evidence": "Growing",
+                          "Risk": "High"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Watching is not containment when there is evidence of success.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Name what you protected, what you lost, and what you would do next. The\ncorrect first move preserves the evidence and reduces the blast radius.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "managing-risk",
+            "title": "Managing Risk",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Risk Management",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>You can't protect everything equally, so you don't. Risk management is how a defender decides where the money and effort go.</em></p>\n</blockquote>\n<p>Everything before this chapter was about <em>how</em> to defend: controls, cryptography, layered\ndefence. This chapter is about <em>where to spend the effort</em>. It is the moment security stops\nbeing a technical subject and becomes a business one. No organisation has unlimited money, time,\nor patience, so a defender who tries to protect everything equally protects nothing well. Risk\nmanagement is the discipline of deciding, honestly and defensibly, what to protect, how much to\nspend, and what to leave alone. It is also where \"assume breach\" turns into a budget.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Define <strong>risk</strong>, <strong>risk appetite</strong>, and explain why appetite varies between organisations.</li>\n<li>Explain <strong>cost-benefit analysis</strong> and the difference between <strong>intrinsic</strong> and <strong>acquired</strong>\n  value.</li>\n<li>Calculate <strong>single loss expectancy (SLE)</strong> and <strong>annual loss expectancy (ALE)</strong>, and use\n  them to judge whether a control is worth it.</li>\n<li>Describe the main <strong>risk treatments</strong>: avoid, mitigate, transfer, accept.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What risk actually is</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In everyday speech \"risk\" means danger. In security it means something more precise and useful:\nrisk is the combination of <strong>how likely</strong> something bad is and <strong>how much it would hurt</strong> if it\nhappened. A useful shorthand is <em>risk = likelihood × impact</em>. Neither alone tells you much. A\ncatastrophic event that almost never happens may be a smaller risk than a minor one that happens\nweekly. Treating them as equal, as a fear-driven approach does, wastes effort on the dramatic and\nignores the routine.</p>\n<p>Because risk is about likelihood and impact, it is always relative to a particular organisation.\nThat is where <strong>risk appetite</strong> comes in: how much risk a given organisation is willing to accept\nin pursuit of its goals. A hospital and a social-media start-up face different threats, value\ndifferent things, and answer to different regulators, so they will rationally accept different\nrisks. Risk appetite is a deliberate statement of how much uncertainty an organisation will live\nwith. It is neither recklessness nor timidity. Two well-run companies facing the same threat can\nmake opposite, equally defensible decisions. They should be able to explain the constraints behind those choices.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What are you protecting, and what&#x27;s it worth?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You cannot judge a risk without knowing the value of what's at stake, and value is subtler than a\nprice tag. An asset has <strong>intrinsic value</strong> (what it is worth in itself, like the replacement\ncost of a server) and <strong>acquired value</strong> (the worth it takes on from its role and context). A\ncustomer database might contain a few dollars of storage, but the acquired value (the trust, the\nregulatory exposure, the competitive harm if it leaked) can be enormous. Defenders who price only\nthe intrinsic value under-protect the things that matter most, because the damage from losing\ninformation usually dwarfs the cost of the hardware holding it.</p>\n<p>Once you can value what's at stake, you can do <strong>cost-benefit analysis</strong>: weigh what a control\n<em>costs</em> against the loss it <em>prevents</em>. This provides one input to a security decision. It\nhas an uncomfortable implication people resist: sometimes the right answer is to <em>not</em> buy the\ncontrol, because it costs more than the harm it prevents. That judgement is constrained by legal duties, safety and the organisation's\nstated limits. A positive financial return is not the only reason to protect people.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Putting numbers on it: SLE, ARO, ALE</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>To make cost-benefit concrete, security borrows a simple model from insurance. Three quantities\ndo the work. <strong>Single Loss Expectancy (SLE)</strong> is how much one occurrence of the event would cost\nyou. <strong>Annualised Rate of Occurrence (ARO)</strong> is how many times a year you expect it to happen,\nand it can be a fraction: 0.2 means once every five years. <strong>Annual Loss Expectancy (ALE)</strong> is\nthe expected cost <em>per year</em>, <code>SLE × ARO</code>.</p>\n<p>Here is a worked example. Suppose a breach of your customer database would cost about\n<strong>\\$500,000</strong> to clean up, notify, and recover from. That is the SLE. You judge such a breach\nmight happen once every five years, so the ARO is <strong>0.2</strong>. The annual loss expectancy is:</p>\n<p><code>ALE = SLE × ARO = \\$500,000 × 0.2 = \\$100,000 per year.</code></p>\n<p>That \\$100,000 is what this risk \"costs\" you in expectation each year, and it's the number a\ncontrol has to beat.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Is the control worth it?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Now you can judge a control honestly. Say better monitoring and encryption cost <strong>\\$40,000 a\nyear</strong> and would cut the breach rate to once every twenty years (ARO 0.05). The new annual loss\nexpectancy becomes <code>\\$500,000 × 0.05 = \\$25,000</code>. So the control <em>reduces</em> your ALE from\n\\$100,000 to \\$25,000, a benefit of <strong>\\$75,000 a year</strong>, for a cost of \\$40,000. It saves you\n\\$35,000 net, so it is worth buying.</p>\n<p>For this financial model, <strong>a control has positive expected net benefit when\nthe reduction in ALE exceeds its annual cost.</strong> That is not a complete\nacceptance rule for safety, privacy or regulatory obligations. Turn the numbers around and the answer flips. A \\$50,000\ncontrol that only reduces an ALE from \\$30,000 to \\$5,000 <em>loses</em> you money, and buying it out of\na vague sense that \"more security is better\" is the mistake this chapter exists to prevent.</p>\n<p>Two honest cautions come with the arithmetic. First, notice that even after the good control,\n\\$25,000 of annual risk remains: this is <strong>residual risk</strong>, the risk left over after treatment.\nYou almost never reduce risk to zero, and pretending otherwise is how organisations get\nsurprised. Second, these numbers are <em>estimates</em>: SLE and ARO are educated guesses, and some\nimpacts (a ruined reputation, harm to people, loss of life) resist being priced at all. Treat\nquantitative risk analysis as a discipline for thinking clearly. The numbers structure the\njudgement; they do not replace it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The four things you can do with a risk</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Once a risk is identified and sized, you have four options. They are the vocabulary every\nsecurity professional shares:</p>\n<ul>\n<li><strong>Avoid.</strong> Don't do the risky thing at all. Stop offering the feature, don't collect the\n  data, close the exposure. This can remove the particular exposure, but may introduce other risks.\n  It is often impractical because the activity is part of the business.</li>\n<li><strong>Mitigate.</strong> Reduce the likelihood or the impact with controls. This is most of what the\n  rest of this book is about: patch, encrypt, segment, train, monitor. You rarely eliminate the\n  risk; you shrink it to an acceptable size.</li>\n<li><strong>Transfer.</strong> Share specified financial consequences through <strong>insurance</strong> or a contract.\n  Coverage, exclusions and provider obligations matter. Outsourcing does not\n  automatically transfer your responsibility for customers or legal compliance.</li>\n<li><strong>Accept.</strong> Decide the risk is small enough, or the fix too costly, to live with it. This is a\n  legitimate, deliberate choice, <em>provided</em> it's made consciously and by someone with the\n  authority to make it. Record the owner, reasoning, residual exposure and review date. An unexamined\n  risk is not the same as deliberate acceptance.</li>\n</ul>\n<p>Organisations use resources with different purposes: the <strong>ASD Essential Eight</strong>\nsets out mitigation strategies and maturity expectations; <strong>ISO/IEC 27001</strong>\nspecifies an information-security management system; the <strong>NIST Cybersecurity\nFramework</strong> organises cybersecurity outcomes. They are not interchangeable\npass/fail checklists. The <a href=\"https://www.nist.gov/cyberframework\">NIST CSF</a>\nprovides a starting point for understanding outcomes and governance. Use the framework to structure evidence and responsibilities, then explain\nhow the chosen treatment addresses the organisation's actual exposure.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Incident Zero</em>'s <strong>Audit &amp; Compliance</strong> module has you score an organisation's controls\npass/fail against a real framework, and then defend your judgement to the table. It turns the\nabstract choice between <em>accept, mitigate, transfer, avoid</em> into a call you have to argue for\nout loud. → <a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The next chapter, <strong>incident and disaster planning</strong>, is what you do when a risk you accepted\nor mitigated happens anyway. Every control elsewhere in the book is a <em>mitigation</em>, and this\nchapter is how you decide which ones are worth deploying. A maturity assessment against a\nstandard like the Essential Eight is this same risk-based reasoning, applied control by control.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Two companies face the same threat but treat it differently. One buys insurance, one\n   consciously accepts it. How can both be <em>rational</em>?</li>\n<li>A control costs \\$50k/year and reduces an ALE of \\$30k/year to \\$5k/year. Should they buy\n   it? Show your reasoning.</li>\n<li>Give a real risk your own organisation (or somewhere you've studied or worked) probably\n   <strong>accepts</strong> rather than fixes. Why is that a defensible choice?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Calculate, then challenge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 15 minutes, calculate Harbour's expected-loss reduction and net benefit\nfor option A. Repeat for post-control annual rates 0.02 and 0.09. Then\nchoose an affordable set of controls and record what it leaves unresolved.\nSuccess requires correct arithmetic, stated assumptions and a named risk\nowner; a positive estimate alone is not approval to ignore binding duties.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Take it to the AI</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Optional: attempt the paper task first. Use only the fictional case, never\nreal messages, credentials, personal information or internal logs. Check any\nexternal claims against the primary sources; do not deploy generated rules.</p>\n<blockquote>\n<p>Act as a reviewer of my fictional Harbour risk decision. Identify the\nassumption most likely to change my conclusion. Use only the printed costs\nand estimates; do not invent product effectiveness. Ask one question, wait\nfor my answer, then explain how I could obtain better evidence.</p>\n</blockquote>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Incident & Disaster Planning",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>The question isn't whether something will go wrong, but whether you're ready when it does.</em></p>\n</blockquote>\n<p>At Harbour, an unexpected login prompt and a bulk-export event arrive within\nminutes of each other. Who can suspend access, preserve the logs, talk to the\nservice provider and decide what the centre tells participants? This chapter\nturns those questions into a response plan. Preparation and recovery tests\nbelong before the first incident.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Distinguish <strong>incident response</strong>, <strong>business continuity</strong>, and <strong>disaster recovery</strong>.</li>\n<li>Explain <strong>RTO</strong> and <strong>RPO</strong> and why they drive the plan.</li>\n<li>Describe what a good <strong>incident response</strong> process looks like (detect → respond → recover →\n  learn).</li>\n<li>Explain the role of <strong>backups</strong>, alternate sites, and testing the plan.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When prevention runs out</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Patching and access controls lower the chance of compromise. Detection,\nresponse and recovery reduce harm when prevention fails. They also help\nwith mistakes and outages unrelated to an attacker.</p>\n<p>Preparation means deciding authority, keeping contact information available,\nand testing recovery while there is time to correct a failure. A response\nplan should work when the usual administrator is absent and the primary\ncommunication system is unavailable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Incident response: the lifecycle</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An <strong>incident</strong> involves an actual or imminent threat to security. A suspicious\nevent needs triage; staff should not wait for certainty before reporting it.\nA response process turns incomplete observations into proportionate action:</p>\n<ul>\n<li><strong>Detect and assess.</strong> Record the observation, time and affected service.\n  Decide urgency and scope, distinguishing facts from assumptions.</li>\n<li><strong>Respond.</strong> Contain damage under assigned authority. Preserve useful\n  evidence where feasible while restricting compromised access. Record\n  actions that change or destroy evidence and why they were necessary.</li>\n<li><strong>Recover.</strong> Address the cause and persistence, restore or rebuild from\n  an acceptable state, and validate access and integrity before reconnecting.\n  A successful restore is not proof the attacker has been removed.</li>\n<li><strong>Learn.</strong> Review controls, decisions and communication. Assign improvements\n  and check that they are completed.</li>\n</ul>\n<p>These activities overlap. Evidence collection and analysis begin during\nresponse, not only after restoration. Do not indiscriminately wipe a system\nbefore consulting the response lead; equally, do not leave serious harm\ncontinuing solely to obtain perfect evidence.\n<a href=\"https://csrc.nist.gov/pubs/sp/800/61/r3/final\">NIST SP 800-61 Rev. 3</a>\nplaces incident response within continuing risk management.</p>\n<p>Two things make or break response in practice, and neither is technical. <strong>Roles</strong> must be\ndecided in advance (who declares an incident, who talks to whom, who has the authority to take a\ncritical system offline), because a crisis is the worst possible time to be working out the org\nchart. And <strong>communication</strong> must be planned: internal coordination, and the harder question\nof what you tell customers, regulators, and the public, and when.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business continuity and disaster recovery</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Two related disciplines sit alongside incident response, and people constantly confuse them.</p>\n<p><strong>Business continuity</strong> is the big picture: keeping the <em>organisation</em> running during a serious\ndisruption of any kind, not just a cyberattack. If the office floods, the payroll system dies,\nor ransomware locks every file, how does the business keep serving customers and paying staff? It\ncovers people, processes, premises, and priorities, the whole organisation's ability to function\nthrough a crisis.</p>\n<p><strong>Disaster recovery</strong> is the technical subset of that: restoring the <em>IT systems and data</em> after\nthey've been lost or damaged. Business continuity asks \"how does the company keep operating?\";\ndisaster recovery asks \"how do we get the systems and data back?\" Recovery serves continuity (you\nrestore the systems so the business can continue), but they are not the same plan, and an\norganisation needs both.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The two numbers that drive the plan: RTO and RPO</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Disaster recovery turns on two deceptively simple targets, and getting them straight is the most\nuseful thing in this chapter.</p>\n<p><strong>Recovery Time Objective (RTO)</strong> is the target elapsed time for restoring\nan agreed service level after disruption. Set it within the organisation's\nmaximum tolerable disruption, allowing for dependencies and validation. A trading platform's RTO might be\nminutes; an internal wiki's might be days.</p>\n<p><strong>Recovery Point Objective (RPO)</strong> is <em>how much data you can afford to lose</em>: the maximum\ntolerable gap between your last good backup and the moment of failure. An RPO of one hour means\nyou can lose at most an hour's work; an RPO of a day means losing a day's is acceptable.</p>\n<p>The RPO constrains your recovery design, including backup or replication\nfrequency and the availability of usable recovery points. This is where plans contradict\nthemselves. If a company declares an RPO of one hour but backs up only once a night, the plan is\nbroken on its face: a failure just before the nightly backup could lose nearly twenty-four hours\nof data, not one. The stated goal and the actual practice don't match, and no one notices until\nthe day it matters. Test the gap using a failure time near the end of the backup interval.\nA copied but corrupt or compromised backup does not meet the target.\n<a href=\"https://www.nist.gov/privacy-framework/nist-sp-800-34\">NIST's contingency-planning guidance</a>\nhelps distinguish recovery objectives from tolerable disruption.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Backups and alternate sites</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Backups support recovery. The <strong>3-2-1</strong> rule of thumb means three copies,\non two types of media, with one off-site. Geographic separation protects\nagainst a local disaster. <strong>Offline or appropriately immutable protection</strong>\naddresses a different problem: an attacker modifying or deleting backups.</p>\n<p>An off-site copy reachable with the same compromised administrator account\nmay still be lost. Separate administration, retention controls and tested\nrestoration matter. Check that recovery documentation and required keys remain\navailable during an outage. Neither a backup job's success message nor a\nprovider's promise substitutes for an observed restore test.</p>\n<p>Good backups can reduce pressure to pay for decryption. They do not erase\ndata already stolen, resolve legal obligations or guarantee a clean recovery.\n<a href=\"https://www.cisa.gov/stopransomware/ransomware-guide\">CISA's ransomware guide</a>\ncovers prevention, data theft and recovery together.</p>\n<p>For systems that can't tolerate much downtime, recovery relies on an <strong>alternate site</strong>, a second\nlocation ready to take over. These come in flavours by cost and readiness: a <strong>hot site</strong> is\nfully equipped and running, ready in minutes; a <strong>cold site</strong> is just space and power you'd have\nto build out, cheap but slow; a <strong>warm site</strong> sits in between. Which you choose is a risk-and-cost\ndecision: the cost-benefit reasoning of the previous chapter, applied to recovery.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The clock and the crowd</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A response plan needs separate owners for technical recovery, communication\nand legal assessment. Do not promise that “every breach has a 72-hour clock”.\nUnder GDPR, the controller's regulator-notification deadline generally runs\nfrom awareness of a personal-data breach, with a risk-based exception;\ncommunication to affected people has a different threshold. Australia's\nNDB scheme uses its own coverage, serious-harm and assessment rules.\n<a href=\"09-web-security-and-data-protection.qmd\">Web Security and Data Protection</a>\nsets out the distinction and primary sources.</p>\n<p>Record when relevant facts became known and escalate promptly to the\nresponsible adviser. Investigation may continue while notification duties\nare addressed. Customers need accurate information about what is known,\nwhat is uncertain and what they should do.</p>\n<p>A ransom demand adds pressure. Payment does not guarantee restored data or\ndeletion of stolen copies, and legal restrictions may apply. The authorised\ndecision-makers need technical and legal advice for the actual circumstances.\nThis book's exercises do not ask the reader to negotiate or decide a real\nransom payment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Testing the plan</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>One rule outweighs all the rest: <strong>an untested plan is only a hope.</strong> Recovery plans fail at the\nmoment they're needed for depressingly ordinary reasons: the backups were running but never\nrestored-tested and turned out to be corrupt; the recovery documentation was itself on the system\nthat went down; the one person who knew the process had left. Every one of these is caught by\n<em>rehearsing</em>: restoring from backups for real, running tabletop exercises, walking the team\nthrough the crisis while it's still hypothetical. The organisations that recover smoothly are the\nones that practised; the ones that discover their plan's flaws during the real disaster paid the\nworst possible price for the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Incident Zero</em> has two modules that live in this chapter. <strong>Incident Response</strong> races you to\nuncover a hidden attack chain before time and budget run out; <strong>Disaster Recovery</strong> drops you\ninto a live breach with a 72-hour notification clock and the ransom decision on the table.\nReading about incident response is one thing; running one against a clock is another. →\n<a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This chapter is what you do when a risk from <strong>risk management</strong> happens anyway, and the hot,\nwarm, and cold-site choice is that chapter's cost-benefit reasoning applied. Investigation\nstarts alongside containment; its evidence and attribution methods are taken up in\n<strong>cybercrime, botnets and forensics</strong>. And the breach-notification obligations here are grounded\nin the data-protection law of <strong>web security and data protection</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What's the difference between <strong>business continuity</strong> and <strong>disaster recovery</strong>? Give an\n   example of each.</li>\n<li>A company backs up nightly. Their RPO is \"no more than one hour of data lost.\" What's wrong,\n   and what would you change?</li>\n<li>Why do so many disaster-recovery plans fail at the moment they're needed? What single\n   practice would most reduce that?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Rehearse the first decisions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use Harbour's evidence cards for a 15-minute paper tabletop. Decide who\nacts at 09:15, 09:20 and 09:25; distinguish reporting from attribution.\nCalculate the rehearsal's recovery time and both printed recovery-point\ngaps. State what still needs checking before reconnecting. Success requires\npreservation alongside containment and separate treatment of exported data.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Checkpoint: risk and recovery",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "How is risk defined in this book?",
+                        "options": [
+                          "Likelihood multiplied by impact",
+                          "The number of vulnerabilities found",
+                          "The cost of the firewall",
+                          "The age of the oldest server"
+                        ],
+                        "answer": 0,
+                        "explanation": "Risk combines how likely an event is with how much harm it would cause."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Which set is the four risk treatments?",
+                        "options": [
+                          "Avoid, mitigate, transfer, accept",
+                          "Detect, contain, recover, learn",
+                          "Identify, authenticate, authorise, audit",
+                          "Scan, patch, reboot, repeat"
+                        ],
+                        "answer": 0,
+                        "explanation": "You can avoid the activity, reduce the risk, transfer it such as through insurance, or accept it."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "A loss would cost 100,000 and is expected once every five years. What is the annual loss expectancy?",
+                        "options": [
+                          "20,000",
+                          "100,000",
+                          "500,000",
+                          "5,000"
+                        ],
+                        "answer": 0,
+                        "explanation": "ARO is 0.2. ALE = SLE × ARO = 100,000 × 0.2 = 20,000 per year."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the difference between RTO and RPO?",
+                        "options": [
+                          "RTO is how long the service can be down; RPO is how much data can be lost",
+                          "RTO is how much data can be lost; RPO is how long the service can be down",
+                          "RTO is the backup size; RPO is the restore speed",
+                          "They are the same measure"
+                        ],
+                        "answer": 0,
+                        "explanation": "Recovery time objective is downtime. Recovery point objective is data loss, usually measured in time."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is the difference between business continuity and disaster recovery?",
+                        "options": [
+                          "Continuity keeps the organisation running; recovery restores IT systems and data",
+                          "Continuity restores IT; recovery keeps the organisation running",
+                          "They are both only about backups",
+                          "Continuity is only for cyberattacks"
+                        ],
+                        "answer": 0,
+                        "explanation": "Continuity is the whole organisation. Disaster recovery is the technical subset that restores systems and data."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "Which first response is safest when compromise is suspected?",
+                        "options": [
+                          "Assess, preserve useful evidence and contain the damage under clear authority",
+                          "Wipe every system before anyone can look",
+                          "Wait for certainty before telling anyone",
+                          "Change five things at once"
+                        ],
+                        "answer": 0,
+                        "explanation": "Response balances evidence and harm. Wiping early destroys the trail; waiting can let harm grow."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What proves that a backup is usable?",
+                        "options": [
+                          "A restore with the expected data",
+                          "A green job status",
+                          "A large backup file",
+                          "A recent timestamp"
+                        ],
+                        "answer": 0,
+                        "explanation": "The job can succeed and still produce a useless backup. The restore is the proof."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "defending-systems-networks",
+            "title": "Defending Systems & Networks",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Network Security",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>What an observer can learn from traffic depends on where they can see it and how it is protected.</em></p>\n</blockquote>\n<p>Harbour's booking service depends on several network paths: customers reach\nthe web application, staff use a VPN, and the application queries a database.\nSome traffic crosses infrastructure the centre does not control. An observer\non a path may learn from traffic without compromising either endpoint.\nThis chapter explains those observation limits and how to protect a connection.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain how <strong>scanning</strong> and <strong>sniffing</strong> work and what they reveal.</li>\n<li>Describe what a <strong>packet capture</strong> shows, and why unencrypted traffic is so revealing.</li>\n<li>Describe common network attacks (<strong>spoofing</strong>, <strong>man-in-the-middle</strong>) and their defences.</li>\n<li>Explain why <strong>encryption in transit</strong> matters, and what segmentation and monitoring add.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A small network primer</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>host</strong> is a device or system connected to a network. Its <strong>IP address</strong>\nhelps route packets to it; a <strong>port</strong> helps identify a service on that host.\nA service is a listening application, such as a web server. <strong>DNS</strong> maps\nnames to addresses. A switch connects devices locally; a router moves traffic\nbetween networks. A <strong>subnet</strong> groups addresses for routing purposes.</p>\n<p>A <strong>trust boundary</strong> is where rules about access or trust change, such as\nbetween guest Wi-Fi and staff systems. A line on a drawing does not enforce\nthat boundary: routing, filtering and access controls must implement it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The network as an attack surface</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Recall the phases of an attack from the first chapter: reconnaissance, then scanning, then\ngaining access. Networks are where the first two of those live. Before an attacker can exploit a\nsystem, they have to <em>find</em> it and learn what it's running. A network, by its nature, answers\nquestions. Ask a machine \"are you there?\" and, unless told otherwise, it politely replies. Ask\n\"what services are you running?\" and its open ports announce them. Each reachable service adds an exposure to examine. Defaults vary, and a lack\nof response does not prove a device or service is absent.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Scanning: mapping the target</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Scanning</strong> is how an attacker (or a defender auditing their own network) turns a vague target\ninto a map. It usually happens in layers. First, find the live hosts: a sweep that asks every\naddress on a network \"are you there?\" and notes who answers. Then, for each live host, find the\nopen <strong>ports</strong>. A port is a numbered doorway, and each open one usually corresponds to a running\n<strong>service</strong> (a web server, a file share, a remote-login service). Finally, probe those services to\nlearn <em>which software and version</em> is behind them, because a known version can be matched against\nknown vulnerabilities from the software-security chapter.</p>\n<p>The result is a blueprint: here are your machines, here are the doors that are open, here's the\nsoftware behind each one. To an attacker, that's a shopping list. To a defender, the same scan is\nan audit. That is why the tools are dual-use, and why the defensive instinct is to <em>close the\ndoors you don't need</em>. Every service you're not using is a door you can shut, shrinking the\nblueprint an attacker gets to work from.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Sniffing: reading the wire</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Scanning finds the doors. <strong>Sniffing</strong> reads what goes through them. A network interface normally\nignores traffic not addressed to it, but put it into a listening (\"promiscuous\") mode and it will\ncapture <em>everything</em> it can hear: a <strong>packet capture</strong> of the raw conversations crossing the\nwire. A tool can decode supported protocols from the captured packets.</p>\n<p>The phrase <em>it can hear</em> matters. On a switched network, another host's\nunicast traffic may never reach your capture interface. Promiscuous mode\ndoes not make the switch send it there. Wi-Fi capture also depends on the\nadapter, access-point settings and link protection. Explain the observation\npoint before claiming what a capture reveals.\n<a href=\"https://wiki.wireshark.org/capturesetup/Ethernet\">Wireshark's Ethernet guidance</a>\nsets out these limits.</p>\n<p>One thing lands hardest the first time someone sees it: <strong>unencrypted application traffic can expose its contents to a listener at\na suitable capture point.</strong> Older protocols were designed in a more trusting\nera and send everything unencrypted: the web's original HTTP, file transfer with FTP, remote login\nwith Telnet, some email protocols. Capture that traffic and you don't just see <em>that</em> a\nconversation happened. You see its contents: the pages requested, the files moved, and the\n<strong>usernames and passwords typed in the clear</strong>. This is the sniffing that the authentication\nchapter warned about, made concrete: the strongest password in the world is worthless if it\ncrosses the network in plain text for anyone listening to read. It is unsettling to witness, and\nit converts \"you should use encryption\" from advice into an obvious necessity.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Attacks in the middle</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Listening is passive. Network attacks get more dangerous when the attacker stops observing and\nstarts <em>interfering</em>.</p>\n<p><strong>Spoofing</strong> is forging an identity on the network: sending traffic that claims to come from an\naddress that isn't yours. An attacker might spoof a trusted machine's address to slip past a\nfilter, or forge the source of an attack to hide their tracks. The network's willingness to\nbelieve what packets <em>claim</em> about themselves is the weakness being exploited.</p>\n<p>The more powerful move is the <strong>man-in-the-middle</strong> (or on-path) attack: the attacker positions\nthemselves <em>between</em> two parties, so that everything each side sends passes through them first.\nIf the protocol lacks effective authenticated protection, they may read or\nalter the conversation: changing a bank account number in\ntransit, injecting malicious content, or capturing credentials as they flow past. Two common\ntechniques get an attacker into that position on a local network. <strong>ARP spoofing</strong> tricks nearby\nmachines into routing their traffic through the attacker by lying about which hardware address\nbelongs to which machine. <strong>DNS spoofing</strong> answers a name lookup with the wrong address, so the\nvictim connects to the attacker's server while believing it's the real one. The details matter\nless than the shape: the attacker exploits the small, trusting mechanisms that make a network\nconvenient, and turns them into a wiretap.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Why the local attacker is special</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Notice that ARP spoofing and casual sniffing both require the attacker to be <em>on the same\nnetwork</em>. This is why an attacker who has gained a foothold on your local network, or who is\nsharing the coffee-shop Wi-Fi, can do things a purely remote attacker cannot. They can hear the\nlocal chatter, impersonate local machines, and slip into the middle of local conversations in ways\nthat someone out on the wider internet, several routers away, cannot manage. It's a concrete\nreason the <em>inside</em> of a network can never be treated as automatically safe. This is the\nassume-breach mindset applied to your own LAN.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Defences: making the wire private again</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The good news is that the central weakness, traffic readable by anyone listening, has a decisive\nfix, and you already met it.</p>\n<p><strong>Encryption in transit</strong> is the answer to sniffing. When traffic is encrypted (the web's HTTPS,\nwhich is HTTP wrapped in the TLS scheme from the cryptography chapter), an eavesdropper still\ncaptures the packets but sees only unreadable ciphertext. The credentials, the page contents, the\nfiles: all gibberish to anyone without the key. It protects the encrypted contents, but packet timing, sizes and some addressing\ninformation remain observable. Protocol and configuration choices determine\nwhat else is visible. TLS must also authenticate the intended endpoint to\nresist an active impostor; ignoring certificate errors undermines that check.\nThat is why the migration of the web from HTTP to HTTPS was one of the most important security\nimprovements of the last decade, and why sending anything sensitive over an unencrypted protocol\nis now indefensible.</p>\n<p>Two more layers back it up. <strong>Segmentation</strong> divides a network into zones with controlled routes\nbetween them, so that a foothold in one part doesn't grant free movement across the whole. It's\nthe same idea that starves a worm (from the malware chapter) and contains an incident (from the\nplanning chapter). <strong>Monitoring</strong> watches network traffic for the tell-tale signs of trouble (a\nhost scanning its neighbours, traffic to a known-bad address, a volume spike), so that the\nintrusion you couldn't prevent is at least <em>detected</em>, feeding straight into the incident response\nof the previous chapter. Encryption hides the contents, segmentation limits the movement, and\nmonitoring catches what gets through. No single one is enough.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Incident Zero</em>'s <strong>Network Building</strong> module makes you buy an architecture you can't fully\nafford, and the gaps you leave come back to bite in later rounds. It's a quick, concrete\nlesson in why security is a budget problem as much as a technical one. →\n<a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The credentials a sniffer harvests are the ones <strong>authentication</strong> taught you to protect, and\nencryption in transit is what stops them leaking. That encryption is the hybrid TLS scheme from\n<strong>cryptography</strong>, in action. And the next chapter, <strong>VPN and firewalls</strong>, covers the two\ndefences that build on this one: a firewall to control what traffic is allowed, and a VPN to\nprotect traffic within its configured tunnel.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Name one everyday thing you do online that would be <strong>visible in plaintext</strong> to someone\n   sniffing the network, and one that wouldn't. What's the difference between them?</li>\n<li>Why can an attacker on the <em>same</em> network do things a purely remote attacker can't?</li>\n<li>Imagine you captured your own device's traffic for one minute. What do you think you'd be\n   able to read, and what would be hidden? What does that difference tell you about how you\n   should send sensitive information?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>State what an observer can see</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 10 minutes, draw Harbour's public, staff, guest and database boundaries.\nFor a passive observer at the guest access point, distinguish encrypted\ncontent from routing/timing information and unknown visibility. Do not\nassume the observer receives every staff packet. Name a boundary test you\nwould request from an authorised administrator; do not run it yourself.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "VPN & Firewalls",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A firewall decides what traffic to let through. Writing a good rule is harder than it sounds, and that difficulty is the lesson.</em></p>\n</blockquote>\n<p>The last chapter left us with two problems: networks let attackers <em>reach</em> systems they\nshouldn't, and they let attackers <em>read</em> traffic they shouldn't. This chapter is about the two\nclassic defences that answer those problems. A <strong>firewall</strong> controls what traffic is allowed to\npass. It decides who gets to reach what. A <strong>VPN</strong> protects traffic in transit. It makes the\nreadable wire private again. Both are everyday tools, and both are widely misunderstood.\nUnderstanding what each does <em>and does not</em> do is worth more than knowing how to configure either.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain what a <strong>firewall</strong> does and the difference between packet-filtering, stateful, and\n  application-layer firewalls.</li>\n<li>Reason about <strong>firewall rules</strong>: default-deny vs default-allow, and why order matters.</li>\n<li>Explain what a <strong>VPN</strong> provides (confidentiality and integrity over an untrusted network) and\n  what it does <em>not</em>.</li>\n<li>Describe <strong>defence in depth</strong> in a network context: no single control trusted alone.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What a firewall does</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A <strong>firewall</strong> is a checkpoint. It sits at a boundary between networks (classically between a\ntrusted internal network and the untrusted internet) and inspects the traffic trying to cross,\nallowing what's permitted and blocking the rest. That's the whole idea: a gate with a guard who\nchecks each arrival against a set of rules. A firewall does not try to block everything. Firewalls\nrun at network boundaries, on individual hosts, and increasingly in cloud environments, but the\njob is always the same: decide, packet by packet or connection by connection, what's allowed\nthrough.</p>\n<p>The difficulty, and the reason this chapter exists, is that the guard is only as good as the\nrules they're given. A firewall doesn't understand <em>intent</em>; it applies your policy literally. So\nthe security a firewall provides is the quality of the thinking that went into its rules. It's a\nrecurring truth in this book: the tool is easy, the judgement is hard.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The three kinds of firewall</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Firewalls differ in how deeply they look at traffic, and the progression is worth knowing because\neach level trades speed for insight.</p>\n<p>A <strong>packet-filtering</strong> firewall is the simplest: it examines each packet's headers in isolation\n(source and destination address, port, protocol) and permits or blocks based on those alone. It's\nfast, but it has no memory. Because it looks at each packet on its own, it can't tell whether a\npacket is a legitimate reply to a request you made or an unsolicited probe from an attacker; both\nlook the same in isolation.</p>\n<p>A <strong>stateful</strong> firewall fixes that by tracking the <em>state</em> of connections. It remembers that you\nopened a connection to a web server, so it knows to allow that server's replies back in, while\nstill blocking unsolicited inbound traffic you never asked for. This connection awareness makes it\nmore useful, and it's the modern default for most purposes.</p>\n<p>An <strong>application-layer</strong> firewall (or proxy) goes deeper still: it understands the actual\nprotocol (the structure of an HTTP request, for instance) and can make decisions based on the\n<em>content</em>, not just the addresses. A web application firewall that blocks a malicious-looking\nrequest is working at this level. Deeper inspection has processing and configuration costs. Capabilities and\nperformance depend on implementation, and encrypted content may be unavailable\nunless the design explicitly provides authorised inspection.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Writing the rules</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The single most important decision in a firewall policy is its <strong>default stance</strong>, and it comes\nin two flavours. <strong>Default-deny</strong> blocks everything and permits only what you explicitly allow: a\nguest list. <strong>Default-allow</strong> permits everything and blocks only what you explicitly forbid: a\nbanned list. Default-deny limits unexpected access at a defined boundary: with a banned list you can only block the threats you <em>thought of</em>, and\nattackers make their living on the ones you didn't. A guest list fails safe: anything unforeseen\nis denied by default. A banned list fails open, letting the unforeseen straight through. The\ntrade-off is friction: default-deny means every legitimate need must be anticipated and allowed,\nwhich is more work and more support tickets. Test necessary service use as well as prohibited access.</p>\n<p>Two more subtleties bite people constantly. <strong>Order matters:</strong> in the first-match model used for our paper exercise, rules are evaluated top\nto bottom, so a broad \"allow\" placed above a specific \"deny\"\nsilently defeats the deny. The packet matches the allow first and is waved through before the\ndeny is ever considered. And <strong>specificity matters:</strong> one rule written too broadly can open a\nhole nobody notices, and a large rule set becomes so complex that mistakes hide in it. The cost\nof a bad rule is not abstract; a single misordered or over-broad line is how real networks end up\nexposed while everyone believes the firewall has them covered.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>VPNs: a private tunnel over a public network</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall controls <em>what can pass</em>. A <strong>VPN</strong> (virtual private network) protects <em>what's already\npassing</em>. It solves the plaintext problem from the last chapter by building an encrypted\n<strong>tunnel</strong> between configured endpoints. Traffic selected for that tunnel is\nprotected until it reaches the other endpoint. A full-tunnel configuration and\nsplit tunnelling cover different traffic; do not assume every application,\nDNS request or fallback path is included. To anyone listening in between (the\nattacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just\nciphertext. The VPN gives you confidentiality and integrity across a network you don't trust,\nwhich is what an untrusted wire otherwise denies you.</p>\n<p>A secure VPN protocol authenticates peers, establishes keys and protects\nselected traffic against disclosure and undetected alteration. The mechanisms\nvary by protocol and configuration; some use pre-shared credentials. The cryptography chapter explains why authentication and integrity matter\nalongside confidentiality.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What a VPN does not do</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>VPNs are also the most over-sold tool in consumer security, so it's worth being precise about\ntheir limits.</p>\n<p>A VPN protects the link between you and the VPN server. It does <strong>not</strong> make you anonymous: your\ntraffic still emerges from the VPN server toward its real destination, and that destination still\nknows what you did there. It does <strong>not</strong> secure your device: malware already on your machine is\nunaffected by an encrypted tunnel. And it does <strong>not</strong> protect the leg <em>beyond</em> the VPN server. If\nthat onward traffic is unencrypted, it's exposed again once it leaves the tunnel. A VPN is not a substitute for HTTPS. Whether a separate VPN is useful depends\non the access requirement and threat model. A VPN also doesn't remove trust; it <em>relocates</em>\nit. You've stopped trusting the local network and started trusting the VPN provider, which sees routing information and any unencrypted onward\ntraffic. Properly protected HTTPS content remains encrypted to the website;\nleaving the VPN tunnel does not itself reveal that content. That can be a good trade on hostile Wi-Fi and a bad one with a shady provider,\nbut \"a VPN makes you safe\" is a marketing line rather than a security fact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Defence in depth, again</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Consider what each tool leaves outside its scope. A firewall controls\nwhat traffic is allowed but can't judge the intent behind traffic it permits. Malware happily\ntunnels out over the same port 443 your firewall allows for ordinary web browsing. A VPN protects\ntraffic in transit but does nothing about what happens at either end. So they join the layers from\nthe last chapter: the firewall decides what's allowed, the VPN protects what's in motion,\nsegmentation limits how far a foothold spreads, and monitoring catches the malicious traffic that\nslips through a permitted door. Check that these controls fail independently where possible, and test the\npaths between them. More layers do not help if they share the same unchecked\nadministrator access.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall and a VPN are the two defences against the scanning, sniffing, and man-in-the-middle\nattacks of the previous chapter, <strong>network security</strong>. A secure tunnel applies the key and authentication ideas from <strong>cryptography</strong>. And the monitoring that backs up a firewall feeds the\ndetection stage of incident response in <strong>incident and disaster planning</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Should a firewall <strong>default to deny</strong> or <strong>default to allow</strong>? Argue the trade-off, and say\n   which you'd choose for a company network and why.</li>\n<li>A VPN \"makes you anonymous / makes you safe.\" What does it actually protect, and what does it\n   <em>not</em>?</li>\n<li>Give one example of a second layer catching something a firewall alone would miss.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Test both directions of the policy</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 15 minutes, trace all seven flows in Harbour's paper firewall exercise.\nExplain the rule that decides each one. Repair the policy and repeat the\ntests, including legitimate service use. Success means four expected allows\nand three expected denies, with no broad rule defeating a later restriction.\nThis notation is for reasoning only, not deployment.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "Web Security & Data Protection",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A web request should expose only the data and actions its user is authorised to access.</em></p>\n</blockquote>\n<p>Harbour lets customers view bookings through a browser. A mistake in how\nthe application handles a request could expose someone else's information.\nThis chapter connects web weaknesses to access controls and personal-data\nresponsibilities. A vulnerability can lead to a privacy incident; discovering a flaw alone\ndoes not establish that personal data was compromised or notification is required.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain the most common web vulnerabilities (injection, <strong>XSS</strong>, broken authentication,\n  session issues) at a working level.</li>\n<li>Trace how a web attack unfolds, step by step.</li>\n<li>Explain core <strong>data-protection</strong> obligations (privacy principles and mandatory breach\n  notification) with the major regimes as examples.</li>\n<li>Connect web weaknesses to the data-protection consequences when they're exploited.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Why the web is the front line</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A web application is, almost by definition, exposed: it exists to accept requests from strangers\nover the internet. Every input field, URL, and uploaded file is a place where untrusted data\nenters your system, and the browser on the other end is a universal client you don't control. One recurring weakness is <strong>trusting input that should never be trusted</strong>.\nAnother is failing to check what an authenticated user is allowed to do. Data arriving from a user is treated as if it were safe, and the\nattacker's craft is to make that data do something it was never meant to.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Injection: when data becomes commands</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The archetype is <strong>injection</strong>, and its most famous form is <strong>SQL injection</strong>. A web application\nbuilds a database query using something the user typed, a search term or a login name. If the\napplication glues the user's input into the query text, an attacker can type input that becomes\n<em>part of the command itself</em>. Instead of a username they submit a fragment that\nchanges what the query does: turning \"find the user named X\" into \"find every user,\" or worse,\n\"delete the table.\" The database, unable to tell the developer's intent from the attacker's\naddition, obeys.</p>\n<p>Injection generalises beyond databases. Any time untrusted input is fed into something that\ninterprets commands (a database, the operating system, a template engine), the same flaw can\nappear. And the defence generalises too: <strong>keep data and code separate.</strong> Rather than build a\ncommand by pasting text together, use mechanisms (parameterised queries, prepared statements)\nthat hand the input to the system explicitly <em>as data</em>, so it can never be mistaken for\ninstructions. Validate what comes in, and give the application only the database privileges it\nneeds, so a successful injection does less damage.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-site scripting: running attacker code in your browser</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Cross-site scripting (XSS)</strong> is injection aimed at the <em>other</em> users of a site rather than its\ndatabase. It is worth understanding because it explains how an attacker ends up running code in\n<em>your</em> browser without ever touching your machine.</p>\n<p>A site lets users submit content (a comment, a profile, a message) and\ndisplays it back to other users. If the site fails to treat that content as untrusted, an\nattacker can submit a small <strong>script</strong> instead of ordinary text. When another user views the page,\ntheir browser receives that script <em>as part of the trusted site's page</em> and runs it in the\nsite's context, with the victim's session. Now the attacker's code, executing as if it were the\nsite itself, may read an accessible session token, act as them, redirect them, or deface\nwhat they see. The victim did nothing wrong except visit a page they had every reason to trust.\nThe defence mirrors injection: treat all user content as untrusted, and\n<strong>encode it for the output context</strong> so the browser treats it as data.\nHTML text, attributes, URLs and scripts have different rules; safe framework\nfacilities and sanitisation are needed where rich content is deliberately allowed.\n<a href=\"https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html\">OWASP's XSS guidance</a>\nexplains why one universal escaping function is insufficient.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Authentication and session weaknesses</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The web has a structural quirk that creates its own class of attacks. The protocol underneath is\n<strong>stateless</strong>: each request stands alone, with no memory of the last. So after you log in, the\nserver issues a <strong>session token</strong> (usually stored in a cookie) that your browser sends with every\nsubsequent request to say \"it's still me.\" That token <em>is</em> your authenticated session. Anyone who\nsteals it can impersonate you <strong>without ever knowing your password</strong>. This\nis <strong>session hijacking</strong>, and it's why the sniffing and XSS attacks in this book are so dangerous:\nthey're often after the token rather than the password. A related trick, <strong>session fixation</strong>, has the\nattacker plant a session identifier they already know, then wait for the victim to log in under\nit. The defences are concrete: send tokens only over HTTPS so they can't be sniffed, flag cookies\nso scripts can't read them and they don't leak, issue a fresh token at login, and expire and revoke sessions so a stolen one does not remain useful indefinitely.\nAn HttpOnly cookie prevents JavaScript reading that cookie; injected code may\nstill cause authenticated actions. Cookie flags do not make an XSS flaw harmless.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A valid login is not permission</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Suppose Harbour's customer page accepts a booking identifier. A customer\nchanges that identifier and receives another person's booking. The login may\nbe genuine and the query parameter safely handled; the missing check is\nwhether this customer is allowed to access that record.</p>\n<p>Enforce ownership and role checks server-side on every relevant request.\nHiding a button is not access control. Test both a permitted action and an\nattempt by a different account that should be denied.\n<a href=\"https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/\">OWASP's access-control guidance</a>\ndescribes this distinction.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The other side: protecting the data</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Behind every one of these attacks is <em>data</em>. Increasingly it is personal data, and the law now\nrequires its protection. Modern <strong>data-protection</strong> law sets out principles for\nhandling personal information that recur across jurisdictions: collect only what you need and only\nlawfully; use it only for the purpose you stated; keep it accurate; <strong>secure it</strong>; don't retain\nit longer than necessary; and let people see and correct what you hold about them. Australia\ncodifies these as the <strong>Australian Privacy Principles (APPs)</strong> under its Privacy Act; the EU's\n<strong>GDPR</strong> is another version of the same pattern; other countries have their own. The names differ;\nthe shape is consistent. The point for a defender is that <em>security is\nwritten into the law</em>. The applicable duties depend on the organisation, data and jurisdiction.\nA breach warrants investigation; its occurrence alone does not establish\nthat every relevant legal duty was violated.</p>\n<h3>When it breaks: breach notification</h3>\n<p>A technical finding starts an assessment, not an automatic notification\nverdict. Identify the information, the affected people, what occurred, and\nwhich laws cover the organisation. Record uncertainty and involve the\nresponsible privacy adviser promptly.</p>\n<p><strong>Australia: NDB scheme.</strong> For covered entities, an eligible breach generally\ninvolves unauthorised access or disclosure, or loss likely to lead to it,\nwhere serious harm to an individual is likely. Successful remedial action\nand exceptions can affect notification. Suspected eligible breaches need\nassessment: take all reasonable steps to complete it within 30 calendar\ndays. Once there are reasonable grounds to believe an eligible breach\noccurred, notify the OAIC and relevant individuals as soon as practicable.\nThirty days is not a general waiting period.\n<a href=\"https://www.oaic.gov.au/privacy/notifiable-data-breaches/preventing-preparing-for-and-responding-to-data-breaches/data-breach-preparation-and-response/part-4-notifiable-data-breach-ndb-scheme\">OAIC's guidance</a></p>\n<p><strong>EU: GDPR.</strong> A controller notifies the supervisory authority without undue\ndelay and, where feasible, within 72 hours of becoming aware of a\npersonal-data breach, unless it is unlikely to pose a risk to people's\nrights and freedoms. A likely <em>high risk</em> generally requires communication\nto affected individuals without undue delay, subject to exceptions.\nProcessors notify the controller without undue delay. Document breaches\nand decisions even where regulator notification is not required.\n<a href=\"https://www.edpb.europa.eu/documents/guideline/guidelines-92022-on-personal-data-breach-notification-under-gdpr_en\">EDPB's notification guidance</a></p>\n<p>These educational summaries were checked in September 2026. They are not a\ncomplete statement of the law; other sectoral or contractual obligations\nmay also apply. For a real incident, use the current rules and authorised\nlegal advice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From a web flaw to a decision</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A report that one customer can read another's booking establishes an access\ncontrol problem. Logs showing an unauthorised bulk export add evidence of\nexposure. Whether notification is required still depends on coverage,\ninformation involved, risk or harm thresholds and remedial action.</p>\n<p>At Harbour, preserve the export evidence and escalate to the privacy adviser.\nDo not equate a successful restore with resolution of disclosure, or a lack\nof actor attribution with a lack of harm. The task is to make a supported,\ntimely decision while technical investigation continues.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This chapter connects to several others. <strong>Authentication</strong> is central because the session tokens\nattacked here are how the web remembers you are logged in, and stealing one sidesteps the password.\n<strong>Network security</strong> matters because sniffing and man-in-the-middle attacks are common ways session\ntokens get stolen, which is why HTTPS matters. <strong>Incident &amp; disaster planning</strong> shares the\nbreach-notification clock here, the same one that drives a real breach response.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>In plain words, how does a <strong>cross-site scripting</strong> attack end up running an attacker's code\n   in <em>your</em> browser, on a site you trust?</li>\n<li>A company is breached and customer data leaks. Under a mandatory breach-notification scheme,\n   what are they obliged to do, and why does that obligation exist at all?</li>\n<li>If an attacker steals your active <strong>session token</strong>, what can they do that they couldn't with\n   just your username, and what, if anything, can they still <em>not</em> do?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Separate three decisions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 15 minutes, distinguish a reported access-control flaw, the supplied\nbulk-export evidence, and a legally notifiable breach. Record what Harbour's\nprivacy adviser knows and must still establish. Then contrast the Australian\nand EU paths using the sources above. Success means no automatic 72-hour\nrule for every incident, and no claim that a restore resolves disclosure.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Take it to the AI</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Optional: attempt the paper task first. Use only the fictional case, never\nreal messages, credentials, personal information or internal logs. Check any\nexternal claims against the primary sources; do not deploy generated rules.</p>\n<blockquote>\n<p>Act as a reviewer of an educational notification decision, not as my legal\nadviser. Use Harbour's fictional facts. Separate what is known, what remains\nuncertain, and which current regulator source addresses the uncertainty.\nDo not turn a vulnerability report into proof of a notifiable breach.\nAsk me to justify my decision before offering your assessment.</p>\n</blockquote>"
+                  }
+                ]
+              },
+              {
+                "id": "03-04",
+                "title": "The exposed portal",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>A customer portal has a login form, a search box that feeds a database query, and\nan admin page on the same public host. The firewall allows all outbound traffic.\nThe team asks what to fix first. Choose the response you would defend.</p>",
+                    "options": [
+                      {
+                        "id": "combined",
+                        "label": "Put admin behind the VPN and parameterise the queries",
+                        "outcome": "<p>The admin surface leaves the public network, and the database stops treating input\nas code. Two independent controls address two different failure modes.</p>",
+                        "effects": {
+                          "Injection risk": "Reduced",
+                          "Admin exposure": "Removed from the public host",
+                          "Customer impact": "Small"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Fix the injection and reduce the exposed surface. A WAF or a secret URL alone leaves the root cause.</p>"
+                      },
+                      {
+                        "id": "obscurity",
+                        "label": "Move the admin page to a secret URL",
+                        "outcome": "<p>The page is harder to guess. It is still public, still reachable, and the search\nbox still builds SQL from input.</p>",
+                        "effects": {
+                          "Injection risk": "Unchanged",
+                          "Admin exposure": "Hidden, not removed",
+                          "Customer impact": "None"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A secret URL is obscurity, not access control. The injection is untouched.</p>"
+                      },
+                      {
+                        "id": "waf",
+                        "label": "Add a WAF and leave the code alone",
+                        "outcome": "<p>The WAF blocks some known patterns. The query remains unsafe, and any bypass or\nnew encoding reaches the database.</p>",
+                        "effects": {
+                          "Injection risk": "Partly reduced",
+                          "Admin exposure": "Unchanged",
+                          "Customer impact": "None"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A WAF is a useful layer, not a substitute for parameterised queries.</p>"
+                      },
+                      {
+                        "id": "firewall",
+                        "label": "Disable the firewall to simplify testing",
+                        "outcome": "<p>Testing gets easier and the estate gets more exposed. You have removed a control\nwhile investigating another.</p>",
+                        "effects": {
+                          "Injection risk": "Unchanged",
+                          "Network exposure": "Higher",
+                          "Customer impact": "None now"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Never remove a control to make a test easier. Test the policy from both sides instead.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Name the layer each control protects. The web flaw is fixed in the code. The admin\nsurface is reduced in the network and identity layers.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "slug": "people-the-evolving-threat",
+            "title": "People & the Evolving Threat",
+            "lessons": [
+              {
+                "id": "04-01",
+                "title": "Cybercrime, Botnets & Forensics",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>Many attacks are a business. Understanding who profits, and how, helps explain the choices defenders face.</em></p>\n</blockquote>\n<p>Many financially motivated attacks involve a market of specialists selling\naccess, malware and services. Understanding that market helps explain why\na compromised ordinary device can matter. Other adversaries may seek\nespionage, disruption or personal harm, so financial incentives are one\nlens, not a complete threat model.</p>\n<p>This chapter uses the malware vocabulary from chapter 2, then concentrates\non evidence: what an observation supports, what it merely suggests, and\nwhat additional information an investigator would need.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain what a <strong>botnet</strong> is, and how one is built and monetised.</li>\n<li>Describe the <strong>cybercrime economy</strong>: the division of labour behind modern attacks.</li>\n<li>Explain, at a high level, how a real botnet works (credential-stealing and IoT examples).</li>\n<li>Connect forensic <strong>traces</strong> to the attribution of an attack, and explain chain of custody.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cybercrime is a business</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The single most useful shift in thinking is to treat serious cybercrime as <em>commerce</em>. Attackers\nhave costs, revenues, competitors, and customers. They reinvest profits, offer support, build\nreputations, and specialise. Specialisation is more efficient, just as in any\nlegitimate economy. Cryptocurrency can help move value across borders, but public-ledger\ntransactions may also provide an investigative trail. Traceability depends\non the system and available evidence. The result is a mature underground market where almost any capability can be bought.</p>\n<p>Seeing crime as business reframes defence. You don't have to make an attack <em>impossible</em>. For opportunistic profit-driven attacks, raising costs and reducing returns\ncan discourage targeting. That does not guarantee deterrence. Raise the attacker's cost, lower their expected return, and\nmuch of the volume moves to an easier target. A great deal of security is about not being the\ncheapest victim on the market.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The division of labour</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The defining feature of the modern cybercrime economy is that <strong>participants can specialise rather than doing the whole job.</strong> The work is split among specialists, each selling to the next. <strong>Malware developers</strong> write\nand sell the tools, often as polished kits with updates and customer support. <strong>Initial access\nbrokers</strong> specialise in breaking in, then <em>sell the foothold</em>, access to an already-compromised\ncompany, to whoever wants to use it. <strong>Infrastructure providers</strong> rent out \"bulletproof\" hosting\nand the command servers that run attacks. <strong>Ransomware-as-a-service</strong> operators lease their\nransomware to affiliates, who run the attacks and hand back a cut. <strong>Money mules and launderers</strong>\nturn stolen funds into clean, spendable cash.</p>\n<p>This specialisation has three consequences, and they explain why cybercrime is so stubborn. It\n<strong>lowers the barrier to entry</strong>: you no longer need to be a skilled hacker to launch an attack,\nyou can rent the capability. It makes the ecosystem <strong>resilient</strong>: arrest one malware author and\nthe access brokers, hosts, and launderers all carry on, and a competitor fills the gap. And it\n<strong>muddies attribution</strong>: with so many hands touching an attack, working out who is\n<em>responsible</em> is hard. A disruption may leave other participants able to rebuild or reuse parts\nof the operation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Botnets: crime at scale</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Chapter 2 introduced a <strong>botnet</strong>: compromised devices under remote control\nthrough a command-and-control channel. Here the important distinction is\nbetween a device's own data and its value as infrastructure. A device can\nsupply traffic, computing capacity or a relay even when its owner believes\nit has nothing worth stealing.</p>\n<p>A single device can still be valuable, for example because of its accounts\nor network position. Scale adds other uses such as distributed denial of\nservice. A defender should consider both individual compromise and the\nharm a fleet can cause to others.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How they work: two patterns</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Two well-known cases show the pattern without needing any perishable statistics.</p>\n<p><strong>Gameover Zeus</strong>, a member of the Zeus family, was used for credential theft\nand fraud. The <a href=\"https://www.fbi.gov/news/stories/gameover-zeus-botnet-disrupted\">FBI's 2014 account of its disruption</a>\nshows why a response can involve investigators, service providers and affected\ndevice owners. Disrupting infrastructure and cleaning infected devices are\ndifferent parts of the work.</p>\n<p><strong>Mirai</strong> recruited internet-connected devices, including cameras and routers,\nusing weak or default credentials. The\n<a href=\"https://www.justice.gov/archives/opa/pr/justice-department-announces-charges-and-guilty-pleas-three-computer-crime-cases-involving\">US Department of Justice's account of the 2017 guilty pleas</a>\nprovides a historical source. For a defender, unmanaged devices and default\ncredentials belong in the asset inventory even when their owners do not\nthink of them as computers.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Following the trail: forensics and attribution</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>When an attack succeeds, the work shifts to investigation: <strong>digital forensics</strong>, the discipline\nof reconstructing what happened from the traces left behind. And attackers leave more traces than\nthey'd like. System and network <strong>logs</strong> may record activity. File <strong>timestamps</strong> and\n<strong>document metadata</strong> can suggest a sequence, but can be modified. Some\n<strong>email headers</strong> are trustworthy only as far as the systems that added\nthem; sender-supplied fields can be forged. Check clock offsets, collection\ncontext and corroborating observations. From fragments like these an investigator builds a <strong>timeline</strong>: a\ndefensible account of who did what, and when.</p>\n<p>Two ideas make forensics a discipline rather than a rummage. The first is <strong>chain of custody</strong>:\nevidence handling should make integrity and provenance open to examination: who touched it,\nwhen, and how, in an unbroken record. Poor handling can undermine confidence and admissibility. A digest shows\nwhether a captured item changed relative to a recorded value; it does not\nprove the original item was truthful or identify its author. (This is the hard lesson the\ngame module makes you feel.) The second is that <strong>attribution is difficult</strong>. The same\ndivision of labour and the same botnets that power attacks also hide the people behind them:\ntraffic routed through a botnet appears to come from innocent victims, infrastructure is rented\nand disposable, and false clues are sometimes planted deliberately. Careful defenders talk about\nattribution in terms of <em>confidence</em>, not certainty.</p>\n<p>Choose the next investigative step for its relevance and reliability, not\nbecause one kind of trace is always the clue attackers forget. Preserve\nthe supplied material and document collection, access and interpretation.\nInvestigation supports containment and recovery as well as later attribution;\nit need not wait until systems are restored.\n<a href=\"https://csrc.nist.gov/pubs/sp/800/61/r3/final\">NIST's incident-response guidance</a>\nprovides the wider operational context.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Incident Zero</em>'s <strong>Forensics</strong> module has you chase attribution and rebuild a timeline while\nprotecting the chain of custody. Mishandle the evidence trail and you lose the case, even\nwhen you know who did it. → <a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This chapter connects to several others. <strong>Software security &amp; malware</strong> supplies the weapons this\neconomy trades in: the trojans, worms, and ransomware from that chapter. <strong>Network security</strong>\nmatters because a botnet's command-and-control and DDoS traffic are what network monitoring exists\nto spot. Forensics supports the containment and recovery decisions in\n<strong>incident and disaster planning</strong>, as well as subsequent review.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Why is a <strong>botnet</strong> so much more valuable to a criminal than a single compromised machine?</li>\n<li>Modern cybercrime has a \"division of labour\": different people write malware, sell access,\n   rent servers, and cash out. Why does that specialisation make attacks so hard to stop?</li>\n<li>Choose one <strong>trace</strong> from Harbour's evidence cards. What does it support,\n   what can it not establish, and what would you check next?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Annotate an evidence trail</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 15 minutes, annotate Harbour's evidence cards as observation, inference\nor unknown. Explain what supports concern about an export and why an account\nname is not an actor identity. Write a handling record with collector, time,\nitem, digest reference and access history. Success means a defensible\ntimeline with uncertainty visible, not a confident name to blame.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-02",
+                "title": "Human Factors & Emerging Trends",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A useful defence makes mistakes easier to report and less costly to survive.</em></p>\n</blockquote>\n<p>Security depends on people using and maintaining systems under ordinary\nworking pressures. A login prompt, an urgent request or an unclear warning\ncan put the wrong decision within easy reach. The design question is what\nhappens next: can the person get help, and do other controls limit the harm?</p>\n<p>This chapter brings together usable procedures, independent verification and\na cautious assessment of AI's effects. The final chapter applies those ideas\nto the complete defender's dossier.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Explain how <strong>human</strong> decisions interact with system design, and why blame\n  alone does not repair a weakness.</li>\n<li>Describe <strong>social engineering</strong> and <strong>phishing</strong>, and the defences that actually work.</li>\n<li>Reason about how non-technical people make security decisions with the information they're\n  given.</li>\n<li>Discuss <strong>emerging trends</strong>, including AI's double role as both a tool for attackers and a\n  tool for defenders.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The weakest link, and why blaming the user fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Calling people the weakest link treats a complex system as a single chain.\nMore usefully, ask what the interface, permissions and work process made likely.\nThe claim that \"the users are the weakest link\" is a <em>trap</em>: a framing that excuses bad\nsecurity. When a well-crafted phishing email fools an employee, the instinct is to blame the\nemployee: they should have known better. But look closer. They were doing their job, quickly,\ninside a system that made the wrong action easy, the right action unclear, and the difference\nbetween the two nearly invisible. Blaming the person lets the <em>system</em> off the hook. A team that\nblames users stops fixing the thing they could fix.</p>\n<p>A more useful stance examines the system. People will make mistakes. That is a constant, and good\nsecurity is designed around it rather than trying to train it away. This is <em>assume breach</em>\napplied to human beings: assume that, sooner or later, someone will be fooled, and build so the\norganisation survives it. That single shift, from \"make users perfect\" to \"make mistakes\nsurvivable\", is the difference between security that works and security that just apportions\nblame after the fact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Social engineering and phishing</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Social engineering</strong> is hacking the human instead of the machine: manipulating a person into\ndoing what the attacker wants. It works because it targets the mental shortcuts we all rely on to\nget through the day. An attacker invokes <strong>authority</strong> (\"this is IT, we need your password\"),\n<strong>urgency</strong> (\"the account will be closed in an hour\"), <strong>fear</strong>, <strong>trust</strong>, or plain\n<strong>helpfulness</strong>. The victim, trying to be efficient and cooperative, complies. They are usually\nbehaving <em>well</em> by the ordinary rules of work; the attacker has pointed those good instincts in\nthe wrong direction.</p>\n<p><strong>Phishing</strong> is social engineering at scale: the deceptive email or message, cast wide, that\nlures people into revealing credentials or running malware. <strong>Spear-phishing</strong> is the targeted,\npersonalised version aimed at a specific person, and it is more convincing. These attacks succeed\nbecause they exploit how humans are built to work. Their victims are not foolish.</p>\n<p>The defences that help are instructive, because the obvious one is the weakest. <strong>Awareness\ntraining</strong> matters, but you cannot train people to be perfect forever, and a defence that\nrequires every human to be vigilant every time will eventually fail. The stronger approach is to\n<em>reduce the reliance on human vigilance</em>: use technical controls that make a mistake less\ncatastrophic. Multi-factor authentication means a phished password alone isn't enough, which is\nthe point of the authentication chapter. Email filtering can remove some lures before they reach a person.\nFirm <em>verification procedures</em> for high-risk actions mean no single email can move money or hand\nover data without an independent check. Best of all is to <strong>make the safe path the easy path</strong>,\nso that doing the secure thing is also the convenient thing. The goal is a system in which an\nordinary human error does not become a disaster, rather than a workforce that never errs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Communicating risk to people who aren&#x27;t technical</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A quieter human-factors failure is that we push security <em>decisions</em> onto people who have no way\nto make them well. The classic example is the browser <strong>certificate warning</strong>. When your browser\nsays a site's certificate can't be trusted, it is telling you something important. It could not\nverify you're talking to who you think you are, using the identity-proving cryptography from the\ncryptography chapter. That warning might be the only thing standing between you and a\nman-in-the-middle attacker.</p>\n<p>Some users bypass warnings when the language is unclear, the warning interrupts\nurgent work, or past experience has taught them to discount it. Behaviour\nvaries with the warning and context; do not assume most users always ignore it. This\nis a <em>design</em> failure, not the user's. A consequential security decision has been handed to\nsomeone without the information or context to make it, in words that mean nothing to them. Good\nsecurity gives people clear information and, wherever possible, doesn't force impossible\njudgements on them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Emerging trends: AI on both sides</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>AI can assist both attackers and defenders, but capability claims need a\ndate, a task and evidence. It can lower the effort of drafting messages,\nsummarising data or producing code. That does not make every message flawless,\nevery exploit effective or an operation limitless.</p>\n<p>For attackers, plausible personalised language and synthetic audio can make\nfamiliar verification shortcuts less reliable. For defenders, models may help\ntriage reports and interpret logs, but false alarms, missed attacks and\nuntrusted inputs still need evaluation. Logs and messages can contain hostile\ninstructions as well as sensitive information, so an assistant must not be\ngiven authority merely because it produced a confident answer.</p>\n<p>The <a href=\"https://www.ncsc.gov.uk/report/impact-ai-cyber-threat-now-2027\">NCSC assessment of AI and cyber threats to 2027</a>\ndescribes expected changes in attacker capability. Treat it as a dated\nassessment with uncertainty, not proof that every forecast has occurred.</p>\n<p>At Harbour, an apparent manager's voice is not enough to approve an account\nreset or bulk export. Use a known contact route and the agreed approval\nprocess. This remains useful whether the message was written by a person\nor generated by a model. Give staff a reporting path that does not punish\nthem for raising a concern that turns out to be harmless.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where this connects</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This chapter connects back across everything before it. Human decisions influence the design, operation and recovery of technical\ncontrols, so human factors belongs throughout the book.\nAuthentication is the clearest case: MFA is a technical control that makes a human mistake\nsurvivable. And that same thread, the human running through every stage, is part of how the next\nchapter ties the whole book into a single lifecycle.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>\"Users are the weakest link.\" Argue <em>against</em> this framing: whose fault is a successful\n   phish, really?</li>\n<li>What does a browser certificate warning tell you? Explain why someone might\n   bypass it and propose a safer route the organisation could offer.</li>\n<li>Give one way AI helps <strong>attackers</strong> and one way it helps <strong>defenders</strong>. Which side do you\n   think it favours, and why?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Make reporting usable</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In 10 minutes, write a response to this fictional message: “Mara here.\nApprove the login prompt now so I can finish the bookings.” Use a known\ncontact route and the agreed approval process. Add a non-blaming report\nfor someone who already approved it. Success means prompt escalation and\nindependent verification, without using contact details supplied by the message.</p>\n<p>Case inputs and checks: <a href=\"../appendices/defender-dossier.qmd\">Harbour dossier</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Take it to the AI</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Optional: attempt the paper task first. Use only the fictional case, never\nreal messages, credentials, personal information or internal logs. Check any\nexternal claims against the primary sources; do not deploy generated rules.</p>\n<blockquote>\n<p>Act as a reviewer of Harbour's reporting procedure. Use only the fictional\nmessage and case facts. Ask me what someone who already approved a prompt\nshould do next. Then identify one obstacle in my procedure and one change\nthat makes reporting easier without bypassing verification.</p>\n</blockquote>"
+                  }
+                ]
+              },
+              {
+                "id": "04-03",
+                "title": "Checkpoint: people and the evolving threat",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "Why does blaming the user fail as a security strategy?",
+                        "options": [
+                          "It ignores the design, workload and incentives that produced the mistake",
+                          "Users are never targets",
+                          "Phishing does not work",
+                          "Training is always enough"
+                        ],
+                        "answer": 0,
+                        "explanation": "A usable system and a reporting culture reduce harm more than blame does."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Which combination best reduces the harm from phishing?",
+                        "options": [
+                          "Usable reporting, MFA and a response process that acts on reports",
+                          "Annual slides and a threat of discipline",
+                          "Longer passwords only",
+                          "Hiding the report button"
+                        ],
+                        "answer": 0,
+                        "explanation": "People will make mistakes. MFA limits the damage, and easy reporting gets help moving sooner."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why is cybercrime described as a business?",
+                        "options": [
+                          "It has specialised roles, markets and a profit motive",
+                          "It is always one person in a basement",
+                          "It has no division of labour",
+                          "It only targets governments"
+                        ],
+                        "answer": 0,
+                        "explanation": "The criminal economy has builders, access brokers, operators and sellers. That division of labour explains the scale."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is a botnet?",
+                        "options": [
+                          "A network of compromised devices controlled at scale",
+                          "A firewall rule set",
+                          "A backup schedule",
+                          "A type of password hash"
+                        ],
+                        "answer": 0,
+                        "explanation": "Botnets turn many compromised machines into a coordinated capability."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What matters first when investigating an incident?",
+                        "options": [
+                          "Preserving evidence and maintaining a defensible chain of custody",
+                          "Reimaging every disk immediately",
+                          "Publishing an attribution",
+                          "Deleting the logs to save space"
+                        ],
+                        "answer": 0,
+                        "explanation": "Attribution comes later. Without preserved evidence, you cannot establish what happened."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What changes when AI is available to attackers and defenders?",
+                        "options": [
+                          "Convincing phishing and deepfakes get cheaper; verification still matters",
+                          "Phishing disappears",
+                          "Attribution becomes trivial",
+                          "Controls stop being necessary"
+                        ],
+                        "answer": 0,
+                        "explanation": "AI lowers the cost of some attacks. It does not remove the need for verification, controls or evidence."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What makes a reporting culture work?",
+                        "options": [
+                          "An easy channel, no blame for reporting and a visible response",
+                          "A rule that only confirmed incidents may be reported",
+                          "A single person who receives every report",
+                          "A promise that nothing will be recorded"
+                        ],
+                        "answer": 0,
+                        "explanation": "People report when it is easy, safe and visibly useful. Waiting for certainty loses time."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "slug": "putting-it-together",
+            "title": "Putting It Together",
+            "lessons": [
+              {
+                "id": "05-01",
+                "title": "The Long Game",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><em>A defence plan should make its limits as visible as its controls.</em></p>\n</blockquote>\n<p>You now have the pieces of a defender's dossier. The final test changes the\nbudget and recovery target. It asks whether you can recognise an unresolved\nrisk and explain it to the person authorised to decide. A polished plan\nthat hides a failed test is less useful than a short one that exposes it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What this chapter covers</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end you should be able to:</p>\n<ul>\n<li>Connect assets, controls, evidence and recovery decisions in one plan.</li>\n<li>Check whether a changed requirement invalidates an earlier answer.</li>\n<li>Distinguish a justified decision from a claim that everything is secure.</li>\n<li>Assign responsibility for unresolved risk and future review.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Joining the dots</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Return to the seven activities introduced in chapter 1: design, harden,\ndetect, respond, recover, investigate, and audit/learn. Human decisions\nrun through every activity. These are overlapping tasks, not seven\ndepartments that hand an incident along in a fixed sequence.</p>\n<p>At Harbour, permissions influence whether a login can become a bulk export.\nLogging affects what the response lead can establish. Recovery credentials\naffect whether backups survive. A notification assessment may still be open\nafter the service is restored. Those connections are what the dossier should\nmake visible.</p>\n<p>A checklist can help an authorised responder avoid missing a necessary step.\nIt needs an owner, a context and testing. The failure is treating checked\nboxes as proof that the service can meet its obligations under changed\nconditions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Complete the independent case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use <a href=\"../appendices/defender-dossier.qmd#sec-transfer\">Harbour's weekend programme</a>.\nAllow 30–45 minutes, working alone without AI. The appendix supplies every\nchanged fact and an eight-point check. Write your answer before reading\nthe comparison.</p>\n<p>Your one-page decision needs the assets and permissions, an affordable\ncontrol choice, risk arithmetic, allowed and denied tests, both recovery\nchecks, an evidence-preserving response and a privacy escalation. End with\nwhat is ready, what is not, who can decide, and what evidence is needed next.</p>\n<p>You are not required to make the constraints fit. If the stated recovery\ntime misses the target or the budget leaves a known boundary weakness,\nsay so. Do not create an imaginary free control to make the answer look\ncomplete. An explicit request for a changed budget, a tested improvement\nor a deferred launch is a legitimate result.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Check and transfer</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Compare your answer with the\n<a href=\"../appendices/defender-dossier.qmd#sec-transfer-check\">reasoning check</a>.\nAim for seven of eight criteria, with no unsafe testing, unsupported readiness\nclaim or missed recovery-target failure. If you disagree with the worked\nchoice, identify the constraint and evidence that make your alternative\ndefensible.</p>\n<p>For a second attempt, ask another reader to change one supplied constraint.\nPredict which section of your dossier must change before recalculating it.\nThat is a stronger test of understanding than repeating the original answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play the whole thing</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Every stage in that loop is easier to <em>understand</em> than to <em>do</em>. Doing it, under time and\nbudget pressure, is where the judgement lives. <em>Incident Zero</em>, the free print-and-play game\nreferenced throughout these chapters, has a full campaign that runs this entire lifecycle end\nto end: design a network, harden it, detect and respond to a breach, recover from the disaster,\nand investigate what happened. Playing it is the closest thing to <em>living</em> a security cycle in\nan afternoon. If this book gave you the map, the campaign lets you walk the ground. →\n<a href=\"https://incidentzero.retroverse.studio/\">incidentzero.retroverse.studio</a></p>\n<p>The game is optional group enrichment. Its current\n<a href=\"https://incidentzero.retroverse.studio/\">landing page</a> describes the player,\nprinting and time requirements. The paper dossier above is a complete solo\nroute and does not reproduce the game's materials.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions to consider</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which supplied fact most changed your control choice, and why?</li>\n<li>Which conclusion depends on evidence you do not yet have?</li>\n<li>What should trigger a new review after an initially acceptable plan?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry the decision forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Keep the dossier as a record of a decision under stated conditions. When\nthe system, staff, evidence or obligations change, revisit it. The useful\nhabit is to explain what a control does, demonstrate it where possible,\nand make the remaining uncertainty visible to the right decision-maker.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "05-02",
+                "title": "The board question",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The board asks: \"Are we secure?\" You have a completed dossier with two known\ngaps: a boundary weakness the budget did not cover, and a recovery test that\nmissed the target. The launch date is close. Choose your response.</p>",
+                    "options": [
+                      {
+                        "id": "honest",
+                        "label": "Present the residual risk, the evidence and the decision options",
+                        "outcome": "<p>The board sees what is ready, what is not, who owns the remaining risk and what\na changed budget or a deferred launch would buy. The decision is explicit.</p>",
+                        "effects": {
+                          "Message": "Specific and testable",
+                          "Residual risk": "Named and owned",
+                          "Launch": "A board decision, not a surprise"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A defensible answer names the limit and the owner. It does not claim the gaps away.</p>"
+                      },
+                      {
+                        "id": "True",
+                        "label": "Say the controls are in place and the service is secure",
+                        "outcome": "<p>The room relaxes. The boundary weakness and the failed recovery test are still\nthere, now without an owner.</p>",
+                        "effects": {
+                          "Message": "Reassuring",
+                          "Residual risk": "Hidden",
+                          "Launch": "Proceeds with unknown exposure"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A claim is not evidence. The failed test is the evidence.</p>"
+                      },
+                      {
+                        "id": "edit",
+                        "label": "Adjust the recovery test so it passes",
+                        "outcome": "<p>The dashboard turns green. The service still misses the recovery target, and the\ntest no longer measures what the board asked about.</p>",
+                        "effects": {
+                          "Message": "Green",
+                          "Residual risk": "Hidden and worse",
+                          "Launch": "Based on a weakened check"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Changing the test does not change the recovery time.</p>"
+                      },
+                      {
+                        "id": "tool",
+                        "label": "Buy another security tool and call the gap closed",
+                        "outcome": "<p>A new product is added. The boundary weakness may remain, and the recovery target\nis still unproven.</p>",
+                        "effects": {
+                          "Message": "Action has been taken",
+                          "Residual risk": "Possibly unchanged",
+                          "Launch": "Depends on an unverified claim"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A tool is not a control until it is configured, tested and owned.</p>"
+                      }
+                    ],
+                    "debrief": "<p>A good handover makes the limits as visible as the controls. Name the risk, the\nevidence, the owner and the decision you are asking the board to make.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
