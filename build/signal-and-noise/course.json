@@ -1,0 +1,2443 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-06T08:13:46+00:00",
+  "unit": {
+    "slug": "signal-and-noise",
+    "title": "Signal & Noise: An Enterprise Systems Field Guide",
+    "theme": "pixel"
+  },
+  "modules": [
+    {
+      "number": 1,
+      "slug": "enterprise-technology-estates-and-working-with-ai",
+      "title": "Enterprise technology estates and working with AI",
+      "lessons": [
+        {
+          "id": "01-01",
+          "title": "Enterprise technology estates and working with AI",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Describe the layers of an enterprise technology estate and where the CloudCore service pod sits.</li>\n<li>Explain the five habits of working with AI: predict, ask with context, verify, challenge and decide.</li>\n<li>Provision an Ubuntu Server host and explain the choices behind the install.</li>\n<li>Record the first conversation log and the host build evidence.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>An enterprise technology estate is not one machine or one product. It is a stack of layers\nthat depend on each other: the host, the operating system, the service runtime, the\nservices, the network, storage, identity and security. CloudCore runs a small service pod\non that stack. This week you build the base: a real Ubuntu Server host, with the choices\nrecorded. You also start the habit the unit depends on. You predict before you act, ask AI\nwith context, verify against the host, challenge the answer and decide for yourself.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The estate as layers</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Layer</th>\n<th>What it is in this unit</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Your laptop</td>\n<td>The machine you use to reach the lab</td>\n</tr>\n<tr>\n<td>Host</td>\n<td>An Ubuntu Server host, provisioned from a cloud image</td>\n</tr>\n<tr>\n<td>Service runtime</td>\n<td>Docker or Podman, hidden behind <code>./start.sh</code></td>\n</tr>\n<tr>\n<td>Services</td>\n<td>The CloudCore web tier, database and proxy</td>\n</tr>\n<tr>\n<td>Network</td>\n<td>Addresses, names, ports and the container network</td>\n</tr>\n<tr>\n<td>Storage</td>\n<td>Volumes, shares and backups</td>\n</tr>\n<tr>\n<td>Identity and access</td>\n<td>Users, groups, keys and permissions</td>\n</tr>\n<tr>\n<td>Security</td>\n<td>TLS, hardening, logging and incident response</td>\n</tr>\n</tbody>\n</table>\n<p>The host is the base. Containers are the service layer on top of it. The unit uses both,\nand you will see why each layer exists.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Start with the <a href=\"resources/install-simulation.html\">install simulation</a>, or open the\n<a href=\"\">online simulation</a>. It walks through the virtual hardware, the\nUEFI setup, the boot menu and the Ubuntu Server installer. The installer is simulated. The\nreal host is an Ubuntu container shell, and the estate runs in containers.</p>\n<p>Then follow the <a href=\"https://github.com/michael-borck/enterprise-estate-labs/blob/main/modules/module-00-setup/README.md\">environment setup</a>,\ndownload the lab pack, and run:</p>\n<pre><code class=\"language-bash\">./start.sh host\n./start.sh m03\n</code></pre>\n<p>The host shell is where you do the OS work. The estate is the CloudCore service pod.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The build record from the simulation, with the choices you made.</li>\n<li>The first commands on the host: OS release, kernel, disk, memory and address.</li>\n<li>The package installation, user creation and <code>sudo</code> test.</li>\n<li>The first estate state running, with the web tier reachable.</li>\n<li>Your first annotated conversation log: one place AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David Wilson, the Cloud Infrastructure Architect, needs a host that can be rebuilt. Decide:</p>\n<ol>\n<li>Which Ubuntu release and why.</li>\n<li>The host size: CPU, memory and disk.</li>\n<li>The network choice: DHCP or a static address.</li>\n<li>What you install at build time and what you leave for later.</li>\n</ol>\n<p>State the cost, the risk and the rebuild path. Record it in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 2 looks inside the host: the kernel, user space, system calls, services and\nconfiguration. You will use the same host all semester. The container estate grows on top\nof it, one layer at a time.</p>"
+            }
+          ]
+        },
+        {
+          "id": "01-02",
+          "title": "Workshop: Provision the CloudCore host",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer portal pod</p>\n<p>We are standing up the first CloudCore customer portal pod. I need a clean Ubuntu host,\nan administrative account, and the first service state running. Record the choices so we\ncan rebuild it later.</p>\n<p>Do not hand me a screenshot of a finished machine. I need to know why it is that machine.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Provision an Ubuntu Server host, record the install decisions, and bring up the first\nCloudCore estate state. By the end of the session you will have a host shell, a build\nrecord, and the web tier running.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Install Docker or Podman using the\n<a href=\"https://github.com/michael-borck/enterprise-estate-labs/blob/main/modules/module-00-setup/README.md\">environment setup guide</a>.\nThe launcher finds whichever engine you installed. You do not need to choose one.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: The install simulation</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Open the <a href=\"resources/install-simulation.html\">install simulation</a>. Work through the screens:</p>\n<ol>\n<li>Choose the Ubuntu release.</li>\n<li>Choose the network and hostname.</li>\n<li>Choose the storage layout.</li>\n<li>Create the administrative user.</li>\n<li>Enable SSH and choose the package set.</li>\n<li>Review the build record and download it.</li>\n</ol>\n<p>If you make a choice the installer would reject, the simulation explains why. Read the\nfeedback and fix it. Keep the build record; it is evidence.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Start the host</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Download the lab pack and open the host shell:</p>\n<pre><code class=\"language-bash\">git clone https://github.com/michael-borck/enterprise-estate-labs.git\ncd enterprise-estate-labs\n./start.sh host\n</code></pre>\n<p>The first run builds a small Ubuntu image. You are the <code>student</code> user. The default <code>sudo</code>\npassword is <code>cloudcore</code>. Change it:</p>\n<pre><code class=\"language-bash\">passwd\n</code></pre>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Inspect the host</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>In the host shell, record what you are running:</p>\n<pre><code class=\"language-bash\">cat /etc/os-release\nuname -r\ndf -h\nfree -h\ncat /sys/fs/cgroup/memory.max\ncat /sys/fs/cgroup/cpu.max\nip -brief addr\n</code></pre>\n<p>Answer:</p>\n<ol>\n<li>Which Ubuntu release is this?</li>\n<li>Which kernel is it using? Is it the same kernel as the machine running the container?</li>\n<li>How much memory does <code>free -h</code> show? What does <code>/sys/fs/cgroup/memory.max</code> show? Why are they different?</li>\n<li>How much disk does it see? Is it the 20 GB from the simulation?</li>\n<li>Which interface has an address, and what is the address?</li>\n<li>What does the difference between the simulation and the host tell you about what the simulation covers?</li>\n</ol>\n<p><code>free</code> reads <code>/proc/meminfo</code>, which is not namespaced, so it can show the host's memory. The\ncgroup file shows the container's actual limit. The lab host is fixed at 2 GB and 2 CPUs.\nThe simulation is where you make the sizing decision. The host's root filesystem is the\ncontainer runtime's storage, not a 20 GB block device.</p>\n<p>Install a tool and create a user:</p>\n<pre><code class=\"language-bash\">sudo apt update\nsudo apt install -y tree\nsudo adduser teammate\nsudo groupadd cloudcore-ops\nsudo usermod -aG cloudcore-ops teammate\nid teammate\n</code></pre>\n<p>Record what changed and why.</p>\n<p><strong>Predict before you act:</strong> what will <code>id teammate</code> show after the <code>usermod</code>? Write it down,\nthen run the command and compare.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Start the estate</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>In a second terminal, from the lab pack:</p>\n<pre><code class=\"language-bash\">./start.sh m03\n./start.sh status\n./start.sh console\n</code></pre>\n<p>Inside the tools container:</p>\n<pre><code class=\"language-bash\">curl http://web/\n</code></pre>\n<p>You should see the CloudCore estate page. The host shell is the Ubuntu machine. The estate\nis the service layer on the same container runtime.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David needs a host that can be rebuilt. Write a short decision record:</p>\n<table>\n<thead>\n<tr>\n<th>Choice</th>\n<th>What you chose</th>\n<th>Why</th>\n<th>Cost or risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Release</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Host size</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Network</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Build-time packages</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Rebuild path</td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>State what you would change if the pod had to run ten times the traffic.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The build record from the simulation.</li>\n<li>The host commands and output from Part 3.</li>\n<li>The <code>id teammate</code> result and your prediction.</li>\n<li>The estate web page from Part 4.</li>\n<li>The decision record from Part 5.</li>\n<li>One place where AI was wrong, vague or over-confident. Record the claim, the check and\n  the correction.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"What is the difference between a virtual machine and a container, and which one is the\n  CloudCore host?\"</li>\n<li>\"A server has 2 GB of RAM and runs a web tier, a database and a reverse proxy in\n  containers. Is that enough? What would you measure?\"</li>\n<li>\"Where does the container get its kernel from, and what does that mean for the host?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about the boot process and\n  the kernel?\"</li>\n</ul>\n<p>If the AI says a container is a small virtual machine, ask it to name the kernel the\ncontainer is using. Record the correction.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>What did the simulation hide, and what did the host shell show?</li>\n<li>What can you do on the host that you cannot do inside a container?</li>\n<li>Why does the unit use containers for the services instead of installing them directly?</li>\n<li>What would you put in the build record so another engineer could rebuild the host?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Then <code>exit</code> from the host shell. The host's home directory is kept. To start it clean:</p>\n<pre><code class=\"language-bash\">./start.sh host reset\n</code></pre>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "slug": "operating-system-structure",
+      "title": "Operating system structure",
+      "lessons": [
+        {
+          "id": "02-01",
+          "title": "Operating system structure",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain the kernel and user space and how a system call crosses the boundary.</li>\n<li>Explain how a service is defined, started, stopped, supervised and logged.</li>\n<li>Read a configuration file and a log to diagnose a service fault.</li>\n<li>Compare the container's supervisor model with systemd on a real Linux host.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Week 1 built the host. This week looks inside it. The kernel is the privileged core that\nschedules processes, manages memory and talks to hardware. User space is where services,\nshells and applications run. A service is more than a process: it has a configuration, a\nsupervisor, a state, a log and a restart policy. The lab uses a small heartbeat service under\n<code>supervisord</code>. A real Linux host would use systemd. The concepts are the same: a supervisor\nstarts, stops, restarts and logs a process.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Kernel</td>\n<td>The privileged core: scheduling, memory, devices, system calls</td>\n</tr>\n<tr>\n<td>User space</td>\n<td>Where shells, services, libraries and applications run</td>\n</tr>\n<tr>\n<td>System call</td>\n<td>The controlled boundary between user space and the kernel</td>\n</tr>\n<tr>\n<td>Process</td>\n<td>A running program with a PID, address space, credentials and files</td>\n</tr>\n<tr>\n<td>PID 1</td>\n<td>The first user-space process; the init or the container's main process</td>\n</tr>\n<tr>\n<td>Service</td>\n<td>A long-running process with a configuration and a policy</td>\n</tr>\n<tr>\n<td>Supervisor</td>\n<td>The program that starts, stops, restarts and logs a service</td>\n</tr>\n<tr>\n<td>Unit file</td>\n<td>systemd's description of a service on a real host</td>\n</tr>\n<tr>\n<td>Config and log</td>\n<td>The two files you read first when a service fails</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> heartbeat</p>\n<p>The heartbeat service stopped writing and nobody noticed. That is the real problem. I need\nto know why it stopped, how we would have caught it, and how we should run it on a real\nhost and in the container.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>The lab uses the host shell. Follow the activity, then bring the evidence into your\nportfolio.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The service status before and after the change.</li>\n<li>The configuration file and the log.</li>\n<li>The fault, the failed state and the fix.</li>\n<li>Your explanation of why <code>reread</code> and <code>update</code> are both needed.</li>\n<li>Your recommendation for how CloudCore should run the service.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David needs a service model, not a one-off repair. Choose one:</p>\n<ol>\n<li>systemd on a real Linux host.</li>\n<li><code>supervisord</code> in the container.</li>\n<li>The container runtime's restart policy.</li>\n<li>Manual start with a runbook.</li>\n</ol>\n<p>State who owns the service, what restarts it, how you would know it failed, and what happens\nat 3am. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 3 follows the process into the kernel: CPU scheduling, virtual memory, cgroups and\ncontainers. The service model from this week is the base for the container health checks and\nresource limits you will see there.</p>"
+            }
+          ]
+        },
+        {
+          "id": "02-02",
+          "title": "Workshop: Inside the host and the heartbeat service",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> medium\n<strong>Service:</strong> heartbeat</p>\n<p>The heartbeat service stopped writing and nobody noticed. That is the real problem. I need\nto know why it stopped, how we would have caught it, and how we should run it on a real\nhost and in the container.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Look inside the host: the kernel boundary, the process, the service, the configuration and\nthe log. Break the heartbeat service, diagnose it, fix it, and recommend a service model.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh host\nsudo supervisord -c /etc/supervisor/supervisord.conf\nsudo supervisorctl status\n</code></pre>\n<p>The heartbeat should be <code>RUNNING</code>. If it is not, check the supervisor and the config before\nyou change anything.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>What does <code>supervisorctl status</code> show when the service is healthy?</li>\n<li>What happens to the log when you stop the service?</li>\n<li>What happens if the command path in the config is wrong?</li>\n<li>What do <code>reread</code> and <code>update</code> each do?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: The kernel boundary</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run a small command under <code>strace</code>:</p>\n<pre><code class=\"language-bash\">strace -f -e trace=openat,read,write,clone,execve ps aux 2&gt;&amp;1 | head -30\n</code></pre>\n<p>Find one <code>openat</code>, one <code>read</code> and one <code>write</code>. What is the process asking the kernel to do?\nWhy can the process not do it directly?</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: The service</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ol>\n<li>Run <code>sudo supervisorctl status</code>. What state is the heartbeat in?</li>\n<li>Read the config:</li>\n</ol>\n<pre><code class=\"language-bash\">cat /etc/supervisor/conf.d/heartbeat.conf\n</code></pre>\n<ol start=\"3\">\n<li>Read the log:</li>\n</ol>\n<pre><code class=\"language-bash\">tail -n 5 /var/log/heartbeat.log\n</code></pre>\n<p>Wait ten seconds and read it again. What is the interval? How do you know?</p>\n<ol start=\"4\">\n<li>Find the process:</li>\n</ol>\n<pre><code class=\"language-bash\">ps -ef | grep -E 'heartbeat|supervisord'\n</code></pre>\n<p>Which process is the supervisor? Which is the service? What is PID 1?</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Change the interval</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Edit the config:</p>\n<pre><code class=\"language-bash\">sudo nano /etc/supervisor/conf.d/heartbeat.conf\n</code></pre>\n<p>Change <code>HEARTBEAT_INTERVAL=\"5\"</code> to <code>HEARTBEAT_INTERVAL=\"2\"</code>. Apply it:</p>\n<pre><code class=\"language-bash\">sudo supervisorctl reread\nsudo supervisorctl update\nsudo supervisorctl status\n</code></pre>\n<p>Follow the log for a few seconds:</p>\n<pre><code class=\"language-bash\">tail -f /var/log/heartbeat.log\n</code></pre>\n<p>Stop following with <code>Ctrl-C</code>. Explain what <code>reread</code> did and what <code>update</code> did. Why are both\nneeded?</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Break it and fix it</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Edit the config again and change the command to a path that does not exist:</p>\n<pre><code class=\"language-ini\">command=/usr/local/bin/heartbeat-missing.sh\n</code></pre>\n<p>Apply the change:</p>\n<pre><code class=\"language-bash\">sudo supervisorctl reread\nsudo supervisorctl update\nsudo supervisorctl status\n</code></pre>\n<ol>\n<li>What state is the service in?</li>\n<li>What does the supervisor log say?</li>\n</ol>\n<pre><code class=\"language-bash\">sudo tail -n 20 /var/log/supervisor/supervisord.log\n</code></pre>\n<ol start=\"3\">\n<li>Fix the command path. Apply the change again. Confirm <code>RUNNING</code>.</li>\n<li>What would you monitor so this failure is caught before a person reports it?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: The service model</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David needs a recommendation, not only a repair. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who restarts it</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>systemd on a real host</td>\n<td>systemd</td>\n<td>Unit file and host access</td>\n<td>Another unit to maintain</td>\n</tr>\n<tr>\n<td><code>supervisord</code> in the container</td>\n<td>supervisord</td>\n<td>Container-specific config</td>\n<td>The container is not the host</td>\n</tr>\n<tr>\n<td>Container restart policy</td>\n<td>The container runtime</td>\n<td>Less control inside the container</td>\n<td>Restarts the whole container</td>\n</tr>\n<tr>\n<td>Manual start with a runbook</td>\n<td>A person</td>\n<td>Cheap now</td>\n<td>Fails at 3am</td>\n</tr>\n</tbody>\n</table>\n<p>State who owns the service, what restarts it, how you would know it failed, and what\nhappens at 3am.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The <code>supervisorctl status</code> before and after the interval change.</li>\n<li>The configuration file and the log line.</li>\n<li>The failed state and the supervisor log entry.</li>\n<li>The exact fix and why it worked.</li>\n<li>Your recommendation for CloudCore, with monitoring.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"What is the difference between a process and a service?\"</li>\n<li>\"How does systemd restart a failed service, and where does the restart policy live?\"</li>\n<li>\"Where does <code>supervisord</code> fit in a container that does not run systemd?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about PID 1, signals and\n  log rotation?\"</li>\n</ul>\n<p>If the AI says <code>systemctl</code> works in the container, try it and record what happens.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>What is the difference between a process and a service?</li>\n<li>What do <code>reread</code> and <code>update</code> each do, and why are both needed?</li>\n<li>Why did the service fail, and what did the log tell you?</li>\n<li>What would you monitor to catch this before a colleague reports it?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">exit\n./start.sh host reset\n</code></pre>\n<p>The reset removes the container and its home volume. The image is unchanged, so the next run\nstarts with the default heartbeat config.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "slug": "processes-memory-and-containers",
+      "title": "Processes, memory and containers",
+      "lessons": [
+        {
+          "id": "03-01",
+          "title": "Processes, memory and containers",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain how the kernel schedules processes and gives each one a virtual address space.</li>\n<li>Distinguish a container from a virtual machine using namespaces and cgroups.</li>\n<li>Predict what a CPU or memory limit will do to a service under load, then verify it.</li>\n<li>Recommend a resource limit for a CloudCore service using evidence about cost and risk.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Weeks 1 and 2 installed the host and ran services. This week looks underneath them.\nThe estate is not a diagram. It is a set of processes competing for a finite amount of\nCPU time and physical memory. A container does not change that. It gives a process its\nown view of the system and a budget the kernel enforces. Once you can read that budget,\nyou can predict what happens when the site gets busy, and you can tell the difference\nbetween a service that is slow and a service that is about to die.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Process</td>\n<td>A running program with a PID, an address space, open files and credentials</td>\n</tr>\n<tr>\n<td>Scheduler</td>\n<td>Shares the CPU in time slices and decides which runnable task goes next</td>\n</tr>\n<tr>\n<td>Virtual memory</td>\n<td>Each process sees its own address space; the MMU maps pages to physical memory</td>\n</tr>\n<tr>\n<td>Namespace</td>\n<td>Gives a process a private view of PIDs, network, mounts, hostname and more</td>\n</tr>\n<tr>\n<td>Cgroup</td>\n<td>Accounts for and limits CPU, memory, processes and I/O for a group of processes</td>\n</tr>\n<tr>\n<td>Image and container</td>\n<td>An image is read-only layers; a container adds a writable layer and a runtime</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer web portal</p>\n<p>Customers report that the portal becomes slow when several people use it at once.\nThe page loads, so this is not an outage. The service is running, but it is not\nkeeping up.</p>\n</blockquote>\n<p>The ticket is a performance problem with a business decision at the end. You will need\nevidence before you recommend a fix.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m03</code>. Follow <code>modules/module-03-containers/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>Your prediction, written before the first load test.</li>\n<li><code>./start.sh stats</code> before, during and after the load.</li>\n<li>The exact command you used and why.</li>\n<li>One sentence explaining why you limit the container rather than the host.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Martin needs one recommendation, not a list. Choose one of these and defend it:</p>\n<ol>\n<li>Raise the web container's CPU limit.</li>\n<li>Add a second web container and share the load.</li>\n<li>Reduce the work each request does.</li>\n<li>Leave the limit and accept slower responses at peak.</li>\n</ol>\n<p>State the cost, the risk and the evidence that supports your choice. A larger limit\ncosts host capacity. More replicas cost memory and add a routing problem. Doing nothing\nrisks the customer. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The checkpoint in Week 7 asks you to predict consequences, not recite commands. If you\ncan explain why a CPU limit slows a service while a memory limit kills it, you have the\nmodel this module is trying to build. Module 4 follows a request off the host and into\nthe network.</p>"
+            }
+          ]
+        },
+        {
+          "id": "03-02",
+          "title": "Workshop: Containers and resource limits",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> customer web portal</p>\n<p>Customers report that the portal becomes slow when several people use it at once.\nThe page loads, so this is not an outage. The service is running, but it is not\nkeeping up.</p>\n<p>I need to know whether we should spend more on the host, change the service, or\ntell customers to expect slower responses at peak. Evidence, please, not an opinion.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Bring up the first estate state, observe a container under load, and explain what the\nresource limits are doing. By the end of the session you will have a recommendation for\nMartin and the evidence behind it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run <code>./start.sh m03</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-03-containers/LAB-GUIDE.md</code>. The launcher\nfinds the container runtime for you. You do not need to choose one.</p>\n<p>Check that the estate is up and that the tools container can reach the web tier:</p>\n<pre><code class=\"language-bash\">./start.sh status\n./start.sh console\ncurl http://web/\n</code></pre>\n<p>You should see the CloudCore estate page. If you do not, fix that before you go further.\nA load test against a broken service measures nothing.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything. Keep the answers; you will compare them with\nwhat happens.</p>\n<ol>\n<li>The web container is limited to 0.25 CPU. What will a client see under a steady\n   stream of requests?</li>\n<li>What will <code>./start.sh stats</code> show for the web container's CPU percentage?</li>\n<li>If you lower the limit to 0.05 CPU, what changes for the client, and what changes\n   for the container?</li>\n<li>What would have to happen for the container to be killed rather than slowed?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: What is running</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ol>\n<li>From the host, run <code>./start.sh status</code>. Which containers are running?</li>\n<li>From the tools container, run <code>ps aux</code>. How many processes can you see?</li>\n<li>Run <code>curl -s http://web/ | head</code>. What did the web tier return?</li>\n<li>Open <code>compose.yml</code>. Find <code>deploy.resources.limits</code> for <code>web</code> and <code>db</code>.</li>\n</ol>\n<p>Record the gap between the process list inside the container and the process list on the\nhost. One sentence is enough.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Load and observe</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>From the tools container, start a simple load loop:</p>\n<pre><code class=\"language-bash\">while true; do curl -s http://web/ &gt;/dev/null; done\n</code></pre>\n<p>From the host, in a second terminal:</p>\n<pre><code class=\"language-bash\">./start.sh stats\n</code></pre>\n<p>Watch the <code>CPU %</code> and <code>MEM USAGE / LIMIT</code> columns for <code>web</code> and <code>db</code>.</p>\n<ol>\n<li>Which container is doing the work?</li>\n<li>Is the CPU limit being reached?</li>\n<li>What happens to response time as the loop continues?</li>\n</ol>\n<p>Stop the loop with <code>Ctrl-C</code>. Record the <code>./start.sh stats</code> output while the load is\nrunning, not after it has stopped.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Change the limit</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>From the host, lower the web container's CPU limit:</p>\n<pre><code class=\"language-bash\">./start.sh limit web 0.05\n</code></pre>\n<p>You do not need the container name. The launcher finds it.</p>\n<p>Run the load loop again and observe <code>./start.sh stats</code>. Then restore the limit:</p>\n<pre><code class=\"language-bash\">./start.sh limit web 0.25\n</code></pre>\n<p>Record what changed, what you expected, and what actually happened.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Make the recommendation</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Choose one option for Martin:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Cost</th>\n<th>Risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Raise the CPU limit</td>\n<td>More host capacity, higher bill</td>\n<td>Less protection for other services</td>\n</tr>\n<tr>\n<td>Add a second web container</td>\n<td>More memory and a routing layer</td>\n<td>More moving parts to operate</td>\n</tr>\n<tr>\n<td>Reduce work per request</td>\n<td>Engineering time</td>\n<td>Might not be enough at peak</td>\n</tr>\n<tr>\n<td>Leave it and manage expectations</td>\n<td>No extra cost</td>\n<td>Customer patience and reputation</td>\n</tr>\n</tbody>\n</table>\n<p>Write a short recommendation. Include the number you would set, the evidence that\nsupports it, and the condition under which you would revisit it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Add these to your conversation log and portfolio:</p>\n<ul>\n<li>Your four predictions, written before the tests.</li>\n<li><code>./start.sh stats</code> before, during and after the load, with the command and time.</li>\n<li>The exact limit change you made and why you chose that value.</li>\n<li>One sentence explaining why you limit the container rather than the host.</li>\n<li>Your recommendation to Martin, with cost and risk.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Explain what a container CPU limit does to a process inside the container, and what it\n  does not do to the host.\"</li>\n<li>\"A web container is limited to 0.25 CPU. What will a client observe under sustained\n  load, and what will the container itself observe?\"</li>\n<li>\"Which cgroup file stores the CPU quota, and what do the two numbers mean?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about memory pressure\n  and the host kernel?\"</li>\n</ul>\n<p>If the AI cannot name the mechanism or the file, ask again with the specific question.\nRecord the correction. Do not edit the log to make it look cleaner.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>A CPU limit slows a service. A memory limit kills it. Why the difference?</li>\n<li>Why is the CPU percentage able to exceed 100%?</li>\n<li>What evidence would convince Martin to spend more on the host?</li>\n<li>What would you monitor so that this ticket is raised by a system before a customer\n   raises it?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the volumes in place unless you need a clean state. <code>./start.sh reset m03</code> removes\nthem.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "slug": "networking-models",
+      "title": "Networking models",
+      "lessons": [
+        {
+          "id": "04-01",
+          "title": "Networking models",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain how data is encapsulated and carried across the OSI and TCP/IP layers.</li>\n<li>Identify addresses, ports and protocols from a packet capture.</li>\n<li>Trace a request from the tools container to the web tier and explain each hop.</li>\n<li>Recommend a network-layer check for a CloudCore reachability problem.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Weeks 1 to 3 built the host and looked inside it. This week follows a request off the host\nand into the estate network. The models are a way to organise the stack, not a set of\ndiagrams to memorise. The packet capture is the evidence. You will see the frame, the IP\npacket, the TCP segment and the HTTP request in one place, then explain which address and\nwhich port carried the request at each step.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>OSI model</td>\n<td>Seven layers used to describe and troubleshoot a network</td>\n</tr>\n<tr>\n<td>TCP/IP model</td>\n<td>Four layers the internet actually uses</td>\n</tr>\n<tr>\n<td>Encapsulation</td>\n<td>Each layer wraps the one above it with its own header</td>\n</tr>\n<tr>\n<td>Frame</td>\n<td>The link-layer unit on the local network</td>\n</tr>\n<tr>\n<td>Packet</td>\n<td>The network-layer unit, with source and destination IP addresses</td>\n</tr>\n<tr>\n<td>Segment</td>\n<td>The transport-layer unit, with source and destination ports</td>\n</tr>\n<tr>\n<td>Socket</td>\n<td>An address and a port that identify one endpoint</td>\n</tr>\n<tr>\n<td>ARP</td>\n<td>Resolves a local IP address to a MAC address</td>\n</tr>\n<tr>\n<td>TCP handshake</td>\n<td><code>SYN</code>, <code>SYN-ACK</code>, <code>ACK</code> before data moves</td>\n</tr>\n<tr>\n<td>Packet capture</td>\n<td>The evidence: <code>tcpdump</code> or Wireshark on the host or in a container</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Samantha Wong, Customer Support Lead\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>Some customers say the portal times out. Others reach it without a problem. The service is\nrunning. I need to know where the request stops, and what we should watch so we hear about\nit before a customer does.</p>\n</blockquote>"
+            }
+          ]
+        },
+        {
+          "id": "04-02",
+          "title": "Checkpoint: layers, units and evidence",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
+            {
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "How many layers are in the OSI model?",
+                  "options": [
+                    "4",
+                    "5",
+                    "7",
+                    "9"
+                  ],
+                  "answer": 2,
+                  "explanation": "OSI has seven layers. TCP/IP collapses them into four."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "Which list is the TCP/IP model, from top to bottom?",
+                  "options": [
+                    "Application, Transport, Internet, Link",
+                    "Application, Presentation, Session, Transport",
+                    "Physical, Data link, Network, Transport",
+                    "Link, Internet, Transport, Application"
+                  ],
+                  "answer": 0,
+                  "explanation": "TCP/IP has four layers. Link is the bottom, Application the top."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "Which unit carries the source and destination ports?",
+                  "options": [
+                    "Frame",
+                    "Packet",
+                    "Segment",
+                    "Datagram"
+                  ],
+                  "answer": 2,
+                  "explanation": "The transport layer adds ports. On the wire that unit is a segment (TCP) or datagram (UDP)."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "Which protocol resolves a local IP address to a MAC address?",
+                  "options": [
+                    "DNS",
+                    "ARP",
+                    "DHCP",
+                    "ICMP"
+                  ],
+                  "answer": 1,
+                  "explanation": "ARP maps an IP address to the MAC address on the local link."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "In the CloudCore ticket, what is the first piece of evidence to gather?",
+                  "options": [
+                    "A packet capture or trace that shows where the request stops",
+                    "A rewrite of the web tier configuration",
+                    "A new monitoring dashboard",
+                    "A list of every customer who complained"
+                  ],
+                  "answer": 0,
+                  "explanation": "The ticket asks where the request stops. Capture that before changing anything."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "04-03",
+          "title": "Encapsulate a request",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
+            {
+              "type": "order",
+              "prompt": "<p>A browser sends an HTTP request. Put the units in the order they are built\non the way down the stack.</p>",
+              "items": [
+                "HTTP request",
+                "TCP segment",
+                "IP packet",
+                "Ethernet frame"
+              ],
+              "explanation": "<p>The application data is wrapped by the transport header (ports), then the\nnetwork header (IP addresses), then the link header (MAC addresses). The\nreceiver unwraps them in the reverse order.</p>"
+            }
+          ]
+        },
+        {
+          "id": "04-04",
+          "title": "Name the unit",
+          "kind": "fill",
+          "xp": 20,
+          "blocks": [
+            {
+              "type": "fill",
+              "prompt": "<p>Complete the sentence with the unit each layer carries.</p>",
+              "passage": "The link layer carries a [[1]].\nThe network layer carries a [[2]].\nThe transport layer carries a [[3]].\nARP resolves an IP address to a [[4]].",
+              "blanks": [
+                {
+                  "answers": [
+                    "frame"
+                  ],
+                  "hint": "The link-layer unit on the local network."
+                },
+                {
+                  "answers": [
+                    "packet"
+                  ],
+                  "hint": "It carries the source and destination IP addresses."
+                },
+                {
+                  "answers": [
+                    "segment"
+                  ],
+                  "hint": "It carries the source and destination ports."
+                },
+                {
+                  "answers": [
+                    "MAC address",
+                    "MAC"
+                  ],
+                  "hint": "The hardware address on the local link."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "slug": "addressing-and-naming",
+      "title": "Addressing and naming",
+      "lessons": [
+        {
+          "id": "05-01",
+          "title": "Addressing and naming",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Read an IPv4 address and CIDR block, and explain the network, host, gateway and broadcast\n   addresses.</li>\n<li>Explain how a name is resolved, and compare <code>/etc/hosts</code>, container DNS and an internal\n   DNS server.</li>\n<li>Diagnose a wrong DNS record with <code>dig</code>, <code>getent</code> and <code>curl</code>, and make the smallest safe\n   change.</li>\n<li>Recommend who owns DNS changes, how they are checked, and what evidence an audit should\n   keep.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Last week followed a request across the estate and used an address to reach the web tier.\nThis week gives the address a structure and the service a name. The estate has one subnet, a\ngateway, an internal DNS server and a web tier with two names: <code>web</code> from the container\nruntime and <code>portal.estate.local</code> from the estate DNS. The lab breaks the estate record and\nasks you to prove which resolver answered, what it returned, and why a healthy service can\nstill fail for a customer who used the name.</p>\n<p>The point is not to memorise the record types. It is to know which resolver path an\napplication takes, what evidence each command produces, and who should own a name that\ncustomers depend on.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>IPv4 address</td>\n<td>32 bits, written as four decimal octets</td>\n</tr>\n<tr>\n<td>CIDR</td>\n<td>The prefix says how many bits name the network</td>\n</tr>\n<tr>\n<td>Network and broadcast</td>\n<td>The first and last addresses in an ordinary subnet</td>\n</tr>\n<tr>\n<td>Gateway</td>\n<td>The next hop for traffic outside the local subnet</td>\n</tr>\n<tr>\n<td>ARP</td>\n<td>Resolves a local IP address to a MAC address</td>\n</tr>\n<tr>\n<td>Resolver</td>\n<td>The service a client asks to turn a name into an address</td>\n</tr>\n<tr>\n<td>Authoritative server</td>\n<td>The server that holds the records for a zone</td>\n</tr>\n<tr>\n<td>A and AAAA</td>\n<td>IPv4 and IPv6 address records</td>\n</tr>\n<tr>\n<td>CNAME</td>\n<td>An alias to another name</td>\n</tr>\n<tr>\n<td>TTL</td>\n<td>How long a cache may keep an answer</td>\n</tr>\n<tr>\n<td>DHCP</td>\n<td>Assigns addresses and options with a lease</td>\n</tr>\n<tr>\n<td>Docker DNS</td>\n<td>Answers Compose service names on a user-defined network</td>\n</tr>\n<tr>\n<td><code>/etc/hosts</code></td>\n<td>A local file checked before DNS by the name service switch</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>The portal name resolves, but it resolves to the wrong address. Customers who use the name\nfail; customers who use the address directly reach the page.</p>\n<p>I need to know which resolver answered, what it returned, and how to stop the next change\nfrom reaching customers.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module adds the <code>dns</code> service to the <code>m05</code> state. Follow\n<a href=\"/blob/main/modules/module-05-naming/LAB-GUIDE.md\"><code>modules/module-05-naming/LAB-GUIDE.md</code></a>,\nor use the activity steps here.</p>\n<pre><code class=\"language-bash\">./start.sh m05\n./start.sh status\n./start.sh console\n</code></pre>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Optional NetSim pre-lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Open <a href=\"\">NetSim</a> and work through <strong>Lab 4: DHCP, DNS and the web</strong>. Watch the DHCP DORA exchange, resolve a name with <code>dig</code>, and fetch a page with <code>curl</code>.</p>\n<p>Then repeat the observations on the real CloudCore estate with <code>ip</code>, <code>dig</code>, <code>curl</code> and <code>tcpdump</code>. NetSim is a concept visualiser; the real evidence comes from the estate. The estate containers use Docker's address pool, not DHCP; the DORA exchange is the concept, not the estate's assignment method.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Common traps</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li><strong><code>dig</code> and <code>getent</code> can disagree.</strong> <code>dig @dns</code> queries the DNS server. <code>getent</code> uses the\n  name service switch, which checks <code>/etc/hosts</code> first. Neither is broken.</li>\n<li><strong><code>dig @dns web</code> returns <code>REFUSED</code>.</strong> The estate DNS serves <code>estate.local</code> only. <code>web</code> is a\n  Docker service name. That is a zone boundary, not a server failure.</li>\n<li><strong><code>getent hosts portal.estate.local</code> fails.</strong> The tools container uses Docker DNS at\n  <code>127.0.0.11</code>, which does not know the estate zone. Editing <code>/etc/hosts</code> is a local\n  workaround, not the fix.</li>\n<li><strong><code>.local</code> is reserved for Multicast DNS.</strong> RFC 6762 reserves it. The lab uses\n  <code>estate.local</code> for readability and the <code>dig</code> warning is deliberate. A production namespace\n  should be a subdomain you control.</li>\n<li><strong>A wrong address is not a missing service.</strong> A wrong record can still reach a host; a\n  missing service refuses on the port. The evidence differs.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The tools interface, prefix, route and default gateway.</li>\n<li>The <code>/etc/resolv.conf</code> nameserver.</li>\n<li><code>getent</code> and <code>dig</code> output for the same name, with the difference explained.</li>\n<li>The <code>curl</code> failure by name and the success with <code>--resolve</code>.</li>\n<li>The broken and fixed <code>dig</code> output.</li>\n<li>The record file and the smallest safe change.</li>\n<li>Your DNS ownership recommendation, with owner, check and failure path.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David needs a recommendation, not a lecture. Choose one:</p>\n<ol>\n<li>Container DNS only: the simplest option, but the names are runtime-scoped and leave no\n   audit trail.</li>\n<li>An internal DNS service for the estate zone, with change control and monitoring.</li>\n<li>Public DNS for every name, including internal-only names.</li>\n<li>A managed private DNS service, with the vendor operating the zone.</li>\n</ol>\n<p>State which names need to resolve, from where, how often they change, who approves a change,\nwhat you monitor, and what happens when the check fails. Record the decision in your\nportfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 6 adds the web tier: HTTP, TLS and the reverse proxy that ends encryption. The name\nwill matter for the certificate and the virtual host, not just for the address.</p>"
+            }
+          ]
+        },
+        {
+          "id": "05-02",
+          "title": "Workshop: Find the wrong name",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>The portal name resolves, but it resolves to the wrong address. Customers who use the name\nfail; customers who use the address directly reach the page.</p>\n<p>I need to know which resolver answered, what it returned, and how to stop the next change\nfrom reaching customers.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Read the estate addressing, compare the two resolvers, prove the wrong record is the cause,\nfix it, and recommend how DNS changes should be owned and checked.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh m05\n./start.sh status\n./start.sh console\n</code></pre>\n<p>The tools container is your observatory. The estate DNS is at <code>172.28.0.53</code>. The web tier is\nat <code>172.28.0.10</code>.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Which address and prefix does the tools container have?</li>\n<li>What is the default gateway?</li>\n<li>Which nameserver is in <code>/etc/resolv.conf</code>?</li>\n<li>Will <code>getent hosts portal.estate.local</code> and <code>dig @dns portal.estate.local</code> agree?</li>\n<li>If the record points at <code>172.28.0.99</code>, what will <code>dig</code> show and what will <code>curl</code> do?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Addresses, subnet and route</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>In the tools container:</p>\n<pre><code class=\"language-bash\">ip -brief addr\nip -4 addr show eth0\nip route\nip route get 172.28.0.10\nip route get 1.1.1.1\n</code></pre>\n<ol>\n<li>What is the tools address and prefix?</li>\n<li>For <code>172.28.0.0/24</code>, what are the network address, the broadcast address and the usable\n   host range?</li>\n<li>Which gateway is the default route?</li>\n<li>Which route does a packet to <code>172.28.0.10</code> take? Does it leave the subnet?</li>\n<li>Which route does a packet to <code>1.1.1.1</code> take?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Two resolvers</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">cat /etc/resolv.conf\ngetent hosts web\ngetent hosts portal.estate.local\ndig @dns portal.estate.local\ndig @dns portal.estate.local +short\ndig @dns web\n</code></pre>\n<ol>\n<li>Which nameserver does the tools container use by default?</li>\n<li>What does <code>getent hosts web</code> return, and who answered?</li>\n<li>What does <code>getent hosts portal.estate.local</code> return? What is the exit status?</li>\n<li>What does <code>dig @dns portal.estate.local</code> return? Read the <code>status</code>, <code>flags</code> and <code>ANSWER</code>\n   sections.</li>\n<li>What does <code>dig @dns web</code> return, and why is it different from <code>getent hosts web</code>?</li>\n<li>Why can <code>dig</code> and <code>getent</code> disagree about the same name?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Prove the service is healthy</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">curl -v --max-time 5 http://portal.estate.local/\ncurl -v --resolve portal.estate.local:80:172.28.0.10 http://portal.estate.local/\n</code></pre>\n<ol>\n<li>What error does the first <code>curl</code> report?</li>\n<li>Does the second <code>curl</code> reach the page?</li>\n<li>What does <code>--resolve</code> change, and what does it not change?</li>\n<li>Which header carries the name to nginx?</li>\n<li>What does this prove about the web tier and the DNS record?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Break and fix the record</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Leave the tools shell open. From the host terminal:</p>\n<pre><code class=\"language-bash\">./start.sh break-m05\n</code></pre>\n<p>Back in the tools container:</p>\n<pre><code class=\"language-bash\">dig @dns portal.estate.local +short\ncurl -v --max-time 5 --resolve portal.estate.local:80:172.28.0.99 http://portal.estate.local/\n</code></pre>\n<ol>\n<li>What address does <code>dig</code> return now?</li>\n<li>What does <code>curl</code> report to <code>.99</code>?</li>\n<li>Which file holds the record?</li>\n<li>What is the smallest safe change?</li>\n</ol>\n<p>From the host terminal:</p>\n<pre><code class=\"language-bash\">./start.sh fix-m05\n</code></pre>\n<p>Back in the tools container:</p>\n<pre><code class=\"language-bash\">dig @dns portal.estate.local +short\ncurl -fsS --resolve portal.estate.local:80:172.28.0.10 http://portal.estate.local/ | head\n</code></pre>\n<ol start=\"5\">\n<li>Why does the <code>dig</code> answer change immediately?</li>\n<li>What would a client that cached the old answer do until the TTL expires?</li>\n<li>Why is \"it works now\" not the same as \"the cause is fixed\"?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>David needs a recommendation. Choose one option and defend it.</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>What it measures</th>\n<th>What it misses</th>\n<th>Owner</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Container DNS only</td>\n<td>Compose service names</td>\n<td>The estate zone; no audit</td>\n<td>Application team</td>\n</tr>\n<tr>\n<td>Internal DNS</td>\n<td>The estate zone, with change control</td>\n<td>More to run and secure</td>\n<td>Platform team</td>\n</tr>\n<tr>\n<td>Public DNS</td>\n<td>Public names worldwide</td>\n<td>Internal-only names; split-horizon</td>\n<td>Network team</td>\n</tr>\n<tr>\n<td>Managed private DNS</td>\n<td>Outsourced private zones</td>\n<td>Cost and lock-in</td>\n<td>Platform and vendor</td>\n</tr>\n</tbody>\n</table>\n<p>Answer:</p>\n<ol>\n<li>Which names need to resolve, and from where?</li>\n<li>How often do they change, and who approves a change?</li>\n<li>What would you monitor, and from which resolver path?</li>\n<li>What happens when the check fails?</li>\n<li>What evidence would you keep for an audit?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The tools interface, prefix, route and default gateway.</li>\n<li>The <code>/etc/resolv.conf</code> nameserver.</li>\n<li><code>getent</code> and <code>dig</code> output for the same name, with the difference explained.</li>\n<li>The <code>curl</code> failure by name and the success with <code>--resolve</code>.</li>\n<li>The broken and fixed <code>dig</code> output.</li>\n<li>The record file and the smallest safe change.</li>\n<li>Your DNS ownership recommendation, with owner, check and failure path.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Is <code>.local</code> a good choice for an internal DNS namespace?\"</li>\n<li>\"Does <code>dig</code> use <code>/etc/hosts</code>? Explain.\"</li>\n<li>\"A record changed, but a client still gets the old address. What are the possible causes?\"</li>\n<li>\"What is the difference between Docker's embedded DNS and an internal DNS server?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about caching, search\n  domains and split-horizon DNS?\"</li>\n</ul>\n<p>Record one claim, how you checked it, and what you changed.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Which resolver answers <code>getent hosts web</code>, and which answers <code>dig @dns web</code>?</li>\n<li>Why does <code>dig @dns portal.estate.local</code> succeed when <code>getent hosts portal.estate.local</code>\n   fails?</li>\n<li>What does <code>--resolve</code> prove, and what does it hide?</li>\n<li>Why is a wrong A record a record fault, not a service fault?</li>\n<li>What would you monitor so David hears about the next wrong record before a customer does?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">exit\n./start.sh fix-m05\n./start.sh down\n</code></pre>\n<p>The estate is removed, but the volumes are kept. <code>./start.sh reset m05</code> removes them.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "slug": "protocols-and-the-web-tier",
+      "title": "Protocols and the web tier",
+      "lessons": [
+        {
+          "id": "06-01",
+          "title": "Protocols and the web tier",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain how a request is encapsulated and carried across TCP/IP.</li>\n<li>Trace a request through name resolution, connection setup, HTTP and TLS, and say what happens at each step.</li>\n<li>Explain how a certificate chain and a trust store decide whether a browser shows a warning.</li>\n<li>Evaluate where TLS should terminate, and defend the choice on cost, risk and trust.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Modules 4 and 5 gave the estate addresses and names. This week a customer types the\nCloudCore URL and expects a page. Between the keystroke and the first pixel, the browser\nresolves a name, opens a connection, negotiates encryption, sends an HTTP request and\nreads a response. Each step uses a different protocol, and each step can fail in a\ndifferent way. The reverse proxy is where CloudCore decides to end encryption. That\ndecision is technical and commercial at the same time, because a certificate is a claim\nabout identity that a customer's browser has to be able to check.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Encapsulation</td>\n<td>Each layer wraps the one above it: HTTP inside TCP, TCP inside IP, IP inside Ethernet</td>\n</tr>\n<tr>\n<td>Socket</td>\n<td>An address and a port, for example <code>10.0.0.5:443</code>, identifying one endpoint</td>\n</tr>\n<tr>\n<td>TCP</td>\n<td>A reliable, ordered byte stream, set up with a three-way handshake</td>\n</tr>\n<tr>\n<td>DNS</td>\n<td>Resolves a name to an address, using cached answers with a time to live</td>\n</tr>\n<tr>\n<td>HTTP</td>\n<td>A request and response protocol with methods, headers, status codes and a body</td>\n</tr>\n<tr>\n<td>TLS</td>\n<td>Encrypts and authenticates a connection using certificates and a key exchange</td>\n</tr>\n<tr>\n<td>Certificate chain</td>\n<td>A leaf certificate signed by an issuer, up to a root the client already trusts</td>\n</tr>\n<tr>\n<td>TLS termination</td>\n<td>The proxy holds the certificate and decrypts; the upstream receives plain HTTP</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Samantha Wong, Customer Support Lead\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>Customers reaching the portal see a browser warning before the page loads. Some abandon\nthe page. The site works if they click through, but support cannot tell them to ignore\na security warning.</p>\n</blockquote>\n<p>The ticket is a trust problem, not only a configuration problem. A working page that\nteaches customers to click through a warning is worse than a page that fails loudly.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m06</code>. Follow <code>modules/module-06-web-tls/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The certificate subject, issuer and expiry, recorded before clicking through.</li>\n<li>The request path from browser to proxy to web, in one line.</li>\n<li>A log line that proves which service handled the request.</li>\n<li>The status code and log entry from the broken upstream test.</li>\n<li>Your explanation of why the warning appears, and why <code>curl -k</code> is not a fix.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Samantha needs an answer she can give to a customer. Choose one:</p>\n<ol>\n<li>Trust CloudCore's internal certificate authority on managed staff devices.</li>\n<li>Use a publicly trusted certificate for the customer-facing name.</li>\n<li>Change the architecture so a public entry point holds the certificate.</li>\n</ol>\n<p>State who the fix works for, what it costs, what it assumes about the customer's device,\nand what happens when the certificate expires. Record the decision in your portfolio\ndecision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The checkpoint is next week. It tests the mental models from Weeks 1 to 6, including the\npath from a name to a response. If you can narrate that path without notes and name where\nit can fail, you are ready.</p>"
+            }
+          ]
+        },
+        {
+          "id": "06-02",
+          "title": "Workshop: The web tier and TLS",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Samantha Wong, Customer Support Lead\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>Customers reaching the portal see a browser warning before the page loads. Some abandon\nthe page. The site works if they click through, but I cannot tell customers to ignore a\nsecurity warning.</p>\n<p>I need two things: an explanation I can give to a customer, and a recommendation that\nwill make the warning go away for everyone, not just for staff.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Trace a request from the browser through the TLS proxy to the web tier. Explain where TLS\nends and where the request is re-originated. Then decide what to do about the warning.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run <code>./start.sh m06</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-06-web-tls/LAB-GUIDE.md</code>. The launcher finds the\ncontainer runtime for you. You do not need to choose one.</p>\n<p>Open <a href=\"https://localhost:8443\">https://localhost:8443</a>. The certificate is issued by Caddy's local certificate\nauthority, so the browser warning is expected. Do not click through blindly. Inspect the\ncertificate first.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Who issued the certificate, and who is it issued to?</li>\n<li>Where does TLS terminate: at the browser, the proxy, or nginx?</li>\n<li>When the proxy forwards the request, does nginx see an encrypted request or a plain\n   one?</li>\n<li>If the upstream port is wrong, which service returns the error, and what status code\n   will the customer see?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Read the certificate</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>In the browser, open the certificate details. Record:</p>\n<ol>\n<li>Who issued it?</li>\n<li>Who is it issued to?</li>\n<li>When does it expire?</li>\n<li>Which check fails: trust, name, date or signature?</li>\n</ol>\n<p>From the host:</p>\n<pre><code class=\"language-bash\">openssl s_client -connect localhost:8443 -servername localhost &lt;/dev/null\n</code></pre>\n<p>Look at the certificate chain and the verification result. The lab guide calls the\ncertificate \"self-signed\". Check whether that is precise. Is the leaf signed by itself, or\nby a local root that the browser does not trust?</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Trace the request</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ol>\n<li>Open <a href=\"http://localhost:8080\">http://localhost:8080</a>. Where does it send you, and does that address work?</li>\n<li>Open <a href=\"https://localhost:8443\">https://localhost:8443</a>. Which service answered?</li>\n<li>From the tools container, run <code>curl -k https://proxy/</code>. What do you get?</li>\n<li>From the tools container, run <code>curl http://web/</code>. What do you get?</li>\n<li>Read the proxy and web logs with <code>make logs</code>.</li>\n</ol>\n<p>Two of these steps behave differently from what you might expect. Record the surprise\nbefore you explain it.</p>\n<p>Write the path in one line: browser, then proxy, then web. Name the protocol used on each\nsegment. In the web log, find the remote address and the <code>X-Forwarded-For</code> value. Which\none is the customer?</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Break it</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Edit <code>estate/proxy/Caddyfile</code> and change the upstream from <code>web:80</code> to <code>web:81</code>.</p>\n<pre><code class=\"language-bash\">./start.sh restart proxy\ncurl -k https://localhost:8443/\n</code></pre>\n<ol>\n<li>What status code do you get?</li>\n<li>Which log shows the failure?</li>\n<li>Which log is silent, and why does that matter?</li>\n<li>Restore the upstream to <code>web:80</code> and restart the proxy.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Make the recommendation</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Samantha needs an answer that works for customers, not only for staff. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who it works for</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Trust the internal CA</td>\n<td>Managed devices only</td>\n<td>Distribution and renewal</td>\n<td>A leaked root trusts everything it signs</td>\n</tr>\n<tr>\n<td>Public certificate</td>\n<td>Everyone</td>\n<td>Validation, public name, renewal</td>\n<td>Expiry if renewal fails</td>\n</tr>\n<tr>\n<td>Public entry point holds the certificate</td>\n<td>Everyone</td>\n<td>More infrastructure</td>\n<td>Another component to operate</td>\n</tr>\n</tbody>\n</table>\n<p>Write the explanation for a customer support agent in plain language, then the\nrecommendation for Samantha. State the assumption each option makes about the customer's\ndevice, and what happens when the certificate expires.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>Certificate subject, issuer, expiry and the check that fails.</li>\n<li>The request path in one line, with the protocol on each segment.</li>\n<li>A log line that proves which service handled the request.</li>\n<li>The broken-upstream status code and the log that showed it.</li>\n<li>Your explanation of why the warning appears, and why <code>curl -k</code> is not a fix.</li>\n<li>Your recommendation, with cost, risk and expiry handling.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Explain the difference between TLS termination at a reverse proxy and TLS passthrough.\"</li>\n<li>\"A browser shows a certificate warning for a self-signed certificate. What exactly is\n  the browser checking, and what would make the warning disappear?\"</li>\n<li>\"What is the difference between a self-signed certificate and one issued by a private\n  certificate authority?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about trust stores and\n  certificate authorities?\"</li>\n</ul>\n<p>Check whether the answer separates encryption from authentication. If it treats them as\nthe same thing, correct it and record the correction.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Where does TLS end, and who can read the request after that point?</li>\n<li>Why does <code>curl -k</code> make the test pass but leave the customer unsafe?</li>\n<li>Why is \"install our root certificate\" not a fix for an anonymous customer?</li>\n<li>What would you monitor so that expiry is caught before a customer sees a warning?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Restore the Caddyfile to <code>web:80</code> before you leave. A broken proxy left running will\nconfuse the next person who uses the estate.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "slug": "checkpoint-and-estate-consolidation",
+      "title": "Checkpoint and estate consolidation",
+      "lessons": [
+        {
+          "id": "07-01",
+          "title": "Checkpoint and estate consolidation",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Integrate the six weekly models into one dependency map of the CloudCore service pod.</li>\n<li>Diagnose a fault by layer, separating the symptom a customer reports from the cause.</li>\n<li>Audit the estate against the evidence standard and decide what to consolidate, document or leave alone.</li>\n<li>Explain the system without notes, and use AI to test your explanation rather than replace it.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>\n<p>This week also contains the supervised checkpoint. The paper is issued in the session, not\npublished in advance. Read the format below so you know what to expect.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Weeks 1 to 6 each added a layer: the host, the operating system, processes and containers,\nthe network, names and addresses, and the web tier. Each week made sense on its own. This\nweek the layers have to work as one system.</p>\n<p>A customer does not report \"a DNS record is wrong\". They report that the portal is down.\nThe job is to move from that sentence to the layer that explains it, without guessing and\nwithout changing three things at once. The checkpoint tests that movement. It is not a test\nof command recall. It asks whether you can predict, explain and diagnose with the estate in\nfront of you.</p>\n<p>Consolidation is also an engineering decision. After six weeks of change, the pod has\ndrifted from its documentation. Some of that drift is acceptable. Some of it is risk. This\nweek you decide which is which and record the decision.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The estate as one system</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Layer</th>\n<th>What runs</th>\n<th>What it explains</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Host</td>\n<td>Ubuntu Server userland</td>\n<td>Where the kernel, packages and services live</td>\n</tr>\n<tr>\n<td>Runtime</td>\n<td>Docker or Podman</td>\n<td>How services become isolated processes</td>\n</tr>\n<tr>\n<td>Services</td>\n<td>nginx, PostgreSQL, Caddy, CoreDNS</td>\n<td>What the pod does for a customer</td>\n</tr>\n<tr>\n<td>Network</td>\n<td><code>172.28.0.0/24</code>, published ports</td>\n<td>How a request reaches a service</td>\n</tr>\n<tr>\n<td>Names</td>\n<td><code>estate.local</code>, <code>portal.estate.local</code></td>\n<td>How a name becomes an address</td>\n</tr>\n<tr>\n<td>Web tier</td>\n<td>HTTPS on 8443, proxy to <code>web:80</code></td>\n<td>Where encryption ends and the request continues</td>\n</tr>\n<tr>\n<td>Storage</td>\n<td>Named volumes and the finance share</td>\n<td>What survives a restart and who can change it</td>\n</tr>\n</tbody>\n</table>\n<p>The layers are not a list. They are a dependency chain. A fault in one layer looks like a\nfault in another until you collect evidence.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Dependency graph</td>\n<td>Each layer depends on the one below it, so a lower fault can look like an upper one</td>\n</tr>\n<tr>\n<td>Failure domain</td>\n<td>The smallest part that can fail without taking down the whole estate</td>\n</tr>\n<tr>\n<td>Symptom</td>\n<td>What the customer or monitor reports</td>\n</tr>\n<tr>\n<td>Cause</td>\n<td>The condition that produced the symptom</td>\n</tr>\n<tr>\n<td>Evidence hierarchy</td>\n<td>Config, command output, logs and metrics answer different questions</td>\n</tr>\n<tr>\n<td>Absence as evidence</td>\n<td>A missing log entry can prove a request never arrived</td>\n</tr>\n<tr>\n<td>Smallest safe change</td>\n<td>One change, reversible, verified before the next</td>\n</tr>\n<tr>\n<td>Known-fault register</td>\n<td>The faults you have seen, how you detected them and how you fixed them</td>\n</tr>\n<tr>\n<td>Technical debt</td>\n<td>A shortcut that works now and costs more later</td>\n</tr>\n<tr>\n<td>Conversation log</td>\n<td>The claim, the check and the correction that show your reasoning</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod has changed every week and the documentation has not kept up. If I hand this to\nan on-call engineer at 2am, they will have a compose file and no map. Before the\ncheckpoint, I need three things: a diagram that shows what depends on what, a short\nrunbook for start, stop, backup and the named faults, and a list of what we know is\nfragile.</p>\n</blockquote>\n<p>The ticket is about operational readiness. A working estate that only its builder can\noperate is a single point of failure.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The checkpoint</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The checkpoint is individual and supervised. It has two parts.</p>\n<table>\n<thead>\n<tr>\n<th>Part</th>\n<th style=\"text-align: center;\">Weight of task</th>\n<th>Mode</th>\n<th>What it tests</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Part A: closed-book concept check</td>\n<td style=\"text-align: center;\">40%</td>\n<td>No AI, no notes, no browser</td>\n<td>The mental models from Weeks 1 to 6</td>\n</tr>\n<tr>\n<td>Part B: scenario analysis</td>\n<td style=\"text-align: center;\">60%</td>\n<td>AI permitted, annotated log required</td>\n<td>Diagnosis, decision and verification</td>\n</tr>\n</tbody>\n</table>\n<p>Part A asks you to predict and explain, not to recite commands. Part B gives you an estate\nscenario and asks what you would check, what you conclude and what you would change. In\nPart B the conversation log is part of the answer. It must show a claim, a check and a\ncorrection, not a transcript of prompts.</p>\n<p>The full paper and the marking guide are staff documents. Your tutor will issue the paper\nat the start of the supervised session.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module does not add a new estate state. Use the highest state you have built:</p>\n<pre><code class=\"language-bash\">./start.sh m06\n./start.sh m09\n</code></pre>\n<p>The consolidation workshop works against whichever state is running. If you have built the\nModule 09 share, use it; the extra layer gives you more to map and more to get wrong.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>A one-page dependency map of the pod, with the protocol on each connection.</li>\n<li>The one-line request path from browser to database, naming each hop.</li>\n<li>A known-fault register with at least three faults, how each was detected and how it was\n  fixed.</li>\n<li>A runbook section for start, stop, backup and restore.</li>\n<li>A five-minute spoken explanation of the system, recorded or delivered to your team.</li>\n<li>One place where AI was wrong, vague or over-confident about the estate.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Martin needs a pod he can hand over. Choose one:</p>\n<ol>\n<li>Freeze changes now and document the current state before anything else.</li>\n<li>Keep changing the estate and document at the end of the semester.</li>\n<li>Roll back the most recent layer to reduce the surface area, then document.</li>\n</ol>\n<p>State what the choice costs in time and risk, who carries the risk if the documentation is\nwrong, and how you would know the estate has drifted again. Record the decision in your\nportfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>After the tuition-free break, Module 8 adds identity and access. The consolidation map you\nbuild this week is the base for that layer: users, groups and keys attach to the services\nand hosts you have already mapped. If the map is wrong now, the identity layer will be\nwrong in a way that is harder to see.</p>"
+            }
+          ]
+        },
+        {
+          "id": "07-02",
+          "title": "Workshop: Consolidating the estate",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod has changed every week and the documentation has not kept up. If I hand this to\nan on-call engineer at 2am, they will have a compose file and no map. Before the\ncheckpoint, I need three things: a diagram that shows what depends on what, a short\nrunbook for start, stop, backup and the named faults, and a list of what we know is\nfragile.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Produce the handover pack Martin asked for, then rehearse the two skills the checkpoint\ntests: explaining the system without notes, and moving from a symptom to the layer that\ncauses it.</p>\n<p>This workshop does not contain the checkpoint paper. Your tutor issues that separately in\nthe supervised session.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Bring up the highest estate state you have built: <a href=\"\"></a>.</p>\n<p>```bash\n./start.sh m06</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>or, if you have built the Module 09 share:</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>./start.sh m09</p>\n<pre><code>\nCheck what is running before you draw anything:\n\n```bash\n./start.sh status\n</code></pre>\n<p>If the state is not what you expect, fix that first. A map of an estate that is not running\nis a guess.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Draw the dependency map</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Draw one page. Include every service you have running and every dependency between them.</p>\n<ol>\n<li>Put the browser at the top and the database at the bottom.</li>\n<li>Draw an arrow for every hop. Label each arrow with the protocol and the port.</li>\n<li>Mark where TLS starts and where it ends.</li>\n<li>Mark which services are on the estate network and which are published to the host.</li>\n<li>Mark the DNS resolver that answers each name.</li>\n</ol>\n<p>Do not copy the diagram from the slides. Build it from <code>compose.yml</code> and from what is\nactually running. If the two disagree, write down the disagreement. That is a finding.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Narrate the request in 60 seconds</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Without notes, explain what happens when a customer types the portal address.</p>\n<ol>\n<li>Name each step in order.</li>\n<li>Name the protocol on each step.</li>\n<li>Name one thing that could fail at each step.</li>\n<li>Say what evidence would prove that step worked.</li>\n</ol>\n<p>Record yourself, or deliver it to a partner. Your partner's job is to find the step you\nskipped. Most people skip either name resolution or the proxy re-originating the request.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Audit the evidence</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Check your estate repository against the portfolio evidence standard.</p>\n<table>\n<thead>\n<tr>\n<th>Item</th>\n<th>Present?</th>\n<th>Where it is</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Compose file that matches the running estate</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Host build record</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Service configuration files</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Start, stop and reset instructions</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Backup and restore instructions</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>A log excerpt from a real fault</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>One annotated conversation log</td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>For each missing item, write the smallest action that would close the gap. Do not write\n\"do documentation later\". Name the file and the section.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Build the known-fault register</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>List at least three faults you have seen in the estate across the semester. Use a real\nfault from your lab, not an invented one.</p>\n<table>\n<thead>\n<tr>\n<th>Fault</th>\n<th>Symptom the user saw</th>\n<th>How you detected the cause</th>\n<th>Smallest safe fix</th>\n<th>How you verified it</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>For each row, add one sentence on what would catch the fault sooner next time. \"Check the\nlogs\" is too vague. Name the log, the metric or the check.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: Write the runbook</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write the short runbook Martin asked for. Keep it to one page.</p>\n<ol>\n<li>How to start the estate.</li>\n<li>How to stop it without losing data.</li>\n<li>How to back up and restore the named volumes.</li>\n<li>What to do when the portal is unreachable.</li>\n<li>What to do when the certificate warning appears.</li>\n</ol>\n<p>Write it for someone who did not build the estate. If a step depends on knowledge that is\nonly in your head, the runbook is not finished.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 6: Checkpoint rehearsal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Work through these prompts in pairs. They are practice, not the paper.</p>\n<ol>\n<li>A service is running but the browser cannot reach it. What do you check first, and why?</li>\n<li>A name resolves to an address, but the page returns 502. Which layer is at fault, and\n   what evidence would prove it?</li>\n<li>The certificate warning appears after a restart. What changed, and what did not?</li>\n<li>An AI says the fault is a firewall rule. The proxy log names the upstream. How do you\n   decide which explanation to test first?</li>\n<li>The customer says \"the site is slow\". Name three layers that could explain it and the\n   evidence that would separate them.</li>\n</ol>\n<p>For each answer, say the prediction, the check and the conclusion. The reasoning is the\nanswer.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The one-page dependency map, built from the running estate.</li>\n<li>The 60-second request narrative, recorded or written.</li>\n<li>The completed evidence audit, with a named action for each gap.</li>\n<li>The known-fault register with at least three real faults.</li>\n<li>The one-page runbook.</li>\n<li>One annotated conversation log from the rehearsal: a claim, a check and a correction.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these to test your explanation, then check the answer against the estate:</p>\n<ul>\n<li>\"Here is my dependency map. What dependency is missing, and what would I see if it\n  failed?\"</li>\n<li>\"I think the portal path is browser, proxy, web, database. Where is this model wrong for\n  a request that only serves a static page?\"</li>\n<li>\"A customer reports 502 and the web log is empty. What does the absence tell you, and\n  what does it rule out?\"</li>\n<li>\"Review this runbook step for someone who did not build the estate. What have I assumed?\"</li>\n</ul>\n<p>Do not ask the AI what is running in your estate. It cannot know. Ask it to test your\nreasoning, then verify against <code>compose.yml</code>, the logs and the running containers.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Which dependency in your map would cause the largest failure if it broke, and why?</li>\n<li>Which fault in your register was hardest to find, and what made it hard?</li>\n<li>What would you monitor so the next operator learns about a fault before a customer does?</li>\n<li>What did you decide to leave undocumented, and what risk did you accept?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Martin needs a pod he can hand over. Choose one:</p>\n<ol>\n<li>Freeze changes now and document the current state.</li>\n<li>Keep changing and document at the end of the semester.</li>\n<li>Roll back the most recent layer to reduce the surface area, then document.</li>\n</ol>\n<p>State the cost, the risk, who carries it if the documentation is wrong, and how you would\ndetect drift again. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the estate in a known state. If you changed a configuration file, restore it or commit\nthe change with a message that explains why.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "slug": "identity-and-access",
+      "title": "Identity and access",
+      "lessons": [
+        {
+          "id": "08-01",
+          "title": "Identity and access",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Distinguish authentication, authorisation and accounting, and explain why the distinction matters.</li>\n<li>Read a local identity database and explain how a permission decision is made from a user, a group and an object.</li>\n<li>Diagnose an access failure caused by a missing group membership, and fix it without over-granting.</li>\n<li>Evaluate directory service, group and key-based options for a contractor and a service account on cost, risk and auditability.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The estate now runs. A customer can reach the portal, a name resolves, a certificate is\nchecked and a share exists. None of that answers the question the business actually asks:\nwho is allowed to do this, and how do we know?</p>\n<p>Identity is the layer that turns a running service into an accountable one. It has three\nparts. Authentication asks who you are. Authorisation asks what you may do. Accounting\nrecords what you did. A system that answers only the first question is a system that lets\nanyone who gets in do anything.</p>\n<p>The CloudCore ticket is small and common. A service account lost a group membership after\na rebuild, so it cannot read the report it exists to read. A contractor needs read access\nto the same report and nothing else. The naive fix, opening the directory to everyone,\nsolves the ticket and creates a larger problem. The work is to grant the smallest access\nthat does the job and to show how it will be removed.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Subject</td>\n<td>A person, service or machine that can act</td>\n</tr>\n<tr>\n<td>Authentication</td>\n<td>Proving a subject is who it claims to be</td>\n</tr>\n<tr>\n<td>Authorisation</td>\n<td>Deciding what an authenticated subject may do</td>\n</tr>\n<tr>\n<td>Accounting</td>\n<td>Recording what the subject did, for audit</td>\n</tr>\n<tr>\n<td>Credential</td>\n<td>The evidence used to authenticate: password, key, certificate, token</td>\n</tr>\n<tr>\n<td>UID and GID</td>\n<td>The numeric identity the kernel uses; names are a convenience</td>\n</tr>\n<tr>\n<td>Primary group</td>\n<td>The group recorded on the user account and applied to new files</td>\n</tr>\n<tr>\n<td>Supplementary group</td>\n<td>An additional group that grants access without changing the primary group</td>\n</tr>\n<tr>\n<td>Service account</td>\n<td>A non-interactive identity for a program, not a person</td>\n</tr>\n<tr>\n<td>Least privilege</td>\n<td>The smallest access that lets the subject do the job</td>\n</tr>\n<tr>\n<td>RBAC</td>\n<td>Authorisation by role, with permissions attached to roles rather than people</td>\n</tr>\n<tr>\n<td>Directory</td>\n<td>A shared store of identities and groups, queried over a protocol</td>\n</tr>\n<tr>\n<td>sudo</td>\n<td>A controlled way to run one command with another user's privileges</td>\n</tr>\n<tr>\n<td>Audit trail</td>\n<td>The record that lets you prove who did what, and when</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting</p>\n<p>The quarterly reporting service stopped reading the finance report after the identity\nservice was rebuilt. The service account exists and the report exists, but every read\nfails with <code>Permission denied</code>.</p>\n<p>At the same time, we have approved a contractor to read the same report. Read only. The\ncontractor must not be able to change it, and must not see the rest of the finance share.</p>\n</blockquote>\n<p>The ticket contains two problems that look alike and are not. The service account needs\naccess restored. The contractor needs access granted, with a scope and an end date. Both\nare authorisation decisions. Neither is solved by making the share world-readable.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m08</code>. Follow <code>modules/module-08-identity/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>\n<p>The identity service is a local user database with users, groups, a reports share and a\nnarrow <code>sudo</code> rule. A production estate would put the same records in a directory service.\nThe lab keeps the data local so you can read it directly.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The <code>Permission denied</code> error and the identity of the account that hit it.</li>\n<li>The <code>id</code> output for the service account, a working account and the contractor.</li>\n<li><code>getent group reporting</code> before and after the fix.</li>\n<li>The ownership and mode of the reports directory and the report.</li>\n<li>The exact fix, and why it is the smallest safe change.</li>\n<li>The contractor test: which file is readable and which is denied.</li>\n<li>The two <code>sudo</code> tests, and the sudoers rule that explains them.</li>\n<li>One place where AI was wrong, vague or over-confident about identity or permissions.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>Add the contractor to the <code>reporting</code> group for the life of the contract.</li>\n<li>Create a per-contractor group with access to the one report, and remove it at the end date.</li>\n<li>Provide a managed export of the report outside the estate, with no estate access.</li>\n</ol>\n<p>State what the contractor can read, what they cannot read, how the access is removed, who\napproves it, and what the audit trail records. Include the cost and the risk of each\noption. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 9 takes the same decision into the file system. A group is only useful if the\npermission bits and ownership enforce it. Module 11 turns identity, permissions and\nlogging into a security posture and an incident response. The question from this week\nstays the same: who can do this, and how would you prove it later?</p>"
+            }
+          ]
+        },
+        {
+          "id": "08-02",
+          "title": "Workshop: Identity, groups and least privilege",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting</p>\n<p>The quarterly reporting service stopped reading the finance report after the identity\nservice was rebuilt. The service account exists and the report exists, but every read\nfails with <code>Permission denied</code>.</p>\n<p>At the same time, we have approved a contractor to read the same report. Read only. The\ncontractor must not be able to change it, and must not see the rest of the finance share.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Diagnose the service account failure, fix it with the smallest safe change, and recommend\na scoped, removable way to give the contractor read access. Along the way, show that you\ncan tell authentication apart from authorisation and read the identity data the kernel\nactually uses.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run <code>./start.sh m08</code> in the estate labs repo: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m08\n./start.sh status\n</code></pre>\n<p>The state adds an <code>identity</code> service. It holds a local user database, a reports share and\na narrow <code>sudo</code> rule. In production, the same records would live in a directory service.\nThe lab keeps them local so you can read them.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>The account exists and the file exists. Is the failure authentication or authorisation?</li>\n<li>What identity data would prove your answer?</li>\n<li>The contractor logs in successfully but cannot read the report. Is that a fault?</li>\n<li>If you make the report world-readable, which other accounts gain access?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Observe the failure</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh exec --user svc-report identity cat /reports/quarterly.txt\n</code></pre>\n<ol>\n<li>What error do you see?</li>\n<li>Which account hit it?</li>\n<li>Which part of the path failed: the login, the group check or the file mode?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Read the identity data</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh exec identity getent passwd svc-report\n./start.sh exec identity getent group reporting\n./start.sh exec --user svc-report identity id\n</code></pre>\n<p>Compare a working account and the contractor:</p>\n<pre><code class=\"language-bash\">./start.sh exec --user bob identity id\n./start.sh exec --user contractor identity id\n./start.sh exec --user bob identity cat /reports/quarterly.txt\n./start.sh exec --user contractor identity cat /reports/quarterly.txt\n</code></pre>\n<p>Read the object permissions:</p>\n<pre><code class=\"language-bash\">./start.sh exec identity ls -ld /reports\n./start.sh exec identity ls -l /reports\n</code></pre>\n<p>Answer these:</p>\n<ol>\n<li>What are the UID, primary GID and supplementary groups for <code>svc-report</code>?</li>\n<li>Which group owns <code>/reports</code>, and which group owns <code>quarterly.txt</code>?</li>\n<li>Which permission bit allows a group member to read the report?</li>\n<li>Why can <code>bob</code> read the report and <code>contractor</code> cannot?</li>\n<li>What is the difference between a primary group and a supplementary group?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Fix the service account</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh fix-m08\n./start.sh exec --user svc-report identity cat /reports/quarterly.txt\n./start.sh exec identity getent group reporting\n</code></pre>\n<ol>\n<li>What exactly changed?</li>\n<li>Why is restoring the group membership safer than changing the file mode?</li>\n<li>Why is <code>chmod 777 /reports</code> the wrong fix?</li>\n<li>What would you check after a restart to prove the fix is persistent?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Contractor access and scope</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Confirm the contractor is denied now:</p>\n<pre><code class=\"language-bash\">./start.sh exec --user contractor identity cat /reports/quarterly.txt\n./start.sh exec --user contractor identity cat /reports/board-pack.txt\n</code></pre>\n<p>Grant read access by group:</p>\n<pre><code class=\"language-bash\">./start.sh exec identity addgroup contractor reporting\n./start.sh exec --user contractor identity cat /reports/quarterly.txt\n./start.sh exec --user contractor identity cat /reports/board-pack.txt\n</code></pre>\n<ol>\n<li>Which file can the contractor read, and which is still denied?</li>\n<li>Why is the board pack still protected even after the contractor joins <code>reporting</code>?</li>\n<li>Is <code>reporting</code> the right scope for a contractor? What else could you do?</li>\n<li>How would you remove the access when the contract ends?</li>\n<li>What would the audit trail record, and who would review it?</li>\n</ol>\n<p>Remove the contractor when you have finished:</p>\n<pre><code class=\"language-bash\">./start.sh exec identity delgroup contractor reporting\n</code></pre>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: sudo and least privilege</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The <code>alice</code> account has a narrow privilege rule.</p>\n<pre><code class=\"language-bash\">./start.sh exec --user alice identity sudo -n id\n./start.sh exec --user alice identity sudo -n cat /reports/quarterly.txt\n./start.sh exec identity cat /etc/sudoers.d/ops\n</code></pre>\n<ol>\n<li>Which command may <code>alice</code> run as root?</li>\n<li>What happens when she tries a different command?</li>\n<li>Why is a narrow rule better than adding <code>alice</code> to <code>wheel</code>?</li>\n<li>What would you log to detect misuse of the rule?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 6: Map local identity to a directory</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Complete the table. The point is that a directory service answers the same questions, not\nthat you memorise LDAP syntax.</p>\n<table>\n<thead>\n<tr>\n<th>Local file or command</th>\n<th>Directory concept</th>\n<th>Question it answers</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/etc/passwd</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>/etc/group</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>getent passwd alice</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>id</code></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><code>/etc/sudoers.d/ops</code></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Then answer: why does a company with thousands of staff not copy <code>/etc/passwd</code> to every\nhost? Name two problems that a central directory solves.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 7: Put it back</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh break-m08\n./start.sh exec --user svc-report identity cat /reports/quarterly.txt\n</code></pre>\n<p>The failure returns. This is the reset point for the exercise. If you added the contractor\nto <code>reporting</code>, remove them again.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The <code>Permission denied</code> error and the <code>id</code> output for <code>svc-report</code>.</li>\n<li><code>getent group reporting</code> before and after the fix.</li>\n<li><code>ls -ld /reports</code> and <code>ls -l /reports</code>.</li>\n<li>The exact fix command, and why it is the smallest safe change.</li>\n<li>The contractor test: which file is readable and which is denied.</li>\n<li>The two <code>sudo</code> tests and the rule that explains them.</li>\n<li>Your directory mapping table.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then check the answer against the container:</p>\n<ul>\n<li>\"What is the difference between authentication and authorisation? Give an example from\n  a Linux host.\"</li>\n<li>\"A service account exists and a file exists, but the service gets permission denied.\n  What are the possible causes?\"</li>\n<li>\"Why is adding a user to a group better than making a directory world-writable?\"</li>\n<li>\"What is the least-privilege way to give a contractor read access to one report?\"</li>\n<li>\"Where does this explanation overreach? What does it assume about the directory and the\n  file mode?\"</li>\n</ul>\n<p>Check whether the answer separates identity from permission. If it says \"just chmod 777\",\nask what that does to every other account, then record the correction.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why can an authenticated subject still be denied?</li>\n<li>What is the smallest safe change for the service account, and why?</li>\n<li>Which contractor option is the most precise, and what does it cost?</li>\n<li>What is the end date for the contractor, and who removes the access?</li>\n<li>What would you log so the next access review can answer \"who still needs this?\"</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>Add the contractor to <code>reporting</code> for the life of the contract.</li>\n<li>Create a per-contractor group for one report, with an end date.</li>\n<li>Provide a managed export outside the estate, with no estate access.</li>\n</ol>\n<p>State the scope, the removal, the approver, the audit trail, the cost and the risk. Record\nthe decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>A reset returns the identity service to its good state:</p>\n<pre><code class=\"language-bash\">./start.sh reset m08\n</code></pre>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "slug": "file-systems-and-access-control",
+      "title": "File systems and access control",
+      "lessons": [
+        {
+          "id": "09-01",
+          "title": "File systems and access control",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain how a file system stores names, metadata and data, and how a path resolves to an inode.</li>\n<li>Read Unix ownership and permission bits, including their effect on directories.</li>\n<li>Diagnose a permission failure across a container boundary and choose the smallest safe fix.</li>\n<li>Evaluate group ownership, ACLs and separate shares using least privilege, cost and auditability.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Week 10 gave the estate users, groups and a way to prove who someone is. This week the\nfile system enforces the decision. A permission is not a formality attached to a file.\nIt is the mechanism that decides who can read, change and delete, and it applies to every\nprocess, including the ones inside containers. The ticket is small: a reporting service\ncannot write to a share. The obvious fix, <code>chmod 777</code>, makes the error go away and makes\nthe estate less safe. The work is to find the smallest change that gives the service what\nit needs and nothing more.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Inode</td>\n<td>The metadata record for a file: type, owner, group, mode, timestamps, data pointers</td>\n</tr>\n<tr>\n<td>Path</td>\n<td>A sequence of directory entries that resolves to an inode</td>\n</tr>\n<tr>\n<td>Permission bits</td>\n<td>Three sets of read, write and execute for owner, group and other</td>\n</tr>\n<tr>\n<td>Directory bits</td>\n<td>Read lists names, write creates and deletes entries, execute allows traversal</td>\n</tr>\n<tr>\n<td>Ownership</td>\n<td>Numeric UID and GID; names are a convenience from <code>/etc/passwd</code> and <code>/etc/group</code></td>\n</tr>\n<tr>\n<td>umask</td>\n<td>The bits a process removes from the default mode when it creates a file</td>\n</tr>\n<tr>\n<td>ACL</td>\n<td>A list of named users and groups with permissions, beyond the nine bits</td>\n</tr>\n<tr>\n<td>Named volume</td>\n<td>A container-managed file system mounted into a container, owned by root by default</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> reporting</p>\n<p>The reporting service has stopped writing its daily output to the finance share. The\nservice is running. The share exists. The error says permission denied.</p>\n<p>I need the output back, and I need to know it will not happen again. I am not\ncomfortable with \"make it world-writable\" as the answer.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m09</code>. Follow <code>modules/module-09-filesystems/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The <code>permission denied</code> error and the writer's UID and GID.</li>\n<li>The ownership and mode of <code>/share</code> before and after the fix.</li>\n<li>The exact command you used, and why it is the smallest safe change.</li>\n<li>Your answer to why <code>chmod 777</code> is the wrong fix.</li>\n<li>Your plan for a second service that also needs to write.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Louise needs a durable answer, not a one-off repair. Choose one:</p>\n<ol>\n<li>A dedicated group owns the share, with group write and setgid on the directory.</li>\n<li>An ACL gives the reporting service write access without changing the group model.</li>\n<li>A separate volume per service removes the sharing problem.</li>\n</ol>\n<p>State who can read, who can write, who can delete, what happens when a second service\nneeds access, and how the estate catches the fault before a user reports it. Record the\ndecision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 10 looks at storage beyond one host: volumes, backup, virtualisation and cloud.\nThe permission model from this week is the same model you will apply to backups and\nrestores, where a wrong owner can make a recovery fail silently. Module 11 turns these\ncontrols into a security posture.</p>"
+            }
+          ]
+        },
+        {
+          "id": "09-02",
+          "title": "Workshop: File systems and access control",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> reporting</p>\n<p>The reporting service has stopped writing its daily output to the finance share. The\nservice is running. The share exists. The error says permission denied.</p>\n<p>I need the output back, and I need to know it will not happen again. I am not\ncomfortable with \"make it world-writable\" as the answer.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Diagnose a permission failure on a shared volume, fix it with the smallest safe change,\nand explain the ownership model that made it fail.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run <code>./start.sh m09</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-09-filesystems/LAB-GUIDE.md</code>. The launcher finds\nthe container runtime for you. You do not need to choose one.</p>\n<pre><code class=\"language-bash\">./start.sh status\n./start.sh logs writer\n</code></pre>\n<p>The <code>writer</code> service runs as UID 1000. The shared volume is created as root. On the first\nrun, the writer cannot create <code>/share/report.log</code>. That is the fault you are here to\ndiagnose.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Which user is the writer running as, and which user owns <code>/share</code>?</li>\n<li>Why does the write fail, given that the share exists and the service is running?</li>\n<li>What is the smallest change that lets the writer create and append its own log file?</li>\n<li>What would <code>chmod 777</code> change, and what would it break?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Observe the failure</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ol>\n<li>Run <code>./start.sh logs writer</code>. What error do you see, and how often does it repeat?</li>\n<li>Run <code>./start.sh exec writer id</code>. Which UID and GID is the process using?</li>\n<li>Inspect the share as root:</li>\n</ol>\n<pre><code class=\"language-bash\">./start.sh run --rm --user root writer sh -c 'ls -ld /share; ls -l /share'\n</code></pre>\n<p>Record the owner, group and mode of <code>/share</code>. Compare them with the writer's UID and GID.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Fix it</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use the smallest change you can defend. The lab provides a repair target:</p>\n<pre><code class=\"language-bash\">./start.sh fix-m09\n./start.sh logs writer\n</code></pre>\n<p>You should see <code>report ok</code> lines. Stop following with <code>Ctrl-C</code>.</p>\n<p>Old <code>permission denied</code> lines are history. Check the file instead, so you are not reading\nthe old failure as if it were current.</p>\n<p>Verify the result:</p>\n<pre><code class=\"language-bash\">./start.sh run --rm --user root writer sh -c 'ls -l /share; tail -n 3 /share/report.log'\n</code></pre>\n<p>The file should exist and be owned by the writer's UID.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Explain the fix</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ol>\n<li>Why is <code>chmod 777</code> the wrong fix?</li>\n<li>Why is group ownership better than making the file world-writable?</li>\n<li>What would you change if a second service, running as a different UID, also needed to\n   write to the share?</li>\n<li>What would you monitor so this fault is caught before a user reports it?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Put it back, then decide</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh break-m09\n./start.sh logs writer\n</code></pre>\n<p>The failure returns. This is the reset point for the exercise.</p>\n<p>Now make the decision for Louise. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who it works for</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Dedicated group plus setgid</td>\n<td>Services that can share a group</td>\n<td>Group design and membership</td>\n<td>A new service needs a group change</td>\n</tr>\n<tr>\n<td>ACL for the reporting UID</td>\n<td>One named service</td>\n<td>A second access model to audit</td>\n<td>ACLs drift from the group model</td>\n</tr>\n<tr>\n<td>Separate volume per service</td>\n<td>Services that do not need to share</td>\n<td>More storage and backup paths</td>\n<td>Data duplication if sharing was intended</td>\n</tr>\n</tbody>\n</table>\n<p>State who can read, who can write, who can delete, what happens when a second service\nneeds access, and how the fault is caught next time.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The <code>permission denied</code> error and the writer's UID and GID.</li>\n<li><code>ls -ld /share</code> before and after the fix, with numeric IDs.</li>\n<li>The exact command you used, and why it is the smallest safe change.</li>\n<li>Your answer to why <code>chmod 777</code> is wrong, including integrity and accountability.</li>\n<li>Your plan for a second writer.</li>\n<li>Your recommendation to Louise, with monitoring.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"A container runs as UID 1000 and a named volume is owned by root. Explain why the\n  write fails and what the smallest fix is.\"</li>\n<li>\"Compare <code>chmod 777</code>, group ownership and an ACL for a shared directory used by two\n  services.\"</li>\n<li>\"A file is owned by <code>1000:1000</code> with mode <code>640</code>. A process runs as UID <code>1001</code> in group\n  <code>1000</code>. Which permission bits apply, and why?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about UID mapping on the\n  host and in rootless containers?\"</li>\n</ul>\n<p>If the answer confuses names with numbers, correct it and record the correction.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why does a directory's write bit control deletion of a file?</li>\n<li>Why does the writer see a different <code>/etc/passwd</code> from the host?</li>\n<li>Why is \"it works now\" not the same as \"it is fixed\"?</li>\n<li>What would you monitor so Louise hears about this before the finance team does?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh break-m09\n./start.sh down\n</code></pre>\n<p>Leave the share in the broken state unless you have a reason to leave it fixed. The next\nperson expects the exercise to start from the fault.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "slug": "storage-virtualisation-and-cloud",
+      "title": "Storage, virtualisation and cloud",
+      "lessons": [
+        {
+          "id": "10-01",
+          "title": "Storage, virtualisation and cloud",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain block, file and object storage, and say where volumes, databases and backups sit.</li>\n<li>Distinguish backup, snapshot and replication, and explain why a restore is the only proof.</li>\n<li>Compare virtual machines, containers and cloud service models on isolation, portability, cost and operational burden.</li>\n<li>Evaluate a backup and hosting design using recovery point, recovery time, cost, risk and sustainability.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 2</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The estate now runs, has names, a web tier, identity and permissions. This week asks a\ndifferent question: what happens when something is lost? A disk, a database, a host or a\nwhole region. Storage is the layer that decides whether the business can recover, how much\ndata it loses and how long it takes.</p>\n<p>The CloudCore ticket is uncomfortable because the backup job is green. It reports success\nevery night. The restore is empty. That gap is the lesson. A backup is a claim. A restore is\nthe proof. The same gap appears in cloud design: a service can be available and still lose\ndata, and a cheap storage tier can be expensive to recover from.</p>\n<p>The business decision is a resilience design. Local snapshots, offsite object storage and a\nmanaged database backup each cover a different failure at a different cost. The choice is\nnot \"which is best\". It is \"which failure are we buying protection from, and what recovery\ntime can we afford?\"</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Block storage</td>\n<td>Raw volumes the operating system formats and mounts</td>\n</tr>\n<tr>\n<td>File storage</td>\n<td>A hierarchy of files and directories, usually over a network</td>\n</tr>\n<tr>\n<td>Object storage</td>\n<td>Flat objects with a key, metadata and an API</td>\n</tr>\n<tr>\n<td>Volume</td>\n<td>A named storage area attached to a container or host</td>\n</tr>\n<tr>\n<td>Snapshot</td>\n<td>A point-in-time copy of a volume, usually fast and local</td>\n</tr>\n<tr>\n<td>Backup</td>\n<td>A separate copy kept for recovery, ideally off the source</td>\n</tr>\n<tr>\n<td>Restore</td>\n<td>The act of rebuilding data from a backup, and the only real test</td>\n</tr>\n<tr>\n<td>RPO</td>\n<td>Recovery point objective: how much data the business can lose</td>\n</tr>\n<tr>\n<td>RTO</td>\n<td>Recovery time objective: how long the service can be down</td>\n</tr>\n<tr>\n<td>3-2-1 rule</td>\n<td>Three copies, two media, one offsite</td>\n</tr>\n<tr>\n<td>Immutability</td>\n<td>A backup that cannot be changed or deleted during its retention</td>\n</tr>\n<tr>\n<td>Hypervisor</td>\n<td>The layer that runs virtual machines and allocates their resources</td>\n</tr>\n<tr>\n<td>Container</td>\n<td>A process with namespaces and cgroups, sharing the host kernel</td>\n</tr>\n<tr>\n<td>IaaS, PaaS, SaaS</td>\n<td>How much of the stack the provider runs for you</td>\n</tr>\n<tr>\n<td>Shared responsibility</td>\n<td>The split between what the provider secures and what you secure</td>\n</tr>\n<tr>\n<td>Egress</td>\n<td>The cost and latency of moving data out of a cloud</td>\n</tr>\n<tr>\n<td>Data gravity</td>\n<td>Data attracts the services and processing that use it</td>\n</tr>\n<tr>\n<td>Sustainability</td>\n<td>The energy and carbon cost of storage and idle capacity</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting and customer tickets</p>\n<p>The nightly backup reports success every night. This morning we ran a restore test and the\nrestored database has no customer tickets. The schema is there, the tables are there, and\nthe rows are gone.</p>\n<p>I need the data back in a usable restore, an explanation of why the job reported success,\nand a recommendation for how we store and test backups. Include what it costs and how long\na recovery would take.</p>\n</blockquote>\n<p>The ticket is not \"the backup is broken\". It is \"we cannot tell whether the backup works\".\nThe job's exit code answered a different question from the one the business asked.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m10</code>. Follow <code>modules/module-10-storage/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>\n<p>The state adds a <code>backup</code> service with <code>pg_dump</code>, <code>psql</code>, a backup volume and a restore\nscript. The backup runs against the estate database. The fault is in the dump command, not\nin the job wrapper, so the job keeps reporting success.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The backup log line and the size of the backup file.</li>\n<li>The number of data statements in the backup, before and after the fix.</li>\n<li>The restore output: rows in the live database and rows in the restored database.</li>\n<li>The backup command before and after the fix.</li>\n<li>A second restore that proves the procedure is repeatable.</li>\n<li>Your RPO and RTO, with a reason.</li>\n<li>Your storage recommendation, with cost, risk, the failure it covers and who owns the\n  restore test.</li>\n<li>One place where AI was wrong, vague or over-confident about backup or restore.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Louise needs a resilience design, not a one-off repair. Choose one:</p>\n<ol>\n<li>Local volume snapshots on the same host, with a weekly restore test.</li>\n<li>Offsite object storage with versioning, retention and a documented restore runbook.</li>\n<li>A managed database backup from a cloud provider, with the provider's restore process.</li>\n</ol>\n<p>State the failure each option covers, the RPO and RTO, the cost (storage, transfer, staff\ntime), the risk you accept and the sustainability cost. Say who owns the restore test and\nhow often it runs. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Module 11 turns the estate into a security posture and an incident response. A backup is a\nsecurity control as well as a resilience control: it is the answer to ransomware and to a\ndeleted table. Module 12 reviews the estate and hands the concepts to the next course. The question\nfrom this week stays: what would you lose, how long would it take to get it back, and how do\nyou know?</p>"
+            }
+          ]
+        },
+        {
+          "id": "10-02",
+          "title": "Workshop: Prove the backup with a restore",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Louise Tan, Finance Systems Manager\n<strong>Priority:</strong> high\n<strong>Service:</strong> quarterly reporting and customer tickets</p>\n<p>The nightly backup reports success every night. This morning we ran a restore test and the\nrestored database has no customer tickets. The schema is there, the tables are there, and\nthe rows are gone.</p>\n<p>I need the data back in a usable restore, an explanation of why the job reported success,\nand a recommendation for how we store and test backups. Include what it costs and how long\na recovery would take.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Take a backup, restore it into a separate database, find why a successful job produced an\nempty restore, fix the backup, and prove the fix with a repeatable restore. Then choose a\nbackup and storage design with a recovery time you can defend.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Run <code>./start.sh m10</code> in the estate labs repo: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m10\n./start.sh status\n</code></pre>\n<p>The state adds a <code>backup</code> service with <code>pg_dump</code>, <code>psql</code>, a backup volume and a restore\nscript. The estate database holds three customer tickets.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Predict before you act</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>The backup log says \"backup complete\". Does that prove the data can be restored?</li>\n<li>What is the smallest piece of evidence that would tell you the dump contains rows?</li>\n<li>If the restore is empty, is the fault in the database, the backup command or the restore\n   command?</li>\n<li>What would you set as the RPO and RTO for a customer ticket system, and why?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Take a backup and inspect it</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh exec backup sh /backup/backup.sh\n./start.sh exec backup cat /backups/backup.log\n./start.sh exec backup ls -l /backups\n./start.sh exec backup head -n 30 /backups/estate.sql\n./start.sh exec backup sh -c &quot;grep -c '^COPY' /backups/estate.sql || true&quot;\n./start.sh exec backup wc -l /backups/estate.sql\n</code></pre>\n<ol>\n<li>Does the log say the backup succeeded?</li>\n<li>Does the file contain the table definitions?</li>\n<li>Does the file contain the data rows?</li>\n<li>What does the <code>COPY</code> count tell you?</li>\n<li>Which signal in this list actually answers the business question?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Restore and compare</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh exec backup sh /backup/restore.sh\n</code></pre>\n<ol>\n<li>How many tickets are in the live database?</li>\n<li>How many tickets are in <code>estate_restore</code>?</li>\n<li>Did the restore report an error, or did it succeed with missing data?</li>\n<li>Why is restoring into a separate database safer than restoring over the live one?</li>\n</ol>\n<p>Inspect the restored schema:</p>\n<pre><code class=\"language-bash\">./start.sh exec backup psql -h db -U estate -d estate_restore -c '\\dt'\n./start.sh exec backup psql -h db -U estate -d estate_restore -c 'SELECT count(*) FROM tickets;'\n</code></pre>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Diagnose</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh exec backup cat /backup/backup.sh\n</code></pre>\n<ol>\n<li>Which option changes what <code>pg_dump</code> writes?</li>\n<li>Why did the job still exit successfully?</li>\n<li>Why did the log still say \"backup complete\"?</li>\n<li>What would a restore test have caught that the job log did not?</li>\n<li>Is this a storage fault, a backup-command fault or a process fault? Defend your answer.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Fix and verify</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh fix-m10\n./start.sh exec backup sh /backup/backup.sh\n./start.sh exec backup sh /backup/restore.sh\n</code></pre>\n<ol>\n<li>How many tickets are in the live database now?</li>\n<li>How many tickets are in <code>estate_restore</code>?</li>\n<li>Which evidence proves the backup is usable, and which evidence only proves the job ran?</li>\n<li>Run the restore a second time. What does the repeat prove?</li>\n<li>What would you add to the job so this fault is caught automatically next time?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: Recovery objectives and storage design</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Complete the table for the CloudCore ticket database.</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Failure it covers</th>\n<th>RPO</th>\n<th>RTO</th>\n<th>Cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Local volume snapshot</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Offsite object storage</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Managed database backup</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Then answer:</p>\n<ol>\n<li>What is a sensible RPO? How much data can the business lose?</li>\n<li>What is a sensible RTO? How long can the service be down?</li>\n<li>What would you encrypt, and where would the key live?</li>\n<li>How often would you run a restore test, and who owns the result?</li>\n<li>What does each option cost in storage, transfer and staff time?</li>\n<li>What is the sustainability cost of keeping every copy forever?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 6: Put it back</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh break-m10\n./start.sh exec backup sh /backup/backup.sh\n./start.sh exec backup sh /backup/restore.sh\n</code></pre>\n<p>The restore is empty again. This is the reset point for the exercise.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The backup log line and the file listing.</li>\n<li>The <code>COPY</code> count and the head of the backup file.</li>\n<li>The restore output before and after the fix.</li>\n<li>The backup command before and after the fix.</li>\n<li>A second restore that proves the procedure is repeatable.</li>\n<li>Your RPO and RTO, with a reason.</li>\n<li>Your storage recommendation, with cost, risk, the failure it covers and the owner of the\n  restore test.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these as starters, then check the answer against the container:</p>\n<ul>\n<li>\"What is the difference between a backup, a snapshot and replication?\"</li>\n<li>\"A backup job exits successfully but the restore has no rows. What could cause that?\"</li>\n<li>\"What are RPO and RTO, and how do they change the backup design?\"</li>\n<li>\"What does the 3-2-1 rule mean, and what does it not protect against?\"</li>\n<li>\"Where does this explanation overreach? What does it assume about the storage and the\n  restore test?\"</li>\n</ul>\n<p>Check whether the answer separates \"the job ran\" from \"the data can be restored\". If it\ntreats a successful exit code as proof, correct it and record the correction.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Why did the backup job report success while the restore was empty?</li>\n<li>What is the smallest evidence that proves a backup is usable?</li>\n<li>Which storage option covers the failure you care about, and which failure does it miss?</li>\n<li>What RPO and RTO would you set, and who owns the restore test?</li>\n<li>What would you automate so the next empty restore is caught before a customer sees it?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Louise needs a resilience design, not a one-off repair. Choose one:</p>\n<ol>\n<li>Local volume snapshots on the same host, with a weekly restore test.</li>\n<li>Offsite object storage with versioning, retention and a documented restore runbook.</li>\n<li>A managed database backup from a cloud provider, with the provider's restore process.</li>\n</ol>\n<p>State the failure each option covers, the RPO and RTO, the cost, the risk, the\nsustainability cost and the owner of the restore test. Record the decision in your portfolio\ndecision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>A reset returns the state to a clean Module 10:</p>\n<pre><code class=\"language-bash\">./start.sh reset m10\n</code></pre>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "slug": "security-privacy-and-incident-response",
+      "title": "Security, privacy and incident response",
+      "lessons": [
+        {
+          "id": "11-01",
+          "title": "Security, privacy and incident response",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain confidentiality, integrity and availability, and map an incident to the property it threatens.</li>\n<li>Triage logs into a timeline, separating evidence from speculation.</li>\n<li>Contain an exposed secret, rotate it, and verify the exposure is closed.</li>\n<li>Write an incident record and recommend hardening, logging and privacy controls with cost and risk.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The estate has been built, named, secured with identity and permissions, and given a\nbackup. This week it is attacked, or at least exposed. A configuration page served the\ndatabase password to anyone who asked. The security log shows someone asked, twice, after\nrepeated failed logins. The incident is already in progress when the module starts.</p>\n<p>Security is not a product you install. It is a set of decisions made with incomplete\ninformation: what is exposed, who could reach it, what the evidence proves, what you change\nfirst, and what you accept as residual risk. The lab gives you a small, real incident. You\nread the log, reproduce the exposure, contain it, rotate the secret, verify the fix and\nwrite the record. The record is the artefact an auditor, a customer or a regulator will\nread.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Confidentiality</td>\n<td>Only authorised subjects can read the data</td>\n</tr>\n<tr>\n<td>Integrity</td>\n<td>The data is accurate and has not been changed</td>\n</tr>\n<tr>\n<td>Availability</td>\n<td>The service is there when it is needed</td>\n</tr>\n<tr>\n<td>Threat</td>\n<td>A potential cause of harm</td>\n</tr>\n<tr>\n<td>Vulnerability</td>\n<td>A weakness a threat can use</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>The combination of likelihood and impact</td>\n</tr>\n<tr>\n<td>Attack surface</td>\n<td>Everything an attacker can reach</td>\n</tr>\n<tr>\n<td>Defence in depth</td>\n<td>More than one control between the attacker and the asset</td>\n</tr>\n<tr>\n<td>Least privilege</td>\n<td>The smallest access that does the job</td>\n</tr>\n<tr>\n<td>Secret</td>\n<td>A credential that grants access and must not be public</td>\n</tr>\n<tr>\n<td>Rotation</td>\n<td>Replacing a secret and retiring the old value</td>\n</tr>\n<tr>\n<td>Log</td>\n<td>A time-ordered record of events</td>\n</tr>\n<tr>\n<td>Log integrity</td>\n<td>Evidence that the log has not been altered</td>\n</tr>\n<tr>\n<td>Personal data</td>\n<td>Information about an identified or identifiable person</td>\n</tr>\n<tr>\n<td>Incident response</td>\n<td>Prepare, detect, contain, eradicate, recover, learn</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>The material that supports the account of what happened</td>\n</tr>\n<tr>\n<td>Notification</td>\n<td>Telling the people and bodies who need to know</td>\n</tr>\n<tr>\n<td>Residual risk</td>\n<td>The risk that remains after the controls</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Sophia Martines, Chief Information Security Officer\n<strong>Priority:</strong> critical\n<strong>Service:</strong> customer portal and the estate secret store</p>\n<p>A customer sent us a screenshot of <code>http://portal.estate.local/admin/config.txt</code>. The\npage shows the database password and an admin token. The security log shows repeated\nfailed logins for <code>admin</code> and two successful requests to that path from the same address,\n<code>203.0.113.45</code>.</p>\n<p>I need the exposure closed, the credential rotated with evidence that the old value no\nlonger works, the scope of the incident, and an incident record with the decisions, the\nnotifications and the prevention work.</p>\n<p>Do not delete the log. It is evidence.</p>\n</blockquote>\n<p>The ticket is a sequence of decisions, not a single fix. Closing the page is containment.\nRotating the secret is eradication. Proving the old value fails is recovery. The record is\nhow the organisation learns.</p>"
+            }
+          ]
+        },
+        {
+          "id": "11-02",
+          "title": "The 3AM page",
+          "kind": "story",
+          "xp": 30,
+          "blocks": [
+            {
+              "type": "story",
+              "src": "stories/the-3am-page.json",
+              "start": "",
+              "intro": "<p>The portal is timing out for some customers. It is 03:12. Every choice\nchanges what you can prove later.</p>",
+              "debrief": "<p>Which decision protected the evidence? Which one made the next failure\neasier to explain? Write the one sentence you would add to the incident\nrecord.</p>"
+            }
+          ]
+        },
+        {
+          "id": "11-03",
+          "title": "Checkpoint: evidence, containment, record",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
+            {
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What is the first move when an incident is still developing?",
+                  "options": [
+                    "Establish impact and preserve evidence",
+                    "Restart the service to clear the alert",
+                    "Close the incident until a customer complains",
+                    "Change the firewall rules"
+                  ],
+                  "answer": 0,
+                  "explanation": "You need to know who is affected and keep the evidence before you change the system."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "Why is \"restart it first\" dangerous?",
+                  "options": [
+                    "It can destroy the logs and state that explain the failure",
+                    "It always makes the outage longer",
+                    "It changes the customer's network",
+                    "It is slower than capturing evidence"
+                  ],
+                  "answer": 0,
+                  "explanation": "A restart can remove the very evidence you need for the cause and the incident record."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What is containment?",
+                  "options": [
+                    "Stopping the spread or the bleeding while you investigate",
+                    "Deleting the affected account",
+                    "Writing the final report",
+                    "Rebuilding the whole estate"
+                  ],
+                  "answer": 0,
+                  "explanation": "Containment limits damage. It is not the same as finding and removing the cause."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What belongs in an incident record?",
+                  "options": [
+                    "Impact, timeline, evidence, cause and the change that prevents a repeat",
+                    "Only the final status code",
+                    "The names of everyone on the team",
+                    "The vendor's marketing page"
+                  ],
+                  "answer": 0,
+                  "explanation": "The record is for the next responder, not for the person who was there."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "The service is stable but you do not know the cause. What should you do?",
+                  "options": [
+                    "Record the gap, keep the evidence and keep investigating",
+                    "Declare the incident closed and forget it",
+                    "Restart the service again",
+                    "Remove the logs to save space"
+                  ],
+                  "answer": 0,
+                  "explanation": "A stable service is not the same as a solved incident. Record what you do not know."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "slug": "review-and-handoff-to-the-next-course",
+      "title": "Review and handoff to the next course",
+      "lessons": [
+        {
+          "id": "12-01",
+          "title": "Review and handoff to the next course",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>Learning objectives</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Integrate the estate into one explanation across the host, operating system, network, identity, storage and security layers.</li>\n<li>Demonstrate one part of the portfolio and defend the decisions and trade-offs behind it.</li>\n<li>Diagnose and repair an unseen fault under time pressure, and explain the fix.</li>\n<li>Map the concepts to the next course and to professional practice, and record what the next team needs.</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Connection to unit learning outcomes</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>How this week works</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>\n<p>This is the final teaching week. The portfolio is due at the end of Week 13. The Week 14\nlab is for portfolio demonstrations and a final practical rehearsal.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The week&#x27;s idea</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The estate is finished enough to explain. That is a different skill from building it. The\nfinal practical gives you a broken estate and asks what you found, what you changed, why the\nchange was safe, and how you would catch the fault sooner. The portfolio asks you to defend\nthe decisions behind the estate, not only to show that it runs.</p>\n<p>This week is integration and transfer. You connect the layers into one explanation, rehearse\nthe diagnosis and the oral, and hand the estate to the next team. the next course takes the same\nconcepts onto Windows Server, Active Directory, Group Policy, IIS and network design. The\nplatform changes. The questions do not.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Key ideas</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Integration</td>\n<td>The estate is one system, not seven subjects</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>A claim about the estate needs a log, a config or a command output</td>\n</tr>\n<tr>\n<td>Diagnosis under time</td>\n<td>A method you can run when you are nervous</td>\n</tr>\n<tr>\n<td>Oral explanation</td>\n<td>What you found, what you changed, why it was safe, what you would monitor</td>\n</tr>\n<tr>\n<td>Trade-off</td>\n<td>Every choice has a cost, a risk and an alternative</td>\n</tr>\n<tr>\n<td>Handover</td>\n<td>The next person needs the map, the runbook and the known faults</td>\n</tr>\n<tr>\n<td>Transfer</td>\n<td>The concept survives a change of platform</td>\n</tr>\n<tr>\n<td>Residual risk</td>\n<td>What remains after the controls you chose</td>\n</tr>\n<tr>\n<td>Technical debt</td>\n<td>A shortcut that works now and costs more later</td>\n</tr>\n<tr>\n<td>Professional practice</td>\n<td>Judgement, accountability and evidence, not only tools</td>\n</tr>\n</tbody>\n</table>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The CloudCore ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod is moving to a new operations team on Monday. I need a 10-minute walkthrough, a\none-page map, the runbook and the known-fault register. Tell them what is fragile, what\nyou would fix first, and what you deliberately left alone.</p>\n<p>The final practical is in the examination period. Treat the walkthrough as the rehearsal.</p>\n</blockquote>\n<p>The ticket is a handover, not a new build. A good handover names the risk as clearly as the\nsuccess.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Lab</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module adds no state. Use the full estate:</p>\n<pre><code class=\"language-bash\">./start.sh m11\n</code></pre>\n<p>The workshop has three parts: a portfolio demonstration, a fault drill using the existing\nbreak and fix scenarios, and an oral rehearsal. The tutor may set an unseen fault from any\nof the earlier modules. The method is the same across all of them.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The portfolio demonstration notes: what you showed, what you decided and why.</li>\n<li>The fault drill: the symptom, the evidence, the fix and the verification.</li>\n<li>The oral outline: what you found, what you changed, why it was safe, what you would\n  monitor.</li>\n<li>The handover note: map, runbook, known faults, residual risk and the first fix.</li>\n<li>The final conversation log: where AI helped, where it was wrong, and what you decided.</li>\n<li>One concept you would carry to the next course and one platform-specific detail you would leave\n  behind.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Martin needs to know what the next team should do first. Choose one:</p>\n<ol>\n<li>Fix the highest-risk technical debt, such as the admin path or the secret handling.</li>\n<li>Improve the runbook, monitoring and alerting, with a named owner.</li>\n<li>Reduce cost and idle capacity, and accept the remaining risk.</li>\n</ol>\n<p>State the risk, the cost, the evidence, the owner and what you would deliberately leave\nalone. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Where this leads</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>the next course Advanced Business Technologies takes the same estate concepts onto Windows Server,\nActive Directory, Group Policy, IIS and network design. You will meet new commands and new\nproducts. The mental models from this unit are the part that transfers: identity,\nauthorisation, naming, encapsulation, storage, backup, logging and incident response.</p>\n<p>The final practical is a broken estate. The portfolio is the evidence of how you built and\noperated this one. The professional habit is the point: predict, verify, decide and explain.</p>"
+            }
+          ]
+        },
+        {
+          "id": "12-02",
+          "title": "Workshop: Portfolio demonstration and final practical rehearsal",
+          "kind": "reading",
+          "xp": 10,
+          "blocks": [
+            {
+              "type": "html",
+              "html": "<h2>The ticket</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod is moving to a new operations team on Monday. I need a 10-minute walkthrough, a\none-page map, the runbook and the known-fault register. Tell them what is fragile, what\nyou would fix first, and what you deliberately left alone.</p>\n<p>Treat the walkthrough as the rehearsal for the final practical.</p>\n</blockquote>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Goal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Rehearse the two performances that carry the marks: the portfolio demonstration and the\nfinal practical. Then leave a handover note that a new team could actually use.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Before you start</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Bring up the full estate: <a href=\"\"></a>.</p>\n<pre><code class=\"language-bash\">./start.sh m11\n./start.sh status\n</code></pre>\n<p>The Module 12 workshop adds no state. It uses everything you have built.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 1: Portfolio demonstration</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Give a five-minute demonstration. Use the portfolio rubric as the script.</p>\n<ol>\n<li>Show the one-page map. Name the layers and the protocols.</li>\n<li>Show one part of the estate you personally built or changed.</li>\n<li>Explain one fault you diagnosed and how you verified the fix.</li>\n<li>State one trade-off you made and the alternative you rejected.</li>\n<li>Show one AI claim, the check and the correction.</li>\n<li>Name one residual risk and who owns it.</li>\n</ol>\n<p>The audience is a new operations team, not your tutor. Do not tour the files. Make an\nargument with evidence.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 2: Fault drill</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Your tutor will set one unseen fault from the estate. You have 20 minutes to diagnose, fix\nand verify it.</p>\n<p>Use the method:</p>\n<ol>\n<li>Record the symptom in the customer's words.</li>\n<li>Predict the most likely layer before you touch anything.</li>\n<li>Collect the cheapest evidence that can falsify the prediction.</li>\n<li>Form one hypothesis and test it.</li>\n<li>Make the smallest safe change.</li>\n<li>Verify the cause is gone, not only the symptom.</li>\n<li>Record the fault and the fix.</li>\n</ol>\n<p>The fault may come from any of these families:</p>\n<table>\n<thead>\n<tr>\n<th>Family</th>\n<th>What you would see</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A name that resolves to the wrong address</td>\n<td>The site is unreachable by name</td>\n</tr>\n<tr>\n<td>An account missing from a group</td>\n<td>Permission denied for one account</td>\n</tr>\n<tr>\n<td>A share with the wrong ownership or mode</td>\n<td>A service cannot write</td>\n</tr>\n<tr>\n<td>A backup that restores no rows</td>\n<td>The restore is empty</td>\n</tr>\n<tr>\n<td>A leaked secret or a weak file mode</td>\n<td>An exposed credential</td>\n</tr>\n</tbody>\n</table>\n<p>Do not change three things at once. The oral mark depends on the evidence, not on luck.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 3: Oral rehearsal</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Deliver a three-minute oral using this structure:</p>\n<ol>\n<li>What I found.</li>\n<li>How I found it: the evidence and the checks.</li>\n<li>What I changed and why it was the smallest safe change.</li>\n<li>How I verified it.</li>\n<li>What I would monitor or document so it is caught sooner.</li>\n<li>What I would do differently next time.</li>\n</ol>\n<p>Your partner gives feedback on three questions:</p>\n<ol>\n<li>Was the evidence specific, or was it a claim?</li>\n<li>Was the change the smallest safe one?</li>\n<li>Did the explanation name a trade-off and a residual risk?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 4: Handover note</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write one page for the next team:</p>\n<ol>\n<li>The map, with protocols and ports.</li>\n<li>The runbook: start, stop, backup and restore.</li>\n<li>The known-fault register: at least three real faults.</li>\n<li>The residual risks and the first fix.</li>\n<li>The owner and the review date.</li>\n<li>Where the evidence and the conversation log are stored.</li>\n</ol>\n<p>If a step depends on knowledge in your head, the handover is not finished.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Part 5: Final practical preparation</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Write a short plan for the examination period:</p>\n<ol>\n<li>Which concepts you will revise first, and why.</li>\n<li>Which commands you will practise until they are automatic.</li>\n<li>Which fault family you are least confident about.</li>\n<li>How you will structure the oral in the first two minutes.</li>\n<li>What you will bring: the paper, the evidence, the conversation log if permitted.</li>\n</ol>\n<p>The final practical is individual. The practice is individual too.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Evidence to capture</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<ul>\n<li>The five-minute demonstration notes and the portfolio rubric self-check.</li>\n<li>The fault drill: symptom, evidence, hypothesis, change and verification.</li>\n<li>The three-minute oral outline.</li>\n<li>The one-page handover note.</li>\n<li>The final conversation log: a claim, a check and a correction.</li>\n<li>One concept you would carry to the next course and one platform detail you would leave behind.</li>\n</ul>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>AI conversation prompts</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Use these to test your explanation, then check the answer against the estate:</p>\n<ul>\n<li>\"Here is my fault timeline. What evidence is missing, and what would you check next?\"</li>\n<li>\"I changed the group membership instead of the file mode. What is the residual risk?\"</li>\n<li>\"Review my oral outline. Where is the claim unsupported by evidence?\"</li>\n<li>\"What does this explanation assume about the platform that would change on Windows?\"</li>\n</ul>\n<p>Do not ask the AI what is running in the estate. It cannot know. Ask it to test your\nreasoning, then verify against the logs, the config and the command output.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Debrief</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Be ready to answer one of these in the last 15 minutes:</p>\n<ol>\n<li>Which layer did you check first in the drill, and was it right?</li>\n<li>What was the smallest safe change, and what did it leave unchanged?</li>\n<li>What is the residual risk in the estate, and who owns it?</li>\n<li>Which concept will you carry to the next course, and which product detail will you leave?</li>\n<li>What would you fix first with one more week?</li>\n</ol>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>The business decision</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<p>Martin needs to know what the next team should do first. Choose one:</p>\n<ol>\n<li>Fix the highest-risk technical debt.</li>\n<li>Improve the runbook, monitoring and alerting.</li>\n<li>Reduce cost and idle capacity.</li>\n</ol>\n<p>State the risk, the cost, the evidence, the owner and what you would deliberately leave\nalone. Record the decision in your portfolio decision record.</p>"
+            },
+            {
+              "type": "html",
+              "html": "<h2>Clean up</h2>"
+            },
+            {
+              "type": "html",
+              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the estate in a known state. A reset returns it to a clean Module 11:</p>\n<pre><code class=\"language-bash\">./start.sh reset m11\n</code></pre>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

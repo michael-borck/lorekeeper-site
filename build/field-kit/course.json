@@ -1,0 +1,456 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-06T08:13:46+00:00",
+  "unit": {
+    "slug": "field-kit",
+    "title": "Field Kit: The Lorekeeper Workbench",
+    "theme": "pixel"
+  },
+  "modules": [
+    {
+      "number": 1,
+      "slug": "the-workbench",
+      "title": "The Workbench",
+      "lessons": [
+        {
+          "id": "01-01",
+          "title": "Order the incident response",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
+            {
+              "type": "order",
+              "prompt": "<p>A customer reports that the booking page is down. Put the first response in\na safe order. Use the up and down buttons, then check.</p>",
+              "items": [
+                "Preserve the evidence",
+                "Contain the spread",
+                "Find and remove the cause",
+                "Restore the service",
+                "Review what happened"
+              ],
+              "explanation": "<p>Evidence first, then contain, eradicate, recover and review. Restoring\nbefore containing can destroy the evidence and repeat the outage.</p>"
+            }
+          ]
+        },
+        {
+          "id": "01-02",
+          "title": "Complete the accessible page",
+          "kind": "fill",
+          "xp": 20,
+          "blocks": [
+            {
+              "type": "fill",
+              "prompt": "<p>Fill the blanks with the viewport setting, a useful image description and\nthe right input type.</p>",
+              "passage": "<meta name=\"viewport\" content=\"[[1]]\">\n<img src=\"hero.jpg\" alt=\"[[2]]\">\n<label for=\"email\">Email</label>\n<input id=\"email\" type=\"[[3]]\">",
+              "blanks": [
+                {
+                  "answers": [
+                    "width=device-width, initial-scale=1",
+                    "width=device-width,initial-scale=1"
+                  ],
+                  "hint": "Start with width=device-width."
+                },
+                {
+                  "answers": [
+                    "The timber counter and display cabinet at the Northbridge store",
+                    "The counter and display cabinet at the Northbridge store"
+                  ],
+                  "hint": "Describe what the image shows, not that it is an image."
+                },
+                {
+                  "answers": [
+                    "email"
+                  ],
+                  "hint": "Use the input type made for email addresses."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01-03",
+          "title": "Find the exposed things",
+          "kind": "hotspot",
+          "xp": 25,
+          "blocks": [
+            {
+              "type": "hotspot",
+              "prompt": "<p>Click the three things that should not be public on this small site.</p>",
+              "markup": "<div class=\"hotspot-board\">\n  <button type=\"button\" data-spot=\"users\">/wp-json/wp/v2/users</button>\n  <button type=\"button\" data-spot=\"menu\">Current menu</button>\n  <button type=\"button\" data-spot=\"admin\">Old admin account</button>\n  <button type=\"button\" data-spot=\"hours\">Opening hours</button>\n  <button type=\"button\" data-spot=\"pdf\">Menu PDF</button>\n</div>",
+              "targets": [
+                {
+                  "selector": "[data-spot=users]",
+                  "label": "Public user endpoint",
+                  "feedback": "<p>Account names help an attacker. Restrict or disable it.</p>"
+                },
+                {
+                  "selector": "[data-spot=admin]",
+                  "label": "Old administrator account",
+                  "feedback": "<p>An unowned administrator is a way in. Remove it.</p>"
+                },
+                {
+                  "selector": "[data-spot=pdf]",
+                  "label": "Menu PDF",
+                  "feedback": "<p>A PDF does not reflow on a phone. Replace it with HTML.</p>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01-04",
+          "title": "Which lines weakened the check?",
+          "kind": "review",
+          "xp": 30,
+          "blocks": [
+            {
+              "type": "review",
+              "prompt": "<p>This commit made a failing check pass. Click the lines that hid the\nproblem instead of fixing the page.</p>",
+              "lines": [
+                {
+                  "code": "test('booking action', async ({ page }) => {",
+                  "kind": "context",
+                  "bad": false,
+                  "feedback": ""
+                },
+                {
+                  "code": "  await page.goto('/');",
+                  "kind": "context",
+                  "bad": false,
+                  "feedback": ""
+                },
+                {
+                  "code": "  await expect(cta).toBeInViewport();",
+                  "kind": "del",
+                  "bad": true,
+                  "feedback": "<p>Removing the assertion removes the evidence.</p>"
+                },
+                {
+                  "code": "  // removed so the test passes",
+                  "kind": "add",
+                  "bad": true,
+                  "feedback": "<p>A comment cannot make a broken page work.</p>"
+                },
+                {
+                  "code": "});",
+                  "kind": "context",
+                  "bad": false,
+                  "feedback": ""
+                }
+              ],
+              "explanation": "<p>The page was not fixed. The check was weakened. Revert the check and fix\nthe layout.</p>"
+            }
+          ]
+        },
+        {
+          "id": "01-05",
+          "title": "Choose the platform",
+          "kind": "scenario",
+          "xp": 25,
+          "blocks": [
+            {
+              "type": "scenario",
+              "prompt": "<p>The client needs staff editing, online bookings and a small three-year\nbudget. Choose the path you would recommend.</p>",
+              "options": [
+                {
+                  "id": "agency",
+                  "label": "WordPress agency",
+                  "outcome": "<p>Dev can edit the menu and hours. Hosting and updates cost money. The\nexit cost is medium.</p>",
+                  "effects": {
+                    "Build cost": "Higher",
+                    "Three-year cost": "Medium",
+                    "Who edits": "Dev",
+                    "Lock-in": "Medium"
+                  },
+                  "recommended": true,
+                  "feedback": "<p>This matches the staff-editing priority and keeps the exit cost moderate.</p>"
+                },
+                {
+                  "id": "builder",
+                  "label": "AI site builder",
+                  "outcome": "<p>Fast to start. Dev cannot change the content model. Moving later means\nrebuilding the site.</p>",
+                  "effects": {
+                    "Build cost": "Lower",
+                    "Three-year cost": "High",
+                    "Who edits": "The contractor",
+                    "Lock-in": "High"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>Cheap to build, expensive to leave.</p>"
+                },
+                {
+                  "id": "rebuild",
+                  "label": "Custom rebuild from scratch",
+                  "outcome": "<p>Full control. The client pays for everything twice and needs a\ndeveloper on call.</p>",
+                  "effects": {
+                    "Build cost": "Highest",
+                    "Three-year cost": "Highest",
+                    "Who edits": "A developer",
+                    "Lock-in": "Low"
+                  },
+                  "recommended": false,
+                  "feedback": "<p>The budget does not support a custom build and its maintenance.</p>"
+                }
+              ],
+              "debrief": "<p>The cheapest quote is not the lowest three-year cost. The board is buying\nan outcome, not a build.</p>"
+            }
+          ]
+        },
+        {
+          "id": "01-06",
+          "title": "Which critique is stronger?",
+          "kind": "calibration",
+          "xp": 25,
+          "blocks": [
+            {
+              "type": "calibration",
+              "prompt": "<p>Read both critiques of the same site, choose the stronger one, and write one\nsentence about why.</p>",
+              "options": {
+                "a": {
+                  "title": "Critique A",
+                  "body": "<p>The site has ten problems. The font is inconsistent, the footer is\ncrowded, the colours are uneven, the images are different sizes, the menu\nis a PDF, the booking form is long, the about page is thin, the headings\nskip a level, the alt text is poor, and the domain is owned by the old\ndeveloper.</p>"
+                },
+                "b": {
+                  "title": "Critique B",
+                  "body": "<p>I would not charge yet. The menu is a PDF, so the main customer task fails\non a phone. The booking form takes four taps, and the domain is still in\nthe previous developer's name. I would fix the menu, shorten the booking\nflow and transfer the domain before launch.</p>"
+                }
+              },
+              "better": "b",
+              "rationale": "<p>Critique B chooses, prioritises and ties each point to a customer task.\nCritique A lists everything and leaves the decision to the client.</p>"
+            }
+          ]
+        },
+        {
+          "id": "01-07",
+          "title": "Mock viva",
+          "kind": "viva",
+          "xp": 40,
+          "blocks": [
+            {
+              "type": "viva",
+              "context": "<p>You recommended WordPress over an AI site builder. The examiner is\nnon-technical but has read both proposals.</p>",
+              "questions": [
+                {
+                  "prompt": "Why not the AI builder? It is half the price.",
+                  "strong_answer": "<p>It is half the build price, not half the three-year cost. Dev cannot\nedit the content model, and leaving the platform would mean rebuilding\nthe site. The agency costs more now and less to leave.</p>",
+                  "signals": [
+                    {
+                      "label": "Names the three-year cost",
+                      "pattern": "three[- ]year|3[- ]year|tco|total cost"
+                    },
+                    {
+                      "label": "Names lock-in or exit cost",
+                      "pattern": "exit|lock|leave|migrat|rebuild"
+                    },
+                    {
+                      "label": "Names staff editing",
+                      "pattern": "staff|dev|edit|content"
+                    }
+                  ],
+                  "follow_up": ""
+                },
+                {
+                  "prompt": "The budget halves. What changes?",
+                  "strong_answer": "<p>Keep WordPress and the content model. Drop the custom booking flow for\nthe first six months and use a form with a manual process. Protect the\nhandover and the editing experience before the automation.</p>",
+                  "signals": [
+                    {
+                      "label": "Keeps the priority",
+                      "pattern": "content|edit|staff|wordpress"
+                    },
+                    {
+                      "label": "Drops or defers something",
+                      "pattern": "drop|defer|delay|manual|cut|reduce"
+                    },
+                    {
+                      "label": "Names the trade-off",
+                      "pattern": "risk|later|first|trade|cost"
+                    }
+                  ],
+                  "follow_up": ""
+                }
+              ],
+              "rubric": [
+                "Recommendation reasoning holds up under challenge.",
+                "Trade-offs are named, not hidden.",
+                "The answer adapts when the brief changes.",
+                "The language works for a non-technical board."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01-08",
+          "title": "Inspect the endpoints",
+          "kind": "api",
+          "xp": 30,
+          "blocks": [
+            {
+              "type": "api",
+              "prompt": "<p>Send each request and read the response. Then answer the exposure\nquestions.</p>",
+              "endpoints": [
+                {
+                  "id": "users",
+                  "method": "GET",
+                  "path": "/wp-json/wp/v2/users",
+                  "status": 200,
+                  "body": [
+                    {
+                      "id": 1,
+                      "name": "maria",
+                      "roles": [
+                        "administrator"
+                      ]
+                    },
+                    {
+                      "id": 2,
+                      "name": "dev",
+                      "roles": [
+                        "editor"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "menu",
+                  "method": "GET",
+                  "path": "/wp-json/wp/v2/menu_item",
+                  "status": 200,
+                  "body": [
+                    {
+                      "id": 10,
+                      "title": {
+                        "rendered": "Sourdough"
+                      }
+                    },
+                    {
+                      "id": 11,
+                      "title": {
+                        "rendered": "Croissant"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "bookings",
+                  "method": "GET",
+                  "path": "/wp-json/wp/v2/bookings",
+                  "status": 200,
+                  "body": [
+                    {
+                      "id": 30,
+                      "name": "Sam",
+                      "phone": "0400 000 000"
+                    }
+                  ]
+                }
+              ],
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "Which endpoint exposes account names to an anonymous request?",
+                  "options": [
+                    "/wp-json/wp/v2/users",
+                    "/wp-json/wp/v2/menu_item",
+                    "/wp-json/wp/v2/bookings"
+                  ],
+                  "answer": 0,
+                  "explanation": "The users endpoint lists accounts. Restrict it."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "Which endpoint contains customer personal data?",
+                  "options": [
+                    "/wp-json/wp/v2/users",
+                    "/wp-json/wp/v2/bookings",
+                    "/wp-json/wp/v2/menu_item"
+                  ],
+                  "answer": 1,
+                  "explanation": "Names and phone numbers are personal data. Authenticate it or keep it server-only."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What should happen to the users endpoint?",
+                  "options": [
+                    "Restrict or disable it",
+                    "Keep it public for transparency",
+                    "Add more fields"
+                  ],
+                  "answer": 0,
+                  "explanation": "Public account lists help enumeration. Close it unless there is a reason to keep it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01-09",
+          "title": "Query the menu",
+          "kind": "sql",
+          "xp": 50,
+          "blocks": [
+            {
+              "type": "sql",
+              "prompt": "<p>Run a query against the menu database. The result must match the task.</p>",
+              "task": "<p>List the name and price of every available item, cheapest first.</p>",
+              "schema": "CREATE TABLE menu_items (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  price REAL NOT NULL,\n  available INTEGER NOT NULL\n);",
+              "seed": "INSERT INTO menu_items (name, price, available) VALUES\n  ('Sourdough', 8.0, 1),\n  ('Croissant', 6.0, 1),\n  ('Flat white', 5.0, 0),\n  ('Rye loaf', 9.0, 1);\n",
+              "solution": "SELECT name, price\nFROM menu_items\nWHERE available = 1\nORDER BY price ASC;"
+            }
+          ]
+        },
+        {
+          "id": "01-10",
+          "title": "Diagnose the proxy",
+          "kind": "terminal",
+          "xp": 40,
+          "blocks": [
+            {
+              "type": "terminal",
+              "prompt": "<p>The booking page is down. Inspect the estate, read the proxy log and start\nthe proxy. Type <code>help</code> if you are lost.</p>",
+              "host": "operator@workbench",
+              "cwd": "None",
+              "goals": [
+                {
+                  "id": "list",
+                  "label": "List the containers"
+                },
+                {
+                  "id": "logs",
+                  "label": "Read the proxy log"
+                },
+                {
+                  "id": "start",
+                  "label": "Start the proxy"
+                }
+              ],
+              "commands": [
+                {
+                  "pattern": "^docker ps$",
+                  "output": "<p>CONTAINER ID   IMAGE                  STATUS\na1b2c3d4e5f6   nginx:alpine           Exited (1) 4 minutes ago\nd4e5f6a7b8c9   cloudcore/portal:1.0   Up 4 minutes</p>",
+                  "completes": [
+                    "list"
+                  ]
+                },
+                {
+                  "pattern": "^docker logs proxy$",
+                  "output": "<p>nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)\nnginx: [emerg] still could not bind()</p>",
+                  "completes": [
+                    "logs"
+                  ]
+                },
+                {
+                  "pattern": "^docker compose up -d proxy$",
+                  "output": "<p>Container proxy  Started</p>",
+                  "completes": [
+                    "start"
+                  ]
+                }
+              ],
+              "help": "<p>Try <code>docker ps</code>, <code>docker logs proxy</code> and <code>docker compose up -d proxy</code>.</p>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

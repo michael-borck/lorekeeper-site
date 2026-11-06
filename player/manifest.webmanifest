@@ -1,0 +1,38 @@
+{
+  "id": "./",
+  "name": "Lorekeeper",
+  "short_name": "Lorekeeper",
+  "description": "Story-driven courses for information systems.",
+  "lang": "en-AU",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Ship It", "url": "./?course=ship-it" },
+    { "name": "Signal & Noise", "url": "./?course=signal-and-noise" },
+    { "name": "Field Kit", "url": "./?course=field-kit" }
+  ]
+}

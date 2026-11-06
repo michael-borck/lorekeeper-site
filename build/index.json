@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "courses": [
+    {
+      "slug": "field-kit",
+      "title": "Field Kit: The Lorekeeper Workbench",
+      "theme": "pixel",
+      "url": "field-kit/course.json",
+      "modules": 1,
+      "lessons": 10
+    },
+    {
+      "slug": "signal-and-noise",
+      "title": "Signal & Noise: An Enterprise Systems Field Guide",
+      "theme": "pixel",
+      "url": "signal-and-noise/course.json",
+      "modules": 12,
+      "lessons": 27
+    },
+    {
+      "slug": "ship-it",
+      "title": "Ship It: Web Craft with an AI Partner",
+      "theme": "storybook",
+      "url": "ship-it/course.json",
+      "modules": 12,
+      "lessons": 58
+    }
+  ]
+}
