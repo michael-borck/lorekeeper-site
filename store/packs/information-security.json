@@ -1,0 +1,1302 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "information-security",
+  "title": "Information Security: A Field Guide",
+  "author": "",
+  "licence": "",
+  "createdAt": "2026-11-06T12:09:15+00:00",
+  "courses": [
+    {
+      "slug": "information-security",
+      "title": "Information Security: A Field Guide",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "security",
+        "risk",
+        "operations",
+        "incident"
+      ],
+      "pitch": "A field guide to software security, malware, cryptography and incident planning.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T12:09:15+00:00",
+        "unit": {
+          "slug": "information-security",
+          "title": "Information Security: A Field Guide",
+          "theme": "pixel",
+          "tags": [
+            "security",
+            "risk",
+            "operations",
+            "incident"
+          ],
+          "level": "beginner",
+          "pitch": "A field guide to software security, malware, cryptography and incident planning.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "introduction-to-information-security",
+            "title": "Introduction to Information Security",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Introduction to Information Security",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Define information security and explain the <strong>CIA triad</strong> (confidentiality, integrity, availability).</li>\n<li>Explain why the three properties trade off against each other, and what \"balancing CIA\" means.</li>\n<li>Describe <strong>defence in depth</strong> and the <strong>phases of an attack</strong>, and why a defender studies them.</li>\n<li>Explain the <strong>assume breach</strong> mindset and what it changes about how systems are defended.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 2</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: assume breach</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The old question in security was \"how do we keep attackers out?\" The better one is \"what do we\ndo given that, sooner or later, they get in?\" No single control is ever enough, so a defender\nlearns to think in layers, watch for the intrusion, limit how far it spreads, and plan to\nrecover. This first week sets up that mindset. Everything else in the unit hangs off it.</p>\n<p>The breach you vote through in this week's lecture is not a one-off exercise, either: modules\n2–4 are its investigation. Each week rewinds the same incident one layer deeper: how they got\nin, what they took, and what held.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read the chapter, watch the short summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Interactive: a poll, a class-vote incident, and a debrief</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Set up the lab environment and meet access control</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong><a href=\"chapters/01-introduction.html\">Chapter 1: Introduction to Information Security</a>** (short link: <a href=\"https://slinkr.link/ab-ch1\">slinkr.link/ab-ch1</a>)</li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Lab environment setup and access control.</strong> You get the lab environment running (one\ncommand, nothing to learn about the plumbing) and meet users, groups, and permissions, the\nfirst, most basic control. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Play it again: The Defender&#x27;s Dilemma</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The warm-up game from this week's lecture. You run security for a small business and every choice\ntrades one thing off against another; you cannot win cleanly, only balance. Play your own run,\nnothing to install, no account, works on any phone:</p>\n<p><a href=\"https://swipeverse.app/app/?play=https://store.swipeverse.app/play/defenders-dilemma.json\">Play The Defender's Dilemma</a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Software Security &amp; Malware</strong>, where software goes wrong, and the malware that\nwalks through the gaps.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Lab: Environment setup and access control",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting the lab environment</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>Install Docker Desktop</strong> following the <a href=\"../resources/setup-guide.md\">environment setup guide</a>\n   (it covers Windows, macOS and Linux, and what to do when it won't install).</li>\n<li><strong>Download the labs:</strong> <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>; unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>01: Access control</strong>.</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 01: Access control lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you complete two short modules:</p>\n<ol>\n<li><strong>Environment setup</strong>: get the lab running and confirm it works.</li>\n<li><strong>Access control</strong>. Meet users, groups, and permissions: the first, most basic security\n   control, and a direct example of <em>confidentiality</em> and <em>least privilege</em> from the reading.</li>\n</ol>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (no\ninstall required). Follow the lab guide for each module; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your first <strong>Lab Passport</strong> entry: a short,\nhandwritten reflection, handed in as you leave. This is <strong>Assessment 1</strong>; there is no separate\nreport; the collected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>What does \"thinking like a defender\" mean to you after today, and why would a business care?</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "software-security-malware",
+            "title": "Software Security & Malware",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Software Security & Malware",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Distinguish a <strong>design flaw</strong> from an <strong>implementation flaw</strong>, and explain what <strong>attack surface</strong> is and why a defender shrinks it.</li>\n<li>Explain what <strong>CVE</strong> and <strong>CWE</strong> are, how <strong>responsible disclosure</strong> works, and why a <strong>zero-day</strong> is dangerous.</li>\n<li>Classify the main families of <strong>malware</strong> (virus, worm, trojan, RAT, ransomware, rootkit, botnet) by how they spread and survive.</li>\n<li>Trace how a real breach <strong>chains</strong> several flaws together, and name the ordinary controls that would have broken the chain.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: most attacks walk through a door someone left open</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Very few attacks break the maths. They exploit a mistake in the software, or a person willing to\nrun something they shouldn't. Once you see those two doors, \"gaining access\" stops being magic\nand becomes a list of things a defender can close: reduce the attack surface, patch the flaws,\nlimit what code can run, and never trust one control to hold. That is assume breach applied to\nsoftware.</p>\n<p>This is also the first rewind of Module 1's First Breach: the investigation opens with <em>how\ndid they get in?</em> The lab has you take the attacker's own first step to find out.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 2, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Malware line-up, then trace a real breach chain and vote the control that breaks each link</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Scan an internal lab network and see the attack surface from the attacker's side</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong><a href=\"chapters/02-software-security-and-malware.html\">Chapter 2: Software Security &amp; Malware</a>** (short link: <a href=\"https://slinkr.link/ab-ch2\">slinkr.link/ab-ch2</a>)</li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Port scanning and enumeration.</strong> You take the attacker's first practical step,\nreconnaissance, against a small internal lab network, and discover which hosts and services are\nreachable. That list of open ports <em>is</em> the attack surface from the reading, made concrete. All\ntargets are inside the provided lab; you never scan the real internet. Labs site:\n<a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Authentication &amp; Access</strong>: passwords, why they fail, and how attackers crack them.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Lab: Port scanning and enumeration",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (see the <a href=\"../resources/setup-guide.md\">environment setup guide</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>02: Port scanning &amp; enumeration</strong>.</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 02: Port scanning &amp; enumeration lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you take the attacker's first practical step, <strong>reconnaissance</strong>, against a small\ninternal lab network. Using Nmap you discover which hosts are alive, which <strong>ports</strong> are open, and\nwhich <strong>services</strong> are listening. That list of open ports is exactly the <strong>attack surface</strong> from\nthe reading, seen from the outside. You will notice how a service that no one turned off is a door\nleft open.</p>\n<p>All targets are <strong>inside the provided lab network</strong>. You never scan the real internet or any\nsystem you do not own. Scanning systems without permission is unlawful, and it is the line between\nwhat you are learning and what an attacker does.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide for the module; ask your tutor if you get\nstuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>; there is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>You scanned a network and saw its open ports. Pick one service you found and argue, as a\ndefender, whether it should be open at all, and how you would decide.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "authentication-access",
+            "title": "Authentication & Access",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Authentication & Access",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Distinguish <strong>identification</strong>, <strong>authentication</strong>, and <strong>authorisation</strong>, and explain least privilege in those terms.</li>\n<li>Explain the <strong>three factors</strong> of authentication and what <strong>multi-factor authentication</strong> does and does not add.</li>\n<li>Explain why a good system stores a <strong>salted hash</strong> of a password, never the password itself.</li>\n<li>Analyse <strong>password attacks</strong> (dictionary, brute-force, rainbow tables) and name the defence that beats each.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: a password isn&#x27;t stored as a password</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Every system starts with one question: <em>who are you, and are you allowed to be here?</em> The secret\nbehind the answer is never kept as-is: it is hashed, and salted, so that stealing the database\ndoes not hand over everyone's password. Understanding what is actually stored, and how attackers\nattack it, is the whole of this week. And as always, the maths is rarely the weakest link; the\npeople and the plumbing around it are.</p>\n<p>The First Breach rewind continues: we know how they got in (Module 2); this week asks <em>what\ndid they take?</em> The stolen login database in the lecture is that company's own, and in the\nlab you crack its hashes yourself.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 3, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>A defender adds one login control at a time; the class votes whether each attack still gets through</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Crack real password hashes and see for yourself why length and salt matter</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 3: Authentication &amp; Access**, <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Password attacks.</strong> Using John the Ripper against hashes provided in the lab, you run a\ndictionary attack and a brute-force attack, and see directly how quickly weak passwords fall and\nhow much length and salting change the game. Everything is offline and self-contained. Labs site:\n<a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Cryptography</strong>, the maths behind that hash, and the one idea (Kerckhoff's principle)\nthat organises the whole field.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Lab: Password attacks",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>03: Password attacks</strong>.</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 03: Password attacks lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you attack passwords the way an attacker does: not by reversing the hash, but by\n<strong>guessing, hashing, and matching</strong>. Using <strong>John the Ripper</strong> against hashes provided in the lab,\nyou run a <strong>dictionary attack</strong> and a <strong>brute-force attack</strong>, and see for yourself how fast weak\npasswords fall, how much <strong>length</strong> slows an attacker down, and how <strong>salt</strong> removes their\nshortcut. Everything is offline and self-contained.</p>\n<p>You are cracking <strong>hashes provided inside the lab</strong> for teaching. Never attempt to crack passwords\nor hashes you are not explicitly authorised to test. The skill is for defenders; the authorisation\nis what keeps it lawful.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>; there is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>You cracked weak password hashes today. As a defender, what would you require of your users, and\nof the system that stores their passwords, and what would still keep you up at night?</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "slug": "cryptography",
+            "title": "Cryptography",
+            "lessons": [
+              {
+                "id": "04-01",
+                "title": "Cryptography",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain the difference between an <strong>algorithm</strong> and a <strong>key</strong>, and state <strong>Kerckhoff's principle</strong>.</li>\n<li>Distinguish <strong>symmetric</strong> from <strong>asymmetric</strong> cryptography and say what each is good for.</li>\n<li>Explain the difference between <strong>hashing</strong> and <strong>encryption</strong>, and where digital signatures fit.</li>\n<li>Reason about why weak ciphers fail, and why real systems attack the <em>plumbing</em>, not the maths.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: the secret is the key, not the method</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A good cipher is secure even when the enemy knows exactly how it works. Its strength rests\nentirely on the secrecy of the <strong>key</strong>, never on hiding the algorithm. That is Kerckhoff's\nprinciple, and it explains why the ciphers you should trust are the ones published and attacked by\nthe whole world for years. You do not need the mathematics to reason about cryptography well: you\nneed to know what each kind <em>guarantees</em>, what it <em>doesn't</em>, and where the real weaknesses lie\n(which, as ever, are rarely in the maths).</p>\n<p>This is the last rewind of First Breach, and its best ending: among everything the attacker\ntook, one properly encrypted file never gave. This week explains why: the one control that\nkept working <em>after</em> the breach, which is assume breach's whole argument in a single file.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 4, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Break a weak cipher live, discover why public algorithms win, sort encrypt-vs-hash</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Encrypt and decrypt with a real cipher and with GnuPG public keys</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 4: Cryptography** (<a href=\"\"></a>)</li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Cryptography.</strong> You use a cipher tool to encrypt and decrypt messages, watch a weak cipher\ngive up its secret, and use <strong>GnuPG</strong> to generate a key pair and exchange an encrypted message the\nasymmetric way. Everything runs offline in the provided environment. Labs site:\n<a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week is <strong>tuition-free</strong>. We return in Week 6 with <strong>Risk Management</strong>, deciding where the\nmoney and effort actually go.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "04-02",
+                "title": "Lab: Cryptography",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>04: Cryptography</strong>.</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 04: Cryptography lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you get your hands on cryptography directly. Using a cipher tool you <strong>encrypt and\ndecrypt</strong> a message and watch a <strong>weak cipher</strong> give up its secret to simple analysis. Then, with\n<strong>GnuPG</strong>, you generate a <strong>public/private key pair</strong> and exchange an encrypted message the\nasymmetric way, seeing how someone can send you a secret using only your public key. Everything\nruns offline in the provided environment; there are no online key servers or web tools.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>. There is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>Explain to a non-technical manager, in your own words, why \"we wrote our own secret encryption\nalgorithm\" should worry them rather than reassure them.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "slug": "risk-management",
+            "title": "Risk Management",
+            "lessons": [
+              {
+                "id": "05-01",
+                "title": "Risk Management",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Define <strong>risk</strong> as likelihood × impact, and explain why <strong>risk appetite</strong> varies between organisations.</li>\n<li>Distinguish <strong>intrinsic</strong> from <strong>acquired</strong> value, and use <strong>cost-benefit analysis</strong> to judge a control.</li>\n<li>Calculate <strong>single loss expectancy (SLE)</strong> and <strong>annual loss expectancy (ALE)</strong>, and decide whether a control is worth buying.</li>\n<li>Describe the four <strong>risk treatments</strong> (avoid, mitigate, transfer, accept) and when each is the right call.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: you can&#x27;t protect everything, so decide well</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>No organisation has unlimited money or time, so a defender who tries to protect everything equally\nprotects nothing well. Risk management is the discipline of deciding, honestly and defensibly, what\nto protect, how much to spend, and what to leave alone. This is where security stops being a\ntechnical subject and becomes a business one, and where \"assume breach\" turns into a budget.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 5, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Spend a fixed security budget as a team; compute what each control actually saves</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Use an SLE/ALE calculator to size risks and judge controls with real numbers</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 5: Risk Management**, <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Risk (SLE/ALE).</strong> In a browser-based calculator you put numbers on real risks (single loss\nexpectancy, annualised rate of occurrence, annual loss expectancy) and test whether a proposed\ncontrol actually saves money. It is the quantitative backbone of the Case Study you are about to\nbegin. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Incident &amp; Disaster Planning</strong>, what you do when a risk you accepted or mitigated\nhappens anyway. This is also where the <strong>Case Study</strong> launches.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "05-02",
+                "title": "Lab: Risk (SLE/ALE)",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything. This week's lab is <strong>browser-based</strong>: the environment\nserves a small web page to your browser, and there is no command line to learn.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>05: Risk management</strong>.</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 05: Risk management lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you put real numbers on risk. Using an <strong>SLE/ALE calculator</strong> you work through several\nscenarios: estimate the <strong>single loss expectancy</strong>, choose an <strong>annualised rate of occurrence</strong>,\nand read off the <strong>annual loss expectancy</strong>. Then you test a proposed control: does the reduction\nin ALE actually beat what the control costs? You will find, as in the lecture, that the answer is\nsometimes no. This is the exact reasoning the <strong>Case Study</strong> runs on, so treat the lab as a warm-up\nfor it.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>; there is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>From today's scenarios, pick one control you decided </em><em>not</em><em> to buy. Justify that decision as a\ndefender, using cost versus the reduction in annual loss, not gut feeling.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 6,
+            "slug": "incident-disaster-planning",
+            "title": "Incident & Disaster Planning",
+            "lessons": [
+              {
+                "id": "06-01",
+                "title": "Incident & Disaster Planning",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Distinguish <strong>incident response</strong>, <strong>business continuity</strong>, and <strong>disaster recovery</strong>, and give an example of each.</li>\n<li>Explain <strong>RTO</strong> and <strong>RPO</strong> and why the RPO dictates the backup schedule.</li>\n<li>Describe a good incident-response lifecycle (<strong>detect → respond → recover → learn</strong>) and the role of pre-decided roles and communication.</li>\n<li>Explain the <strong>3-2-1</strong> backup rule, alternate sites, breach-notification clocks, and why an untested plan is only a hope.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 3</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: decide what you&#x27;ll do *before* the worst day</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This is the week assume breach stops being a slogan and becomes a plan. Prevention has a ceiling;\npast it, the only thing that helps is preparation to respond. The organisations that survive a\nbreach are the ones that decided in advance what they would do, calmly, not at 3 a.m. during the\nworst day of the company's year. Planning for failure is the most practical form of optimism there\nis.</p>\n<p>And the worst day has an address. Remember Bassendean Medical Supplies, the shop you defended in\nFirst Breach? Their customer list includes an allied-health provider called <strong>Rivergum Health</strong>:\nthree clinics, 48,000 patient files, two IT staff. The supplier's breach was November. This week,\nat 6 a.m. on a Saturday, it is Rivergum's turn, and you are the one on call.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 6, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Run a live incident against a 72-hour clock, and make the calls under pressure</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td><strong>Case Study launch</strong>: meet your assigned team, take in the Essential Eight brief, and catch up on any lab you missed</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 6: Incident &amp; Disaster Planning**: <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Case Study launch (no Docker this week).</strong> This hour we start <strong>Assessment 2</strong>: you meet your\ncoordinator-assigned team, receive the <strong><em>* Essential Eight gap-analysis\nbrief, and plan your approach.\nIt is also a </em>*catch-up</strong> slot: if a Docker lab from an earlier week didn't finish, use the time\n(and your tutor) to complete it. See <code>in-class/</code> for the details.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Network Security</strong>: what an attacker can see and do on the wire, and the packet\ncapture that makes it undeniable.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "06-02",
+                "title": "Case Study launch + catch-up",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week: no Docker lab; we start the Case Study</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>There is no container lab this week. Instead the hour launches <strong>Assessment 2</strong>, the\n**** Essential Eight gap analysis (35%), and gives you a catch-up slot for\nany earlier lab you did not finish.</p>\n<h3>1. Form your team</h3>\n<p>Get into your assessment teams. Your tutor will confirm sizes and record membership. The\nindividual <strong>viva</strong> later means everyone must genuinely understand the team's work, so choose to\ncontribute from day one.</p>\n<h3>2. Meet the brief</h3>\n<p>You will receive the Case Study brief and the <strong><em>* materials on the LMS:\nthe maturity model, the process guide, and the report template. Your job across the coming weeks is\nto assess a real target (</em></strong>*) against the Essential Eight controls,\nidentify the gaps, and recommend improvements to a senior stakeholder. Today, read the brief\ntogether and agree who does what.</p>\n<h3>3. Plan your approach</h3>\n<p>Sketch a plan: which controls each member will assess, how you will gather evidence, and when you\nwill meet. The <strong>risk reasoning from last week</strong> (SLE/ALE, the four treatments) is the backbone of\nyour recommendations.</p>\n<h3>4. Catch up (if needed)</h3>\n<p>If a Docker lab from Weeks 1–6 did not finish on your machine, use this time and your tutor to\ncomplete it. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Optional: run the incident live</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>If your tutor has <strong>, its </strong>Disaster Recovery** module turns today's tabletop\ninto a timed game against the 72-hour clock. → <a href=\"\"></a></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong>, make your <strong>Lab Passport</strong> entry: a short, handwritten reflection,\nhanded in as you leave. This is <strong>Assessment 1</strong>: there is no separate report; the collected\npassport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>After today's incident tabletop, name the one decision your team most needs to make </em><em>before</em><em>\na real breach, and explain why deciding it in advance matters.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 7,
+            "slug": "network-security",
+            "title": "Network Security",
+            "lessons": [
+              {
+                "id": "07-01",
+                "title": "Network Security",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain how <strong>scanning</strong> and <strong>sniffing</strong> work and what each reveals about a network.</li>\n<li>Describe what a <strong>packet capture</strong> shows, and why unencrypted traffic is so dangerous.</li>\n<li>Describe <strong>spoofing</strong> and <strong>man-in-the-middle</strong> attacks, and why a <em>local</em> attacker is special.</li>\n<li>Explain how <strong>encryption in transit</strong>, <strong>segmentation</strong>, and <strong>monitoring</strong> turn an open wire back into a private one.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: everything you send crosses wires you don&#x27;t control</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>On a network, an attacker often doesn't need to break into your machine to learn your secrets.\nThey only have to <em>listen</em>. A surprising amount of traffic gives itself away in plain text,\nincluding usernames and passwords typed in the clear. This week is about how attackers map and\neavesdrop on networks, and the single change (encryption in transit) that neutralises passive\nlistening.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 7, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Watch a real packet capture give up a plaintext password, then watch encryption erase it</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Capture and read network traffic in Wireshark, and see plaintext vs encrypted for yourself</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 7: Network Security**, <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Packet capture &amp; analysis.</strong> Using Wireshark in the browser, you open real teaching captures\nand reassemble the conversations crossing the wire, including a login sent in the clear. Then you\ncompare it with encrypted traffic and see the difference for yourself. All captures are provided in\nthe lab. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>VPN &amp; Firewalls</strong>, the two classic defences that decide <em>what</em> traffic is allowed and\nprotect <em>what's</em> in motion.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "07-02",
+                "title": "Lab: Packet capture & analysis",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything. This week's tool, <strong>Wireshark</strong>, runs <strong>in your browser</strong>,\nso there is nothing to install.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>06: Packet capture &amp; analysis</strong> (lab modules are numbered by topic, so the number differs from our module).</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 06: Packet capture &amp; analysis lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you read the wire. You open real teaching <strong>packet captures</strong> and reassemble the\nconversations crossing the network, following a stream until a login sent over an old, unencrypted\nprotocol gives up its <strong>username and password in plain text</strong>. Then you open an encrypted capture\nand see the same kind of traffic reduced to unreadable ciphertext. The contrast is the whole lesson:\nsniffing shows everything that isn't encrypted.</p>\n<p>All captures are <strong>provided inside the lab</strong>. Capturing traffic on networks you are not authorised\nto monitor is unlawful. The skill is for defenders auditing their own systems.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>. There is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>You watched a plaintext password appear in a capture. Explain to a friend who uses public Wi-Fi\nwhat they should change about how they browse, and why, in terms of what an eavesdropper can and\ncannot see.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 8,
+            "slug": "vpn-firewalls",
+            "title": "VPN & Firewalls",
+            "lessons": [
+              {
+                "id": "08-01",
+                "title": "VPN & Firewalls",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain what a <strong>firewall</strong> does and distinguish <strong>packet-filtering</strong>, <strong>stateful</strong>, and <strong>application-layer</strong> firewalls.</li>\n<li>Reason about <strong>firewall rules</strong>: default-deny vs default-allow, why <strong>order</strong> matters, and why over-broad rules are dangerous.</li>\n<li>Explain what a <strong>VPN</strong> provides (confidentiality and integrity over an untrusted network) and, crucially, what it does <strong>not</strong>.</li>\n<li>Describe <strong>defence in depth</strong> in a network context: firewall, VPN, segmentation, and monitoring together.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: the tool is easy, the rule is hard</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall decides what traffic to let through; a VPN protects traffic in transit. Both are\neveryday tools and both are widely misunderstood. A firewall doesn't understand intent: it applies\nyour policy literally, so its security <em>is</em> the quality of the thinking in its rules. Writing a good\nrule is harder than it sounds, and that difficulty is the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 8, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Write a firewall policy as a class and watch one misordered rule open a hole</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Build and test firewall rules between two zones, and see default-deny in action</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 8: VPN &amp; Firewalls** (<a href=\"\"></a>)</li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Firewalls.</strong> You work with a firewall between an inside network it protects and an outside it\ndistrusts, writing and testing rules to allow what should pass and block the rest. You will see how\ndefault-deny fails safe, how rule order changes the outcome, and how one over-broad line opens a\nhole. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Web Security &amp; Data Protection</strong>, the most-attacked surface of all, and the law that\ngoverns the data behind it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "08-02",
+                "title": "Lab: Firewalls",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>07: Firewalls</strong> (lab modules are numbered by topic, so the number differs from our module).</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 07: Firewalls lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you work with a <strong>firewall between two zones</strong>: an <em>inside</em> network it protects and an\n<em>outside</em> it distrusts. You write and test rules to allow what should pass and block the rest, and\nyou see the lessons from the lecture become real:</p>\n<ul>\n<li><strong>default-deny</strong> fails safe: anything you didn't allow is blocked;</li>\n<li><strong>order matters</strong>: moving a rule up or down changes what gets through;</li>\n<li>one <strong>over-broad rule</strong> quietly opens a hole.</li>\n</ul>\n<p>You test each rule by trying to reach across the boundary and watching what the firewall does with\nyour traffic.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>: there is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>You opened a hole with a single misordered or over-broad rule. Explain why a firewall can be\n\"on\" and correctly running yet still leave a network exposed, and what that means for how you'd\nreview a real rule set.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 9,
+            "slug": "web-security-data-protection",
+            "title": "Web Security & Data Protection",
+            "lessons": [
+              {
+                "id": "09-01",
+                "title": "Web Security & Data Protection",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain the most common web vulnerabilities (<strong>injection/SQL injection</strong>, <strong>cross-site scripting (XSS)</strong>, and <strong>session</strong> attacks) at a working level.</li>\n<li>Trace how a web attack unfolds and identify the recurring root cause: <strong>trusting input that should not be trusted</strong>.</li>\n<li>Explain core <strong>data-protection</strong> obligations (the privacy principles and <strong>mandatory breach notification</strong>) using the APPs/NDB and GDPR as examples.</li>\n<li>Explain why a web vulnerability is, in the same instant, a <strong>privacy incident</strong>.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: a web flaw is a privacy incident</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The web is where most of us are attacked, because it's where most of us are; it is the single\nlargest attack surface most organisations have. Behind every web app is data someone is <em>legally\nobliged</em> to protect. So a single injection or XSS flaw that spills a customer database is a\ntechnical failure and a legal event at the same moment: it starts the breach-notification clock and\nexposes the organisation to real penalty. The vulnerability and the consequence are two faces of one\nevent.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 9, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Break a deliberately vulnerable web app together, then start the legal clock the breach just triggered</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Attack <strong>OWASP Juice Shop</strong> in a safe, provided environment and find real web flaws</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>A short handwritten reflection, handed in at the end of the lab</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 9: Web Security &amp; Data Protection**: <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Web security.</strong> In a safe, provided instance of <strong>OWASP Juice Shop</strong> (a deliberately\nvulnerable web application), you find and exploit real web flaws for yourself: bypass a login with\ninjection, trigger a cross-site script, and see how a stolen session behaves. Nothing you do touches\nany real site. Labs site: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 11 is <strong>tuition-free</strong>. We return in Week 12 with <strong>Cybercrime, Botnets &amp; Forensics</strong>,\nfollowing the money and the evidence. Your <strong>Report (Lab Passport)</strong> is also due that week.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "09-02",
+                "title": "Lab: Web security",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and this week the app runs <strong>in your browser</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>10: Web security</strong> (lab modules are numbered by topic, so the number differs from our module).</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 10: Web security lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you attack <strong>OWASP Juice Shop</strong>, a modern web application built to be deliberately\nvulnerable for exactly this kind of practice. Running your own private copy in the provided\nenvironment, you find and exploit real web flaws:</p>\n<ul>\n<li><strong>bypass a login</strong> with an injection;</li>\n<li><strong>fire a cross-site script</strong> and watch it run in the page;</li>\n<li>see how a <strong>hijacked session</strong> lets someone act as another user.</li>\n</ul>\n<p>Each is the concrete version of a flaw from the reading, and each traces back to the same root\ncause: input that should not have been trusted.</p>\n<p>You attack <strong>your own provided instance</strong> of Juice Shop, running locally in the lab. Never use these\ntechniques against any website you are not explicitly authorised to test. The app is built for\npractice; the authorisation is what keeps it lawful.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the <strong>last few minutes</strong> of the lab, make your <strong>Lab Passport</strong> entry: a short, handwritten\nreflection, handed in as you leave. This is <strong>Assessment 1</strong>: there is no separate report; the\ncollected passport is the assessment. This week's prompt:</p>\n<blockquote>\n<p><em>You exploited a web flaw that could spill customer data. Explain why fixing the bug is only half\nthe response: what does the organisation now owe the people whose data was exposed, and why?</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words. Best 8 of 10 weekly entries count.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 10,
+            "slug": "cybercrime-botnets-forensics",
+            "title": "Cybercrime, Botnets & Forensics",
+            "lessons": [
+              {
+                "id": "10-01",
+                "title": "Cybercrime, Botnets & Forensics",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain what a <strong>botnet</strong> is, why its value is <strong>aggregate</strong>, and how it is built and monetised.</li>\n<li>Describe the <strong>cybercrime economy</strong>, the division of labour, and why specialisation makes attacks so hard to stop.</li>\n<li>Reconstruct a <strong>timeline</strong> from forensic traces (logs, timestamps, email headers, document metadata).</li>\n<li>Explain <strong>chain of custody</strong> and why <strong>attribution</strong> is spoken of in terms of confidence, not certainty.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: modern attacks are a business</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lone hacker in a hoodie is decades out of date. Serious cybercrime is organised, professional,\nand about money: an economy with suppliers, specialists, and marketplaces. Once you see it as an\neconomy you stop asking \"who would do this?\" and start asking \"who <em>profits</em>, and how do I make it\nunprofitable?\" And when an attack succeeds, the work shifts to <strong>forensics</strong>: following the money\nand the evidence back to its source, without destroying the evidence on the way.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 10, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Reconstruct a breach timeline from traces, and learn how one mishandled step loses the case</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Analyse email headers and document authorship to trace a message to its source</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lab Passport</strong></td>\n<td>Your <strong>final</strong> handwritten reflection; the passport is collected this week</td>\n<td>in the lab</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 10: Cybercrime, Botnets &amp; Forensics**: <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Digital forensics.</strong> Using two offline tools, you analyse <strong>email headers</strong> to trace a\nmessage's real path and origin, and use <strong>stylometry</strong> (authorship analysis) to reason about who\nwrote a document. From fragments like these an investigator builds a defensible timeline. Front\ndoor: <a href=\"\"></a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Assessment 1 is due this week</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The <strong>Report (Lab Passport)</strong> is collected in Week 12. Make sure your passport is complete: your\n<strong>best 8 of 10</strong> weekly entries count.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Human Factors &amp; Emerging Trends</strong>, the person at the centre of it all, and how AI is\nreshaping the fight.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "10-02",
+                "title": "Lab: Digital forensics",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and you drive the lab with plain commands.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>08: Digital forensics</strong> (lab modules are numbered by topic, so the number differs from our module).</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 08: Digital forensics lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week you follow the trail. Using two offline tools you:</p>\n<ul>\n<li><strong>analyse email headers</strong> to trace a message's real path and origin, seeing through an attempt to\n  hide where it came from; and</li>\n<li>use <strong>stylometry</strong> (authorship analysis) to reason about <strong>who wrote</strong> a document from the way it\n  is written.</li>\n</ul>\n<p>From fragments like these an investigator builds a defensible timeline. As you work, keep the\nlecture's warning in mind: the moment you handle evidence carelessly, you can no longer prove it\nwasn't altered.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Lab Passport: final entry</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The passport is collected this week</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This is your <strong>10th and final</strong> Lab Passport entry, and the completed passport (<strong>Assessment 1</strong>) is\n<strong>collected in Week 12</strong>. Your <strong>best 8 of 10</strong> weekly entries count.</p>\n<p>In the <strong>last few minutes</strong> of the lab, make your final entry: a short, handwritten reflection.\nThis week's prompt:</p>\n<blockquote>\n<p><em>You traced a message to its source but had to be careful how you handled the evidence. Explain\nwhy an investigator can be sure who did something and still be unable to prove it, and what that\nmeans for how evidence must be handled.</em></p>\n</blockquote>\n<p>Write 4–6 sentences, in your own words.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 11,
+            "slug": "human-factors-emerging-trends",
+            "title": "Human Factors & Emerging Trends",
+            "lessons": [
+              {
+                "id": "11-01",
+                "title": "Human Factors & Emerging Trends",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Explain why the <strong>human</strong> is so often the weakest link, and why \"blame the user\" is the wrong response.</li>\n<li>Describe <strong>social engineering</strong> and <strong>phishing</strong>, and the defences that actually work (and why training alone is the weakest).</li>\n<li>Explain why non-technical people click through warnings like a <strong>certificate error</strong>, and why that is a <em>design</em> failure.</li>\n<li>Discuss <strong>emerging trends</strong>, especially AI's double role as a tool for both attackers and defenders.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: you can&#x27;t patch a person, so design for the mistake</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Every week so far has been, at heart, about machines. But security fails more often through\n<em>people</em>. The most sophisticated defences can be undone by one click, one helpful password reset,\none approved urgent transfer. The professional response is not to demand perfect users; it is to\n<strong>assume someone will be fooled and build so the organisation survives it</strong>. That single shift,\nfrom \"make users perfect\" to \"make mistakes survivable\", is the difference between security that\nworks and security that just apportions blame.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 11, watch the summary, do the quiz</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Spot the phish, argue whose fault a warning-click really is, and debate AI on both sides</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Take a security-awareness challenge and meet real broken-certificate browser warnings</td>\n<td><code>in-class/</code></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 11: Human Factors &amp; Emerging Trends**, <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the pre-class quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Lab: Human factors.</strong> You work through a self-hosted <strong>security-awareness challenge</strong> and then\nvisit a set of sites with deliberately <strong>broken certificates</strong>, seeing the real browser warnings\nmost people click straight past, and learning to read what they actually mean. Labs site:\n<a href=\"\"></a>.</p>\n<p>There is <strong>no Lab Passport entry</strong> this week: the passport (Assessment 1) was collected in Week 12.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Next week: <strong>Revision</strong>. We join the whole unit into one lifecycle loop and play it end to end. The\n<strong>Case Study (Assessment 2)</strong> is due that week.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "11-02",
+                "title": "Lab: Human factors",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The hands-on labs run in a provided, container-based environment. <strong>You do not need to know\nDocker</strong>: one command starts everything, and this week's pieces run <strong>in your browser</strong>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Getting this week&#x27;s lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li><strong>First time only:</strong> install <strong>Docker Desktop</strong> (setup guide on the <a href=\"\">labs site</a>),\n   then download the labs, <a href=\"https://github.com/michael-borck/assume-breach-labs/archive/refs/heads/main.zip\">assume-breach-labs ZIP</a>, and unzip it anywhere.</li>\n<li><strong>Start the lab:</strong> in the unzipped folder, run <code>./start.sh</code> (Windows: double-click <code>start.bat</code>)\n   and choose module <strong>09: Human factors</strong> (lab modules are numbered by topic, so the number differs from our module).</li>\n<li><strong>The steps:</strong> follow the <a href=\"../resources/lab-guide.md\">Module 09: Human factors lab guide</a>\n   from top to bottom; everything the lab asks of you is in there.</li>\n</ol>\n<p>This week has two parts, both self-hosted so nothing depends on an outside website:</p>\n<ul>\n<li>a <strong>security-awareness challenge</strong>: a short quiz that tests whether you can tell a legitimate\n  message or site from a manipulative one; and</li>\n<li>a set of sites with <strong>deliberately broken certificates</strong> (expired, self-signed, wrong name), so\n  you see the <strong>real browser warnings</strong> most people click straight past. You will learn to read what\n  each warning actually means and why it might be the only thing standing between a user and a\n  man-in-the-middle attacker.</li>\n</ul>\n<p>The point is not to memorise the warnings, but to feel how easily a busy person dismisses them, and\nto design, as a defender, so that a moment of inattention is not catastrophic.</p>\n<p>Can't run it on your own machine? The labs site explains the <strong>browser-based option</strong> (GitHub\nCodespaces, no install required). Follow the lab guide; ask your tutor if you get stuck.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>No Lab Passport this week</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The Lab Passport (Assessment 1) was <strong>collected in Week 12</strong>, so there is no passport entry today.\nUse the full hour on the challenge and the certificate warnings, and on your Case Study, which is\ndue Week 14.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 12,
+            "slug": "revision-the-long-game",
+            "title": "Revision (The Long Game)",
+            "lessons": [
+              {
+                "id": "12-01",
+                "title": "Revision (The Long Game)",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this week you will be able to:</p>\n<ol>\n<li>Describe the security <strong>lifecycle loop</strong> (design → harden → detect → respond → recover → investigate → audit &amp; learn) and place every unit topic on it.</li>\n<li>Explain why <strong>assume breach</strong> is what makes the loop turn, and why it is not defeatism.</li>\n<li>Connect the unit's concepts across chapters into a single, coherent whole for the exam.</li>\n<li>Reflect on where a real system you use is weakest around the loop.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connection to Unit Learning Outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 4</strong>:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea: security has no finish line, by design</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You do not secure a system the way you paint a fence: once, and it's done. CIA pulls against\nitself, controls fail, people slip, threats evolve. So security is a <strong>cycle you keep turning</strong>, not\na state you reach. This week we join every topic in the unit into one loop and play it end to end.\nThat shape, and the discipline to keep it turning honestly, is the single most important thing to\ncarry out of a first course in defensive security.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How this week works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Part</th>\n<th>What you do</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Before class</strong></td>\n<td>Read Chapter 12, watch the summary, do the cumulative self-check</td>\n<td><code>pre-class/</code></td>\n</tr>\n<tr>\n<td><strong>Lecture (2 h)</strong></td>\n<td>Walk the whole lifecycle loop, then run the ** capstone</td>\n<td><code>lecture-slides</code></td>\n</tr>\n<tr>\n<td><strong>Lab (1 h)</strong></td>\n<td>Finish the ** campaign, wrap the Case Study, and prepare for the exam</td>\n<td><code>in-class/</code></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Before class</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>[ ] <strong>Read</strong> <strong>, </strong>Chapter 12: The Long Game**, <a href=\"\"></a></li>\n<li>[ ] <strong>Watch</strong> the ~10-minute narrated summary (<code>pre-class/summary-slides</code>)</li>\n<li>[ ] <strong>Do</strong> the cumulative self-check quiz on Blackboard (<code>pre-class/quiz</code>)</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>This week&#x27;s activity</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Capstone: play the whole lifecycle.</strong> No Docker lab this week. Instead we run the\n** campaign, which threads the entire unit into one game: design a network,\nharden it, detect and respond to a breach, recover from the disaster, and investigate what happened.\nIt is the closest thing to <em>living</em> a security cycle in an afternoon. See <code>in-class/</code>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Assessment 2 is due this week</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The <strong>Case Study ()</strong> is due ****. This\nweek includes time to finalise your submission and prepare for the viva.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Looking ahead</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The <strong>Final Examination (50%)</strong> follows in the examination period. It focuses on <em>applying</em> concepts\nand <em>interpreting</em> real security artefacts, exactly what the loop trains you to do. Passing the\nexam is required to pass the unit.</p>\n<p>Your revision companion is the <strong>Final Exam Study Guide</strong> (under <em>Assessments</em> on Blackboard):\none page per module with \"Can you…\" self-checks. Run the checks cold, reread only what you fail,\nand practise by conversation, not re-reading.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "12-02",
+                "title": "Capstone: play the whole lifecycle + Case Study wrap",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>This week: no Docker lab, the capstone</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>There is no container lab this week. The hour is a <strong>capstone</strong>: play the security lifecycle end to\nend, and finalise your Case Study.</p>\n<h3>1. Play **, in groups</h3>\n<p>** threads the whole unit into one game: <strong>design</strong> a network, <strong>harden</strong> it,\n<strong>detect and respond</strong> to a breach, <strong>recover</strong> from the disaster, and <strong>investigate</strong> what happened.\nEvery module you have done maps onto a stage of the campaign, under time and budget pressure, which\nis where the real judgement lives.</p>\n<p>There isn't time to play the <strong>full</strong> campaign in one hour, so we <strong>split into groups and each group\nplays a different stage as a standalone module</strong>:</p>\n<table>\n<thead>\n<tr>\n<th>Group</th>\n<th>Stage (standalone module)</th>\n<th>Draws on</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>A</td>\n<td><strong>Design / Network Building</strong>: segment the network, place perimeter controls</td>\n<td>Modules 07–08</td>\n</tr>\n<tr>\n<td>B</td>\n<td><strong>Harden</strong>: shrink the attack surface with Essential Eight-style controls</td>\n<td>Modules 03–05</td>\n</tr>\n<tr>\n<td>C</td>\n<td><strong>Detect &amp; Respond</strong>: run the incident-response loop against a live breach</td>\n<td>Modules 06–07</td>\n</tr>\n<tr>\n<td>D</td>\n<td><strong>Recover</strong>: bring the business back (backups, DR) from the disaster</td>\n<td>Module 06</td>\n</tr>\n<tr>\n<td>E</td>\n<td><strong>Investigate / Forensics</strong>: reconstruct and attribute what happened</td>\n<td>Module 10</td>\n</tr>\n</tbody>\n</table>\n<p>Each group plays its module, then <strong>reports back</strong> in a few minutes: what the stage taught them, and\nwhere it hands off to the next. Stitched together, the room has replayed the whole lifecycle, the\nsame arc as the full campaign, in the time available.</p>\n<blockquote>\n<p>Print-and-play, free: <a href=\"\"></a></p>\n</blockquote>\n<h3>2. Finalise the Case Study (Assessment 2)</h3>\n<p>The <strong>Case Study ()</strong> is due ****.</p>\n<p>Use time this week to finalise your team's <strong><em>* gap-analysis report,\nconfirm each member's </em>*individual evidence of learning</strong>, and prepare for the <strong>viva</strong>. Remember\nevery member must be able to explain the whole submission.</p>\n<h3>3. Prepare for the exam</h3>\n<p>The <strong>Final Examination (50%)</strong> follows in the examination period and focuses on <strong>applying</strong>\nconcepts and <strong>interpreting</strong> real security artefacts. The best revision aid is <strong>Chapter 12</strong> and\nthe lifecycle loop from today's lecture: for each stage, be able to name the controls, the trade-offs,\nand how a real artefact (a firewall rule set, a packet capture, an SLE/ALE calculation, an email\nheader) would be read.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>No Lab Passport</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The Lab Passport (Assessment 1) was collected in Week 12. There is no passport entry this week.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
