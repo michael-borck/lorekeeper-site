@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-06T11:33:33+00:00",
+  "generated_at": "2026-11-06T11:58:23+00:00",
   "unit": {
     "slug": "signal-and-noise",
     "title": "Signal & Noise: An Enterprise Systems Field Guide",
@@ -807,22 +807,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -839,100 +823,20 @@
             },
             {
               "type": "html",
-              "html": "<h2>The CloudCore ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>The portal name resolves, but it resolves to the wrong address. Customers who use the name\nfail; customers who use the address directly reach the page.</p>\n<p>I need to know which resolver answered, what it returned, and how to stop the next change\nfrom reaching customers.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module adds the <code>dns</code> service to the <code>m05</code> state. Follow\n<a href=\"/blob/main/modules/module-05-naming/LAB-GUIDE.md\"><code>modules/module-05-naming/LAB-GUIDE.md</code></a>,\nor use the activity steps here.</p>\n<pre><code class=\"language-bash\">./start.sh m05\n./start.sh status\n./start.sh console\n</code></pre>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Optional NetSim pre-lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Open <a href=\"\">NetSim</a> and work through <strong>Lab 4: DHCP, DNS and the web</strong>. Watch the DHCP DORA exchange, resolve a name with <code>dig</code>, and fetch a page with <code>curl</code>.</p>\n<p>Then repeat the observations on the real CloudCore estate with <code>ip</code>, <code>dig</code>, <code>curl</code> and <code>tcpdump</code>. NetSim is a concept visualiser; the real evidence comes from the estate. The estate containers use Docker's address pool, not DHCP; the DORA exchange is the concept, not the estate's assignment method.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>Common traps</h2>"
             },
             {
               "type": "html",
               "html": "<ul>\n<li><strong><code>dig</code> and <code>getent</code> can disagree.</strong> <code>dig @dns</code> queries the DNS server. <code>getent</code> uses the\n  name service switch, which checks <code>/etc/hosts</code> first. Neither is broken.</li>\n<li><strong><code>dig @dns web</code> returns <code>REFUSED</code>.</strong> The estate DNS serves <code>estate.local</code> only. <code>web</code> is a\n  Docker service name. That is a zone boundary, not a server failure.</li>\n<li><strong><code>getent hosts portal.estate.local</code> fails.</strong> The tools container uses Docker DNS at\n  <code>127.0.0.11</code>, which does not know the estate zone. Editing <code>/etc/hosts</code> is a local\n  workaround, not the fix.</li>\n<li><strong><code>.local</code> is reserved for Multicast DNS.</strong> RFC 6762 reserves it. The lab uses\n  <code>estate.local</code> for readability and the <code>dig</code> warning is deliberate. A production namespace\n  should be a subdomain you control.</li>\n<li><strong>A wrong address is not a missing service.</strong> A wrong record can still reach a host; a\n  missing service refuses on the port. The evidence differs.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The tools interface, prefix, route and default gateway.</li>\n<li>The <code>/etc/resolv.conf</code> nameserver.</li>\n<li><code>getent</code> and <code>dig</code> output for the same name, with the difference explained.</li>\n<li>The <code>curl</code> failure by name and the success with <code>--resolve</code>.</li>\n<li>The broken and fixed <code>dig</code> output.</li>\n<li>The record file and the smallest safe change.</li>\n<li>Your DNS ownership recommendation, with owner, check and failure path.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>David needs a recommendation, not a lecture. Choose one:</p>\n<ol>\n<li>Container DNS only: the simplest option, but the names are runtime-scoped and leave no\n   audit trail.</li>\n<li>An internal DNS service for the estate zone, with change control and monitoring.</li>\n<li>Public DNS for every name, including internal-only names.</li>\n<li>A managed private DNS service, with the vendor operating the zone.</li>\n</ol>\n<p>State which names need to resolve, from where, how often they change, who approves a change,\nwhat you monitor, and what happens when the check fails. Record the decision in your\nportfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Module 6 adds the web tier: HTTP, TLS and the reverse proxy that ends encryption. The name\nwill matter for the certificate and the virtual host, not just for the address.</p>"
             }
           ]
         },
         {
           "id": "05-02",
-          "title": "Workshop: Find the wrong name",
+          "title": "Two resolvers, one name",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> David Wilson, Cloud Infrastructure Architect\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>The portal name resolves, but it resolves to the wrong address. Customers who use the name\nfail; customers who use the address directly reach the page.</p>\n<p>I need to know which resolver answered, what it returned, and how to stop the next change\nfrom reaching customers.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Read the estate addressing, compare the two resolvers, prove the wrong record is the cause,\nfix it, and recommend how DNS changes should be owned and checked.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh m05\n./start.sh status\n./start.sh console\n</code></pre>\n<p>The tools container is your observatory. The estate DNS is at <code>172.28.0.53</code>. The web tier is\nat <code>172.28.0.10</code>.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Which address and prefix does the tools container have?</li>\n<li>What is the default gateway?</li>\n<li>Which nameserver is in <code>/etc/resolv.conf</code>?</li>\n<li>Will <code>getent hosts portal.estate.local</code> and <code>dig @dns portal.estate.local</code> agree?</li>\n<li>If the record points at <code>172.28.0.99</code>, what will <code>dig</code> show and what will <code>curl</code> do?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Addresses, subnet and route</h2>"
@@ -951,59 +855,135 @@
             },
             {
               "type": "html",
-              "html": "<h2>Part 3: Prove the service is healthy</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">curl -v --max-time 5 http://portal.estate.local/\ncurl -v --resolve portal.estate.local:80:172.28.0.10 http://portal.estate.local/\n</code></pre>\n<ol>\n<li>What error does the first <code>curl</code> report?</li>\n<li>Does the second <code>curl</code> reach the page?</li>\n<li>What does <code>--resolve</code> change, and what does it not change?</li>\n<li>Which header carries the name to nginx?</li>\n<li>What does this prove about the web tier and the DNS record?</li>\n</ol>"
-            },
-            {
-              "type": "html",
               "html": "<h2>Part 4: Break and fix the record</h2>"
             },
             {
               "type": "html",
               "html": "<p>Leave the tools shell open. From the host terminal:</p>\n<pre><code class=\"language-bash\">./start.sh break-m05\n</code></pre>\n<p>Back in the tools container:</p>\n<pre><code class=\"language-bash\">dig @dns portal.estate.local +short\ncurl -v --max-time 5 --resolve portal.estate.local:80:172.28.0.99 http://portal.estate.local/\n</code></pre>\n<ol>\n<li>What address does <code>dig</code> return now?</li>\n<li>What does <code>curl</code> report to <code>.99</code>?</li>\n<li>Which file holds the record?</li>\n<li>What is the smallest safe change?</li>\n</ol>\n<p>From the host terminal:</p>\n<pre><code class=\"language-bash\">./start.sh fix-m05\n</code></pre>\n<p>Back in the tools container:</p>\n<pre><code class=\"language-bash\">dig @dns portal.estate.local +short\ncurl -fsS --resolve portal.estate.local:80:172.28.0.10 http://portal.estate.local/ | head\n</code></pre>\n<ol start=\"5\">\n<li>Why does the <code>dig</code> answer change immediately?</li>\n<li>What would a client that cached the old answer do until the TTL expires?</li>\n<li>Why is \"it works now\" not the same as \"the cause is fixed\"?</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "05-03",
+          "title": "Checkpoint: addresses, resolvers, evidence",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 5: The business decision</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "In 172.28.0.0/24, what is the broadcast address?",
+                  "options": [
+                    "172.28.0.255",
+                    "172.28.0.0",
+                    "172.28.0.1",
+                    "172.28.0.254"
+                  ],
+                  "answer": 0,
+                  "explanation": "The broadcast is the last address in the subnet. The first is the network address."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "Which command uses the name service switch, checking /etc/hosts before DNS?",
+                  "options": [
+                    "getent hosts",
+                    "dig @dns",
+                    "curl -k",
+                    "ip route"
+                  ],
+                  "answer": 0,
+                  "explanation": "getent goes through NSS, which checks local files first. dig asks a DNS server directly."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "Why does `dig @dns web` return REFUSED while `getent hosts web` works?",
+                  "options": [
+                    "The estate DNS serves estate.local; web is a Docker service name",
+                    "The DNS server is down",
+                    "The web service has no IP address",
+                    "getent bypasses DNS entirely"
+                  ],
+                  "answer": 0,
+                  "explanation": "The Docker resolver knows the Compose service name. The estate DNS only owns the estate zone."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What does `curl --resolve portal.estate.local:80:172.28.0.10` change?",
+                  "options": [
+                    "It maps that name to that address for this request, bypassing DNS",
+                    "It fixes the DNS record for every client",
+                    "It changes the web server's certificate",
+                    "It adds a route to the host"
+                  ],
+                  "answer": 0,
+                  "explanation": "It is a local override for one request. It proves the web tier works without proving DNS is fixed."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "A client cached the old record. What must happen before it uses the new answer?",
+                  "options": [
+                    "The TTL expires or the cache is cleared",
+                    "The web service restarts",
+                    "The certificate is renewed",
+                    "The client reboots the DNS server"
+                  ],
+                  "answer": 0,
+                  "explanation": "Caching honors the TTL. A correct record is not visible to a client with an old cached answer."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "Which evidence best separates a wrong DNS record from a missing service?",
+                  "options": [
+                    "Compare the name failure with a direct-address request and read the resolver answer",
+                    "Look only at the browser history",
+                    "Check the host's disk size",
+                    "Restart the proxy"
+                  ],
+                  "answer": 0,
+                  "explanation": "A wrong record can reach the wrong host or refuse on the port. The resolver answer and a direct request show which layer is involved."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "05-04",
+          "title": "Read the subnet",
+          "kind": "fill",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>David needs a recommendation. Choose one option and defend it.</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>What it measures</th>\n<th>What it misses</th>\n<th>Owner</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Container DNS only</td>\n<td>Compose service names</td>\n<td>The estate zone; no audit</td>\n<td>Application team</td>\n</tr>\n<tr>\n<td>Internal DNS</td>\n<td>The estate zone, with change control</td>\n<td>More to run and secure</td>\n<td>Platform team</td>\n</tr>\n<tr>\n<td>Public DNS</td>\n<td>Public names worldwide</td>\n<td>Internal-only names; split-horizon</td>\n<td>Network team</td>\n</tr>\n<tr>\n<td>Managed private DNS</td>\n<td>Outsourced private zones</td>\n<td>Cost and lock-in</td>\n<td>Platform and vendor</td>\n</tr>\n</tbody>\n</table>\n<p>Answer:</p>\n<ol>\n<li>Which names need to resolve, and from where?</li>\n<li>How often do they change, and who approves a change?</li>\n<li>What would you monitor, and from which resolver path?</li>\n<li>What happens when the check fails?</li>\n<li>What evidence would you keep for an audit?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The tools interface, prefix, route and default gateway.</li>\n<li>The <code>/etc/resolv.conf</code> nameserver.</li>\n<li><code>getent</code> and <code>dig</code> output for the same name, with the difference explained.</li>\n<li>The <code>curl</code> failure by name and the success with <code>--resolve</code>.</li>\n<li>The broken and fixed <code>dig</code> output.</li>\n<li>The record file and the smallest safe change.</li>\n<li>Your DNS ownership recommendation, with owner, check and failure path.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Is <code>.local</code> a good choice for an internal DNS namespace?\"</li>\n<li>\"Does <code>dig</code> use <code>/etc/hosts</code>? Explain.\"</li>\n<li>\"A record changed, but a client still gets the old address. What are the possible causes?\"</li>\n<li>\"What is the difference between Docker's embedded DNS and an internal DNS server?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about caching, search\n  domains and split-horizon DNS?\"</li>\n</ul>\n<p>Record one claim, how you checked it, and what you changed.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Which resolver answers <code>getent hosts web</code>, and which answers <code>dig @dns web</code>?</li>\n<li>Why does <code>dig @dns portal.estate.local</code> succeed when <code>getent hosts portal.estate.local</code>\n   fails?</li>\n<li>What does <code>--resolve</code> prove, and what does it hide?</li>\n<li>Why is a wrong A record a record fault, not a service fault?</li>\n<li>What would you monitor so David hears about the next wrong record before a customer does?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">exit\n./start.sh fix-m05\n./start.sh down\n</code></pre>\n<p>The estate is removed, but the volumes are kept. <code>./start.sh reset m05</code> removes them.</p>"
+              "type": "fill",
+              "prompt": "<p>Complete the subnet facts for the estate network. Use the smallest and largest usable\nhost addresses.</p>",
+              "passage": "For 172.28.0.0/24:\n\nNetwork address: [[1]]\nBroadcast address: [[2]]\nFirst usable host: [[3]]\nLast usable host: [[4]]",
+              "blanks": [
+                {
+                  "answers": [
+                    "172.28.0.0"
+                  ],
+                  "hint": "The first address in the block."
+                },
+                {
+                  "answers": [
+                    "172.28.0.255"
+                  ],
+                  "hint": "The last address in the block."
+                },
+                {
+                  "answers": [
+                    "172.28.0.1"
+                  ],
+                  "hint": "One above the network address."
+                },
+                {
+                  "answers": [
+                    "172.28.0.254"
+                  ],
+                  "hint": "One below the broadcast address."
+                }
+              ]
             }
           ]
         }
@@ -1030,22 +1010,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>The week&#x27;s idea</h2>"
             },
             {
@@ -1067,79 +1031,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Samantha Wong, Customer Support Lead\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>Customers reaching the portal see a browser warning before the page loads. Some abandon\nthe page. The site works if they click through, but support cannot tell them to ignore\na security warning.</p>\n</blockquote>\n<p>The ticket is a trust problem, not only a configuration problem. A working page that\nteaches customers to click through a warning is worse than a page that fails loudly.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module's state is <code>./start.sh m06</code>. Follow <code>modules/module-06-web-tls/LAB-GUIDE.md</code>,\nthen bring the evidence into your portfolio.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The certificate subject, issuer and expiry, recorded before clicking through.</li>\n<li>The request path from browser to proxy to web, in one line.</li>\n<li>A log line that proves which service handled the request.</li>\n<li>The status code and log entry from the broken upstream test.</li>\n<li>Your explanation of why the warning appears, and why <code>curl -k</code> is not a fix.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Samantha needs an answer she can give to a customer. Choose one:</p>\n<ol>\n<li>Trust CloudCore's internal certificate authority on managed staff devices.</li>\n<li>Use a publicly trusted certificate for the customer-facing name.</li>\n<li>Change the architecture so a public entry point holds the certificate.</li>\n</ol>\n<p>State who the fix works for, what it costs, what it assumes about the customer's device,\nand what happens when the certificate expires. Record the decision in your portfolio\ndecision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The checkpoint is next week. It tests the mental models from Weeks 1 to 6, including the\npath from a name to a response. If you can narrate that path without notes and name where\nit can fail, you are ready.</p>"
             }
           ]
         },
         {
           "id": "06-02",
-          "title": "Workshop: The web tier and TLS",
+          "title": "Read the certificate and trace the request",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Samantha Wong, Customer Support Lead\n<strong>Priority:</strong> high\n<strong>Service:</strong> customer web portal</p>\n<p>Customers reaching the portal see a browser warning before the page loads. Some abandon\nthe page. The site works if they click through, but I cannot tell customers to ignore a\nsecurity warning.</p>\n<p>I need two things: an explanation I can give to a customer, and a recommendation that\nwill make the warning go away for everyone, not just for staff.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Trace a request from the browser through the TLS proxy to the web tier. Explain where TLS\nends and where the request is re-originated. Then decide what to do about the warning.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Run <code>./start.sh m06</code> in the estate labs repo: <a href=\"\"></a>.\nThe full commands are in <code>modules/module-06-web-tls/LAB-GUIDE.md</code>. The launcher finds the\ncontainer runtime for you. You do not need to choose one.</p>\n<p>Open <a href=\"https://localhost:8443\">https://localhost:8443</a>. The certificate is issued by Caddy's local certificate\nauthority, so the browser warning is expected. Do not click through blindly. Inspect the\ncertificate first.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Predict before you act</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Write these down before you run anything.</p>\n<ol>\n<li>Who issued the certificate, and who is it issued to?</li>\n<li>Where does TLS terminate: at the browser, the proxy, or nginx?</li>\n<li>When the proxy forwards the request, does nginx see an encrypted request or a plain\n   one?</li>\n<li>If the upstream port is wrong, which service returns the error, and what status code\n   will the customer see?</li>\n</ol>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Read the certificate</h2>"
@@ -1163,46 +1063,124 @@
             {
               "type": "html",
               "html": "<p>Edit <code>estate/proxy/Caddyfile</code> and change the upstream from <code>web:80</code> to <code>web:81</code>.</p>\n<pre><code class=\"language-bash\">./start.sh restart proxy\ncurl -k https://localhost:8443/\n</code></pre>\n<ol>\n<li>What status code do you get?</li>\n<li>Which log shows the failure?</li>\n<li>Which log is silent, and why does that matter?</li>\n<li>Restore the upstream to <code>web:80</code> and restart the proxy.</li>\n</ol>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "06-03",
+          "title": "Checkpoint: from name to page",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 4: Make the recommendation</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "Which order describes encapsulation on the way out?",
+                  "options": [
+                    "HTTP inside TCP, TCP inside IP, IP inside Ethernet",
+                    "IP inside HTTP, HTTP inside TCP, TCP inside Ethernet",
+                    "Ethernet inside IP, IP inside TCP, TCP inside HTTP",
+                    "TCP inside HTTP, IP inside TCP, Ethernet inside IP"
+                  ],
+                  "answer": 0,
+                  "explanation": "Each layer wraps the one above it. HTTP is application data, TCP adds ports, IP adds addresses, Ethernet adds link addresses."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What identifies one endpoint in a TCP connection?",
+                  "options": [
+                    "An address and a port",
+                    "A hostname and a certificate",
+                    "A MAC address only",
+                    "A DNS TTL"
+                  ],
+                  "answer": 0,
+                  "explanation": "A socket is an address plus a port, for example 10.0.0.5:443."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "What are the three steps of the TCP handshake?",
+                  "options": [
+                    "SYN, SYN-ACK, ACK",
+                    "HELLO, READY, GO",
+                    "GET, POST, PUT",
+                    "DNS, ARP, TLS"
+                  ],
+                  "answer": 0,
+                  "explanation": "The client sends SYN, the server replies SYN-ACK, the client acknowledges with ACK."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "Where does TLS terminate in the CloudCore estate?",
+                  "options": [
+                    "At the reverse proxy, which forwards plain HTTP to web",
+                    "At the browser only",
+                    "At the database",
+                    "At the DNS server"
+                  ],
+                  "answer": 0,
+                  "explanation": "The proxy holds the certificate and decrypts. The upstream sees plain HTTP unless re-encrypted."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "The portal shows a certificate warning. Which check is most likely to fail for a local root?",
+                  "options": [
+                    "",
+                    "The TCP handshake",
+                    "The HTTP method",
+                    "The DNS TTL"
+                  ],
+                  "answer": 0,
+                  "explanation": "A local root is not in the customer's trust store, so the chain cannot be verified."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "The proxy upstream is changed to web:81. What does the customer see, and which log is silent?",
+                  "options": [
+                    "A 502 from the proxy; the web log is silent because the request never arrives",
+                    "A 404 from web; the proxy log is silent",
+                    "A DNS error; both logs are silent",
+                    "A certificate warning; the web log shows the request"
+                  ],
+                  "answer": 0,
+                  "explanation": "The proxy cannot get a valid upstream response and returns 502. The request never reaches web, so its log is silent."
+                },
+                {
+                  "id": "q7",
+                  "prompt": "Why is `curl -k` not a fix for the customer warning?",
+                  "options": [
+                    "It ignores the trust check for one client; it does not fix the certificate chain",
+                    "It renews the certificate automatically",
+                    "It changes the DNS record",
+                    "It disables HTTP"
+                  ],
+                  "answer": 0,
+                  "explanation": "It bypasses verification locally. Other customers still see the warning."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "06-04",
+          "title": "Trace the request",
+          "kind": "order",
+          "xp": 20,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>Samantha needs an answer that works for customers, not only for staff. Choose one:</p>\n<table>\n<thead>\n<tr>\n<th>Option</th>\n<th>Who it works for</th>\n<th>Main cost</th>\n<th>Main risk</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Trust the internal CA</td>\n<td>Managed devices only</td>\n<td>Distribution and renewal</td>\n<td>A leaked root trusts everything it signs</td>\n</tr>\n<tr>\n<td>Public certificate</td>\n<td>Everyone</td>\n<td>Validation, public name, renewal</td>\n<td>Expiry if renewal fails</td>\n</tr>\n<tr>\n<td>Public entry point holds the certificate</td>\n<td>Everyone</td>\n<td>More infrastructure</td>\n<td>Another component to operate</td>\n</tr>\n</tbody>\n</table>\n<p>Write the explanation for a customer support agent in plain language, then the\nrecommendation for Samantha. State the assumption each option makes about the customer's\ndevice, and what happens when the certificate expires.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>Certificate subject, issuer, expiry and the check that fails.</li>\n<li>The request path in one line, with the protocol on each segment.</li>\n<li>A log line that proves which service handled the request.</li>\n<li>The broken-upstream status code and the log that showed it.</li>\n<li>Your explanation of why the warning appears, and why <code>curl -k</code> is not a fix.</li>\n<li>Your recommendation, with cost, risk and expiry handling.</li>\n<li>One place where AI was wrong, vague or over-confident.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these as starters, then challenge the answer:</p>\n<ul>\n<li>\"Explain the difference between TLS termination at a reverse proxy and TLS passthrough.\"</li>\n<li>\"A browser shows a certificate warning for a self-signed certificate. What exactly is\n  the browser checking, and what would make the warning disappear?\"</li>\n<li>\"What is the difference between a self-signed certificate and one issued by a private\n  certificate authority?\"</li>\n<li>\"Where does this explanation overreach? What does it leave out about trust stores and\n  certificate authorities?\"</li>\n</ul>\n<p>Check whether the answer separates encryption from authentication. If it treats them as\nthe same thing, correct it and record the correction.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Where does TLS end, and who can read the request after that point?</li>\n<li>Why does <code>curl -k</code> make the test pass but leave the customer unsafe?</li>\n<li>Why is \"install our root certificate\" not a fix for an anonymous customer?</li>\n<li>What would you monitor so that expiry is caught before a customer sees a warning?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Restore the Caddyfile to <code>web:80</code> before you leave. A broken proxy left running will\nconfuse the next person who uses the estate.</p>"
+              "type": "order",
+              "prompt": "<p>Put the steps in the order a customer request takes from the browser to the web tier.</p>",
+              "items": [
+                "Resolve the name to an address",
+                "Open a TCP connection to the proxy",
+                "Complete the TLS handshake",
+                "Send the HTTP request to the proxy",
+                "Forward the request to the upstream web service",
+                "Return the response to the browser"
+              ],
+              "explanation": "<p>Name first, then TCP, then TLS, then HTTP. The proxy terminates TLS and sends a new\nplain HTTP request to the upstream. The response travels back through the same path.</p>"
             }
           ]
         }
@@ -1215,7 +1193,7 @@
       "lessons": [
         {
           "id": "07-01",
-          "title": "Checkpoint and estate consolidation",
+          "title": "The estate as one system",
           "kind": "reading",
           "xp": 10,
           "blocks": [
@@ -1226,22 +1204,6 @@
             {
               "type": "html",
               "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Integrate the six weekly models into one dependency map of the CloudCore service pod.</li>\n<li>Diagnose a fault by layer, separating the symptom a customer reports from the cause.</li>\n<li>Audit the estate against the evidence standard and decide what to consolidate, document or leave alone.</li>\n<li>Explain the system without notes, and use AI to test your explanation rather than replace it.</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Connection to unit learning outcomes</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>This module addresses:</p>\n<ul>\n<li><strong>ULO 1</strong>: </li>\n<li><strong>ULO 2</strong>: </li>\n<li><strong>ULO 3</strong>:</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>How this week works</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Time</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lecture</td>\n<td>1 hour</td>\n<td><code>lecture-slides.qmd</code></td>\n</tr>\n<tr>\n<td>Lab / workshop</td>\n<td>2 hours</td>\n<td><code>in-class/</code></td>\n</tr>\n<tr>\n<td>Optional pre-lab reading</td>\n<td>~30-45 min</td>\n<td><code>pre-class/</code> (when present)</td>\n</tr>\n</tbody>\n</table>\n<p>The lecture carries the full theory. The lab is for doing, not for re-reading slides.\nOptional pre-lab readings supplement the lecture; they are not a substitute for it.</p>\n<p>This week also contains the supervised checkpoint. The paper is issued in the session, not\npublished in advance. Read the format below so you know what to expect.</p>"
             },
             {
               "type": "html",
@@ -1274,87 +1236,15 @@
             {
               "type": "html",
               "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod has changed every week and the documentation has not kept up. If I hand this to\nan on-call engineer at 2am, they will have a compose file and no map. Before the\ncheckpoint, I need three things: a diagram that shows what depends on what, a short\nrunbook for start, stop, backup and the named faults, and a list of what we know is\nfragile.</p>\n</blockquote>\n<p>The ticket is about operational readiness. A working estate that only its builder can\noperate is a single point of failure.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The checkpoint</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The checkpoint is individual and supervised. It has two parts.</p>\n<table>\n<thead>\n<tr>\n<th>Part</th>\n<th style=\"text-align: center;\">Weight of task</th>\n<th>Mode</th>\n<th>What it tests</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Part A: closed-book concept check</td>\n<td style=\"text-align: center;\">40%</td>\n<td>No AI, no notes, no browser</td>\n<td>The mental models from Weeks 1 to 6</td>\n</tr>\n<tr>\n<td>Part B: scenario analysis</td>\n<td style=\"text-align: center;\">60%</td>\n<td>AI permitted, annotated log required</td>\n<td>Diagnosis, decision and verification</td>\n</tr>\n</tbody>\n</table>\n<p>Part A asks you to predict and explain, not to recite commands. Part B gives you an estate\nscenario and asks what you would check, what you conclude and what you would change. In\nPart B the conversation log is part of the answer. It must show a claim, a check and a\ncorrection, not a transcript of prompts.</p>\n<p>The full paper and the marking guide are staff documents. Your tutor will issue the paper\nat the start of the supervised session.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Lab</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>The runtime lives in the estate labs repo: <a href=\"\"></a>.</p>\n<p>This module does not add a new estate state. Use the highest state you have built:</p>\n<pre><code class=\"language-bash\">./start.sh m06\n./start.sh m09\n</code></pre>\n<p>The consolidation workshop works against whichever state is running. If you have built the\nModule 09 share, use it; the extra layer gives you more to map and more to get wrong.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>A one-page dependency map of the pod, with the protocol on each connection.</li>\n<li>The one-line request path from browser to database, naming each hop.</li>\n<li>A known-fault register with at least three faults, how each was detected and how it was\n  fixed.</li>\n<li>A runbook section for start, stop, backup and restore.</li>\n<li>A five-minute spoken explanation of the system, recorded or delivered to your team.</li>\n<li>One place where AI was wrong, vague or over-confident about the estate.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Martin needs a pod he can hand over. Choose one:</p>\n<ol>\n<li>Freeze changes now and document the current state before anything else.</li>\n<li>Keep changing the estate and document at the end of the semester.</li>\n<li>Roll back the most recent layer to reduce the surface area, then document.</li>\n</ol>\n<p>State what the choice costs in time and risk, who carries the risk if the documentation is\nwrong, and how you would know the estate has drifted again. Record the decision in your\nportfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Where this leads</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>After the tuition-free break, Module 8 adds identity and access. The consolidation map you\nbuild this week is the base for that layer: users, groups and keys attach to the services\nand hosts you have already mapped. If the map is wrong now, the identity layer will be\nwrong in a way that is harder to see.</p>"
             }
           ]
         },
         {
           "id": "07-02",
-          "title": "Workshop: Consolidating the estate",
+          "title": "Map, narrate, register, run",
           "kind": "reading",
           "xp": 10,
           "blocks": [
-            {
-              "type": "html",
-              "html": "<h2>The ticket</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<blockquote>\n<p><strong>From:</strong> Martin Nguyen, Cloud Service Operations Manager\n<strong>Priority:</strong> medium\n<strong>Service:</strong> the whole pod</p>\n<p>The pod has changed every week and the documentation has not kept up. If I hand this to\nan on-call engineer at 2am, they will have a compose file and no map. Before the\ncheckpoint, I need three things: a diagram that shows what depends on what, a short\nrunbook for start, stop, backup and the named faults, and a list of what we know is\nfragile.</p>\n</blockquote>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Goal</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Produce the handover pack Martin asked for, then rehearse the two skills the checkpoint\ntests: explaining the system without notes, and moving from a symptom to the layer that\ncauses it.</p>\n<p>This workshop does not contain the checkpoint paper. Your tutor issues that separately in\nthe supervised session.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Before you start</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Bring up the highest estate state you have built: <a href=\"\"></a>.</p>\n<p>```bash\n./start.sh m06</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>or, if you have built the Module 09 share:</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>./start.sh m09</p>\n<pre><code>\nCheck what is running before you draw anything:\n\n```bash\n./start.sh status\n</code></pre>\n<p>If the state is not what you expect, fix that first. A map of an estate that is not running\nis a guess.</p>"
-            },
             {
               "type": "html",
               "html": "<h2>Part 1: Draw the dependency map</h2>"
@@ -1373,14 +1263,6 @@
             },
             {
               "type": "html",
-              "html": "<h2>Part 3: Audit the evidence</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Check your estate repository against the portfolio evidence standard.</p>\n<table>\n<thead>\n<tr>\n<th>Item</th>\n<th>Present?</th>\n<th>Where it is</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Compose file that matches the running estate</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Host build record</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Service configuration files</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Start, stop and reset instructions</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>Backup and restore instructions</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>A log excerpt from a real fault</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>One annotated conversation log</td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>For each missing item, write the smallest action that would close the gap. Do not write\n\"do documentation later\". Name the file and the section.</p>"
-            },
-            {
-              "type": "html",
               "html": "<h2>Part 4: Build the known-fault register</h2>"
             },
             {
@@ -1394,54 +1276,173 @@
             {
               "type": "html",
               "html": "<p>Write the short runbook Martin asked for. Keep it to one page.</p>\n<ol>\n<li>How to start the estate.</li>\n<li>How to stop it without losing data.</li>\n<li>How to back up and restore the named volumes.</li>\n<li>What to do when the portal is unreachable.</li>\n<li>What to do when the certificate warning appears.</li>\n</ol>\n<p>Write it for someone who did not build the estate. If a step depends on knowledge that is\nonly in your head, the runbook is not finished.</p>"
-            },
+            }
+          ]
+        },
+        {
+          "id": "07-03",
+          "title": "Checkpoint: the pod as a system",
+          "kind": "checkpoint",
+          "xp": 25,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<h2>Part 6: Checkpoint rehearsal</h2>"
-            },
+              "type": "checkpoint",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "Why can a fault in a lower layer look like a fault in an upper one?",
+                  "options": [
+                    "Each layer depends on the one below it, so a lower failure propagates upward",
+                    "The layers are independent",
+                    "Upper layers are always more reliable",
+                    "The diagram is only cosmetic"
+                  ],
+                  "answer": 0,
+                  "explanation": "A dependency graph means a name failure can look like a web failure. Evidence is how you separate them."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "What is the difference between a symptom and a cause?",
+                  "options": [
+                    "The symptom is what is reported; the cause is the condition that produced it",
+                    "They are the same thing",
+                    "The cause is always in the browser",
+                    "The symptom is always in the database"
+                  ],
+                  "answer": 0,
+                  "explanation": "The customer reports the portal is down. The cause might be a DNS record, a proxy upstream or a stopped service."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "Why is a missing log entry useful evidence?",
+                  "options": [
+                    "It can prove a request never reached that service",
+                    "It proves the service is healthy",
+                    "It replaces the need for a diagram",
+                    "It shows the DNS TTL"
+                  ],
+                  "answer": 0,
+                  "explanation": "Absence is evidence. If the web log has no request, the request stopped before web."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "What is the smallest safe change?",
+                  "options": [
+                    "One reversible change, verified before the next",
+                    "A batch of fixes applied together",
+                    "A restart of every service",
+                    "A rebuild of the host"
+                  ],
+                  "answer": 0,
+                  "explanation": "One change at a time keeps the cause traceable and the rollback simple."
+                },
+                {
+                  "id": "q5",
+                  "prompt": "What belongs in a known-fault register?",
+                  "options": [
+                    "The fault, symptom, detection, fix, verification and how to catch it sooner",
+                    "Only the final status code",
+                    "A list of every command you ran",
+                    "The customer's email address"
+                  ],
+                  "answer": 0,
+                  "explanation": "The register is an operational memory. It should help the next person recognise and handle the fault."
+                },
+                {
+                  "id": "q6",
+                  "prompt": "What makes a runbook usable by someone who did not build the estate?",
+                  "options": [
+                    "Explicit start, stop, backup, restore and fault steps with no assumed knowledge",
+                    "A list of service names",
+                    "A pointer to the slides",
+                    "A note to ask the builder"
+                  ],
+                  "answer": 0,
+                  "explanation": "If a step depends on knowledge only in your head, the runbook is not finished."
+                },
+                {
+                  "id": "q7",
+                  "prompt": "In the 60-second narration, which step is most often skipped?",
+                  "options": [
+                    "Name resolution or the proxy re-originating the request",
+                    "Opening the browser",
+                    "Reading the response body",
+                    "Closing the connection"
+                  ],
+                  "answer": 0,
+                  "explanation": "People describe browser to page and forget DNS, TLS termination and the plain HTTP hop to the upstream."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "07-04",
+          "title": "Narrate and diagnose",
+          "kind": "viva",
+          "xp": 40,
+          "blocks": [
             {
-              "type": "html",
-              "html": "<p>Work through these prompts in pairs. They are practice, not the paper.</p>\n<ol>\n<li>A service is running but the browser cannot reach it. What do you check first, and why?</li>\n<li>A name resolves to an address, but the page returns 502. Which layer is at fault, and\n   what evidence would prove it?</li>\n<li>The certificate warning appears after a restart. What changed, and what did not?</li>\n<li>An AI says the fault is a firewall rule. The proxy log names the upstream. How do you\n   decide which explanation to test first?</li>\n<li>The customer says \"the site is slow\". Name three layers that could explain it and the\n   evidence that would separate them.</li>\n</ol>\n<p>For each answer, say the prediction, the check and the conclusion. The reasoning is the\nanswer.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Evidence to capture</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<ul>\n<li>The one-page dependency map, built from the running estate.</li>\n<li>The 60-second request narrative, recorded or written.</li>\n<li>The completed evidence audit, with a named action for each gap.</li>\n<li>The known-fault register with at least three real faults.</li>\n<li>The one-page runbook.</li>\n<li>One annotated conversation log from the rehearsal: a claim, a check and a correction.</li>\n</ul>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>AI conversation prompts</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Use these to test your explanation, then check the answer against the estate:</p>\n<ul>\n<li>\"Here is my dependency map. What dependency is missing, and what would I see if it\n  failed?\"</li>\n<li>\"I think the portal path is browser, proxy, web, database. Where is this model wrong for\n  a request that only serves a static page?\"</li>\n<li>\"A customer reports 502 and the web log is empty. What does the absence tell you, and\n  what does it rule out?\"</li>\n<li>\"Review this runbook step for someone who did not build the estate. What have I assumed?\"</li>\n</ul>\n<p>Do not ask the AI what is running in your estate. It cannot know. Ask it to test your\nreasoning, then verify against <code>compose.yml</code>, the logs and the running containers.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Debrief</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Be ready to answer one of these in the last 20 minutes:</p>\n<ol>\n<li>Which dependency in your map would cause the largest failure if it broke, and why?</li>\n<li>Which fault in your register was hardest to find, and what made it hard?</li>\n<li>What would you monitor so the next operator learns about a fault before a customer does?</li>\n<li>What did you decide to leave undocumented, and what risk did you accept?</li>\n</ol>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>The business decision</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<p>Martin needs a pod he can hand over. Choose one:</p>\n<ol>\n<li>Freeze changes now and document the current state.</li>\n<li>Keep changing and document at the end of the semester.</li>\n<li>Roll back the most recent layer to reduce the surface area, then document.</li>\n</ol>\n<p>State the cost, the risk, who carries it if the documentation is wrong, and how you would\ndetect drift again. Record the decision in your portfolio decision record.</p>"
-            },
-            {
-              "type": "html",
-              "html": "<h2>Clean up</h2>"
-            },
-            {
-              "type": "html",
-              "html": "<pre><code class=\"language-bash\">./start.sh down\n</code></pre>\n<p>Leave the estate in a known state. If you changed a configuration file, restore it or commit\nthe change with a message that explains why.</p>"
+              "type": "viva",
+              "context": "<p>The examiner asks you to explain the estate without notes, then diagnose a fault by\nlayer. Answer out loud first, then type the short version.</p>",
+              "questions": [
+                {
+                  "prompt": "Narrate a customer request from typing the portal address to the database response.",
+                  "strong_answer": "<p>The browser resolves portal.estate.local to an address. It opens a TCP connection\nto the proxy, completes a TLS handshake using the proxy certificate, and sends an\nHTTP request. The proxy terminates TLS and sends a new plain HTTP request to web.\nThe web service queries the database and returns a response, which travels back\nthrough the proxy and the encrypted connection to the browser.</p>",
+                  "signals": [
+                    {
+                      "label": "Names the DNS step",
+                      "pattern": "dns|name|resolve|address"
+                    },
+                    {
+                      "label": "Names TCP and TLS",
+                      "pattern": "tcp|tls|handshake|certificate"
+                    },
+                    {
+                      "label": "Names the proxy and upstream",
+                      "pattern": "proxy|reverse proxy|caddy|upstream"
+                    },
+                    {
+                      "label": "Names the database step",
+                      "pattern": "database|db|postgres|query"
+                    },
+                    {
+                      "label": "Names a failure and its evidence",
+                      "pattern": "fail|log|metric|evidence|check"
+                    }
+                  ],
+                  "follow_up": ""
+                },
+                {
+                  "prompt": "The portal returns 502 after a change. What do you check, and in what order?",
+                  "strong_answer": "<p>A 502 means the proxy could not get a valid response from the upstream. I would\nread the proxy log first, then check the upstream address and port in the config,\nthen the web container state and its log. If the web log is silent, the request\nnever arrived. I would make one reversible change, verify it, and record the\nevidence before changing anything else.</p>",
+                  "signals": [
+                    {
+                      "label": "Explains the 502",
+                      "pattern": "502|upstream|bad gateway"
+                    },
+                    {
+                      "label": "Reads the proxy log",
+                      "pattern": "proxy|log"
+                    },
+                    {
+                      "label": "Checks the web service",
+                      "pattern": "web|container|service|status"
+                    },
+                    {
+                      "label": "Uses a small reversible change",
+                      "pattern": "one|small|revert|rollback|verify|change"
+                    }
+                  ],
+                  "follow_up": ""
+                }
+              ],
+              "rubric": [
+                "Names the layers and the protocol on each hop.",
+                "Separates the symptom from the cause.",
+                "Uses evidence from the right service.",
+                "Proposes one smallest safe change and verifies it."
+              ]
             }
           ]
         }
