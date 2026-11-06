@@ -17,6 +17,8 @@ const SHELL = [
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
   "./icons/apple-touch-icon.png",
+  "./trusted-keys.js",
+  "./vendor/nacl-fast.min.js",
   "./vendor/ink.min.js",
   "./vendor/sql-wasm.js",
   "./vendor/sql-wasm.wasm",

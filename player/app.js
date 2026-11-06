@@ -531,10 +531,7 @@ function renderExercise(host, block, lesson) {
     frame = document.createElement("iframe");
     frame.className = "preview";
     frame.setAttribute("title", "Rendered output");
-    frame.setAttribute(
-      "sandbox",
-      isScripted ? "allow-scripts allow-same-origin" : "allow-same-origin"
-    );
+    frame.setAttribute("sandbox", isScripted ? "allow-scripts" : "");
     if (block.viewport) {
       frame.style.width = `${block.viewport.width}px`;
       frame.style.height = `${block.viewport.height}px`;
@@ -549,30 +546,33 @@ function renderExercise(host, block, lesson) {
     summary.className = "test-summary";
     summary.textContent = "Running...";
 
-    let doc = null;
     if (!isText) {
       const frame = frameFor();
-      const source = isScripted
+      frame.srcdoc = isScripted
         ? scriptedDocument(block, editor.value)
         : editor.value;
-      await loadFrame(frame, source);
-      if (isScripted) await new Promise((resolve) => setTimeout(resolve, 80));
-      doc = frame.contentDocument;
     }
 
-    const results = block.tests.map((test) => {
-      try {
-        const fn = new Function("doc", "text", "assert", "assertEqual", test.script);
-        fn(doc, editor.value, assert, assertEqual);
-        return { name: test.name, ok: true };
-      } catch (error) {
-        return {
-          name: test.name,
+    let results;
+    try {
+      results = await runTestsInSandbox({
+        mode: isText ? "text" : isScripted ? "js" : "html",
+        html: isScripted ? block.html || "" : editor.value,
+        code: editor.value,
+        mock: block.mock,
+        tests: block.tests,
+        text: editor.value,
+        viewport: block.viewport,
+      });
+    } catch (error) {
+      results = [
+        {
+          name: "Test runner",
           ok: false,
           message: error && error.message ? error.message : String(error),
-        };
-      }
-    });
+        },
+      ];
+    }
 
     testList.innerHTML = results
       .map(
@@ -617,31 +617,135 @@ function renderExercise(host, block, lesson) {
   });
 }
 
-function scriptedDocument(block, code) {
-  const mock = block.mock || { status: 200, body: {} };
+function mockScript(mock = {}) {
   const status = Number(mock.status ?? 200);
   const ok = status >= 200 && status < 300;
-  const json = JSON.stringify(mock.body ?? {});
+  const json = JSON.stringify(mock.body ?? {}).replaceAll("</script", "<\\/script");
   const textBody = JSON.stringify(json);
-  const mockCode = mock.error
-    ? "window.fetch = () => Promise.reject(new Error('network'));"
-    : `window.fetch = () => Promise.resolve({ ok: ${ok}, status: ${status}, json: () => Promise.resolve((${json})), text: () => Promise.resolve(${textBody}) });`;
-  const injected = `<script>${mockCode}</script><script>${code}</script>`;
-  const html = block.html || "<!doctype html><html><body></body></html>";
-  return html.replace(/<\/body>/i, `${injected}</body>`);
+  if (mock.error) {
+    return "window.fetch = () => Promise.reject(new Error('network'));";
+  }
+  return `window.fetch = () => Promise.resolve({ ok: ${ok}, status: ${status}, json: () => Promise.resolve((${json})), text: () => Promise.resolve(${textBody}) });`;
 }
-function loadFrame(frame, html) {
-  return new Promise((resolve) => {
-    let settled = false;
-    const finish = () => {
-      if (settled) return;
-      settled = true;
-      frame.removeEventListener("load", finish);
-      resolve();
+
+function escapeScript(code) {
+  return String(code || "").replaceAll("</script", "<\\/script");
+}
+
+function injectCSP(html, meta) {
+  if (/<head[^>]*>/i.test(html)) {
+    return html.replace(/<head[^>]*>/i, (match) => match + meta);
+  }
+  if (/<html[^>]*>/i.test(html)) {
+    return html.replace(/<html[^>]*>/i, (match) => match + `<head>${meta}</head>`);
+  }
+  return `<!doctype html><html><head>${meta}</head><body>${html}</body></html>`;
+}
+
+function injectBeforeBody(html, content) {
+  if (/<\/body>/i.test(html)) {
+    return html.replace(/<\/body>/i, `${content}</body>`);
+  }
+  return html + content;
+}
+
+function scriptedDocument(block, code) {
+  const csp =
+    "default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; media-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none';";
+  const meta = `<meta http-equiv="Content-Security-Policy" content="${csp}">`;
+  const html = block.html || "<!doctype html><html><body></body></html>";
+  const injected = `<script>${mockScript(block.mock)}</script><script>${escapeScript(code)}</script>`;
+  return injectBeforeBody(injectCSP(html, meta), injected);
+}
+
+let testFrame = null;
+
+function testSandbox() {
+  if (testFrame && testFrame.isConnected) return testFrame;
+  const frame = document.createElement("iframe");
+  frame.className = "test-frame";
+  frame.setAttribute("title", "Exercise test sandbox");
+  frame.setAttribute("sandbox", "allow-scripts");
+  document.body.appendChild(frame);
+  testFrame = frame;
+  return frame;
+}
+
+function testDocument({ mode, html, code, mock, nonce }) {
+  const csp =
+    `default-src 'none'; script-src 'nonce-${nonce}' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; media-src 'none'; frame-src 'none'; child-src 'none'; form-action 'none'; base-uri 'none';`;
+  const meta = `<meta http-equiv="Content-Security-Policy" content="${csp}">`;
+  const delay = mode === "js" ? 180 : 0;
+  const runner = `<script nonce="${nonce}">(() => {
+    const assert = (condition, message) => { if (!condition) throw new Error(message || "Assertion failed"); };
+    const assertEqual = (actual, expected, message) => { if (actual !== expected) throw new Error(message || ("Expected " + JSON.stringify(expected) + ", got " + JSON.stringify(actual))); };
+    window.addEventListener("message", (event) => {
+      const data = event.data;
+      if (!data || data.type !== "lorekeeper-run-tests") return;
+      const results = (data.tests || []).map((test) => {
+        try {
+          const fn = new Function("doc", "text", "assert", "assertEqual", test.script);
+          fn(document, data.text || "", assert, assertEqual);
+          return { name: test.name, ok: true };
+        } catch (error) {
+          return { name: test.name, ok: false, message: error && error.message ? error.message : String(error) };
+        }
+      });
+      parent.postMessage({ type: "lorekeeper-test-results", id: data.id, results }, "*");
+    });
+    setTimeout(() => parent.postMessage({ type: "lorekeeper-test-ready" }, "*"), ${delay});
+  })();<\/script>`;
+  let doc = html || "<!doctype html><html><body></body></html>";
+  if (mode === "js") {
+    const extra = `<script nonce="${nonce}">${escapeScript(mockScript(mock))}</script><script nonce="${nonce}">${escapeScript(code)}</script>`;
+    doc = injectBeforeBody(injectCSP(doc, meta), extra + runner);
+  } else {
+    doc = injectBeforeBody(injectCSP(doc, meta), runner);
+  }
+  return doc;
+}
+
+function runTestsInSandbox({ mode, html, code, mock, tests, text, viewport }) {
+  return new Promise((resolve, reject) => {
+    const frame = testSandbox();
+    const nonce = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()))
+      .replace(/[^a-zA-Z0-9]/g, "")
+      .slice(0, 24);
+    const id = `${nonce}-${Date.now()}`;
+    const width = viewport?.width || 1024;
+    const height = viewport?.height || 768;
+    frame.style.width = `${width}px`;
+    frame.style.height = `${height}px`;
+
+    let sent = false;
+    const cleanup = () => {
+      clearTimeout(timer);
+      window.removeEventListener("message", onMessage);
     };
-    frame.addEventListener("load", finish);
-    frame.srcdoc = html || "<!doctype html><html><body></body></html>";
-    setTimeout(finish, 2000);
+    const timer = setTimeout(() => {
+      cleanup();
+      frame.remove();
+      if (testFrame === frame) testFrame = null;
+      reject(new Error("Tests timed out."));
+    }, 8000);
+
+    function onMessage(event) {
+      if (event.source !== frame.contentWindow || !event.data) return;
+      const data = event.data;
+      if (data.type === "lorekeeper-test-ready" && !sent) {
+        sent = true;
+        frame.contentWindow.postMessage(
+          { type: "lorekeeper-run-tests", id, tests, text: text || "" },
+          "*"
+        );
+      } else if (data.type === "lorekeeper-test-results" && data.id === id) {
+        cleanup();
+        resolve(Array.isArray(data.results) ? data.results : []);
+      }
+    }
+
+    window.addEventListener("message", onMessage);
+    frame.srcdoc = testDocument({ mode, html, code, mock, nonce });
   });
 }
 

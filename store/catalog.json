@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T09:56:33+00:00",
+  "updatedAt": "2026-11-06T10:49:21+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,7 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "f6a1fb8a5cd28d7b939413fc77c32509a7d7949486e3584461ee6fc19c58e807",
+      "sha256": "78f802b75d08de64fbafe403d65bf27ec860613069133ebf513f27c23fdc64d6",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "UCscaMXxmroqG7rLJkh7lLBFE55mKcL6uWJ66BxViadwoUZC8zmGFKg4bfbiM+EgbNPGoxuFmneJ6RbTy12fAg==",
       "url": "packs/pocket-incidents.json"
     }
   ]

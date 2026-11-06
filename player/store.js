@@ -11,6 +11,11 @@
       .join("");
   }
 
+  function base64Bytes(value) {
+    const binary = atob(String(value || ""));
+    return Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  }
+
   function render(catalog) {
     const body = $("store-body");
     const packs = Array.isArray(catalog.packs) ? catalog.packs : [];
@@ -66,6 +71,20 @@
           throw new Error("The pack hash does not match the catalogue.");
         }
       }
+      if (!entry.signature || !entry.keyId) {
+        throw new Error("This pack is not signed.");
+      }
+      const trusted = window.LOREKEEPER_TRUSTED_KEYS?.[entry.keyId];
+      if (!trusted) throw new Error("The pack is signed by an unknown key.");
+      if (!window.nacl?.sign?.detached?.verify) {
+        throw new Error("Signature verification is not available in this browser.");
+      }
+      const valid = window.nacl.sign.detached.verify(
+        new Uint8Array(buffer),
+        base64Bytes(entry.signature),
+        base64Bytes(trusted)
+      );
+      if (!valid) throw new Error("The pack signature is invalid.");
       const data = JSON.parse(new TextDecoder().decode(buffer));
       const reserved = (state.index?.courses || [])
         .filter((course) => course.source !== "local")

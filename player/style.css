@@ -1218,3 +1218,15 @@ html[data-theme="storybook"] .wayfinder-cta { box-shadow: 0 8px 20px rgba(74, 52
 html[data-theme="pixel"] .store-pack,
 html[data-theme="pixel"] .store-meta span { border-radius: 0; }
 html[data-theme="storybook"] .store-pack { box-shadow: 0 8px 20px rgba(74, 52, 28, 0.1); }
+
+/* Hidden exercise test sandbox -------------------------------------- */
+
+.test-frame {
+  position: fixed;
+  left: -12000px;
+  top: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
