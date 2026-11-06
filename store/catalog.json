@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T13:49:50+00:00",
+  "updatedAt": "2026-11-06T13:58:50+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "c44931912cd7b3364549c07c6ddad61327e658de9c93cc27e1e21b6f984940a7",
+      "sha256": "f578ae8d23f8f7392ded6f4077221c0f0972365b21793e185fd267bfe1c0fc3c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "7/lbuwpG5j8mS5ynpJSqbVfOeXKB6kcAzfBbNBHm2uYgMoH65GFNp41qW+zxUh8oppwDVLsjZ6/abHx5V9DcBA==",
+      "signature": "J3iNUTA2wQDJbvyciNjGZx6QRQ/aWrhtJUiUP7PGFdPyUcXnJaAaDKW+bpcnFYjeFlgMQHDcXGPfKmzjDat9Bg==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "943c5ad07529add253639031a280aa2be01605cbbef4a5d7988dc3a6a42c1a4a",
+      "sha256": "8abe067fb210b88d140ca4c0976aa8e896176b06ae663b0b9ea492058d967f34",
       "keyId": "c72e49ccf7055c89",
-      "signature": "zbxXYt65KiMx94UcowRATtyzkxLXdNn3WGPSg8v6dPhNy29P/JM/LRhDctodkNXL5a8k70sxGh318y55u0H7Bw==",
+      "signature": "ZFonu5rQOjYTfncVV6R6uaGd0xR/L0V9NyenWkcmW+kf9JDHTZGXHk29RT05/dJ0pAvbpVXddamEljs9jJZWCQ==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "6b523b3aed82fea1b3ce7adc36bb3bf937eaf1b8b55b42ac7bc9ad6e0851a961",
+      "sha256": "6a5453712915f7b6722c14c9d61d9a75962b113210876ee07e084bc97fbab2e4",
       "keyId": "c72e49ccf7055c89",
-      "signature": "efCU5nzlWRLsLnDTVCAAW9q74DNcCOW7ZWkWAm4LtwFShcXf+gfl6meOw6Fr4VTKNHGnYOmbZwpNVk2R6uCWDg==",
+      "signature": "S7ZRPjm7aqPvpBtL0U90g/RHcCUnK55rKpilYyZvabVdW3SsVyquoCUAKnsRdAzqbMi1Pxg5947k5cKFq3qeBA==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "95816b9b9f97d90c0e5d1f5749ba75a1a87081467e3eb95b97f02718f3e74f7e",
+      "sha256": "b8073c348ecb79b86d0f86964e487200ce440dc405d53d31ac404a557d87614c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Ap3tfmfd4ij0Aty+RGxmVlzfNp6wHftRXo2S2TRdXIE74Gw5+bIq8E6zeBl5lQe7ndeDUdMao1XRjGC1cwDLDw==",
+      "signature": "GCxS5g2hYW1BMTFOiHjISh1Zsx0jqh9x9dhcSOHyqSvIF8DfWw87EDPZzwLsrduXdAOJdHt4xDkzAOcOURRRCQ==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "8bee4216519a75840fa7ca4726609c7e549691d0b5d678bffa0907d0667ba83e",
+      "sha256": "d4d131f7ee0bb962a3b8c040c47cb5462a8e1cf9608dd1e12758d2f5b2c13eb4",
       "keyId": "c72e49ccf7055c89",
-      "signature": "YDXhhMdsoIUYeadCOnq8UnN0yqd31V+Z0QiA6vgkR6woqNddpbqhdDQQFZM1v5YtLrHFCTdc9oPCP0xJwobzCw==",
+      "signature": "x3EyoPJOosJgIkpYl76Cp0eJcVbie8183J3Umf29hf5lVxQ+JchBWBvHd+xTED+3GSw1+yfiA4lULJ3vqzxTCA==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "e43114539e2d7ddab98c694c49689e4a34a23278faf521745c8c098723189578",
+      "sha256": "8f44a5214209a699e370f304bd60f9bea084d514e8a3a6d530b143375faa24e6",
       "keyId": "c72e49ccf7055c89",
-      "signature": "/MRpV7SExo3UpEIMh+iQDMYRqzRblVLyhSpNreyBpcegdd8tM2EpnkE/Cd9seTQnYlOW67coPh1D4vDadzZdBA==",
+      "signature": "vk8BSCYTUThcO7xz95jY+ats0lr3YVdFI2+3iuJysp036H1ilkMORYS1vUjjOhuKfv8g/VH3lflhQhfv8BuXAw==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,9 +164,9 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "4184e7b54f0038977351a1809e3f8425b0ad172536db4d140f6d846534ed7cc5",
+      "sha256": "d7fd7842b4264464dcc3ed6faadcc03acc3e7075076decb7290231f34f0bc347",
       "keyId": "c72e49ccf7055c89",
-      "signature": "kuRrejcauOSe98hfF1Pndq55SPvf9poE9STH/OyKpiLjWPruEXb8dJvuTcE2HX1N3YhVxg03HkBieO0FLkAvAA==",
+      "signature": "SWFtkxOmfUOkbl1/nbxWU/CbPDJpv540cJu/t/Uh6Jvexrvgdr1eZO++0Xd9T1C1gZ9QnUQ2sVqYClvGK59pDQ==",
       "url": "packs/systems-analysis-and-design.json"
     }
   ]
