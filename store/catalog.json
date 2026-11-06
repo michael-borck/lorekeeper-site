@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:44:14+00:00",
+  "updatedAt": "2026-11-06T12:48:19+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "f2c76c73df2581e7899fe4f2cc3cb194469477b3e741b5e96b17016fccd5230a",
+      "sha256": "fc800dc5b775cda06f37927690ab84002df044864c135473648636f7e9953145",
       "keyId": "c72e49ccf7055c89",
-      "signature": "vJFOcNK2zhAHsryAOuGQZtadxxX98qXgtpdmL6SKJJ3VqM6MXf3P5w6YwleXhuHjteFqCiObji7SEhdVJktjDw==",
+      "signature": "nM9caULDQg+OcacULxMbmOF9AxDO2svFKwVRj4mIZeA2tLizPUwql2RTjAo5AFgj7PPxbFz7yFEa+NydY4jpAw==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "53de862ec19d445f4ef74a570c8ff5a1c41fa2e42c915985222e516bd5f425c2",
+      "sha256": "a96d3a41f41a9d73e4f41ac7b194e3e6b04a5a1341a5a2fb8208e16091c9fe5d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "RmJjx7UONWYF3VWnbzcwl9S/Ip/xfgCcDbUQWjH9HCsC0HJBsF9ZLW2HXLpwIMGhoLHTkuCAroHrpxpeifcFBw==",
+      "signature": "QJXN6iy87g+CQI9HajQNBijih5aI5ETnxu1wwZbB6DKFkXlMV+KL8gpzuxA8HLqXRQgSQp7JA53TCpeeQkYlCQ==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "2eac2589feebf91646ed5a02e08a79a11c6e297035f0a8f1ef789e8f6cb1b8d2",
+      "sha256": "bc52f15cd6512984f82976723e4446c25fb843f92d8537a5d23354d8a788e776",
       "keyId": "c72e49ccf7055c89",
-      "signature": "L5Dt/4fTTopK9CZLKGmy2R6+KxloqwMEBp7mYeUw0NRcD95Ji1Rnw16e3C76jVH+U6eG/k3/5nGR9cwE3WwLDQ==",
+      "signature": "BqF0CjhGSJmKjjOP7yG8hGhaLWUFiViff74+/XIvcA1m3bheCc68nhQNfJMwJ/m4wpu7mdbB0JyfKmGdvIwVCA==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,10 +91,33 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "5f078a8d15b88dd0abf34ffd3a2501999c0d3f35d6560d4c13eee1492d07399d",
+      "sha256": "c4118bea91cd09052114fef4961963042143e9d8519b070dd560450ec54fe08a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "at0q9pCbH2gCtYUdCaadyZ3OsFIu40Y7/ngxi0TDLDeFgPGWqQTwHHaRIAcYTD7DHNa9p6in2ynT3+xqMoWNDQ==",
+      "signature": "nHznElhGnO9X7rEMxu9DBMLT1nsBQaBcuPS62jVtwudbiPJj4Ywsu7KiVenxapSRNtnsUoklI/q3+MFhh4iTCg==",
       "url": "packs/assume-breach.json"
+    },
+    {
+      "id": "speak-software",
+      "title": "Speak Software: Programming at the Natural-Language Layer",
+      "description": "Program at the natural-language layer: specify, verify, decompose and ship software with an AI agent.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "pixel",
+      "tags": [
+        "ai",
+        "programming",
+        "agents",
+        "testing"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 22,
+      "size": 213893,
+      "sha256": "51e772043dbaa480eb21cf5ce4a897b9e4583998ba814a8c6fcc1dcc206c26aa",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "q8JXfMmMy0ydgH5vAsGmu/+sRoreFo8Nw7CUVAihCZDBQGeSrmX6fucUHQTRR42k8RuOSd5rh4EJsy3qZUFIAw==",
+      "url": "packs/speak-software.json"
     }
   ]
 }
