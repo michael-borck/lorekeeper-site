@@ -5,7 +5,7 @@
   "title": "The Human Edge: Using AI with Judgement",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-06T22:28:47+00:00",
+  "createdAt": "2026-11-06T22:52:24+00:00",
   "courses": [
     {
       "slug": "the-human-edge",
@@ -23,7 +23,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-06T22:28:47+00:00",
+        "generated_at": "2026-11-06T22:52:24+00:00",
         "unit": {
           "slug": "the-human-edge",
           "title": "The Human Edge: Using AI with Judgement",

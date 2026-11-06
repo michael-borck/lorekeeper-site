@@ -1,0 +1,1269 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "follow-the-packet",
+  "title": "Follow the Packet: An Enterprise Network Field Guide",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T22:52:24+00:00",
+  "courses": [
+    {
+      "slug": "follow-the-packet",
+      "title": "Follow the Packet: An Enterprise Network Field Guide",
+      "theme": "pixel",
+      "level": "intermediate",
+      "tags": [
+        "networking",
+        "routing",
+        "dns",
+        "firewall",
+        "ids",
+        "troubleshooting"
+      ],
+      "pitch": "Read a multi-site enterprise network one packet at a time: routing, DNS, policy, faults and baselines.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T22:52:24+00:00",
+        "unit": {
+          "slug": "follow-the-packet",
+          "title": "Follow the Packet: An Enterprise Network Field Guide",
+          "theme": "pixel",
+          "tags": [
+            "networking",
+            "routing",
+            "dns",
+            "firewall",
+            "ids",
+            "troubleshooting"
+          ],
+          "level": "intermediate",
+          "pitch": "Read a multi-site enterprise network one packet at a time: routing, DNS, policy, faults and baselines.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "see-the-network",
+            "title": "See the Network",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "The Network Is a Map, Not a Cable",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>You do not need to memorise every subnet. You need to know which decision happens where.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A network diagram shows boxes and lines. The useful mental model is a set of decisions:</p>\n<ul>\n<li>Which address does this host have?</li>\n<li>Which router is its default gateway?</li>\n<li>Which route does the router choose for the destination?</li>\n<li>Which link carries the packet?</li>\n<li>Which policy allows or blocks it?</li>\n<li>Which name resolves to which address?</li>\n</ul>\n<p>The enterprise lab has four sites:</p>\n<ul>\n<li><strong>Perth HQ</strong>: <code>10.10.0.0/16</code>, with users, servers and a DMZ.</li>\n<li><strong>London</strong>: <code>10.20.0.0/16</code>, with users.</li>\n<li><strong>Los Angeles</strong>: <code>10.30.0.0/16</code>, with users.</li>\n<li><strong>Pilbara</strong>: <code>10.40.0.0/16</code>, a remote mine site on a satellite link.</li>\n</ul>\n<p>The WAN links use <code>172.16.1.0/24</code> through <code>172.16.4.0/24</code>. Perth is the hub. London and LA also have a direct link. Pilbara hangs off Perth over a high-latency satellite link.</p>\n<p>The first trap is trying to hold the whole diagram in your head. Do not. Hold the addressing pattern and the decision points. The diagram is reference material.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Train Map</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A city rail map does not show every metre of track. It shows the lines, the interchanges and the direction of travel. You can plan a journey without knowing the engineering of the tunnel.</p>\n<p>An enterprise network is the same. The addressing plan tells you where a host lives. The routing table tells you which way a packet goes. The policy tells you whether it is allowed. The diagram is the map, not the journey.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Model with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Address Pattern</h3>\n<p>Ask the AI to turn the addressing plan into a pattern, not a list.</p>\n<pre><code class=\"language-text\">Here is the addressing plan:\n[paste it]\n\nExplain the pattern behind the subnets. Group them by site and role.\nWrite five rules of thumb that would let someone place a new host\nwithout memorising the table.\n</code></pre>\n<p>A good answer will notice the <code>10.SITE.ROLE.0/24</code> pattern and the WAN range.</p>\n<h3>Exploration 2: Name the Decision Points</h3>\n<p>Ask where a packet can be changed, allowed or dropped.</p>\n<pre><code class=\"language-text\">For a packet from a Perth workstation to the London intranet, list the\ndecision points in order: host routing, default gateway, router routing\ntable, WAN link, destination policy, response path. For each, name the\nevidence you would inspect.\n</code></pre>\n<p>The list is the troubleshooting order.</p>\n<h3>Exploration 3: Reduce the Diagram</h3>\n<p>Ask the AI to produce the smallest useful diagram.</p>\n<pre><code class=\"language-text\">Reduce the four-site topology to the minimum diagram needed to explain\nhow Perth reaches Pilbara and how London reaches LA. Include only the\nrouters, links and subnets that carry those paths.\n</code></pre>\n<p>A smaller diagram is easier to reason about and easier to test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A network orientation sheet:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Network orientation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Sites</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Site, subnet, role, local services.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>WAN</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Link, endpoints, latency, failure behaviour.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Default gateways</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Site, gateway address, router.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Name resolution</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Authoritative server, forwarders, caches, sites with no resolver.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Decision order</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Host route, gateway, router route, link, policy, response.\n```</p>\n<p>Fill it from the lab README, then check it against the running network.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Start with the guided tour, not the configuration files:</p>\n<ul>\n<li><a href=\"https://enterprisenetwork.borck.education/\">Enterprise network lab</a></li>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/00-tour.md\">Lab 00: Guided tour</a></li>\n</ul>\n<p>The tour is the only lab you need for the first pass. It lets you feel the latency and watch the route before you change anything.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A network map is a communication tool. It tells an engineer where to look, a manager what depends on what, and an auditor where the boundaries are.</p>\n<p>A map that only the most senior engineer understands is a risk. The pattern, the decision points and the evidence are what make the network transferable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Explain the addressing pattern in one sentence.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Draw the minimum diagram for Perth to Pilbara.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> List the decision points for a packet from London to Perth.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Build an orientation sheet from the lab README and check three facts against the running lab.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Explain the topology to someone who has never seen it, using only five sentences and one diagram.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The network is a set of decisions, not a cable diagram.</li>\n<li>The addressing plan has a pattern; use it instead of memorising.</li>\n<li>The decision order is host, gateway, router, link, policy, response.</li>\n<li>Start with the guided tour.</li>\n<li>A smaller diagram is easier to test.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Can place a new host using the addressing pattern</li>\n<li>[ ] Named the four sites and the WAN range</li>\n<li>[ ] Listed the decision points for one path</li>\n<li>[ ] Reduced the diagram to the path you need</li>\n<li>[ ] Started the guided tour</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which part of the diagram did you try to memorise first?</li>\n<li>What became clearer when you reduced it?</li>\n<li>What would you check first if a packet did not arrive?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The map is in your head. The next chapter follows one packet across it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Follow the Packet",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A route is a decision made at one moment with the information the router has then.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A host sends a packet by comparing the destination with its own address and subnet mask. If the destination is local, it sends directly. If not, it sends to its default gateway.</p>\n<p>The gateway is a router. The router looks up the destination in its routing table and chooses a next hop and an interface. The packet travels the link, arrives at the next router, and the decision repeats.</p>\n<p>The routing table can contain:</p>\n<ul>\n<li><strong>Connected routes</strong>: networks directly attached to the router.</li>\n<li><strong>Static routes</strong>: manually configured paths.</li>\n<li><strong>Dynamic routes</strong>: paths learned from a routing protocol such as OSPF.</li>\n</ul>\n<p>OSPF routers exchange link-state information and compute shortest paths. In the lab, OSPF runs in area 0 on the routers and the office LANs. The WAN links use unicast OSPF with static neighbours so adjacency does not depend on multicast behaviour in the container bridge.</p>\n<p>Latency is applied with <code>tc netem</code> on the WAN interfaces. Perth to London is about 250ms round trip, Perth to LA about 150ms, London to LA about 140ms, and Perth to Pilbara about 600ms with jitter and loss.</p>\n<p>A traceroute shows the path, but it is not proof of the return path. Routing can be asymmetric. The forward path and the response path can differ.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Road Trip</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A driver does not know every road in the country. At each junction, they read the sign for the destination and choose the next road.</p>\n<p>The route is the sequence of choices. If a road closes, the driver takes another sign. The destination does not change; the path does.</p>\n<p>A router works the same way. It does not hold the whole journey. It holds the next hop.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Route with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Routing Table</h3>\n<p>Ask the AI to explain a routing table without inventing hops.</p>\n<pre><code class=\"language-text\">Here is the routing table from the Perth router:\n[paste it]\n\nExplain each route, its source (connected, static or OSPF), the next hop\nand the interface. Mark the default route. Do not infer a path that is\nnot in the table.\n</code></pre>\n<p>A good answer will distinguish a learned route from a connected one.</p>\n<h3>Exploration 2: Compare Forward and Return</h3>\n<p>Ask what a traceroute can and cannot show.</p>\n<pre><code class=\"language-text\">A traceroute from Perth to London shows four hops. Explain what the\noutput establishes about the forward path and what it does not establish\nabout the return path. Name the evidence you would collect on the London\nrouter.\n</code></pre>\n<p>The answer should send you to the other side of the path.</p>\n<h3>Exploration 3: Break a Link</h3>\n<p>Ask how OSPF should respond.</p>\n<pre><code class=\"language-text\">The Perth to London WAN link fails. Explain how OSPF should reconverge\nand what the Perth routing table should show afterwards. Name the\ncommands you would use to confirm the change and the risk of a transient\nloop or black hole.\n</code></pre>\n<p>The lab tour includes a link failure. Use it to check the prediction.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A path record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Source</td>\n<td>Perth workstation</td>\n</tr>\n<tr>\n<td>Destination</td>\n<td>London intranet</td>\n</tr>\n<tr>\n<td>Source address</td>\n<td>10.10.10.101</td>\n</tr>\n<tr>\n<td>Gateway</td>\n<td>10.10.10.254</td>\n</tr>\n<tr>\n<td>Perth route</td>\n<td>OSPF via WAN</td>\n</tr>\n<tr>\n<td>WAN link</td>\n<td>172.16.1.0/24</td>\n</tr>\n<tr>\n<td>London route</td>\n<td>Connected</td>\n</tr>\n<tr>\n<td>Return path</td>\n<td>London to Perth</td>\n</tr>\n<tr>\n<td>Observed RTT</td>\n<td>~250ms</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td><code>ip route</code>, <code>traceroute</code>, <code>tcpdump</code></td>\n</tr>\n</tbody>\n</table>\n<p>The record is useful when the path changes. It gives you a baseline to compare.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The guided tour lets you feel the latency and trace the route:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/00-tour.md\">Lab 00: Guided tour</a></li>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/03-wan-troubleshooting.md\">Lab 03: WAN troubleshooting</a></li>\n</ul>\n<p>Start with <code>make test</code> and <code>make routes</code>. Then break a link and watch the route change.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Routing is resilience. A network that only works on one path is one failure away from an outage.</p>\n<p>The business question is not \"is there a route?\" It is \"what happens when this link fails, and how quickly does the network recover?\" The routing table and the reconvergence time are the evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Explain the difference between a connected route and an OSPF route.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Read the Perth routing table and identify the path to each site.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Run a traceroute to London and record the forward path and the RTT.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Compare the forward path with the return path from the London router.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Break the Perth to London link, predict the new path, then verify it and explain the reconvergence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A host sends local traffic directly and remote traffic to its gateway.</li>\n<li>A router chooses a next hop from its routing table.</li>\n<li>OSPF learns paths dynamically and reconverges after a failure.</li>\n<li>A traceroute shows the forward path, not necessarily the return path.</li>\n<li>Latency is a property of the link, not the distance on the diagram.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced one packet from source to destination</li>\n<li>[ ] Read a routing table without guessing</li>\n<li>[ ] Compared forward and return paths</li>\n<li>[ ] Predicted a link failure</li>\n<li>[ ] Recorded the evidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which route surprised you?</li>\n<li>What did the traceroute leave out?</li>\n<li>How quickly did OSPF recover?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The packet can reach the destination. The next chapter asks how it found the name.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Names and Time",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>DNS is a distributed cache with a hierarchy. Time is the other variable that changes what \"normal\" looks like.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A DNS query turns a name into an address. The resolver asks a server, the server answers, and the answer is cached for a time.</p>\n<p>The enterprise lab has three DNS behaviours:</p>\n<ul>\n<li><strong>Perth</strong> runs the authoritative resolver for <code>corp.lab</code> at <code>10.10.20.53</code>.</li>\n<li><strong>London</strong> and <strong>Los Angeles</strong> run resolvers that forward <code>corp.lab</code> queries to Perth across the WAN and cache the answers.</li>\n<li><strong>Pilbara</strong> has no local resolver, so every lookup makes the full satellite round trip.</li>\n</ul>\n<p>The contrast is the lesson. The first lookup in London is slow because it crosses the WAN. The second is fast because it is cached. In Pilbara, every lookup is slow because there is no cache.</p>\n<p>Time matters in a different way. Each office works 09:00 to 17:00 local, with a lunch dip and a 02:00 backup. The lab compresses time: one simulated hour per 60 real seconds by default. Traffic follows the sun.</p>\n<p>A baseline is a record of what normal looks like at each hour. Without it, an anomaly is just a feeling.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Library Catalogue</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A library catalogue is shared. A local branch can keep a copy of a popular entry, but the authoritative record lives at the main library. If the copy is stale, the branch gives the old answer until it is refreshed.</p>\n<p>DNS works the same way. The authoritative server holds the record. The cache holds a copy for a while. A stale cache can give an old address after a change.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Names and Time with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Map the Resolver Path</h3>\n<p>Ask the AI to trace a name lookup without inventing the answer.</p>\n<pre><code class=\"language-text\">A London workstation looks up intranet.corp.lab. Trace the query from\nthe workstation to the London resolver, the WAN, the Perth authoritative\nserver and the response. Mark where the answer is cached and what\nhappens on the second lookup.\n</code></pre>\n<p>The answer should distinguish the first lookup from the cached one.</p>\n<h3>Exploration 2: Test the Cache</h3>\n<p>Ask what changes when the record changes.</p>\n<pre><code class=\"language-text\">The intranet record changes from 10.10.20.80 to 10.10.20.81. The London\nresolver has a cached answer with a TTL of 300 seconds. Explain what\nusers see during the TTL and what the administrator should do.\n</code></pre>\n<p>Caching is a feature and a delay. The TTL is the trade-off.</p>\n<h3>Exploration 3: Baseline the Day</h3>\n<p>Ask how to tell normal from abnormal.</p>\n<pre><code class=\"language-text\">Here is a day of traffic counts by hour and office:\n[paste it]\n\nDescribe the normal pattern. Identify the working hours, the lunch dip\nand the backup window. Mark any hour that does not fit the pattern and\nwrite the question you would ask before calling it an attack.\n</code></pre>\n<p>A deviation is a question, not a verdict.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A DNS and time record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Query</td>\n<td><code>intranet.corp.lab</code></td>\n</tr>\n<tr>\n<td>Client</td>\n<td>London workstation</td>\n</tr>\n<tr>\n<td>Resolver</td>\n<td>London DNS</td>\n</tr>\n<tr>\n<td>Path</td>\n<td>London to Perth WAN</td>\n</tr>\n<tr>\n<td>First lookup</td>\n<td>Slow, uncached</td>\n</tr>\n<tr>\n<td>Second lookup</td>\n<td>Fast, cached</td>\n</tr>\n<tr>\n<td>TTL</td>\n<td>300 seconds</td>\n</tr>\n<tr>\n<td>Pilbara</td>\n<td>No local resolver; every lookup crosses satellite</td>\n</tr>\n<tr>\n<td>Baseline</td>\n<td>Working hours, lunch dip, 02:00 backup</td>\n</tr>\n</tbody>\n</table>\n<p>The record lets you explain a slow lookup without guessing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The guided tour includes DNS across the WAN. The baselining lab profiles a full simulated day:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/00-tour.md\">Lab 00: Guided tour</a></li>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/05-baselining.md\">Lab 05: Baselining</a></li>\n</ul>\n<p>Use <code>make clock</code> and <code>make activity</code> to see where each office is in its day.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>DNS is a dependency. A slow resolver makes every application feel slow, even when the network and the server are fine.</p>\n<p>Time is a dependency too. A backup at 02:00 is normal. The same traffic at 10:00 may be an anomaly. The baseline is how the organisation tells the difference.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain why the first London lookup is slow and the second is fast.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Trace a DNS query from London to Perth and back.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Change a record in the lab and observe the cache behaviour.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Build an hourly baseline for one office.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Find an hour that does not fit the baseline and write the questions you would ask before calling it an incident.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>DNS is hierarchical and cached.</li>\n<li>Perth is authoritative; London and LA forward and cache; Pilbara has no resolver.</li>\n<li>The first lookup and the cached lookup have different costs.</li>\n<li>Time changes what normal looks like.</li>\n<li>A baseline turns an anomaly into a question.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced one DNS query across the WAN</li>\n<li>[ ] Explained the cache hit</li>\n<li>[ ] Named the Pilbara difference</li>\n<li>[ ] Built an hourly baseline</li>\n<li>[ ] Found one deviation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which DNS behaviour surprised you?</li>\n<li>What does the cache hide?</li>\n<li>Which hour was hardest to explain?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The packet has a route and a name. The next chapter decides whether it is allowed.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Checkpoint: see the network",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the useful mental model of a network?",
+                        "options": [
+                          "A set of decisions about addressing, routing, naming and policy",
+                          "A list of every cable and switch",
+                          "A single router that knows everything",
+                          "The vendor's diagram"
+                        ],
+                        "answer": 0,
+                        "explanation": "You do not memorise every subnet. You follow the decision points."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "How does a host send traffic to a remote subnet?",
+                        "options": [
+                          "It sends to its default gateway",
+                          "It broadcasts to every host",
+                          "It opens a direct connection to the destination switch",
+                          "It asks DNS for a route"
+                        ],
+                        "answer": 0,
+                        "explanation": "Local traffic goes directly. Remote traffic goes to the gateway."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does a router use to choose the next hop?",
+                        "options": [
+                          "Its routing table",
+                          "The MAC address of the destination",
+                          "The DNS record",
+                          "The application port"
+                        ],
+                        "answer": 0,
+                        "explanation": "Connected, static and dynamic routes populate the table. The router chooses a next hop and interface."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What does OSPF do in the lab?",
+                        "options": [
+                          "It learns routes dynamically and reconverges after a link failure",
+                          "It assigns IP addresses",
+                          "It resolves names",
+                          "It filters packets"
+                        ],
+                        "answer": 0,
+                        "explanation": "OSPF is the routing protocol. It lets the network heal around a failed link."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Why is the first London DNS lookup slower than the second?",
+                        "options": [
+                          "The first crosses the WAN to Perth; the second is cached",
+                          "The second uses a different resolver",
+                          "The first is encrypted",
+                          "DNS is random"
+                        ],
+                        "answer": 0,
+                        "explanation": "London forwards to Perth and caches the answer. Pilbara has no local resolver, so every lookup crosses the satellite."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What does a traceroute prove?",
+                        "options": [
+                          "The forward path it observed, not necessarily the return path",
+                          "The complete route in both directions",
+                          "The application is healthy",
+                          "The firewall allowed the traffic"
+                        ],
+                        "answer": 0,
+                        "explanation": "Routing can be asymmetric. Check the other side before concluding."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "Why does time matter in the enterprise lab?",
+                        "options": [
+                          "Each office works its own hours, so normal traffic follows the sun",
+                          "The routers reboot every hour",
+                          "DNS expires every minute",
+                          "OSPF only runs at night"
+                        ],
+                        "answer": 0,
+                        "explanation": "A baseline by office and hour is how you tell normal from abnormal."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "change-the-network",
+            "title": "Change the Network",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Write the Firewall",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A firewall is a decision list. The first matching rule wins, and the default is a policy.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><code>nftables</code> organises rules into tables, chains and rules.</p>\n<ul>\n<li>A <strong>table</strong> groups rules for a family, such as IPv4.</li>\n<li>A <strong>chain</strong> is an ordered list of rules attached to a hook, such as input or forward.</li>\n<li>A <strong>rule</strong> matches packets and takes an action, such as accept or drop.</li>\n</ul>\n<p>The order matters. The first matching rule decides. A broad accept near the top can make every later drop irrelevant. A default drop at the end is a policy, not a failure.</p>\n<p>A stateful firewall allows replies to an outbound connection without a separate inbound rule. The connection-tracking state is the evidence that the reply belongs to the session.</p>\n<p>The lab's firewall lab asks you to contain branch offices and stop lateral movement. The mental model:</p>\n<ul>\n<li>What should each site be allowed to reach?</li>\n<li>What should it not reach?</li>\n<li>What should the DMZ expose?</li>\n<li>What should the branch-to-branch path allow?</li>\n</ul>\n<p>Write the policy before the rules. A rule list without a policy is a pile of exceptions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Nightclub Door</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A door policy says who may enter, who may leave and which staff may use the back door. The list is checked in order. A guest list entry near the top can override a later exclusion.</p>\n<p>The policy is the intent. The list is the implementation. A list that nobody can explain is a security risk.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Firewall Policy with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Write the Intent</h3>\n<p>Ask the AI to turn the design into a policy statement.</p>\n<pre><code class=\"language-text\">Here is the network and the business need:\n[paste it]\n\nWrite the firewall policy in plain language. Include what each site may\nreach, what it must not reach, the DMZ exposure and the branch path.\nDo not write nftables rules yet.\n</code></pre>\n<p>A good policy is short enough to argue with.</p>\n<h3>Exploration 2: Order the Rules</h3>\n<p>Ask the AI to test the order.</p>\n<pre><code class=\"language-text\">Here is my nftables ruleset:\n[paste it]\n\nExplain what each rule matches and which rule wins for a packet from a\nbranch workstation to a Perth server. Mark any rule that is shadowed by\nan earlier rule. Do not run it.\n</code></pre>\n<p>Shadowed rules are a common bug. The packet never reaches them.</p>\n<h3>Exploration 3: Test the Default</h3>\n<p>Ask what happens when no rule matches.</p>\n<pre><code class=\"language-text\">The chain has no explicit default drop. Explain the default behaviour,\nthe risk in this network and the evidence you would use to confirm it.\n</code></pre>\n<p>A default accept is a policy choice. It should be deliberate.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall change record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Policy</td>\n<td>Branch users may reach Perth intranet, not the DMZ</td>\n</tr>\n<tr>\n<td>Chain</td>\n<td><code>forward</code></td>\n</tr>\n<tr>\n<td>Rule order</td>\n<td>Allow established, allow Perth intranet, allow DNS, drop</td>\n</tr>\n<tr>\n<td>Default</td>\n<td>Drop</td>\n</tr>\n<tr>\n<td>Test</td>\n<td>Branch to intranet succeeds; branch to DMZ fails</td>\n</tr>\n<tr>\n<td>Rollback</td>\n<td>Restore previous ruleset</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td><code>nft list ruleset</code>, test output, timestamps</td>\n</tr>\n</tbody>\n</table>\n<p>Test both the allowed and the denied path. A firewall that blocks everything passes the deny test and fails the business.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The firewall lab asks you to write real nftables policy:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/02-firewall.md\">Lab 02: Edge firewall</a></li>\n</ul>\n<p>Use the lab's isolated network. Save the old ruleset before you change it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall is a business boundary. It protects the DMZ, contains a compromised branch and limits lateral movement.</p>\n<p>It also blocks work. A rule that is too tight breaks an application; a rule that is too broad defeats the boundary. The test is the business path, not only the deny path.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain the difference between a table, a chain and a rule.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Write the firewall policy in plain language.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Read a ruleset and identify which rule wins for a given packet.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Write a ruleset with a default drop and test one allowed and one denied path.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Contain a branch office, prove lateral movement is blocked and write the rollback plan.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A firewall is an ordered decision list.</li>\n<li>The first matching rule wins.</li>\n<li>The default policy is a decision, not an accident.</li>\n<li>Stateful rules allow replies to established connections.</li>\n<li>Test the allowed path and the denied path.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the policy before the rules</li>\n<li>[ ] Identified the matching rule for one packet</li>\n<li>[ ] Found a shadowed rule or confirmed none</li>\n<li>[ ] Set a deliberate default</li>\n<li>[ ] Wrote the rollback</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which rule was easiest to misorder?</li>\n<li>What did the allowed-path test prove?</li>\n<li>Where could the policy break the business?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The firewall decides what is allowed. The next chapter watches what gets through.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Watch the Intrusion",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>An intrusion detection system is a sensor with a rulebook. The alert is a lead, not a verdict.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Suricata inspects network traffic and matches it against rules. A rule describes a pattern or behaviour and produces an alert when it matches.</p>\n<p>The lab's IDS lab asks you to attack the network, watch Suricata catch it, capture the incident, replay it and write a rule. The sequence matters:</p>\n<ol>\n<li>Confirm the sensor is seeing traffic.</li>\n<li>Generate a known event in the isolated lab.</li>\n<li>Read the alert and the packet evidence.</li>\n<li>Replay the capture to confirm the detection is reproducible.</li>\n<li>Write or tune a rule.</li>\n<li>Check the false-positive and false-negative behaviour.</li>\n</ol>\n<p>An alert without packet evidence is a claim. The pcap is the evidence. A rule that fires on everything is not detection; it is noise.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Smoke Alarm</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A smoke alarm detects smoke, not fire. It can be triggered by burnt toast and can miss a slow smoulder. The alarm is useful because it is fast and consistent, not because it is always right.</p>\n<p>An IDS works the same way. It detects patterns. The analyst decides whether the pattern is an incident.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Detection with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Alert</h3>\n<p>Ask the AI to separate the alert from the evidence.</p>\n<pre><code class=\"language-text\">Here is a Suricata alert and the matching packet capture:\n[paste or describe them]\n\nExplain the source, destination, signature, timestamp and packet\nevidence. Mark what the alert establishes and what it does not. Do not\ncall it an attack yet.\n</code></pre>\n<p>A good answer will identify the rule that fired and the traffic that triggered it.</p>\n<h3>Exploration 2: Test the Rule</h3>\n<p>Ask what the rule would miss.</p>\n<pre><code class=\"language-text\">Here is the Suricata rule:\n[paste it]\n\nExplain what it matches, what it misses and how an attacker could evade\nit. Propose one test that should alert and one benign test that should\nnot.\n</code></pre>\n<p>A rule with no negative test is untested.</p>\n<h3>Exploration 3: Tune Without Breaking</h3>\n<p>Ask how to reduce noise without hiding the event.</p>\n<pre><code class=\"language-text\">The rule fires on a known benign service every hour. Propose a tuning\nchange that suppresses the benign case while keeping the malicious\ncase. Name the test that proves both.\n</code></pre>\n<p>Suppression is a decision with a cost. Record it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An IDS finding record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Sensor</td>\n<td>Suricata</td>\n</tr>\n<tr>\n<td>Alert</td>\n<td>Signature and severity</td>\n</tr>\n<tr>\n<td>Source and destination</td>\n<td>IPs and ports</td>\n</tr>\n<tr>\n<td>Time</td>\n<td>Timestamp and time zone</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>Pcap, flow, payload</td>\n</tr>\n<tr>\n<td>Rule</td>\n<td>Signature ID and version</td>\n</tr>\n<tr>\n<td>Test</td>\n<td>Replay result</td>\n</tr>\n<tr>\n<td>False positive</td>\n<td>Benign case checked</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Encrypted traffic, sensor placement</td>\n</tr>\n</tbody>\n</table>\n<p>The record ties the alert to reproducible evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The IDS lab provides the attack, the sensor and the replay:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/01-ids.md\">Lab 01: Intrusion detection</a></li>\n</ul>\n<p>Use the lab's isolated network. Do not replay attack traffic outside it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Detection is a control. It tells the organisation that something happened, but only if the sensor sees the traffic and the rule matches.</p>\n<p>The business question is not \"did the alert fire?\" It is \"would we see the event that matters, and would we know what to do?\" Coverage, tuning and response are the real measures.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain the difference between an alert and an incident.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Read a Suricata alert and identify the matching packet evidence.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Replay a capture and confirm the alert is reproducible.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Write a rule and test one positive and one negative case.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Tune a noisy rule without hiding the malicious case, and record the trade-off.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Suricata matches traffic against rules and produces alerts.</li>\n<li>An alert is a lead; the packet evidence is the proof.</li>\n<li>Replay confirms the detection is reproducible.</li>\n<li>A rule needs a positive and a negative test.</li>\n<li>Tuning is a trade-off, not a cleanup.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Confirmed the sensor sees traffic</li>\n<li>[ ] Read the alert and the packet evidence</li>\n<li>[ ] Replayed the capture</li>\n<li>[ ] Wrote a positive and a negative test</li>\n<li>[ ] Recorded the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which alert was most convincing, and why?</li>\n<li>What would the rule miss?</li>\n<li>Where is the sensor blind?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The sensor watches the network. The next chapter breaks the WAN and asks you to diagnose it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Break the WAN",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Most WAN faults look like \"the network is slow\". The job is to turn that into a specific, testable claim.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lab injects seven WAN faults:</p>\n<ul>\n<li>packet loss</li>\n<li>jitter</li>\n<li>one-way loss</li>\n<li>an MTU black hole</li>\n<li>a DNS problem</li>\n<li>a bandwidth cap</li>\n<li>asymmetric routing</li>\n</ul>\n<p>They feel similar to a user and different to a tester.</p>\n<p>A useful diagnosis separates:</p>\n<ul>\n<li><strong>Reachability</strong>: can the packet get there?</li>\n<li><strong>Latency</strong>: how long does it take?</li>\n<li><strong>Loss</strong>: how many packets disappear?</li>\n<li><strong>Path</strong>: which route does it take, in each direction?</li>\n<li><strong>Name resolution</strong>: does the name resolve, and how fast?</li>\n<li><strong>Size</strong>: does it work for small packets and fail for large ones?</li>\n</ul>\n<p>Tools:</p>\n<ul>\n<li><code>ping</code> for reachability and round-trip time.</li>\n<li><code>mtr</code> for loss and latency per hop.</li>\n<li><code>traceroute</code> for the forward path.</li>\n<li><code>tcpdump</code> for what actually crosses the link.</li>\n<li><code>dig</code> for DNS.</li>\n<li><code>iperf</code> or a large transfer for throughput.</li>\n<li>MTU tests for fragmentation and black holes.</li>\n</ul>\n<p>One test is not a diagnosis. A ping that succeeds does not prove the application works. A traceroute that shows a path does not prove the return path.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Delivery Route</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A parcel is late. The causes could be the pickup, the depot, the flight, customs, the local van or the address.</p>\n<p>A good dispatcher checks each stage. They do not conclude \"the roads are bad\" from one late parcel.</p>\n<p>A WAN fault is the same. The path has stages, and each stage has evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering WAN Faults with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build a Diagnosis Plan</h3>\n<p>Ask the AI to turn a symptom into tests.</p>\n<pre><code class=\"language-text\">Users in Pilbara say the intranet is slow. Build a diagnosis plan.\nInclude reachability, latency, loss, path, DNS, MTU and throughput.\nFor each, name the command, the expected result and the interpretation.\n</code></pre>\n<p>A good plan starts with the cheapest test and narrows the fault.</p>\n<h3>Exploration 2: Separate the Directions</h3>\n<p>Ask why one-way loss is hard.</p>\n<pre><code class=\"language-text\">A ping from Perth to London shows 10% loss. A ping from London to Perth\nshows none. Explain how one-way loss can happen and what evidence you\nwould collect on each router.\n</code></pre>\n<p>The answer should include interface statistics, tc rules and captures on both sides.</p>\n<h3>Exploration 3: Test the MTU</h3>\n<p>Ask how a black hole hides.</p>\n<pre><code class=\"language-text\">Small pings succeed, but a large HTTP response stalls. Explain how an\nMTU black hole can produce this pattern and the test that confirms it.\n</code></pre>\n<p>The test is a large packet with the \"do not fragment\" flag, not another small ping.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A WAN diagnosis record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Symptom</td>\n<td>Slow intranet from Pilbara</td>\n</tr>\n<tr>\n<td>Reachability</td>\n<td>Ping succeeds</td>\n</tr>\n<tr>\n<td>Latency</td>\n<td>600ms RTT</td>\n</tr>\n<tr>\n<td>Loss</td>\n<td>0.5%</td>\n</tr>\n<tr>\n<td>Path</td>\n<td>Perth to Pilbara satellite</td>\n</tr>\n<tr>\n<td>DNS</td>\n<td>No local resolver</td>\n</tr>\n<tr>\n<td>MTU</td>\n<td>Large packets fail</td>\n</tr>\n<tr>\n<td>Throughput</td>\n<td>Capped</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td><code>ping</code>, <code>mtr</code>, <code>tcpdump</code>, <code>dig</code></td>\n</tr>\n<tr>\n<td>Conclusion</td>\n<td>Satellite latency plus MTU black hole</td>\n</tr>\n<tr>\n<td>Next step</td>\n<td>Fix MTU or clamp MSS</td>\n</tr>\n</tbody>\n</table>\n<p>The record separates the symptoms and the evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The WAN troubleshooting lab injects seven faults and asks you to find them:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/03-wan-troubleshooting.md\">Lab 03: WAN troubleshooting</a></li>\n</ul>\n<p>Work one fault at a time. Record the baseline before you inject anything.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>WAN faults are business faults. A slow link delays orders, a DNS problem looks like an application outage, and an MTU black hole breaks one workflow while everything else works.</p>\n<p>A diagnosis that names the fault and the evidence lets the provider fix it and the business decide whether to pay for a better link.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> List the seven WAN faults.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Build a diagnosis plan for a slow intranet.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Distinguish latency from loss with two tests.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Diagnose one injected fault and record the evidence.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Diagnose the asymmetric routing fault and explain why a forward traceroute is not enough.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>WAN faults look similar to users and different to tests.</li>\n<li>Separate reachability, latency, loss, path, DNS, MTU and throughput.</li>\n<li>One test is not a diagnosis.</li>\n<li>One-way loss and asymmetric routing need both sides.</li>\n<li>An MTU black hole hides from small packets.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Built a diagnosis plan</li>\n<li>[ ] Tested more than one dimension</li>\n<li>[ ] Captured evidence on both sides</li>\n<li>[ ] Named the fault</li>\n<li>[ ] Recorded the next step</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which symptom was most misleading?</li>\n<li>What did the forward path hide?</li>\n<li>Which test would you run first next time?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The network is understood and broken. The next chapter rebuilds one from a capture.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: change the network",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "In nftables, what decides which rule applies to a packet?",
+                        "options": [
+                          "The first matching rule in the chain",
+                          "The last matching rule",
+                          "The most specific rule automatically",
+                          "The rule with the highest priority number"
+                        ],
+                        "answer": 0,
+                        "explanation": "Order matters. A broad accept near the top can shadow every later drop."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the default policy?",
+                        "options": [
+                          "The action when no rule matches, such as drop",
+                          "The first rule in the chain",
+                          "The firewall's brand",
+                          "The logging level"
+                        ],
+                        "answer": 0,
+                        "explanation": "A default accept is a decision. It should be deliberate, not accidental."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does a Suricata alert prove?",
+                        "options": [
+                          "A rule matched traffic, not that an incident occurred",
+                          "That an attack succeeded",
+                          "That the firewall failed",
+                          "That the host is compromised"
+                        ],
+                        "answer": 0,
+                        "explanation": "The alert is a lead. The packet evidence and the investigation decide."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "Why replay a packet capture?",
+                        "options": [
+                          "To confirm the detection is reproducible",
+                          "To make the network faster",
+                          "To change the firewall",
+                          "To resolve DNS"
+                        ],
+                        "answer": 0,
+                        "explanation": "A reproducible alert is evidence. A one-off alert may be noise."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What does a successful ping prove?",
+                        "options": [
+                          "Basic reachability for that packet size, not that the application works",
+                          "The application is healthy",
+                          "The route is symmetric",
+                          "The firewall allows every port"
+                        ],
+                        "answer": 0,
+                        "explanation": "Small packets can pass while large ones fail, and the return path may differ."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is an MTU black hole?",
+                        "options": [
+                          "Large packets are dropped while small packets pass",
+                          "DNS stops resolving",
+                          "The router reboots",
+                          "OSPF advertises a bad route"
+                        ],
+                        "answer": 0,
+                        "explanation": "The test is a large packet with the do-not-fragment flag, not another small ping."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "Why is one-way loss hard to diagnose?",
+                        "options": [
+                          "The forward and return paths can differ, so one side may show no loss",
+                          "Ping cannot measure loss",
+                          "Routers do not count packets",
+                          "DNS hides it"
+                        ],
+                        "answer": 0,
+                        "explanation": "Check interface statistics and captures on both sides."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "02-05",
+                "title": "The one-way slowdown",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>Users in Pilbara say the intranet is slow. Ping succeeds. Small pages\nload. Large downloads stall. DNS feels slow. The link is a satellite\nwith high latency. A colleague wants to reboot the router and add a\nstatic route. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "diagnose",
+                        "label": "Test latency, loss, MTU, DNS and path separately, and compare with the baseline",
+                        "outcome": "<p>The tests show satellite latency, a slow uncached DNS path because\nPilbara has no resolver, and an MTU black hole on large packets.\nThe evidence names three causes, not one vague slowdown.</p>",
+                        "effects": {
+                          "Diagnosis": "Specific",
+                          "Evidence": "Separated",
+                          "Fix": "Targeted"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Most WAN faults look like \"slow\". Separate reachability, latency, loss, path, DNS, MTU and throughput.</p>"
+                      },
+                      {
+                        "id": "reboot",
+                        "label": "Reboot the router and see whether it comes back",
+                        "outcome": "<p>The router returns. The latency, DNS path and MTU problem are\nunchanged. The outage added another variable to the investigation.</p>",
+                        "effects": {
+                          "Action": "Unsupported",
+                          "Evidence": "Disturbed",
+                          "Fault": "Unchanged"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A reboot is not a diagnosis. Test before you change the state.</p>"
+                      },
+                      {
+                        "id": "route",
+                        "label": "Add a static route to make the path shorter",
+                        "outcome": "<p>The route does not change the satellite distance. It may create a\nloop or bypass the intended policy.</p>",
+                        "effects": {
+                          "Risk": "Higher",
+                          "Diagnosis": "Worse",
+                          "Fault": "Unchanged"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>The path is already known. The problem is the link and the packet size, not a missing route.</p>"
+                      },
+                      {
+                        "id": "bandwidth",
+                        "label": "Assume it is a bandwidth cap and request a bigger link",
+                        "outcome": "<p>The link may be capped, but the stalled large downloads and slow\nDNS remain unexplained. The organisation pays for capacity without\nfixing the black hole.</p>",
+                        "effects": {
+                          "Cost": "Increased",
+                          "Diagnosis": "Incomplete",
+                          "Fault": "Partly hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A bandwidth cap is one of seven faults. Test for it rather than assuming it.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Turn \"slow\" into specific claims. Test each dimension, capture the\nevidence and compare with the baseline before changing the network.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "rebuild-and-prove",
+            "title": "Rebuild and Prove",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Reconstruct from a Capture",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A packet capture is evidence of what crossed the wire, not a complete description of the network.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The capstone lab gives you an unknown network as a packet capture. You reconstruct the topology, addressing, services and routes, stand it back up in Docker, and find what the reconstruction gets wrong.</p>\n<p>A capture can show:</p>\n<ul>\n<li>addresses, ports and protocols</li>\n<li>DNS names and responses</li>\n<li>service banners</li>\n<li>traffic volume and timing</li>\n<li>routes, if routing protocols are visible</li>\n</ul>\n<p>A capture may not show:</p>\n<ul>\n<li>devices that were silent</li>\n<li>hosts that never transmitted during the capture</li>\n<li>internal configuration</li>\n<li>firewall rules that dropped traffic before it reached the wire</li>\n<li>the full routing table</li>\n<li>encrypted payloads</li>\n</ul>\n<p>The professional skill is to separate <strong>observed</strong> from <strong>inferred</strong> and to state confidence. A reconstructed network that looks complete but hides its assumptions is more dangerous than one that names its gaps.</p>\n<p><code>pcap2compose</code> in the lab turns a capture into a draft compose file. The draft is a hypothesis. It is not the network.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Receipt</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A pile of receipts can tell you where someone shopped, what they bought and when. It cannot tell you what they did between shops, whether they used cash elsewhere, or why they chose one shop over another.</p>\n<p>The receipts are evidence. The story is an inference.</p>\n<p>A packet capture is a receipt for traffic.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Reconstruction with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Observed Inventory</h3>\n<p>Ask the AI to extract only what the capture shows.</p>\n<pre><code class=\"language-text\">Here is a summary of a packet capture:\n[paste it]\n\nList the observed addresses, ports, protocols, DNS names and timestamps.\nFor each, state the exact evidence and the confidence. Do not infer a\nhost that never appears.\n</code></pre>\n<p>The inventory is the foundation. It should be boring and precise.</p>\n<h3>Exploration 2: List the Assumptions</h3>\n<p>Ask what the reconstruction fills in.</p>\n<pre><code class=\"language-text\">Here is my reconstructed topology:\n[paste it]\n\nList every assumption the reconstruction makes: a silent host, a missing\nroute, a service inferred from a port, a firewall inferred from absence.\nFor each, write the evidence that would confirm or refute it.\n</code></pre>\n<p>The assumptions are the useful output, not the diagram.</p>\n<h3>Exploration 3: Test the Rebuild</h3>\n<p>Ask how to compare the reconstruction with the capture.</p>\n<pre><code class=\"language-text\">I rebuilt the captured network in Docker. Design a test plan that\nreplays the capture against the rebuild and compares the observed\ntraffic. Include timing, DNS, service responses and missing flows.\n</code></pre>\n<p>A rebuild that reproduces the traffic is stronger evidence than a diagram that looks right.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A reconstruction record:</p>\n<table>\n<thead>\n<tr>\n<th>Element</th>\n<th>Observed</th>\n<th>Inferred</th>\n<th>Confidence</th>\n<th>Test</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Subnet <code>10.10.10.0/24</code></td>\n<td>Source addresses</td>\n<td>Gateway <code>.254</code></td>\n<td>High</td>\n<td>Ping gateway</td>\n</tr>\n<tr>\n<td>DNS server <code>10.10.20.53</code></td>\n<td>DNS responses</td>\n<td>Authoritative for <code>corp.lab</code></td>\n<td>Medium</td>\n<td>Query <code>corp.lab</code></td>\n</tr>\n<tr>\n<td>Web service on 80</td>\n<td>HTTP response</td>\n<td>Server role</td>\n<td>Medium</td>\n<td>Curl page</td>\n</tr>\n<tr>\n<td>Silent host</td>\n<td>No traffic</td>\n<td>None</td>\n<td>Low</td>\n<td>Do not invent</td>\n</tr>\n<tr>\n<td>Firewall</td>\n<td>Absence of traffic</td>\n<td>Blocked or unused</td>\n<td>Low</td>\n<td>Check policy</td>\n</tr>\n</tbody>\n</table>\n<p>The low-confidence rows are not failures. They are the questions the report should name.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The capstone lab reconstructs an unknown network from a capture:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/04-pcap2compose.md\">Lab 04: pcap2compose</a></li>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/scripts/pcap2compose.py\">Script: pcap2compose.py</a></li>\n</ul>\n<p>Use the supplied capture. Do not scan a real network to fill the gaps.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A reconstruction is useful during incident response, migration and documentation recovery. It is also easy to overstate.</p>\n<p>A report that says \"this is the network\" invites reliance. A report that says \"this is what the capture shows, and these are the assumptions\" tells the reader what to verify.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Name three things a packet capture can show and three it may not.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Build an observed inventory from a capture summary.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> List five assumptions in a reconstructed topology.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Rebuild a small captured network and compare the traffic.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Write the reconstruction report with confidence and the tests that would raise it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A capture is evidence of traffic, not a complete network description.</li>\n<li>Separate observed from inferred and state confidence.</li>\n<li>Silent hosts and absent traffic are gaps, not findings.</li>\n<li>A rebuild is a hypothesis to test against the capture.</li>\n<li>The assumptions are the useful part of the report.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Listed only observed facts</li>\n<li>[ ] Marked every inference</li>\n<li>[ ] Named a low-confidence gap</li>\n<li>[ ] Designed a comparison test</li>\n<li>[ ] Wrote the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which inference felt most obvious, and was it?</li>\n<li>What did the capture not show?</li>\n<li>What test raised your confidence?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The network is reconstructed. The final chapter learns what normal looks like and finds the anomaly.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Baseline the Day, Find the Anomaly",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Behavioural detection starts with a definition of normal. Without it, every packet is suspicious.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A network has a rhythm. Offices log in, work, break for lunch, work again and back up at night. DNS queries, web traffic, authentication and backups follow the working day.</p>\n<p>A <strong>baseline</strong> records that rhythm. It is not a single average. It is a profile by site, hour and service.</p>\n<p>The lab's baselining exercise asks you to profile a full simulated day per office, then find an attack made entirely of ordinary packets sent at the wrong hour. The individual packets are not malicious. The pattern is.</p>\n<p>Detection needs:</p>\n<ul>\n<li>a baseline of normal volume, services and timing</li>\n<li>a measure of expected variation</li>\n<li>an alert threshold that accounts for the working day</li>\n<li>a way to explain the deviation</li>\n</ul>\n<p>A spike at 10:00 may be normal for Perth and abnormal for Pilbara. A backup at 02:00 is expected. The same traffic at 10:00 is not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Shop&#x27;s Opening Hours</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A shop has a delivery at 06:00, a lunch rush at 12:00 and a clean-up at 18:00. A delivery van at 06:00 is normal. The same van at 15:00 is worth a question.</p>\n<p>The van is not suspicious. The time and the pattern are.</p>\n<p>A network baseline works the same way. The packet is ordinary. The hour and the pattern are the signal.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Baselining with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Profile the Day</h3>\n<p>Ask the AI to describe the normal pattern.</p>\n<pre><code class=\"language-text\">Here are hourly traffic counts by office and service:\n[paste it]\n\nDescribe the normal pattern for each office. Include working hours,\nlunch dip, backup window and the services that dominate. Mark the\nvariation that looks normal.\n</code></pre>\n<p>A good answer will not call every peak an anomaly.</p>\n<h3>Exploration 2: Find the Outlier</h3>\n<p>Ask what does not fit.</p>\n<pre><code class=\"language-text\">Here is the baseline and the suspect hour:\n[paste it]\n\nIdentify the deviation. Explain what makes it different from the normal\npattern. Name two benign explanations before you call it an attack.\n</code></pre>\n<p>Benign explanations include a late backup, a time-zone change, a software update or a testing window.</p>\n<h3>Exploration 3: Write the Detection</h3>\n<p>Ask for a rule that uses time and pattern, not just a signature.</p>\n<pre><code class=\"language-text\">Design a behavioural detection for ordinary traffic at an unusual hour.\nInclude the baseline, the threshold, the time window, the false-positive\ncases and the response.\n</code></pre>\n<p>A detection rule without a response is a dashboard.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A baseline record:</p>\n<table>\n<thead>\n<tr>\n<th>Site</th>\n<th>Hour</th>\n<th>Service</th>\n<th>Normal volume</th>\n<th>Variation</th>\n<th>Note</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Perth</td>\n<td>09:00</td>\n<td>HTTPS</td>\n<td>High</td>\n<td>Medium</td>\n<td>Start of day</td>\n</tr>\n<tr>\n<td>Perth</td>\n<td>12:00</td>\n<td>HTTPS</td>\n<td>Lower</td>\n<td>Low</td>\n<td>Lunch</td>\n</tr>\n<tr>\n<td>Perth</td>\n<td>02:00</td>\n<td>Backup</td>\n<td>High</td>\n<td>Low</td>\n<td>Expected</td>\n</tr>\n<tr>\n<td>Pilbara</td>\n<td>10:00</td>\n<td>SMB</td>\n<td>Low</td>\n<td>Low</td>\n<td>Satellite link</td>\n</tr>\n<tr>\n<td>London</td>\n<td>03:00</td>\n<td>SMB</td>\n<td>Low</td>\n<td>Low</td>\n<td>Unusual</td>\n</tr>\n</tbody>\n</table>\n<p>The finding is the row that does not fit, plus the evidence and the questions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The baselining lab profiles a full simulated day and plants an anomaly:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/labs/05-baselining.md\">Lab 05: Baselining</a></li>\n<li><a href=\"https://github.com/michael-borck/enterprise-network-lab/blob/main/scripts/baseline.py\">Script: baseline.py</a></li>\n</ul>\n<p>Use <code>make clock</code> and <code>make activity</code> to see the simulated day.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A baseline is how the organisation knows what normal costs and what normal looks like. It supports capacity planning, incident response and detection.</p>\n<p>A detection that ignores the working day generates noise. A detection that understands the rhythm finds the event that matters.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> Explain why a baseline is more than an average.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Profile one office by hour and service.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Find one deviation and name two benign explanations.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write a behavioural detection with a threshold and a response.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Write the incident note for the planted anomaly, separating observation, inference and action.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A baseline records the rhythm of the network.</li>\n<li>Normal is site-specific and time-specific.</li>\n<li>An anomaly is a deviation from the pattern, not a single packet.</li>\n<li>Benign explanations come before the attack label.</li>\n<li>A detection needs a response.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Profiled one office by hour</li>\n<li>[ ] Named the normal services</li>\n<li>[ ] Found one deviation</li>\n<li>[ ] Listed two benign explanations</li>\n<li>[ ] Wrote the detection and response</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which hour was most distinctive?</li>\n<li>What would you have missed without the baseline?</li>\n<li>What would make the detection noisy?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The network is understood, changed and observed. The appendices collect the lab map and the troubleshooting checklist.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "Checkpoint: rebuild and prove",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What can a packet capture not show?",
+                        "options": [
+                          "Hosts that never transmitted, dropped traffic, and internal configuration",
+                          "Source and destination addresses",
+                          "DNS names",
+                          "Service banners"
+                        ],
+                        "answer": 0,
+                        "explanation": "A capture is evidence of traffic, not a complete description of the network."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What should a reconstruction separate?",
+                        "options": [
+                          "Observed facts from inferred topology, with confidence",
+                          "Fast packets from slow packets",
+                          "DNS from HTTP",
+                          "Routers from switches"
+                        ],
+                        "answer": 0,
+                        "explanation": "The assumptions are the useful part of the report."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is a baseline?",
+                        "options": [
+                          "A profile of normal traffic by site, hour and service",
+                          "A single average for the whole network",
+                          "The firewall default policy",
+                          "The routing table"
+                        ],
+                        "answer": 0,
+                        "explanation": "Normal is site-specific and time-specific. An average hides the rhythm."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What makes a behavioural anomaly different from a signature alert?",
+                        "options": [
+                          "The packets may be ordinary; the time and pattern are wrong",
+                          "It always uses malware",
+                          "It only happens at night",
+                          "It never produces false positives"
+                        ],
+                        "answer": 0,
+                        "explanation": "Behavioural detection compares the pattern with the baseline, not just a payload."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What should you do before calling a deviation an attack?",
+                        "options": [
+                          "Name benign explanations and check the evidence",
+                          "Escalate immediately",
+                          "Reboot the network",
+                          "Change the firewall"
+                        ],
+                        "answer": 0,
+                        "explanation": "A late backup, a time-zone change or a software update can look like an anomaly."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What makes a reconstruction useful to a reader?",
+                        "options": [
+                          "Clear evidence, assumptions, confidence and tests",
+                          "A complete-looking diagram with no gaps",
+                          "A list of every packet",
+                          "A vendor product name"
+                        ],
+                        "answer": 0,
+                        "explanation": "A report that names its gaps tells the reader what to verify."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What does a detection need beyond a threshold?",
+                        "options": [
+                          "A response and an owner",
+                          "A longer rule",
+                          "A bigger baseline",
+                          "A faster link"
+                        ],
+                        "answer": 0,
+                        "explanation": "A detection without a response is a dashboard."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
