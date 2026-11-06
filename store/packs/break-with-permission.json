@@ -1,0 +1,1511 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "break-with-permission",
+  "title": "Break with Permission: Ethical Hacking in Practice",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T22:28:47+00:00",
+  "courses": [
+    {
+      "slug": "break-with-permission",
+      "title": "Break with Permission: Ethical Hacking in Practice",
+      "theme": "pixel",
+      "level": "intermediate",
+      "tags": [
+        "security",
+        "ethical-hacking",
+        "penetration-testing",
+        "scope",
+        "reporting"
+      ],
+      "pitch": "Scope, test and report an authorised security assessment without crossing the boundary.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T22:28:47+00:00",
+        "unit": {
+          "slug": "break-with-permission",
+          "title": "Break with Permission: Ethical Hacking in Practice",
+          "theme": "pixel",
+          "tags": [
+            "security",
+            "ethical-hacking",
+            "penetration-testing",
+            "scope",
+            "reporting"
+          ],
+          "level": "intermediate",
+          "pitch": "Scope, test and report an authorised security assessment without crossing the boundary.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "authorise-and-scope",
+            "title": "Authorise and Scope",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Permission Before Packet",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The tool does not decide whether the work is ethical. The authorisation, the scope and the record do.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ethical hacking is authorised security testing. The same command that finds a weakness for a client can be a criminal act when it is pointed at a system the tester does not own and has no permission to test.</p>\n<p>The law varies by country. In the United States, the Computer Fraud and Abuse Act is the best-known statute. The United Kingdom has the Computer Misuse Act, Australia has computer offences in the Criminal Code, and the European Union has its own directive. The details differ. The central idea is similar: access without authorisation, or access that exceeds authorisation, is an offence.</p>\n<p>Authorisation is not a feeling that the target owner would probably approve. It is written permission that names the target, the techniques allowed, the people authorised and the time window. If any of those is missing or vague, the tester has risk, not permission.</p>\n<p>Motive does not cure unauthorised access. Curiosity, good intentions and a promise to disclose responsibly are not defences. Responsible disclosure schemes and bug-bounty programmes exist because they grant authorisation in advance.</p>\n<p>The professional engagement lifecycle puts the legal work before the technical work:</p>\n<ol>\n<li>Pre-engagement: contracts, confidentiality and the objective.</li>\n<li>Scoping: which assets, services and windows are in play.</li>\n<li>Rules of engagement: which techniques are permitted or prohibited.</li>\n<li>Execution: the testing, inside the signed boundary.</li>\n<li>Reporting: findings, evidence and recommendations.</li>\n<li>Closeout: data handling, retesting and the final record.</li>\n</ol>\n<p>Every lab in this book sits inside phase four. It assumes phases one to three are complete.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Building Inspection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A building inspector has legal authority to enter a site, but not unlimited authority. The inspection is limited to the properties named in the engagement, the areas the owner has made accessible and the safety rules on site.</p>\n<p>If the inspector wanders into a neighbouring building because the door was open, the permission for the first building does not cover the second. If the inspector tests a fire system without permission and floods a floor, the engagement does not cover the damage.</p>\n<p>A penetration test works the same way. The authorisation letter opens one door. It does not open every door in the street.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Authorisation with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Authorisation Checklist</h3>\n<p>Ask the AI to turn an engagement brief into questions about permission.</p>\n<pre><code class=\"language-text\">Here is the engagement brief:\n[paste it]\n\nList every authorisation question that must be answered before testing\nbegins. Include the legal entity, target assets, IP ranges, techniques,\npeople, time window, data handling and emergency contacts. Mark any\nanswer that is vague or missing.\n</code></pre>\n<p>A good answer will surface the target that is only named by a brand, the IP range that is not confirmed, or the third-party service that the client does not own.</p>\n<h3>Exploration 2: Test the Scope of Permission</h3>\n<p>Ask the AI to find the gaps between \"the website\" and a testable boundary.</p>\n<pre><code class=\"language-text\">The client says the website is in scope. List the assets that might be\nimplied by that phrase and the ones that might not. Include domains,\nsubdomains, APIs, admin interfaces, third-party payment pages, email\nand staff devices. For each, write the question that settles whether it\nis authorised.\n</code></pre>\n<p>The list is a scope conversation, not a target list.</p>\n<h3>Exploration 3: Challenge the Motive Defence</h3>\n<p>Ask the AI to argue why good intentions do not replace permission.</p>\n<pre><code class=\"language-text\">A tester says: &quot;I only looked, I did not change anything, and I was\ntrying to help.&quot; Explain why this is not a defence to unauthorised\naccess. Give two lawful alternatives the tester could have used.\n</code></pre>\n<p>The alternatives should include asking the owner, using a disclosure programme, or reporting through an authorised channel.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An authorisation record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Client legal entity</td>\n<td></td>\n</tr>\n<tr>\n<td>Target assets</td>\n<td>Hostnames, IPs, applications, services</td>\n</tr>\n<tr>\n<td>Explicitly out of scope</td>\n<td>Third parties, production windows, staff devices</td>\n</tr>\n<tr>\n<td>Techniques allowed</td>\n<td>Scan, enumerate, exploit, post-exploit, social engineering</td>\n</tr>\n<tr>\n<td>Techniques prohibited</td>\n<td>Denial of service, destructive actions, real staff</td>\n</tr>\n<tr>\n<td>Authorised testers</td>\n<td>Names and roles</td>\n</tr>\n<tr>\n<td>Time window</td>\n<td>Start, end and restricted hours</td>\n</tr>\n<tr>\n<td>Emergency contact</td>\n<td>Name and number</td>\n</tr>\n<tr>\n<td>Data handling</td>\n<td>Storage, retention and deletion</td>\n</tr>\n<tr>\n<td>Authorisation reference</td>\n<td>Signed letter or contract</td>\n</tr>\n</tbody>\n</table>\n<p>No record, no test. A verbal assurance is not an authorisation letter.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 2 of the lab is deliberately technical-free. It covers law, ethics and the engagement lifecycle:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week2\">Week 2: Ethics and law</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/blob/main/labs/week2/rules-of-engagement-template.md\">Rules of engagement template</a></li>\n</ul>\n<p>Do the reading before you run a scanner. The rest of the lab assumes it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Unauthorised testing is an existential risk for the tester and a liability for the client. It can void insurance, breach a contract, trigger notification obligations and end a career.</p>\n<p>Authorisation also protects the client's operations. A test that runs at the wrong time, against the wrong system or with the wrong technique can take down a service, corrupt data or frighten customers. The paperwork is how the engagement stays useful.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> List the six phases of the engagement lifecycle and the artefact each produces.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Write the authorisation questions you would ask before testing a public website.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Explain why \"I was only trying to help\" is not a defence to unauthorised access.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Review a fictional engagement brief and mark every ambiguous target, technique or time window.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Draft an authorisation checklist for a multi-site client with a third-party payment provider.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Ethical hacking is authorised testing, not curiosity with better tools.</li>\n<li>Written permission names the target, techniques, people and window.</li>\n<li>Motive does not replace authorisation.</li>\n<li>The engagement lifecycle puts legal work before technical work.</li>\n<li>No authorisation record means no test.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Can state the one rule that has no exceptions</li>\n<li>[ ] Named the authorisation artefacts for an engagement</li>\n<li>[ ] Distinguished a target from an implied target</li>\n<li>[ ] Wrote the out-of-scope questions</li>\n<li>[ ] Know where the lab's ethics week sits</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which authorisation question is most often left vague?</li>\n<li>What would you do if a client gave verbal permission only?</li>\n<li>Where does the law in your jurisdiction differ from the CFAA?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Permission is confirmed. The next chapter turns it into a scope, a rules-of-engagement document and a testable boundary.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Scope and Rules of Engagement",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Scope is the fence. The rules of engagement are what you may do inside it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A scope names the assets, services, applications and time window the engagement covers. A rules-of-engagement document names the techniques permitted inside that scope, the techniques prohibited, the communication cadence and the emergency process.</p>\n<p>They are separate documents because they answer different questions. Scope says where. Rules of engagement say how.</p>\n<p>A useful scope is specific. \"The website\" is not a target. <code>www.example.com</code>, its API at <code>api.example.com</code>, the staging environment and the named IP ranges are targets. A third-party payment provider is not, unless its owner has given separate permission.</p>\n<p>Engagement types shape the scope and the realism:</p>\n<ul>\n<li><strong>Black-box</strong>: the tester starts with only public information, like an outside attacker.</li>\n<li><strong>Grey-box</strong>: the tester gets some information, such as a low-privilege account, like an insider or a compromised user.</li>\n<li><strong>White-box</strong>: the tester gets source code, architecture and credentials, which is efficient for finding depth but less realistic.</li>\n</ul>\n<p>The rules of engagement add the hard limits. Denial of service is usually prohibited. Destructive actions are prohibited. Social engineering of real staff may be prohibited or limited. Production testing may be restricted to a window. Found credentials are handled as sensitive data. A critical finding triggers an immediate call, not a line in a report three weeks later.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Film Permit</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A film crew has permission to shoot in a street. The permit names the street, the dates, the hours, the equipment and the scenes. It does not authorise closing a neighbouring street, damaging a shopfront or filming real customers without consent.</p>\n<p>The crew still has creative freedom inside the permit. The permit sets the boundary that makes the work legal and safe.</p>\n<p>A penetration test works the same way. The scope and rules of engagement set the boundary. The tester still chooses the tools and the sequence inside it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Scope with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn the Brief into an Asset Inventory</h3>\n<p>Ask the AI to build a candidate scope from the client's description.</p>\n<pre><code class=\"language-text\">Here is the client brief:\n[paste it]\n\nBuild a candidate asset inventory. List domains, subdomains, IP ranges,\napplications, APIs, admin interfaces, cloud services, staff roles and\nthird parties. Mark each as confirmed in scope, candidate, or out of\nscope, and write the question that settles the ones that are unclear.\n</code></pre>\n<p>The output is a scope conversation. Nothing is confirmed until the client confirms it.</p>\n<h3>Exploration 2: Build the Technique Matrix</h3>\n<p>Ask the AI to classify techniques for the rules of engagement.</p>\n<pre><code class=\"language-text\">For this engagement, classify each technique as allowed, allowed with\nnotice, or prohibited:\npassive reconnaissance, port scanning, service version detection,\nvulnerability scanning, web application testing, credential attacks,\noffline hash cracking, exploitation, post-exploitation, lateral\nmovement, physical access and social engineering.\n\nFor each, write the condition and the person who must approve it.\n</code></pre>\n<p>The matrix is only useful if the client signs it.</p>\n<h3>Exploration 3: Test the Emergency Path</h3>\n<p>Ask what happens when something goes wrong.</p>\n<pre><code class=\"language-text\">The test causes an outage, finds evidence of a real breach, or reaches\nan out-of-scope third party. Write the stop, notify and preserve steps\nfor each case. Name the contact and the maximum time before notification.\n</code></pre>\n<p>A rules-of-engagement document without an emergency path is a wish.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A scope and rules-of-engagement summary:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Engagement boundary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Objective</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Engagement type</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Black-box / grey-box / white-box</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>In scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Assets, services, IP ranges, applications and windows.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Out of scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Third parties, production windows, staff devices and prohibited actions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Permitted techniques</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Technique, condition, approver.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Prohibited techniques</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Denial of service, destructive actions, real staff, third parties.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Communication</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Daily status, critical-finding call, emergency contact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evidence handling</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Storage, encryption, access, retention and deletion.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Stop conditions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Outage, real breach, out-of-scope access, safety risk.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Signatures</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Client and tester.\n```</p>\n<p>The stop conditions are part of the scope. A tester who does not know when to stop is not in control of the engagement.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 3 uses captured traffic to build a scope proposal. Week 2 supplies the rules-of-engagement template:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/blob/main/labs/week2/rules-of-engagement-template.md\">Week 2: Rules of engagement</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week3\">Week 3: Scope and traffic analysis</a></li>\n</ul>\n<p>The week 3 traffic is evidence for the proposal, not permission to attack the hosts it shows.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A specific scope protects the client's operations and the tester's insurance. It also makes the report useful, because the reader knows exactly what was tested and what was not.</p>\n<p>Vague scope is a commercial risk. It invites disputes about what was included, surprises the client with activity they did not expect, and makes the final report easy to challenge.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Explain the difference between scope and rules of engagement.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Build an asset inventory for a fictional client with a website, API and payment provider.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Classify ten techniques as allowed, allowed with notice or prohibited, with a condition for each.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Write the emergency path for an outage and for evidence of a real breach.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Produce a complete scope and rules-of-engagement document for a multi-site client. Include stop conditions and sign-off.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Scope says where; rules of engagement say how.</li>\n<li>Specific assets and windows beat brand names and vague intentions.</li>\n<li>Black, grey and white box change realism and efficiency.</li>\n<li>Prohibited techniques and stop conditions belong in the document.</li>\n<li>The client signs the boundary before testing begins.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the assets and the out-of-scope items</li>\n<li>[ ] Chose the engagement type</li>\n<li>[ ] Classified the techniques</li>\n<li>[ ] Wrote the emergency path</li>\n<li>[ ] Named the person who approves each exception</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which asset was hardest to classify?</li>\n<li>Which technique would you prohibit by default?</li>\n<li>What would make you stop an engagement?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The boundary is signed. The next chapter builds the target map from reconnaissance.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Reconnaissance and the Target Map",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Reconnaissance is how you learn what the client owns, what the world can see and what the scope actually contains.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Reconnaissance gathers information before exploitation. It has two modes:</p>\n<ul>\n<li><strong>Passive reconnaissance</strong> uses public information without touching the target: DNS records, certificate transparency, search results, public documents, job ads and social media.</li>\n<li><strong>Active reconnaissance</strong> sends traffic to the target: host discovery, port scans, service banners and web content requests.</li>\n</ul>\n<p>Passive work is usually lower risk. Active work is visible and must be inside the authorised scope and time window.</p>\n<p>The output is a <strong>target map</strong>: hosts, addresses, services, versions, ownership and confidence. The map is not a list of vulnerabilities. It is a picture of the attack surface and the questions that remain.</p>\n<p>Evidence discipline starts here. Record the command, time, source, output and the scope item it relates to. A screenshot without a timestamp or source is a lead, not evidence.</p>\n<p>Reconnaissance also tests the scope. A domain may resolve to a third-party service. A subdomain may belong to an acquired company. A certificate may reveal hosts the client forgot. When the map and the scope disagree, stop and ask. Do not expand the engagement because a door was open.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through Mapping a Building</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A security consultant arrives at a site. Before testing a lock, they walk the perimeter, photograph the entrances, note the cameras, read the signage and check which doors are labelled. They do not try every handle on the first pass. They build a map.</p>\n<p>The map tells them where the interesting doors are, which ones are in the client's control and which belong to a neighbour. It also tells them what they cannot see without going inside.</p>\n<p>A penetration test works the same way. Reconnaissance builds the map. Exploitation tests a chosen door.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Reconnaissance with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Passive Map</h3>\n<p>Ask the AI to organise public information into a target map, not a target list.</p>\n<pre><code class=\"language-text\">Here is the client's public information:\n[paste it]\n\nBuild a candidate target map. List domains, subdomains, IP ranges,\ncertificate names, public services, technologies and staff roles. For\neach, record the source, the confidence and whether it is confirmed in\nscope. Mark third parties separately.\n</code></pre>\n<p>A good answer will distinguish an observation from an inference. A certificate name may suggest a host; it does not prove the client owns it.</p>\n<h3>Exploration 2: Test the Map Against the Scope</h3>\n<p>Ask the AI to find the conflicts.</p>\n<pre><code class=\"language-text\">Here is the signed scope:\n[paste it]\n\nHere is the candidate target map:\n[paste it]\n\nList every host or service that is not clearly covered by the scope,\nevery third party, and every ambiguity. For each, write the question\nto the client and the action to take until it is answered.\n</code></pre>\n<p>The default action is stop and ask, not test and explain later.</p>\n<h3>Exploration 3: Design the Evidence Log</h3>\n<p>Ask what a reviewer would need to reproduce the map.</p>\n<pre><code class=\"language-text\">Design an evidence log for reconnaissance. Include the command or source,\ntimestamp, scope item, output location, confidence and reviewer. Show\nhow you would record a public DNS lookup and an active scan differently.\n</code></pre>\n<p>The log is the difference between a professional map and a folder of screenshots.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A target map record:</p>\n<table>\n<thead>\n<tr>\n<th>Host</th>\n<th>Address</th>\n<th>Service</th>\n<th>Source</th>\n<th>Confidence</th>\n<th>Scope</th>\n<th>Notes</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>www</td>\n<td>203.0.113.10</td>\n<td>HTTPS</td>\n<td>DNS, certificate</td>\n<td>High</td>\n<td>Confirmed</td>\n<td>Public site</td>\n</tr>\n<tr>\n<td>api</td>\n<td>203.0.113.11</td>\n<td>HTTPS</td>\n<td>Certificate</td>\n<td>Medium</td>\n<td>Candidate</td>\n<td>Ask client</td>\n</tr>\n<tr>\n<td>legacy</td>\n<td>203.0.113.12</td>\n<td>HTTP</td>\n<td>Search result</td>\n<td>Low</td>\n<td>Unknown</td>\n<td>Possibly acquired</td>\n</tr>\n<tr>\n<td>payments</td>\n<td>Third party</td>\n<td>HTTPS</td>\n<td>Client brief</td>\n<td>High</td>\n<td>Out of scope</td>\n<td>No testing</td>\n</tr>\n</tbody>\n</table>\n<p>The map is a living document. Update it as evidence arrives and as the client confirms or rejects candidates.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 3 analyses captured traffic and builds a scope proposal. Week 4 begins active scanning:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week3\">Week 3: Scope and traffic analysis</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week4\">Week 4: Nmap scanning</a></li>\n</ul>\n<p>Week 3 is analysis of supplied captures. It is not permission to attack the hosts in the capture.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Reconnaissance is where the engagement learns what the client forgot to mention. That is valuable, and it is also where scope disputes begin.</p>\n<p>A clear map with sources and confidence lets the client confirm ownership and authorise the next step. A map that silently expands the target list turns a controlled test into an unauthorised one.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain the difference between passive and active reconnaissance.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Build a target map for a fictional client from public information.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Compare the map with a signed scope and list every ambiguity.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Design an evidence log for passive and active reconnaissance.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Write the client questions for a subdomain that resolves to a third-party service, and the action the tester takes until it is answered.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Reconnaissance builds a target map, not a vulnerability list.</li>\n<li>Passive and active work carry different risk and visibility.</li>\n<li>Every host needs a source, confidence and scope status.</li>\n<li>Conflicts between the map and the scope are stop-and-ask moments.</li>\n<li>Evidence discipline starts with the first lookup.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Distinguished passive from active work</li>\n<li>[ ] Recorded a source and confidence for each host</li>\n<li>[ ] Marked third parties separately</li>\n<li>[ ] Found one scope ambiguity</li>\n<li>[ ] Wrote the action to take until it is resolved</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which host was most surprising?</li>\n<li>Where did the public information disagree with the client's brief?</li>\n<li>What would you do with an unconfirmed but reachable host?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The map is built. The next chapter turns it into scanning and enumeration evidence.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Checkpoint: authorise and scope",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the one rule of ethical hacking?",
+                        "options": [
+                          "Never test a system you do not own without written permission",
+                          "Always use the newest tool",
+                          "Never test a production system",
+                          "Always report a finding before exploiting it"
+                        ],
+                        "answer": 0,
+                        "explanation": "Written authorisation names the target, techniques, people and time window. Without it, the work is unauthorised access."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the difference between scope and rules of engagement?",
+                        "options": [
+                          "Scope says where; rules of engagement say how",
+                          "Scope is legal; rules of engagement are technical",
+                          "Scope is for the client; rules of engagement are for the tester",
+                          "There is no difference"
+                        ],
+                        "answer": 0,
+                        "explanation": "Scope names the assets and windows. The rules of engagement name the permitted and prohibited techniques inside them."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is a grey-box engagement?",
+                        "options": [
+                          "The tester gets some information, such as a low-privilege account",
+                          "The tester gets no information",
+                          "The tester gets full source and credentials",
+                          "The tester tests only physical access"
+                        ],
+                        "answer": 0,
+                        "explanation": "Black-box starts from public information, grey-box adds partial access, white-box adds source and credentials."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the difference between passive and active reconnaissance?",
+                        "options": [
+                          "Passive uses public information; active sends traffic to the target",
+                          "Passive is illegal; active is legal",
+                          "Passive uses tools; active uses search engines",
+                          "There is no difference"
+                        ],
+                        "answer": 0,
+                        "explanation": "Active work is visible and must sit inside the authorised scope and time window."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "A scan of the authorised range returns a host owned by a third party. What do you do?",
+                        "options": [
+                          "Stop, log the observation and notify the client",
+                          "Take a quick look because it is in the range",
+                          "Scan it but do not exploit it",
+                          "Ignore it and continue"
+                        ],
+                        "answer": 0,
+                        "explanation": "Reachability is not authorisation. Stop and ask before interacting with an out-of-scope asset."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What should a reconnaissance evidence record include?",
+                        "options": [
+                          "Command or source, timestamp, scope item, output location, confidence and reviewer",
+                          "Only the screenshot",
+                          "Only the host name",
+                          "The final report text"
+                        ],
+                        "answer": 0,
+                        "explanation": "The record lets another tester reproduce the observation and shows that the work stayed in scope."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What is a stop condition?",
+                        "options": [
+                          "A defined event that ends testing, such as an outage, a real breach or out-of-scope access",
+                          "The end of the working day",
+                          "The moment the scanner finishes",
+                          "The client's invoice date"
+                        ],
+                        "answer": 0,
+                        "explanation": "A tester who does not know when to stop is not in control of the engagement."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "get-in",
+            "title": "Get In",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Scanning and Enumeration",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A scan finds doors. Enumeration works out what is behind them.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Scanning discovers hosts, ports and services. Enumeration asks the services what they know.</p>\n<p>A host discovery sweep answers which addresses are alive. A port scan answers which services accept connections. Service and version detection answers which software is listening. Enumeration goes further: directory users, share names, database schemas, SNMP strings and web paths.</p>\n<p>The distinction matters for evidence. \"Port 445 is open\" is a fact about the network. \"The staff share allows anonymous listing and contains a file called <code>onboarding.xlsx</code>\" is a finding about exposure. The second is more useful and needs more care.</p>\n<p>Enumeration often reveals the credential or the path that makes exploitation possible. That is why it is valuable and why it must stay inside the scope. A service that responds outside the authorised range is not an invitation.</p>\n<p>Evidence needs the command, time, target, output and interpretation. Keep raw output and a summary. Do not edit the raw output to make the finding clearer; write a separate note.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Hotel Corridor</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A scanner walks the corridor and notes which doors exist. Enumeration knocks on each door and reads the label, the room service menu and the guest list left on the desk.</p>\n<p>The corridor map is useful. The guest list is sensitive. The tester records what was exposed, reports it, and does not use it beyond the authorised engagement.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Scanning with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Scan</h3>\n<p>Ask the AI to match the scan type to the question.</p>\n<pre><code class=\"language-text\">The engagement needs to answer: which hosts are alive, which services are\nreachable, and which versions are running. The rules of engagement permit\nTCP scanning and service detection but prohibit denial of service.\nRecommend the scan sequence and explain what each step adds.\n</code></pre>\n<p>A good answer will avoid aggressive timing and explain why a SYN scan differs from a connect scan.</p>\n<h3>Exploration 2: Read the Enumeration Output</h3>\n<p>Ask the AI to separate facts from inferences.</p>\n<pre><code class=\"language-text\">Here is enumeration output from an LDAP, SMB or SNMP service:\n[paste it]\n\nList the facts the output establishes, the inferences it suggests and\nthe questions it leaves open. Mark any credential or personal data as\nsensitive. Do not propose exploitation.\n</code></pre>\n<p>The output becomes an evidence note, not a shortcut to the next attack.</p>\n<h3>Exploration 3: Challenge the Scope</h3>\n<p>Ask what the tester should do when a service responds outside the authorised range.</p>\n<pre><code class=\"language-text\">A scan of the authorised range returns a host that resolves to a\nthird-party provider. The tester has not touched it yet. Write the stop,\nlog and notify steps. Explain why &quot;just a quick look&quot; is not allowed.\n</code></pre>\n<p>The correct action is stop and ask, not test and explain later.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An enumeration evidence record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Target</td>\n<td>172.22.0.13</td>\n</tr>\n<tr>\n<td>Service</td>\n<td>SMB</td>\n</tr>\n<tr>\n<td>Command</td>\n<td><code>smbclient -L //172.22.0.13 -N</code></td>\n</tr>\n<tr>\n<td>Time</td>\n<td>2026-09-15 10:42 AEST</td>\n</tr>\n<tr>\n<td>Output</td>\n<td>Share list</td>\n</tr>\n<tr>\n<td>Finding</td>\n<td>Public share readable anonymously</td>\n</tr>\n<tr>\n<td>Sensitive data</td>\n<td>One text file</td>\n</tr>\n<tr>\n<td>Scope</td>\n<td>Confirmed</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Single service; no content review beyond proof</td>\n</tr>\n</tbody>\n</table>\n<p>The record lets another tester reproduce the observation and lets the client see exactly what was exposed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 4 covers scanning and scan reporting. Week 5 covers LDAP, SMB, MySQL and SNMP enumeration:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week4\">Week 4: Nmap scanning</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week5\">Week 5: Enumeration</a></li>\n</ul>\n<p>Stay inside the lab network. The services are intentionally vulnerable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Enumeration findings are often the most actionable part of a report. An exposed share, an anonymous LDAP query or a default SNMP string is easy to fix and easy to explain to a business reader.</p>\n<p>They are also the easiest to overstate. \"The share is readable\" is not \"customer data was stolen\". The report should separate exposure, access and impact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain the difference between scanning and enumeration.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Run a host discovery and service scan in the lab and record the evidence.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Enumerate one service and separate facts from inferences in the output.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Write the evidence record for an anonymously readable share, including the limitation.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Write the stop, log and notify procedure for a host that responds outside the authorised range.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Scanning finds hosts, ports and services; enumeration asks what they know.</li>\n<li>Enumeration findings are useful and sensitive.</li>\n<li>Raw output and interpretation are separate records.</li>\n<li>Scope applies to every response, not only every command.</li>\n<li>Stop and ask when a target is outside the boundary.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Chose a scan sequence that fits the question</li>\n<li>[ ] Recorded raw output and a summary</li>\n<li>[ ] Separated facts from inferences</li>\n<li>[ ] Marked sensitive data</li>\n<li>[ ] Wrote the out-of-scope action</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which enumeration output was most revealing?</li>\n<li>Where did the output tempt you to go beyond the question?</li>\n<li>What would you redact in the report?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The services are mapped. The next chapter tests the credentials that protect them.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Passwords and Access",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A password is a claim about identity. Cracking tests how weak that claim is.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Passwords are stored as hashes. A hash is a one-way function: the same input produces the same output, but the output does not reveal the input. Cracking is the search for an input that produces the stored hash.</p>\n<p>There are two broad routes:</p>\n<ul>\n<li><strong>Offline cracking</strong> takes a captured hash and tries candidates on the tester's own machine. It does not touch the target, so it is usually lower risk.</li>\n<li><strong>Online guessing</strong> sends login attempts to a live service. It is visible, can lock accounts and can disrupt operations, so it needs explicit permission and rate limits.</li>\n</ul>\n<p>Password strength is a function of length, unpredictability and the hashing scheme. A long random password is harder to crack than a short complex one. A fast hash is easier to attack than a slow, salted hash.</p>\n<p>Access testing is broader than passwords. It includes default accounts, reused credentials, exposed keys, anonymous access and privilege boundaries. The finding is not \"we cracked a password\". The finding is \"a valid credential gave access to X, which exposed Y\".</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Lock and Key</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A lock does not tell you whether the key is strong. It only tells you whether the key you have turns.</p>\n<p>A tester who finds a key under the mat has found an access path. The report should say where the key was, what it opened and what was behind the door. It should not publish the key.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Password Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Route</h3>\n<p>Ask the AI to compare offline and online testing for the engagement.</p>\n<pre><code class=\"language-text\">The engagement permits offline hash cracking and prohibits account\nlockout or service disruption. A captured hash is available from the\nlab. Recommend the route, the wordlist strategy and the limits. Explain\nwhat the result can and cannot prove.\n</code></pre>\n<p>The result can prove that a captured hash is weak. It cannot prove that the same password is used elsewhere or that the account is still active.</p>\n<h3>Exploration 2: Read the Hash</h3>\n<p>Ask the AI to identify the hash type and the evidence needed.</p>\n<pre><code class=\"language-text\">Here is a hash from the lab:\n[paste it]\n\nIdentify the likely algorithm, the evidence that would confirm it and\nthe cracking approach. Do not produce a candidate password. State what\nthe finding would mean for the client.\n</code></pre>\n<p>The finding is about password policy and storage, not just one credential.</p>\n<h3>Exploration 3: Test the Finding</h3>\n<p>Ask what would make the finding stronger or weaker.</p>\n<pre><code class=\"language-text\">The tester recovered a password for a lab account. List the reasons this\nmight not support a claim that the production service is weak. Include\nreuse, lab-only accounts, expiry, MFA and account permissions.\n</code></pre>\n<p>The answer becomes the limitation section.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A credential finding record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Target</td>\n<td>SSH service</td>\n</tr>\n<tr>\n<td>Account</td>\n<td>Lab user</td>\n</tr>\n<tr>\n<td>Method</td>\n<td>Offline hash cracking</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>Hash, wordlist, tool, time</td>\n</tr>\n<tr>\n<td>Result</td>\n<td>Password recovered</td>\n</tr>\n<tr>\n<td>Access</td>\n<td>Login succeeded</td>\n</tr>\n<tr>\n<td>Scope</td>\n<td>Confirmed</td>\n</tr>\n<tr>\n<td>Sensitive handling</td>\n<td>Credential redacted in report</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Lab credential; not proof of production reuse</td>\n</tr>\n</tbody>\n</table>\n<p>Credentials are sensitive data. The report redacts them, the evidence locker protects them and the client is told to rotate them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 6 covers password hashing, John, Hydra and wordlists:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week6\">Week 6: Password security</a></li>\n</ul>\n<p>Use only the lab accounts and the supplied hashes. Do not test real passwords or real services.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Password findings are easy to understand and easy to fix. They are also easy to overstate. A cracked lab password is not a breach. It is evidence that a policy, a storage choice or a reuse pattern may be weak.</p>\n<p>The report should recommend the control that prevents recurrence: length, unique passwords, a password manager, slow hashing, MFA and monitoring.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain the difference between a hash and a password.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Identify the hash type from a lab sample and record the evidence.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Crack a lab hash offline and record the method, time and limitation.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Test one online login path within the rules of engagement and record the rate limit and lockout behaviour.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Write the credential finding and the remediation recommendation without disclosing the credential.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Passwords are stored as hashes; cracking searches for the input.</li>\n<li>Offline cracking is lower risk than online guessing.</li>\n<li>Access findings are about the path and the exposure, not the password alone.</li>\n<li>Credentials are sensitive evidence and must be redacted.</li>\n<li>The recommendation should prevent recurrence, not just fix one account.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Chose offline or online testing deliberately</li>\n<li>[ ] Recorded the hash type and evidence</li>\n<li>[ ] Respected rate limits and lockout rules</li>\n<li>[ ] Redacted the credential in the report</li>\n<li>[ ] Named the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which password property mattered most?</li>\n<li>Where could a credential finding be overclaimed?</li>\n<li>What control would you recommend first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The credentials are tested. The next chapter looks at the web application layer.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Web Application Vulnerabilities",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A web vulnerability is a gap between what the application expects and what an attacker can send.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Web applications accept input, make decisions and return output. Vulnerabilities appear when input is trusted, output is not encoded, sessions are weak or access checks are missing.</p>\n<p>Two common families:</p>\n<ul>\n<li><strong>Injection</strong>: user input changes the meaning of a query or command. SQL injection is the classic example. The fix is parameterised queries and input validation, not blocklists.</li>\n<li><strong>Cross-site scripting</strong>: user input is rendered as executable content. The fix is context-aware output encoding, a content security policy and safe DOM APIs.</li>\n</ul>\n<p>Other common issues include broken access control, insecure direct object references, authentication weaknesses, exposed admin interfaces and verbose errors.</p>\n<p>Proof of impact is the professional skill. A tester should demonstrate enough to show the issue is real, without causing harm. A safe proof might show a boolean difference, a reflected payload that does not persist, or access to a test record. It should not dump a production database or attack a real user.</p>\n<p>Scope and ethics matter here more than anywhere. The lab applications are intentionally vulnerable. A real application needs written permission, a defined payload policy and a stop condition.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Locked Filing Cabinet</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A web form is a clerk asking for a name and then fetching the matching file. Injection is convincing the clerk that the name is also an instruction to open every drawer.</p>\n<p>The proof is not the pile of files on the floor. The proof is a controlled demonstration that the clerk followed an instruction they should have ignored, plus the evidence that the drawer was not supposed to open.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Web Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Map the Inputs</h3>\n<p>Ask the AI to inventory the application's inputs and trust boundaries.</p>\n<pre><code class=\"language-text\">Here is a description of the lab application:\n[paste it]\n\nList the inputs, the likely trust boundaries and the controls that\nshould protect each one. Include forms, URL parameters, cookies,\nheaders, file uploads and APIs. Mark the inputs that reach a database\nor the browser.\n</code></pre>\n<p>The map tells you where to test, not how to exploit.</p>\n<h3>Exploration 2: Design a Safe Proof</h3>\n<p>Ask for the smallest demonstration of impact.</p>\n<pre><code class=\"language-text\">A suspected SQL injection is in a search parameter. Design a safe proof\nthat shows the query can be influenced without dumping data. State the\npayload, the expected difference, the evidence to capture and the stop\ncondition.\n</code></pre>\n<p>A boolean difference is enough to prove the issue. Extracting customer data is not necessary and may be harmful.</p>\n<h3>Exploration 3: Test the Remediation</h3>\n<p>Ask what would actually fix the class of issue.</p>\n<pre><code class=\"language-text\">The application is vulnerable to SQL injection and reflected XSS.\nRecommend the root-cause fix for each, the test that would show the fix\nworks and the residual risks that remain.\n</code></pre>\n<p>Parameterised queries and output encoding are stronger than input blocklists. The test should include the original payload and a benign edge case.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A web finding record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Target</td>\n<td>Lab web application</td>\n</tr>\n<tr>\n<td>Endpoint</td>\n<td>Search form</td>\n</tr>\n<tr>\n<td>Issue</td>\n<td>SQL injection</td>\n</tr>\n<tr>\n<td>Proof</td>\n<td>Boolean difference, no data dumped</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>Request, response, screenshot, time</td>\n</tr>\n<tr>\n<td>Scope</td>\n<td>Confirmed</td>\n</tr>\n<tr>\n<td>Impact</td>\n<td>Authentication bypass or data exposure</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Lab only; production may differ</td>\n</tr>\n<tr>\n<td>Recommendation</td>\n<td>Parameterised queries, input validation, error handling</td>\n</tr>\n</tbody>\n</table>\n<p>The report describes the proof and the impact without publishing a weaponised payload.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 7 provides DVWA and OWASP Juice Shop:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week7\">Week 7: Web application vulnerabilities</a></li>\n</ul>\n<p>Use the lab applications only. Do not test a real site, even one you use, without written permission.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Web findings are often the most visible to customers and the most expensive to fix after a breach. They are also the easiest to demonstrate safely.</p>\n<p>A clear proof helps the development team reproduce the issue and verify the fix. A destructive exploit helps nobody and can create a real incident during the test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Explain the difference between SQL injection and XSS.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Map the inputs and trust boundaries of a lab application.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Design a safe proof for one suspected injection issue.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Write the finding and the root-cause remediation.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Test the fix and show that the original payload no longer works, without breaking normal use.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Web vulnerabilities arise where input is trusted or output is not encoded.</li>\n<li>Injection and XSS are common classes with known root-cause fixes.</li>\n<li>Safe proof demonstrates impact without causing harm.</li>\n<li>The report describes the proof, not a weaponised payload.</li>\n<li>Scope and stop conditions are part of the test.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Mapped the inputs and trust boundaries</li>\n<li>[ ] Chose a safe proof</li>\n<li>[ ] Captured the request and response</li>\n<li>[ ] Wrote the root-cause remediation</li>\n<li>[ ] Did not dump or alter real data</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which input was most exposed?</li>\n<li>What was the smallest proof of impact?</li>\n<li>How would you verify the fix?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The web layer is tested. The next chapter turns a foothold into a controlled demonstration of privilege.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Exploitation and Privilege Escalation",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Exploitation is proof, not conquest. The goal is to show the client what an attacker could reach, then stop.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Exploitation turns a vulnerability into access. Privilege escalation turns limited access into more access. Both are controlled demonstrations inside a signed scope.</p>\n<p>A professional test answers:</p>\n<ul>\n<li>What did the tester get in as?</li>\n<li>What could that account or service reach?</li>\n<li>What was the minimum proof of impact?</li>\n<li>What did the tester deliberately not do?</li>\n<li>How was the access removed and the evidence preserved?</li>\n</ul>\n<p>Exploit development is a deeper form. A buffer overflow lab teaches how memory corruption can redirect execution. The professional lesson is not the payload. It is the discipline of controlled crash analysis, offset calculation, bad-character checks and a stop condition.</p>\n<p>Persistence is usually out of scope. A tester should not leave a backdoor, a scheduled task or a new account behind. If the scope requires a persistence test, it needs explicit permission and a cleanup plan.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Fire Drill</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A fire drill tests whether people can leave the building safely. It does not start a real fire, and it does not leave the exits blocked afterwards.</p>\n<p>An exploitation test is a drill with a real vulnerability. The tester shows the path, records the evidence, and restores the system. The point is the lesson, not the damage.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Exploitation with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Minimum Proof</h3>\n<p>Ask the AI to reduce an exploit to the smallest safe demonstration.</p>\n<pre><code class=\"language-text\">The tester has a lab foothold with a low-privilege account. Design the\nminimum proof that shows what the account can reach. Include the files\nor services to inspect, the evidence to capture and the actions to avoid.\nDo not propose persistence or data destruction.\n</code></pre>\n<p>The minimum proof is usually a directory listing, a configuration read or a single test record, not a full data dump.</p>\n<h3>Exploration 2: Map Privilege</h3>\n<p>Ask what the current account can and cannot do.</p>\n<pre><code class=\"language-text\">Here is the lab user's permissions and the target services:\n[paste it]\n\nMap the privilege boundary. What can this account read, write, execute\nor administer? Which escalations are worth testing inside the scope, and\nwhich would be destructive?\n</code></pre>\n<p>Privilege mapping is evidence. It tells the client what the foothold is worth.</p>\n<h3>Exploration 3: Plan the Cleanup</h3>\n<p>Ask what must be restored.</p>\n<pre><code class=\"language-text\">The test created a temporary file, changed a test setting and opened a\nsession. Write the cleanup checklist, the verification step and the\nevidence to retain. Do not leave a backdoor.\n</code></pre>\n<p>A test without cleanup is an incident you caused.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An exploitation record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Target</td>\n<td>Lab host</td>\n</tr>\n<tr>\n<td>Initial access</td>\n<td>Low-privilege account</td>\n</tr>\n<tr>\n<td>Proof</td>\n<td>Read a test file</td>\n</tr>\n<tr>\n<td>Privilege</td>\n<td>Standard user</td>\n</tr>\n<tr>\n<td>Escalation tested</td>\n<td>One controlled path</td>\n</tr>\n<tr>\n<td>Not done</td>\n<td>Persistence, data dump, service disruption</td>\n</tr>\n<tr>\n<td>Cleanup</td>\n<td>File removed, session closed, setting restored</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>Commands, output, timestamps, scope</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Lab configuration; production may differ</td>\n</tr>\n</tbody>\n</table>\n<p>The \"not done\" column is a professional statement. It shows the tester stayed inside the boundary.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 8 covers privilege escalation with De-ICE. Week 10 covers buffer overflow exploit development:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week8\">Week 8: Privilege escalation</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week10\">Week 10: Exploit development</a></li>\n</ul>\n<p>Week 10 needs rootful Podman or Docker and an isolated lab. Do not run exploit code outside it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Exploitation proves impact. A client is more likely to fund a fix when the report shows a realistic path from an exposed service to a sensitive record.</p>\n<p>The proof must be controlled. A test that takes down a service, corrupts data or leaves a backdoor creates the very incident the client hired you to prevent.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Explain the difference between initial access and privilege escalation.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Map the permissions of a lab account.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Design the minimum proof of impact for a lab foothold.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Write the cleanup checklist and verification step.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Run one controlled escalation in the lab, record the evidence and restore the system.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Exploitation is a controlled proof of impact, not conquest.</li>\n<li>Privilege mapping shows what a foothold is worth.</li>\n<li>Minimum proof is safer and more useful than a data dump.</li>\n<li>Persistence is usually out of scope and needs explicit permission.</li>\n<li>Cleanup is part of the test.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the initial access and the proof</li>\n<li>[ ] Mapped the privilege boundary</li>\n<li>[ ] Listed what you deliberately did not do</li>\n<li>[ ] Wrote the cleanup checklist</li>\n<li>[ ] Recorded the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What was the smallest proof that changed the risk?</li>\n<li>Where could an exploit cause unnecessary harm?</li>\n<li>How would you verify the system was restored?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The foothold is proved. The next chapter moves through the network without exceeding the scope.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-05",
+                "title": "Checkpoint: get in",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the difference between scanning and enumeration?",
+                        "options": [
+                          "Scanning finds hosts, ports and services; enumeration asks the services what they know",
+                          "Scanning is passive; enumeration is active",
+                          "Scanning is legal; enumeration is not",
+                          "They are the same"
+                        ],
+                        "answer": 0,
+                        "explanation": "Port 445 open is a fact. An anonymously readable staff share is a finding."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Why is offline hash cracking usually lower risk than online guessing?",
+                        "options": [
+                          "It runs on the tester's machine and does not touch the target service",
+                          "It is always faster",
+                          "It is always legal",
+                          "It cannot fail"
+                        ],
+                        "answer": 0,
+                        "explanation": "Online guessing is visible, can lock accounts and can disrupt operations. It needs permission and rate limits."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is the root-cause fix for SQL injection?",
+                        "options": [
+                          "Parameterised queries and safe query construction",
+                          "A longer blocklist of dangerous words",
+                          "Hiding error messages only",
+                          "Renaming the parameter"
+                        ],
+                        "answer": 0,
+                        "explanation": "Blocklists are bypassed. Parameterised queries separate code from data."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the root-cause fix for cross-site scripting?",
+                        "options": [
+                          "Context-aware output encoding, safe DOM APIs and a content security policy",
+                          "Disabling JavaScript everywhere",
+                          "A longer input blocklist",
+                          "Hiding the response"
+                        ],
+                        "answer": 0,
+                        "explanation": "Encode output for the context where it appears. Validate input as a secondary defence."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is a safe proof of impact?",
+                        "options": [
+                          "The smallest demonstration that the issue is real, without dumping or altering data",
+                          "Extracting the full customer database",
+                          "Leaving a backdoor",
+                          "Taking the service offline"
+                        ],
+                        "answer": 0,
+                        "explanation": "A boolean difference or a test record is enough to prove the issue. The goal is evidence, not damage."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "Why is persistence usually out of scope?",
+                        "options": [
+                          "It leaves a backdoor and changes the client's system beyond the proof",
+                          "It is too easy",
+                          "It is always illegal",
+                          "It slows the scan"
+                        ],
+                        "answer": 0,
+                        "explanation": "If persistence is required, it needs explicit permission and a cleanup plan."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What must happen after an exploitation test?",
+                        "options": [
+                          "Cleanup and verification that the system was restored",
+                          "Nothing, the test is finished",
+                          "A second exploit",
+                          "Publishing the payload"
+                        ],
+                        "answer": 0,
+                        "explanation": "A test without cleanup is an incident you caused."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "02-06",
+                "title": "The reachable third party",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>A scan of the authorised range returns a host that belongs to the\nclient's payment provider. The host is reachable and responds to a\nversion probe. The rules of engagement say third parties are out of\nscope. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "stop",
+                        "label": "Stop, log the observation, notify the client and wait for written authorisation",
+                        "outcome": "<p>The observation is recorded with the address, time and scope\nreference. The client confirms the host is a third party and\nremoves the range from the next scan. The engagement stays inside\nits boundary.</p>",
+                        "effects": {
+                          "Scope": "Preserved",
+                          "Evidence": "Recorded",
+                          "Risk": "Contained"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Reachability is not authorisation. Stop and ask before interacting with an out-of-scope asset.</p>"
+                      },
+                      {
+                        "id": "look",
+                        "label": "Take a quick look because the host is in the authorised range",
+                        "outcome": "<p>The tester sends a request to a third party without permission.\nThe client's contract does not cover the provider, and the\nprovider's logs now show unauthorised traffic from the tester.</p>",
+                        "effects": {
+                          "Scope": "Breached",
+                          "Evidence": "Unauthorised",
+                          "Risk": "Legal"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>An address inside the range does not prove ownership. The scope is about permission, not geography.</p>"
+                      },
+                      {
+                        "id": "scan",
+                        "label": "Scan it but do not exploit it",
+                        "outcome": "<p>The traffic still reaches a third party without authorisation.\n\"Only scanning\" is not a legal or contractual defence.</p>",
+                        "effects": {
+                          "Scope": "Breached",
+                          "Risk": "High",
+                          "Report": "Tainted"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Scanning is testing. If the asset is out of scope, the scan is out of scope.</p>"
+                      },
+                      {
+                        "id": "ignore",
+                        "label": "Ignore it and continue scanning the rest of the range",
+                        "outcome": "<p>The report omits a host the client needed to know about. The\nnext scan repeats the same mistake.</p>",
+                        "effects": {
+                          "Scope": "Preserved",
+                          "Communication": "Failed",
+                          "Risk": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Log the observation and notify. An out-of-scope host is a finding about the scope, not a secret.</p>"
+                      }
+                    ],
+                    "debrief": "<p>The correct action is stop, log and notify. The client decides whether\nto authorise the asset. The tester does not expand the boundary.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "move-and-prove",
+            "title": "Move and Prove",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Lateral Movement and Pivoting",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A foothold is not the finding. The finding is how far the foothold reaches.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lateral movement is the use of one compromised host to reach another. Pivoting is the use of that host as a relay when the tester's machine cannot reach the next network directly.</p>\n<p>A dual-homed host is the classic pivot: one interface faces the tester, the other faces an internal segment. The tester sends traffic through the pivot without adding routes to the tester's own machine or touching the network firewall.</p>\n<p>The professional questions are:</p>\n<ul>\n<li>What networks can the pivot reach?</li>\n<li>What does the scope allow?</li>\n<li>What is the minimum proof that the internal segment is exposed?</li>\n<li>What traffic and evidence are recorded?</li>\n<li>How are tunnels and sessions closed afterwards?</li>\n</ul>\n<p>Lateral movement is high risk. It can cross into third-party systems, trigger intrusion detection, expose sensitive data or leave sessions open. It needs explicit scope, a stop condition and a clean record.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Connecting Flight</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A traveller cannot fly directly from A to C. They fly from A to B, then from B to C. The ticket, the visa and the baggage rules apply at each leg.</p>\n<p>The pivot is the connecting airport. It does not make the final destination authorised. The tester still needs permission to go beyond it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Pivoting with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Map the Reach</h3>\n<p>Ask the AI to map the pivot without touching the target.</p>\n<pre><code class=\"language-text\">The tester has a foothold on a dual-homed host. One interface reaches\n172.28.0.0/24, the other reaches 10.10.0.0/24. The signed scope covers\nthe first network and one named host on the second. Map what is\nreachable, what is authorised and what must not be touched.\n</code></pre>\n<p>The map should separate reachability from authorisation. A route does not create permission.</p>\n<h3>Exploration 2: Design the Minimum Proof</h3>\n<p>Ask for the smallest demonstration of internal exposure.</p>\n<pre><code class=\"language-text\">Design a safe proof that the internal host is reachable through the\npivot. Include the command, the expected output, the evidence to capture\nand the stop condition. Do not scan the whole internal range.\n</code></pre>\n<p>A single host check or a named service request is enough to prove the path.</p>\n<h3>Exploration 3: Plan the Cleanup</h3>\n<p>Ask what must be closed.</p>\n<pre><code class=\"language-text\">The test opened an SSH tunnel and a SOCKS proxy. Write the cleanup\nchecklist, the verification step and the evidence to retain. Include\ncredential handling and session logs.\n</code></pre>\n<p>A tunnel left open is a backdoor, even if it was created for a test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A pivoting record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Pivot host</td>\n<td>Bastion</td>\n</tr>\n<tr>\n<td>Interfaces</td>\n<td>External and internal</td>\n</tr>\n<tr>\n<td>Authorised target</td>\n<td>One named internal host</td>\n</tr>\n<tr>\n<td>Proof</td>\n<td>Service response through the tunnel</td>\n</tr>\n<tr>\n<td>Not done</td>\n<td>Full internal scan, data access, persistence</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>Tunnel command, request, response, timestamps</td>\n</tr>\n<tr>\n<td>Cleanup</td>\n<td>Tunnel closed, proxy stopped, session logged out</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Lab topology; production segmentation may differ</td>\n</tr>\n</tbody>\n</table>\n<p>The record shows the path and the boundary in the same table.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 9 provides a dual-homed bastion and an internal segment:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week9\">Week 9: Lateral movement and pivoting</a></li>\n</ul>\n<p>Use the supplied lab credentials. Do not pivot into any real network.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lateral movement findings show whether a single compromised workstation becomes a network-wide incident. That is a board-level risk, not a technical detail.</p>\n<p>The proof should show the path and the segmentation gap, not the contents of every internal system. The recommendation is usually segmentation, least privilege, monitoring and credential hygiene.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> Explain the difference between lateral movement and pivoting.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Map the reachable networks from a dual-homed host.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Design a minimum proof for one authorised internal host.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write the cleanup checklist for a tunnel and a proxy.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Run one controlled pivot in the lab, capture the evidence and close every session.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A foothold is only useful if it reaches something that matters.</li>\n<li>Reachability is not authorisation.</li>\n<li>Minimum proof is better than a full internal scan.</li>\n<li>Tunnels and sessions must be closed and logged.</li>\n<li>The recommendation is usually segmentation and least privilege.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Mapped reachable and authorised networks</li>\n<li>[ ] Named what must not be touched</li>\n<li>[ ] Designed the smallest proof</li>\n<li>[ ] Wrote the cleanup checklist</li>\n<li>[ ] Recorded the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which boundary was easiest to cross accidentally?</li>\n<li>What would you do if the pivot reached a third party?</li>\n<li>How would you prove the segmentation gap without scanning everything?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The network path is proved. The next chapter examines the human and physical routes.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Physical and Social Vectors",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The best technical control can be defeated by a held door, a cloned badge or a convincing email.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Physical and social testing examines the human and physical path into an organisation. It is powerful, ethically sensitive and easy to get wrong.</p>\n<p><strong>Physical access</strong> includes tailgating, badge cloning, lock bypass and access-control weaknesses. Real RFID cloning needs hardware and, more importantly, written permission. The lab simulates the access-control backend so you can learn the logic without touching a real door.</p>\n<p><strong>Social engineering</strong> includes phishing, pretexting, phone calls and impersonation. A phishing simulation can test awareness and reporting. It can also frighten people, damage trust and cross legal lines if it targets real staff without authorisation.</p>\n<p>The professional rules:</p>\n<ul>\n<li>written authorisation for the specific technique and the specific people or groups</li>\n<li>a clear stop condition and a wellbeing plan</li>\n<li>fictional or consented targets in training</li>\n<li>no real credentials, no real malware, no real harm</li>\n<li>a debrief that protects the people who took part</li>\n</ul>\n<p>The lab's phishing exercise uses MailHog, a local catch-all inbox, and fictional employees. No email leaves the machine. That isolation is the point.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Fire Drill with Actors</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A fire drill can include actors playing injured people. The drill is useful because it tests the response, not because it frightens the staff. The actors are briefed, the scenario is controlled and the debrief is part of the exercise.</p>\n<p>A social-engineering test works the same way. The scenario is controlled, the targets are authorised, and the debrief matters as much as the click rate.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Human Risk with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Design a Safe Simulation</h3>\n<p>Ask the AI to design a phishing simulation with safeguards.</p>\n<pre><code class=\"language-text\">Design a phishing-awareness simulation for a fictional organisation.\nInclude the objective, the fictional target group, the pretext, the\nlanding page, the metrics, the stop condition and the debrief. Do not\nuse real names, real credentials or a real mail server.\n</code></pre>\n<p>The design should make the local lab explicit.</p>\n<h3>Exploration 2: Read the Indicators</h3>\n<p>Ask the AI to explain what a defender would look for.</p>\n<pre><code class=\"language-text\">Here is a simulated phishing email:\n[paste it]\n\nList the technical and human indicators a defender could use. Include\nthe sender address, reply-to, link domain, urgency, request and\nattachment. Explain how each indicator could be checked.\n</code></pre>\n<p>The output is a defence checklist, not a better lure.</p>\n<h3>Exploration 3: Design the Debrief</h3>\n<p>Ask what the organisation should do after the simulation.</p>\n<pre><code class=\"language-text\">The simulation had a high click rate and two reports. Write the debrief\nplan. Include what to tell participants, how to avoid blame, what to\nchange in training and how to measure improvement.\n</code></pre>\n<p>A debrief that shames people teaches them to hide the next click.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A human-risk record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Technique</td>\n<td>Phishing simulation or physical access test</td>\n</tr>\n<tr>\n<td>Authorisation</td>\n<td>Specific written approval</td>\n</tr>\n<tr>\n<td>Target group</td>\n<td>Fictional or consented</td>\n</tr>\n<tr>\n<td>Objective</td>\n<td>Awareness, reporting or control test</td>\n</tr>\n<tr>\n<td>Metrics</td>\n<td>Sent, opened, clicked, reported</td>\n</tr>\n<tr>\n<td>Stop condition</td>\n<td>Distress, real credential, real system</td>\n</tr>\n<tr>\n<td>Debrief</td>\n<td>Date, audience and content</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Simulation, not a real attack</td>\n</tr>\n</tbody>\n</table>\n<p>The record protects the participants and the tester.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Week 11 simulates physical access control. Week 12 runs a local phishing simulation with GoPhish and MailHog:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week11\">Week 11: Physical access</a></li>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week12\">Week 12: Social engineering</a></li>\n</ul>\n<p>Use fictional employees and the local MailHog inbox. Never point the tools at real people or a real mail server.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>People are part of the attack surface. A phishing simulation can improve reporting and training, but a badly run one damages trust.</p>\n<p>The business result is not the click rate. It is whether people recognise, report and recover. The report should recommend training, process and technical controls together.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 9.1 (Level 1).</strong> Explain why written authorisation matters more for social engineering than for a port scan.</p>\n<p><strong>Exercise 9.2 (Level 2).</strong> List five indicators of a phishing email.</p>\n<p><strong>Exercise 9.3 (Level 3).</strong> Design a safe phishing simulation for a fictional team.</p>\n<p><strong>Exercise 9.4 (Level 4).</strong> Write the stop condition and debrief plan.</p>\n<p><strong>Exercise 9.5 (Level 5).</strong> Run the local simulation, record the metrics and write the defence recommendations without shaming participants.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Physical and social vectors target people and access, not just software.</li>\n<li>Authorisation must name the technique and the people.</li>\n<li>Simulations use fictional or consented targets and a local environment.</li>\n<li>The debrief is part of the test.</li>\n<li>The result is improved recognition and reporting, not a click score.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Confirmed specific written authorisation</li>\n<li>[ ] Used fictional or consented targets</li>\n<li>[ ] Defined the stop condition</li>\n<li>[ ] Planned the debrief</li>\n<li>[ ] Recorded the limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which human indicator is most reliable?</li>\n<li>What would make a simulation unethical?</li>\n<li>How would you measure improvement without blame?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The testing is complete. The final chapter turns the evidence into a report the client can act on.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "The Report and Closeout",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The client does not pay for the exploit. They pay for the evidence, the explanation and the fix.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A penetration test report has to serve several readers:</p>\n<ul>\n<li>the executive who needs the risk and the priority</li>\n<li>the engineer who needs to reproduce the issue</li>\n<li>the auditor who needs the scope and evidence</li>\n<li>the next tester who needs the context</li>\n</ul>\n<p>A useful structure:</p>\n<ul>\n<li><strong>Executive summary</strong>: the overall risk, the most important findings and the recommended priorities.</li>\n<li><strong>Scope and rules of engagement</strong>: what was tested, what was not and the limits.</li>\n<li><strong>Method</strong>: the phases, tools and evidence handling.</li>\n<li><strong>Findings</strong>: one per issue, with severity, evidence, impact and remediation.</li>\n<li><strong>Appendices</strong>: raw evidence, command logs, hashes and scope references.</li>\n</ul>\n<p>A finding should be reproducible and bounded. \"The server is insecure\" is not a finding. \"The search parameter is vulnerable to boolean-based SQL injection; a crafted request returned a different response; no data was extracted\" is a finding.</p>\n<p>Severity is a judgement, not a score alone. A CVSS vector helps, but the business impact and the exploitability decide the priority. A medium technical issue on a public payment path may outrank a high issue on an isolated test host.</p>\n<p>Closeout is part of the engagement. Credentials are rotated. Temporary accounts and files are removed. Tunnels are closed. Evidence is stored or destroyed according to the contract. A retest confirms the fix.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Coroner&#x27;s Report</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A coroner's report states the facts, the cause, the evidence and the recommendations. It separates what is known from what is inferred. It is written for a reader who was not there.</p>\n<p>A penetration test report works the same way. The reader should be able to follow the evidence from the scope to the finding to the fix without reconstructing the tester's screen.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Report with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Draft the Finding</h3>\n<p>Ask the AI to write a finding from the evidence record.</p>\n<pre><code class=\"language-text\">Here is the evidence record:\n[paste it]\n\nWrite a finding with title, severity, affected asset, evidence,\nreproduction steps, impact and remediation. Do not invent a detail that\nis not in the record. Mark any gap.\n</code></pre>\n<p>The output is a draft. The tester verifies every claim against the evidence.</p>\n<h3>Exploration 2: Find the Overclaims</h3>\n<p>Ask the AI to attack the draft.</p>\n<pre><code class=\"language-text\">Here is the draft report:\n[paste it]\n\nMark every sentence that claims more than the evidence supports. Look\nfor impact, exploitation, data exposure and certainty. Rewrite each\noverclaim as a sentence the evidence can carry.\n</code></pre>\n<p>Common overclaims: \"customer data was stolen\", \"the system is fully compromised\", \"an attacker could do anything\". The evidence may support a narrower claim.</p>\n<h3>Exploration 3: Write the Closeout</h3>\n<p>Ask what must be restored and recorded.</p>\n<pre><code class=\"language-text\">The engagement created a test account, a temporary file and an SSH\ntunnel. Write the closeout checklist, the verification steps and the\nrecords to retain. Include credential rotation and evidence retention.\n</code></pre>\n<p>Closeout is not optional. It is the difference between a test and a mess.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A finding template:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Finding: SQL injection in search</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Severity:</strong> High</p>\n<p><strong>Affected asset:</strong> Lab web application, <code>/search</code></p>\n<p><strong>Evidence:</strong> Request and response, boolean difference, timestamp.</p>\n<p><strong>Reproduction:</strong> Steps a developer can follow in the lab.</p>\n<p><strong>Impact:</strong> An attacker could alter the query and access data the\napplication did not intend to expose. No data was extracted.</p>\n<p><strong>Remediation:</strong> Parameterised queries, input validation, error handling.</p>\n<p><strong>Verification:</strong> Retest with the original payload and a normal query.</p>\n<p><strong>Limitation:</strong> Lab configuration; production may differ.\n```</p>\n<p>The report should also state the scope and the rules of engagement. A reader who does not know the boundary cannot judge the finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use the lab worksheets and scan output as evidence. Week 4 covers scan reporting, and the series report templates provide a structure:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/ethical-hacking-docker-labs/tree/main/labs/week4\">Week 4: Scanning and reporting</a></li>\n<li><a href=\"https://ethicalhacking.borck.education/\">Lab series</a></li>\n</ul>\n<p>The report is your own. Do not copy another tester's findings.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The report is how the engagement changes the organisation. A finding the client cannot understand or act on is a cost without a benefit.</p>\n<p>A good report gives the client a prioritised fix list, a way to verify the fix and a record of what was tested. It also protects the tester if the finding is later challenged.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 10.1 (Level 1).</strong> List the sections of a penetration test report.</p>\n<p><strong>Exercise 10.2 (Level 2).</strong> Write one finding from your lab evidence, with severity and impact.</p>\n<p><strong>Exercise 10.3 (Level 3).</strong> Remove three overclaims from a draft finding.</p>\n<p><strong>Exercise 10.4 (Level 4).</strong> Write the closeout checklist for credentials, files, tunnels and evidence.</p>\n<p><strong>Exercise 10.5 (Level 5).</strong> Produce a complete report for one lab, including scope, evidence, findings, remediation and retest.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The report is the deliverable; the exploit is only evidence.</li>\n<li>Findings must be reproducible, bounded and evidenced.</li>\n<li>Severity combines technical score, exploitability and business impact.</li>\n<li>Closeout restores the environment and protects the evidence.</li>\n<li>A retest confirms the fix.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote findings that cite evidence</li>\n<li>[ ] Stated the scope and limitations</li>\n<li>[ ] Removed every overclaim</li>\n<li>[ ] Wrote the closeout checklist</li>\n<li>[ ] Planned the retest</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which finding was hardest to write without overclaiming?</li>\n<li>What did the client need first?</li>\n<li>What would you do differently next time?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The engagement is closed. The appendices collect the lab map and the engagement templates so you can run the process again.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-04",
+                "title": "Checkpoint: move and prove",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the difference between lateral movement and pivoting?",
+                        "options": [
+                          "Lateral movement reaches another host; pivoting uses a compromised host as a relay",
+                          "Lateral movement is physical; pivoting is social",
+                          "Lateral movement is legal; pivoting is not",
+                          "They are the same"
+                        ],
+                        "answer": 0,
+                        "explanation": "A dual-homed host is the classic pivot. The tester sends traffic through it without changing the tester's routes."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Does reachability through a pivot create authorisation?",
+                        "options": [
+                          "No. The scope must cover the next network and host.",
+                          "Yes. If it is reachable, it is fair game.",
+                          "Yes, if the first host is in scope.",
+                          "Only for read-only access."
+                        ],
+                        "answer": 0,
+                        "explanation": "A route is not permission. The scope decides what may be tested."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What safeguards does a phishing simulation need?",
+                        "options": [
+                          "Specific written authorisation, fictional or consented targets, a local environment and a debrief",
+                          "A real staff list and a real mail server",
+                          "A high click rate",
+                          "No debrief"
+                        ],
+                        "answer": 0,
+                        "explanation": "A simulation that frightens or shames people damages trust and can cross legal lines."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the physical access lab actually testing?",
+                        "options": [
+                          "The access-control logic through a software simulation, not real RFID hardware",
+                          "Real badge cloning on a live door",
+                          "Lock picking on a real building",
+                          "Tailgating into a real office"
+                        ],
+                        "answer": 0,
+                        "explanation": "The lab simulates the backend so you learn the thinking without touching a real door."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What makes a finding reproducible?",
+                        "options": [
+                          "Affected asset, evidence, reproduction steps, impact and remediation",
+                          "A severity score alone",
+                          "A screenshot with no context",
+                          "The tester's opinion"
+                        ],
+                        "answer": 0,
+                        "explanation": "Another tester or developer should be able to follow the evidence and verify the issue."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What should severity combine?",
+                        "options": [
+                          "Technical score, exploitability and business impact",
+                          "Technical score alone",
+                          "The client's mood",
+                          "The number of tools used"
+                        ],
+                        "answer": 0,
+                        "explanation": "A medium issue on a payment path may outrank a high issue on an isolated test host."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What belongs in closeout?",
+                        "options": [
+                          "Remove test accounts and files, close tunnels, rotate credentials, store or destroy evidence and schedule a retest",
+                          "Delete the report",
+                          "Leave the tunnel open for the client",
+                          "Publish the credentials"
+                        ],
+                        "answer": 0,
+                        "explanation": "Closeout is the difference between a test and a mess."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

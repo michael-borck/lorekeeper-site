@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T22:22:03+00:00",
+  "updatedAt": "2026-11-06T22:28:48+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "8ac9e17dd6b18c908821ae8bf9d73c510c0a4c927c68967b74535072774a95e0",
+      "sha256": "4613ad2b7a93b2413738e4ffe32165a3243b3536a9fe5018a9fcc251edaad34c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "6KX5msR33HwBy6SvfrKc+EZ9LVVSpgpBQCPOaOrLNxr+oYSHaLn3J+dTMtz1LQFNm9LB2/HgM467/rayZhqIBA==",
+      "signature": "VGTTERuqEk0k1PBMhBe8MmOfxYHDR8NiVUCtcpZHGYmHEhq48JbGqnMi010v2yEJQAkhSookz8vTS1aySP4rAA==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "8758e6e028a64519046153b75f5c7ca56fdbf0ca62f7fc5c8d8ae6ae17b1aaf8",
+      "sha256": "d2c46c3dbfd5f066613aec81d617042961992fb8ed6b8221d8817615ef41f80a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "I0Jq/WyMD0K9wDlIYak8ZRoJEAiRqPAVC5wCzxkKUZorqoGIgIL+VrwQpFcP12V2dW95oQ3Wg6EDNuaGD5xbBw==",
+      "signature": "2t1PS4XHCK/Ss5yBk918CBbVXn0aca1R5Zin/n/er5vkaAS8qJCG0NZ63qtrDX3qBi7YdGEpUn5J1BiyH6xyDg==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "b9551233b1eab7675c61eaa1f9e6b5c450af02c4a0812e262324599b14e790f5",
+      "sha256": "fee56dbbcc5d53e29727d063658934ae650e6dbad57699fd6ccfcd3d63f95efb",
       "keyId": "c72e49ccf7055c89",
-      "signature": "RCv5mLkhBLc5fZ1EmVwLPzgXBaxxmh4YoiRIw/7Hds7/uHJb0bdhUlP0otYcx+aQmHdFD3BphJeC8sEl46ZTDQ==",
+      "signature": "rO5t4AU/WmOaXwCmvG78Oj8HZ/Zu8c5ZobdMW31mXk1kJBAsTXI8z9fTL+gmZBroQ68zhW7Zg46Ft2wCK1j4Dw==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "f7f38b3f51f3a3e3279c58526d48357b6c2b8de07ded3e73cffdc29733716070",
+      "sha256": "3f22944d349221f5bd07439461058f7e894e91d84066f87ec7c350af4cbd42be",
       "keyId": "c72e49ccf7055c89",
-      "signature": "USOnmUeKCJMfMslYri4Vh5ItbuyhnfrJTnyvyY4eyIZsuN+ukT/38eawjEo2colWt7ZkRpAenPIvOG/K5j/dAg==",
+      "signature": "55JmSMNaRrw/G4Il3XzpWSUB8kDXiDo7drGBSm0Yp4g+NibYJlosg4QhhIHkhLuWTFvE4TrcswhmbuteZjA8DA==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "300204411e9dd4a6c274edd16191f05b1074d091f80e79c6f96ec3a25366e80d",
+      "sha256": "262a23568f4b3127cc0aaaccc4cb8ff5e6be33802f534791de6db554f5cd18d0",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Le9IJ2MuKIWtcGWB7RryuVTUKJT6N4GiL2Xv7aCXnK4K0DeMWvivRLxzfERaDNT99gX8QwVIXMYngKiAhRNEAw==",
+      "signature": "E495LR2sE1DbC8IFInNnivolqCVHa/TMPr45gbP9ufsaV4Gc8/o3h5NNBgzl7lCr0PjrQIuEYyNjASq3U3EMBw==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "f2de381778a546a276482fbf50447fd702d6281739505c0125b7fae275df93f2",
+      "sha256": "d68030f040f13d052a4375b541237f167310859c44b0b93baf3ee37fe0d134a9",
       "keyId": "c72e49ccf7055c89",
-      "signature": "V9CuuS3ozZYLMJEvXI82jI7rNTCpMTAz/eeZgrGa/mAYsUh483uisGob27fnfHD7ZZQubcX+8WK2qUJZjnlnDw==",
+      "signature": "36Ixxsh+1iGAaD0l//757IsSSjsTAxn3kY2Jt9uGFN94SXZazifVN7DUnV4sTkGjqMzLUcucBplaLQRpNtuXCg==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,9 +164,9 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "70ecb094195bd16b6c86e1103c63d274ee4a8f75a02a567a224349a9337117f0",
+      "sha256": "a4529f27ba0663bddeac826405688b839f0c9f5a510980a2c3908d5d0bd34ebb",
       "keyId": "c72e49ccf7055c89",
-      "signature": "H31UStvtBAfaIW++KYejfomztb/HV1j0XBxO27/r331fN32NZXm1iC8YuzressUU29M6lL4ZDhtTDJ9wnpEpAg==",
+      "signature": "lqYTaXVhSxAsRk8MmZ5ULRtH5zIRYP916OchZCOYL8XDQqWbzJxRJj71OyC7oTzFTs60pAMAHyZ79xkjoDdtAg==",
       "url": "packs/systems-analysis-and-design.json"
     },
     {
@@ -187,9 +187,9 @@
       "courses": 1,
       "lessons": 11,
       "size": 108882,
-      "sha256": "5647bbb84ccbdf15d1ac0bb4b16cbab4c6ce189cfe1f54c951a427f7f23a342a",
+      "sha256": "bad93cba67830986666f238a305e0f40d9164a9f3e5332e2e89a17b013ca4e24",
       "keyId": "c72e49ccf7055c89",
-      "signature": "yOzxTh2ZTKPrz+Th5FMBodxiDMYSNCozR2+/yWDQXboW8uR6azPqLOLwCRtF1stNkcb8OfK9uY5j9DGX2Gv+Aw==",
+      "signature": "bX/WRO8cgYuuw1F0E034r79qZeQ/vXXc2rTcNBJ7hqvuwyqGfCJf54sdLOHuS4Xr49GmyXQlT3IMvfZ1mQ+1DA==",
       "url": "packs/follow-the-trace.json"
     },
     {
@@ -211,9 +211,9 @@
       "courses": 1,
       "lessons": 15,
       "size": 131881,
-      "sha256": "6e6b308901b2c135291bb36199786ec37719513b15325f257147deaee1d7f7bc",
+      "sha256": "bda522a125d3df6ef81fa7cedc6af07b1e2d25eb31e0c33b3b963013219e7bb2",
       "keyId": "c72e49ccf7055c89",
-      "signature": "vyF87sYYxc9QusSedL0YJgB9JAWplXaMSlb69NW6MhN9Y697KIwQC0gkMcnjfrcRhDT7Q0fhKDXGKJWL1RvJCg==",
+      "signature": "2ZLgBlhrY76D733pQhz0sJ4dWmFQGo6m3fcwuk1sdnuelqRFPZ/OHXIpMrD+iAFUqvFesTDobT8/3cLQNGICDg==",
       "url": "packs/the-human-edge.json"
     },
     {
@@ -235,9 +235,9 @@
       "courses": 1,
       "lessons": 11,
       "size": 106711,
-      "sha256": "c0c0a5fe5ce1c4529911f9459939d630747d024ae8d3aaed5155f7504cdc2f8f",
+      "sha256": "3aea98bf4c0913e6b01e803356b7d2fd2e7947f7d78d01ddda8e57ba7b549f95",
       "keyId": "c72e49ccf7055c89",
-      "signature": "DXGo+2zkFYuv39tblBXh4NfOJJaudjiaIEv5SucC3AeItbWmokOdFM50HJtD3QRP4B3QQKaatj4NRtZ3j9nWBw==",
+      "signature": "jOfwo/9UiirtYD99rrnNWjbfahJtjf/NbqDCmT5r7PVhvfgapw2/NLOv4C0gMWrJJuFXTfwIHdi/jM6wZy9+DQ==",
       "url": "packs/test-the-claim.json"
     },
     {
@@ -259,9 +259,9 @@
       "courses": 1,
       "lessons": 16,
       "size": 217625,
-      "sha256": "db3336006bc59bb6891c0eddb5725f53b287c2e7b8cc474bc0a99af91c32ad8c",
+      "sha256": "e0c1aa8c78e98819c25ae2b0909c2902d18b953127d505c9a1efd8c6ec2851b2",
       "keyId": "c72e49ccf7055c89",
-      "signature": "wEf7iNL7tj9Lv+gpfG+4s40fASvj0wbhghgkJuxcrjbcPanGKkEzTbzluqK1BsIR9oFZRp2U3g77Sw8Q7JkHCw==",
+      "signature": "SU1yzLSHA24fT96yQxJ2U+NClzW7uW9LF6aWGMjx7pE7q0XnVX1tDYwa2g6mt/UXb3grUsQGQoqxw8Ine970Ag==",
       "url": "packs/substantiate-dont-assume.json"
     },
     {
@@ -283,9 +283,9 @@
       "courses": 1,
       "lessons": 19,
       "size": 220453,
-      "sha256": "aa9617ceeda038344e012cdbe608fc79e62150e39e91d786891829f8aed66a22",
+      "sha256": "2dfd4630f430ff1622bb793db6cae5b3acd35478aa8b7e1387c969b69a0abc87",
       "keyId": "c72e49ccf7055c89",
-      "signature": "j+9XN2ayt0D+MmdM8JrByHDCUA0pqmArMe4mV5c8g85XIl8ZoRUK56Ah+LZwiZ793JJ86QhGpXDeyF+tfgvDAg==",
+      "signature": "ClEaE+oailFz0LmHiTurbjvbZiT/W+JPW497bUes0vn3HjWtxUemoZLCnTPOLZB8hyrqikvuv03Qr73Sd042AQ==",
       "url": "packs/conversation-not-delegation.json"
     },
     {
@@ -307,9 +307,9 @@
       "courses": 1,
       "lessons": 16,
       "size": 185623,
-      "sha256": "ba7e612746b0cc53b6d0bc3f60d4c9388a1b47e77a841aa6168b86b04add505f",
+      "sha256": "6b5771f0bc8d01965ed750775da28c2caf5fbc7911db6b762e1d221eaaa4962e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "snhyILxzVptwcUUhXlI50ubkO3UnCgKkKp8U5mApbsunW9x5D9g4ffAXWsxZAQLQrk0jT6v9tHrkxTJiqwjhAA==",
+      "signature": "kb2Qi0uoYttK4elFhPu68QqRJMCYTxErL6GQ130MIJbIS5/ctijoeWDX2qmgYlOb67Vm3Qj0SIhY8TKHv9MVBg==",
       "url": "packs/prove-dont-persuade.json"
     },
     {
@@ -332,10 +332,34 @@
       "courses": 1,
       "lessons": 22,
       "size": 329681,
-      "sha256": "fc92aaad0ac7bfdd8ac7bfa9d66bbf326151e6d814932889714a6072ef651c5c",
+      "sha256": "4037cffd8693a72eda1d6a899dc35fea8a10ec3793dd60fc9ee3d1d3c1ba5767",
       "keyId": "c72e49ccf7055c89",
-      "signature": "ODz14Nf9mjHws5LLCQyvH9nTiKoNMQE4TNRU4X/rNnI/6Twx8U9MY/tfDIK16Z69NahqJiS2ZSdBieaZ0rsbBw==",
+      "signature": "VnsDIG/oX0Fo9bTqzHGhzCMJDyhuFb5MNEG92tyrCGnhGFO4csocGqRt3d9YzOnqysM8eDXzNsvCX7UhkMs6Bw==",
       "url": "packs/build-ai-understand-ai.json"
+    },
+    {
+      "id": "break-with-permission",
+      "title": "Break with Permission: Ethical Hacking in Practice",
+      "description": "Scope, test and report an authorised security assessment without crossing the boundary.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "pixel",
+      "tags": [
+        "security",
+        "ethical-hacking",
+        "penetration-testing",
+        "scope",
+        "reporting"
+      ],
+      "level": "intermediate",
+      "courses": 1,
+      "lessons": 14,
+      "size": 119237,
+      "sha256": "9b871b442b40855e8a820619dee3675c3e3a65bcec7bae009ae7690e686c3454",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "pwL/v2SXHG/UVLwRT3+/0WxVXvGUUpaYG6/rK00nTlZZM3KtTvjWNNSJswXzoaa/OxywK0infqIen0hsJeaFBg==",
+      "url": "packs/break-with-permission.json"
     }
   ]
 }
