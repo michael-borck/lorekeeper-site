@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T12:48:19+00:00",
+  "updatedAt": "2026-11-06T12:59:40+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "fc800dc5b775cda06f37927690ab84002df044864c135473648636f7e9953145",
+      "sha256": "d223af8fff738cdd7ed1ab17fb11abd4d27eec9f5e3f20a9c4e21190385b357c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "nM9caULDQg+OcacULxMbmOF9AxDO2svFKwVRj4mIZeA2tLizPUwql2RTjAo5AFgj7PPxbFz7yFEa+NydY4jpAw==",
+      "signature": "O29qQ7yAcsT0HzudguKMPRNjs7ET8NnZcbpOqOLVHcFIVmm+hkngGjWrmn911UI88D/SlbVUEzvwY3yQJ5VsBg==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "a96d3a41f41a9d73e4f41ac7b194e3e6b04a5a1341a5a2fb8208e16091c9fe5d",
+      "sha256": "5c0203b20330bb7bcb48cab10f386cdcfafb14faa3eccaa7a6145b8b17025d9f",
       "keyId": "c72e49ccf7055c89",
-      "signature": "QJXN6iy87g+CQI9HajQNBijih5aI5ETnxu1wwZbB6DKFkXlMV+KL8gpzuxA8HLqXRQgSQp7JA53TCpeeQkYlCQ==",
+      "signature": "uDOOQDtSGk8ZRC1hmQNGHrttLYACFR3JAKruHY42gD8XlsNEdGpwyHrcIWiv/4xeVhVS2z3hmdKjU4/8QAljDw==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "bc52f15cd6512984f82976723e4446c25fb843f92d8537a5d23354d8a788e776",
+      "sha256": "2f3462c1706fb442b60f013561b5a4c8909546ebdcf9c8cd73dde7f3882d1fba",
       "keyId": "c72e49ccf7055c89",
-      "signature": "BqF0CjhGSJmKjjOP7yG8hGhaLWUFiViff74+/XIvcA1m3bheCc68nhQNfJMwJ/m4wpu7mdbB0JyfKmGdvIwVCA==",
+      "signature": "hmbW3aRx8Q0UAqeX9pTrDA3kFSxkMZW3B9wR97+5W0TC85vsMTa+xOpa9bypDVMurgm/8F9A0cRlsNcMPgM2BQ==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "c4118bea91cd09052114fef4961963042143e9d8519b070dd560450ec54fe08a",
+      "sha256": "3bdf13d3b99fa5b20c463437754d579185f1c1aa88e77169d5aa0f3bba05bd3a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "nHznElhGnO9X7rEMxu9DBMLT1nsBQaBcuPS62jVtwudbiPJj4Ywsu7KiVenxapSRNtnsUoklI/q3+MFhh4iTCg==",
+      "signature": "mMIM5D+6YZCJo/n7FvBsF/UvsiUoOR9Be/qDmDTv3YY/bhLOHr02olkEIoXWB3NVJhY+A0fDQUoMsAXAEVWxBA==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,10 +114,35 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "51e772043dbaa480eb21cf5ce4a897b9e4583998ba814a8c6fcc1dcc206c26aa",
+      "sha256": "5e17d5441df53c9653ffa81bb8a5f2f10ec2e8df8a398ef29848627ce2552a6b",
       "keyId": "c72e49ccf7055c89",
-      "signature": "q8JXfMmMy0ydgH5vAsGmu/+sRoreFo8Nw7CUVAihCZDBQGeSrmX6fucUHQTRR42k8RuOSd5rh4EJsy3qZUFIAw==",
+      "signature": "+LVGUu/KVDba/2aOrggqsfLKroKngivv/rHza75SdTOxoD52AC5wNcoFZi1pYHN1l/TSqUvOonEWFVIsO4XsAw==",
       "url": "packs/speak-software.json"
+    },
+    {
+      "id": "build-web-guide-ai",
+      "title": "Build Web, Guide AI: Business Web Development with AI",
+      "description": "Build business websites with an AI partner: specify, check, structure, connect and hand over.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "pixel",
+      "tags": [
+        "web",
+        "html",
+        "css",
+        "javascript",
+        "cms",
+        "react"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 27,
+      "size": 604399,
+      "sha256": "0ebf6d49d4be5491a38bf7db1680a4418f12b6e4707019c8830e2fffd3028efd",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "VkvjBbzDA+qjafknbWGAJMF/bWWC6ZGXgad85dXkfQn3372xdi1AJLwwYrDbizbrZoqBF43J+WoH6crWvsQFCg==",
+      "url": "packs/build-web-guide-ai.json"
     }
   ]
 }
