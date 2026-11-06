@@ -1,0 +1,1246 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "follow-the-trace",
+  "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T14:08:44+00:00",
+  "courses": [
+    {
+      "slug": "follow-the-trace",
+      "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",
+      "theme": "pixel",
+      "level": "intermediate",
+      "tags": [
+        "forensics",
+        "security",
+        "evidence",
+        "investigation"
+      ],
+      "pitch": "Preserve, examine and report digital evidence, with a companion Docker forensics lab.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T14:08:44+00:00",
+        "unit": {
+          "slug": "follow-the-trace",
+          "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",
+          "theme": "pixel",
+          "tags": [
+            "forensics",
+            "security",
+            "evidence",
+            "investigation"
+          ],
+          "level": "intermediate",
+          "pitch": "Preserve, examine and report digital evidence, with a companion Docker forensics lab.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "preserve",
+            "title": "Preserve",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "The Question Before the Tool",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A tool can answer a question you did not ask. That is how investigations acquire a story they cannot support.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A digital investigation starts with a question, not a command. The question sets the scope, the evidence you need and the standard your conclusion must meet.</p>\n<p>Three questions shape the work:</p>\n<ul>\n<li>What happened?</li>\n<li>When did it happen?</li>\n<li>What evidence would distinguish the competing explanations?</li>\n</ul>\n<p>The last question is the one that turns an incident into an investigation. Without it, the analyst collects everything and explains whatever the first tool reveals.</p>\n<p>The Cloudcore case is a useful example. The tip says an employee may have copied client data before leaving. That is a hypothesis, not a finding. It could be true. It could be a misunderstanding. It could be a different person, a different device or a different motive. The investigation exists to test those possibilities against evidence, not to confirm the tip.</p>\n<p>An investigation also has a scope. Scope names the systems, the time window, the people and the questions in play. It does not name the answer. \"Examine the USB image for deleted client data\" is scope. \"Prove the employee stole data\" is a conclusion looking for evidence.</p>\n<p>Absence is data. A deleted file that is not there, a log entry that should exist and does not, or a network connection that never appears can all support a finding. But absence only means something when you can show where you looked and why the evidence should have been there.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Doctor&#x27;s Test</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A doctor does not order every test in the hospital. They ask what is wrong, what could explain it and which test would change the diagnosis.</p>\n<p>A test that cannot change the diagnosis is not worth the risk. A test that is ordered after the diagnosis is often a way to confirm what the doctor already believes.</p>\n<p>Forensic tools work the same way. <code>fls</code> is useful when the question is about file system entries. <code>volatility</code> is useful when the question is about processes in memory. <code>tshark</code> is useful when the question is about network traffic. None of them tells you what happened on its own.</p>\n<p>The question comes first. The tool is chosen because it can distinguish between explanations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Investigation with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Question Set</h3>\n<p>Ask your AI partner to turn an incident brief into questions and hypotheses, not a tool list.</p>\n<pre><code class=\"language-text\">Here is the incident brief:\n[paste it]\n\nWrite the questions the investigation must answer. For each question,\nwrite two or three competing hypotheses. For each hypothesis, name the\nevidence that would support it and the evidence that would rule it out.\nDo not name tools yet.\n</code></pre>\n<p>A useful answer separates the allegation from the possibilities. If every hypothesis points to the same suspect, the model has copied the brief rather than analysed it.</p>\n<h3>Exploration 2: Build the Evidence Matrix</h3>\n<p>Once the questions exist, ask what evidence would answer them.</p>\n<pre><code class=\"language-text\">Here are the investigation questions and hypotheses:\n[paste them]\n\nBuild an evidence matrix. List the sources available: USB image, memory\ndump, mailbox, system logs, network capture and interview notes. For each\nsource, name the question it can help answer, what it cannot show and\nwhat would make it unreliable.\n</code></pre>\n<p>The \"cannot show\" column is the important one. A network capture shows traffic, not intent. A memory dump shows a running process, not who started it. An email shows a message, not that the recipient read it.</p>\n<h3>Exploration 3: Challenge the Brief</h3>\n<p>Ask the AI to argue against the obvious story.</p>\n<pre><code class=\"language-text\">The brief alleges that an employee exfiltrated client data on a USB device.\nWrite the strongest alternative explanations that are consistent with the\nsame evidence. For each alternative, name the artefact that would make it\nmore or less likely.\n</code></pre>\n<p>The exercise is not about defending the employee. It is about testing whether the evidence can distinguish the allegation from a mistake, a different device, a shared account or a compromised workstation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A case brief can fit on one page:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Case brief: [case name]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Allegation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What is claimed, by whom, and on what basis.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Questions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What the investigation must answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Hypotheses</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The competing explanations, including the innocent ones.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Systems, people, time window and evidence included.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Out of scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What this investigation will not examine.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evidence available</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Source, owner, format, hash and custody status.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Decision this informs</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Who will use the finding, and for what.\n```</p>\n<p>The last line matters. An investigation that informs a disciplinary decision has a different standard from one that informs a system cleanup. The report should say which one it is.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The companion lab provides the evidence and the tools. Start with the lab overview, then read the scenario before running any command:</p>\n<ul>\n<li><a href=\"https://forensics.borck.education/\">Forensics lab</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/docs/scenario.md\">Scenario and case background</a></li>\n</ul>\n<p>Write your question set before you open the USB image. If you start with the tool, you will find a story in the first output and spend the rest of the lab defending it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Investigations are expensive, and most of the cost sits in scope. An unlimited scope collects everything, reviews everything and still misses the question that mattered.</p>\n<p>A clear question set lets the team stop. It also protects the organisation from a report that says \"suspicious activity was found\" without saying what decision the finding supports. A finding that cannot change a decision is a cost, not an assurance.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Write three questions the Cloudcore investigation must answer, and one hypothesis for each.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Build an evidence matrix for the USB image, memory dump, mailbox and network capture. Name one thing each source cannot show.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Write the strongest innocent explanation consistent with an employee copying files to a USB device. Name the artefact that would make it more or less likely.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Write a case brief for an investigation where the allegation is correct but the scope is wrong. Explain what the report can still support.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Take a real incident report and separate its questions, hypotheses, evidence and conclusions. Mark any conclusion that is not supported by the evidence listed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>An investigation starts with questions and competing hypotheses.</li>\n<li>A hypothesis is not a finding, even when the client is sure.</li>\n<li>Scope names systems, people, time and evidence, not the answer.</li>\n<li>Every source can answer some questions and cannot answer others.</li>\n<li>Absence is data only when you can show where you looked.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the allegation separately from the hypotheses</li>\n<li>[ ] Included at least one innocent explanation</li>\n<li>[ ] Named the evidence that would rule each hypothesis out</li>\n<li>[ ] Wrote the scope and the out-of-scope list</li>\n<li>[ ] Named the decision the investigation informs</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which hypothesis was hardest to take seriously?</li>\n<li>Which source is most likely to be overread?</li>\n<li>What would you need to know before you trusted the brief?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The questions are set. The next chapter protects the evidence that will answer them.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Preserve the Trace",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>If the evidence can be changed without a record, the investigation has already lost the argument.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Digital evidence is fragile. Opening a file can change an access time. Mounting a disk can write to it. Booting a suspect machine can destroy memory. Copying a file can alter its metadata.</p>\n<p>Forensic preservation is the set of practices that keep the evidence trustworthy while you examine it. It has three parts:</p>\n<ul>\n<li><strong>Integrity</strong>: proof that the evidence has not changed.</li>\n<li><strong>Provenance</strong>: a record of where it came from.</li>\n<li><strong>Custody</strong>: a record of who handled it, when and why.</li>\n</ul>\n<p>A cryptographic hash is the usual integrity check. You hash the original, hash the copy and compare. A matching hash is evidence that the copy is byte-for-byte identical to the source at the time of capture. It does not prove the source was accurate or complete. It proves the copy matches.</p>\n<p>A chain of custody is the provenance and handling record. It names the evidence, the device, the serial number, the collector, the date, the hash, the storage location and every transfer. A gap in the chain is a question the other side will ask.</p>\n<p>A write blocker prevents changes during acquisition. Hardware write blockers are the strongest option. A software write blocker can be adequate in some contexts, but it depends on configuration and trust. The safest rule is simple: do not mount original evidence read-write.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Museum Acquisition</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A museum accepts a fragile painting. The curator does not lean it against a radiator and touch up a scratch. The painting is photographed, measured, condition-checked and recorded before it enters the collection. Every move is logged. Conservation work is documented separately from the original condition.</p>\n<p>The record is not bureaucracy. It is how the museum can later prove that the painting it displays is the painting it received, and that any change was authorised and known.</p>\n<p>Digital evidence needs the same discipline. The original is preserved. The working copy is examined. Every change to the working copy is documented. The hash connects the copy to the original.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Preservation with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Audit a Chain of Custody</h3>\n<p>Give the AI a custody record and ask it to find the questions a reviewer would ask.</p>\n<pre><code class=\"language-text\">Here is a chain-of-custody record:\n[paste it]\n\nList every gap, ambiguity or inconsistency. For each one, write the\nquestion a reviewer, opposing counsel or auditor would ask. Do not assume\nthe gap is fatal. State what evidence would close it.\n</code></pre>\n<p>Common gaps include a missing hash, an unexplained transfer, a time with no time zone, a device identifier that does not match the image, or a storage location with no access record.</p>\n<h3>Exploration 2: Explain the Hash</h3>\n<p>Ask the AI to explain what a hash proves and what it does not.</p>\n<pre><code class=\"language-text\">A SHA-256 hash of the original USB image matches the hash of the working\ncopy. Explain what this proves, what it does not prove and what other\nrecords are needed to support the claim that the image is a complete and\nfaithful copy of the device.\n</code></pre>\n<p>A good answer will distinguish integrity from completeness, provenance and interpretation. A matching hash does not prove the device was not tampered with before imaging, that the image contains every sector, or that the files mean what you think they mean.</p>\n<h3>Exploration 3: Design the Custody Record</h3>\n<p>Ask the AI to review a custody template before you use it.</p>\n<pre><code class=\"language-text\">Here is my chain-of-custody template:\n[paste it]\n\nWhat fields are missing for a digital investigation that may be used in\na disciplinary or legal process? Consider device identity, hash algorithm,\ncapture tool, write blocker, storage, access, transfer, time zone and\nauthorisation.\n</code></pre>\n<p>The template should be usable by someone who was not in the room. If a field only makes sense to the person who filled it in, it is not a record.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A custody entry should be specific enough to survive a challenge.</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Example</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Evidence ID</td>\n<td>CC-2009-USB-01</td>\n</tr>\n<tr>\n<td>Description</td>\n<td>Generic USB flash volume, label PRACTICE</td>\n</tr>\n<tr>\n<td>Source</td>\n<td>Desk drawer, level 4, Cloudcore Sydney</td>\n</tr>\n<tr>\n<td>Collected by</td>\n<td>Analyst name and role</td>\n</tr>\n<tr>\n<td>Collected at</td>\n<td>2009-12-06 09:15 AEDT</td>\n</tr>\n<tr>\n<td>Device identifier</td>\n<td>Serial or physical label</td>\n</tr>\n<tr>\n<td>Acquisition method</td>\n<td>Write-blocked image, <code>dd</code> or <code>ewfacquire</code></td>\n</tr>\n<tr>\n<td>Hash</td>\n<td>SHA-256 before and after</td>\n</tr>\n<tr>\n<td>Storage</td>\n<td>Evidence locker, restricted access</td>\n</tr>\n<tr>\n<td>Transfers</td>\n<td>From, to, date, reason, signature</td>\n</tr>\n</tbody>\n</table>\n<p>The record is not complete until the image hash, the tool and the write-blocker status are recorded. \"Copied the USB\" is not a forensic acquisition.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lab's first case includes templates and a walkthrough for evidence handling and imaging:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/USB_Imaging/WALKTHROUGH.md\">Lab 1: USB Imaging</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/templates/chain_of_custody.csv\">Chain-of-custody template</a></li>\n</ul>\n<p>Read the \"how evidence is captured in real practice\" section before you run the lab commands. The lab gives you a pre-captured image; the section explains what was skipped and why it matters.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Organisations often treat forensic preservation as a legal formality to start after the investigation. By then, the evidence may already have been changed by an administrator, a help-desk technician or an automated backup.</p>\n<p>Preservation is an incident-response control. It protects the organisation's ability to make a defensible decision, whether that decision is disciplinary, contractual, regulatory or criminal. A weak chain of custody can turn a strong technical finding into an unusable one.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> List the three parts of forensic preservation and give one example of each.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Review a chain-of-custody record and find three gaps a reviewer would question.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Explain to a non-technical manager what a matching SHA-256 hash proves and what it does not prove.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Design a custody record for a memory capture. Include the volatile-data risks and the time-critical steps.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Write the preservation plan for an investigation that may become a legal matter. Include acquisition, hashing, storage, access, transfer and destruction.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Digital evidence is easy to change and hard to trust without records.</li>\n<li>Integrity, provenance and custody are separate claims.</li>\n<li>A hash proves the copy matches the source; it does not prove completeness or meaning.</li>\n<li>A chain of custody must be usable by someone who was not there.</li>\n<li>Preservation is an incident-response control, not a legal afterthought.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the evidence, source and device</li>\n<li>[ ] Recorded the hash algorithm and values</li>\n<li>[ ] Recorded the acquisition tool and write-blocker status</li>\n<li>[ ] Recorded every transfer and access</li>\n<li>[ ] Identified one gap in your own record</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which preservation step is most often skipped under time pressure?</li>\n<li>What would a reviewer challenge first in your record?</li>\n<li>How would you explain a hash to a decision-maker without overselling it?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The evidence is preserved. The next chapter separates acquisition from analysis, including the limits of a container-based lab.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Acquire, Then Analyse",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Acquisition captures the evidence. Analysis interprets it. Confusing the two produces confident findings with no foundation.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Acquisition is the process of creating a forensic copy of a source. Analysis is the process of examining that copy.</p>\n<p>The distinction matters because acquisition determines what evidence exists. If you boot the suspect machine, you lose volatile memory. If you mount the USB read-write, you may change file system metadata. If you capture only HTTPS metadata, you cannot read the encrypted content. No analysis tool can recover evidence that was never captured or was destroyed before capture.</p>\n<p>Common acquisition types:</p>\n<ul>\n<li><strong>Disk imaging</strong>: a sector-by-sector copy of a storage device, often in raw or EWF format.</li>\n<li><strong>Memory capture</strong>: a copy of RAM while the system is running, using a trusted acquisition tool.</li>\n<li><strong>Network capture</strong>: a packet capture from a tap, span port or endpoint.</li>\n<li><strong>Email export</strong>: a mailbox export in a standard format such as MBOX, PST or EML.</li>\n<li><strong>Log export</strong>: system, application or security logs with timestamps and source information.</li>\n</ul>\n<p>Each has a scope and a limitation. A disk image does not include RAM. A memory dump does not include deleted files on disk. A network capture does not include the content of encrypted traffic. An email export does not prove the recipient read the message.</p>\n<p>The forensics Docker lab is an <strong>analysis</strong> environment. It gives you pre-acquired evidence: a generated USB image, a memory sample, a mailbox, logs and a packet capture. It cannot write-block a physical USB device, capture live RAM or sniff a network interface. That is not a defect in the lab. It is a boundary you need to understand before you claim what the evidence proves.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Crime Scene</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A crime scene photographer does not rearrange the room to get a better shot. The scene is documented before anything is moved. The photographer captures the whole room, then the close-ups, then the details that might matter later.</p>\n<p>If the photographer moves the knife before photographing the table, the photograph no longer shows the scene as found. The image may still be sharp. It is no longer evidence of the original arrangement.</p>\n<p>Digital acquisition works the same way. Capture the source before you explore it. Record the state. Then make a working copy and analyse that.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Acquisition with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Acquisition Plan</h3>\n<p>Ask the AI to turn the case questions into an acquisition plan.</p>\n<pre><code class=\"language-text\">Here are the investigation questions and the available sources:\n[paste them]\n\nWrite an acquisition plan. For each source, name what to capture, the\ntool or method, the order of capture, the hash, the custody record and\nwhat will be lost if the source is not captured first. Mark any source\nthat cannot be captured in the current environment.\n</code></pre>\n<p>Order matters. Volatile memory is lost on shutdown. Network state changes by the second. Disk data is more stable but still changes while the system runs. The plan should capture the most volatile evidence first when that is safe and authorised.</p>\n<h3>Exploration 2: State the Lab Boundary</h3>\n<p>Ask the AI to separate what the lab can and cannot demonstrate.</p>\n<pre><code class=\"language-text\">The forensics lab runs in a Docker container and provides a USB image, a\npre-captured memory dump, a mailbox, logs and a PCAP.\n\nList what the lab can teach about analysis and what it cannot teach about\nacquisition. Explain why each limitation exists and what a real\ninvestigation would need instead.\n</code></pre>\n<p>A good answer will say that the lab cannot write-block or image a physical device, capture live RAM, sniff a live network or seize hardware. It can teach file system analysis, memory analysis, email parsing, packet analysis and reporting.</p>\n<h3>Exploration 3: Find the Missing Capture</h3>\n<p>Ask what evidence the plan does not collect.</p>\n<pre><code class=\"language-text\">Here is the acquisition plan:\n[paste it]\n\nWhat evidence is missing that the investigation questions require? What\ncould not be captured after the fact? What would you ask the incident\nresponder to preserve immediately?\n</code></pre>\n<p>The missing capture is often the most useful finding. A laptop that was rebooted before memory capture, a mailbox that was exported after deletion, or a network segment with no capture are gaps that shape the conclusion.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A simple acquisition checklist:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Acquisition record</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Case:</strong>\n<strong>Source:</strong>\n<strong>Owner or location:</strong>\n<strong>Authorisation:</strong>\n<strong>Capture order:</strong></p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Disk</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Device identity:</li>\n<li>Write blocker:</li>\n<li>Tool and version:</li>\n<li>Image format:</li>\n<li>Hash before and after:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Memory</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>System state:</li>\n<li>Capture tool:</li>\n<li>Memory size:</li>\n<li>Hash:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Network</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Capture point:</li>\n<li>Start and end time:</li>\n<li>Filter:</li>\n<li>Packet count and hash:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Email and logs</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Export format:</li>\n<li>Date range:</li>\n<li>Source system:</li>\n<li>Hash:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Gaps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>What was not captured, and why.\n```</li>\n</ul>\n<p>The gaps section is not an admission of failure. It is a statement of scope. A report without it invites the reader to assume the evidence is complete.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lab explicitly separates what the container can and cannot do. Read that section before you begin:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab#-environment-scope-what-docker-can--cannot-do\">Environment scope</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/docs/evidence-sources.md\">Evidence sources</a></li>\n</ul>\n<p>When you analyse the USB image, remember that the acquisition step is simulated. The reasoning still applies; the physical write-blocking and seizure are outside the lab.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Acquisition decisions are business decisions. Capturing a live server may disrupt service. Shutting down a laptop may destroy memory. Exporting a mailbox may trigger privacy obligations. The incident responder needs to balance evidence preservation against operational, legal and safety constraints.</p>\n<p>The report should state those trade-offs. \"Memory was not captured because the machine was rebooted before the team arrived\" is a limitation the decision-maker needs to know.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> List four acquisition types and one limitation of each.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Write the acquisition order for a running laptop, a USB device and a network segment. Explain the order.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Read the lab's environment scope and write a paragraph explaining what the lab can and cannot prove about acquisition.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Design an acquisition plan for an investigation where the server cannot be taken offline. State the evidence you would lose and the mitigation.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Review a real or simulated incident where evidence was not captured. Explain how the missing capture limits the conclusions and what the report should say.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Acquisition captures evidence; analysis interprets it.</li>\n<li>Volatile evidence is lost if capture is delayed.</li>\n<li>Every acquisition type has a scope and a limitation.</li>\n<li>The Docker forensics lab teaches analysis, not physical acquisition.</li>\n<li>The report must state what was not captured and why.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the acquisition method for each source</li>\n<li>[ ] Recorded the hash and custody entry</li>\n<li>[ ] Identified what would be lost if capture were delayed</li>\n<li>[ ] Stated the lab's acquisition limits</li>\n<li>[ ] Wrote the gaps section</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which source is most volatile in your case?</li>\n<li>What acquisition trade-off would you escalate to a manager?</li>\n<li>Where could a report accidentally imply evidence it does not have?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The evidence is captured. The next chapter examines files and deleted data on storage media.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "The quick look",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>The USB device is on the desk. A colleague suggests mounting it on the\nanalysis laptop to see what is there. The image will be taken later.\nYou have ten minutes before the incident meeting. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "preserve",
+                        "label": "Stop, document the device, image it with a write blocker, verify hashes, then analyse the copy",
+                        "outcome": "<p>The original stays untouched. The image is hashed and recorded. The\nanalysis proceeds on a copy, and the chain of custody can answer who\nhandled the device and when.</p>",
+                        "effects": {
+                          "Integrity": "Preserved",
+                          "Custody": "Recorded",
+                          "Time": "Slower now, defensible later"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>The quick look is how evidence changes before anyone records it.</p>"
+                      },
+                      {
+                        "id": "readonly",
+                        "label": "Mount it read-only and browse quickly, then image it",
+                        "outcome": "<p>Read-only mounting is safer than read-write, but it still depends on\nthe operating system, the driver and the mount options. The device\nhas been handled before the image and custody record exist.</p>",
+                        "effects": {
+                          "Integrity": "Better, not proven",
+                          "Custody": "Incomplete",
+                          "Time": "Fast"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A read-only mount is not a write blocker. Image first.</p>"
+                      },
+                      {
+                        "id": "copy",
+                        "label": "Copy the visible files to a folder and analyse those",
+                        "outcome": "<p>The copy includes only the files the operating system can see. Deleted\nfiles, unallocated space and file system metadata are lost. The copy\nhas no forensic image hash.</p>",
+                        "effects": {
+                          "Evidence": "Partial",
+                          "Integrity": "Unverified",
+                          "Custody": "Broken"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Copying files is not imaging a device. You cannot analyse what you did not capture.</p>"
+                      },
+                      {
+                        "id": "ai",
+                        "label": "Ask an AI assistant to scan the device and tell you what matters",
+                        "outcome": "<p>The assistant produces a summary from the visible files. It cannot\npreserve the device, verify the image or account for deleted data.\nThe summary is a lead, not evidence.</p>",
+                        "effects": {
+                          "Speed": "Fast",
+                          "Integrity": "Unchanged",
+                          "Custody": "None"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>AI can help plan the examination. It cannot replace preservation.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Preserve first, analyse the copy. The order is not a ritual. It is what\nmakes the later finding defensible.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "examine",
+            "title": "Examine",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Files and Deleted Data",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Deletion is usually a bookkeeping change, not an erasure. The question is not whether the file is gone, but what remains and what it can prove.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A file system is a catalogue. It records names, locations, sizes, timestamps and permissions. The file content lives elsewhere on the storage medium.</p>\n<p>On a FAT file system, deleting a file commonly marks the directory entry as free and releases the clusters. The data may remain in unallocated space until something overwrites it. That is why deleted files can sometimes be recovered.</p>\n<p>There are two broad recovery methods:</p>\n<ul>\n<li><strong>Metadata recovery</strong> uses the file system records to find the file and its clusters. <code>fls</code> and <code>icat</code> work this way.</li>\n<li><strong>File carving</strong> searches raw data for known file headers, footers and structures without relying on the catalogue. <code>foremost</code>, <code>photorec</code> and <code>scalpel</code> work this way.</li>\n</ul>\n<p>Both produce candidates, not conclusions. A recovered file needs to be hashed, described and connected to the case. A carved file may be incomplete, overwritten or a false positive. A recovered filename may be a remnant of an earlier file.</p>\n<p>Timestamps matter, but they are not self-explanatory. A modified time can come from the file system, the application or the operating system. Time zones and clock skew can shift the sequence. A copied file may inherit a new creation time and preserve an old modified time.</p>\n<p>The strongest finding connects three things: the content, the metadata and an independent event. A deleted archive containing client data is interesting. The same archive, a log entry showing a copy to removable media, and a matching hash from another source are a case.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Filing Cabinet</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A filing cabinet has labels, folders and documents. If someone removes a document, the label may remain, the folder may be empty and the document may still be in the recycling bin.</p>\n<p>The label tells you what was supposed to be there. The empty folder tells you something was removed. The recycling bin tells you what survived. None of them tells you who removed it or why.</p>\n<p>A forensic examination reads the labels, the folder structure, the recycling bin and the surrounding records. It also checks whether the document in the bin matches the copy found somewhere else. The match is what turns a suspicion into a supported finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering File Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the File System Output</h3>\n<p>Ask the AI to help interpret output without letting it invent facts.</p>\n<pre><code class=\"language-text\">Here is `fls` output from a FAT image:\n[paste it]\n\nExplain what each column means. Identify deleted entries, allocated\nentries and anything that needs a follow-up command. Do not infer file\ncontent from the name alone.\n</code></pre>\n<p>A good answer will distinguish the directory entry from the data clusters and will ask for <code>icat</code> or <code>fsstat</code> before drawing conclusions.</p>\n<h3>Exploration 2: Choose Recovery Methods</h3>\n<p>Ask which method fits the question.</p>\n<pre><code class=\"language-text\">The investigation needs to recover a deleted ZIP archive from a FAT32 USB\nimage. Compare metadata recovery with file carving for this case. What\ndoes each method preserve? What can each miss? What evidence would you\nrecord for each recovered candidate?\n</code></pre>\n<p>Metadata recovery can preserve the original path and timestamps. Carving can recover content after the directory entry is gone, but may lose the name and path. The report should say which method produced the file.</p>\n<h3>Exploration 3: Attack the Finding</h3>\n<p>Ask the AI to challenge a recovered file.</p>\n<pre><code class=\"language-text\">A deleted file named project_secrets.zip was recovered from unallocated\nspace. List every reason this file might not support the claim that the\nsuspect copied it to the USB device. Include overwrite, prior ownership,\nshared device, automated backup and false positive.\n</code></pre>\n<p>The challenge list becomes the limitations section of the report. It also suggests the corroborating evidence you need.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A file evidence record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Example</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Evidence ID</td>\n<td>CC-2009-USB-01</td>\n</tr>\n<tr>\n<td>File name</td>\n<td>project_secrets.zip</td>\n</tr>\n<tr>\n<td>Path</td>\n<td>/Documents/</td>\n</tr>\n<tr>\n<td>Recovery method</td>\n<td>Metadata recovery (<code>icat</code>)</td>\n</tr>\n<tr>\n<td>Size</td>\n<td>4,182 bytes</td>\n</tr>\n<tr>\n<td>Hash</td>\n<td>SHA-256 value</td>\n</tr>\n<tr>\n<td>Created</td>\n<td>2009-12-04 21:32 AEDT</td>\n</tr>\n<tr>\n<td>Modified</td>\n<td>2009-12-04 21:34 AEDT</td>\n</tr>\n<tr>\n<td>Deleted</td>\n<td>Directory entry marked free</td>\n</tr>\n<tr>\n<td>Content summary</td>\n<td>ZIP archive with project files</td>\n</tr>\n<tr>\n<td>Corroboration</td>\n<td>Syslog copy entry; email attachment hash</td>\n</tr>\n<tr>\n<td>Limitations</td>\n<td>Timestamps depend on device clock; file could predate device</td>\n</tr>\n</tbody>\n</table>\n<p>The limitations column is not optional. It tells the reader what the evidence cannot settle.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lab 1 guides the USB image through triage, file system analysis, deleted file recovery and carving:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/USB_Imaging/WALKTHROUGH.md\">Lab 1: USB Imaging</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/tree/main/cases/USB_Imaging\">USB case folder</a></li>\n</ul>\n<p>Record the commands and the real output. The walkthrough's example hashes and counts are illustrative, not a target.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Deleted-file findings are persuasive to non-technical readers and easy to overstate. \"Recovered deleted client data\" sounds like proof of theft. It may be proof that a file existed on a device at some point.</p>\n<p>A defensible report separates existence, content, timing and intent. It states which of those the evidence supports and which require another source. That distinction protects the organisation from acting on a finding the evidence cannot carry.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain the difference between metadata recovery and file carving.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Run <code>fls</code> on the lab image and identify one deleted entry. Record the path and the follow-up command.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Recover one deleted file and hash it. Write the evidence record, including the limitations.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Find one carved file that could be a false positive or an incomplete recovery. Explain how you would decide.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Correlate a recovered file with a log entry and an email attachment hash. State what the combination proves and what it still does not prove.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Deletion usually changes metadata, not the underlying data.</li>\n<li>Metadata recovery and carving answer different questions.</li>\n<li>A recovered file is a candidate until it is hashed, described and corroborated.</li>\n<li>Timestamps need a time zone, a source and a clock check.</li>\n<li>The strongest finding connects content, metadata and an independent event.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Recorded the recovery method for every file</li>\n<li>[ ] Hashed the recovered content</li>\n<li>[ ] Stated the timestamps and their source</li>\n<li>[ ] Named at least one limitation</li>\n<li>[ ] Found one piece of corroborating evidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which recovered file was most convincing, and why?</li>\n<li>Where could a filename mislead an analyst?</li>\n<li>What would you need to prove who copied the file?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The disk shows what was stored. The next chapter examines what was running when the memory was captured.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Memory and Running Systems",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Memory is a photograph of a moving system. It can show what was running. It cannot show everything that happened before the shutter opened.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Volatile memory contains the state of a running system: processes, loaded libraries, network connections, open files, credentials, encryption keys and fragments of user activity.</p>\n<p>Memory forensics examines a capture of that state. It can answer questions such as:</p>\n<ul>\n<li>Which processes were running, and which process started them?</li>\n<li>Which libraries were loaded into a process?</li>\n<li>Which network connections were open?</li>\n<li>Which files or registry keys were in use?</li>\n<li>Was a known malicious tool present?</li>\n</ul>\n<p>Memory evidence is time-sensitive. Shutting down the machine destroys it. Capturing memory can change the system slightly, and the capture tool itself is part of the evidence record.</p>\n<p>A process tree is not proof of intent. A keylogger running under a normal user process may indicate malware, a compromised account or an authorised monitoring tool. A DLL list can show network capability. It does not show what data left the machine.</p>\n<p>The strongest memory finding connects a process, its loaded modules, its network activity and an independent artefact such as a file, a log entry or a network flow.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Busy Kitchen</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A photograph of a busy kitchen at dinner service shows who was at which station, what was on the stove and what had just come out of the oven. It does not show the argument an hour earlier, the dish that was thrown away or the supplier who delivered the ingredients.</p>\n<p>The photograph is still useful. It can show that a station was running, that a particular pan was in use and that two people were working together. It cannot show the whole shift.</p>\n<p>A memory capture is that photograph. It shows the running state at one moment. The analyst has to combine it with the order book, the delivery records and the staff roster to explain the service.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Memory Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Process Tree</h3>\n<p>Ask the AI to help interpret the process tree, not to declare malware.</p>\n<pre><code class=\"language-text\">Here is `pstree` output from a Windows XP memory sample:\n[paste it]\n\nIdentify parent-child relationships that look unusual. For each one,\nwrite the question you would ask next and the evidence that would\ndistinguish malware from a legitimate tool. Do not call a process\nmalicious from its name alone.\n</code></pre>\n<p>A keylogger name is a clue. The parent process, the loaded DLLs, the network connections and the file path are evidence.</p>\n<h3>Exploration 2: Connect Modules to Capability</h3>\n<p>Ask what the loaded libraries can do, without overclaiming.</p>\n<pre><code class=\"language-text\">A process has loaded WININET.dll, urlmon.dll and iertutil.dll. Explain\nwhat capability these libraries suggest. What can they not prove? What\nadditional artefacts would show whether the process actually communicated\nwith an external host?\n</code></pre>\n<p>The libraries suggest internet capability. They do not prove exfiltration. Network connections, DNS queries, proxy logs or packet captures are needed to show communication.</p>\n<h3>Exploration 3: Test the Capture Timing</h3>\n<p>Ask how the capture time affects the conclusion.</p>\n<pre><code class=\"language-text\">The memory capture was taken at 18:47. A suspect process started at 02:11\nthe same day. Explain what the memory image can and cannot show about the\nprocess activity between those times. What other evidence would fill the\ngap?\n</code></pre>\n<p>Memory shows the process was running at capture time and when it started. It may show current connections and recent commands. It does not show every keystroke or every packet unless those artefacts survived in memory.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A memory finding record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Example</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Evidence ID</td>\n<td>CC-2009-MEM-01</td>\n</tr>\n<tr>\n<td>Capture time</td>\n<td>2009-12-05 18:47 AEDT</td>\n</tr>\n<tr>\n<td>System</td>\n<td>Windows XP SP3 workstation</td>\n</tr>\n<tr>\n<td>Process</td>\n<td>ToolKeylogger.exe</td>\n</tr>\n<tr>\n<td>PID and parent</td>\n<td>PID 280, parent explorer.exe</td>\n</tr>\n<tr>\n<td>Loaded modules</td>\n<td>WININET.dll, urlmon.dll, iertutil.dll</td>\n</tr>\n<tr>\n<td>Network connections</td>\n<td>Outbound connection to external host</td>\n</tr>\n<tr>\n<td>Start time</td>\n<td>2009-12-05 02:11:23 UTC</td>\n</tr>\n<tr>\n<td>Corroboration</td>\n<td>File system artefact, network flow, log entry</td>\n</tr>\n<tr>\n<td>Limitations</td>\n<td>Memory capture after the fact; process name alone is not proof</td>\n</tr>\n</tbody>\n</table>\n<p>The table is more useful than a paragraph that says \"malware was found\". It shows the reader what was observed and what remains uncertain.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lab 2 uses Volatility with a pre-captured Windows memory sample:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/Memory_Forensics/WALKTHROUGH.md\">Lab 2: Memory Forensics</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/tree/main/cases/Memory_Forensics\">Memory case folder</a></li>\n</ul>\n<p>The lab's example PIDs and DLLs are illustrative. Your sample may differ. The method is the lesson: identify the profile, list processes, inspect the tree, verify with a second plugin and connect to other evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Memory analysis is often the fastest way to find active malware and compromised credentials. It is also the easiest evidence to lose and the easiest to overread.</p>\n<p>A report that says \"a keylogger was running\" is useful. A report that says \"the employee installed a keylogger to steal credentials\" needs evidence of installation, control and use. The business decision may depend on the difference.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain why memory evidence is time-sensitive.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Run <code>pstree</code> on the lab memory sample and identify one unusual parent-child relationship.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> List the loaded modules for one suspicious process. Explain what capability they suggest and what they do not prove.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Write a memory finding record with at least one limitation and one corroborating artefact.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Build the case for and against the claim that a process was used to exfiltrate data. State the evidence that would decide it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Memory is volatile and must be captured before shutdown.</li>\n<li>Process trees, modules and connections are clues, not verdicts.</li>\n<li>A process name alone is not evidence of intent.</li>\n<li>Capture timing limits what memory can show.</li>\n<li>The strongest finding connects process, capability, connection and an independent artefact.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Recorded the capture time and system state</li>\n<li>[ ] Identified the process and its parent</li>\n<li>[ ] Listed the loaded modules that matter</li>\n<li>[ ] Found or ruled out a network connection</li>\n<li>[ ] Named one alternative explanation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which process looked suspicious but had a benign explanation?</li>\n<li>What did the capture time hide?</li>\n<li>What corroborating evidence would make the memory finding stronger?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Memory shows the running system. The next chapter follows the traces left in email and network traffic.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Email and Network Traces",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Email shows what someone sent. Network traffic shows what left the building. Neither shows why.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Email and network evidence answer different questions.</p>\n<p>An email archive can show the sender, recipient, subject, date, headers, body and attachments. It can support findings about communication, coordination and data sharing. It cannot prove the recipient read the message, that the attachment was opened, or that the sender was at the keyboard.</p>\n<p>A network capture can show connections, protocols, endpoints, timing and data volume. It can support findings about communication with an external host and data transfer. It cannot show the content of encrypted traffic, and it cannot prove who was using the device.</p>\n<p>Both are context-rich and easy to overread.</p>\n<p>Email headers carry routing and authentication information. They can reveal the sending server, the path and the time. They can also be forged or altered. An attachment hash connects the email to a file found elsewhere. The hash is stronger than the filename.</p>\n<p>Network analysis starts with flows, not packets. Which hosts talked, on which ports, for how long and how much data moved? DNS queries can reveal the names behind an IP address. TLS can hide the content but not the destination, the certificate or the volume. A large outbound transfer at 2am is a clue. It is not proof of exfiltration without context.</p>\n<p>The strongest finding connects the email, the network flow and the file. A message to an external address, a matching attachment hash and a network transfer around the same time are stronger than any one of them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through Postal Mail and Traffic Cameras</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A letter shows the sender, the address, the postmark and the contents. It does not show who read it. A traffic camera shows a car at a junction. It does not show the driver or the conversation inside.</p>\n<p>An investigation that has both can say more. The letter was posted at 4pm. The car passed the camera at 4:20pm. The recipient's address is on the envelope. The combination supports a sequence. The camera still does not prove the driver delivered the letter.</p>\n<p>Email and network evidence work the same way. Each is a partial record. The sequence is the finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Email and Network Evidence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Headers</h3>\n<p>Ask the AI to explain the routing and the limits.</p>\n<pre><code class=\"language-text\">Here are the headers from an email in an MBOX file:\n[paste them]\n\nExplain the sender, recipient, date, routing path and any authentication\ninformation. Mark what could be forged, what a mail server would add and\nwhat the headers cannot prove about the recipient.\n</code></pre>\n<p>A good answer will separate the visible From line from the envelope sender and the routing headers. It will not claim the recipient read the message.</p>\n<h3>Exploration 2: Connect Attachment to File</h3>\n<p>Ask how to prove an attachment matches a recovered file.</p>\n<pre><code class=\"language-text\">An email has an attachment named project_secrets.zip. A deleted ZIP file\nwas recovered from the USB image. Explain how to determine whether they\nare the same file. What should be hashed, and what would a match prove?\n</code></pre>\n<p>A hash match proves the content is identical. It does not prove the email was sent after the file was copied, or that the same person did both. Timing and custody records are still needed.</p>\n<h3>Exploration 3: Read Network Flows Without Overclaiming</h3>\n<p>Ask for a flow summary before packet-level detail.</p>\n<pre><code class=\"language-text\">Here is a `tshark` flow summary:\n[paste it]\n\nIdentify the external endpoints, protocols, ports and data volumes that\ndeserve follow-up. Explain what each flow can and cannot prove. Mark any\nencrypted traffic where the content is unavailable.\n</code></pre>\n<p>The output should separate \"a connection existed\" from \"data was exfiltrated\". Volume, direction and timing help. Content may not be available.</p>\n<h3>Exploration 4: Correlate the Three</h3>\n<p>Ask the AI to build a correlation table.</p>\n<pre><code class=\"language-text\">Here are the email, file and network findings:\n[paste them]\n\nBuild a correlation table with timestamp, artefact, source, what it\nsupports and confidence. Mark any gaps in the sequence and any alternative\nexplanation.\n</code></pre>\n<p>The table is the bridge to the final report. It keeps the claims tied to the evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An evidence table for mixed sources:</p>\n<table>\n<thead>\n<tr>\n<th>Time</th>\n<th>Source</th>\n<th>Artefact</th>\n<th>Supports</th>\n<th>Confidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>2009-12-04 21:32</td>\n<td>USB image</td>\n<td>Deleted ZIP recovered</td>\n<td>File existed on device</td>\n<td>Medium</td>\n</tr>\n<tr>\n<td>2009-12-04 21:34</td>\n<td>USB syslog</td>\n<td>Copy to removable media</td>\n<td>File was copied to the device</td>\n<td>Medium</td>\n</tr>\n<tr>\n<td>2009-12-06 10:30</td>\n<td>PCAP</td>\n<td>Outbound transfer to external host</td>\n<td>Data left the network</td>\n<td>Medium</td>\n</tr>\n<tr>\n<td>2009-12-07 09:45</td>\n<td>Email</td>\n<td>Message with matching ZIP hash</td>\n<td>File was sent externally</td>\n<td>High</td>\n</tr>\n</tbody>\n</table>\n<p>The confidence column is a judgement, not a score. It records how strongly the artefact supports the claim and what would raise or lower it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Labs 3 and 4 cover email and network analysis:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/Email_Logs/WALKTHROUGH.md\">Lab 3: Email and Logs</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/Network_Analysis/WALKTHROUGH.md\">Lab 4: Network Analysis</a></li>\n</ul>\n<p>Run the lab commands and record the real values. The walkthroughs use illustrative outputs; your evidence is what matters.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Email and network evidence are often the most persuasive to decision-makers and the most vulnerable to overclaiming. A report that says \"the data was emailed externally\" may be enough for a disciplinary process. A report that says \"the employee intended to sell the data\" needs evidence of intent that email headers cannot provide.</p>\n<p>The organisation also has privacy and legal obligations. Examining an employee mailbox or network traffic requires authorisation. The report should record the authority and the scope of access.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Name three things an email header can show and one thing it cannot prove.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Extract one email from the lab mailbox and record the sender, recipient, date and subject.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Compare an email attachment with a recovered file using a hash. State what the match proves.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Build a flow summary from the lab PCAP. Identify one flow that deserves follow-up and one benign flow.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Build a correlation table across email, file and network evidence. Mark the gaps and one alternative explanation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Email shows messages and attachments, not whether they were read.</li>\n<li>Network traffic shows connections and volume, not content when encrypted.</li>\n<li>A hash match connects content across sources.</li>\n<li>Correlation is stronger than any single artefact.</li>\n<li>Privacy and authorisation are part of the evidence record.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Read the email headers rather than only the From line</li>\n<li>[ ] Hashed the attachment and compared it with the file</li>\n<li>[ ] Summarised network flows before packet detail</li>\n<li>[ ] Marked encrypted traffic as a limitation</li>\n<li>[ ] Built a correlation table with confidence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which finding was most persuasive, and what was missing?</li>\n<li>Where could encrypted traffic hide the answer?</li>\n<li>What authorisation did the investigation require?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The traces are collected. The next chapter turns them into a timeline and tests the story against alternative explanations.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: examining the traces",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does deleting a file usually do on a FAT file system?",
+                        "options": [
+                          "Marks the directory entry as free and releases the clusters, while the data may remain",
+                          "Securely erases every sector immediately",
+                          "Encrypts the file content",
+                          "Copies the file to a backup"
+                        ],
+                        "answer": 0,
+                        "explanation": "Deletion is usually metadata bookkeeping. The content may survive until overwritten."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the difference between metadata recovery and file carving?",
+                        "options": [
+                          "Metadata recovery uses file system records; carving searches raw data for file signatures",
+                          "Metadata recovery is for memory; carving is for email",
+                          "Carving uses the directory entry; metadata recovery ignores it",
+                          "There is no practical difference"
+                        ],
+                        "answer": 0,
+                        "explanation": "Metadata recovery follows the catalogue. Carving looks for content patterns when the catalogue is gone."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does a matching SHA-256 hash prove?",
+                        "options": [
+                          "The copy is byte-for-byte identical to the source at the time of hashing",
+                          "The source is complete and untampered from the beginning",
+                          "The file is relevant to the case",
+                          "The owner created the file"
+                        ],
+                        "answer": 0,
+                        "explanation": "A hash proves integrity of the copy against the source. It does not prove provenance, completeness or meaning."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "Why is memory evidence time-sensitive?",
+                        "options": [
+                          "It is lost when the system shuts down and changes while the system runs",
+                          "It is stored on the disk",
+                          "It cannot be hashed",
+                          "It is always encrypted"
+                        ],
+                        "answer": 0,
+                        "explanation": "RAM is volatile. Capture must happen before shutdown, and the state changes continuously."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "A process has loaded internet libraries. What does that prove?",
+                        "options": [
+                          "The process had the capability to use the network, not that it exfiltrated data",
+                          "The process definitely sent data",
+                          "The process is malware",
+                          "The user intended to steal data"
+                        ],
+                        "answer": 0,
+                        "explanation": "Capability is not action. Connections, logs or captures are needed to show communication."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What can an email header not prove?",
+                        "options": [
+                          "That the recipient read the message",
+                          "The sender address",
+                          "The routing path",
+                          "The date recorded by the mail server"
+                        ],
+                        "answer": 0,
+                        "explanation": "Headers record transport and metadata, not the recipient's reading behaviour."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What does encrypted network traffic still reveal?",
+                        "options": [
+                          "Endpoints, timing, ports and data volume, but not the content",
+                          "The full plaintext payload",
+                          "The user's intent",
+                          "The file names transferred"
+                        ],
+                        "answer": 0,
+                        "explanation": "TLS hides content, not the flow. Volume and timing can still support a finding."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "prove",
+            "title": "Prove",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Timeline, Correlation and Attribution",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A timeline is not a story. It is a set of events with sources, times and confidence. The story comes later, and only if the timeline supports it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A forensic timeline places events in order. It combines artefacts from disk, memory, email, network and logs.</p>\n<p>A useful timeline has more than timestamps. It records:</p>\n<ul>\n<li>the event</li>\n<li>the source</li>\n<li>the time and time zone</li>\n<li>the confidence</li>\n<li>what the event supports</li>\n<li>what it does not support</li>\n</ul>\n<p>Time is harder than it looks. Different systems use different clocks. A workstation may be minutes or hours out. A server may log in UTC while the investigator works in local time. A file system may record a modified time from the application rather than the operating system. A network capture may use a different time base from a log.</p>\n<p>Before comparing times, normalize them. Record the time zone and the source clock. If the source clock is unreliable, say so. A timeline that silently mixes local and UTC times can invent an order that never happened.</p>\n<p>Correlation is the process of testing whether events fit together. Two events close in time may be related. They may also be coincidence. A file copied at 21:32 and an email sent at 21:35 is a plausible sequence. It is not proof that the same person did both.</p>\n<p>Attribution is the claim that a person, account, device or group is responsible. It is the strongest claim in an investigation and the easiest to overreach. A shared account, a compromised workstation, a remote session or a scheduled task can all produce activity that looks like a person.</p>\n<p>Use confidence language:</p>\n<ul>\n<li><strong>Observed</strong>: the artefact directly shows the event.</li>\n<li><strong>Correlated</strong>: two independent artefacts support the sequence.</li>\n<li><strong>Inferred</strong>: the event is the most likely explanation, but not directly shown.</li>\n<li><strong>Unsupported</strong>: the claim is not established by the evidence.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Train Crash Investigation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A train crash investigation starts with the event recorder, the signalling log, the maintenance record, the driver's roster and the witness statements. Each has its own clock and its own reliability.</p>\n<p>The investigator builds a timeline with sources. The signal turned red at 07:42:10. The train passed it at 07:42:14. The brake pressure dropped at 07:42:18. The driver's statement says the brake was applied earlier. The maintenance record shows a scheduled inspection two days before.</p>\n<p>The timeline does not decide the cause. It exposes the conflict between the recorded time and the driver's account. The investigator then tests which explanation fits the physical evidence. The report names the confidence and the limits.</p>\n<p>Forensic timelines work the same way. The events are evidence. The order is a hypothesis. The cause is a conclusion that has to survive the alternatives.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Timeline with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Normalize the Times</h3>\n<p>Ask the AI to build a time-normalization table before it builds a timeline.</p>\n<pre><code class=\"language-text\">Here are the artefacts and their recorded times:\n[paste them]\n\nFor each artefact, record the source clock, the time zone, the offset\nfrom a common reference and the confidence in the clock. Do not compare\nevents until the times share a reference.\n</code></pre>\n<p>If the time zone is unknown, mark it unknown. Do not guess.</p>\n<h3>Exploration 2: Build the Timeline</h3>\n<p>Ask for a structured table, not a narrative.</p>\n<pre><code class=\"language-text\">Using the normalized times, build a timeline with columns for time,\nevent, source, supports, confidence and gap. Keep the events separate.\nDo not write a story yet.\n</code></pre>\n<p>A good timeline will show gaps and conflicts. A timeline with no gaps is usually a story with the evidence removed.</p>\n<h3>Exploration 3: Test the Competing Stories</h3>\n<p>Ask the AI to argue for alternative explanations.</p>\n<pre><code class=\"language-text\">Here is the timeline:\n[paste it]\n\nWrite three explanations that are consistent with the timeline:\none insider action, one compromised account and one accidental or benign\nexplanation. For each, name the evidence that would strengthen it and the\nevidence that would rule it out.\n</code></pre>\n<p>The exercise tests whether the timeline can distinguish the explanations. If it cannot, the report should say so.</p>\n<h3>Exploration 4: Separate Attribution from Action</h3>\n<p>Ask what the evidence can say about who.</p>\n<pre><code class=\"language-text\">The timeline shows a file copied to a USB device and an email sent from a\ncorporate account. Separate the claims about the action, the account, the\ndevice and the person. For each claim, state the evidence and the\nconfidence.\n</code></pre>\n<p>An action can be observed. An account can be correlated. A person requires evidence that the account was used by that person at that time.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A timeline table:</p>\n<table>\n<thead>\n<tr>\n<th>Time (AEDT)</th>\n<th>Event</th>\n<th>Source</th>\n<th>Supports</th>\n<th>Confidence</th>\n<th>Gap</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>2009-12-04 21:32</td>\n<td>ZIP created on workstation</td>\n<td>USB image metadata</td>\n<td>File existed</td>\n<td>Medium</td>\n<td>Clock not verified</td>\n</tr>\n<tr>\n<td>2009-12-04 21:34</td>\n<td>ZIP copied to USB</td>\n<td>USB syslog</td>\n<td>Copy occurred</td>\n<td>Medium</td>\n<td>User not identified</td>\n</tr>\n<tr>\n<td>2009-12-05 02:11</td>\n<td>Keylogger process starts</td>\n<td>Memory</td>\n<td>Process running</td>\n<td>High</td>\n<td>Installer not found</td>\n</tr>\n<tr>\n<td>2009-12-06 10:30</td>\n<td>Outbound transfer</td>\n<td>PCAP</td>\n<td>Data left network</td>\n<td>Medium</td>\n<td>Content encrypted</td>\n</tr>\n<tr>\n<td>2009-12-07 09:45</td>\n<td>Email with matching attachment</td>\n<td>Mailbox</td>\n<td>File sent externally</td>\n<td>High</td>\n<td>Recipient not confirmed</td>\n</tr>\n</tbody>\n</table>\n<p>The attribution column might say:</p>\n<ul>\n<li>the file was copied: observed</li>\n<li>the account was used: correlated</li>\n<li>the suspect was at the keyboard: unsupported without additional evidence</li>\n</ul>\n<p>That is not a weakness in the investigation. It is an honest description of what the evidence can carry.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lab 5 is the synthesis lab:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/Final_Report/WALKTHROUGH.md\">Lab 5: Final Report</a></li>\n</ul>\n<p>Use the earlier lab reports and chain-of-custody records. Build the timeline before you write the narrative. Mark the confidence and the gaps.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Decision-makers want a clear story. Investigators must resist giving them a clearer story than the evidence supports.</p>\n<p>A timeline that distinguishes observed, correlated and inferred events gives the organisation options. It can act on the observed facts, investigate the gaps and avoid overcommitting to an attribution it cannot defend.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Explain why time zones matter in a forensic timeline.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Build a five-event timeline from the lab evidence. Include source and confidence.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Find one conflict or gap in your timeline and explain what evidence would resolve it.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Write three competing explanations for the same timeline. Name the evidence that distinguishes them.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Separate the claims about action, account, device and person for one event. State the confidence for each and what would raise it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A timeline records events, sources, times, confidence and gaps.</li>\n<li>Normalize clocks and time zones before comparing events.</li>\n<li>Correlation is not causation; two events close in time may be unrelated.</li>\n<li>Attribution is the strongest claim and needs the strongest evidence.</li>\n<li>Use observed, correlated, inferred and unsupported deliberately.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Normalized the times to a common reference</li>\n<li>[ ] Recorded the source and confidence for each event</li>\n<li>[ ] Marked at least one gap</li>\n<li>[ ] Tested an alternative explanation</li>\n<li>[ ] Separated action from attribution</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which event was most dependent on an unverified clock?</li>\n<li>Which alternative explanation was hardest to rule out?</li>\n<li>What would you need to attribute the action to a person?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The timeline is built. The final chapter turns it into a report that a decision-maker can use and another examiner can reproduce.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "The Report and the Decision",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A forensic report is not a story about what you found. It is an argument about what the evidence supports, written for someone who has to act.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A forensic report has to serve several readers:</p>\n<ul>\n<li>the decision-maker who needs the finding and the risk</li>\n<li>the technical reviewer who needs the method and the evidence</li>\n<li>the legal or HR process that needs the chain of custody and the limits</li>\n<li>the next analyst who needs to reproduce the work</li>\n</ul>\n<p>One document can serve all four if it separates the layers.</p>\n<p>A useful structure:</p>\n<ul>\n<li><strong>Purpose and authority</strong>: why the investigation happened and who authorised it.</li>\n<li><strong>Scope</strong>: what was examined, what was not, and the time window.</li>\n<li><strong>Method</strong>: the acquisition, tools, versions and analysis steps.</li>\n<li><strong>Findings</strong>: what the evidence supports, with evidence IDs.</li>\n<li><strong>Timeline</strong>: the sequence, with sources and confidence.</li>\n<li><strong>Limitations</strong>: what the evidence cannot show and what was not captured.</li>\n<li><strong>Recommendations</strong>: what the decision-maker should do next.</li>\n<li><strong>Appendices</strong>: custody records, command logs, hashes and artefact tables.</li>\n</ul>\n<p>The findings section is where most reports fail. \"The suspect exfiltrated data\" is a conclusion. \"A ZIP archive containing client project files was recovered from the USB image, a matching archive was attached to an email sent to an external address, and a network flow to that address occurred in the same window\" is a finding with evidence.</p>\n<p>The second version lets the reader see the support and the gaps. It also survives a challenge better.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Coroner&#x27;s Inquest</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A coroner's report does not say \"the driver was careless\" without evidence. It establishes the identity of the deceased, the cause of death, the circumstances and the recommendations that follow.</p>\n<p>The report separates medical findings from witness accounts, from the reconstruction, from the conclusion. It names the limits of the evidence. It may say that the cause is undetermined.</p>\n<p>A forensic report needs the same discipline. The decision may be disciplinary, contractual, regulatory or criminal, but the report's job is the same: show what the evidence supports and what it does not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Report with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Draft the Findings from Evidence</h3>\n<p>Ask the AI to write findings only from the evidence table.</p>\n<pre><code class=\"language-text\">Here are the evidence table and timeline:\n[paste them]\n\nWrite one finding per claim. Each finding must cite the evidence IDs,\nstate the confidence and name the limitation. Do not write a conclusion\nthat is not supported by a listed artefact.\n</code></pre>\n<p>Review every citation. An AI can invent a plausible evidence ID or merge two artefacts into one claim.</p>\n<h3>Exploration 2: Find the Overclaims</h3>\n<p>Ask the AI to attack the draft.</p>\n<pre><code class=\"language-text\">Here is the draft report:\n[paste it]\n\nMark every sentence that claims more than the evidence supports. Look for\nintent, identity, causation and completeness. For each overclaim, write\nthe sentence the evidence can support.\n</code></pre>\n<p>Common overclaims: \"the suspect copied\", \"the data was stolen\", \"the employee intended\", \"the malware was installed by\", \"the email was read\". Each may be true, but each needs its own evidence.</p>\n<h3>Exploration 3: Test Reproducibility</h3>\n<p>Ask whether another analyst could repeat the work.</p>\n<pre><code class=\"language-text\">Here is the method section:\n[paste it]\n\nCould another analyst reproduce the findings from this description?\nList the missing commands, tool versions, parameters, hashes, file paths\nand decisions. Do not accept &quot;standard forensic tools&quot; as a method.\n</code></pre>\n<p>A report that cannot be reproduced is a set of opinions with a cover page.</p>\n<h3>Exploration 4: Write the Executive Summary Last</h3>\n<p>Ask the AI to draft the summary from the finished findings, not from the brief.</p>\n<pre><code class=\"language-text\">Using only the findings, limitations and recommendations, write an\nexecutive summary for a non-technical decision-maker. Include what was\nfound, what is uncertain, what action is recommended and who should act.\nDo not introduce new claims.\n</code></pre>\n<p>The summary should be short enough to read and precise enough to act on.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A report outline:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Forensic investigation report</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Case:</strong> CLOUDCORE-2009-INS-001\n<strong>Prepared for:</strong> [decision-maker]\n<strong>Author:</strong> [analyst]\n<strong>Date:</strong> [date]</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>1. Purpose and authority</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>2. Scope and evidence</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>3. Method</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>4. Findings</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>4.1 Finding one</h3>\n<ul>\n<li>Evidence:</li>\n<li>Confidence:</li>\n<li>Limitation:</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>5. Timeline</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>6. Limitations</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>7. Recommendations</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>8. Appendices</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Chain of custody</li>\n<li>Command and analysis log</li>\n<li>Hashes</li>\n<li>Artefact table\n```</li>\n</ul>\n<p>A finding should be falsifiable. \"The ZIP archive on the USB image matches the email attachment by SHA-256\" can be checked. \"The suspect stole data\" cannot be checked from the report alone.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Lab Bridge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Lab 5 provides the report template and the consolidation workflow:</p>\n<ul>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/cases/Final_Report/WALKTHROUGH.md\">Lab 5: Final Report</a></li>\n<li><a href=\"https://github.com/michael-borck/forensics-docker-lab/blob/main/templates/final_report_template.md\">Final report template</a></li>\n</ul>\n<p>Use your own findings. The walkthrough's example narrative is illustrative, not a model answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The report is the product of the investigation. A technically excellent analysis that cannot be understood or trusted by the decision-maker has limited value.</p>\n<p>The report also protects the organisation. It records what was examined, what was not and what remains uncertain. If the decision is challenged, the report is the evidence trail. If the investigation is handed to another team, the report is the starting point.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> List the sections of a forensic report and the reader each serves.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Write three findings from your evidence table. Cite the evidence and state the confidence.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Find three overclaims in a draft report and rewrite them to match the evidence.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write the limitations section for the Cloudcore investigation. Include what was not captured and what the evidence cannot show.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Produce a complete report for the lab case. Include findings, timeline, limitations and recommendations. Ask another analyst whether they could reproduce it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A report separates purpose, scope, method, findings, timeline, limitations and recommendations.</li>\n<li>Findings cite evidence and state confidence.</li>\n<li>Attribution and intent require evidence beyond the artefact.</li>\n<li>Limitations are part of the finding, not an apology.</li>\n<li>A report that cannot be reproduced is not a forensic report.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote findings that cite evidence IDs</li>\n<li>[ ] Stated the confidence and limitations for each finding</li>\n<li>[ ] Removed or rewrote every overclaim</li>\n<li>[ ] Recorded the method and tool versions</li>\n<li>[ ] Recommended an action for the decision-maker</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which finding was hardest to write without overclaiming?</li>\n<li>What limitation changes the decision the most?</li>\n<li>Would another analyst reproduce your work from the report?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The case is reported. The appendices collect the lab map and the evidence templates used through the book.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "The tidy story",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>Your timeline has a file copied at 21:32, a memory process starting at\n02:11 and an email sent two days later. One log uses local time and the\nothers use UTC. A colleague wants a clean sequence for the report. Choose\nyour next move.</p>",
+                    "options": [
+                      {
+                        "id": "normalize",
+                        "label": "Normalize the clocks, keep the conflicts, test alternatives and report confidence",
+                        "outcome": "<p>The timeline is rebuilt with a common time base. One event is marked\nuncertain because the source clock is unverified. The report states\nwhat is observed, correlated and inferred. The story is less tidy and\nmore defensible.</p>",
+                        "effects": {
+                          "Accuracy": "Higher",
+                          "Attribution": "Bounded",
+                          "Report": "Honest"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A timeline with no gaps is usually a story with the evidence removed.</p>"
+                      },
+                      {
+                        "id": "force",
+                        "label": "Reorder the events so they fit the suspected sequence",
+                        "outcome": "<p>The narrative reads well. The time zone conflict is hidden, and the\nfirst reviewer who checks the source timestamps finds a sequence the\nevidence does not support.</p>",
+                        "effects": {
+                          "Narrative": "Clean",
+                          "Accuracy": "Damaged",
+                          "Risk": "High"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Do not make the evidence fit the story. Make the story fit the evidence.</p>"
+                      },
+                      {
+                        "id": "discard",
+                        "label": "Drop the memory event because it does not fit the timeline",
+                        "outcome": "<p>The timeline becomes simpler and loses a relevant artefact. The report\ncannot explain why the process was running or how it relates to the\nother events.</p>",
+                        "effects": {
+                          "Simplicity": "Higher",
+                          "Completeness": "Lower",
+                          "Risk": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A conflicting artefact is a question, not an inconvenience.</p>"
+                      },
+                      {
+                        "id": "attribute",
+                        "label": "Attribute all events to the suspect because the account was theirs",
+                        "outcome": "<p>The report claims identity from account ownership. It cannot show who\nwas at the keyboard, whether the account was shared or whether the\nworkstation was compromised.</p>",
+                        "effects": {
+                          "Attribution": "Overstated",
+                          "Evidence": "Insufficient",
+                          "Risk": "Legal"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Separate the action, the account, the device and the person.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Normalize time, keep the conflicts and separate observation from inference.\nThe report should survive a reader who checks the sources.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

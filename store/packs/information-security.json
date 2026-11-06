@@ -5,7 +5,7 @@
   "title": "Information Security: A Field Guide",
   "author": "",
   "licence": "Course content",
-  "createdAt": "2026-11-06T13:58:50+00:00",
+  "createdAt": "2026-11-06T14:08:43+00:00",
   "courses": [
     {
       "slug": "information-security",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-06T13:58:50+00:00",
+        "generated_at": "2026-11-06T14:08:43+00:00",
         "unit": {
           "slug": "information-security",
           "title": "Information Security: A Field Guide",

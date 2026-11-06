@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T13:58:50+00:00",
+  "updatedAt": "2026-11-06T14:08:44+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "f578ae8d23f8f7392ded6f4077221c0f0972365b21793e185fd267bfe1c0fc3c",
+      "sha256": "23e193a1c9fcd35c569c9502f68fff09a617b92cc11be2b97e05d28dcdc6d517",
       "keyId": "c72e49ccf7055c89",
-      "signature": "J3iNUTA2wQDJbvyciNjGZx6QRQ/aWrhtJUiUP7PGFdPyUcXnJaAaDKW+bpcnFYjeFlgMQHDcXGPfKmzjDat9Bg==",
+      "signature": "oBxkzmlZmwctwxy8naqDvuss+zerxD2Oxy/BCubT/bDj3hBOwgG8sWbDVBhVGtnY2rB0jo8BqN8mq4ghiMiACA==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "8abe067fb210b88d140ca4c0976aa8e896176b06ae663b0b9ea492058d967f34",
+      "sha256": "971a50a423b7b465123d0e7e68a082c23692cf784b7234d3e86c3012f6da921d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "ZFonu5rQOjYTfncVV6R6uaGd0xR/L0V9NyenWkcmW+kf9JDHTZGXHk29RT05/dJ0pAvbpVXddamEljs9jJZWCQ==",
+      "signature": "gSbdjNb/BRfwNqWFvIVuWYptLD/tFXUZD1iu3j9DP3Wchz0mM+gKUPEDkQf2UROeC/GQJ6PiYhQXcEodpeFACw==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "6a5453712915f7b6722c14c9d61d9a75962b113210876ee07e084bc97fbab2e4",
+      "sha256": "3b62b5c4c40589f3bb46055d6ca43a35b0e303d1fdf93e60a4110184c1099417",
       "keyId": "c72e49ccf7055c89",
-      "signature": "S7ZRPjm7aqPvpBtL0U90g/RHcCUnK55rKpilYyZvabVdW3SsVyquoCUAKnsRdAzqbMi1Pxg5947k5cKFq3qeBA==",
+      "signature": "e4P87HZy6Wntx0jgQHYq8C75xYZ9uYZYDMOyniCTwiTjMa8JLdcnE4nZR7zSWXMgOAF8WPlQdJ1q1XbyT/xsAg==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "b8073c348ecb79b86d0f86964e487200ce440dc405d53d31ac404a557d87614c",
+      "sha256": "656a39b1a062a4fd17cc903b5b09171381afbd772f81e335ae07a5128d6e0e6f",
       "keyId": "c72e49ccf7055c89",
-      "signature": "GCxS5g2hYW1BMTFOiHjISh1Zsx0jqh9x9dhcSOHyqSvIF8DfWw87EDPZzwLsrduXdAOJdHt4xDkzAOcOURRRCQ==",
+      "signature": "mQ+G5O5GIRtTJXuo7VuAvEAPnhLBZ73RWBDzRU5JMAL0ZXeXis5pClEaJswPLtW+RpcQmJZU1kDFB8ojgPHNDQ==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "d4d131f7ee0bb962a3b8c040c47cb5462a8e1cf9608dd1e12758d2f5b2c13eb4",
+      "sha256": "e4856d7a9ce2dcf53e726a8ceaf5fe45c4e9ee5c76a2c6dce51fb6940b362f16",
       "keyId": "c72e49ccf7055c89",
-      "signature": "x3EyoPJOosJgIkpYl76Cp0eJcVbie8183J3Umf29hf5lVxQ+JchBWBvHd+xTED+3GSw1+yfiA4lULJ3vqzxTCA==",
+      "signature": "KSYsyXyhETbAn3oechCEtoTln+bs6MzgEmHKQlGIHFiyzdH0+xCIoJ6MM/H3E3d/pppItnKAjOujK3l0xs2hAA==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "8f44a5214209a699e370f304bd60f9bea084d514e8a3a6d530b143375faa24e6",
+      "sha256": "a69b1a4ae736d138fb7c50351f35331a572252146c7aa4a1d8ff25f8d7a5e0fe",
       "keyId": "c72e49ccf7055c89",
-      "signature": "vk8BSCYTUThcO7xz95jY+ats0lr3YVdFI2+3iuJysp036H1ilkMORYS1vUjjOhuKfv8g/VH3lflhQhfv8BuXAw==",
+      "signature": "3JD5HJf+o6Cln2JIL7Iq2xIJc3sizVmyax1oYIv00A2WU8cefO9SgeqkkfNLZQZJxsnhs67wTBDa8yQxC/2YAA==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,10 +164,33 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "d7fd7842b4264464dcc3ed6faadcc03acc3e7075076decb7290231f34f0bc347",
+      "sha256": "4dd6cea2bfa97736c12261ef80ec209474ce6fdb028b6acbaf0619a83356659f",
       "keyId": "c72e49ccf7055c89",
-      "signature": "SWFtkxOmfUOkbl1/nbxWU/CbPDJpv540cJu/t/Uh6Jvexrvgdr1eZO++0Xd9T1C1gZ9QnUQ2sVqYClvGK59pDQ==",
+      "signature": "3siyB27TB8BhZHwMKDsKd3vTuOho0C72jlXtyxIqUQAZYw66xfWMMNGnuXTEBfQoJG5jsdOcRXVg6Sx9qmK8CA==",
       "url": "packs/systems-analysis-and-design.json"
+    },
+    {
+      "id": "follow-the-trace",
+      "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",
+      "description": "Preserve, examine and report digital evidence, with a companion Docker forensics lab.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "pixel",
+      "tags": [
+        "forensics",
+        "security",
+        "evidence",
+        "investigation"
+      ],
+      "level": "intermediate",
+      "courses": 1,
+      "lessons": 11,
+      "size": 108882,
+      "sha256": "5b2e1a6d857730bfd0418069a5cb11686ff8e2a6de3145cbb5f6bb50b678a56d",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "y959uxvau8atXJ+kWDAtp1HOkudj+TtfKwT7rOSq76YmT748SajttOXgwm/95PKTOSF7huJc+m9euPExp3FDCQ==",
+      "url": "packs/follow-the-trace.json"
     }
   ]
 }
