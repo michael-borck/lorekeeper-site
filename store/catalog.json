@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-06T14:08:44+00:00",
+  "updatedAt": "2026-11-06T14:21:31+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -21,9 +21,9 @@
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "23e193a1c9fcd35c569c9502f68fff09a617b92cc11be2b97e05d28dcdc6d517",
+      "sha256": "959fea7878e6b54ee2cd1ca115e366bc697886cb037e4793d3022af419b147f7",
       "keyId": "c72e49ccf7055c89",
-      "signature": "oBxkzmlZmwctwxy8naqDvuss+zerxD2Oxy/BCubT/bDj3hBOwgG8sWbDVBhVGtnY2rB0jo8BqN8mq4ghiMiACA==",
+      "signature": "xDYM532sGfRKxDiBYrYWGg/n79D3bZlm3qZW1cPyI5JZAcAd45tbqEc/R7Sf/gkhslpFXfmVt54sq2YAqlmqAg==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -44,9 +44,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "971a50a423b7b465123d0e7e68a082c23692cf784b7234d3e86c3012f6da921d",
+      "sha256": "5a396db8a4238268b631760ef3839d13f390fb53597949609d708f910d49ad01",
       "keyId": "c72e49ccf7055c89",
-      "signature": "gSbdjNb/BRfwNqWFvIVuWYptLD/tFXUZD1iu3j9DP3Wchz0mM+gKUPEDkQf2UROeC/GQJ6PiYhQXcEodpeFACw==",
+      "signature": "e6WuUu5SMrRNgKq4r3NkFe0GfFdWF6O0f2/YYnDWSF3v3E/hUK392HrEwKhc3x/jLvr05QxY4KqnTbuWbSynDA==",
       "url": "packs/information-security.json"
     },
     {
@@ -68,9 +68,9 @@
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "3b62b5c4c40589f3bb46055d6ca43a35b0e303d1fdf93e60a4110184c1099417",
+      "sha256": "0da75940ba9a915ae67a6c8ab98e53bd4e5ece60a1218b1d68266a4656588022",
       "keyId": "c72e49ccf7055c89",
-      "signature": "e4P87HZy6Wntx0jgQHYq8C75xYZ9uYZYDMOyniCTwiTjMa8JLdcnE4nZR7zSWXMgOAF8WPlQdJ1q1XbyT/xsAg==",
+      "signature": "MdQ/1+CCQZQ1gQSvshc0lOTMfZOBwVsMIfRQu41nqEzF8z/nril7VYVQfo5L80iQo1A0ydQI6gEsSvSppX6oAA==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -91,9 +91,9 @@
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "656a39b1a062a4fd17cc903b5b09171381afbd772f81e335ae07a5128d6e0e6f",
+      "sha256": "670d5d5aeb1b80e2195475052230c0a53045fda160f2f9f15817757e8e533d0e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "mQ+G5O5GIRtTJXuo7VuAvEAPnhLBZ73RWBDzRU5JMAL0ZXeXis5pClEaJswPLtW+RpcQmJZU1kDFB8ojgPHNDQ==",
+      "signature": "5fMv++s6q5IcFGhLsm/MboXPNgFPvTjQvOQm0s4sNnGIo+xVMGQUKf423qFPDZCZqq2+IhHutHV/QGvLb4CSAw==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -114,9 +114,9 @@
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "e4856d7a9ce2dcf53e726a8ceaf5fe45c4e9ee5c76a2c6dce51fb6940b362f16",
+      "sha256": "5cb3b829cc9cbc49267ee301156a4ac59d8477faaca54a2ea5c12ce14750266e",
       "keyId": "c72e49ccf7055c89",
-      "signature": "KSYsyXyhETbAn3oechCEtoTln+bs6MzgEmHKQlGIHFiyzdH0+xCIoJ6MM/H3E3d/pppItnKAjOujK3l0xs2hAA==",
+      "signature": "gllBHRcqepL6l3NDhC+0Aj9ljnaEcK2+OZh37gobNseYTk5QGCBdHE2yzxeWSs8whE3T8ZLQUtf5FsmFxoEtDg==",
       "url": "packs/speak-software.json"
     },
     {
@@ -139,9 +139,9 @@
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "a69b1a4ae736d138fb7c50351f35331a572252146c7aa4a1d8ff25f8d7a5e0fe",
+      "sha256": "dc73352e96989be039047d78f710844ff132cd7a8d847322374fee175cecac31",
       "keyId": "c72e49ccf7055c89",
-      "signature": "3JD5HJf+o6Cln2JIL7Iq2xIJc3sizVmyax1oYIv00A2WU8cefO9SgeqkkfNLZQZJxsnhs67wTBDa8yQxC/2YAA==",
+      "signature": "0/5gdgJ5QRnRIUXF+TBzahpjYA6aaWnMQEoga5kNMGCxOsh8Iy2NSGZWSn/xn2GOd//VolcjBRYXwh+Kj9jOBQ==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -164,9 +164,9 @@
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "4dd6cea2bfa97736c12261ef80ec209474ce6fdb028b6acbaf0619a83356659f",
+      "sha256": "6507f06fba39ec61b84105af18628d68b49b6c4c60423156e87cad9693d33834",
       "keyId": "c72e49ccf7055c89",
-      "signature": "3siyB27TB8BhZHwMKDsKd3vTuOho0C72jlXtyxIqUQAZYw66xfWMMNGnuXTEBfQoJG5jsdOcRXVg6Sx9qmK8CA==",
+      "signature": "auUtQrTuTh7ImBaDd/MBggXkv/z3EHa2REIx/CFGvhzE+Zaz/mPo5vTI/azs9KbJ2mdASPvM68nf/ib3L16WBw==",
       "url": "packs/systems-analysis-and-design.json"
     },
     {
@@ -187,10 +187,34 @@
       "courses": 1,
       "lessons": 11,
       "size": 108882,
-      "sha256": "5b2e1a6d857730bfd0418069a5cb11686ff8e2a6de3145cbb5f6bb50b678a56d",
+      "sha256": "b6f8a23bcc0ae78ceb9d81c54cd772d49618e5e382b2a608489cf64022da9dec",
       "keyId": "c72e49ccf7055c89",
-      "signature": "y959uxvau8atXJ+kWDAtp1HOkudj+TtfKwT7rOSq76YmT748SajttOXgwm/95PKTOSF7huJc+m9euPExp3FDCQ==",
+      "signature": "WfzuU3X0xSmXhyeSPm2rt10KAL+hdfF6SJLVOk7SL4pgvwqLXM8eUddc+V1+22mBffUvTljEungfGIk8fwOCDg==",
       "url": "packs/follow-the-trace.json"
+    },
+    {
+      "id": "the-human-edge",
+      "title": "The Human Edge: Using AI with Judgement",
+      "description": "Judge, brief, check and deliver AI-assisted work without surrendering the decision.",
+      "version": "1.0.0",
+      "author": "Michael Borck",
+      "licence": "CC BY 4.0 International",
+      "theme": "storybook",
+      "tags": [
+        "ai",
+        "judgement",
+        "trust",
+        "verification",
+        "professional"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 15,
+      "size": 131881,
+      "sha256": "1c293d981aef6a6c38ff85f0199643e22f5826946749254519d3249bd10dd52e",
+      "keyId": "c72e49ccf7055c89",
+      "signature": "Xm4weH6eHnVzgMkLKCjYqCOVKlz6n8gYkS/lXBwlE9F0U4F88+LMQnpoiFXH+2MuflGLJtQ6G5ck73EdNHeECg==",
+      "url": "packs/the-human-edge.json"
     }
   ]
 }
