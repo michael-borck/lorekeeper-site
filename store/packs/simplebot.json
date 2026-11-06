@@ -1,0 +1,1329 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "simplebot",
+  "title": "SimpleBot: A Small Wrapper, a Real Project",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-06T23:00:31+00:00",
+  "courses": [
+    {
+      "slug": "simplebot",
+      "title": "SimpleBot: A Small Wrapper, a Real Project",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "python",
+        "llm",
+        "api",
+        "testing",
+        "teaching",
+        "security"
+      ],
+      "pitch": "Build a small Python wrapper around an LLM, then handle the edges: prompts, errors, secrets, tests and classroom use.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T23:00:31+00:00",
+        "unit": {
+          "slug": "simplebot",
+          "title": "SimpleBot: A Small Wrapper, a Real Project",
+          "theme": "pixel",
+          "tags": [
+            "python",
+            "llm",
+            "api",
+            "testing",
+            "teaching",
+            "security"
+          ],
+          "level": "beginner",
+          "pitch": "Build a small Python wrapper around an LLM, then handle the edges: prompts, errors, secrets, tests and classroom use.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-wrapper",
+            "title": "The Wrapper",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Why a Wrapper?",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A wrapper is a promise about how the rest of the program will talk to a model.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A raw API call is a request with a URL, headers, a JSON body and a response. That is not hard to write once. It is hard to write consistently in every script, notebook and classroom example.</p>\n<p>A wrapper puts the call in one place. It gives the rest of the program a small, stable interface:</p>\n<pre><code class=\"language-python\">response = get_response(&quot;Tell me about planets&quot;)\n</code></pre>\n<p>The wrapper hides the transport details. It also makes decisions: which model, which system prompt, how long to wait, what to return when the request fails.</p>\n<p>That is the trade. A wrapper reduces repetition and gives you one place to fix a bug. It also hides behaviour. If the wrapper is badly designed, every caller inherits the same problem.</p>\n<p>A good wrapper is small, readable and honest about what it does. It does not pretend the model is reliable. It does not hide errors in a cheerful sentence. It does not put a secret in the source.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Light Switch</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A light switch hides the wiring. You press it; the light comes on. The switch is useful because the interface is small and predictable.</p>\n<p>If the switch is wired to the wrong circuit, every room inherits the mistake. If the switch sparks, you do not blame the bulb.</p>\n<p>A wrapper is a switch. Its job is to make the common case easy and the failure visible.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Wrapper with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Name the Hidden Decisions</h3>\n<p>Ask the AI to list what the one-line call hides.</p>\n<pre><code class=\"language-text\">Here is a wrapper call:\nresponse = get_response(&quot;Tell me about planets&quot;)\n\nList every decision the wrapper must make for this line to work.\nInclude the API URL, model, system prompt, timeout, headers, response\nfield and error behaviour. Mark which decisions a caller might need to\noverride.\n</code></pre>\n<p>A good answer will separate the stable defaults from the parameters that should be configurable.</p>\n<h3>Exploration 2: Draw the Boundary</h3>\n<p>Ask what belongs inside and outside the wrapper.</p>\n<pre><code class=\"language-text\">The wrapper currently handles the HTTP call, model selection, system\nprompt and error messages. Which of these belong inside the wrapper,\nwhich belong in configuration, and which belong in the caller? Explain\nthe trade-off.\n</code></pre>\n<p>The boundary is a design decision, not a rule. The point is to make it deliberately.</p>\n<h3>Exploration 3: Find the Bad Wrapper</h3>\n<p>Ask the AI to critique a wrapper that hides too much.</p>\n<pre><code class=\"language-text\">A wrapper catches every exception and returns &quot;Sorry, something went\nwrong.&quot; Explain why this is a poor interface for a programming class.\nWhat should it return or raise instead?\n</code></pre>\n<p>A silent failure teaches students that the tool is unreliable and the error is unknowable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A wrapper contract:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>get_response</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Inputs</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>prompt, model, system, stream, api_url</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Defaults</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>model, system, timeout, API URL</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Returns</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The model text, or a clearly labelled error.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Raises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Nothing for model-side errors; the caller gets a readable result.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Hides</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>HTTP method, headers, JSON shape, provider-specific fields.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Does not hide</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Which model answered, whether the prompt was empty, or the fact that\nthe call failed.\n```</p>\n<p>The contract is what another developer reads before using the function.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Read <code>src/simplebot/core.py</code>. Write the contract above for the code as it exists. Then mark one thing you would change.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Wrappers are how teams standardise a dependency. One wrapper means one place to update the model, the provider, the timeout or the logging.</p>\n<p>A wrapper that hides too much becomes a single point of failure. A wrapper that exposes too much is not a wrapper. The useful middle is a small interface with honest errors and configurable defaults.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> List three things a wrapper hides and one thing it should not hide.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Write the contract for <code>get_response</code>.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Identify one decision that should be configurable rather than hard-coded.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Critique a wrapper that catches every error and returns a cheerful message.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Design a wrapper for two providers without leaking provider-specific details into the caller.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A wrapper is a small, stable interface over a raw API.</li>\n<li>It hides transport and repeats decisions in one place.</li>\n<li>Good wrappers are honest about errors and configurability.</li>\n<li>A bad wrapper spreads one mistake to every caller.</li>\n<li>The contract is the design.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the hidden decisions</li>\n<li>[ ] Wrote the wrapper contract</li>\n<li>[ ] Identified one configurable default</li>\n<li>[ ] Found one thing the wrapper should not hide</li>\n<li>[ ] Read the core module</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which hidden decision surprised you?</li>\n<li>What would you expose to the caller?</li>\n<li>Where could a silent failure hide?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The wrapper has a contract. The next chapter follows the call behind it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "The First Call",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Between the prompt and the response there is an HTTP request you can inspect.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The wrapper sends a POST request to an LLM API. The request has:</p>\n<ul>\n<li>a URL, such as a local Ollama endpoint or a hosted service</li>\n<li>headers, including the content type and, where required, an API key</li>\n<li>a JSON body with the model name, prompt, system instruction and stream flag</li>\n<li>a timeout</li>\n</ul>\n<p>The response is JSON. For a generate-style endpoint, the text is usually in a <code>response</code> field. The wrapper extracts it and returns a string.</p>\n<p>The exact shape depends on the provider. Ollama's <code>/api/generate</code> is not the same as OpenAI's chat completions. That is why the URL, model and response field belong in one place.</p>\n<p>A good first call is observable. Print the URL, the model and the request body. Then print the raw response before extracting the text. You cannot debug a transport you cannot see.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Postal Order</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You fill in an order form, put it in an envelope, address it and post it. The reply comes back in a different envelope with a reference number and the goods.</p>\n<p>If the goods are wrong, you check the order form, the address and the reply. You do not stare at the box and guess.</p>\n<p>The API call is the order form. The JSON is the envelope. The response field is the goods.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Call with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Trace the Request</h3>\n<p>Ask the AI to explain each field without inventing provider details.</p>\n<pre><code class=\"language-text\">Here is the request body:\n[paste it]\n\nExplain each field, which value is required, which is a default and\nwhich changes the model's behaviour. Do not assume the provider is\nOpenAI or Ollama unless the URL says so.\n</code></pre>\n<p>A good answer will keep the provider boundary visible.</p>\n<h3>Exploration 2: Find the Response Field</h3>\n<p>Ask how the wrapper knows where the text is.</p>\n<pre><code class=\"language-text\">The API returns JSON. Explain how the wrapper finds the response text,\nwhat happens if the field is missing, and how you would inspect the raw\nresponse before extracting it.\n</code></pre>\n<p>A missing field should produce a clear error, not the string \"None\".</p>\n<h3>Exploration 3: Test a Failure</h3>\n<p>Ask what happens when the server is down.</p>\n<pre><code class=\"language-text\">The request times out after 120 seconds. Explain what the caller sees,\nwhat the wrapper should log and what the student should learn from the\nfailure.\n</code></pre>\n<p>A timeout is information. It should be named, not hidden.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A call record:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Request</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>URL:\nModel:\nSystem:\nPrompt:\nStream:\nTimeout:</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Response</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Status:\nRaw JSON:\nExtracted text:\nError:\n```</p>\n<p>Keep the record for one successful and one failed call. The pair is more instructive than the success alone.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run one call against a local Ollama server or a test double. Print the URL, model, request body and raw response. Then run the same call with the server stopped and record the error.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The first call is where cost, latency and privacy enter the project. A hosted call sends the prompt to another company. A local call uses your hardware. A timeout is a user experience.</p>\n<p>A wrapper that makes the call observable makes those trade-offs discussable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> List the parts of an HTTP request.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Explain the role of the system prompt.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Print a request body and explain each field.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Compare a successful call with a timeout.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Adapt the call to a second provider without changing the caller.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The wrapper sends an HTTP POST with a JSON body.</li>\n<li>The response shape depends on the provider.</li>\n<li>Print the request and the raw response before extracting text.</li>\n<li>A missing field and a timeout are errors, not silence.</li>\n<li>The first call is where cost, latency and privacy appear.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced one request</li>\n<li>[ ] Identified the response field</li>\n<li>[ ] Tested one failure</li>\n<li>[ ] Recorded the raw response</li>\n<li>[ ] Named one privacy trade-off</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which field changed the output most?</li>\n<li>What did the raw response show that the extracted text hid?</li>\n<li>What should a student learn from a timeout?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The call works. The next chapter changes the system prompt and builds personalities.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Personalities and System Prompts",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A personality is a system prompt with a name, a purpose and a test.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The system prompt sets the model's standing instruction. It can change tone, role, format and constraints. It does not add knowledge the model does not have, and it does not guarantee compliance.</p>\n<p>SimpleBot ships with a handful of personalities:</p>\n<ul>\n<li><strong>pirate_bot</strong>: nautical tone</li>\n<li><strong>shakespeare_bot</strong>: Early Modern English style</li>\n<li><strong>emoji_bot</strong>: mostly emojis</li>\n<li><strong>teacher_bot</strong>: patient explanation</li>\n<li><strong>coder_bot</strong>: code-focused assistance</li>\n</ul>\n<p>Each personality is a small function that calls <code>get_response</code> with a different <code>system</code> string. The duplication is deliberate at this size. It is easy to read and easy to change.</p>\n<p>The design questions:</p>\n<ul>\n<li>What is the personality for?</li>\n<li>What should it never do?</li>\n<li>How would you test that it behaves?</li>\n<li>When is a personality a gimmick rather than a teaching tool?</li>\n</ul>\n<p>A classroom bot should make a concept clearer, not just make the output more entertaining.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Costume</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A costume changes how a person is perceived. It does not change what they know.</p>\n<p>A system prompt is a costume for the model. It changes tone and framing. It does not turn a general model into a subject expert.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Personalities with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Compare Two Prompts</h3>\n<p>Ask the AI to compare a persona prompt with a task prompt.</p>\n<pre><code class=\"language-text\">Here are two system prompts:\n[paste them]\n\nExplain what each one changes about the response. Which one is a\npersonality and which one is a constraint? What could each one fail to\ncontrol?\n</code></pre>\n<p>A good answer will separate tone from task and note that a persona can introduce stereotypes.</p>\n<h3>Exploration 2: Write a Teaching Persona</h3>\n<p>Ask for a system prompt with a purpose and a limit.</p>\n<pre><code class=\"language-text\">Write a system prompt for a patient programming tutor. It should explain\none concept at a time, ask a checking question and refuse to write a\ncomplete assignment for the student. Include the behaviour you would\ntest.\n</code></pre>\n<p>The limit is the important part. A tutor that does the homework is not a tutor.</p>\n<h3>Exploration 3: Test the Persona</h3>\n<p>Ask how to check whether it behaves.</p>\n<pre><code class=\"language-text\">Design three test prompts for the tutor persona: one normal question,\none request for the full answer and one confused follow-up. State the\nexpected behaviour for each.\n</code></pre>\n<p>A persona without a test is a hope.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A personality record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Name</td>\n<td>teacher_bot</td>\n</tr>\n<tr>\n<td>Purpose</td>\n<td>Explain one concept at a time</td>\n</tr>\n<tr>\n<td>System prompt</td>\n<td>Patient, clear, asks a checking question</td>\n</tr>\n<tr>\n<td>Limit</td>\n<td>Does not complete assessed work</td>\n</tr>\n<tr>\n<td>Test 1</td>\n<td>Normal question gets an explanation and a question</td>\n</tr>\n<tr>\n<td>Test 2</td>\n<td>Full-answer request gets a refusal and a hint</td>\n</tr>\n<tr>\n<td>Test 3</td>\n<td>Confused follow-up gets a simpler explanation</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>Stereotyping, over-helpfulness, false confidence</td>\n</tr>\n</tbody>\n</table>\n<p>The record makes the persona reviewable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Add a <code>scientist_bot</code> to the package. Give it a purpose, a limit and three test prompts. Run the tests with a mock, not a live model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Personas are used in customer service, training and internal tools. They shape tone and trust.</p>\n<p>A persona that overclaims expertise is a liability. A persona that refuses to help is a frustration. The design is the balance between tone, capability and limits.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain the difference between a system prompt and a user prompt.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Compare two personality prompts and describe the difference.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Write a teaching persona with a limit.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Write three tests for the persona.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Add a new personality to the package and test it without a live model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A personality is a system prompt with a name.</li>\n<li>A system prompt changes tone and framing, not knowledge.</li>\n<li>Good classroom personas have limits and tests.</li>\n<li>Duplication is acceptable at a small size if it stays readable.</li>\n<li>A persona without a test is a hope.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Compared a persona with a constraint</li>\n<li>[ ] Wrote a teaching persona</li>\n<li>[ ] Named a limit</li>\n<li>[ ] Wrote three tests</li>\n<li>[ ] Added or planned one new personality</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which personality was most useful, and why?</li>\n<li>Where could a persona stereotype?</li>\n<li>What should a tutor refuse to do?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The persona changes the voice. The next chapter handles the edges: empty input, failures and timeouts.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Checkpoint: the wrapper",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does a wrapper hide?",
+                        "options": [
+                          "The transport details and repeated decisions behind one small interface",
+                          "The fact that a model was used",
+                          "The licence",
+                          "The tests"
+                        ],
+                        "answer": 0,
+                        "explanation": "A wrapper puts the URL, model, system prompt, timeout and error behaviour in one place."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What should a wrapper not hide?",
+                        "options": [
+                          "Whether the call failed, which model answered, and an empty prompt",
+                          "The API URL",
+                          "The HTTP method",
+                          "The JSON shape"
+                        ],
+                        "answer": 0,
+                        "explanation": "A silent failure teaches the caller that the result cannot be trusted or diagnosed."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is the role of the system prompt?",
+                        "options": [
+                          "It sets a standing instruction that shapes tone, role and constraints",
+                          "It stores the conversation between calls",
+                          "It selects the provider",
+                          "It encrypts the request"
+                        ],
+                        "answer": 0,
+                        "explanation": "A personality is a system prompt with a name. It changes tone and framing, not knowledge."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What does a personality function usually add?",
+                        "options": [
+                          "A system prompt and an optional model override",
+                          "A new HTTP client",
+                          "A database",
+                          "A secret key"
+                        ],
+                        "answer": 0,
+                        "explanation": "Each personality calls the same wrapper with a different system instruction."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What can you inspect to debug the first call?",
+                        "options": [
+                          "The URL, model, request body and raw response",
+                          "Only the final answer",
+                          "The package version",
+                          "The model's parameter count"
+                        ],
+                        "answer": 0,
+                        "explanation": "You cannot debug a transport you cannot see."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is the risk of a personality that overclaims expertise?",
+                        "options": [
+                          "It creates trust the model has not earned",
+                          "It makes the model slower",
+                          "It uses more tokens",
+                          "It changes the API URL"
+                        ],
+                        "answer": 0,
+                        "explanation": "A costume changes tone, not knowledge. A teaching persona needs a limit and a test."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "Why is duplication acceptable in the personality module?",
+                        "options": [
+                          "At this size it keeps each personality readable and easy to change",
+                          "Because duplication is always good",
+                          "Because functions cannot call other functions",
+                          "Because it hides the system prompt"
+                        ],
+                        "answer": 0,
+                        "explanation": "The design is small on purpose. Refactor when the duplication becomes harder to read."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "the-project",
+            "title": "The Project",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Input, Output and Failure",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The happy path is the demo. The edges are the project.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A wrapper has three surfaces:</p>\n<ul>\n<li><strong>Input</strong>: what the caller sends. An empty prompt, a very long prompt, a missing model, a bad URL.</li>\n<li><strong>Output</strong>: what the provider returns. A <code>response</code> field, a different field, a non-JSON body, an empty string.</li>\n<li><strong>Failure</strong>: what happens when the network, the server or the response is wrong. Timeout, connection error, HTTP error, JSON error.</li>\n</ul>\n<p>A good wrapper validates the cheap cases before the call, names the failure after it, and returns something the caller can act on.</p>\n<p>The current case-study code handles an empty prompt and catches request exceptions. It returns an error string. That is a reasonable teaching choice for a small bot. It is not enough for a production tool, because the caller cannot distinguish a model answer from an error message by type.</p>\n<p>The design decision:</p>\n<ul>\n<li>Return a result object with <code>text</code>, <code>ok</code> and <code>error</code>.</li>\n<li>Or raise a custom exception for failures.</li>\n<li>Or return a string for the classroom and document the limitation.</li>\n</ul>\n<p>Pick one and test it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Vending Machine</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A vending machine accepts a coin, checks it, dispenses the item or returns the coin. It does not return a chocolate bar wrapper with \"out of order\" written on it.</p>\n<p>A wrapper should not return a normal-looking string when the call failed. The caller needs to know the difference.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Failure with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: List the Edges</h3>\n<p>Ask the AI to enumerate the failure cases.</p>\n<pre><code class=\"language-text\">Here is the wrapper:\n[paste it]\n\nList every input, output and transport failure the function can meet.\nGroup them by where they happen: before the call, during the call, after\nthe call. For each, say what the caller should see.\n</code></pre>\n<p>A good answer will include empty input, missing model, bad URL, timeout, connection reset, HTTP 401/403/429/500, non-JSON body, missing response field and empty response.</p>\n<h3>Exploration 2: Choose the Contract</h3>\n<p>Ask for the trade-off between strings and exceptions.</p>\n<pre><code class=\"language-text\">The wrapper returns a string for every outcome. Compare that with a\nresult object and with custom exceptions. Which is best for a classroom\nlibrary, and which is best for a production service? Explain the cost of\neach.\n</code></pre>\n<p>There is no universal answer. The contract should be explicit.</p>\n<h3>Exploration 3: Write the Message</h3>\n<p>Ask what a student should see.</p>\n<pre><code class=\"language-text\">The model server is not running. Write the error message a student\nshould see. It must say what failed, what to check and what to do next.\nIt must not pretend the model answered.\n</code></pre>\n<p>A useful message is specific: \"Could not connect to the model server at the configured URL. Run <code>ollama serve</code> or check the API URL.\"</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A failure table:</p>\n<table>\n<thead>\n<tr>\n<th>Case</th>\n<th>Where</th>\n<th>Caller sees</th>\n<th>Log</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Empty prompt</td>\n<td>Before</td>\n<td>Readable validation message</td>\n<td>Debug</td>\n</tr>\n<tr>\n<td>Bad URL</td>\n<td>During</td>\n<td>Connection error with URL</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>Timeout</td>\n<td>During</td>\n<td>Timeout message with limit</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>HTTP 401</td>\n<td>After</td>\n<td>Authentication error</td>\n<td>Error, no key</td>\n</tr>\n<tr>\n<td>HTTP 429</td>\n<td>After</td>\n<td>Rate-limit message</td>\n<td>Warning</td>\n</tr>\n<tr>\n<td>Non-JSON</td>\n<td>After</td>\n<td>Response-format error</td>\n<td>Error, redacted body</td>\n</tr>\n<tr>\n<td>Missing field</td>\n<td>After</td>\n<td>Response-field error</td>\n<td>Error, redacted body</td>\n</tr>\n</tbody>\n</table>\n<p>The log is for the developer. The message is for the user. They are not the same text.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Add one validation and one output check to the wrapper. Write a test for each. Do not call a live model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Error handling is user experience and security. A raw exception can leak a URL, a key fragment or a stack trace. A cheerful \"something went wrong\" hides the cause and wastes support time.</p>\n<p>A named failure with a safe message is the professional middle.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> List three input failures and three transport failures.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Write a validation message for an empty prompt.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Add a missing-response-field check.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Compare string returns, a result object and exceptions.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Write the failure table for the wrapper and implement two cases.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A wrapper has input, output and failure surfaces.</li>\n<li>Validate cheap cases before the call.</li>\n<li>Name failures; do not disguise them as answers.</li>\n<li>User messages and developer logs are different.</li>\n<li>The contract should be explicit and tested.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Listed the edge cases</li>\n<li>[ ] Chose a failure contract</li>\n<li>[ ] Wrote a safe, specific message</li>\n<li>[ ] Added one check</li>\n<li>[ ] Wrote one test</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which failure was easiest to miss?</li>\n<li>What should a student learn from an error?</li>\n<li>Where could an error leak information?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The edges are handled. The next chapter moves the secret out of the source.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Configuration and Secrets",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A secret in source is not a configuration choice. It is a leak waiting for a commit.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A wrapper needs configuration: the API URL, the model, the timeout and, for some providers, a key.</p>\n<p>Configuration belongs outside the code so the same code can run in different environments. A secret belongs outside the repository so it cannot be copied, screenshotted or pushed.</p>\n<p>The usual pattern:</p>\n<pre><code class=\"language-python\">import os\n\nAPI_URL = os.environ.get(&quot;SIMPLEBOT_API_URL&quot;, &quot;http://localhost:11434/api/generate&quot;)\nMODEL = os.environ.get(&quot;SIMPLEBOT_MODEL&quot;, &quot;llama3&quot;)\nAPI_KEY = os.environ.get(&quot;SIMPLEBOT_API_KEY&quot;)\n</code></pre>\n<p>Rules:</p>\n<ul>\n<li>never commit a real key</li>\n<li>never paste a key into a book, slide or chat</li>\n<li>use a local <code>.env</code> file only if it is ignored by git</li>\n<li>give the key the smallest scope that works</li>\n<li>rotate a key that has been exposed</li>\n<li>log the fact that a key is configured, never the key</li>\n</ul>\n<p>The case-study code currently contains a hardcoded bearer token in the source. That is a real defect, not a teaching example. The token should be rotated, removed from history and moved to configuration. This book does not reproduce the value.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Hotel Key Card</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A hotel key card opens your room for the dates of your stay. It is not a master key, and it is not kept in the room's welcome folder.</p>\n<p>A secret is a key card. It should be scoped, stored safely and replaced when lost.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Configuration with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Secrets</h3>\n<p>Ask the AI to scan for secret-shaped values without printing them.</p>\n<pre><code class=\"language-text\">Review this code for hardcoded credentials, tokens or URLs. Do not echo\nthe values. List the file, the line and the kind of secret. Recommend\nthe configuration change and the rotation step.\n</code></pre>\n<p>A good answer will name the location and the fix, not reproduce the value.</p>\n<h3>Exploration 2: Design the Config</h3>\n<p>Ask for a configuration table.</p>\n<pre><code class=\"language-text\">Design the configuration for SimpleBot. Include the API URL, model,\ntimeout, key and any feature flags. For each, give the environment\nvariable, the default, whether it is secret and what happens when it is\nmissing.\n</code></pre>\n<p>A missing key should fail clearly when the provider requires one, not silently send an empty string.</p>\n<h3>Exploration 3: Test the Leak</h3>\n<p>Ask how a secret could reach the repository.</p>\n<pre><code class=\"language-text\">List the ways a secret can leak into a Python repository: source,\nnotebook, test fixture, log, screenshot, commit history, error message,\nCI output, chat. For each, name the prevention.\n</code></pre>\n<p>The answer is a checklist for the project and the classroom.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A configuration record:</p>\n<table>\n<thead>\n<tr>\n<th>Setting</th>\n<th>Variable</th>\n<th>Default</th>\n<th>Secret</th>\n<th>Missing behaviour</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>API URL</td>\n<td><code>SIMPLEBOT_API_URL</code></td>\n<td>local Ollama</td>\n<td>No</td>\n<td>Use default</td>\n</tr>\n<tr>\n<td>Model</td>\n<td><code>SIMPLEBOT_MODEL</code></td>\n<td><code>llama3</code></td>\n<td>No</td>\n<td>Use default</td>\n</tr>\n<tr>\n<td>Timeout</td>\n<td><code>SIMPLEBOT_TIMEOUT</code></td>\n<td>120</td>\n<td>No</td>\n<td>Use default</td>\n</tr>\n<tr>\n<td>API key</td>\n<td><code>SIMPLEBOT_API_KEY</code></td>\n<td>none</td>\n<td>Yes</td>\n<td>Clear error if required</td>\n</tr>\n<tr>\n<td>Log level</td>\n<td><code>SIMPLEBOT_LOG_LEVEL</code></td>\n<td><code>INFO</code></td>\n<td>No</td>\n<td>Use default</td>\n</tr>\n</tbody>\n</table>\n<p>The secret row is the one that must never appear in the README with a value.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Move the API URL, model, timeout and key into environment variables. Remove the hardcoded credential. Add a test that the key is read from the environment and not from source. Rotate the exposed key.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A leaked key can spend money, expose data and break trust. It can also be scraped from public repositories in minutes.</p>\n<p>Configuration is also portability. The same code should run against a local model in class and a hosted model in production without edits.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain why a key should not be in source.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Write the environment variable configuration for the wrapper.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Find one secret-shaped value in a repository without printing it.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Write the missing-key behaviour for a provider that requires one.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Write the incident checklist for a key that was committed and pushed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Configuration belongs outside the code.</li>\n<li>Secrets belong outside the repository.</li>\n<li>A hardcoded key is a defect, not a shortcut.</li>\n<li>Rotate an exposed key and remove it from history.</li>\n<li>Log the fact of configuration, never the value.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Moved the URL, model and timeout to config</li>\n<li>[ ] Moved the key to an environment variable</li>\n<li>[ ] Removed the hardcoded credential</li>\n<li>[ ] Planned the rotation</li>\n<li>[ ] Wrote the leak checklist</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Where was the secret easiest to miss?</li>\n<li>What should happen when the key is missing?</li>\n<li>What would you tell a student who pasted a key?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The secret is out of the code. The next chapter tests the wrapper without calling a live model.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Tests and Mocks",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A test that needs a live model is a demo. A test that controls the response is evidence.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The wrapper talks to a network service. A test should not depend on that service being up, fast, free or deterministic.</p>\n<p>The usual pattern is a <strong>mock</strong>: replace the network call with a fake that returns a chosen response. The test then checks the wrapper's logic, not the provider's availability.</p>\n<p>The case-study tests use <code>unittest.mock.patch</code> to replace <code>requests.post</code>. They test:</p>\n<ul>\n<li>a successful response</li>\n<li>an empty prompt</li>\n<li>an API error</li>\n<li>a personality's system prompt</li>\n<li>a custom model argument</li>\n</ul>\n<p>That is a good start. It covers the contract without a network.</p>\n<p>What the tests do not cover yet:</p>\n<ul>\n<li>a non-JSON response</li>\n<li>a missing <code>response</code> field</li>\n<li>a timeout</li>\n<li>a missing API key</li>\n<li>a personality that refuses assessed work</li>\n</ul>\n<p>A test suite is a map of the edges you have chosen to protect.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Flight Simulator</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A pilot does not learn emergency procedures by crashing a real aircraft. The simulator reproduces the instruments and the failure.</p>\n<p>A mock is a simulator for the network. It lets you test the failure without the outage.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Tests with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: List the Contract</h3>\n<p>Ask the AI to turn the wrapper contract into test names.</p>\n<pre><code class=\"language-text\">Here is the wrapper contract:\n[paste it]\n\nWrite one test name per behaviour and failure. Include success, empty\ninput, timeout, HTTP error, non-JSON, missing field and custom model.\nDo not write the test bodies yet.\n</code></pre>\n<p>The names are the coverage plan.</p>\n<h3>Exploration 2: Design the Mock</h3>\n<p>Ask what the fake must return.</p>\n<pre><code class=\"language-text\">Design a mock for requests.post. It must support a successful JSON\nresponse, an HTTP error and a timeout. Show the attributes and methods\nthe wrapper uses. Do not call a real server.\n</code></pre>\n<p>A mock that does not match the real object's interface tests the mock, not the code.</p>\n<h3>Exploration 3: Find the Missing Test</h3>\n<p>Ask what the suite would miss.</p>\n<pre><code class=\"language-text\">Here is the test suite:\n[paste it]\n\nWhat behaviour is untested? Which failure would reach a student first?\nWrite the missing test name and the expected result.\n</code></pre>\n<p>The first failure a student meets is the one worth testing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A test matrix:</p>\n<table>\n<thead>\n<tr>\n<th>Behaviour</th>\n<th>Mock</th>\n<th>Expected</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Success</td>\n<td>200, <code>{\"response\": \"hi\"}</code></td>\n<td><code>\"hi\"</code></td>\n</tr>\n<tr>\n<td>Empty prompt</td>\n<td>none</td>\n<td>validation message, no call</td>\n</tr>\n<tr>\n<td>Timeout</td>\n<td>raises <code>Timeout</code></td>\n<td>readable error</td>\n</tr>\n<tr>\n<td>HTTP 401</td>\n<td>401 response</td>\n<td>auth error, no key in message</td>\n</tr>\n<tr>\n<td>Non-JSON</td>\n<td>invalid body</td>\n<td>format error</td>\n</tr>\n<tr>\n<td>Missing field</td>\n<td><code>{}</code></td>\n<td>field error</td>\n</tr>\n<tr>\n<td>Custom model</td>\n<td>200</td>\n<td>request used the model</td>\n</tr>\n<tr>\n<td>Personality</td>\n<td>patched <code>get_response</code></td>\n<td>system prompt contains the persona</td>\n</tr>\n</tbody>\n</table>\n<p>The matrix is the contract in test form.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the existing tests. Add one test for a missing response field and one for a timeout. Use mocks. Do not call a live model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Tests are how a small project survives a change of provider, model or maintainer. They are also how a classroom example stays honest when the network is down.</p>\n<p>A test suite that depends on a live service is flaky. A suite that mocks the service is fast and repeatable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Explain why a test should not call a live model.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> List three behaviours the current tests cover.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Write a mock for a successful response.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Add a test for a missing response field.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Add a test for a timeout and one for a personality's limit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A live-model test is a demo, not a unit test.</li>\n<li>Mocks replace the network and control the response.</li>\n<li>Test the contract and the edges, not only the happy path.</li>\n<li>The first failure a student meets is worth testing.</li>\n<li>A good suite is fast, repeatable and honest.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Ran the existing tests</li>\n<li>[ ] Listed the contract cases</li>\n<li>[ ] Designed a mock</li>\n<li>[ ] Added one missing test</li>\n<li>[ ] Kept the test offline</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which test was most valuable?</li>\n<li>What did the mocks hide?</li>\n<li>Which failure would a student hit first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The wrapper is tested. The next chapter uses it in a classroom without teaching bad habits.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: the project edges",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "Which failure belongs before the API call?",
+                        "options": [
+                          "An empty or whitespace-only prompt",
+                          "A timeout",
+                          "A non-JSON response",
+                          "An HTTP 500"
+                        ],
+                        "answer": 0,
+                        "explanation": "Validate cheap inputs before spending a request."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Why is returning a normal-looking string for every failure a weak contract?",
+                        "options": [
+                          "The caller cannot distinguish a model answer from an error by type",
+                          "It uses too much memory",
+                          "It breaks JSON",
+                          "It makes the model slower"
+                        ],
+                        "answer": 0,
+                        "explanation": "A result object or a custom exception makes the failure explicit."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Where should an API key live?",
+                        "options": [
+                          "In an environment variable or secret manager, never in source",
+                          "In the README",
+                          "In the test fixture",
+                          "In a comment"
+                        ],
+                        "answer": 0,
+                        "explanation": "A secret in source is a leak waiting for a commit."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What should you do with a key that was committed and pushed?",
+                        "options": [
+                          "Rotate it, remove it from history and move it to configuration",
+                          "Delete the file and hope",
+                          "Rename the variable",
+                          "Add a warning comment"
+                        ],
+                        "answer": 0,
+                        "explanation": "Deleting the current line does not remove it from history or from anyone who cloned it."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Why should tests mock the network?",
+                        "options": [
+                          "The tests stay fast, repeatable and independent of a live service",
+                          "Mocks make the model more accurate",
+                          "Mocks are required by Python",
+                          "Mocks hide all errors"
+                        ],
+                        "answer": 0,
+                        "explanation": "A test that needs a live model is a demo. A controlled response is evidence."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What should a test for a missing response field check?",
+                        "options": [
+                          "A clear error, not the string None",
+                          "A retry",
+                          "A new model call",
+                          "A secret"
+                        ],
+                        "answer": 0,
+                        "explanation": "The wrapper should name the format problem."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What should a failure message avoid?",
+                        "options": [
+                          "Leaking the URL, key, stack trace or raw body",
+                          "Naming what failed",
+                          "Telling the user what to check",
+                          "Being specific"
+                        ],
+                        "answer": 0,
+                        "explanation": "The user message and the developer log are different texts."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "02-05",
+                "title": "The key in the source",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>You are reviewing SimpleBot. You find a bearer token written directly\nin core.py, and the repository is public. The tests pass and the bot\nworks. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "rotate",
+                        "label": "Rotate the token, move it to an environment variable, remove it from history and add a secret check",
+                        "outcome": "<p>The exposed token stops working. The wrapper reads the key from\nconfiguration, the tests use a fake, and CI fails if a secret-shaped\nvalue appears in source.</p>",
+                        "effects": {
+                          "Secret": "Rotated",
+                          "Source": "Clean",
+                          "Future": "Checked"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A public key is compromised the moment it is pushed. Rotation comes before cleanup.</p>"
+                      },
+                      {
+                        "id": "delete",
+                        "label": "Delete the line and commit the change",
+                        "outcome": "<p>The current file is clean. The token remains in git history and in\nevery clone. The exposed key still works.</p>",
+                        "effects": {
+                          "Current file": "Clean",
+                          "History": "Exposed",
+                          "Key": "Still valid"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Deleting the line is not rotation. Remove it from history and replace the key.</p>"
+                      },
+                      {
+                        "id": "comment",
+                        "label": "Replace the token with a comment that says \"add key here\"",
+                        "outcome": "<p>The code no longer sends a key. The hosted provider rejects the\nrequest, and the exposed token is still in history.</p>",
+                        "effects": {
+                          "Code": "Broken",
+                          "Secret": "Exposed",
+                          "Tests": "Fail"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>The fix is configuration plus rotation, not a comment.</p>"
+                      },
+                      {
+                        "id": "ignore",
+                        "label": "Leave it because the repository is only a teaching example",
+                        "outcome": "<p>The token remains public and spendable. A student copies it into\ntheir own project, and the exposure spreads.</p>",
+                        "effects": {
+                          "Risk": "Ongoing",
+                          "Teaching": "Bad example",
+                          "Trust": "Lost"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A teaching example is still a public repository. Secrets do not become safer because the code is small.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Rotate first, then remove the secret from history, move it to\nconfiguration, add a test and a CI check, and teach the pattern.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "the-classroom",
+            "title": "The Classroom",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Teaching Recipes",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A classroom bot should make a concept clearer, not make the answer cheaper.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>SimpleBot is small enough to use in a first programming course. That is also the risk: a tool that produces answers can remove the practice the course exists to build.</p>\n<p>A useful classroom activity has:</p>\n<ul>\n<li>a clear learning objective</li>\n<li>a task the student must still perform</li>\n<li>a check the student can explain</li>\n<li>a limit on what the bot may do</li>\n<li>a discussion of failure and ethics</li>\n</ul>\n<p>The bot can be a tutor, a role-play partner, a quiz host or a code reviewer. It should not be a ghostwriter for assessed work.</p>\n<p>Three recipes:</p>\n<ol>\n<li><strong>Quiz with feedback.</strong> The student answers; the bot gives feedback and a hint. The student still has to think.</li>\n<li><strong>Bot conversation.</strong> Two personas discuss a topic; the student writes the prompt, evaluates the claims and corrects the record.</li>\n<li><strong>Custom persona.</strong> The student writes a system prompt with a purpose and a limit, then tests it.</li>\n</ol>\n<p>Each recipe has a discussion point: hallucination, bias, privacy or over-reliance.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Language Lab</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A language lab lets students practise conversation with a patient partner. The partner does not write the exam. The practice builds fluency.</p>\n<p>A classroom bot is a language lab for ideas. It should create practice, not replace the assessment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Classroom Use with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Design the Objective</h3>\n<p>Ask the AI to start from the learning objective.</p>\n<pre><code class=\"language-text\">I want students to practise explaining a programming concept in their\nown words. Design a SimpleBot activity with a clear objective, a student\ntask, a bot limit and a checking question. Do not let the bot write the\nfinal explanation.\n</code></pre>\n<p>The student must still produce the explanation.</p>\n<h3>Exploration 2: Find the Failure</h3>\n<p>Ask what the bot will get wrong.</p>\n<pre><code class=\"language-text\">The activity uses teacher_bot to give feedback on student explanations.\nList the ways the feedback could be wrong, shallow or discouraging.\nWrite one classroom discussion question for each risk.\n</code></pre>\n<p>The discussion is part of the lesson, not an afterthought.</p>\n<h3>Exploration 3: Check the Policy</h3>\n<p>Ask what the institution requires.</p>\n<pre><code class=\"language-text\">The activity sends student text to a model. List the privacy,\naccessibility, assessment and AI-use questions the instructor must\nanswer before running it. Include local versus hosted, data retention\nand disclosure.\n</code></pre>\n<p>A classroom activity is also a data-processing decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A classroom activity plan:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Objective</td>\n<td>Explain a concept in the student's own words</td>\n</tr>\n<tr>\n<td>Student task</td>\n<td>Write the explanation, then ask for feedback</td>\n</tr>\n<tr>\n<td>Bot role</td>\n<td>Ask one checking question, give one improvement</td>\n</tr>\n<tr>\n<td>Limit</td>\n<td>Does not write the final explanation</td>\n</tr>\n<tr>\n<td>Check</td>\n<td>Student revises and explains the change</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>Hallucination, bias, over-reliance</td>\n</tr>\n<tr>\n<td>Data</td>\n<td>Local model or approved hosted service</td>\n</tr>\n<tr>\n<td>Disclosure</td>\n<td>Students know the bot is used</td>\n</tr>\n</tbody>\n</table>\n<p>The plan is short enough to review and specific enough to run.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Build one activity with <code>teacher_bot</code>. The bot must ask a question and give feedback, not produce the final answer. Test it with a mock so the activity can be demonstrated offline.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The same design questions apply to workplace training. A bot that answers every question creates dependence. A bot that asks a question and checks the answer builds capability.</p>\n<p>The organisation also needs a data policy. A local model is easier to approve for sensitive material. A hosted model needs a contract and a privacy review.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Name three classroom uses for SimpleBot.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Write a learning objective for a bot activity.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Design a quiz with feedback and a limit.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Write the privacy and assessment questions for the activity.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Run the activity, collect student feedback and revise the limit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A classroom bot should build practice, not replace it.</li>\n<li>Start with the learning objective.</li>\n<li>Give the bot a limit and the student a task.</li>\n<li>Discuss failure, bias and privacy.</li>\n<li>A classroom activity is a data decision too.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote a learning objective</li>\n<li>[ ] Gave the student a task</li>\n<li>[ ] Gave the bot a limit</li>\n<li>[ ] Wrote a checking question</li>\n<li>[ ] Named one risk and one data question</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which activity would you run first?</li>\n<li>Where could the bot do the learning for the student?</li>\n<li>What would you disclose to students?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The bot is useful. The final chapter ships it as a project someone else can install and maintain.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Ship and Maintain",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A small project still needs a front door, a version and a way to change.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Shipping a Python package means someone else can install it, import it and get the result you promised.</p>\n<p>The minimum:</p>\n<ul>\n<li>a <code>pyproject.toml</code> with the name, version, description, Python requirement, dependencies and licence</li>\n<li>a README with install, quick start and one real example</li>\n<li>a licence</li>\n<li>a source layout that matches the package name</li>\n<li>tests that run without a live model</li>\n<li>a version number and a changelog</li>\n</ul>\n<p>The project also needs maintenance:</p>\n<ul>\n<li>dependency updates</li>\n<li>a deprecation path for breaking changes</li>\n<li>a security policy for secrets and vulnerabilities</li>\n<li>a way to report a bug</li>\n<li>a CI check that runs the tests and lint</li>\n</ul>\n<p>A small package is not exempt from these. It is easier to keep them current while it is small.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Shopfront</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A shop with no sign, no opening hours and no price list is not a shop. It may have good products inside, but a customer cannot use it.</p>\n<p>A package without a README, a version and a licence is the same. The code may work; the project is not shippable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Shipping with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Audit the Front Door</h3>\n<p>Ask the AI to review the README and package metadata.</p>\n<pre><code class=\"language-text\">Here is the README and pyproject.toml:\n[paste them]\n\nList what a new user needs but cannot find: install command, quick\nstart, API, configuration, error behaviour, licence, version and\nsupport. Mark anything that is stale or inconsistent.\n</code></pre>\n<p>The gap list is the release checklist.</p>\n<h3>Exploration 2: Test the Install</h3>\n<p>Ask for a clean-environment test.</p>\n<pre><code class=\"language-text\">Write the steps to install the package in a fresh virtual environment\nand run the quick-start example. Include the expected output and the\nfailure modes. Do not assume the package is already installed.\n</code></pre>\n<p>A package that only works in the author's environment is not shipped.</p>\n<h3>Exploration 3: Plan the Change</h3>\n<p>Ask for a deprecation path.</p>\n<pre><code class=\"language-text\">The default model is changing. Write the changelog entry, the migration\nnote and the period before the old behaviour is removed. Include how\nthe package warns the user.\n</code></pre>\n<p>A breaking change without a path is a surprise.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A release checklist:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Release</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Metadata</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Name, version, description</li>\n<li>[ ] Python requirement</li>\n<li>[ ] Dependencies pinned or bounded</li>\n<li>[ ] Licence</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Documentation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Install</li>\n<li>[ ] Quick start</li>\n<li>[ ] Configuration and secrets</li>\n<li>[ ] Error behaviour</li>\n<li>[ ] API reference</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Quality</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Tests pass offline</li>\n<li>[ ] Lint passes</li>\n<li>[ ] CI runs on a clean environment</li>\n<li>[ ] No secrets in source or history</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Release</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>[ ] Version bumped</li>\n<li>[ ] Changelog updated</li>\n<li>[ ] Tag created</li>\n<li>[ ] Package published\n```</li>\n</ul>\n<p>The checklist is the difference between \"it works on my machine\" and \"someone else can use it\".</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Code Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the package tests in a fresh virtual environment. Build the package. Install it from the built artefact and run the quick-start example against a mock or a local model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Business Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A package is a dependency. The organisation needs to know who maintains it, what it sends, how it fails and how to replace it.</p>\n<p>A clear README, a licence and a version are not decoration. They are the information a team needs before it adopts the tool.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> List the minimum files for a Python package.</p>\n<p><strong>Exercise 8.2 (Level 2).</strong> Audit the README for a missing install or quick-start step.</p>\n<p><strong>Exercise 8.3 (Level 3).</strong> Run the tests in a fresh environment.</p>\n<p><strong>Exercise 8.4 (Level 4).</strong> Write the release checklist for SimpleBot.</p>\n<p><strong>Exercise 8.5 (Level 5).</strong> Plan a breaking change with a changelog, warning and migration note.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Shipping means someone else can install, import and use it.</li>\n<li>A README, licence, version and tests are the minimum.</li>\n<li>Maintenance includes dependencies, deprecation and security.</li>\n<li>A clean-environment test is the real install test.</li>\n<li>A small package still needs a front door.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Audited the README and metadata</li>\n<li>[ ] Ran the tests offline</li>\n<li>[ ] Tested a clean install</li>\n<li>[ ] Wrote the release checklist</li>\n<li>[ ] Planned one deprecation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What was missing from the front door?</li>\n<li>What broke in the clean environment?</li>\n<li>What would you change first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The project is shipped. The appendices collect the API reference and the classroom recipes.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "Checkpoint: classroom and release",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What should a classroom bot activity start with?",
+                        "options": [
+                          "A learning objective and a task the student still performs",
+                          "The longest possible prompt",
+                          "A model leaderboard",
+                          "The final answer"
+                        ],
+                        "answer": 0,
+                        "explanation": "A bot that does the learning for the student is not a teaching tool."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What limit should a teaching persona have?",
+                        "options": [
+                          "It should not complete assessed work for the student",
+                          "It should answer every question instantly",
+                          "It should use the largest model",
+                          "It should hide its errors"
+                        ],
+                        "answer": 0,
+                        "explanation": "A tutor that does the homework is not a tutor."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What should a classroom activity disclose?",
+                        "options": [
+                          "That a bot is used, where the data goes and how it is retained",
+                          "Only the model name",
+                          "Nothing",
+                          "The API key"
+                        ],
+                        "answer": 0,
+                        "explanation": "A classroom activity is also a data-processing decision."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the minimum front door for a Python package?",
+                        "options": [
+                          "Install, quick start, API, configuration, licence, version and tests",
+                          "A logo and a slogan",
+                          "Only the source file",
+                          "A private message to the author"
+                        ],
+                        "answer": 0,
+                        "explanation": "Someone else has to be able to install, import and use it."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is a clean-environment test?",
+                        "options": [
+                          "Install and run the package in a fresh virtual environment",
+                          "Run the tests in the author's existing environment",
+                          "Read the README",
+                          "Push to main"
+                        ],
+                        "answer": 0,
+                        "explanation": "A package that only works on your machine is not shipped."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What does a deprecation path include?",
+                        "options": [
+                          "A changelog entry, a warning and a period before removal",
+                          "Deleting the feature silently",
+                          "Changing the version without a note",
+                          "A new secret"
+                        ],
+                        "answer": 0,
+                        "explanation": "A breaking change without a path is a surprise."
+                      },
+                      {
+                        "id": "q7",
+                        "prompt": "What should a small package's CI check?",
+                        "options": [
+                          "Tests, lint, a clean install and no secrets",
+                          "Only the version number",
+                          "The author's laptop",
+                          "The model's benchmark score"
+                        ],
+                        "answer": 0,
+                        "explanation": "A small package is easier to keep current while it is small."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
