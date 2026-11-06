@@ -19,6 +19,7 @@
         <span class="brand-text">Lorekeeper<span class="brand-sub">field notes</span></span>
       </a>
       <div id="course-meta" class="course-meta"></div>
+      <div id="trail-card" class="trail-card" hidden></div>
       <nav id="outline" class="outline"></nav>
       <div class="sidebar-footer">
         <div class="xp-row"><span>XP</span><strong id="xp">0</strong></div>
@@ -92,10 +93,22 @@
     </div>
   </dialog>
 
+  <dialog id="wayfinder-dialog" class="badge-dialog wayfinder-dialog" aria-labelledby="wayfinder-title">
+    <div class="badge-head">
+      <div>
+        <h2 id="wayfinder-title">Find your trail</h2>
+        <p id="wayfinder-intro" class="badge-summary">Four quick questions. Nothing leaves this device.</p>
+      </div>
+      <button id="wayfinder-close" class="ghost small" type="button">Close</button>
+    </div>
+    <div id="wayfinder-body"></div>
+  </dialog>
+
   <script src="widgets.js"></script>
   <script src="badges.js"></script>
   <script src="art.js"></script>
   <script src="progress-file.js"></script>
+  <script src="wayfinder.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

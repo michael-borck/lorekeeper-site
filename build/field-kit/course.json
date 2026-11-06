@@ -1,10 +1,21 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-06T08:48:36+00:00",
+  "generated_at": "2026-11-06T09:39:13+00:00",
   "unit": {
     "slug": "field-kit",
     "title": "Field Kit: The Lorekeeper Workbench",
-    "theme": "pixel"
+    "theme": "pixel",
+    "tags": [
+      "practice",
+      "tools",
+      "quick",
+      "sql",
+      "data",
+      "exercise"
+    ],
+    "level": "beginner",
+    "pitch": "Try every interactive lesson format in one small workbench before choosing a full course.",
+    "start": "01-01"
   },
   "modules": [
     {

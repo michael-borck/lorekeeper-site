@@ -77,6 +77,7 @@ async function init() {
     return;
   }
   state.index = index;
+  window.LorekeeperWayfinder?.init();
   warmOffline();
 
   const params = new URLSearchParams(location.search);
@@ -102,6 +103,7 @@ async function loadCourse(slug) {
   applyTheme(savedTheme() || course.unit.theme || "pixel", false);
   loadProgress();
   window.LorekeeperBadges?.init();
+  window.LorekeeperWayfinder?.renderSidebarTrail();
   document.title = `${course.unit.title} · Lorekeeper`;
   const emblem = window.LorekeeperArt
     ? window.LorekeeperArt.courseEmblem(course.unit.slug)
@@ -210,6 +212,7 @@ function completeLesson(lesson, { quiet = false } = {}) {
   if (!quiet) toast(`Lesson complete +${lesson.xp} XP`);
   else toast(`Passed. +${lesson.xp} XP`);
   window.LorekeeperBadges?.sync(true);
+  window.LorekeeperWayfinder?.renderSidebarTrail();
 }
 
 function resetProgress() {
@@ -222,6 +225,7 @@ function resetProgress() {
   const entry = currentEntry();
   if (entry) renderLesson(entry);
   window.LorekeeperBadges?.reset();
+  window.LorekeeperWayfinder?.renderSidebarTrail();
   toast("Progress and achievements reset");
 }
 
@@ -649,6 +653,7 @@ function renderPicker() {
           <p>Story-driven courses for information systems. The source repos stay read-only.</p>
         </div>
       </div>
+      <div id="wayfinder-host"></div>
       <div class="course-list">
         ${state.index.courses
           .map(
@@ -668,6 +673,7 @@ function renderPicker() {
           .join("")}
       </div>
     </div>`;
+  window.LorekeeperWayfinder?.renderPicker();
 }
 
 function fatal(message) {
