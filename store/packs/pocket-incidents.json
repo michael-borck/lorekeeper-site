@@ -1,0 +1,799 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "pocket-incidents",
+  "title": "Pocket Incidents: The 3AM Page",
+  "author": "Lorekeeper",
+  "licence": "Course content",
+  "createdAt": "2026-11-06T09:56:33+00:00",
+  "courses": [
+    {
+      "slug": "pocket-incidents",
+      "title": "Pocket Incidents: The 3AM Page",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "incident",
+        "security",
+        "systems",
+        "story"
+      ],
+      "pitch": "A short incident-response pack: evidence, containment and the record.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-06T09:56:33+00:00",
+        "unit": {
+          "slug": "pocket-incidents",
+          "title": "Pocket Incidents: The 3AM Page",
+          "theme": "pixel",
+          "tags": [
+            "incident",
+            "security",
+            "systems",
+            "story"
+          ],
+          "level": "beginner",
+          "pitch": "A short incident-response pack: evidence, containment and the record.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "incident",
+            "title": "Security, privacy and incident response",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Security, privacy and incident response",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<h2>Learning objectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>By the end of this module you will be able to:</p>\n<ol>\n<li>Explain confidentiality, integrity and availability, and map an incident to the property it threatens.</li>\n<li>Triage logs into a timeline, separating evidence from speculation.</li>\n<li>Contain an exposed secret, rotate it, and verify the exposure is closed.</li>\n<li>Write an incident record and recommend hardening, logging and privacy controls with cost and risk.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The week&#x27;s idea</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The estate has been built, named, secured with identity and permissions, and given a\nbackup. This week it is attacked, or at least exposed. A configuration page served the\ndatabase password to anyone who asked. The security log shows someone asked, twice, after\nrepeated failed logins. The incident is already in progress when the module starts.</p>\n<p>Security is not a product you install. It is a set of decisions made with incomplete\ninformation: what is exposed, who could reach it, what the evidence proves, what you change\nfirst, and what you accept as residual risk. The lab gives you a small, real incident. You\nread the log, reproduce the exposure, contain it, rotate the secret, verify the fix and\nwrite the record. The record is the artefact an auditor, a customer or a regulator will\nread.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Key ideas</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Idea</th>\n<th>What to hold in your head</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Confidentiality</td>\n<td>Only authorised subjects can read the data</td>\n</tr>\n<tr>\n<td>Integrity</td>\n<td>The data is accurate and has not been changed</td>\n</tr>\n<tr>\n<td>Availability</td>\n<td>The service is there when it is needed</td>\n</tr>\n<tr>\n<td>Threat</td>\n<td>A potential cause of harm</td>\n</tr>\n<tr>\n<td>Vulnerability</td>\n<td>A weakness a threat can use</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>The combination of likelihood and impact</td>\n</tr>\n<tr>\n<td>Attack surface</td>\n<td>Everything an attacker can reach</td>\n</tr>\n<tr>\n<td>Defence in depth</td>\n<td>More than one control between the attacker and the asset</td>\n</tr>\n<tr>\n<td>Least privilege</td>\n<td>The smallest access that does the job</td>\n</tr>\n<tr>\n<td>Secret</td>\n<td>A credential that grants access and must not be public</td>\n</tr>\n<tr>\n<td>Rotation</td>\n<td>Replacing a secret and retiring the old value</td>\n</tr>\n<tr>\n<td>Log</td>\n<td>A time-ordered record of events</td>\n</tr>\n<tr>\n<td>Log integrity</td>\n<td>Evidence that the log has not been altered</td>\n</tr>\n<tr>\n<td>Personal data</td>\n<td>Information about an identified or identifiable person</td>\n</tr>\n<tr>\n<td>Incident response</td>\n<td>Prepare, detect, contain, eradicate, recover, learn</td>\n</tr>\n<tr>\n<td>Evidence</td>\n<td>The material that supports the account of what happened</td>\n</tr>\n<tr>\n<td>Notification</td>\n<td>Telling the people and bodies who need to know</td>\n</tr>\n<tr>\n<td>Residual risk</td>\n<td>The risk that remains after the controls</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The CloudCore ticket</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p><strong>From:</strong> Sophia Martines, Chief Information Security Officer\n<strong>Priority:</strong> critical\n<strong>Service:</strong> customer portal and the estate secret store</p>\n<p>A customer sent us a screenshot of <code>http://portal.estate.local/admin/config.txt</code>. The\npage shows the database password and an admin token. The security log shows repeated\nfailed logins for <code>admin</code> and two successful requests to that path from the same address,\n<code>203.0.113.45</code>.</p>\n<p>I need the exposure closed, the credential rotated with evidence that the old value no\nlonger works, the scope of the incident, and an incident record with the decisions, the\nnotifications and the prevention work.</p>\n<p>Do not delete the log. It is evidence.</p>\n</blockquote>\n<p>The ticket is a sequence of decisions, not a single fix. Closing the page is containment.\nRotating the secret is eradication. Proving the old value fails is recovery. The record is\nhow the organisation learns.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "The 3AM page",
+                "kind": "story",
+                "xp": 30,
+                "blocks": [
+                  {
+                    "type": "story",
+                    "src": "stories/the-3am-page.json",
+                    "start": "",
+                    "intro": "<p>The portal is timing out for some customers. It is 03:12. Every choice\nchanges what you can prove later.</p>",
+                    "debrief": "<p>Which decision protected the evidence? Which one made the next failure\neasier to explain? Write the one sentence you would add to the incident\nrecord.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Checkpoint: evidence, containment, record",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the first move when an incident is still developing?",
+                        "options": [
+                          "Establish impact and preserve evidence",
+                          "Restart the service to clear the alert",
+                          "Close the incident until a customer complains",
+                          "Change the firewall rules"
+                        ],
+                        "answer": 0,
+                        "explanation": "You need to know who is affected and keep the evidence before you change the system."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Why is \"restart it first\" dangerous?",
+                        "options": [
+                          "It can destroy the logs and state that explain the failure",
+                          "It always makes the outage longer",
+                          "It changes the customer's network",
+                          "It is slower than capturing evidence"
+                        ],
+                        "answer": 0,
+                        "explanation": "A restart can remove the very evidence you need for the cause and the incident record."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is containment?",
+                        "options": [
+                          "Stopping the spread or the bleeding while you investigate",
+                          "Deleting the affected account",
+                          "Writing the final report",
+                          "Rebuilding the whole estate"
+                        ],
+                        "answer": 0,
+                        "explanation": "Containment limits damage. It is not the same as finding and removing the cause."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What belongs in an incident record?",
+                        "options": [
+                          "Impact, timeline, evidence, cause and the change that prevents a repeat",
+                          "Only the final status code",
+                          "The names of everyone on the team",
+                          "The vendor's marketing page"
+                        ],
+                        "answer": 0,
+                        "explanation": "The record is for the next responder, not for the person who was there."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "The service is stable but you do not know the cause. What should you do?",
+                        "options": [
+                          "Record the gap, keep the evidence and keep investigating",
+                          "Declare the incident closed and forget it",
+                          "Restart the service again",
+                          "Remove the logs to save space"
+                        ],
+                        "answer": 0,
+                        "explanation": "A stable service is not the same as a solved incident. Record what you do not know."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {
+        "stories/the-3am-page.json": {
+          "inkVersion": 21,
+          "root": [
+            [
+              {
+                "->": "start"
+              },
+              [
+                "done",
+                {
+                  "#n": "g-0"
+                }
+              ],
+              null
+            ],
+            "done",
+            {
+              "start": [
+                [
+                  "^It is 03:12. The phone on the desk lights up with a page from the monitoring service: the customer portal is timing out for some users. It is not down for everyone.",
+                  "\n",
+                  "^You are the only person awake. The incident channel has three messages and no decisions.",
+                  "\n",
+                  "ev",
+                  "str",
+                  "^Open the incident channel and page the on-call engineer",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-0",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Restart the portal container first",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-1",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Check the status page and go back to sleep",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-2",
+                    "flg": 20
+                  },
+                  {
+                    "c-0": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      "^You open the channel, state the impact in one sentence and page the engineer. The response is immediate: \"I'm here. What do we know?\"",
+                      "\n",
+                      {
+                        "->": "triage"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-1": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "containment"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "containment",
+                        "re": true
+                      },
+                      "ev",
+                      {
+                        "VAR?": "evidence"
+                      },
+                      1,
+                      "-",
+                      "/ev",
+                      {
+                        "VAR=": "evidence",
+                        "re": true
+                      },
+                      "^You restart the portal. Some users reconnect. The logs from the failure disappear with the container.",
+                      "\n",
+                      {
+                        "->": "triage"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-2": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "-",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      "^You decide it is probably a blip. Twenty minutes later the page arrives again, and now the support lead is awake too.",
+                      "\n",
+                      {
+                        "->": "triage"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ]
+                  }
+                ],
+                null
+              ],
+              "triage": [
+                [
+                  "^The support lead sends a screenshot: a booking form that never finishes. The monitoring graph shows normal CPU and plenty of free memory. The proxy is still serving other routes.",
+                  "\n",
+                  "^You have three things you can do before the next change.",
+                  "\n",
+                  "ev",
+                  "str",
+                  "^Capture the proxy logs and the container state before changing anything",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-0",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Ask the support lead which customers are affected",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-1",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Roll back the last deployment immediately",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-2",
+                    "flg": 20
+                  },
+                  {
+                    "c-0": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "evidence"
+                      },
+                      2,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "evidence",
+                        "re": true
+                      },
+                      "^You save the proxy log, the container state and the current network connections. It takes four minutes. The evidence is now yours.",
+                      "\n",
+                      {
+                        "->": "contain"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-1": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      "ev",
+                      {
+                        "VAR?": "evidence"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "evidence",
+                        "re": true
+                      },
+                      "^The support lead names three customers on the same mobile network. That is a pattern, not a coincidence.",
+                      "\n",
+                      {
+                        "->": "contain"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-2": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "containment"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "containment",
+                        "re": true
+                      },
+                      "ev",
+                      {
+                        "VAR?": "evidence"
+                      },
+                      1,
+                      "-",
+                      "/ev",
+                      {
+                        "VAR=": "evidence",
+                        "re": true
+                      },
+                      "^The last deployment rolls back. The timeout rate drops. The failed request is gone, and so is the evidence you would need to explain it.",
+                      "\n",
+                      {
+                        "->": "contain"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ]
+                  }
+                ],
+                null
+              ],
+              "contain": [
+                [
+                  "^The portal is still live, and the next failure is a matter of time. You need to stop the bleed without destroying the trail.",
+                  "\n",
+                  "ev",
+                  "str",
+                  "^Put the proxy in maintenance mode and stop the bleed",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-0",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Keep it live and watch for the next failure",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-1",
+                    "flg": 20
+                  },
+                  {
+                    "c-0": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "containment"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "containment",
+                        "re": true
+                      },
+                      "^You switch the proxy to a clear maintenance page. Customers see an honest message instead of a dead form.",
+                      "\n",
+                      {
+                        "->": "diagnose"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-1": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "-",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      "^You keep the service live and watch the graph. It fails again, and this time the support lead sees it before you do.",
+                      "\n",
+                      {
+                        "->": "diagnose"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ]
+                  }
+                ],
+                null
+              ],
+              "diagnose": [
+                [
+                  "ev",
+                  {
+                    "VAR?": "evidence"
+                  },
+                  2,
+                  ">=",
+                  "/ev",
+                  [
+                    {
+                      "->": ".^.b",
+                      "c": true
+                    },
+                    {
+                      "b": [
+                        "\n",
+                        "^The evidence tells a story. A single upstream connection is being reused after it has already been closed. The proxy retries it forever, and the booking form waits.",
+                        "\n",
+                        "ev",
+                        true,
+                        "/ev",
+                        {
+                          "VAR=": "root_cause",
+                          "re": true
+                        },
+                        {
+                          "->": ".^.^.^.7"
+                        },
+                        null
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "->": ".^.b"
+                    },
+                    {
+                      "b": [
+                        "\n",
+                        "^You have a fix that makes the pain stop, but not a cause. The next failure will arrive with no explanation.",
+                        "\n",
+                        {
+                          "->": ".^.^.^.7"
+                        },
+                        null
+                      ]
+                    }
+                  ],
+                  "nop",
+                  "\n",
+                  "ev",
+                  "str",
+                  "^Write the incident note with what you know and what you do not",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-0",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Close the incident because the service is up",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-1",
+                    "flg": 20
+                  },
+                  "ev",
+                  "str",
+                  "^Escalate to the vendor and hand over the evidence",
+                  "/str",
+                  "/ev",
+                  {
+                    "*": ".^.c-2",
+                    "flg": 20
+                  },
+                  {
+                    "c-0": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      {
+                        "->": "ending"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-1": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "-",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      {
+                        "->": "ending"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ],
+                    "c-2": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "trust"
+                      },
+                      1,
+                      "+",
+                      "/ev",
+                      {
+                        "VAR=": "trust",
+                        "re": true
+                      },
+                      {
+                        "->": "ending"
+                      },
+                      {
+                        "#f": 5
+                      }
+                    ]
+                  }
+                ],
+                null
+              ],
+              "ending": [
+                "ev",
+                {
+                  "VAR?": "root_cause"
+                },
+                "/ev",
+                [
+                  {
+                    "->": ".^.b",
+                    "c": true
+                  },
+                  {
+                    "b": [
+                      "\n",
+                      {
+                        "->": "ending_root"
+                      },
+                      {
+                        "->": "ending.5"
+                      },
+                      null
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "->": ".^.b"
+                  },
+                  {
+                    "b": [
+                      "\n",
+                      "ev",
+                      {
+                        "VAR?": "containment"
+                      },
+                      1,
+                      "<=",
+                      "/ev",
+                      [
+                        {
+                          "->": ".^.b",
+                          "c": true
+                        },
+                        {
+                          "b": [
+                            "\n",
+                            {
+                              "->": "ending_fragile"
+                            },
+                            {
+                              "->": ".^.^.^.8"
+                            },
+                            null
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "->": ".^.b"
+                        },
+                        {
+                          "b": [
+                            "\n",
+                            {
+                              "->": "ending_unknown"
+                            },
+                            {
+                              "->": ".^.^.^.8"
+                            },
+                            null
+                          ]
+                        }
+                      ],
+                      "nop",
+                      "\n",
+                      {
+                        "->": "ending.5"
+                      },
+                      null
+                    ]
+                  }
+                ],
+                "nop",
+                "\n",
+                null
+              ],
+              "ending_root": [
+                "#",
+                "^ENDING: Root cause found",
+                "/#",
+                "^You write the incident record: impact, timeline, evidence, cause and the one change that prevents a repeat. The support lead sends it to the customers before the morning shift.",
+                "\n",
+                "^The next failure is less likely because the next person has a trail to follow.",
+                "\n",
+                "end",
+                null
+              ],
+              "ending_unknown": [
+                "#",
+                "^ENDING: Service restored, cause unknown",
+                "/#",
+                "^The service is stable and the customers are back. The incident record is thin: what you changed, not why it worked.",
+                "\n",
+                "^You have bought time. The next failure will start from zero again.",
+                "\n",
+                "end",
+                null
+              ],
+              "ending_fragile": [
+                "#",
+                "^ENDING: Fragile fix",
+                "/#",
+                "^The portal is up, but the evidence is gone and the cause is still out there. Within a week the same timeout returns, and nobody can explain it.",
+                "\n",
+                "^The lesson is not \"restart faster\". It is \"capture first\".",
+                "\n",
+                "end",
+                null
+              ],
+              "global decl": [
+                "ev",
+                0,
+                {
+                  "VAR=": "evidence"
+                },
+                0,
+                {
+                  "VAR=": "containment"
+                },
+                0,
+                {
+                  "VAR=": "trust"
+                },
+                false,
+                {
+                  "VAR=": "root_cause"
+                },
+                "/ev",
+                "end",
+                null
+              ]
+            }
+          ],
+          "listDefs": {}
+        }
+      }
+    }
+  ]
+}

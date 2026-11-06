@@ -1185,3 +1185,36 @@ html[data-theme="storybook"] .wayfinder-cta { box-shadow: 0 8px 20px rgba(74, 52
 .pack-remove { align-self: center; white-space: nowrap; }
 .picker-tools { display: flex; gap: 8px; align-items: center; margin-top: 16px; }
 .local-tag { border-color: var(--accent-border); color: var(--accent); }
+
+/* Pack store --------------------------------------------------------- */
+
+.store-dialog { width: min(720px, calc(100vw - 32px)); max-height: 84vh; }
+.store-list { display: grid; gap: 10px; }
+.store-pack {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-inset);
+  padding: 14px 16px;
+}
+.store-pack-body { min-width: 0; }
+.store-pack h3 { margin: 2px 0 6px; font-family: var(--display); font-size: 1.05rem; }
+.store-pack p { margin: 0 0 6px; color: var(--muted); font-size: 0.84rem; }
+.store-meta { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+.store-meta span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+}
+@media (max-width: 600px) {
+  .store-pack { flex-direction: column; align-items: flex-start; }
+}
+html[data-theme="pixel"] .store-pack,
+html[data-theme="pixel"] .store-meta span { border-radius: 0; }
+html[data-theme="storybook"] .store-pack { box-shadow: 0 8px 20px rgba(74, 52, 28, 0.1); }

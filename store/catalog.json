@@ -1,0 +1,28 @@
+{
+  "format": "lorekeeper.catalog",
+  "version": 1,
+  "updatedAt": "2026-11-06T09:56:33+00:00",
+  "packs": [
+    {
+      "id": "pocket-incidents",
+      "title": "Pocket Incidents: The 3AM Page",
+      "description": "A short incident-response pack: evidence, containment and the record.",
+      "version": "1.0.0",
+      "author": "Lorekeeper",
+      "licence": "Course content",
+      "theme": "pixel",
+      "tags": [
+        "incident",
+        "security",
+        "systems",
+        "story"
+      ],
+      "level": "beginner",
+      "courses": 1,
+      "lessons": 3,
+      "size": 30578,
+      "sha256": "f6a1fb8a5cd28d7b939413fc77c32509a7d7949486e3584461ee6fc19c58e807",
+      "url": "packs/pocket-incidents.json"
+    }
+  ]
+}

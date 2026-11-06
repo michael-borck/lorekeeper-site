@@ -696,6 +696,7 @@ function renderPicker() {
           .join("")}
       </div>
       <div class="picker-tools">
+        <button id="store-open" class="btn" type="button" data-store-open>Browse packs</button>
         <button id="pack-import" class="btn" type="button">Import a pack</button>
         <input id="pack-file" type="file" accept=".json,application/json" hidden>
       </div>
@@ -807,6 +808,7 @@ async function warmOffline() {
   const controller = await serviceWorkerReady();
   if (!controller) return;
   fetch(new URL("../build/index.json", location.href)).catch(() => {});
+  fetch(new URL("../store/catalog.json", location.href)).catch(() => {});
   for (const course of state.index.courses) {
     if (course.source === "local") continue;
     const courseUrl = new URL(`../build/${course.slug}/course.json`, location.href);
