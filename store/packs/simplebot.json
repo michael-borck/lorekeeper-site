@@ -5,7 +5,7 @@
   "title": "SimpleBot: A Small Wrapper, a Real Project",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-07T00:33:00+00:00",
+  "createdAt": "2026-11-07T00:40:30+00:00",
   "courses": [
     {
       "slug": "simplebot",
@@ -24,7 +24,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-07T00:33:00+00:00",
+        "generated_at": "2026-11-07T00:40:30+00:00",
         "unit": {
           "slug": "simplebot",
           "title": "SimpleBot: A Small Wrapper, a Real Project",

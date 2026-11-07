@@ -1,0 +1,1411 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "netsim-field-guide",
+  "title": "Build the Network, Watch It Run: A NetSim Field Guide",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:40:31+00:00",
+  "courses": [
+    {
+      "slug": "netsim-field-guide",
+      "title": "Build the Network, Watch It Run: A NetSim Field Guide",
+      "theme": "pixel",
+      "level": "intermediate",
+      "tags": [
+        "networking",
+        "simulation",
+        "teaching",
+        "firewall",
+        "labs"
+      ],
+      "pitch": "Build topologies in NetSim, follow the packet, test the firewall and author auto-graded labs.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:40:31+00:00",
+        "unit": {
+          "slug": "netsim-field-guide",
+          "title": "Build the Network, Watch It Run: A NetSim Field Guide",
+          "theme": "pixel",
+          "tags": [
+            "networking",
+            "simulation",
+            "teaching",
+            "firewall",
+            "labs"
+          ],
+          "level": "intermediate",
+          "pitch": "Build topologies in NetSim, follow the packet, test the firewall and author auto-graded labs.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "use-the-simulator",
+            "title": "Use the Simulator",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "A Network in the Browser",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The point of a simulator is not to look like a network. It is to explain what a network did.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim runs entirely in the browser. It has no backend, no containers and no real kernels. It is a discrete-event simulator: devices, links and packets are objects in TypeScript, and every packet is an event on a clock.</p>\n<p>That design gives three things a real network cannot:</p>\n<ul>\n<li><strong>Determinism</strong>: the same topology and the same actions produce the same result.</li>\n<li><strong>Inspectability</strong>: every packet can be paused, stepped and explained.</li>\n<li><strong>Portability</strong>: it runs on a locked-down laptop or a Chromebook with no install.</li>\n</ul>\n<p>The trade-off is scope. NetSim simulates a curated subset of IPv4 networking: L2 switching, ARP, static and RIP routing, ICMP, TCP handshakes, UDP, DHCP, DNS, HTTP, stateful firewalls and NAT. It does not simulate IPv6, OSPF/BGP, TLS, real payloads or performance.</p>\n<p>It is a teaching and design tool. It is not a packet-accurate emulator.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Flight Simulator</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A flight simulator does not reproduce every bolt in the aircraft. It reproduces the instruments and the decisions that matter for a flight lesson.</p>\n<p>NetSim reproduces the decisions that matter for a networking lesson: addressing, routing, switching, firewalls and services.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Tool with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Separate the Model from the World</h3>\n<p>Ask the AI to list what the simulator can and cannot prove.</p>\n<pre><code class=\"language-text\">NetSim simulates ARP, IPv4 routing, ICMP, TCP, UDP, DHCP, DNS, HTTP,\nstateful firewalls and NAT.\nIt does not simulate IPv6, OSPF/BGP, TLS, real payloads or performance.\n\nFor each capability, write one question the simulator can answer and one\nit cannot. Do not claim the simulator proves more than its model.\n</code></pre>\n<p>A good answer keeps the model boundary visible.</p>\n<h3>Exploration 2: Find the Explainability</h3>\n<p>Ask why a deterministic simulator can explain a drop.</p>\n<pre><code class=\"language-text\">A real kernel drops a packet silently. A deterministic simulator can name\nthe rule, the interface and the exact event. Explain why that matters for\nteaching and for firewall design.\n</code></pre>\n<p>The explanation is the pedagogical advantage.</p>\n<h3>Exploration 3: Choose the Use</h3>\n<p>Ask which tasks fit.</p>\n<pre><code class=\"language-text\">List five networking tasks. For each, say whether NetSim is a good fit,\na partial fit or the wrong tool. Include production performance testing,\nfirewall rule design, protocol learning and incident response.\n</code></pre>\n<p>The answer is a scope decision, not a sales pitch.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A tool-fit record:</p>\n<table>\n<thead>\n<tr>\n<th>Task</th>\n<th>Fit</th>\n<th>Why</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Learn ARP</td>\n<td>Strong</td>\n<td>Visible packets and tables</td>\n</tr>\n<tr>\n<td>Design a firewall</td>\n<td>Strong</td>\n<td>Rule model and verdict log</td>\n</tr>\n<tr>\n<td>Test throughput</td>\n<td>Poor</td>\n<td>No performance modelling</td>\n</tr>\n<tr>\n<td>Learn OSPF</td>\n<td>Poor</td>\n<td>Not simulated</td>\n</tr>\n<tr>\n<td>Teach subnetting</td>\n<td>Strong</td>\n<td>Immediate feedback</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Open the demo topology. Pause the clock, step through one ping, and name every device the packet touched.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The simulator is a glass box. Students can see the packet, the table and the rule. That visibility is the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> List three things NetSim can explain that a real network cannot.\n<strong>Exercise 1.2 (Level 2).</strong> Name three things NetSim does not simulate.\n<strong>Exercise 1.3 (Level 3).</strong> Classify five tasks as good, partial or wrong fit.\n<strong>Exercise 1.4 (Level 4).</strong> Explain the trade-off between determinism and realism.\n<strong>Exercise 1.5 (Level 5).</strong> Write a one-paragraph scope statement for using NetSim in a course.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>NetSim is a browser-based discrete-event simulator.</li>\n<li>It is deterministic, inspectable and portable.</li>\n<li>It simulates a curated IPv4 subset, not everything.</li>\n<li>The explanation of a drop is the pedagogical advantage.</li>\n<li>Choose the tool for the question.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the model boundary</li>\n<li>[ ] Stepped through one packet</li>\n<li>[ ] Classified one task</li>\n<li>[ ] Explained the trade-off</li>\n<li>[ ] Wrote a scope statement</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>What did the animation make visible?</li>\n<li>What is outside the model?</li>\n<li>Where would you still use a real lab?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The tool is scoped. The next chapter builds a topology.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Build a Topology",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A topology is a set of devices, links and addresses that can be reasoned about.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim's device palette has six types:</p>\n<ul>\n<li><strong>Host</strong>: one interface.</li>\n<li><strong>Server</strong>: one interface, with service editors.</li>\n<li><strong>Switch</strong>: eight ports, L2 forwarding and VLANs.</li>\n<li><strong>Router</strong>: four interfaces, IPv4 forwarding.</li>\n<li><strong>Firewall</strong>: four interfaces and nftables base chains.</li>\n<li><strong>Wi-Fi AP</strong>: a bridge with wireless client links.</li>\n</ul>\n<p>Drag a device onto the canvas, or click to drop one. Cable two devices by dragging from a dot on one to a dot on the other.</p>\n<p>Addressing can be done in two places: the Inspector fields or a terminal. Both use the same engine, so the result is identical.</p>\n<p>The starting topology is a claim about the network. Leave unconfigured what the student must configure. Configure what the scenario provides.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Model Railway</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model railway is not a real railway. It is a track plan, a set of trains and a power supply that lets you test a timetable.</p>\n<p>The topology is the track plan. The addresses and routes are the timetable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Topology with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Devices</h3>\n<p>Ask the AI to translate a scenario into devices.</p>\n<pre><code class=\"language-text\">Scenario: two subnets, each with two hosts, joined by a router, with a\nfirewall between the subnets and an internet host.\n\nList the devices, interfaces and links. Mark which device needs a route\nand which needs a firewall rule.\n</code></pre>\n<p>A good answer separates the topology from the configuration.</p>\n<h3>Exploration 2: Plan the Addressing</h3>\n<p>Ask for an address plan.</p>\n<pre><code class=\"language-text\">Plan IPv4 addressing for two LANs, a transit link and an internet host.\nUse private ranges. For each device and interface, give the address,\nprefix and default gateway.\n</code></pre>\n<p>The plan is the contract before the commands.</p>\n<h3>Exploration 3: Find the Minimum Topology</h3>\n<p>Ask what can be removed.</p>\n<pre><code class=\"language-text\">Here is a topology: [paste it]\nRemove devices and links that do not change the question being tested.\nExplain what each removal changes.\n</code></pre>\n<p>A smaller topology is easier to debug and grade.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A topology record:</p>\n<table>\n<thead>\n<tr>\n<th>Device</th>\n<th>Type</th>\n<th>Interfaces</th>\n<th>Addresses</th>\n<th>Role</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>pc1</td>\n<td>Host</td>\n<td>eth0</td>\n<td>192.168.1.10/24</td>\n<td>LAN client</td>\n</tr>\n<tr>\n<td>sw1</td>\n<td>Switch</td>\n<td>8 ports</td>\n<td>none</td>\n<td>L2 segment</td>\n</tr>\n<tr>\n<td>r1</td>\n<td>Router</td>\n<td>eth0, eth1</td>\n<td>.1 on each LAN</td>\n<td>Gateway</td>\n</tr>\n<tr>\n<td>fw1</td>\n<td>Firewall</td>\n<td>4 ports</td>\n<td>outside/inside</td>\n<td>Policy</td>\n</tr>\n<tr>\n<td>web</td>\n<td>Server</td>\n<td>eth0</td>\n<td>203.0.113.10/24</td>\n<td>Public service</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Build a two-host, one-switch network. Address both hosts, cable them and ping. Then add a router and a second subnet.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A topology that fits on one screen is easier to discuss. Start small; add one device only when the question needs it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Name the six device types.\n<strong>Exercise 2.2 (Level 2).</strong> Build a two-host network.\n<strong>Exercise 2.3 (Level 3).</strong> Plan addressing for two LANs.\n<strong>Exercise 2.4 (Level 4).</strong> Add a router and default routes.\n<strong>Exercise 2.5 (Level 5).</strong> Reduce a topology to the minimum that tests the question.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A topology is devices, links and addresses.</li>\n<li>The palette covers hosts, servers, switches, routers, firewalls and APs.</li>\n<li>Address in the Inspector or the terminal; the engine is the same.</li>\n<li>Leave the learning to the student.</li>\n<li>Start small.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Built a two-host network</li>\n<li>[ ] Cabled the devices</li>\n<li>[ ] Addressed the interfaces</li>\n<li>[ ] Added a router</li>\n<li>[ ] Drew the topology record</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which device was easiest to miswire?</li>\n<li>Where did the addressing plan help?</li>\n<li>What would you remove next time?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The topology is built. The next chapter configures it with real syntax.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Configure with Real Syntax",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>NetSim accepts a curated subset of real Linux syntax and errors loudly on everything else.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The terminal supports a subset of <code>iproute2</code>, <code>nft</code>, <code>iptables</code>, DHCP, DNS, HTTP and socket commands.</p>\n<p>Common commands:</p>\n<pre><code class=\"language-bash\">ip addr add 192.168.1.10/24 dev eth0\nip link set eth0 up\nip route add default via 192.168.1.1\nip neigh\nping 192.168.1.20\ntraceroute 203.0.113.10\nsysctl net.ipv4.ip_forward=1\n</code></pre>\n<p>A firewall is a router with nftables base chains declared. Rules can be written in <code>nft</code> or <code>iptables</code>; both compile to one internal model and list in both dialects.</p>\n<p>The important design choice: unsupported syntax produces an explicit <code>netsim: \"...\" is not supported</code> error. The tool never silently fakes a command.</p>\n<p>That is good for learning. It also means you must read the error and check <code>help</code>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Language Tutor</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A language tutor who accepts every mistake teaches a private language. A tutor who corrects you teaches the language other people speak.</p>\n<p>NetSim corrects you.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Commands with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Translate the Intent</h3>\n<p>Ask the AI to turn an intent into a command.</p>\n<pre><code class=\"language-text\">Intent: give pc1 the address 10.0.1.10/24 on eth0 and make 10.0.1.1 the\ndefault gateway.\n\nWrite the iproute2 commands. Explain what each command changes and how\nyou would verify it.\n</code></pre>\n<p>A good answer includes the verification.</p>\n<h3>Exploration 2: Read the Error</h3>\n<p>Ask what an unsupported command means.</p>\n<pre><code class=\"language-text\">NetSim returns: netsim: &quot;ip route show table all&quot; is not supported.\nExplain what the student should do next. Do not suggest guessing.\n</code></pre>\n<p>The next step is <code>help</code>, not a workaround.</p>\n<h3>Exploration 3: Compare Inspector and Terminal</h3>\n<p>Ask whether the two paths are equivalent.</p>\n<pre><code class=\"language-text\">Adding an address in the Inspector and with ip addr add both use the same\nengine. Explain why that matters for teaching and for the exported\nconfiguration.\n</code></pre>\n<p>The interface is not a separate model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A configuration record:</p>\n<table>\n<thead>\n<tr>\n<th>Device</th>\n<th>Command</th>\n<th>Purpose</th>\n<th>Verification</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>pc1</td>\n<td><code>ip addr add ...</code></td>\n<td>Address</td>\n<td><code>ip addr show</code></td>\n</tr>\n<tr>\n<td>pc1</td>\n<td><code>ip route add default ...</code></td>\n<td>Gateway</td>\n<td><code>ip route</code></td>\n</tr>\n<tr>\n<td>r1</td>\n<td><code>sysctl net.ipv4.ip_forward=1</code></td>\n<td>Forwarding</td>\n<td><code>sysctl</code></td>\n</tr>\n<tr>\n<td>fw1</td>\n<td><code>nft add rule ...</code></td>\n<td>Policy</td>\n<td><code>nft list ruleset</code></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Configure one host and one router from the terminal. Verify every change with a show command. Then break one command on purpose and read the error.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The loud error is a teaching feature. Students learn the real subset and the habit of checking.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Add an address and verify it.\n<strong>Exercise 3.2 (Level 2).</strong> Add a default route.\n<strong>Exercise 3.3 (Level 3).</strong> Turn on forwarding.\n<strong>Exercise 3.4 (Level 4).</strong> Write one nft rule and one iptables rule.\n<strong>Exercise 3.5 (Level 5).</strong> Explain why unsupported syntax should fail.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>NetSim uses a curated subset of real syntax.</li>\n<li>Unsupported commands fail loudly.</li>\n<li>The Inspector and terminal use the same engine.</li>\n<li>Verify every change.</li>\n<li><code>help</code> is the first troubleshooting step.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Added an address</li>\n<li>[ ] Added a route</li>\n<li>[ ] Enabled forwarding</li>\n<li>[ ] Read one error</li>\n<li>[ ] Verified with a show command</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which command was easiest to mistype?</li>\n<li>What did the error teach you?</li>\n<li>Why is a loud error better than a silent fake?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The devices are configured. The next chapter follows a packet.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Follow a Packet",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A packet is a sequence of decisions, and NetSim lets you stop at every one.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A ping from <code>pc1</code> to <code>pc2</code> is not one event. It is a chain:</p>\n<ol>\n<li>The host checks whether the destination is local.</li>\n<li>If local, it needs the destination MAC. ARP resolves it.</li>\n<li>If remote, it sends to the default gateway and needs the gateway MAC.</li>\n<li>The switch learns the source MAC and forwards the frame.</li>\n<li>The router decrements TTL, checks the route and forwards.</li>\n<li>The destination replies, and the return path repeats.</li>\n</ol>\n<p>NetSim animates ARP in amber, ICMP in blue, TCP in green and UDP in purple. A red ring flashes where a firewall drops a packet.</p>\n<p>The first ping is often slower because ARP must resolve the MAC. The second is faster because the neighbour table is warm.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Delivery Route</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A parcel moves through a pickup, a depot, a flight and a local van. Each stage has a decision and a record.</p>\n<p>A packet is the parcel. The tables are the depot records.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Path with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Predict the Path</h3>\n<p>Ask the AI to trace a packet before you run it.</p>\n<pre><code class=\"language-text\">pc1 192.168.1.10/24, gateway 192.168.1.1\nr1 eth0 192.168.1.1/24, eth1 192.168.2.1/24\npc2 192.168.2.20/24, gateway 192.168.2.1\n\nPredict the path of ping from pc1 to pc2. Include ARP, the switch, the\nrouter, TTL and the return path.\n</code></pre>\n<p>The prediction makes the animation meaningful.</p>\n<h3>Exploration 2: Find the Drop</h3>\n<p>Ask how to explain a failed ping.</p>\n<pre><code class=\"language-text\">A ping fails. The host has an address, the link is up, and the firewall\nlog shows a drop. List the evidence you would collect in order and the\nrule you would check.\n</code></pre>\n<p>The firewall log names the verdict. The route table shows the path.</p>\n<h3>Exploration 3: Test the First-Ping Effect</h3>\n<p>Ask why the first ping differs.</p>\n<pre><code class=\"language-text\">The first ping takes longer than the second. Explain why, and what you\nwould clear to reproduce the first-ping behaviour.\n</code></pre>\n<p>The ARP cache is the answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A packet record:</p>\n<table>\n<thead>\n<tr>\n<th>Step</th>\n<th>Device</th>\n<th>Decision</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>pc1</td>\n<td>Remote destination</td>\n<td><code>ip route</code></td>\n</tr>\n<tr>\n<td>2</td>\n<td>pc1</td>\n<td>Need gateway MAC</td>\n<td>ARP request</td>\n</tr>\n<tr>\n<td>3</td>\n<td>sw1</td>\n<td>Learn and forward</td>\n<td>MAC table</td>\n</tr>\n<tr>\n<td>4</td>\n<td>r1</td>\n<td>TTL and route</td>\n<td><code>ip route</code></td>\n</tr>\n<tr>\n<td>5</td>\n<td>pc2</td>\n<td>Reply</td>\n<td><code>ip neigh</code></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run a ping with the simulation paused. Step through the packets. Record the ARP request, the ICMP echo, the reply and the tables that changed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The pause button is the lesson. Students can point at the packet and explain the decision before it moves.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Trace a local ping.\n<strong>Exercise 4.2 (Level 2).</strong> Trace a routed ping.\n<strong>Exercise 4.3 (Level 3).</strong> Explain the first-ping delay.\n<strong>Exercise 4.4 (Level 4).</strong> Find the rule behind a firewall drop.\n<strong>Exercise 4.5 (Level 5).</strong> Draw the forward and return paths.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A packet is a chain of decisions.</li>\n<li>ARP resolves a MAC before a frame can be sent.</li>\n<li>Switches learn and forward; routers route and decrement TTL.</li>\n<li>The firewall log names the rule.</li>\n<li>Pause and step to explain.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Predicted a path</li>\n<li>[ ] Stepped through a ping</li>\n<li>[ ] Found the ARP exchange</li>\n<li>[ ] Read a table</li>\n<li>[ ] Explained a drop</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which decision surprised you?</li>\n<li>What did the table show that the animation did not?</li>\n<li>Where would you pause next time?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The packet is visible. The next chapter tests policy with firewalls.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Checkpoint: build and follow",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "Why can NetSim explain a packet drop that a real kernel cannot?",
+                        "options": [
+                          "It is a deterministic discrete-event simulator with an inspectable rule model",
+                          "It uses a real kernel",
+                          "It captures packets from the host",
+                          "It guesses"
+                        ],
+                        "answer": 0,
+                        "explanation": "The simulation can name the event, the interface and the matching rule."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "Which device type has four interfaces and forwards IPv4?",
+                        "options": [
+                          "Router",
+                          "Host",
+                          "Switch",
+                          "Server"
+                        ],
+                        "answer": 0,
+                        "explanation": "A firewall is a router with nftables base chains declared."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does NetSim do with unsupported syntax?",
+                        "options": [
+                          "It errors loudly and names the command as unsupported",
+                          "It silently approximates it",
+                          "It runs a different command",
+                          "It ignores the line"
+                        ],
+                        "answer": 0,
+                        "explanation": "Real syntax is the promise. A loud error is better than a fake command."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "Why is the first ping often slower than the second?",
+                        "options": [
+                          "ARP must resolve the destination or gateway MAC first",
+                          "The router is cold",
+                          "DNS is slow",
+                          "TCP must handshake"
+                        ],
+                        "answer": 0,
+                        "explanation": "The neighbour table is warm after the first exchange."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What does the switch use to forward a frame?",
+                        "options": [
+                          "Its MAC address table",
+                          "The IP routing table",
+                          "DNS",
+                          "The firewall log"
+                        ],
+                        "answer": 0,
+                        "explanation": "The switch learns source MACs and forwards by destination MAC."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is the minimum useful topology for a two-host ping?",
+                        "options": [
+                          "Two hosts and a switch",
+                          "Two routers and a firewall",
+                          "A server and a DNS",
+                          "A firewall only"
+                        ],
+                        "answer": 0,
+                        "explanation": "Start with the smallest topology that tests the question."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "test-and-harden",
+            "title": "Test and Harden",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "Firewalls",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A firewall is a sequence of rules, and NetSim can name the rule that decided.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim firewalls support <code>nft</code> and <code>iptables</code> front-ends over one internal rule model. A rule added in one dialect lists in both.</p>\n<p>The model covers:</p>\n<ul>\n<li><code>input</code>, <code>forward</code> and <code>output</code> chains</li>\n<li>accept, drop and reject verdicts</li>\n<li>chain policies</li>\n<li>connection tracking (<code>ct state new,established,related</code>)</li>\n<li>NAT: masquerade, SNAT and DNAT port forwarding</li>\n</ul>\n<p>A firewall is a router with base chains declared. It also has a per-device log that names the exact rule behind every verdict.</p>\n<p><code>DROP</code> is silent. <code>REJECT</code> sends an ICMP unreachable or a TCP reset. The difference matters: a client sees a timeout for a drop and a refusal for a reject.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Nightclub Door</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A door policy is an ordered list. The first matching rule decides. A broad accept at the top makes every later drop irrelevant.</p>\n<p>A firewall is the door. The log is the bouncer's note.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Firewalls with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Write the Policy First</h3>\n<p>Ask the AI to state the policy in plain language.</p>\n<pre><code class=\"language-text\">A LAN may reach the internet. The internet may reach the public web\nserver on tcp/80 only. Everything else is dropped.\n\nWrite the firewall policy in plain language, then the nftables rules.\nDo not write the rules first.\n</code></pre>\n<p>The policy is the intent. The rules are the implementation.</p>\n<h3>Exploration 2: Test DROP and REJECT</h3>\n<p>Ask how the client sees each.</p>\n<pre><code class=\"language-text\">Compare a silent drop and a reject for tcp/22 from the internet. What does\nthe client see, what does the log show and which verdict is appropriate?\n</code></pre>\n<p>A drop is quiet; a reject is a message.</p>\n<h3>Exploration 3: Read the Verdict</h3>\n<p>Ask how to explain a blocked packet.</p>\n<pre><code class=\"language-text\">A packet was dropped. List the evidence you would collect: chain, rule,\nsource, destination, protocol and state. Explain why the log is better\nthan guessing.\n</code></pre>\n<p>The log is the explanation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A firewall record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Device</td>\n<td>fw1</td>\n</tr>\n<tr>\n<td>Chain</td>\n<td>forward</td>\n</tr>\n<tr>\n<td>Policy</td>\n<td>drop</td>\n</tr>\n<tr>\n<td>Rule</td>\n<td>allow LAN to WAN, allow tcp/80 in</td>\n</tr>\n<tr>\n<td>State</td>\n<td>established,related</td>\n</tr>\n<tr>\n<td>Log</td>\n<td>rule ID and verdict</td>\n</tr>\n<tr>\n<td>Test</td>\n<td>allowed path and denied path</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Start with a default-deny policy. Allow the LAN out and tcp/80 in. Test both the allowed and denied paths. Read the log for the denial.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Firewalls are where students learn that order and policy are design decisions. The log makes the decision visible.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Name the three chains.\n<strong>Exercise 5.2 (Level 2).</strong> Write a default-deny policy.\n<strong>Exercise 5.3 (Level 3).</strong> Add a stateful allow rule.\n<strong>Exercise 5.4 (Level 4).</strong> Compare DROP and REJECT.\n<strong>Exercise 5.5 (Level 5).</strong> Add DNAT to a DMZ web server and test it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>NetSim firewalls use nft and iptables over one model.</li>\n<li>Chains, policies and verdicts decide the packet.</li>\n<li>Stateful rules allow replies.</li>\n<li>DROP and REJECT look different to the client.</li>\n<li>The log names the rule.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote the policy</li>\n<li>[ ] Set default deny</li>\n<li>[ ] Allowed one path</li>\n<li>[ ] Denied another</li>\n<li>[ ] Read the log</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which rule was easiest to misorder?</li>\n<li>What did the client see for a drop?</li>\n<li>When would you use REJECT?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The firewall decides. The next chapter adds the services that depend on it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "Services",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>DHCP, DNS and HTTP are ordinary packets. That is why they can be firewalled.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim runs services as real packet exchanges:</p>\n<ul>\n<li><strong>DHCP</strong>: <code>dhclient</code> sends DISCOVER, receives OFFER, sends REQUEST and receives ACK. The client installs the address, default route and nameserver.</li>\n<li><strong>DNS</strong>: an A-record server answers <code>dig</code> over UDP/53. Hostname resolution is wired into <code>ping</code>, <code>traceroute</code>, <code>nc</code> and <code>curl</code>.</li>\n<li><strong>HTTP</strong>: a configurable web server answers <code>curl</code> over the simulated TCP handshake.</li>\n<li><strong>TCP/UDP</strong>: <code>nc</code> tests ports, <code>nc -l</code> listens, <code>ss</code> and <code>conntrack -L</code> show state.</li>\n</ul>\n<p>All service traffic animates on the wire. Block UDP/67 and DHCP dies. Block UDP/53 and DNS dies. Block TCP/80 and the web dies.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Postal Service</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>DHCP is the address assignment desk. DNS is the directory. HTTP is the parcel.</p>\n<p>Each has a protocol, a server and a failure mode.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Services with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Trace DHCP</h3>\n<p>Ask the AI to label the four packets.</p>\n<pre><code class=\"language-text\">dhclient runs on pc2 against a DHCP server. List the four packets, the\ndirection, the transport and what the client installs after the ACK.\n</code></pre>\n<p>A good answer names DISCOVER, OFFER, REQUEST and ACK.</p>\n<h3>Exploration 2: Break DNS</h3>\n<p>Ask what happens when UDP/53 is blocked.</p>\n<pre><code class=\"language-text\">A firewall drops udp/53 between pc2 and the DNS server. Explain what\nhappens to dig, ping by name and curl by name. What still works by IP?\n</code></pre>\n<p>The failure is specific, not \"the network is down\".</p>\n<h3>Exploration 3: Test the Web</h3>\n<p>Ask how to read a curl failure.</p>\n<pre><code class=\"language-text\">curl http://web.lan/ fails. List the checks in order: DNS, route, TCP\nconnect, firewall and server. Explain what each result would tell you.\n</code></pre>\n<p>A structured diagnosis beats guessing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A service record:</p>\n<table>\n<thead>\n<tr>\n<th>Service</th>\n<th>Client</th>\n<th>Server</th>\n<th>Port</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>DHCP</td>\n<td>pc2</td>\n<td>dhcp</td>\n<td>UDP/67</td>\n<td><code>ip addr</code>, lease</td>\n</tr>\n<tr>\n<td>DNS</td>\n<td>pc2</td>\n<td>dns</td>\n<td>UDP/53</td>\n<td><code>dig</code></td>\n</tr>\n<tr>\n<td>HTTP</td>\n<td>pc2</td>\n<td>web</td>\n<td>TCP/80</td>\n<td><code>curl -v</code></td>\n</tr>\n<tr>\n<td>Test</td>\n<td>pc2</td>\n<td>target</td>\n<td>TCP</td>\n<td><code>nc</code></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run <code>dhclient</code>, then <code>dig</code>, then <code>curl</code>. Capture the packets and the state each step installs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Services teach dependency. A web request depends on DNS, routing and TCP. The failure points are the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Name the four DHCP packets.\n<strong>Exercise 6.2 (Level 2).</strong> Resolve a name with <code>dig</code>.\n<strong>Exercise 6.3 (Level 3).</strong> Fetch a page with <code>curl</code>.\n<strong>Exercise 6.4 (Level 4).</strong> Block DNS and explain the failures.\n<strong>Exercise 6.5 (Level 5).</strong> Diagnose a curl failure in order.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Services are packet exchanges.</li>\n<li>DHCP assigns address, route and nameserver.</li>\n<li>DNS resolves names over UDP/53.</li>\n<li>HTTP runs over TCP.</li>\n<li>Service traffic can be firewalled.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced DHCP</li>\n<li>[ ] Ran <code>dig</code></li>\n<li>[ ] Ran <code>curl</code></li>\n<li>[ ] Blocked one service</li>\n<li>[ ] Diagnosed one failure</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which service was easiest to break?</li>\n<li>What did the client install?</li>\n<li>Where did the failure appear first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The services work. The next chapter uses the bundled labs and auto-grader.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-03",
+                "title": "Labs and Auto-Grading",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A lab is a starting topology, a sequence of steps and objectives the simulator can test.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim ships five guided labs:</p>\n<ol>\n<li>Static addressing and ARP</li>\n<li>Routing between networks</li>\n<li>Build a stateful firewall</li>\n<li>DHCP, DNS and the web</li>\n<li>Harden a vulnerable network</li>\n</ol>\n<p>Each lab has steps, objectives and quizzes. The <strong>Check objectives</strong> button runs the checks against the live simulation using real packets. Students see the grader's probes animate.</p>\n<p>The checks are passive or active. Passive checks read device state, such as an interface address or a firewall policy. Active checks send packets, such as a ping, a TCP connect, a DNS query or an HTTP fetch.</p>\n<p>A lab is not a quiz with a network attached. It is a scenario with evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Driving Test</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A driving test does not ask whether you read the manual. It watches you drive.</p>\n<p>A NetSim lab watches the packets.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Labs with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Map Lab to Concept</h3>\n<p>Ask the AI to match each lab to a concept.</p>\n<pre><code class=\"language-text\">Here are the five NetSim labs:\n[paste them]\n\nFor each, name the main concept and one check that proves it. Explain\nwhy a passive check is not enough on its own.\n</code></pre>\n<p>Active checks prove behaviour; passive checks prove configuration.</p>\n<h3>Exploration 2: Prove the Problem</h3>\n<p>Ask why a security lab checks the vulnerability first.</p>\n<pre><code class=\"language-text\">Lab 5 asks students to confirm the exposure before they harden it.\nExplain why this is better than starting with the fix. What does it\nteach about evidence?\n</code></pre>\n<p>The first objective establishes the current state.</p>\n<h3>Exploration 3: Choose the Verdict</h3>\n<p>Ask about filtered versus refused.</p>\n<pre><code class=\"language-text\">A firewall drops tcp/22 silently. Another rejects it. Which check should\na hardening lab use, and what does the student learn from the difference?\n</code></pre>\n<p>A silent drop is usually the stronger security outcome.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A lab record:</p>\n<table>\n<thead>\n<tr>\n<th>Lab</th>\n<th>Concept</th>\n<th>Objective</th>\n<th>Check</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Addressing and ARP</td>\n<td>Hosts can ping</td>\n<td><code>ping</code></td>\n</tr>\n<tr>\n<td>2</td>\n<td>Routing</td>\n<td>Packet crosses router</td>\n<td><code>ping</code>, <code>traceroute</code></td>\n</tr>\n<tr>\n<td>3</td>\n<td>Stateful firewall</td>\n<td>LAN out, internet in blocked</td>\n<td><code>tcp</code>, <code>fw-policy</code></td>\n</tr>\n<tr>\n<td>4</td>\n<td>Services</td>\n<td>DHCP, DNS, HTTP work</td>\n<td><code>dns</code>, <code>http</code></td>\n</tr>\n<tr>\n<td>5</td>\n<td>Hardening</td>\n<td>Public web reachable, rest filtered</td>\n<td><code>tcp</code> filtered</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Complete Lab 1 and export the attempt. Then import it and check the objectives again.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Auto-grading gives immediate feedback. It is formative, not a proctored exam. The attempt file is editable, so use it for learning and evidence, not high-stakes assessment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Name the five labs.\n<strong>Exercise 7.2 (Level 2).</strong> Complete Lab 1.\n<strong>Exercise 7.3 (Level 3).</strong> Explain one active check.\n<strong>Exercise 7.4 (Level 4).</strong> Compare filtered and refused.\n<strong>Exercise 7.5 (Level 5).</strong> Export, import and regrade an attempt.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A lab is a topology, steps and objectives.</li>\n<li>Active checks send packets; passive checks read state.</li>\n<li>The grader's probes animate.</li>\n<li>Prove the problem before the fix.</li>\n<li>Auto-grading is formative.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Completed one lab</li>\n<li>[ ] Read an objective</li>\n<li>[ ] Watched a probe</li>\n<li>[ ] Exported an attempt</li>\n<li>[ ] Regraded it</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which objective was clearest?</li>\n<li>What did the probe prove?</li>\n<li>Where is auto-grading weakest?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The labs work. The next chapter designs one.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-04",
+                "title": "Checkpoint: test and harden",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the difference between DROP and REJECT?",
+                        "options": [
+                          "DROP is silent; REJECT sends a refusal or unreachable",
+                          "DROP sends a reset; REJECT is silent",
+                          "They are the same",
+                          "REJECT is only for NAT"
+                        ],
+                        "answer": 0,
+                        "explanation": "The client sees a timeout for DROP and a refusal for REJECT."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What does connection tracking enable?",
+                        "options": [
+                          "Replies to established connections without a separate inbound rule",
+                          "DNS resolution",
+                          "Dynamic routing",
+                          "VLAN tagging"
+                        ],
+                        "answer": 0,
+                        "explanation": "Stateful rules allow the return path."
+                      },
+                      {
+                        "id": "q3,",
+                        "prompt": "What are the four DHCP packets?",
+                        "options": [
+                          "DISCOVER, OFFER, REQUEST, ACK",
+                          "SYN, SYN-ACK, ACK, FIN",
+                          "QUERY, RESPONSE, ACK, CLOSE",
+                          "ARP, ICMP, TCP, UDP"
+                        ],
+                        "answer": 0,
+                        "explanation": "The client discovers, receives an offer, requests it and is acknowledged."
+                      },
+                      {
+                        "id": "q4,",
+                        "prompt": "What happens when UDP/53 is blocked?",
+                        "options": [
+                          "DNS resolution fails; IP connectivity may still work",
+                          "All traffic stops",
+                          "DHCP fails",
+                          "The firewall reboots"
+                        ],
+                        "answer": 0,
+                        "explanation": "Service failures are specific, not a general network outage."
+                      },
+                      {
+                        "id": "q5,",
+                        "prompt": "What is an active lab check?",
+                        "options": [
+                          "A check that sends a real packet and watches the result",
+                          "A check that reads an interface address",
+                          "A quiz question",
+                          "A screenshot"
+                        ],
+                        "answer": 0,
+                        "explanation": "Active checks produce behaviour evidence and animate the probe."
+                      },
+                      {
+                        "id": "q6,",
+                        "prompt": "Why does Lab 5 prove the exposure before the fix?",
+                        "options": [
+                          "The first objective establishes the baseline the student is asked to change",
+                          "To make the lab longer",
+                          "To avoid grading",
+                          "To test the firewall twice"
+                        ],
+                        "answer": 0,
+                        "explanation": "Evidence of the problem comes before evidence of the fix."
+                      },
+                      {
+                        "id": "q7,",
+                        "prompt": "Why is auto-grading formative rather than proctored?",
+                        "options": [
+                          "The attempt file is editable and can be changed",
+                          "The grader is always wrong",
+                          "The lab cannot be exported",
+                          "The checks are passive"
+                        ],
+                        "answer": 0,
+                        "explanation": "Use it for feedback and evidence, not high-stakes assessment."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "02-05",
+                "title": "The firewall that looks right",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>A firewall ruleset has a broad ACCEPT near the top and the correct\nDROP rules below it. The test suite shows the allowed path working.\nThe student says the firewall is finished. Choose your next move.</p>",
+                    "options": [
+                      {
+                        "id": "order",
+                        "label": "Check which rules are reached, move the broad accept, and test the denied path",
+                        "outcome": "<p>The broad accept was shadowing every later drop. After moving it,\nthe allowed path still works and the denied path is blocked. The\nlog names the rule for each verdict.</p>",
+                        "effects": {
+                          "Policy": "Enforced",
+                          "Evidence": "Denied path",
+                          "Order": "Fixed"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>A ruleset is a sequence. The first match wins, and a rule that is never reached does nothing.</p>"
+                      },
+                      {
+                        "id": "allowed",
+                        "label": "Accept the result because the allowed path works",
+                        "outcome": "<p>The firewall passes the only test the student ran. The rules that\nwere supposed to block traffic are never reached.</p>",
+                        "effects": {
+                          "Evidence": "Partial",
+                          "Policy": "Broken",
+                          "Risk": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Test the denied path. The allowed path proves the firewall is not blocking everything.</p>"
+                      },
+                      {
+                        "id": "more",
+                        "label": "Add more drop rules below the broad accept",
+                        "outcome": "<p>The new rules are also shadowed. The ruleset grows and the policy\ndoes not change.</p>",
+                        "effects": {
+                          "Rules": "More",
+                          "Policy": "Unchanged",
+                          "Risk": "Hidden"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Fix the order before adding rules.</p>"
+                      },
+                      {
+                        "id": "default",
+                        "label": "Set the policy to drop and remove all rules",
+                        "outcome": "<p>The allowed path stops working. The firewall is now secure and\nuseless. The policy needs both the default and the exceptions.</p>",
+                        "effects": {
+                          "Policy": "Deny all",
+                          "Business": "Broken",
+                          "Evidence": "Missing"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Default deny is a starting point, not a complete policy.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Read the ruleset in order, find the shadowed rules, test both paths and\nlet the log explain the verdict.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "slug": "author-and-export",
+            "title": "Author and Export",
+            "lessons": [
+              {
+                "id": "03-01",
+                "title": "Design a Lab That Checks the Right Thing",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>An objective is a claim about the network, written so the simulator can test it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A NetSim objective has an <code>id</code>, a student-facing <code>label</code> and a <code>check</code>. The check is passive or active.</p>\n<p>Common check types:</p>\n<ul>\n<li><code>iface-ip</code>: an interface has an address or an address in a subnet.</li>\n<li><code>default-route</code>: a default route exists, optionally via a gateway.</li>\n<li><code>forwarding</code>: IP forwarding matches the expected value.</li>\n<li><code>fw-policy</code>: a chain policy matches.</li>\n<li><code>ping</code>: an ICMP echo succeeds or fails.</li>\n<li><code>tcp</code>: a TCP connect is open, refused or filtered.</li>\n<li><code>dns</code>: a name resolves or returns NXDOMAIN.</li>\n<li><code>http</code>: a GET succeeds, optionally with a required string.</li>\n</ul>\n<p>The design question is not \"what did I teach?\" It is \"what evidence would prove the student did it?\"</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Building Inspection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An inspector does not ask whether the builder read the code. The inspector checks the exit, the alarm and the record.</p>\n<p>A lab objective is the check. The step is the instruction.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Objectives with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn a Step into a Check</h3>\n<p>Ask the AI to choose a check.</p>\n<pre><code class=\"language-text\">Step: &quot;Give pc1 the address 192.168.1.10/24 on eth0.&quot;\nWrite the objective and the check. Then write a second objective that\nproves the host can reach its gateway.\n</code></pre>\n<p>One check for configuration, one for behaviour.</p>\n<h3>Exploration 2: Prove the Problem</h3>\n<p>Ask for a vulnerability-first objective.</p>\n<pre><code class=\"language-text\">A lab asks students to harden a network. Write an objective that passes\nwhile the vulnerability exists, then the objective that passes after the\nfix. Explain the order.\n</code></pre>\n<p>The first objective establishes the baseline.</p>\n<h3>Exploration 3: Find the Weak Check</h3>\n<p>Ask what a check misses.</p>\n<pre><code class=\"language-text\">A lab checks that tcp/22 is filtered from the internet. What does that\nnot prove? Write a second check that closes the gap.\n</code></pre>\n<p>A check is evidence for one claim, not all claims.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An objective record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>ID</td>\n<td>l6-ip</td>\n</tr>\n<tr>\n<td>Label</td>\n<td>pc1 has an address in 192.168.1.0/24</td>\n</tr>\n<tr>\n<td>Check</td>\n<td><code>iface-ip</code></td>\n</tr>\n<tr>\n<td>Device</td>\n<td>pc1</td>\n</tr>\n<tr>\n<td>Interface</td>\n<td>eth0</td>\n</tr>\n<tr>\n<td>Subnet</td>\n<td>192.168.1.0/24</td>\n</tr>\n<tr>\n<td>Type</td>\n<td>Passive</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write three objectives for one step: one configuration, one behaviour and one failure. Test them in the app.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Objectives make the assessment transparent. The student knows what evidence is required, and the grader can show why it passed or failed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 8.1 (Level 1).</strong> Name three check types.\n<strong>Exercise 8.2 (Level 2).</strong> Write an <code>iface-ip</code> objective.\n<strong>Exercise 8.3 (Level 3).</strong> Write a <code>ping</code> objective.\n<strong>Exercise 8.4 (Level 4).</strong> Write a vulnerability-first objective.\n<strong>Exercise 8.5 (Level 5).</strong> Find a check that can pass while the student has not learned the concept, and fix it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>An objective is a testable claim.</li>\n<li>Passive checks read state; active checks send packets.</li>\n<li>Use a configuration check and a behaviour check.</li>\n<li>Prove the problem before the fix.</li>\n<li>A check is evidence for one claim.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote one objective</li>\n<li>[ ] Chose the right check</li>\n<li>[ ] Tested it</li>\n<li>[ ] Wrote a failure check</li>\n<li>[ ] Found a weak check</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which check was strongest?</li>\n<li>What did a passive check miss?</li>\n<li>Where could a student game the check?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The objectives are designed. The next chapter writes and distributes the lab.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-02",
+                "title": "Write and Distribute a Lab",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A lab is a JSON file. That is the whole distribution mechanism.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A NetSim lab file has the same shape as a topology, plus a top-level <code>lab</code> object:</p>\n<pre><code class=\"language-json\">{\n  &quot;app&quot;: &quot;netsim&quot;,\n  &quot;version&quot;: 1,\n  &quot;devices&quot;: [],\n  &quot;links&quot;: [],\n  &quot;lab&quot;: {\n    &quot;id&quot;: &quot;my-lab&quot;,\n    &quot;title&quot;: &quot;Lab 6 - My topic&quot;,\n    &quot;blurb&quot;: &quot;One line for the Labs menu.&quot;,\n    &quot;steps&quot;: []\n  }\n}\n</code></pre>\n<p>A step has a title, a body, objectives and an optional quiz. A quiz answer is a zero-based index.</p>\n<p>The recommended authoring path:</p>\n<ol>\n<li>Build the starting topology in NetSim.</li>\n<li>Export the topology JSON.</li>\n<li>Add the <code>lab</code> block.</li>\n<li>Import it back and test as a student.</li>\n<li>Iterate until every objective goes green at the right time.</li>\n<li>Distribute the file or a share link.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Lesson Plan</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A lesson plan has objectives, activities and a check. A lab file is the same, with a topology attached.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Format with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Build the Skeleton</h3>\n<p>Ask the AI to draft the JSON.</p>\n<pre><code class=\"language-text\">Write a NetSim lab skeleton for a two-host addressing lab. Include the\nlab id, title, blurb, one step with a title, body, two objectives and\none quiz question. Use JSON, not prose.\n</code></pre>\n<p>A skeleton is easier to review than a blank file.</p>\n<h3>Exploration 2: Test the Check</h3>\n<p>Ask what could go wrong.</p>\n<pre><code class=\"language-text\">A lab objective uses `iface-ip` with `inSubnet`. List the ways it could\npass without the student understanding subnetting. Write a stronger\nsecond check.\n</code></pre>\n<p>A check is not a lesson.</p>\n<h3>Exploration 3: Plan Distribution</h3>\n<p>Ask how to hand it out.</p>\n<pre><code class=\"language-text\">Compare distributing a lab as a JSON file, a share link and a bundled\nlab in the repository. Include the trade-offs for updating, versioning\nand collecting attempts.\n</code></pre>\n<p>Each route has a maintenance cost.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A lab distribution record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Lab ID</td>\n<td>l6-addressing</td>\n</tr>\n<tr>\n<td>Version</td>\n<td>1</td>\n</tr>\n<tr>\n<td>Distribution</td>\n<td>File or share link</td>\n</tr>\n<tr>\n<td>Objective IDs</td>\n<td>Stable</td>\n</tr>\n<tr>\n<td>Quiz</td>\n<td>One question</td>\n</tr>\n<tr>\n<td>Attempt export</td>\n<td>Enabled</td>\n</tr>\n<tr>\n<td>Marking</td>\n<td>Import and regrade</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Create a one-step lab with two objectives and one quiz question. Distribute it as a file and as a share link.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A stable ID is a contract with saved progress. Renaming it resets the objective for every student.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 9.1 (Level 1).</strong> Name the top-level lab keys.\n<strong>Exercise 9.2 (Level 2).</strong> Write one step.\n<strong>Exercise 9.3 (Level 3).</strong> Add two objectives.\n<strong>Exercise 9.4 (Level 4).</strong> Add a quiz question.\n<strong>Exercise 9.5 (Level 5).</strong> Distribute the lab and collect one attempt.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A lab is a topology plus a lab block.</li>\n<li>Steps contain objectives and quizzes.</li>\n<li>Build the topology visually, then add the JSON.</li>\n<li>Test as a student before distributing.</li>\n<li>Keep objective IDs stable.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Built the topology</li>\n<li>[ ] Added the lab block</li>\n<li>[ ] Tested the objectives</li>\n<li>[ ] Added a quiz</li>\n<li>[ ] Distributed the file</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which field was easiest to forget?</li>\n<li>What did the test reveal?</li>\n<li>Which distribution route fits your class?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The lab is distributed. The final chapter exports the design to real systems.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-03",
+                "title": "Export to the Real World",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A simulation is useful when the design can leave it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>NetSim exports more than a picture:</p>\n<ul>\n<li><strong>Device config bundle (.zip)</strong>: per-device <code>setup.sh</code>, <code>nftables.conf</code> and <code>dnsmasq.conf</code>.</li>\n<li><strong>Containerlab topology</strong>: a <code>.clab.yml</code> with Linux nodes and firewall rules.</li>\n<li><strong>Docker Compose</strong>: an approximate L2 topology.</li>\n<li><strong>SVG/PNG diagrams</strong>: documentation-grade topology images.</li>\n<li><strong>Printable HTML report</strong>: diagram, inventory, cabling, routing tables, DHCP/DNS and firewall rulesets.</li>\n</ul>\n<p>The generated configs are validated in CI against the real <code>nft</code> and <code>dnsmasq</code> binaries. That is the bridge from the simulator to a real machine.</p>\n<p>The export is not a promise that the real network will behave identically. It is a starting point that preserves the design.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Building Plan</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A building plan is not the building. It is the document a builder can follow.</p>\n<p>The export is the plan. The real network is the building.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Exports with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Export</h3>\n<p>Ask which export fits the task.</p>\n<pre><code class=\"language-text\">A team wants to hand a firewall design to an engineer, run it in a lab,\nand include it in a report. Which NetSim exports fit each task? Explain\nthe limits.\n</code></pre>\n<p>Different artefacts for different readers.</p>\n<h3>Exploration 2: Review the Config</h3>\n<p>Ask what to check before running it.</p>\n<pre><code class=\"language-text\">Here is a generated nftables.conf:\n[paste it]\n\nList the checks before applying it to a real host: interfaces, addresses,\ndefault policy, rule order, NAT and rollback.\n</code></pre>\n<p>A generated config is a draft until reviewed.</p>\n<h3>Exploration 3: Compare Simulation and Reality</h3>\n<p>Ask what changes.</p>\n<pre><code class=\"language-text\">The simulated network works. The real containerlab deployment does not.\nList the differences that could explain it: interface names, kernel\nsettings, L2 behaviour, image versions and timing.\n</code></pre>\n<p>The export removes typing, not thinking.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An export record:</p>\n<table>\n<thead>\n<tr>\n<th>Artefact</th>\n<th>Reader</th>\n<th>Check</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>setup.sh</code></td>\n<td>Engineer</td>\n<td>Interfaces and routes</td>\n</tr>\n<tr>\n<td><code>nftables.conf</code></td>\n<td>Firewall owner</td>\n<td>Policy and order</td>\n</tr>\n<tr>\n<td><code>dnsmasq.conf</code></td>\n<td>Service owner</td>\n<td>Records and upstreams</td>\n</tr>\n<tr>\n<td><code>.clab.yml</code></td>\n<td>Lab owner</td>\n<td>Images and links</td>\n</tr>\n<tr>\n<td>Diagram/report</td>\n<td>Stakeholder</td>\n<td>Accuracy and scope</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Export one topology as a config bundle and a diagram. Review the firewall config before running anything.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The export is the assessment bridge. A student can show the design, the config and the report, not only a canvas.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 10.1 (Level 1).</strong> Name three export types.\n<strong>Exercise 10.2 (Level 2).</strong> Export a topology JSON.\n<strong>Exercise 10.3 (Level 3).</strong> Export a config bundle.\n<strong>Exercise 10.4 (Level 4).</strong> Review a generated nftables config.\n<strong>Exercise 10.5 (Level 5).</strong> Deploy a containerlab export and compare it with the simulation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>NetSim exports configs, containerlab, Compose, diagrams and reports.</li>\n<li>The config bundle is the bridge to a real machine.</li>\n<li>Generated configs need review.</li>\n<li>The export preserves the design, not the behaviour guarantee.</li>\n<li>Remove typing, not thinking.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Chose an export</li>\n<li>[ ] Exported a topology</li>\n<li>[ ] Reviewed a config</li>\n<li>[ ] Exported a diagram</li>\n<li>[ ] Named one simulation limit</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which export was most useful?</li>\n<li>What did the config review catch?</li>\n<li>Where would reality differ?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The design is exported. The appendices collect the lab map and the check types.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "03-04",
+                "title": "Checkpoint: author and export",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is a lab objective?",
+                        "options": [
+                          "A testable claim about the network with a stable ID and a check",
+                          "A paragraph of instructions",
+                          "A quiz answer",
+                          "A screenshot"
+                        ],
+                        "answer": 0,
+                        "explanation": "The check is passive or active and the ID keys saved progress."
+                      },
+                      {
+                        "id": "q2,",
+                        "prompt": "When should an author use an active check instead of a passive one?",
+                        "options": [
+                          "When the claim is about behaviour, such as reachability or a filtered port",
+                          "When the claim is about an interface address",
+                          "When the answer is in the Inspector",
+                          "When the lab has no topology"
+                        ],
+                        "answer": 0,
+                        "explanation": "Active checks send packets and watch the result."
+                      },
+                      {
+                        "id": "q3,",
+                        "prompt": "Why keep objective IDs stable?",
+                        "options": [
+                          "Saved progress and exported attempts are keyed by the ID",
+                          "It makes the JSON shorter",
+                          "The simulator requires unique titles",
+                          "The grader sorts by ID"
+                        ],
+                        "answer": 0,
+                        "explanation": "Renaming an ID resets the objective for every student."
+                      },
+                      {
+                        "id": "q4,",
+                        "prompt": "What is the recommended way to author a lab?",
+                        "options": [
+                          "Build the topology in the app, export the JSON, add the lab block and import it back",
+                          "Write every device by hand from scratch",
+                          "Use a screenshot",
+                          "Edit the app source"
+                        ],
+                        "answer": 0,
+                        "explanation": "The visual path gets the cabling and addressing right, then you add prose and objectives."
+                      },
+                      {
+                        "id": "q5,",
+                        "prompt": "What does the attempt export contain?",
+                        "options": [
+                          "The topology, the lab definition and the student's progress",
+                          "Only a screenshot",
+                          "Only the final answer",
+                          "The API key"
+                        ],
+                        "answer": 0,
+                        "explanation": "The teacher can import it, land in the network and regrade."
+                      },
+                      {
+                        "id": "q6,",
+                        "prompt": "What does the containerlab export provide?",
+                        "options": [
+                          "A topology file that can run the design on real kernels",
+                          "A faster simulator",
+                          "A cloud account",
+                          "A firewall only"
+                        ],
+                        "answer": 0,
+                        "explanation": "It is the bridge from the design to a real lab, not a promise of identical behaviour."
+                      },
+                      {
+                        "id": "q7,",
+                        "prompt": "What must you do before applying a generated config to a real host?",
+                        "options": [
+                          "Review interfaces, addresses, policy, rule order, NAT and rollback",
+                          "Run it immediately",
+                          "Delete the simulation",
+                          "Disable the firewall"
+                        ],
+                        "answer": 0,
+                        "explanation": "The export removes typing, not thinking."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}
