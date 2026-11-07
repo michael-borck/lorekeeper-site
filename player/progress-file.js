@@ -115,7 +115,18 @@
         )
       ),
     ].sort();
-    return { completed, activity, badges };
+    const history = (Array.isArray(raw.history) ? raw.history : [])
+      .filter((item) => item && typeof item === "object" && safeKey(String(item.id || "")))
+      .map((item) => ({
+        id: String(item.id),
+        title: String(item.title || ""),
+        kind: String(item.kind || ""),
+        course: safeKey(String(item.course || "")) ? String(item.course) : "",
+        courseTitle: String(item.courseTitle || ""),
+        at: String(item.at || ""),
+      }))
+      .slice(-120);
+    return { completed, activity, badges, history };
   }
 
   function validateDrafts(raw) {
@@ -198,6 +209,9 @@
       completed: { ...(a.completed || {}), ...(b.completed || {}) },
       activity: [...new Set([...(a.activity || []), ...(b.activity || [])])].sort(),
       badges: [...new Set([...(a.badges || []), ...(b.badges || [])])].sort(),
+      history: [...(a.history || []), ...(b.history || [])]
+        .filter((item, index, all) => index === all.findIndex((other) => other.id === item.id && other.at === item.at))
+        .slice(-120),
     };
   }
 

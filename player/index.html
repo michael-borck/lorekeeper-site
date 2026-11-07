@@ -32,9 +32,20 @@
             <option value="storybook">Storybook</option>
           </select>
         </label>
+        <button id="journey-button" class="ghost small" type="button" data-journey-open>Journey</button>
+        <button id="tutor-button" class="ghost small" type="button" data-tutor-open>AI tutor</button>
         <button id="badges-button" class="ghost small" type="button">Achievements <span id="badge-count">0</span></button>
         <button id="progress-button" class="ghost small" type="button">Progress</button>
         <button id="reset-progress" class="ghost small" type="button">Reset progress</button>
+        <div class="sidebar-tools">
+          <span>Workshop tools</span>
+          <a href="https://aitoys.borck.education/" target="_blank" rel="noreferrer">AI Toys</a>
+          <a href="https://securitytoys.borck.education/" target="_blank" rel="noreferrer">Security Toys</a>
+          <a href="https://netsim.borck.education/" target="_blank" rel="noreferrer">NetSim</a>
+          <a href="https://michael-borck.github.io/programming-labs/" target="_blank" rel="noreferrer">Programming Labs</a>
+          <a href="https://github.com/michael-borck/study-buddy/releases/latest" target="_blank" rel="noreferrer">Study Buddy (desktop)</a>
+          <a href="https://github.com/michael-borck/career-compass/releases/latest" target="_blank" rel="noreferrer">Career Compass (desktop)</a>
+        </div>
       </div>
     </aside>
 
@@ -104,6 +115,39 @@
     <div id="wayfinder-body"></div>
   </dialog>
 
+  <dialog id="tutor-dialog" class="badge-dialog tutor-dialog" aria-labelledby="tutor-title">
+    <div class="badge-head">
+      <div>
+        <h2 id="tutor-title">AI tutor</h2>
+        <p class="badge-summary">Optional. Nothing is sent until you press Send.</p>
+      </div>
+      <button id="tutor-close" class="ghost small" type="button">Close</button>
+    </div>
+    <div id="tutor-body"></div>
+  </dialog>
+
+  <dialog id="journey-dialog" class="badge-dialog journey-dialog" aria-labelledby="journey-title">
+    <div class="badge-head">
+      <div>
+        <h2 id="journey-title">Your journey</h2>
+        <p class="badge-summary">Progress is stored on this device. Nothing is sent to a server.</p>
+      </div>
+      <button id="journey-close" class="ghost small" type="button">Close</button>
+    </div>
+    <div id="journey-body"></div>
+  </dialog>
+
+  <dialog id="manage-dialog" class="badge-dialog manage-dialog" aria-labelledby="manage-title">
+    <div class="badge-head">
+      <div>
+        <h2 id="manage-title">Manage library</h2>
+        <p class="badge-summary">Choose what appears in your library. Progress stays on this device.</p>
+      </div>
+      <button id="manage-close" class="ghost small" type="button">Close</button>
+    </div>
+    <div id="manage-body"></div>
+  </dialog>
+
   <dialog id="store-dialog" class="badge-dialog store-dialog" aria-labelledby="store-title">
     <div class="badge-head">
       <div>
@@ -120,11 +164,15 @@
   <script src="badges.js"></script>
   <script src="art.js"></script>
   <script src="progress-file.js"></script>
+  <script src="storage.js"></script>
   <script src="library.js"></script>
   <script src="wayfinder.js"></script>
   <script src="trusted-keys.js"></script>
   <script src="vendor/nacl-fast.min.js"></script>
   <script src="store.js"></script>
+  <script src="tutor.js"></script>
   <script src="app.js"></script>
+  <script src="manage.js"></script>
+  <script src="journey.js"></script>
 </body>
 </html>

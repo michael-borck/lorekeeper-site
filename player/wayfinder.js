@@ -105,11 +105,14 @@
     });
 
     const experience = QUESTIONS[1].options[answers.experience]?.value;
-    if (experience === "new" && scores.has("field-kit")) {
-      scores.set("field-kit", scores.get("field-kit") + 2);
-    }
-    if (experience === "confident" && scores.has("signal-and-noise")) {
-      scores.set("signal-and-noise", scores.get("signal-and-noise") + 1);
+    for (const course of courses) {
+      const level = String(course.level || "beginner");
+      if (experience === "new" && level === "beginner") scores.set(course.slug, scores.get(course.slug) + 2);
+      if (experience === "some" && level === "intermediate") scores.set(course.slug, scores.get(course.slug) + 2);
+      if (experience === "confident" && level === "intermediate") scores.set(course.slug, scores.get(course.slug) + 1);
+      const done = completedFor(course.slug).size;
+      if (course.lessons && done > 0 && done < course.lessons) scores.set(course.slug, scores.get(course.slug) + 2);
+      if (course.lessons && done >= course.lessons) scores.set(course.slug, scores.get(course.slug) - 4);
     }
 
     return courses
@@ -164,6 +167,7 @@
       title: primary.title,
       pitch: primary.pitch || "",
       start: primary.start || "",
+      answers,
       steps,
       secondary: secondary
         ? { slug: secondary.slug, title: secondary.title }
@@ -268,10 +272,40 @@
     body.querySelector("[data-wayfinder-retake]").addEventListener("click", renderQuestions);
   }
 
+  function pathAvailable(path) {
+    if (!path) return false;
+    return (state.index?.courses || []).some((course) => course.slug === path.course);
+  }
+
   function renderPicker() {
     const host = $("wayfinder-host");
     if (!host) return;
+    const courses = state.index?.courses || [];
+    if (!courses.length) {
+      host.innerHTML = `
+        <div class="wayfinder-cta">
+          <div>
+            <p class="eyebrow">Your library</p>
+            <h2>Add a pack to start</h2>
+            <p>Browse the store or restore the starter kit. Your progress stays on this device.</p>
+          </div>
+          <button class="btn primary" type="button" data-store-open>Browse packs</button>
+        </div>`;
+      return;
+    }
     const path = currentPath();
+    if (path && !pathAvailable(path)) {
+      host.innerHTML = `
+        <div class="wayfinder-cta">
+          <div>
+            <p class="eyebrow">Your trail</p>
+            <h2>Your trail course is no longer installed</h2>
+            <p>Choose a new trail from the courses in your library.</p>
+          </div>
+          <button class="btn primary" type="button" data-wayfinder-open>Find a new trail</button>
+        </div>`;
+      return;
+    }
     if (!path) {
       host.innerHTML = `
         <div class="wayfinder-cta">
@@ -320,7 +354,7 @@
     const card = $("trail-card");
     if (!card) return;
     const path = currentPath();
-    if (!path) {
+    if (!path || !pathAvailable(path)) {
       card.hidden = true;
       return;
     }

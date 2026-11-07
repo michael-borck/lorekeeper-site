@@ -67,6 +67,7 @@ async function init() {
     applyTheme(event.target.value, true);
   });
   window.LorekeeperProgress?.init();
+  await window.LorekeeperLibrary?.ready();
 
   let index;
   try {
@@ -79,10 +80,20 @@ async function init() {
   }
   const localCourses = window.LorekeeperLibrary?.courses() || [];
   const remoteSlugs = new Set(index.courses.map((course) => course.slug));
-  index.courses = [
+  const allCourses = [
     ...index.courses,
     ...localCourses.filter((course) => !remoteSlugs.has(course.slug)),
   ];
+  const storedHidden = window.LorekeeperPackStorage?.getSetting("hidden-courses", null);
+  let hidden;
+  if (Array.isArray(storedHidden)) {
+    hidden = new Set(storedHidden);
+  } else {
+    hidden = new Set(allCourses.filter((course) => course.source !== "local").map((course) => course.slug));
+    await window.LorekeeperPackStorage?.setSetting("hidden-courses", [...hidden]);
+  }
+  index.allCourses = allCourses;
+  index.courses = allCourses.filter((course) => !hidden.has(course.slug));
   state.index = index;
   window.LorekeeperWayfinder?.init();
   warmOffline();
@@ -90,7 +101,6 @@ async function init() {
   const params = new URLSearchParams(location.search);
   const requested = params.get("course");
   if (requested) return loadCourse(requested);
-  if (index.courses.length === 1) return loadCourse(index.courses[0].slug);
   renderPicker();
 }
 
@@ -186,8 +196,9 @@ function loadProgress() {
     const raw = localStorage.getItem(progressKey());
     const parsed = raw ? JSON.parse(raw) : null;
     state.progress = parsed && parsed.completed ? parsed : { completed: {} };
+    if (!Array.isArray(state.progress.history)) state.progress.history = [];
   } catch {
-    state.progress = { completed: {} };
+    state.progress = { completed: {}, history: [] };
   }
 }
 
@@ -219,6 +230,16 @@ function updateStats() {
 function completeLesson(lesson, { quiet = false } = {}) {
   if (isDone(lesson.id)) return;
   state.progress.completed[lesson.id] = true;
+  if (!Array.isArray(state.progress.history)) state.progress.history = [];
+  state.progress.history.push({
+    id: lesson.id,
+    title: lesson.title,
+    kind: lesson.kind,
+    course: state.course.unit.slug,
+    courseTitle: state.course.unit.title,
+    at: new Date().toISOString(),
+  });
+  state.progress.history = state.progress.history.slice(-120);
   window.LorekeeperBadges?.record();
   saveProgress();
   renderSidebar();
@@ -233,7 +254,7 @@ function completeLesson(lesson, { quiet = false } = {}) {
 function resetProgress() {
   if (!state.course) return;
   if (!confirm("Reset all progress and achievements for this course?")) return;
-  state.progress = { completed: {} };
+  state.progress = { completed: {}, history: [] };
   saveProgress();
   renderSidebar();
   updateStats();
@@ -353,6 +374,7 @@ function renderLesson(entry) {
       window.WIDGET_RENDERERS[block.type](blocksHost, block, lesson);
     }
   }
+  window.LorekeeperTutor?.attach();
 }
 
 function syncCompleteControls(lesson) {
@@ -769,12 +791,12 @@ function renderPicker() {
         <div class="picker-intro">
           <p class="eyebrow">Lorekeeper · field notes</p>
           <h1>Choose your path</h1>
-          <p>Story-driven courses for information systems. The source repos stay read-only.</p>
+          <p>Story-driven courses for your personal learning path. Your progress stays on this device.</p>
         </div>
       </div>
       <div id="wayfinder-host"></div>
-      <div class="course-list">
-        ${state.index.courses
+      <div class="course-list${state.index.courses.length ? "" : " empty"}">
+        ${state.index.courses.length ? state.index.courses
           .map(
             (course) => `
           <div class="course-row">
@@ -790,17 +812,18 @@ function renderPicker() {
                 </span>
               </span>
             </a>
-            ${
-              course.source === "local"
-                ? `<button class="ghost small pack-remove" type="button" data-pack-remove="${escapeHtml(course.packId || "")}">Remove</button>`
-                : ""
-            }
           </div>`
           )
-          .join("")}
+          .join("") : `
+          <div class="empty-library">
+            <h2>Your library is empty</h2>
+            <p>Add a pack from the store, import one, or start with the built-in starter kit.</p>
+            <button class="btn primary" type="button" data-starter>Add the starter kit</button>
+          </div>`}
       </div>
       <div class="picker-tools">
         <button id="store-open" class="btn" type="button" data-store-open>Browse packs</button>
+        <button id="manage-open" class="btn" type="button" data-manage-open>Manage library</button>
         <button id="pack-import" class="btn" type="button">Import a pack</button>
         <input id="pack-file" type="file" accept=".json,application/json" hidden>
       </div>
@@ -808,6 +831,9 @@ function renderPicker() {
   bindPickerTools();
   window.LorekeeperWayfinder?.renderPicker();
 }
+
+window.LorekeeperApp = window.LorekeeperApp || {};
+window.LorekeeperApp.renderPicker = renderPicker;
 
 function bindPickerTools() {
   const importButton = document.getElementById("pack-import");
@@ -828,10 +854,10 @@ function bindPickerTools() {
           event.target.value = "";
           return;
         }
-        const reserved = state.index.courses
+        const reserved = (state.index.allCourses || state.index.courses)
           .filter((course) => course.source !== "local")
           .map((course) => course.slug);
-        window.LorekeeperLibrary.store(pack, reserved);
+        await window.LorekeeperLibrary.store(pack, reserved);
         toast(`Imported ${pack.title}.`);
         setTimeout(() => location.reload(), 500);
       } catch (error) {
@@ -840,15 +866,8 @@ function bindPickerTools() {
       }
     });
   }
-  document.querySelectorAll("[data-pack-remove]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const id = button.dataset.packRemove;
-      const pack = window.LorekeeperLibrary.getPack(id);
-      if (!pack) return;
-      if (!confirm(`Remove "${pack.title}" and its local progress from this device?`)) return;
-      window.LorekeeperLibrary.removePack(id);
-      location.reload();
-    });
+  document.querySelectorAll("[data-starter]").forEach((button) => {
+    button.addEventListener("click", () => window.LorekeeperManage?.restoreStarter());
   });
 }
 

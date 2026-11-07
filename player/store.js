@@ -1,7 +1,19 @@
-/* Static pack catalogue browser. */
+/* Static pack catalogue browser with search and filters. */
 (function () {
   const catalogUrl = new URL("../store/catalog.json", location.href);
+  const CATEGORIES = [
+    { id: "all", label: "All", tags: [] },
+    { id: "ai", label: "AI and judgement", tags: ["ai", "judgement", "conversation", "evaluation", "prompting"] },
+    { id: "security", label: "Security and audit", tags: ["security", "audit", "forensics", "incident", "risk", "assurance"] },
+    { id: "systems", label: "Systems and design", tags: ["systems", "analysis", "design", "requirements"] },
+    { id: "networks", label: "Networks", tags: ["networking", "routing", "simulation"] },
+    { id: "programming", label: "Programming", tags: ["python", "web", "html", "css", "javascript", "react", "llm", "api"] },
+    { id: "education", label: "Education", tags: ["education", "teaching", "projects"] },
+    { id: "reference", label: "Reference", tags: ["reference"] },
+  ];
   let bound = false;
+  let catalogPacks = [];
+  let filters = { q: "", category: "all", level: "all", installed: false, sort: "title" };
 
   const $ = (id) => document.getElementById(id);
 
@@ -16,41 +28,129 @@
     return Uint8Array.from(binary, (char) => char.charCodeAt(0));
   }
 
-  function render(catalog) {
+  function categoryFor(pack) {
+    const tags = new Set((pack.tags || []).map((tag) => String(tag).toLowerCase()));
+    return CATEGORIES.find((category) =>
+      category.tags.some((tag) => tags.has(tag))
+    ) || CATEGORIES[0];
+  }
+
+  function matches(pack) {
+    const category = CATEGORIES.find((item) => item.id === filters.category) || CATEGORIES[0];
+    const tags = new Set((pack.tags || []).map((tag) => String(tag).toLowerCase()));
+    if (category.id !== "all" && !category.tags.some((tag) => tags.has(tag))) return false;
+    if (filters.level !== "all" && pack.level !== filters.level) return false;
+    if (filters.installed && !window.LorekeeperLibrary.getPack(pack.id)) return false;
+    const query = filters.q.trim().toLowerCase();
+    if (!query) return true;
+    return [pack.title, pack.description, ...(pack.tags || [])]
+      .join(" ")
+      .toLowerCase()
+      .includes(query);
+  }
+
+  function sortPacks(packs) {
+    const copy = [...packs];
+    if (filters.sort === "lessons") copy.sort((a, b) => (a.lessons || 0) - (b.lessons || 0));
+    else if (filters.sort === "longest") copy.sort((a, b) => (b.lessons || 0) - (a.lessons || 0));
+    else if (filters.sort === "level") copy.sort((a, b) => String(a.level).localeCompare(String(b.level)));
+    else copy.sort((a, b) => String(a.title).localeCompare(String(b.title)));
+    return copy;
+  }
+
+  function card(pack) {
+    const installed = !!window.LorekeeperLibrary.getPack(pack.id);
+    const category = categoryFor(pack);
+    return `
+      <article class="store-card" data-pack="${escapeHtml(pack.id)}">
+        <div class="store-card-head">
+          <span class="eyebrow">${escapeHtml(category.label)}</span>
+          <span class="store-level">${escapeHtml(pack.level || "pack")}</span>
+        </div>
+        <h3>${escapeHtml(pack.title || pack.id)}</h3>
+        <p>${escapeHtml(pack.description || "")}</p>
+        <div class="store-meta">
+          ${(pack.tags || []).slice(0, 5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+        </div>
+        <div class="store-card-foot">
+          <span class="widget-note">${pack.lessons || 0} lessons · ${Math.round((pack.size || 0) / 1024)} KB</span>
+          <button class="btn ${installed ? "" : "primary"}" type="button" data-store-add="${escapeHtml(pack.id)}" ${installed ? "disabled" : ""}>
+            ${installed ? "Installed" : "Add"}
+          </button>
+        </div>
+      </article>`;
+  }
+
+  function render() {
     const body = $("store-body");
-    const packs = Array.isArray(catalog.packs) ? catalog.packs : [];
-    if (!packs.length) {
-      body.innerHTML = '<p class="widget-note">No packs are published yet.</p>';
-      return;
-    }
+    const packs = sortPacks(catalogPacks.filter(matches));
+    const levels = [...new Set(catalogPacks.map((pack) => pack.level).filter(Boolean))].sort();
     body.innerHTML = `
-      <div class="store-list">
-        ${packs
-          .map((pack) => {
-            const installed = !!window.LorekeeperLibrary.getPack(pack.id);
-            return `
-            <div class="store-pack">
-              <div class="store-pack-body">
-                <p class="eyebrow">${escapeHtml(pack.level || "pack")}</p>
-                <h3>${escapeHtml(pack.title || pack.id)}</h3>
-                <p>${escapeHtml(pack.description || "")}</p>
-                <div class="store-meta">
-                  ${(pack.tags || [])
-                    .slice(0, 4)
-                    .map((tag) => `<span>${escapeHtml(tag)}</span>`)
-                    .join("")}
-                </div>
-                <p class="widget-note">${pack.lessons || 0} lessons · ${Math.round((pack.size || 0) / 1024)} KB</p>
-              </div>
-              <button class="btn ${installed ? "" : "primary"}" type="button" data-store-add="${escapeHtml(pack.id)}" ${installed ? "disabled" : ""}>
-                ${installed ? "Installed" : "Add"}
-              </button>
-            </div>`;
-          })
-          .join("")}
+      <div class="store-toolbar">
+        <label class="store-search">
+          <span>Search</span>
+          <input id="store-search" type="search" placeholder="Search packs, topics, tools" value="${escapeHtml(filters.q)}">
+        </label>
+        <label class="store-select">
+          <span>Level</span>
+          <select id="store-level">
+            <option value="all">All levels</option>
+            ${levels.map((level) => `<option value="${escapeHtml(level)}" ${filters.level === level ? "selected" : ""}>${escapeHtml(level)}</option>`).join("")}
+          </select>
+        </label>
+        <label class="store-select">
+          <span>Sort</span>
+          <select id="store-sort">
+            <option value="title" ${filters.sort === "title" ? "selected" : ""}>Title</option>
+            <option value="lessons" ${filters.sort === "lessons" ? "selected" : ""}>Shortest</option>
+            <option value="longest" ${filters.sort === "longest" ? "selected" : ""}>Longest</option>
+            <option value="level" ${filters.sort === "level" ? "selected" : ""}>Level</option>
+          </select>
+        </label>
+        <label class="store-installed">
+          <input id="store-installed" type="checkbox" ${filters.installed ? "checked" : ""}>
+          <span>Installed only</span>
+        </label>
+      </div>
+      <div class="store-categories" role="group" aria-label="Categories">
+        ${CATEGORIES.map((category) => `<button class="store-cat ${filters.category === category.id ? "active" : ""}" type="button" data-store-cat="${category.id}">${category.label}</button>`).join("")}
+      </div>
+      <p class="widget-note">${packs.length} pack${packs.length === 1 ? "" : "s"} shown. Packs are signed and verified before install.</p>
+      <div class="store-grid">
+        ${packs.length ? packs.map(card).join("") : '<p class="store-empty">No packs match those filters.</p>'}
       </div>`;
-    body.querySelectorAll("[data-store-add]").forEach((button) => {
-      const pack = packs.find((item) => item.id === button.dataset.storeAdd);
+    bindControls();
+  }
+
+  function bindControls() {
+    const search = $("store-search");
+    search?.addEventListener("input", (event) => {
+      filters.q = event.target.value;
+      render();
+      const input = $("store-search");
+      input.focus();
+      input.setSelectionRange(input.value.length, input.value.length);
+    });
+    $("store-level")?.addEventListener("change", (event) => {
+      filters.level = event.target.value;
+      render();
+    });
+    $("store-sort")?.addEventListener("change", (event) => {
+      filters.sort = event.target.value;
+      render();
+    });
+    $("store-installed")?.addEventListener("change", (event) => {
+      filters.installed = event.target.checked;
+      render();
+    });
+    document.querySelectorAll("[data-store-cat]").forEach((button) => {
+      button.addEventListener("click", () => {
+        filters.category = button.dataset.storeCat;
+        render();
+      });
+    });
+    document.querySelectorAll("[data-store-add]").forEach((button) => {
+      const pack = catalogPacks.find((item) => item.id === button.dataset.storeAdd);
       button.addEventListener("click", () => addPack(pack, button));
     });
   }
@@ -86,10 +186,10 @@
       );
       if (!valid) throw new Error("The pack signature is invalid.");
       const data = JSON.parse(new TextDecoder().decode(buffer));
-      const reserved = (state.index?.courses || [])
+      const reserved = (state.index?.allCourses || state.index?.courses || [])
         .filter((course) => course.source !== "local")
         .map((course) => course.slug);
-      const pack = window.LorekeeperLibrary.store(data, reserved);
+      const pack = await window.LorekeeperLibrary.store(data, reserved);
       button.textContent = "Installed";
       button.disabled = true;
       if (typeof toast === "function") toast(`Added ${pack.title}.`);
@@ -115,7 +215,9 @@
       if (catalog.format !== "lorekeeper.catalog" || Number(catalog.version) !== 1) {
         throw new Error("not a Lorekeeper catalogue");
       }
-      render(catalog);
+      await window.LorekeeperLibrary?.ready();
+      catalogPacks = Array.isArray(catalog.packs) ? catalog.packs : [];
+      render();
     } catch {
       body.innerHTML =
         '<p class="widget-note bad">The pack store is not available. You can still import a pack file from the course picker.</p>';

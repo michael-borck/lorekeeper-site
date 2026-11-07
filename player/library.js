@@ -1,6 +1,5 @@
 /* Local pack library. Packs are inert course JSON stored on this device. */
 (function () {
-  const PREFIX = "lorekeeper:pack:";
   const MAX_CHARS = 4_500_000;
   const SLUG = /^[a-z0-9][a-z0-9-]*$/;
   const DANGEROUS = new Set(["__proto__", "constructor", "prototype"]);
@@ -81,24 +80,30 @@
     return JSON.stringify(pack).length;
   }
 
+  async function ready() {
+    await window.LorekeeperPackStorage?.ready();
+  }
+
   function getPack(id) {
-    const raw = localStorage.getItem(`${PREFIX}${id}`);
+    const raw = window.LorekeeperPackStorage?.getPack(id);
     if (!raw) return null;
     try {
-      return validatePack(JSON.parse(raw));
+      return validatePack(raw);
     } catch {
       return null;
     }
   }
 
   function packs() {
-    const result = [];
-    for (const key of Object.keys(localStorage)) {
-      if (!key.startsWith(PREFIX)) continue;
-      const pack = getPack(key.slice(PREFIX.length));
-      if (pack) result.push(pack);
-    }
-    return result;
+    return (window.LorekeeperPackStorage?.allPacks() || [])
+      .map((raw) => {
+        try {
+          return validatePack(raw);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean);
   }
 
   function courses() {
@@ -133,7 +138,7 @@
     return course(slug)?.stories?.[src] || null;
   }
 
-  function store(data, reservedSlugs = []) {
+  async function store(data, reservedSlugs = []) {
     const pack = validatePack(data);
     if (sizeOf(pack) > MAX_CHARS) fail("This pack is too large for browser storage.");
     const existing = getPack(pack.id);
@@ -146,9 +151,9 @@
       fail(`"${conflict.slug}" is already a built-in course. Pack course slugs must be unique.`);
     }
     try {
-      localStorage.setItem(`${PREFIX}${pack.id}`, JSON.stringify(pack));
+      await window.LorekeeperPackStorage.putPack(pack);
     } catch (error) {
-      fail(error?.name === "QuotaExceededError" ? "Browser storage is full." : "The pack could not be saved.");
+      fail(error?.message || "The pack could not be saved.");
     }
     return pack;
   }
@@ -165,10 +170,10 @@
     return validatePack(data);
   }
 
-  function removePack(id) {
+  async function removePack(id) {
     const pack = getPack(id);
     if (!pack) return null;
-    localStorage.removeItem(`${PREFIX}${id}`);
+    await window.LorekeeperPackStorage.deletePack(id);
     for (const entry of pack.courses) {
       localStorage.removeItem(`lorekeeper:progress:${entry.slug}`);
       for (const key of Object.keys(localStorage)) {
@@ -188,6 +193,7 @@
   }
 
   window.LorekeeperLibrary = {
+    ready,
     validatePack,
     parseFile,
     store,
