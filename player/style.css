@@ -1400,3 +1400,13 @@ html[data-theme="storybook"] .manage-row { box-shadow: 0 8px 20px rgba(74, 52, 2
 .sidebar-tools > span { color: var(--dim); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
 .sidebar-tools a { color: var(--muted); font-size: 0.76rem; text-decoration: none; }
 .sidebar-tools a:hover { color: var(--text); text-decoration: underline; }
+
+.store-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.store-art {
+  width: 34px; height: 34px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--accent) 12%, var(--panel-inset));
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+.store-art svg { width: 20px; height: 20px; }
