@@ -1,7 +1,7 @@
 {
   "format": "lorekeeper.catalog",
   "version": 1,
-  "updatedAt": "2026-11-07T04:11:11+00:00",
+  "updatedAt": "2026-11-07T05:05:01+00:00",
   "packs": [
     {
       "id": "pocket-incidents",
@@ -18,12 +18,14 @@
         "story"
       ],
       "level": "beginner",
+      "artSet": "cybersecurity",
+      "artScene": "crisis",
       "courses": 1,
       "lessons": 3,
       "size": 30578,
-      "sha256": "d0af2b9d557c64ef354ead9ccd805a370ffff987fec04f18c4ebeafe65fbbdd6",
+      "sha256": "8a5d9c3e7f8a6b4969e71937ecc1bb519ac4cf23f61185e68a41c9e45c83234b",
       "keyId": "c72e49ccf7055c89",
-      "signature": "kXUfHJI8UtTs4O9fW/i5MgtJ9xPLKi+n7kweLe4KxaqbSOzjQqCfXXE9ugaBdNaU5erGgmKG6ZCPA1bktXajAQ==",
+      "signature": "uXgwPD95UMw7tRZAjzbMwaYBnsU82sHfDbGpQ1lfcn8ndnLbotbR+UpprjrLjUX6GGjwcdqOQ6mW9M0vdgY+Aw==",
       "url": "packs/pocket-incidents.json"
     },
     {
@@ -41,12 +43,14 @@
         "incident"
       ],
       "level": "beginner",
+      "artSet": "cybersecurity",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 24,
       "size": 104829,
-      "sha256": "82a1853d7dff0c7439359a12ee90052e5fb330bc801c97f3be48a8fc3b4343b7",
+      "sha256": "00e6523a412774884e381ac61a82c1b9de714192f655aa2b93165e4b474411b6",
       "keyId": "c72e49ccf7055c89",
-      "signature": "gaXoHPLn0t1IIqgkpXcB5Gm5Gwwa/OH4b2IyBNsx/OA/T3Dk2tjMIW//oNhbIQpmp4n8restNTLTWA/zqoB4AQ==",
+      "signature": "iMXyPGUua4gTfG5/3PTVG/FbSefaBF+jUF8AYLjW0zS38FXll0Fc1ZasKzWxwUkw+l2mQIQInfspZIvIhNCpBw==",
       "url": "packs/information-security.json"
     },
     {
@@ -65,12 +69,14 @@
         "security"
       ],
       "level": "intermediate",
+      "artSet": "business",
+      "artScene": "judgement",
       "courses": 1,
       "lessons": 24,
       "size": 304321,
-      "sha256": "93ef3b85fa9e654f14b13d8c8e4791e971960a3892ba60835ddafb0aa7a0d4d4",
+      "sha256": "e18f56782efe48dd3fa58ce4362318d9b236e19cc5e700233516e3e0854cc1ea",
       "keyId": "c72e49ccf7055c89",
-      "signature": "BIi13v1RiWFp4DjnnbUpp/0b4Q7NNadcjKStm7GQTzYU6w010oTTAdYRbevIKA7KKcGIf8/ZkAez6CEsJcMgCQ==",
+      "signature": "xXgXRGNuIbJeEZ7ZDY3S8a7Qe7wyQ6ODSoIX/4Ja5AxjSdzC9Erir2gAcWrlkyMJAMHn52KJ3kZhR2X6AdyfCQ==",
       "url": "packs/audit-and-control.json"
     },
     {
@@ -88,12 +94,14 @@
         "foundations"
       ],
       "level": "beginner",
+      "artSet": "cybersecurity",
+      "artScene": "crisis",
       "courses": 1,
       "lessons": 18,
       "size": 186817,
-      "sha256": "bf3ccd39a8c5343609cdbfba4f992eb4706c99694e396d569fb272aad91dcca2",
+      "sha256": "96ca1921ba4483a7d617117e375283f7b734eafe61b5d95616259d42b09ee0fd",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Z1uK4EJ49Dl2X1zu+Ppi2pon/g5VruXZKf3IvrQaLNBphLR0HQ/VTn+MMUjsO8AQo1gDmUtwt/fgUzujSB8QCQ==",
+      "signature": "o9UF4skDfvl/cZvLggCYZ13RvSVWE+ORb2y9ti6Rpjxr0yLtOMyN4rBu1lUV4mxNUR6NOek6s6V14dlgbVJLDA==",
       "url": "packs/assume-breach.json"
     },
     {
@@ -111,12 +119,14 @@
         "testing"
       ],
       "level": "beginner",
+      "artSet": "cyberpunk",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 22,
       "size": 213893,
-      "sha256": "f454609d01e665f23822d0cbb7347c8a6dd928102613a08fd95868d88517f3da",
+      "sha256": "9ee1f130e25cb7058f4457e3d79c49ecdaa2e443e4b8b1c9991d7d60b3fb1bbf",
       "keyId": "c72e49ccf7055c89",
-      "signature": "68iP69dszf15w2N9FDGjVwpJp3txP/Talvws2Suw1WJWD/E+RUX1yCK1Ey6DuUzKaMS23fQUTKRAVZ6kFUw8Cw==",
+      "signature": "3OGkxSglwPQV3hVFG66cjVqQUkkfT68ZjE4XOd/9JssOLEYS6QPryCZO7AcwxohGC4DPTfEA1AvJuAmSbjURCA==",
       "url": "packs/speak-software.json"
     },
     {
@@ -136,12 +146,14 @@
         "react"
       ],
       "level": "beginner",
+      "artSet": "cyberpunk",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 27,
       "size": 604399,
-      "sha256": "b97e283a44d34338018b8db94385fe90add424574db12eeb6bae6b7e23f75104",
+      "sha256": "833b6dcd4663d3273e43d9fc230a77de7df0e527b36675dbcd234cd72ac1a5dd",
       "keyId": "c72e49ccf7055c89",
-      "signature": "pyrEK6WLpCOEavWbZaLyzF8Sjn7kJVwvk0wYBE2e2ULYplcMA1kYHCuiilZhGbo0/jST1WdmKJ5r0L5OlFBhBA==",
+      "signature": "+wlho1VkAPvxpRsgVU9fCTAhTkjI5QoSQuKrecQC7uFsTYcLKsnzmVanSRU5OrdXfBgyVirvMkhuDf8kB+mXAQ==",
       "url": "packs/build-web-guide-ai.json"
     },
     {
@@ -161,12 +173,14 @@
         "governance"
       ],
       "level": "beginner",
+      "artSet": "business",
+      "artScene": "judgement",
       "courses": 1,
       "lessons": 14,
       "size": 154171,
-      "sha256": "493d6a3aee466548d6d3ef2138ca898a55e0b5868fa5a70c6fdc3872391f8636",
+      "sha256": "dcf79ac36232dade5ef8830095e83bee61585c44487a19b543436efb605b52f5",
       "keyId": "c72e49ccf7055c89",
-      "signature": "wPrM/LjIAEsRrCraTpjpE64jlu3auScDffwRyxX4LhD/B+x5lrAR0UHFK1fG8MD6NBalfiPAY1LFX3Nk6VTnCg==",
+      "signature": "KecCiTCExdNoAfz3h7ViWCoh4PmnF4wtHXQhs1zrDQBPvw6n82BtcYlGg3YpUlzGhIq2x0lzdqDIHqFiLcv+CQ==",
       "url": "packs/systems-analysis-and-design.json"
     },
     {
@@ -184,12 +198,14 @@
         "investigation"
       ],
       "level": "intermediate",
+      "artSet": "noir",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 11,
       "size": 108882,
-      "sha256": "cc22963199b57037f6564343c9236951b5bac06467cbf0bc8942d13dc2f2b3d5",
+      "sha256": "32d34c15887b0612ad94e7cc16031d9bb9f55a19180d09d83d4cdeecf59eb1d0",
       "keyId": "c72e49ccf7055c89",
-      "signature": "aiUPZq6E6OJRJ5E64KK6DyZfESPdaMToLDTXOFfIVhDN4Xh+c3id41uzZ73iWEujOQTzPcW4Hx6R+D63o7vODA==",
+      "signature": "wcDsshq3qbgUZFACKyAXmrGV0O9T7uabC6P5CZG4jjk5SlyTxJR4YpH42HUxLi0FYNqUiSGc6nwpMWYKyMZzAA==",
       "url": "packs/follow-the-trace.json"
     },
     {
@@ -208,12 +224,14 @@
         "professional"
       ],
       "level": "beginner",
+      "artSet": "business",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 15,
       "size": 131881,
-      "sha256": "22119bfb74f47630d47de7188ab69a2610c20d1edf81b1238c1697ee5becd54b",
+      "sha256": "edc065281f7d9c70adf24623f67626963f627716e77da92dcdc81d907f5b9c5b",
       "keyId": "c72e49ccf7055c89",
-      "signature": "r5lQOZyLHg2Sn+bZD4DDWTTnAOJ9sYPk6jLiL++ZlMKQS2Tt+ux8SvVTr2Ai07tABJ16B154Smb6/xM1QXaeCA==",
+      "signature": "7dKsBySYbxrSkbunPUasD+ZOeC+NGvr5DarUeKkX+UBR9EGJwNHZttdtfSoyVddQIoOgG7D6h7WoJv1hJMxcCg==",
       "url": "packs/the-human-edge.json"
     },
     {
@@ -232,12 +250,14 @@
         "governance"
       ],
       "level": "intermediate",
+      "artSet": "business",
+      "artScene": "judgement",
       "courses": 1,
       "lessons": 11,
       "size": 106711,
-      "sha256": "198979e9fe8ed04ef2e7d59c070d0c9ca3f13017a650cf1646e9f85ebba7c180",
+      "sha256": "6857e41e985804720c5526bb314c4377ee02a62a4ecb1f15a259be42339b71b2",
       "keyId": "c72e49ccf7055c89",
-      "signature": "yZh6Y8dSHJr2yitIM9Hh5TeyxIDrQ4pnrRMn+PhOLqvsKSM0ZSO4LK0aSN8FMRXcxStednU1vR/eVT7FwIPWDQ==",
+      "signature": "TCsKC8Y4vQb3V8kBxxycaQcU2ntr0xuc4W1JCii3WZBJlWEfSbYCLdCuZ1ljw68M5er5yqoVeer0mKpAW5GxCw==",
       "url": "packs/test-the-claim.json"
     },
     {
@@ -256,12 +276,14 @@
         "ai"
       ],
       "level": "intermediate",
+      "artSet": "business",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 16,
       "size": 217625,
-      "sha256": "c05bea2749fcc9e446e69a6bb8ef0dc5c533f1a11bf0e3be73d41aa82e782e8d",
+      "sha256": "1637911b64b881b6f0a2ce252a646eff3e706037670b0ef1d8b28dbccd0ea45f",
       "keyId": "c72e49ccf7055c89",
-      "signature": "YH0IYO+YdZcPCK3+wRFiVmO0Y9IkeQPqAaSwp128yW9bdpYt8RtEzBp5w+qH6pTR1UkcWNmxcejkEi2g5mAFAA==",
+      "signature": "UyWbArYpdhMRK65GrnP7C5/0xiN4qqV7enIm0vkZfXv0R01ZO8oVSOa+ZTYnyP2WrMPnBAR65XXAiZ/jytU8Dw==",
       "url": "packs/substantiate-dont-assume.json"
     },
     {
@@ -280,12 +302,14 @@
         "critical-thinking"
       ],
       "level": "beginner",
+      "artSet": "university",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 19,
       "size": 220453,
-      "sha256": "8404782608976cc42326da86f839a58d4031332cc9622af70f6dce6eb907afef",
+      "sha256": "7fcbfd3b35008c4da6630cc3224c7560fc880dff1389bc294bb3ec31b23806a4",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Uaw6HShJaZui7mZ6XqfTyxr85A38QonzZ8QSTCYo9XLDYhAWp1HpL785Yucp2/ugbYP5YDQ9zCU9ylznnN2yBQ==",
+      "signature": "HM7x+jD/F5q9hBpX+RSbxhBCQoCkTuABuVzFjuyoe/369+PppIq6rArvJ0E+kUtLUyVCcatLdHP3ArhzE1VLAw==",
       "url": "packs/conversation-not-delegation.json"
     },
     {
@@ -304,12 +328,14 @@
         "judgement"
       ],
       "level": "intermediate",
+      "artSet": "business",
+      "artScene": "gamble",
       "courses": 1,
       "lessons": 16,
       "size": 185623,
-      "sha256": "aa20ddf8fc14fc61236dff4d1e29d718202ff23297a08a0d807cb3c30b075b93",
+      "sha256": "559be6f64b1941083e277697d49475cde0916fa6b1ea48d8ea5bdde173e433c0",
       "keyId": "c72e49ccf7055c89",
-      "signature": "eM7sBHR+JxLcHRTlv9yrwQG2FaT1sN4rSJv8rzjlsJ3u9NS7U7dNunzcwkg2b2JJ0BfUdbfLtbSpcY1q746lBQ==",
+      "signature": "mP5Kt+uTpKUdcieiGAfzu/ffJZr89kEp4n5qKGBuxktQqkYX5xjk/KA4gCwDsOfcnulpe00a904RY6XClpSeCg==",
       "url": "packs/prove-dont-persuade.json"
     },
     {
@@ -329,12 +355,14 @@
         "evaluation"
       ],
       "level": "intermediate",
+      "artSet": "cyberpunk",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 22,
       "size": 329681,
-      "sha256": "f81825d3d31dbd7bdf53bf11abc5e96de04907cc03bc37f247a5abf70ca1c8dc",
+      "sha256": "709a54c004ec8189e3ead1f9f62af8c85438ec4e67211f9f7b4454fd01bece9c",
       "keyId": "c72e49ccf7055c89",
-      "signature": "GRa0cPEgTfCHmih0m2OSYRkHxhrVEZOk7p25kjkpiiIuwxnTSthx2nmnqKjGE2Ld+xepaFMYW3Paf2zKqoauAA==",
+      "signature": "TC+w1gaKaaIH7EigtaHXcXwUWLTlXlm9tnhpo9HSlz4k2JsW6l1XAamWVSou1ZPrIpykya71qPzxFfLUGdPXCQ==",
       "url": "packs/build-ai-understand-ai.json"
     },
     {
@@ -353,12 +381,14 @@
         "reporting"
       ],
       "level": "intermediate",
+      "artSet": "cybersecurity",
+      "artScene": "crisis",
       "courses": 1,
       "lessons": 14,
       "size": 119237,
-      "sha256": "8e158c4d6e924144e1aa96f50d679295b450341eb4822bde80963b0f260473f9",
+      "sha256": "e969d0622c75d03edd546d7933669c579d2f519a6105ff9f62d9aa66b6f5631d",
       "keyId": "c72e49ccf7055c89",
-      "signature": "2+FKXI19SXcWDqJYlo07zIuXTyORjtB23DrAq2UvmAS8mjJhY8xXJEff7qXM6hzBDlaLekhpqSgvu9yVj3XzCA==",
+      "signature": "XqdAHdqwlmQIaz9LPvsQRh3MaIZc+/ocHSVXyu2MKMTBRdMtCOSjDYjryb07V03NESx7/Q2NLmil7ZRLcAd4AQ==",
       "url": "packs/break-with-permission.json"
     },
     {
@@ -378,12 +408,14 @@
         "troubleshooting"
       ],
       "level": "intermediate",
+      "artSet": "cyberpunk",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 12,
       "size": 91950,
-      "sha256": "f1a6538a783357140cfee8fb50b17387f88d464f51a8e735ab19c3a881c5157b",
+      "sha256": "64f2d5474348978d672cc88bbe672c8ff6dfba272a746b48022fd3657693a673",
       "keyId": "c72e49ccf7055c89",
-      "signature": "PRQMjQ9XYYK5pxQKdt5VlqQ2w4z8f+3ttzk3Ywz3uEY4rVTUkqnAD8vqONVn92/IF2BkEJ0pnskHmud0UnCpDw==",
+      "signature": "RO2NNrlrNwTZEcW2TNllQG6AaYY4fjh2NGJoe7uDb4r+yniwZUqTmCb6YYkm3lJe94Jm2czdoXCqd5igaO3VCQ==",
       "url": "packs/follow-the-packet.json"
     },
     {
@@ -403,12 +435,14 @@
         "security"
       ],
       "level": "beginner",
+      "artSet": "cyberpunk",
+      "artScene": "opportunity",
       "courses": 1,
       "lessons": 12,
       "size": 89007,
-      "sha256": "bbe9e99b2bbd26535719b0233445ccc29930acc4ba335d9ba51fc65de459de49",
+      "sha256": "0417616aa993c7ede4a7f38ce14e986764c6e67018878fa64c49468b6dde9569",
       "keyId": "c72e49ccf7055c89",
-      "signature": "siC/ic5qZMuJFelAO/Z5nJ98Hc+PFbntA92z/FxvDoIXirNAT3Y7ILYpnE71ExI2L1cqzYrUL9b4vTkGZDEdDQ==",
+      "signature": "VaKqaOQN2mV20EGJ1B2upQvrJh583b7KtDTlH8G1T3UmCuGPaChAgCvXHiwtpyC+/T+OhEtZcQyL9so5X1qwDQ==",
       "url": "packs/simplebot.json"
     },
     {
@@ -428,12 +462,14 @@
         "agents"
       ],
       "level": "beginner",
+      "artSet": "university",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 16,
       "size": 111348,
-      "sha256": "74f923c91d7394e2c664b8e645e59c0db4bb53e662edb5502e5ec020c95c7eeb",
+      "sha256": "852986f7c535ee3a83aabcbe03a88d6fcef1713d8655397167a34eb27b91d30a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "geNDs7W/gPKVGr3nVHFqykbRun3ddrZnuol2lCT0ukT6xIHXffUmn5FUlXN+1Bm3ZqlOXXUSyw9KucVAN5ahCQ==",
+      "signature": "HuAe1LeyFARB+nvMC5xPD0OqG7jvSpd4SctIdAq23tr2LtGSE4QP6Cz4px6hWxvjNKwUAD5XiSQL0/kSyDd4DQ==",
       "url": "packs/build-it-teach-it.json"
     },
     {
@@ -451,12 +487,14 @@
         "beginners"
       ],
       "level": "beginner",
+      "artSet": "science",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 29,
       "size": 689369,
-      "sha256": "47a80f98d72016e202702c98a57ac5768c835f1e4ff22d9eab9605f9cc13f05d",
+      "sha256": "7842e1e449b4cf80b0cb80caa4c5bdf6c06b1c0b12ad5d915fb0c54aff4de2b5",
       "keyId": "c72e49ccf7055c89",
-      "signature": "A6aDO4NEaUKqubZOcHMnes/YlSQoE1yFAH6jEqsykB0tg9yIGVaiPHAwjKve4pLOu1QXb5cJyoWz4qhExfzpBg==",
+      "signature": "fko0kK711ADTsBNGEFJoG7LbZ7SNS3QCqc0ZQryPltxcXXAjkFY8p4TEviGeJbPlDtvTsQTtDIaZlRwFXG5SCw==",
       "url": "packs/think-python-direct-ai.json"
     },
     {
@@ -473,12 +511,14 @@
         "fundamentals"
       ],
       "level": "beginner",
+      "artSet": "science",
+      "artScene": "petitioner",
       "courses": 1,
       "lessons": 21,
       "size": 214728,
-      "sha256": "0125bb6f9469806d3232d5ff015ee6c508164d57c939c279a4d246aa78a97a5c",
+      "sha256": "8264cb8d8138c802ddc4c6db30f5234b0aa620057b6eb0aafa008c6d4426d4be",
       "keyId": "c72e49ccf7055c89",
-      "signature": "zbNaAUJxC24w/d61vCBfac2oeDmHjTX+405DlclqqBTwtXeRIQpTN/rxJciUHE576kQ0woF+JBB6M8d1wINzDQ==",
+      "signature": "aVPOnTAmLIMrNNYR9f9r2PCY7Hy5fk37NWIWWP5GNN60vuEg+ibvaJVkkKt1k7Xxy9sTp5k4C+J6KRjYkNsOAg==",
       "url": "packs/code-python-consult-ai.json"
     },
     {
@@ -496,12 +536,14 @@
         "testing"
       ],
       "level": "intermediate",
+      "artSet": "cyberpunk",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 11,
       "size": 381059,
-      "sha256": "945d2d721137e2f125cc5ecd6871480b6147bc43265e40dcf5891536e9fef66c",
+      "sha256": "d3d8e8b4504d1adf2613cf2ea27ba96116fb286d7831497182ece37145a88799",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Xq1BW90pzaYAnSaa/AoGwxeqfwkJG3JdgXrKpge8c4aPI80ypCUAhPDKCkJVbGLf06XdR4gS383lq7hkYeX7Dw==",
+      "signature": "gHA0S/028T8Iae4SIZe8xGM/NoD2+39Q8eIbku0uoA5CE4wzc2lSCW2A3/a7UQFVGJGDCEpTNXsXEXncIjZIDg==",
       "url": "packs/ship-python-orchestrate-ai.json"
     },
     {
@@ -519,12 +561,14 @@
         "methodology"
       ],
       "level": "intermediate",
+      "artSet": "cyberpunk",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 18,
       "size": 455912,
-      "sha256": "de0b702cc1233fe7177e315c9b95abf7db59b5521c490b5e58a545f60e2b1205",
+      "sha256": "1499d44015ecd8e570b76c0dcf9687a41396112d9002ba941a666960d8699395",
       "keyId": "c72e49ccf7055c89",
-      "signature": "7waXvghC3zz+tQ/L5WLsxU2jQ1u2ud6Vq1giFT3ZaEzN8j3YOvEOQbx63+sminJKWWuH8CEcq68d+IqskOluCw==",
+      "signature": "l/PNVtl8DHv6hPJK1QNzJyymbb71ohbZZyM2adGxra+fSokgi7zO6/hr5rzjeFbpVCOo+62CgXOO0+Z2bECGBg==",
       "url": "packs/converse-python-partner-ai.json"
     },
     {
@@ -542,12 +586,14 @@
         "assessment"
       ],
       "level": "intermediate",
+      "artSet": "university",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 17,
       "size": 171620,
-      "sha256": "66db48d2807f88a8255a2f1da4873085524a922be4d5c6d8095d1c9a3562bf24",
+      "sha256": "c6a5f137ee48b1b34e0e8b7ccddd718f74021eec30159a6c5289f39aa6230816",
       "keyId": "c72e49ccf7055c89",
-      "signature": "Yf2vNp92xqHCNvbWdtiec6UTzStcUOpFKCkHl1e3rNE8pr6u2/qKrBqQgwH5/6G03/9dOCHlHTfsNExZ6OUGBA==",
+      "signature": "vM8tajJxANReoFPBq/fmRC4wGCq3z0Rf4nzTvcptsBUXM1iCUBoUClMsfgoBNASce4VfqTXVwHkx6yQ5W/yqAA==",
       "url": "packs/partner-dont-police.json"
     },
     {
@@ -565,12 +611,14 @@
         "verification"
       ],
       "level": "beginner",
+      "artSet": "base",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 31,
       "size": 340960,
-      "sha256": "ea52ee12f2694c8bfd3f08ab701fb9cbd2e9965b1264bcf45b787d8206928671",
+      "sha256": "455c8307e4f4f8203a5b70dae0eb96500d9995b92667a29c5990baf4675d3de9",
       "keyId": "c72e49ccf7055c89",
-      "signature": "w8QkZf6YxyUc5JlS9FQC8Kz3Zv3bXREN6fRO/Mdv5CR7lpmdGAYmhHNfEn5//hXWwuQSMSkmxssuRHcj8yHMCw==",
+      "signature": "WGIOARTCqncpYlMZ6oLk0YZmWTLUj7CE0/BCqWfeOpio1r0IPvU7ZAqza22Csw+dljx0vS2fUOFyUJ8X8ihgAw==",
       "url": "packs/the-absolute-minimum-you-must-know.json"
     },
     {
@@ -588,12 +636,14 @@
         "essays"
       ],
       "level": "intermediate",
+      "artSet": "space",
+      "artScene": "crisis",
       "courses": 1,
       "lessons": 9,
       "size": 35917,
-      "sha256": "1a13fa4aa8e11fb2f39b68bd3ed385bef8a966b54a1c5309c46e88be427d907f",
+      "sha256": "b817486fd6c2787e61be895b2cdc8f07d7a0e92ae8369efff90f823f2cae08d5",
       "keyId": "c72e49ccf7055c89",
-      "signature": "WBpmqVU+4u6EWgd0hhxrs03L/j1wlpQqxTJLtJoZKGROj3n6eFmHlSw+mNkdQpflJH8qs/ls3ebDBZoUJbWtCA==",
+      "signature": "cKRJzhz5KyQgPkhYVuNqVNTjXLIkW7ixiGo7nRAklg5Q5wWZVD5mNjZsuif1Gjw6RAW3eN9THYxwwg3LFd3vDw==",
       "url": "packs/the-great-silence.json"
     },
     {
@@ -610,12 +660,14 @@
         "teaching"
       ],
       "level": "beginner",
+      "artSet": "cyberpunk",
+      "artScene": "judgement",
       "courses": 1,
       "lessons": 6,
       "size": 42372,
-      "sha256": "6bf884bed5195d7a44e937c3731aa68aad175618b5d5b6c8455edce2a2ae5900",
+      "sha256": "5f8c8a881de388388c5f5e857d9c66c1f146c7eab49f29f61ec3350a1470a3d7",
       "keyId": "c72e49ccf7055c89",
-      "signature": "R3NMn12xg1kq5OKkjUAcUqaljdJL8sLBiYR98I3A6hiPT1EdBlYMkGhOHj+0fM8CldZb21B2jVdhVt3PE1f8BA==",
+      "signature": "uvloF7Xq40MQBH4MIsVMp+uAdglP58zEzCBmL1+c6p+auFuLl7TW0MPBS49JtXx6xpHagmmoycZlowxlF2riAQ==",
       "url": "packs/programming-paradigms.json"
     },
     {
@@ -633,12 +685,14 @@
         "python"
       ],
       "level": "intermediate",
+      "artSet": "science",
+      "artScene": "gamble",
       "courses": 1,
       "lessons": 8,
       "size": 56531,
-      "sha256": "830380ff772f484f5629a406b0b9b6cfd4d4fdef0c3d24439aafa87eaff6cb37",
+      "sha256": "4713ac56ab55ea51790bb9b7ffcae57894422171cedc3b136bb97d5ca7d3c1e4",
       "keyId": "c72e49ccf7055c89",
-      "signature": "T6yttWGqFZ1ZFkqVTlfj7f80zWY0fjjhJVUFVNufYbt4k4SqRGt6BtQwDuEuMj4bXur/R795ZqC+CmI74W5PAQ==",
+      "signature": "gzLYv8kFU3gX7+6FMtXhhpCpikSQwZ8TDtX+sBPNSypPwrWW+4c699ja4yGs7k0wrM0reYELZ9aw318FiUQoBw==",
       "url": "packs/simulate-it.json"
     },
     {
@@ -656,12 +710,14 @@
         "interactive"
       ],
       "level": "beginner",
+      "artSet": "cyberpunk",
+      "artScene": "opportunity",
       "courses": 1,
       "lessons": 7,
       "size": 20118,
-      "sha256": "2654a5239c3185a5e9969d76fdbf4c664a7448507227d725c8d3c98946734963",
+      "sha256": "a95fe04a33fffb1fd4bdf1b570205bac359181c31df739eff3c90bf3d01895de",
       "keyId": "c72e49ccf7055c89",
-      "signature": "hhcoa0yez2JVA+PO8ZJ9x+lBT5Asf8ON0S96ciNkUjIK6k7e0s1f0eB/PjAArekjrxrU1ULROBqAQsUIPlj0Ag==",
+      "signature": "M3aykHIeJbSKc1uqJcqzUxbvQRe0T+1mISqcaQz6tlu9NMwPmYLSJxGRxD2MaV3p0p2/HRKgW43h0yFeQU3DBw==",
       "url": "packs/ai-toys.json"
     },
     {
@@ -679,12 +735,14 @@
         "interactive"
       ],
       "level": "beginner",
+      "artSet": "cybersecurity",
+      "artScene": "advisor",
       "courses": 1,
       "lessons": 7,
       "size": 19416,
-      "sha256": "92caa6c607ea56bb336862842c2eb014c598f9e755aa9677ca531183580884c7",
+      "sha256": "4b7267c00dc3408b7b7fa9c941e562419dd76db6f6ec06fd966a571aa22f742a",
       "keyId": "c72e49ccf7055c89",
-      "signature": "rmNHS86KSuBA6Cl+eTMPDWpc36Nb5oz3CxECH6t0mLxQdrv7YkOPo8lFfgrHyre8R5PVuATGA7hfrpkWOE/eBQ==",
+      "signature": "LV8Chx+ImHyH3oEH3RutqXbr+C/wZ160TEkFwCVdHiL2PgLNLI9FvBppj1RZ/8n7xBvYuRb+zxfsiyfhvlQKDA==",
       "url": "packs/security-toys.json"
     },
     {
@@ -703,12 +761,14 @@
         "labs"
       ],
       "level": "intermediate",
+      "artSet": "cyberpunk",
+      "artScene": "chain",
       "courses": 1,
       "lessons": 14,
       "size": 91035,
-      "sha256": "0b4e65c27f8759c0cd4960232c2022991128a155058baf1ee0721c4ea54d768e",
+      "sha256": "a825772acfd5c33159ad6cebba50dcb9138ec9c260e6afa581520880f6b154ac",
       "keyId": "c72e49ccf7055c89",
-      "signature": "zA2a71iCDxNoiAlYePqe9zvRGLOsjRsIhkeLJMEhvK3HqWUzpRvPSZwL8bKqGEetqUmt9GJAPfgqATbRquJ9Bw==",
+      "signature": "++k+XvSzfkkdWrLYAgGuZLEn3Hir5XhJTXNFyp1Qx6IuipDF8VDisn/hhwHdnPkoo3xE79Hy1uQJZiJcm8/ODg==",
       "url": "packs/netsim-field-guide.json"
     }
   ]

@@ -1410,3 +1410,16 @@ html[data-theme="storybook"] .manage-row { box-shadow: 0 8px 20px rgba(74, 52, 2
   color: var(--accent);
 }
 .store-art svg { width: 20px; height: 20px; }
+
+.course-cover, .store-cover, .journey-cover {
+  width: 54px; height: 54px; flex: 0 0 54px;
+  border-radius: 12px; object-fit: cover; object-position: center;
+  border: 1px solid var(--border);
+  background: var(--panel-inset);
+}
+.store-cover { width: 48px; height: 48px; flex-basis: 48px; }
+.journey-cover { width: 42px; height: 42px; flex-basis: 42px; border-radius: 10px; }
+.course-card-body, .journey-course-main { min-width: 0; }
+html[data-theme="pixel"] .course-cover,
+html[data-theme="pixel"] .store-cover,
+html[data-theme="pixel"] .journey-cover { border-radius: 0; }

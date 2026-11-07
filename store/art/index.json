@@ -1,0 +1,26 @@
+{
+  "sets": [
+    "base",
+    "business",
+    "cyberpunk",
+    "cybersecurity",
+    "noir",
+    "science",
+    "space",
+    "university"
+  ],
+  "scenes": [
+    "advisor",
+    "chain",
+    "crisis",
+    "faction",
+    "gamble",
+    "judgement",
+    "opportunity",
+    "petitioner",
+    "terminal"
+  ],
+  "paths": {
+    "scene": "/store/art/<set>/<scene>.webp"
+  }
+}

@@ -92,6 +92,7 @@
           .map(
             (item) => `
           <button class="journey-course" type="button" data-journey-course="${escapeHtml(item.course.slug)}">
+            <img class="journey-cover" src="${window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(item.course) : ""}" alt="" loading="lazy" width="42" height="42">
             <span class="journey-course-main">
               <strong>${escapeHtml(item.course.title)}</strong>
               <span>${item.status} · ${item.done}/${item.total} lessons</span>

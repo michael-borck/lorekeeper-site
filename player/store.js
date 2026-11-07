@@ -16,32 +16,6 @@
   let filters = { q: "", category: "all", level: "all", installed: false, sort: "title" };
 
   const $ = (id) => document.getElementById(id);
-  const ART = {
-    ai: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="6" width="16" height="13" rx="3"/><circle cx="9" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.4" fill="currentColor" stroke="none"/><path d="M12 3v3M8 21h8"/></svg>',
-    security: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
-    systems: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="8" height="6" rx="2"/><rect x="13" y="14" width="8" height="6" rx="2"/><path d="M11 7h4v10"/></svg>',
-    networks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.5 7L6 15.5M13.5 7L18 15.5M7.5 18h9"/></svg>',
-    programming: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 6L4 12l5 6M15 6l5 6-5 6"/></svg>',
-    education: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 6c-2-1.5-4-2-7-2v14c3 0 5 .5 7 2 2-1.5 4-2 7-2V4c-3 0-5 .5-7 2z"/><path d="M12 6v14"/></svg>',
-    reference: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>',
-    all: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="5" rx="2"/><rect x="4" y="14" width="16" height="5" rx="2"/></svg>',
-  };
-
-  function storeArt(id) {
-    return ART[id] || ART.all;
-  }
-
-  function hex(buffer) {
-    return [...new Uint8Array(buffer)]
-      .map((byte) => byte.toString(16).padStart(2, "0"))
-      .join("");
-  }
-
-  function base64Bytes(value) {
-    const binary = atob(String(value || ""));
-    return Uint8Array.from(binary, (char) => char.charCodeAt(0));
-  }
-
   function categoryFor(pack) {
     const tags = new Set((pack.tags || []).map((tag) => String(tag).toLowerCase()));
     return CATEGORIES.find((category) =>
@@ -78,7 +52,7 @@
     return `
       <article class="store-card" data-pack="${escapeHtml(pack.id)}">
         <div class="store-card-head">
-          <span class="store-art" aria-hidden="true">${storeArt(category.id)}</span>
+          <img class="store-cover" src="../store/art/${encodeURIComponent(pack.artSet || category.id)}/${encodeURIComponent(pack.artScene || "advisor")}.webp" alt="" loading="lazy" width="48" height="48">
           <span class="store-level">${escapeHtml(pack.level || "pack")}</span>
         </div>
         <h3>${escapeHtml(pack.title || pack.id)}</h3>
@@ -232,9 +206,9 @@
       await window.LorekeeperLibrary?.ready();
       catalogPacks = Array.isArray(catalog.packs) ? catalog.packs : [];
       render();
-    } catch {
+    } catch (error) {
       body.innerHTML =
-        '<p class="widget-note bad">The pack store is not available. You can still import a pack file from the course picker.</p>';
+        `<p class="widget-note bad">The pack store is not available. ${escapeHtml(error?.message || "You can still import a pack file from the course picker.")}</p>`;
     }
   }
 

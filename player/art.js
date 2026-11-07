@@ -120,6 +120,62 @@
       </svg>`,
   };
 
+  const PACK_ART = {
+    "pocket-incidents": ["cybersecurity", "crisis"],
+    "information-security": ["cybersecurity", "advisor"],
+    "audit-and-control": ["business", "judgement"],
+    "assume-breach": ["cybersecurity", "crisis"],
+    "speak-software": ["cyberpunk", "advisor"],
+    "build-web-guide-ai": ["cyberpunk", "chain"],
+    "systems-analysis-and-design": ["business", "judgement"],
+    "follow-the-trace": ["noir", "chain"],
+    "the-human-edge": ["business", "advisor"],
+    "test-the-claim": ["business", "judgement"],
+    "substantiate-dont-assume": ["business", "advisor"],
+    "conversation-not-delegation": ["university", "advisor"],
+    "prove-dont-persuade": ["business", "gamble"],
+    "build-ai-understand-ai": ["cyberpunk", "chain"],
+    "break-with-permission": ["cybersecurity", "crisis"],
+    "follow-the-packet": ["cyberpunk", "chain"],
+    "simplebot": ["cyberpunk", "opportunity"],
+    "build-it-teach-it": ["university", "advisor"],
+    "think-python-direct-ai": ["science", "advisor"],
+    "code-python-consult-ai": ["science", "petitioner"],
+    "ship-python-orchestrate-ai": ["cyberpunk", "chain"],
+    "converse-python-partner-ai": ["cyberpunk", "advisor"],
+    "partner-dont-police": ["university", "advisor"],
+    "the-absolute-minimum-you-must-know": ["base", "advisor"],
+    "the-great-silence": ["space", "crisis"],
+    "programming-paradigms": ["cyberpunk", "judgement"],
+    "simulate-it": ["science", "gamble"],
+    "ai-toys": ["cyberpunk", "opportunity"],
+    "security-toys": ["cybersecurity", "advisor"],
+    "netsim-field-guide": ["cyberpunk", "chain"],
+  };
+
+  function courseArt(course) {
+    if (!course) return null;
+    if (course.artSet && course.artScene) {
+      return { set: course.artSet, scene: course.artScene };
+    }
+    const mapped = PACK_ART[course.slug];
+    if (mapped) return { set: mapped[0], scene: mapped[1] };
+    const tags = new Set((course.tags || []).map((tag) => String(tag).toLowerCase()));
+    if (tags.has("security") || tags.has("audit")) return { set: "cybersecurity", scene: "crisis" };
+    if (tags.has("ai") || tags.has("llm")) return { set: "cyberpunk", scene: "advisor" };
+    if (tags.has("networking") || tags.has("networks")) return { set: "cyberpunk", scene: "chain" };
+    if (tags.has("python") || tags.has("programming")) return { set: "science", scene: "petitioner" };
+    if (tags.has("education") || tags.has("teaching")) return { set: "university", scene: "advisor" };
+    if (tags.has("systems") || tags.has("analysis")) return { set: "business", scene: "judgement" };
+    return { set: "base", scene: "advisor" };
+  }
+
+  function courseCoverUrl(course) {
+    const art = courseArt(course);
+    if (!art) return "";
+    return `../store/art/${encodeURIComponent(art.set)}/${encodeURIComponent(art.scene)}.webp`;
+  }
+
   window.LorekeeperArt = {
     picker() {
       return `<div class="picker-art" aria-hidden="true">${PIXEL}${STORYBOOK}${INK}</div>`;
@@ -130,5 +186,6 @@
     courseEmblem(slug) {
       return EMBLEMS[slug] || EMBLEMS.default;
     },
+    courseCoverUrl,
   };
 })();

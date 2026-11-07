@@ -801,9 +801,7 @@ function renderPicker() {
             (course) => `
           <div class="course-row">
             <a class="course-card" href="?course=${encodeURIComponent(course.slug)}">
-              <span class="course-card-emblem">${
-                window.LorekeeperArt ? window.LorekeeperArt.courseEmblem(course.slug) : ""
-              }</span>
+              <img class="course-cover" src="${window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(course) : ""}" alt="" loading="lazy" width="54" height="54">
               <span class="course-card-body">
                 <span class="title">${escapeHtml(course.title)}</span>
                 <span class="meta">${course.modules} modules · ${course.lessons} lessons
