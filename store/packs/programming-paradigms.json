@@ -1,0 +1,636 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "programming-paradigms",
+  "title": "One Calculator, Three Paradigms: Imperative, Functional and Object-Oriented Python",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "programming-paradigms",
+      "title": "One Calculator, Three Paradigms: Imperative, Functional and Object-Oriented Python",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "python",
+        "paradigms",
+        "teaching"
+      ],
+      "pitch": "The same calculator built three ways, to make programming paradigms visible.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "programming-paradigms",
+          "title": "One Calculator, Three Paradigms: Imperative, Functional and Object-Oriented Python",
+          "theme": "pixel",
+          "tags": [
+            "python",
+            "paradigms",
+            "teaching"
+          ],
+          "level": "beginner",
+          "pitch": "The same calculator built three ways, to make programming paradigms visible.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-three-versions",
+            "title": "The Three Versions",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "One Calculator, Three Paradigms",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A paradigm is a way of deciding what the code is made of.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The calculator does four things: add, subtract, multiply and divide. The behaviour is the same in every version. The structure is not.</p>\n<p>The <strong>imperative</strong> version describes the steps: read input, choose an operation, compute, print, repeat. It uses functions and control flow, and the program is a sequence of actions.</p>\n<p>The <strong>functional</strong> version treats operations as values. A dictionary maps menu choices to functions, and a higher-order function applies the chosen function. Pure functions do the arithmetic; the input and output remain impure at the edges.</p>\n<p>The <strong>object-oriented</strong> version models the calculator as an object with state and behaviour. The <code>Calculator</code> owns the history; the <code>Menu</code> owns the interaction. The program is a set of collaborating objects.</p>\n<p>None is the correct answer. Each makes a different thing easy to see:</p>\n<ul>\n<li>imperative: the sequence and the state</li>\n<li>functional: the operations and the data flow</li>\n<li>object-oriented: the boundaries and the responsibilities</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through Three Recipes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Three cooks make the same soup. One writes a numbered procedure. One writes a set of transformations from ingredients to finished soup. One organises the kitchen into stations, each with its own tools and responsibilities.</p>\n<p>The soup is the same. The kitchen is not.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Paradigms with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Name the Unit of Design</h3>\n<p>Ask the AI to identify the main building block in each version.</p>\n<pre><code class=\"language-text\">Here are three calculator implementations:\n[paste them]\n\nFor each, name the main unit of design: the step, the function or the\nobject. Explain what that unit makes easy and what it hides.\n</code></pre>\n<p>A good answer will avoid ranking the paradigms and focus on the trade-off.</p>\n<h3>Exploration 2: Find the State</h3>\n<p>Ask where each version keeps changing data.</p>\n<pre><code class=\"language-text\">Where does each calculator keep its history or current state? Is it a\nlocal variable, a returned value, a tuple, or an object attribute? What\ndoes that choice make easier to test?\n</code></pre>\n<p>The functional version returns a new history; the object version mutates an attribute.</p>\n<h3>Exploration 3: Move a Feature</h3>\n<p>Ask what happens when you add a power operation.</p>\n<pre><code class=\"language-text\">Add a power operation to all three versions. Describe the change in each\nand which files or functions it touches. Do not write the code.\n</code></pre>\n<p>The comparison is the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A comparison table:</p>\n<table>\n<thead>\n<tr>\n<th>Question</th>\n<th>Imperative</th>\n<th>Functional</th>\n<th>Object-oriented</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Main unit</td>\n<td>Step</td>\n<td>Function</td>\n<td>Object</td>\n</tr>\n<tr>\n<td>State</td>\n<td>Variables</td>\n<td>Immutable values</td>\n<td>Attributes</td>\n</tr>\n<tr>\n<td>Reuse</td>\n<td>Functions</td>\n<td>Higher-order functions</td>\n<td>Classes and composition</td>\n</tr>\n<tr>\n<td>Test focus</td>\n<td>Paths</td>\n<td>Inputs and outputs</td>\n<td>Behaviour and collaborators</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>Hidden coupling</td>\n<td>Abstraction overhead</td>\n<td>Over-engineering</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run all three versions from the repository. Pick one feature and add it to two of them. Compare the diff.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The same problem in three styles is a strong assessment. A student who can explain the trade-off understands more than one who can only write the version they memorised.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Name the main unit of design in each paradigm.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Find where each version keeps state.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Add a power operation to two versions and compare the diff.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Explain which version is easiest to test and why.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Choose a paradigm for a larger calculator and justify the choice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The same behaviour can have different structures.</li>\n<li>Imperative, functional and object-oriented each make a different unit central.</li>\n<li>The trade-off matters more than the ranking.</li>\n<li>State placement changes testing.</li>\n<li>The comparison is the lesson.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Ran all three versions</li>\n<li>[ ] Named the main unit of each</li>\n<li>[ ] Found the state</li>\n<li>[ ] Added one feature</li>\n<li>[ ] Explained a trade-off</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which version felt most natural?</li>\n<li>Which was easiest to test?</li>\n<li>What did the other versions make visible?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The comparison is set. The next chapter reads the imperative version.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Imperative: The Steps",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The imperative program tells the computer what to do, in order.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The imperative calculator has a <code>main</code> loop. It prints a menu, reads a choice, reads two numbers, calls <code>calculate</code>, prints the result and repeats.</p>\n<p>The functions are small and readable:</p>\n<pre><code class=\"language-python\">def add(x, y):\n    return x + y\n\ndef calculate(x, y, operation):\n    if operation == &quot;1&quot;:\n        return add(x, y)\n    elif operation == &quot;2&quot;:\n        return subtract(x, y)\n    ...\n</code></pre>\n<p>The control flow is explicit. The state is local: <code>choice</code>, <code>x</code>, <code>y</code> and <code>result</code>. The loop is the program's spine.</p>\n<p>The strength is directness. You can follow the program line by line. The weakness is coupling: adding an operation usually means editing the menu, the <code>calculate</code> chain and the input validation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Recipe</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A recipe tells you to chop, heat, add, stir and wait. The order is the method.</p>\n<p>The imperative calculator is a recipe. The steps are the design.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Steps with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Trace One Run</h3>\n<p>Ask the AI to trace a single calculation.</p>\n<pre><code class=\"language-text\">Here is the imperative calculator:\n[paste it]\n\nTrace the run where the user chooses addition and enters 2 and 3.\nList every function call, variable assignment and branch in order.\n</code></pre>\n<p>The trace shows the program's spine.</p>\n<h3>Exploration 2: Find the Coupling</h3>\n<p>Ask what changes when an operation is added.</p>\n<pre><code class=\"language-text\">Add a power operation to the imperative calculator. List every place\nthat must change: menu, input validation, calculate chain and tests.\n</code></pre>\n<p>The list is the cost of the design.</p>\n<h3>Exploration 3: Test the Edge</h3>\n<p>Ask where division by zero is handled and whether the message is good.</p>\n<pre><code class=\"language-text\">The divide function returns a string for division by zero. Explain what\nthe caller sees, whether the type changes, and how you would test it.\n</code></pre>\n<p>A string result in a numeric path is a design smell worth discussing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An imperative change record:</p>\n<table>\n<thead>\n<tr>\n<th>Change</th>\n<th>Files or functions</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Add power</td>\n<td>Menu text, input validation, calculate chain, tests</td>\n</tr>\n<tr>\n<td>Change menu</td>\n<td><code>main</code>, <code>read_input</code></td>\n</tr>\n<tr>\n<td>Add history</td>\n<td>New list, print path, every operation</td>\n</tr>\n<tr>\n<td>Validate number</td>\n<td><code>read_input</code> only</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Add a power operation to the imperative version. Run it. Write down every place you changed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The imperative version is the easiest starting point for beginners. It maps to the way a program executes: one step after another.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> Trace one addition run.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Add a power operation.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Improve the division-by-zero message.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Add a history list and print it at exit.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Refactor the operation choice to reduce coupling without changing behaviour.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The imperative version is a sequence of steps.</li>\n<li>The <code>main</code> loop is the spine.</li>\n<li>State is local and explicit.</li>\n<li>Adding an operation touches several places.</li>\n<li>Directness is the strength; coupling is the cost.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Traced a run</li>\n<li>[ ] Added one operation</li>\n<li>[ ] Found the division edge</li>\n<li>[ ] Counted the changes</li>\n<li>[ ] Noticed one coupling</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which step was easiest to follow?</li>\n<li>What did adding an operation cost?</li>\n<li>Where could the design be simplified?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The steps are clear. The next chapter treats operations as values.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Functional: The Operations",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The functional program treats functions as values and state as something you return.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The functional calculator defines pure arithmetic functions:</p>\n<pre><code class=\"language-python\">def add(x, y):\n    return x + y\n\noperators = {\n    &quot;1&quot;: add,\n    &quot;2&quot;: subtract,\n    &quot;3&quot;: multiply,\n    &quot;4&quot;: divide,\n}\n\ndef calculate(x, y, func):\n    return func(x, y)\n</code></pre>\n<p>The menu maps a choice to a function. <code>calculate</code> is a higher-order function: it takes another function as an argument.</p>\n<p>The history is immutable. <code>update_history</code> returns a new tuple rather than appending to a list. The REPL is recursive rather than a <code>while</code> loop.</p>\n<p>Input and output are still impure. That is honest: a program that talks to a person has side effects at the edges.</p>\n<p>The strength is composition and testability. The arithmetic functions are pure. The weakness is that the style can feel abstract if the problem is simple.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Factory Line</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A factory line transforms materials. Each station is a function from input to output. The line is a composition of transformations.</p>\n<p>The functional calculator is a small factory. The operations are the stations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Functions with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Pure Functions</h3>\n<p>Ask the AI to classify each function.</p>\n<pre><code class=\"language-text\">Here is the functional calculator:\n[paste it]\n\nClassify each function as pure or impure. Explain what makes it pure or\nimpure. Mark where the program must talk to the outside world.\n</code></pre>\n<p>The boundary is the lesson: pure inside, impure at the edges.</p>\n<h3>Exploration 2: Add an Operation</h3>\n<p>Ask what changes.</p>\n<pre><code class=\"language-text\">Add a power operation to the functional calculator. List the change in\nthe operators dictionary, the tests and any validation. Compare the\nnumber of edits with the imperative version.\n</code></pre>\n<p>The functional version localises the operation.</p>\n<h3>Exploration 3: Test the History</h3>\n<p>Ask how immutability helps.</p>\n<pre><code class=\"language-text\">The history is a tuple returned by update_history. Explain how that\nmakes testing easier than a mutable list inside an object. What does it\ncost?\n</code></pre>\n<p>The trade-off is memory and copying versus predictability.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A functional change record:</p>\n<table>\n<thead>\n<tr>\n<th>Change</th>\n<th>Where</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Add power</td>\n<td>One function, one dictionary entry</td>\n</tr>\n<tr>\n<td>Test operation</td>\n<td>Call the pure function</td>\n</tr>\n<tr>\n<td>History</td>\n<td>Return a new tuple</td>\n</tr>\n<tr>\n<td>Input</td>\n<td>Impure edge</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Add a power function and one test. Do not change <code>calculate</code>. Explain why the change was local.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The functional version is a good introduction to higher-order functions, pure functions and immutable data. It also shows where purity stops: at the user.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Classify each function as pure or impure.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> Add a power function.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Test the arithmetic without input or output.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Explain the immutable history.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Refactor one impure edge into a pure function plus a thin wrapper.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The functional version treats functions as values.</li>\n<li>Pure functions are easy to test.</li>\n<li>Immutability returns new data instead of changing it.</li>\n<li>Input and output remain impure edges.</li>\n<li>Composition is the strength; abstraction is the cost.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Found the pure functions</li>\n<li>[ ] Added an operation</li>\n<li>[ ] Tested one function</li>\n<li>[ ] Explained the history</li>\n<li>[ ] Found the impure edge</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which function was easiest to test?</li>\n<li>Where did purity stop?</li>\n<li>Did the style make the problem clearer or harder?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The operations are values. The next chapter bundles state and behaviour.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Object-Oriented: The Responsibilities",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The object-oriented program gives each thing a job and a boundary.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The object-oriented calculator has two classes:</p>\n<ul>\n<li><code>Calculator</code> owns the arithmetic and the history.</li>\n<li><code>Menu</code> owns the interaction.</li>\n</ul>\n<pre><code class=\"language-python\">class Calculator:\n    def __init__(self):\n        self.history = []\n\n    def add(self, x, y):\n        result = x + y\n        self.history.append((&quot;add&quot;, x, y, result))\n        return result\n</code></pre>\n<p>The history is an attribute. Each operation mutates the object. The menu is a separate object with its own options and input handling.</p>\n<p>The strength is responsibility. Each class has a boundary, and the main loop coordinates them. The weakness is that a small problem can carry more structure than it needs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Workshop</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A workshop has stations: one for cutting, one for assembly, one for finishing. Each station has tools and a job. The supervisor coordinates the flow.</p>\n<p>The object-oriented calculator is a small workshop. The classes are the stations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Objects with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Responsibilities</h3>\n<p>Ask the AI to list each class's job.</p>\n<pre><code class=\"language-text\">Here is the object-oriented calculator:\n[paste it]\n\nList the responsibility of each class and method. Mark any method that\ndoes work belonging to another class.\n</code></pre>\n<p>A good answer will notice whether <code>main</code> knows too much.</p>\n<h3>Exploration 2: Add an Operation</h3>\n<p>Ask what changes.</p>\n<pre><code class=\"language-text\">Add a power operation to the object-oriented calculator. List the changes\nin the class, the menu and the main dispatch. Compare the number of\nedits with the functional version.\n</code></pre>\n<p>The object version localises the arithmetic but touches the menu and dispatch.</p>\n<h3>Exploration 3: Test the Object</h3>\n<p>Ask how to test the history.</p>\n<pre><code class=\"language-text\">Write three tests for Calculator: one for addition, one for division by\nzero and one for the history. Do not use input() or print().\n</code></pre>\n<p>The object is testable without the menu.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An object responsibility table:</p>\n<table>\n<thead>\n<tr>\n<th>Class</th>\n<th>Responsibility</th>\n<th>State</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Calculator</td>\n<td>Arithmetic and history</td>\n<td><code>history</code></td>\n</tr>\n<tr>\n<td>Menu</td>\n<td>Display and input</td>\n<td><code>options</code></td>\n</tr>\n<tr>\n<td>main</td>\n<td>Coordinate the loop</td>\n<td>local variables</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Add a power method. Write one test for it. Then move one responsibility out of <code>main</code> into a class.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Objects are a natural way to teach boundaries and testability. The risk is over-design: not every problem needs a class hierarchy.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> List each class's responsibility.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Add a power method.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Test the calculator without the menu.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Move one responsibility out of <code>main</code>.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Decide whether this problem needs an object at all, and defend the answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The object-oriented version gives each class a job.</li>\n<li>State lives in attributes.</li>\n<li>The menu is separate from the calculator.</li>\n<li>Testability improves when the UI is separate.</li>\n<li>Over-design is the risk.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Listed the responsibilities</li>\n<li>[ ] Added an operation</li>\n<li>[ ] Tested the object</li>\n<li>[ ] Moved one responsibility</li>\n<li>[ ] Judged the design</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which boundary was clearest?</li>\n<li>Where did <code>main</code> know too much?</li>\n<li>Did the structure earn its cost?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The three versions are read. The final chapter compares them.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Compare and Choose",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The paradigm is a tool for making a particular kind of change cheap.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The three calculators differ in where change is local:</p>\n<ul>\n<li><strong>Imperative</strong>: adding an operation touches the menu, validation and dispatch. The flow is obvious; the coupling is spread.</li>\n<li><strong>Functional</strong>: adding an operation touches one function and one dictionary entry. The arithmetic is pure and easy to test.</li>\n<li><strong>Object-oriented</strong>: adding an operation touches the class, the menu and the dispatch. The boundary is clear; the coordination remains.</li>\n</ul>\n<p>The choice depends on the change you expect:</p>\n<ul>\n<li>If the program is a sequence of steps, imperative is direct.</li>\n<li>If the operations are the variability, functional composition is clean.</li>\n<li>If the state and responsibilities are the variability, objects help.</li>\n</ul>\n<p>The wrong question is \"which paradigm is best?\" The useful question is \"what kind of change will this code face?\"</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through Three Toolboxes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A hammer, a screwdriver and a wrench can all open a crate. The choice depends on the crate, the screw and the damage you want to avoid.</p>\n<p>A paradigm is a toolbox. The job decides.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Choice with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Predict the Change</h3>\n<p>Ask the AI to compare the cost of three future changes.</p>\n<pre><code class=\"language-text\">Compare the three calculators for these changes:\n1. add a power operation\n2. add a history feature\n3. replace the text menu with a web form\n\nFor each, say which version is easiest to change and why.\n</code></pre>\n<p>The answer is a design judgement, not a ranking.</p>\n<h3>Exploration 2: Find the Test Boundary</h3>\n<p>Ask which version is easiest to test.</p>\n<pre><code class=\"language-text\">Compare the testability of the three versions. Which parts can be tested\nwithout input, output or a running program? What does each design hide?\n</code></pre>\n<p>The functional arithmetic is easiest; the object boundary is next; the imperative flow needs more setup.</p>\n<h3>Exploration 3: Choose for a New Context</h3>\n<p>Ask for a recommendation.</p>\n<pre><code class=\"language-text\">A team expects frequent new operations and a web interface. Which\nparadigm would you start with, and what would you borrow from the\nothers?\n</code></pre>\n<p>A good answer will combine ideas rather than pick a tribe.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A decision record:</p>\n<table>\n<thead>\n<tr>\n<th>Context</th>\n<th>Likely choice</th>\n<th>Why</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Teaching control flow</td>\n<td>Imperative</td>\n<td>Steps are visible</td>\n</tr>\n<tr>\n<td>Many pure operations</td>\n<td>Functional</td>\n<td>Composition and tests</td>\n</tr>\n<tr>\n<td>State and collaborators</td>\n<td>Object-oriented</td>\n<td>Boundaries and responsibilities</td>\n</tr>\n<tr>\n<td>Mixed</td>\n<td>Hybrid</td>\n<td>Use each where it earns its place</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write a short decision note for a calculator that will grow to twenty operations and a web UI. Name the paradigm and the trade-off.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The comparison is the assessment. A student who can explain why one version is easier to change has learned more than one who can recite definitions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Name one strength of each paradigm.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Compare the cost of adding an operation.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Compare testability.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Choose a paradigm for a new context and justify it.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Design a hybrid that borrows one idea from each version.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The paradigm makes a kind of change cheap.</li>\n<li>Imperative favours explicit flow.</li>\n<li>Functional favours composition and pure functions.</li>\n<li>Object-oriented favours state and responsibility boundaries.</li>\n<li>Choose for the change you expect.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Compared one change across all three</li>\n<li>[ ] Compared testability</li>\n<li>[ ] Chose for a context</li>\n<li>[ ] Named a trade-off</li>\n<li>[ ] Borrowed one idea from another paradigm</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which change favoured each paradigm?</li>\n<li>Which version would you maintain?</li>\n<li>What would you borrow?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The comparison is complete. The playground has five katas if you want more practice.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "Checkpoint: three paradigms",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What is the main unit of design in the imperative calculator?",
+                        "options": [
+                          "The step and the control flow",
+                          "The pure function",
+                          "The class",
+                          "The database"
+                        ],
+                        "answer": 0,
+                        "explanation": "The imperative version describes what to do, in order."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the main unit of design in the functional calculator?",
+                        "options": [
+                          "The pure function and the composition of functions",
+                          "The loop",
+                          "The object",
+                          "The menu"
+                        ],
+                        "answer": 0,
+                        "explanation": "Functions are values; the operations are composed."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What is the main unit of design in the object-oriented calculator?",
+                        "options": [
+                          "The object and its responsibility boundary",
+                          "The pure function",
+                          "The global variable",
+                          "The database"
+                        ],
+                        "answer": 0,
+                        "explanation": "Classes bundle state and behaviour and separate responsibilities."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "Where does the object-oriented calculator keep its history?",
+                        "options": [
+                          "In an attribute on the Calculator object",
+                          "In a global list",
+                          "In a returned tuple",
+                          "In the menu"
+                        ],
+                        "answer": 0,
+                        "explanation": "The history is object state, mutated by each operation."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Why is the functional arithmetic easiest to test?",
+                        "options": [
+                          "The functions are pure and need no input, output or running program",
+                          "It uses classes",
+                          "It has a menu",
+                          "It stores history"
+                        ],
+                        "answer": 0,
+                        "explanation": "Pure functions produce the same output for the same input."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is the useful question when choosing a paradigm?",
+                        "options": [
+                          "What kind of change will this code face?",
+                          "Which paradigm is newest?",
+                          "Which has the most keywords?",
+                          "Which is shortest?"
+                        ],
+                        "answer": 0,
+                        "explanation": "The paradigm makes a kind of change cheap. Choose for the change you expect."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

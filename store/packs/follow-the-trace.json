@@ -5,7 +5,7 @@
   "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-06T23:56:12+00:00",
+  "createdAt": "2026-11-07T00:32:59+00:00",
   "courses": [
     {
       "slug": "follow-the-trace",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-06T23:56:12+00:00",
+        "generated_at": "2026-11-07T00:32:59+00:00",
         "unit": {
           "slug": "follow-the-trace",
           "title": "Follow the Trace, Prove the Case: Digital Forensics in Practice",

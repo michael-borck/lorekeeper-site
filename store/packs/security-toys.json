@@ -1,0 +1,450 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "security-toys",
+  "title": "Security Toys: Six Beliefs a Demonstration Can Break",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "security-toys",
+      "title": "Security Toys: Six Beliefs a Demonstration Can Break",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "security",
+        "misconceptions",
+        "teaching",
+        "interactive"
+      ],
+      "pitch": "Six small interactive toys, each built to break one security belief.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "security-toys",
+          "title": "Security Toys: Six Beliefs a Demonstration Can Break",
+          "theme": "pixel",
+          "tags": [
+            "security",
+            "misconceptions",
+            "teaching",
+            "interactive"
+          ],
+          "level": "beginner",
+          "pitch": "Six small interactive toys, each built to break one security belief.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-toys",
+            "title": "The Toys",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Crack Time",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Password strength is not complexity. It is length, algorithm and work factor.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that a complicated-looking password is a strong one.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Type a password, choose how the site stored it and choose the attacker's hardware. Load a long passphrase, then switch storage from a fast hash to a slow one. The same password moves from hours to thousands of years.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Length matters more than substitutions.</li>\n<li>The storage algorithm belongs to the site.</li>\n<li>A dictionary attack with mangling rules beats clever-looking substitutions.</li>\n<li>A slow hash rescues a good password, not a bad one.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Compare a short complex password with a long passphrase under two storage schemes. Record the time-to-crack and explain which change mattered most.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask how the password is stored, not only how it looks.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Cryptography",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Hashing is not encryption.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that a hash is a locked message you can unlock with the right key.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Encrypt a message, change one character of the key and decrypt. It fails completely, not partially. Then hash the same message and watch one changed character flip the whole fingerprint.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Encryption is reversible with the key.</li>\n<li>A hash is a one-way fingerprint.</li>\n<li>A site that can show you your old password is storing it wrongly.</li>\n<li>A huge keyspace does not save a cipher whose structure leaks.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Encrypt one sentence with two keys that differ by a single character. Compare the outputs. Then hash the same sentence twice with one character changed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask which property the system needs: confidentiality, integrity or verification.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Detection Dial",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A good detector plus a sensible threshold still produces a queue nobody can clear.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Base-rate neglect in security monitoring.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ten thousand events, three intrusions. Choose the suspicion score that becomes an alert. Catch everything and the queue is thousands of alerts a day. Make the queue readable and two of the three intrusions walk past.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The base rate decides the false-positive volume.</li>\n<li>A better detector moves the number; it does not remove the trade-off.</li>\n<li>A low-and-slow intrusion can stay just above ordinary traffic.</li>\n<li>Detection is a budget decision, not only a model decision.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Find a threshold one analyst could clear in a shift. Record the intrusions caught and missed. Explain the trade-off to a manager.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask who reads the queue and what else they could be doing.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "EXIF Drop",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A photo is not a picture. It is a file with metadata.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that an image contains only the image.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Drop in a photo and read what the file says: camera, lens, time, often a serial number and frequently the coordinates of where you were standing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Metadata can identify a place, a device and a time.</li>\n<li>A serial number can link every photo from that camera.</li>\n<li>Stripping metadata is a deliberate export step.</li>\n<li>Use a synthetic sample on a projector; never expose a student's photo.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use the synthetic sample. Record three pieces of metadata a stranger could use. Then explain how you would remove them before sharing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Treat a photo as a document with a hidden appendix.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Query Builder",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Injection is a query-construction bug, not a magic word.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that SQL injection is a trick or a spell.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A login form builds a query by gluing text together. Type a quote and watch the exact character where data becomes code. The database parses the sentence it was handed and answers honestly.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The vulnerability is in the line that builds the query.</li>\n<li>A comment marker can remove the password check.</li>\n<li>Parameterised queries finish the query before the input arrives.</li>\n<li>Blocking the word \"OR\" is not the fix.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the payload, then toggle parameterisation with the same input. Explain why the safe version does not need to inspect the input.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Separate code from data at the point the query is built.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "Rule Order",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A firewall ruleset is a sequence, not a set.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that every rule in a firewall is simultaneously true.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Six rules, one network, five flows. Only the order changes. A leftover accept rule at position three catches everything first, and the correct-looking rules below it never run.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The firewall stops at the first match.</li>\n<li>A rule that is never reached has no effect.</li>\n<li>A catch-all left at the bottom is still a finding.</li>\n<li>Specific rules usually belong before general ones.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Move the catch-all to the bottom and check the five flows. Then explain why correct behaviour and a correct ruleset are different claims.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Read a ruleset in order and ask which rules can never run.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-07",
+                "title": "Checkpoint: break the belief",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What determines password time-to-crack?",
+                        "options": [
+                          "Length, algorithm and work factor",
+                          "Complexity alone",
+                          "The colour of the login page",
+                          "The username"
+                        ],
+                        "answer": 0,
+                        "explanation": "Two of the three belong to the site, not the user."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the difference between hashing and encryption?",
+                        "options": [
+                          "Encryption is reversible with a key; a hash is a one-way fingerprint",
+                          "Hashing is reversible; encryption is not",
+                          "They are the same",
+                          "A hash is a locked message"
+                        ],
+                        "answer": 0,
+                        "explanation": "A site that can show you your old password is storing it wrongly."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why can a good detector still produce an unmanageable alert queue?",
+                        "options": [
+                          "The base rate means false positives dominate at a useful threshold",
+                          "The detector is broken",
+                          "The logs are encrypted",
+                          "The attacks are too fast"
+                        ],
+                        "answer": 0,
+                        "explanation": "Detection is a budget decision, not only a model decision."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What can photo metadata reveal?",
+                        "options": [
+                          "Camera, time, serial number and often location",
+                          "Only the image pixels",
+                          "Nothing beyond the file size",
+                          "The photographer's password"
+                        ],
+                        "answer": 0,
+                        "explanation": "A photo is a file with a hidden appendix."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is the root-cause fix for SQL injection?",
+                        "options": [
+                          "Parameterised queries that separate code from data",
+                          "Blocking the word OR",
+                          "Escaping quotes only",
+                          "Hiding error messages"
+                        ],
+                        "answer": 0,
+                        "explanation": "The query is finished before the input arrives."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "Why is a firewall ruleset a sequence, not a set?",
+                        "options": [
+                          "The firewall stops at the first match, so order decides meaning",
+                          "Every rule is always evaluated",
+                          "Rules are alphabetical",
+                          "The last rule always wins"
+                        ],
+                        "answer": 0,
+                        "explanation": "A rule that is never reached has no effect."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

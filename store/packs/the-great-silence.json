@@ -1,0 +1,540 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "the-great-silence",
+  "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
+  "author": "Michael Borck",
+  "licence": "CC BY-SA 4.0",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "the-great-silence",
+      "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
+      "theme": "storybook",
+      "level": "intermediate",
+      "tags": [
+        "ai",
+        "risk",
+        "civilisation",
+        "essays"
+      ],
+      "pitch": "Six frames from the search for aliens, applied to AI at civilisational scale.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "the-great-silence",
+          "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
+          "theme": "storybook",
+          "tags": [
+            "ai",
+            "risk",
+            "civilisation",
+            "essays"
+          ],
+          "level": "intermediate",
+          "pitch": "Six frames from the search for aliens, applied to AI at civilisational scale.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-six-frames",
+            "title": "The Six Frames",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "The silence that isn't",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> The Fermi Paradox. The universe is old and vast, so where is everybody?</p>\n<p><strong>The thesis.</strong> Absence is data. A system that says nothing is still telling you something, and learning to read that is the first move in thinking clearly about technology.</p>\n<p>Most people treat silence as the absence of information. It is usually the presence of a different signal. The paradox is not really about aliens. It is about what you conclude when observation and expectation disagree. Either the model is wrong, or the observation is incomplete, or something is actively hiding. Confusing those three is the most common diagnostic error in technology.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The interesting question is not \"where is everybody?\" but \"what would have to be true for the silence to be informative?\" That reframing turns a curiosity into a method.</li>\n<li>In systems, the same logic applies. A server that stops logging, a customer who stops complaining, a metric that flatlines, a queue that is suspiciously short. Each is a signal precisely because it is missing.</li>\n<li>Good operators monitor absences as carefully as they monitor events. Bad ones wait for an error message from a system that has already stopped speaking.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A team monitors error rates but not request volume. A service stops receiving traffic and every dashboard stays green, because zero requests produce zero errors. The system is healthy and the business is down. Nothing in the monitoring lied. The team simply measured presence and ignored absence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Pick a system you use every day. List three things you would expect to see on a normal day and would notice only by their absence. Then find out whether anyone actually monitors those absences. Most people cannot answer the second part.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><a href=\"02-dark-forest.md\">02. The Dark Forest</a> takes the next step: if silence is a strategy, then broadcasting is a decision with consequences.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "The Dark Forest",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> Liu Cixin's Dark Forest Theory. The universe is hostile, and broadcasting your coordinates is fatal.</p>\n<p><strong>The thesis.</strong> Every organisation broadcasts. The question is never whether you leak, but who is listening and what they can infer.</p>\n<p>Security and privacy are usually taught as a list of controls. The Dark Forest frames them as one decision: what do you choose to reveal, to whom, and at what cost? A company that publishes a job ad for a Kubernetes engineer has told the market its infrastructure. A certificate transparency log has told the world which subdomains exist. Neither is a breach. Both are broadcasts.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Attack surface is not only the software you expose. It is the sum of everything an observer can learn about you without touching you.</li>\n<li>Competitive intelligence and security are the same discipline seen from two sides. What a competitor learns from your public material is what an attacker learns before choosing a target.</li>\n<li>Silence has a cost. Going dark reduces risk and also reduces reach, discoverability and revenue. The question is never \"should we be quiet?\" but \"which signals are worth sending?\"</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Shodan and similar search engines index internet-connected devices continuously. A company can appear in those results because a development server was left reachable, or because a vendor's device shipped with a default port open. No one was attacked. The organisation simply never audited what it was announcing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Audit your own public footprint as if you were a competitor or an attacker. Check job ads, DNS records, certificate transparency logs, GitHub activity, social posts and any vendor status pages. Write down three things you did not realise you were broadcasting.</p>\n<p><strong>Go further.</strong> <a href=\"../labs/silent-server.md\">The Silent Server</a> is the hands-on version: harden a Linux server until an external scan finds nothing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><a href=\"03-aestivation.md\">03. The Aestivation Hypothesis</a> turns from what you reveal to what you spend.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "The Aestivation Hypothesis",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> Some civilisations might sleep, waiting for a colder universe where computation is cheaper. Heat is waste.</p>\n<p><strong>The thesis.</strong> Heat is waste, and waste is a design decision. The energy cost of computing is not an externality to be offset later. It is a choice made now, in architecture, in code, and in what we decide is worth running at all.</p>\n<p>Landauer's principle gives the thermodynamic floor: erasing a bit has a minimum energy cost. Real systems sit orders of magnitude above that floor, which means most of the cost is engineering, not physics. That gap is the interesting part. It is also the part that a business can act on.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Efficiency is a survival metric. A system that spends more energy than it needs is more fragile than one that does not, whether the constraint is a planetary boundary or a cloud bill.</li>\n<li>Big O notation is an energy metric in disguise. An algorithm that grows quadratically does not just get slower. It consumes more, and the difference compounds with scale.</li>\n<li>The AI boom has made this concrete. Data centres are a visible and growing share of electricity demand, and the industry now has to answer questions about siting, water and grid capacity that it previously left to others.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The International Energy Agency estimated in 2024 that data centres used around 1.5% of global electricity, with demand projected to rise sharply as AI workloads grow. The exact number matters less than the structure: a general-purpose technology became an energy policy problem in about a decade, and most of the people building it were not trained to think about that.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Take a script or notebook you already run. Profile it for CPU time and memory. Find the single biggest inefficiency, fix it, and measure the difference. Report the saving as a number, not a feeling.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><a href=\"04-zoo.md\">04. The Zoo Hypothesis</a> looks at what happens when the observer is the one with power.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "The Zoo Hypothesis",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> Advanced civilisations observe us but do not interfere. They watch without being seen.</p>\n<p><strong>The thesis.</strong> The line between watching and controlling is drawn by power, not by technology. Observability, analytics and algorithmic management are the same act seen from different sides.</p>\n<p>A system that observes you without your knowledge and shapes your options is not neutral infrastructure. It is a governance arrangement. The Zoo Hypothesis makes that visible, because it asks who is in the enclosure and who is holding the clipboard.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Observing behaviour changes behaviour, even when no intervention is intended. This is not a metaphor. It is a well-established effect in measurement, testing and workplace monitoring.</li>\n<li>Analytics teams often describe their work as understanding users. The same data, in a different room, is called surveillance. The technology does not decide which word applies. The relationship does.</li>\n<li>Good observability is legitimate. A system needs to know its own state. The ethical question is who else gets to see that state, and what they are allowed to do with it.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Warehouse and gig platforms track worker movements, pace and breaks in fine detail, then use that data to set targets and discipline. The stated purpose is efficiency. The effect is a workplace where the measurement is the management. The workers usually cannot see the model that judges them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Map every point where a product or workplace collects data about a person's behaviour. For each one, write down who can see the data, what decision it feeds, and whether the person it describes can see it too. The last column is usually the shortest.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><a href=\"05-byzantine.md\">05. The Byzantine Generals</a> asks how a group makes a decision when some of its members cannot be trusted.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "The Byzantine Generals",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> A group of generals must agree on a plan, but messages can be lost and some generals may be traitors. How do you reach agreement without a leader everyone trusts?</p>\n<p><strong>The thesis.</strong> Consensus without a trusted authority is possible only under conditions most organisations refuse to meet. Governance fails less often because people are dishonest than because nobody specified the assumptions.</p>\n<p>The Byzantine Generals Problem is the formal version of a question every committee, standards body and distributed system faces: how much disagreement can we tolerate before the decision stops meaning anything? The answer depends on assumptions that are usually left implicit.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Byzantine fault tolerance requires a known set of participants, a bounded number of faulty ones, and some guarantee about message delivery. Change any assumption and the guarantee changes with it.</li>\n<li>Most organisations run governance that looks distributed but assumes a centre. The chair resolves ties, the executive overrides, or the loudest person wins. That is not consensus. It is a hierarchy with extra meetings.</li>\n<li>Naming the assumptions is the useful move. If you cannot say how many participants may defect and still reach a decision, you do not have a governance model. You have a hope.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The DAO in 2016 was a decentralised investment fund governed by code and token votes. When a flaw let an attacker drain funds, the community split over whether to reverse the transaction. The split produced two chains and a lasting argument about legitimacy. Consensus had a technical mechanism and no agreed process for the case the mechanism could not handle.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Map a real decision process you are part of, at work or in a community. Identify who the participants are, what counts as a faulty participant, and what happens if the faulty ones cannot be distinguished from the honest ones. Then ask whether the process would survive one deliberate liar.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><a href=\"06-great-filter.md\">06. The Great Filter</a> is the last frame, and the one that turns the whole exercise back on us.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "The Great Filter",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p><strong>The frame.</strong> Something prevents civilisations from reaching the stars. The filter might be behind us, or ahead of us.</p>\n<p><strong>The thesis.</strong> The most plausible filter is not an asteroid. It is a species that builds systems it cannot stop.</p>\n<p>The Great Filter is usually read as a question about aliens. It is more useful as a question about us: which of the transitions we are currently making is the one that does not get made safely? Artificial intelligence is the current candidate, and the important question is not whether the technology is capable. It is whether anyone can turn it off.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The alignment problem is the gap between what we meant and what we specified. A system that optimises the wrong objective does not need to be malicious to be dangerous. It needs to be competent.</li>\n<li>Capability without accountability is the actual risk. A model that can act, but cannot be stopped by anyone with the authority and the information to stop it, is a governance failure regardless of how well it performs.</li>\n<li>Fail-safe design is older than AI. Aviation, nuclear power and medicine all have kill switches, review boards and incident processes. AI mostly does not, or has them on paper only.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A real case</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The 2023 governance crisis at OpenAI showed how quickly a safety structure can become a negotiation between board, investors and staff. Whatever one thinks of the outcome, the episode made the accountability question concrete: who actually has the authority to stop a deployment, and on what information?</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write a kill switch policy for one AI tool you actually use. Name who can stop it, what triggers the stop, who is told, and what happens to work already in progress. If you cannot fill in those four fields, you have found the gap.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Close</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Six frames, one argument. The search for aliens is a mature literature on civilisational risk, and it asks better questions about AI than the industry currently does. The frames do not tell you what to think. They give you somewhere to stand while you think.</p>\n<p>If you want the live version, see the <a href=\"../sessions/\">session guide</a>.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-07",
+                "title": "Checkpoint: six frames",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does \"absence is data\" mean?",
+                        "options": [
+                          "A missing signal can itself be evidence, if you know what you expected to see",
+                          "Silence proves nothing happened",
+                          "Absence is always a failure",
+                          "Only errors matter"
+                        ],
+                        "answer": 0,
+                        "explanation": "The diagnostic question is what would have to be true for the silence to be informative."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the Dark Forest frame warning about?",
+                        "options": [
+                          "Broadcasting your presence can attract attention from actors you cannot see",
+                          "The universe is literally dark",
+                          "Encryption is useless",
+                          "Hiding always works"
+                        ],
+                        "answer": 0,
+                        "explanation": "In security terms, reduce what you leak and know who is listening."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "What does the Aestivation Hypothesis turn into a design question?",
+                        "options": [
+                          "Heat and waste are decisions about how a civilisation spends energy",
+                          "Efficiency always reduces total use",
+                          "Computation is free",
+                          "Cooling is unrelated to AI"
+                        ],
+                        "answer": 0,
+                        "explanation": "Efficiency can lower the cost per task while increasing total use. The Jevons question is the human one."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is the Zoo Hypothesis about?",
+                        "options": [
+                          "When observing or protecting becomes controlling",
+                          "Animals in zoos are the only intelligence",
+                          "Nobody is watching",
+                          "Transparency is always benign"
+                        ],
+                        "answer": 0,
+                        "explanation": "The frame asks who has the power to observe, intervene or leave alone."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What is the Byzantine Generals problem?",
+                        "options": [
+                          "Reaching agreement without a trusted central authority",
+                          "Winning a battle with a small army",
+                          "Encrypting a message twice",
+                          "Predicting the next token"
+                        ],
+                        "answer": 0,
+                        "explanation": "It is the distributed-systems problem behind consensus, trust and coordination."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What does the Great Filter ask?",
+                        "options": [
+                          "Which step prevents a civilisation from surviving or expanding, and who can turn it off",
+                          "Which model has the most parameters",
+                          "Which planet is closest",
+                          "Which filter is best for images"
+                        ],
+                        "answer": 0,
+                        "explanation": "For AI, the question is which capability or failure point is the filter, and who controls it."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "slug": "the-lab",
+            "title": "The Lab",
+            "lessons": [
+              {
+                "id": "02-01",
+                "title": "The Silent Server",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<p>A hands-on lab for <a href=\"../essays/02-dark-forest.md\">02. The Dark Forest</a>.</p>\n<p>This lab turns the Dark Forest into a network defence exercise. You will take a normal Linux server, see how much it announces to the internet, then harden it until an external scan finds nothing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The scenario</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The internet is a dark forest. Automated bots, script kiddies and state-sponsored scanners sweep the address space continuously, looking for servers that are foolish enough to broadcast their location.</p>\n<p>You are the sysadmin for a civilisation: one Linux web and SSH server. You must keep serving your one known ally, your own laptop, but to the rest of the universe you must not exist.</p>\n<p>If a hunter scans your address, they should see nothing. No open ports. No operating system details. No ping response. Absolute silence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Prerequisites</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A Linux virtual machine, Ubuntu Server 22.04 recommended. This is your civilisation.</li>\n<li>A second machine, your laptop or a Kali VM. This is the hunter.</li>\n<li><code>nmap</code> installed on the hunter machine.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Phase 1: the loud civilisation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before applying the Dark Forest protocols, look at what a naive civilisation looks like to a hunter.</p>\n<ol>\n<li>On the server, ensure SSH and a web server are running.</li>\n</ol>\n<p><code>bash\n   sudo apt update &amp;&amp; sudo apt install openssh-server nginx -y\n   sudo systemctl start ssh nginx</code></p>\n<ol start=\"2\">\n<li>On the hunter machine, run an aggressive scan against the server's address.</li>\n</ol>\n<p><code>bash\n   nmap -A -T4 &lt;SERVER_IP&gt;</code></p>\n<ol start=\"3\">\n<li>Record the findings. Did it find the host? Did it identify the OS? Did it find the service versions? You have just broadcast your coordinates and your technology level. A hunter now knows which vulnerabilities to try.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Phase 2: going dark</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Stop the broadcasting</h3>\n<p>By default, Linux answers ICMP echo requests. That confirms existence. In the Dark Forest, if someone shouts \"is anyone there?\", you do not answer.</p>\n<p>Edit <code>/etc/ufw/before.rules</code> and find the line:</p>\n<pre><code>-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT\n</code></pre>\n<p>Change <code>ACCEPT</code> to <code>DROP</code>. The server will discard pings without sending an unreachable error, which would reveal that something is there.</p>\n<h3>Move the coordinates</h3>\n<p>Standard ports are the first place hunters look. Move SSH from port 22 to a high port, for example 49222.</p>\n<p>Edit <code>/etc/ssh/sshd_config</code>, change <code>Port 22</code> to <code>Port 49222</code>, then restart SSH.</p>\n<pre><code class=\"language-bash\">sudo systemctl restart ssh\n</code></pre>\n<h3>Add the force field</h3>\n<p>Trust no one. Block all inbound traffic by default and open a wormhole only for your ally.</p>\n<pre><code class=\"language-bash\">sudo ufw default deny incoming\nsudo ufw default allow outgoing\nsudo ufw allow from &lt;YOUR_LAPTOP_IP&gt; to any port 49222\nsudo ufw enable\n</code></pre>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Phase 3: the hunter&#x27;s pass</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Now hunt your own server.</p>\n<ol>\n<li>\n<p>Ping it. Expect 100% packet loss. It should look like empty space.</p>\n</li>\n<li>\n<p>Scan all ports, telling nmap to skip the ping test and try harder.</p>\n</li>\n</ol>\n<p><code>bash\n   nmap -Pn -p 1-65535 -T4 &lt;SERVER_IP&gt;</code></p>\n<p>Expect all 65535 scanned ports to be filtered.</p>\n<ol start=\"3\">\n<li>Test the ally route. SSH from the allowed address on the new port. It should work.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discussion</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>You whitelisted one address. Move your laptop to a coffee shop and you are locked out of your own server. What does that tell you about maintaining alliances in a dark forest?</li>\n<li>The full scan took much longer than the first one because the server dropped packets instead of rejecting them, forcing nmap to wait for timeouts. How does that relate to wasting a hunter's energy?</li>\n<li>If the server is broken, you will not know, because you disabled ping. How do you monitor a system that is not allowed to speak? This is the observability problem, and it is the next essay.</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Advanced challenge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Implement port knocking with <code>knockd</code>. The server stays closed to everyone, including you, until it receives a specific sequence of connection attempts. Only then does the firewall open for a short window.</p>\n<p>The metaphor is a coded transmission that reveals the hidden planet only to those who know the frequency.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "02-02",
+                "title": "The loud server",
+                "kind": "scenario",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "scenario",
+                    "prompt": "<p>You run a small Linux server. It responds to ping, exposes SSH and a web\nservice, and advertises a long banner. A scan from the internet finds\nall of it. The Dark Forest frame says broadcasting is a decision. Choose\nyour next move.</p>",
+                    "options": [
+                      {
+                        "id": "reduce",
+                        "label": "Reduce the exposed surface, restrict access to the known ally and verify from outside",
+                        "outcome": "<p>The server still serves its ally. The public scan sees fewer ports,\na shorter banner and no unnecessary response. The change is tested\nfrom outside, not assumed from the configuration.</p>",
+                        "effects": {
+                          "Surface": "Reduced",
+                          "Ally": "Served",
+                          "Evidence": "External scan"
+                        },
+                        "recommended": true,
+                        "feedback": "<p>Harden what you expose, then verify from the hunter's side.</p>"
+                      },
+                      {
+                        "id": "hide",
+                        "label": "Disable logging and hope nobody notices",
+                        "outcome": "<p>The services still answer. The defender has less evidence, and the\nscanner still sees the server.</p>",
+                        "effects": {
+                          "Visibility": "Lower",
+                          "Security": "Unchanged",
+                          "Evidence": "Lost"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>Hiding the log is not hiding the server.</p>"
+                      },
+                      {
+                        "id": "block",
+                        "label": "Block all traffic, including the ally",
+                        "outcome": "<p>The scan sees nothing because the service is gone. The ally cannot\nwork either. The design has confused silence with availability.</p>",
+                        "effects": {
+                          "Surface": "Zero",
+                          "Ally": "Broken",
+                          "Availability": "Lost"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>The goal is controlled exposure, not the absence of service.</p>"
+                      },
+                      {
+                        "id": "banner",
+                        "label": "Change the banner to say \"nothing to see here\"",
+                        "outcome": "<p>The ports are still open and the service still announces itself.\nThe message changes, not the exposure.</p>",
+                        "effects": {
+                          "Surface": "Unchanged",
+                          "Evidence": "Still loud",
+                          "Risk": "Unchanged"
+                        },
+                        "recommended": false,
+                        "feedback": "<p>A friendlier banner is not a smaller attack surface.</p>"
+                      }
+                    ],
+                    "debrief": "<p>Reduce the surface, restrict access, verify from outside and keep the\nevidence. Silence is a design outcome, not a message.</p>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

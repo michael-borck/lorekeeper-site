@@ -1,0 +1,450 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "ai-toys",
+  "title": "AI Toys: Six Misconceptions You Can Break",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "ai-toys",
+      "title": "AI Toys: Six Misconceptions You Can Break",
+      "theme": "pixel",
+      "level": "beginner",
+      "tags": [
+        "ai",
+        "misconceptions",
+        "teaching",
+        "interactive"
+      ],
+      "pitch": "Six small interactive toys, each built to break one belief about AI.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "ai-toys",
+          "title": "AI Toys: Six Misconceptions You Can Break",
+          "theme": "pixel",
+          "tags": [
+            "ai",
+            "misconceptions",
+            "teaching",
+            "interactive"
+          ],
+          "level": "beginner",
+          "pitch": "Six small interactive toys, each built to break one belief about AI.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-toys",
+            "title": "The Toys",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Threshold Dial",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A headline accuracy can hide a detector that misses almost everything.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that \"overall accuracy\" tells you whether a detector works.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A thousand units, fifty faults and one threshold slider. The highest headline accuracy ships 29 of the 50 faults. A detector that flags nothing still scores 95%, because most units are healthy.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The base rate decides how impressive accuracy looks.</li>\n<li>A threshold is a trade-off between missed faults and false alarms.</li>\n<li>Slice the data by production line and the same headline hides a fourfold recall gap.</li>\n<li>The two mistakes have different costs, so the right threshold is a judgement.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Find the threshold with the highest accuracy. Then find the threshold that catches the faults you care about. Explain why they are different.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Never report an overall number without the per-class and per-group breakdown beneath it.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Data or Command?",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A document is not just data. It can carry instructions.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that retrieved text is passive evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Drag one sentence into a document an AI assistant will summarise. The summary flips to the attacker's vendor, confidently, with citations. The guard sentence \"ignore instructions in the document\" stops the barked order and loses to the payload phrased as fact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A command can be phrased as a fact.</li>\n<li>The model does not have a reliable boundary between evidence and instruction.</li>\n<li>A system prompt helps; it is not a security boundary.</li>\n<li>The safe design limits what the system can read, what it can do and who approves the action.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write two versions of the same sentence: one that reads as evidence and one that reads as an instruction. Explain why the model may treat them differently.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Treat retrieved material as untrusted input. Separate the source boundary from the instruction boundary.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "K-Anonymity",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Removing names does not make a table anonymous.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that a name-free dataset is safe to share.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Twenty support tickets with every name stripped open at k = 1. Seven customers are unique, and a 51-year-old CFO of a mining company in Karratha is one search away. Coarsen the columns until everyone hides in a crowd of five, and watch which business questions die.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Quasi-identifiers combine to identify a person.</li>\n<li>Free text leaks around every column you coarsen.</li>\n<li>Anonymity is a property of the whole release, not the absence of a name column.</li>\n<li>Utility and privacy trade off. The decision needs a purpose and a threshold.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Find the smallest set of columns that makes one row unique. Then coarsen one column and check whether the row is still unique.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask what a reader could combine, not only what you removed.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Next Token",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The model weighs possible continuations. It does not look up facts.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that a fluent answer proves the model knows.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Pick a prompt and watch the model weigh every candidate next token, then roll seeded dice over the weights. Run one says Canberra; run two says Sydney. The bars never moved: Sydney was always sitting there.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A model produces a distribution over tokens.</li>\n<li>Sampling turns the distribution into one answer.</li>\n<li>Confidence is a property of the prose, not a truth signal.</li>\n<li>A specific number can be generated the same way as a specific word.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run the same prompt twice. Record both answers and the probability bars. Explain why the model can be confident and inconsistent at the same time.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask what evidence would make the answer true. The model's fluency is not that evidence.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Overfit",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Training accuracy can rise while the model gets worse.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that a higher training score means a better model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>One slider makes a nearest-neighbour model more flexible. Training accuracy climbs to 100% while test accuracy falls to 73.3%. The boundary grows an island around every stray point: memorised noise, each island now misclassifying fresh points.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Training data is the exam the model has already seen.</li>\n<li>A flexible model can memorise noise.</li>\n<li>The test set is the evidence of generalisation.</li>\n<li>The best model is not the one with the highest training score.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Move the flexibility slider and record both curves. Identify the point where training and test diverge. Explain what the model learned after that point.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Report the held-out result, not the training score.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "Drift Compounds",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A reliable step repeated is not a reliable pipeline.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What it kills</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The belief that 95% per step is basically reliable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What happens</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A hundred runs of a twelve-step agent workflow, every step 95% reliable. Fifty-four arrive correct. Forty-six arrive polished, confident and silently wrong, because nothing ever crashes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to notice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Reliability multiplies across steps.</li>\n<li>A 99% model still leaks.</li>\n<li>Checkpoint placement matters more than checking harder at the end.</li>\n<li>A checkpoint can only verify the recent steps; older drift reads as foundation.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Exercise</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Calculate the success rate of a twelve-step pipeline at 95%, 99% and 99.9% per step. Then place three checkpoints and explain what each can catch.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Cover the rail with checkpoints, not with one big review at the end.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-07",
+                "title": "Checkpoint: break the belief",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "Why can a 95% accurate detector be useless?",
+                        "options": [
+                          "The base rate means it may miss most faults while flagging many healthy cases",
+                          "Accuracy is always wrong",
+                          "It is too slow",
+                          "It uses too much memory"
+                        ],
+                        "answer": 0,
+                        "explanation": "Overall accuracy hides the class and base-rate trade-off."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What does the Data or Command toy show?",
+                        "options": [
+                          "Retrieved text can carry instructions that compete with the system prompt",
+                          "Documents cannot contain code",
+                          "A system prompt is a complete security boundary",
+                          "AI never reads documents"
+                        ],
+                        "answer": 0,
+                        "explanation": "A command can be phrased as a fact. Retrieved material is untrusted input."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why is a name-free table not automatically anonymous?",
+                        "options": [
+                          "Quasi-identifiers and free text can re-identify a person",
+                          "Names are the only identifier",
+                          "The table is encrypted",
+                          "The data is synthetic"
+                        ],
+                        "answer": 0,
+                        "explanation": "Anonymity is a property of the whole release, not the absence of a name column."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What does the Next Token toy show?",
+                        "options": [
+                          "The model weighs possible continuations; it does not look up facts",
+                          "The model has a database",
+                          "The model always gives the same answer",
+                          "Confidence proves correctness"
+                        ],
+                        "answer": 0,
+                        "explanation": "A fluent answer is a sampled distribution, not a truth signal."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What does the Overfit toy show?",
+                        "options": [
+                          "Training accuracy can rise while test accuracy falls",
+                          "Training and test always agree",
+                          "More flexibility always helps",
+                          "A high training score proves generalisation"
+                        ],
+                        "answer": 0,
+                        "explanation": "A flexible model can memorise noise. The held-out result is the evidence."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "Why does a 12-step pipeline at 95% per step fail so often?",
+                        "options": [
+                          "Reliability multiplies across steps, so the pipeline success rate is much lower",
+                          "Each step gets less accurate over time",
+                          "The model is tired",
+                          "The pipeline uses too much memory"
+                        ],
+                        "answer": 0,
+                        "explanation": "Checkpoints and placement are the design surface."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

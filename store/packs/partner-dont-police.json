@@ -1,0 +1,1362 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "partner-dont-police",
+  "title": "Partner, Don't Police: AI in the Business Classroom",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "partner-dont-police",
+      "title": "Partner, Don't Police: AI in the Business Classroom",
+      "theme": "storybook",
+      "level": "intermediate",
+      "tags": [
+        "education",
+        "ai",
+        "teaching",
+        "assessment"
+      ],
+      "pitch": "Design business education that treats AI as a partner rather than a policing problem.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "partner-dont-police",
+          "title": "Partner, Don't Police: AI in the Business Classroom",
+          "theme": "storybook",
+          "tags": [
+            "education",
+            "ai",
+            "teaching",
+            "assessment"
+          ],
+          "level": "intermediate",
+          "pitch": "Design business education that treats AI as a partner rather than a policing problem.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "chapters",
+            "title": "Chapters",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Introduction: A Defensible Classroom Pilot",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Start with a learning decision you can examine.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The problem this book addresses</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A business educator may want students to practise difficult decisions more\noften than a timetable allows: asking a fair question, checking a recommendation,\nexplaining an uncertainty or revising an unsupported conclusion. AI can help\ngenerate practice and feedback, but it can also make weak reasoning look fluent.</p>\n<p>This book offers a way to design and evaluate that practice. The aim is to\nhelp you decide where assistance is useful, where checks are needed and how\nthe learner will demonstrate capability. More AI use is not by itself the\nmeasure of success.</p>\n<p>You bring disciplinary and teaching judgement. A model may contribute alternative\nwording, questions or a simulated role. Neither its confidence nor the length\nof the resulting conversation establishes what a student knows.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A small example of the difference</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>In the fictional pilot, a junior adviser meets an employee whose manager has\nproposed a performance plan. A polished response announces the plan, invents\nan earlier warning and offers to approve support arrangements. It sounds\nempathetic, but conflicts with the supplied records and authority.</p>\n<p>A shorter response checks the missing evidence, preserves the opportunity to\nrespond and refers the decision appropriately. It leaves the matter unresolved.\nThat is the stronger first response because its reasoning fits the facts.</p>\n<p>The <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a> provides both responses, flawed\nfeedback, a correction and a changed case. You do not have to invent a scenario\nor trust a live model to work through the book.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The reader and the outcome</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The main reader is an educator teaching business or a related professional\ndiscipline. You do not need to code or purchase an AI subscription. You do need\nenough disciplinary knowledge to recognise the task's standards and arrange\nexpert review where the material exceeds your competence.</p>\n<p>Student-facing prompts and instructions are labelled as such. They are examples\nto adapt, not institution-wide policies or ready-made legal advice.</p>\n<p>By the end, you should be able to:</p>\n<ul>\n<li>Specify a bounded capability and the evidence needed to assess it.</li>\n<li>Select permitted data and an approved or non-AI route.</li>\n<li>Design practice and feedback with checkable inputs.</li>\n<li>Inspect a response and justify a correction or warranted agreement.</li>\n<li>Include an appropriate independent demonstration.</li>\n<li>Evaluate access, workload and learning evidence before expanding a pilot.</li>\n</ul>\n<p>A model's success at producing a handout is not the same as your success at\ndesigning an assessment. The latter requires these decisions to fit together.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Conversation as a working method</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The companion <em>Conversation, Not Delegation</em> develops the broader method of\nthinking with AI. PDP uses a short practical version: clarify the question,\nconsider alternatives, check consequential claims and make a decision you can\ndefend.</p>\n<p>Its VET reminder is useful here: <strong>Verify</strong> the claim, <strong>Explain</strong> your reasoning\nand <strong>Test</strong> it against a changed condition. The classroom application adds a\nfurther question: which part of the student's performance was assisted, and\nwhich part demonstrates independent capability?</p>\n<p>A conversation can support that work. It can also become a long rehearsal of\nunsupported assertions. Do not reward the conversation itself without examining\nthe decisions it contains.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Three design commitments</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>First, establish safety before use. The data gate covers permission, account\nfeatures, handling and alternatives. Fictional material is the default for\npractice; a real placement case is not automatically suitable because names\nwere removed.</p>\n<p>Second, make feedback contestable. A model can misapply a rubric or invent a\nfact. Students need supplied criteria and examples that let them check its\ncomments. They should be allowed to retain correct advice as well as reject\nerrors.</p>\n<p>Third, preserve the learner's opportunity to act independently. The final\nchanged case cannot be replaced by a reflection that merely says learning\noccurred. Choose a demonstration appropriate to the outcome and access needs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The route through the book</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Begin with <a href=\"understanding-ai.qmd\">Understanding AI</a> and\n<a href=\"ethics-integrity.qmd\">Ethics and Data Governance</a>. Then try\n<a href=\"getting-started.qmd\">Getting Started</a>, choose a\n<a href=\"seven-techniques.qmd\">prompt pattern</a> and practise a\n<a href=\"managing-context.qmd\">checked handoff</a>.</p>\n<p>The next sequence develops <a href=\"critique-toolkit.qmd\">critique</a>,\n<a href=\"flight-simulator.qmd\">simulation</a>, <a href=\"self-assessment.qmd\">self-assessment</a> and\n<a href=\"assessment.qmd\">assessment design</a>. Small content activities and the virtual\ncompany then lead into whole-unit design.</p>\n<p>The closing chapters address adaptation, implementation and a pilot decision.\nThe appendices supply the cases, rubric, stress test and workshop resources.\nThese support a standalone route; the other books are optional extensions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: choose one capability</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow eight minutes; no AI required.</strong> Pick a task you teach. Complete:</p>\n<blockquote>\n<p>After this activity, the student can ___ using ___ evidence, under ___ conditions.</p>\n</blockquote>\n<p>Avoid “understand AI better” or “produce a professional report” without saying\nwhat would demonstrate that outcome. In the pilot, the target is to plan and\njustify a fair first response using supplied records. It does not claim to\ncertify a competent workplace investigator.</p>\n<p>Keep your sentence. Each later chapter should help you make a concrete design\ndecision about that capability.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "Understanding AI and Large Language Models",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A useful explanation of a tool should help you decide how to check its work.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Model, product and task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A language model generates text from patterns learned during training and the\ncontext supplied at use time. Many contemporary models are trained to predict\ntokens, which may represent words or parts of words, and undergo additional\ntraining to improve their behaviour. This mechanism supports useful performance\non many tasks; it does not guarantee factual accuracy.</p>\n<p>A product may wrap a model with search, document retrieval, calculation, code\nexecution or memory features. Those additions matter. A reply based on a\nretrieved document has a different evidence trail from an unsupported answer\ngenerated from learned patterns, but either can be wrong.</p>\n<p>ChatGPT, Claude, Gemini and Copilot are product families, not interchangeable\nspecifications. Features, accounts and institutional approvals change. This\nbook's workflow does not depend on a particular subscription or interface.</p>\n<p>The GPT-4 technical report describes next-token pre-training and subsequent\nfine-tuning, while withholding model size. Claims that its parameter count is\nknown precisely should not be treated as established facts.\n<a href=\"https://arxiv.org/pdf/2303.08774\">GPT-4 technical report, section 2</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Why fluent answers need checks</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A plausible explanation can contain an invented citation, a wrong calculation\nor a confident inference unsupported by the inputs. Fluency makes the answer\neasy to read; it is not a confidence interval or a guarantee.</p>\n<p>In the pilot's P1-F feedback, the invented April warning sounds specific.\nThe source card records only a May conversation. Checking the date is a stronger\ntest than asking the same model whether it is certain.</p>\n<p>Avoid the opposite overstatement too. “AI cannot reason” is not a useful rule for\ndesigning a class. Models can perform tasks involving reasoning, with reliability\nthat varies by task, inputs and system. Observe the actual performance and\nverify what matters. Neither impressive output nor a blanket dismissal tells\nyou whether the student has learned.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What a model may help you do</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You might ask it to propose alternative classroom questions, play a bounded\nrole, reorganise a draft or suggest explanations at different levels.\nEach is a candidate use, not an automatic improvement over your current method.</p>\n<p>Match the check to the task:</p>\n<table>\n<thead>\n<tr>\n<th>Task</th>\n<th>Useful check</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Explain a concept</td>\n<td>Compare with the taught definition and a counterexample</td>\n</tr>\n<tr>\n<td>Summarise a record</td>\n<td>Check retained facts, omissions and source locations</td>\n</tr>\n<tr>\n<td>Calculate a total</td>\n<td>Recalculate from the inputs</td>\n</tr>\n<tr>\n<td>Suggest a scenario</td>\n<td>Check factual consistency, assumptions and suitability</td>\n</tr>\n<tr>\n<td>Give feedback</td>\n<td>Compare with a calibrated rubric and specimen responses</td>\n</tr>\n</tbody>\n</table>\n<p>A “creative” task can still cause harm through stereotypes, personal data or\nfalse claims. A small task can be consequential. Consider the stakes and whether\nyou can detect an error, not only the size or apparent precision of the request.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Context, retrieval and memory</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The active context is the information made available for the current response.\nIt has limits, and a product may truncate, summarise or select parts of a\nconversation. Even when information fits, the model may not use it reliably.</p>\n<p>Some products can retain preferences or retrieve earlier material; others do\nnot. Do not assume either perfect continuity or universal amnesia. For a teaching\nsimulation, the authoritative record should be the source cards and event log,\nnot what a persona seems to remember.</p>\n<p>Long-context research found that relevant information's position can affect\nperformance, sometimes with stronger results near the beginning and end than\nthe middle. That is a warning to test retrieval, not a universal 50-turn rule.\n<a href=\"https://arxiv.org/abs/2307.03172\">Lost in the Middle</a>.</p>\n<p>The <a href=\"managing-context.qmd\">context chapter</a> shows how to carry a checked brief\nbetween sessions. Do not copy unrelated private material just to preserve context.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Generated perspectives are not independent sources</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Three personas can help you imagine competing concerns. They do not represent\nthree people consulted, three experiments or three independent confirmations.\nThey may repeat the same error because they draw on the same inputs and model.</p>\n<p>In a business class, ask students to distinguish a possible stakeholder concern\nfrom evidence that stakeholders actually hold it. A model's “employee” can suggest\na question to investigate, but cannot establish an employee's experience.</p>\n<p>Likewise, an explanation of how a model reached an answer is not an inspection\nof its internal computation. Ask for checkable steps, sources, assumptions and\ncalculations. Evaluate those directly.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The learner remains a separate question</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A good output and a learning gain are different outcomes. Assisted practice can\nimprove the work in front of the student without improving their later unaided\nperformance. The design of assistance matters.</p>\n<p>One study of high-school mathematics compared ordinary and guardrailed AI\nsupport with unaided follow-up performance. It is evidence for checking the\ndifference between assisted performance and learning, not a validation of\nevery AI activity in this book.\n<a href=\"https://hamsabastani.github.io/education_llm.pdf\">Bastani et al., author manuscript</a>.</p>\n<p>In PDP, the learner therefore attempts a response, examines feedback and then\ntries a changed case independently. The model is optional in that sequence.\nThe method requires evidence of the learner's capability, not loyalty to a tool.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: separate claim from check</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow eight minutes; no AI required.</strong> Read the P1-F feedback in the\n<a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>. Underline one factual claim, one\njudgement and one recommendation. Name the source or criterion needed to check\neach.</p>\n<p>A successful answer checks the April warning against P1-D3, the fairness\njudgement against P1-D1 and the approval recommendation against P1-D5.\n“Ask the AI again” may generate another explanation, but is not independent\nverification.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Ethics, Data Governance & Integrity",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Decide what may enter the tool before asking what the tool can do with it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A decision before the first prompt {#sec-data-gate}</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This chapter belongs before the first activity because a useful output does not\njustify an inappropriate input. Use the fictional <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>\nwhile learning. Do not substitute a real student, employee, client or research\nparticipant to make the exercise more realistic.</p>\n<p>Apply the same first-use gate to drafting, simulations, feedback, research and\nworkshops:</p>\n<ol>\n<li><strong>Classify the material.</strong> Is it public, confidential, personal, sensitive,\n   contract-restricted or otherwise controlled? Who might be identifiable from\n   combinations of details?</li>\n<li><strong>Check authority and rights.</strong> Are you permitted to process it for this\n   purpose and share it with this service? Possessing a document is not the same\n   as having permission to upload it.</li>\n<li><strong>Check the approved account and features.</strong> Institutional approval should\n   cover the use, account, data class and enabled features, not just a brand name.</li>\n<li><strong>Check handling.</strong> Consider retention, training use, access, sharing, external\n   search/integrations and relevant processing locations. Ask the institution's\n   appropriate adviser where information is unclear.</li>\n<li><strong>Choose a route.</strong> If the requirements are not met, use synthetic material,\n   an approved alternative or the non-AI version. Do not upload first and seek\n   permission afterwards.</li>\n</ol>\n<p>Record the decision briefly, without copying the sensitive information into\nthe record. An approved service may still be inappropriate for a particular\ndataset or purpose.</p>\n<h3>What enterprise protection does and does not establish</h3>\n<p>Enterprise services can offer contractual protections and administrative controls.\nThey do not automatically establish your institution's permission for every\nuse. Features and connected services can have different boundaries.\nMicrosoft, for example, distinguishes Copilot protections from web-search\nprocessing. Check the actual service and configuration.\n<a href=\"https://learn.microsoft.com/en-us/copilot/privacy-and-protections\">Microsoft privacy and protections</a>.</p>\n<p>OAIC recommends due diligence appropriate to an AI product's intended use,\nincluding access, oversight and privacy/security risks. Its guidance also\nrecognises re-identification risk. Removing names is not a universal clearance\nto use an unapproved tool.\n<a href=\"https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products\">OAIC guidance on commercial AI products</a>.</p>\n<p>De-identification is a contextual risk decision, not a “find and replace names”\nexercise. A rare role, incident date, small cohort or distinctive quotation may\nstill identify someone. It also does not remove copyright, contractual or\nresearch-ethics restrictions. For classroom practice, a genuinely invented case\nis usually easier to govern than a disguised real case.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Keep different data risks separate</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A conversation can be retained as a service record without being used for\nmodel training. If it enters training, the resulting model is not simply a\nsearchable folder of every document; nevertheless, memorisation and extraction\ncan occur. A retrieval-enabled system can also access stored documents through\na separate mechanism. These are different pathways.</p>\n<p>Published extraction research shows that some training text can be recovered\nfrom language models. That rules out blanket claims of impossibility. It does\nnot show that another user can retrieve any arbitrary one-off upload.\n<a href=\"https://arxiv.org/abs/2012.07805\">Carlini et al.</a>,\n<a href=\"https://arxiv.org/abs/2311.17035\">Nasr et al.</a>.</p>\n<p>Training exclusions address one pathway, not every retention, sharing or security\nrisk. Likewise, similar ideas appearing elsewhere establish neither theft nor\nindependent invention. Teach students to identify the evidence needed for a\nclaim instead of substituting reassurance or suspicion.</p>\n<p>Credentials, access tokens and unnecessary personal information do not belong\nin classroom prompts. If sensitive material is accidentally uploaded, stop the\nactivity, preserve appropriate incident details without further disclosure and\nfollow institutional reporting procedures. Do not ask the model to certify\nthat the information has been deleted.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Transparent use with real boundaries {#sec-integrity-principle}</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Students should know what help is permitted, what must be disclosed and what\nthey must demonstrate independently. Permission is task-specific. An institution\nmay legitimately restrict assistance at a particular assurance point while\nsupporting its use during practice.</p>\n<p>A suitable statement might say:</p>\n<pre><code class=\"language-text\">In this activity, use only the supplied fictional pack.\nYou may rehearse with a partner, the printed exchange\nor the approved institutional AI service.\n\nSubmit your response and two decision notes. Explain\nwhat assistance you used and which claims you checked.\nDo not submit unrelated private conversations.\n\nThe changed-case task is completed independently under\nthe conditions stated in the assessment brief.\nAccess adjustments are arranged before the task.\n\nAsk if a tool, data source or form of help is unclear.\nInstitutional academic-integrity procedures apply.\n</code></pre>\n<p>Adapt this to the actual unit policy. Do not claim that disclosure makes every\nuse permissible, or that any uncritical use automatically meets the institution's\ndefinition of misconduct. Poor work and dishonest conduct are different questions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Detection and assurance {#sec-problem-with-detection}</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A detector result is not direct evidence of the student's learning process.\nNeither is a long, polished conversation. A student may generate a plausible\nreflection; a genuine learner may write briefly or struggle to explain under\npressure.</p>\n<p>The <a href=\"assessment.qmd\">assessment chapter</a> therefore combines selected process\nevidence with meaningful independent demonstrations. These support a learning\njudgement but do not remove the need for fair misconduct procedures.</p>\n<p>Avoid giving students mixed messages. If the assignment permits extensive\nassistance, do not later penalise its mere use. If it restricts assistance,\nexplain the restriction and the assurance purpose. Follow-up questions should\nbe relevant, accessible and consistent with published expectations.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Teach verification without forced opposition</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Critical engagement does not mean always finding fault. A learner should be able\nto accept a correct calculation, reject an unsupported inference and say that\nthere is not enough information to decide.</p>\n<p>The pilot's marketing example illustrates all three. The higher click-through\nrate can be calculated. The claim of greater profit lacks cost data. A causal\nclaim cannot be established from different audiences and weeks alone. The same\nresponse can reasonably contain agreement, rejection and uncertainty.</p>\n<p>A model-generated persona is not an independent expert. Agreement between\nthree personas does not create three sources. Check against the supplied records,\nreliable external material or an authorised person, depending on the question.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Sensitive scenarios and student wellbeing</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Performance plans, discrimination complaints and termination conversations can\nbe useful teaching contexts, but students may have personal experience of them.\nProvide advance notice, a stop instruction, a neutral route and a debrief.</p>\n<p>Do not reward disclosure of private information, emotional conformity or success\nat making the simulated employee agree. A respectful decision may be to pause,\nseek independent advice or leave the outcome unresolved.</p>\n<p>For the pilot, the invented policy is the exercise criterion. It is not legal\nadvice. If teaching actual Australian workplace bullying law, use the complete\napplicable definition and scope: health/safety risk and the distinction for\nreasonable management action matter, as well as repeated unreasonable behaviour.\n<a href=\"https://www.fairwork.gov.au/employment-conditions/bullying-and-harassment\">Fair Work Ombudsman guidance</a>.\nHave an appropriately qualified person review consequential legal teaching.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Equity is a design requirement</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Conversational skill does not erase differences in access, language support,\nmodel capability, disability or available time. Provide a route that uses the\nsame learning criteria without a paid subscription or personal account.</p>\n<p>When the capability is planning and justification, paper or an accommodated\nspoken response may work. When the capability is live communication, a written\ncase analysis alone is not an equivalent demonstration: provide an appropriate\ninteraction, such as a structured peer/facilitator role-play.</p>\n<p>Do not require every private chat as proof of effort. Ask for bounded extracts\nand permit working notes where appropriate. Set retention and access rules for\nsubmitted evidence through institutional processes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A bounded ethics discussion</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A fictional recruitment tool ranks applicants with career gaps lower.\nThree candidates question the decision. The supplied facts do not establish\nthe cause or legal outcome.</p>\n<p>Ask learners what evidence would distinguish a relevant job criterion from an\nunfair proxy, who is authorised to review the system, and what should happen\nwhile the concern is investigated. They should not diagnose the algorithm by\nasking another model whether it is biased.</p>\n<p>Speculative systemic risks can be worthwhile extension topics, but should be\nlabelled scenarios rather than predictions. A claimed “95% accurate” system\nneeds a defined population, outcome, error distribution and validation method\nbefore that number can inform an ethical decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: make the upload decision</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 10 minutes; no AI required.</strong> Apply the five-step gate to:</p>\n<ul>\n<li>The fictional P1 pack.</li>\n<li>A placement client's spreadsheet with names removed.</li>\n<li>A student's draft containing a personal disclosure.</li>\n</ul>\n<p>For each, write what you know, what permission or handling detail is missing\nand the safe alternative. The first can support a bounded practice activity\nafter the account/use check. The second and third need further authority and\nrisk assessment; removing names or choosing an enterprise logo is insufficient.</p>\n<p>Keep your resulting rule beside the first student-facing prompt. Safety advice\nthat appears only in a later appendix will not guide the upload decision.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Getting Started: Your First AI Conversation",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Begin with a task you can inspect and evidence you can check.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Choose a safe route first</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Complete the <a href=\"ethics-integrity.qmd\">first-use data gate</a> before opening a tool.\nUse only the fictional pilot materials or your own non-sensitive invented\nexample. Institutional approval must cover the account, features and intended\nuse; an enterprise label alone is not permission to upload course or student data.</p>\n<p>The exercise works in a browser-based approved service if available. Otherwise,\ncompare the supplied responses below on paper. You do not need a paid account\nto learn how context and criteria change the usefulness of a request.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your First Prompt: The Weak Version</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>If you have an approved tool, try this request. Otherwise use the authored excerpt below:</p>\n<pre><code>Write a case study about business.\n</code></pre>\n<p>The response may be generic, such as a story about a marketing campaign or financial decision. The request supplies little basis for meeting your specific teaching needs. \"Business\" covers everything. \"A case study\" could be 100 words or 5,000. The AI had to guess what you wanted.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Second Prompt: A More Specific Version</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Now try this instead:</p>\n<pre><code class=\"language-text\">You are an expert marketing lecturer at a\nuniversity level.\n\nI need you to create a case study for my\nundergraduate students that will help them\npractice strategic market analysis and\ncompetitive positioning.\n\nHere are the requirements:\n- The scenario should involve a product launch\n  decision where the company faces competitive\n  threats\n- Include enough detail that students need to\n  identify which market analysis principles apply\n- The scenario should be 300-400 words\n- End with three discussion questions requiring\n  students to analyse the market strategy and\n  positioning\n\nBegin.\n</code></pre>\n<p>The second request gives a clearer task. It may produce more relevant material,\nbut still needs checking. Here are two <strong>authored illustrative excerpts</strong>, not\noutputs from a measured comparison:</p>\n<p><strong>Generic excerpt:</strong> “A business wants to increase sales. It launches a new\nproduct. Discuss the marketing strategy.”</p>\n<p><strong>More specific excerpt:</strong> “A small drink producer can fund only one launch\nchannel. Retail buyers want discounts; direct sales need fulfilment capacity.\nThe producer has no reliable repeat-purchase estimate. Which evidence would\nyou request before choosing a channel?”</p>\n<p>The second creates a decision and missing information. It still needs enough\nsupplied data and a criterion for evaluating the student's response. Do not\nmistake a more detailed story for a complete classroom activity.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The CRAFT Framework</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>What made that second prompt more specific? It included five elements that you can remember with the acronym <strong>CRAFT</strong>:</p>\n<table>\n<thead>\n<tr>\n<th>Letter</th>\n<th>Element</th>\n<th>What it does</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>C</strong></td>\n<td><strong>Context</strong></td>\n<td>Sets the situation: your course, your students, their level</td>\n</tr>\n<tr>\n<td><strong>R</strong></td>\n<td><strong>Role</strong></td>\n<td>Defines the AI's perspective: expert lecturer, consultant, practitioner</td>\n</tr>\n<tr>\n<td><strong>A</strong></td>\n<td><strong>Action</strong></td>\n<td>Specifies the task: create, analyse, critique, explain</td>\n</tr>\n<tr>\n<td><strong>F</strong></td>\n<td><strong>Format</strong></td>\n<td>Describes the structure: word count, number of questions, table format</td>\n</tr>\n<tr>\n<td><strong>T</strong></td>\n<td><strong>Tone/Target</strong></td>\n<td>Sets the style and level: professional, introductory, sophisticated</td>\n</tr>\n</tbody>\n</table>\n<p>You do not need every element every time. But when a prompt gives you something vague or generic, check which CRAFT elements are missing. The answer is usually context or format.</p>\n<p><strong>CRAFT is not the only prompting framework.</strong> The companion book <em>Conversation, Not Delegation</em> (available free at books.borck.education) compares several frameworks side by side. Use CRAFT to think intentionally about what you are asking the AI to do, rather than as a rigid formula.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Conversation, Not One-Shot</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>CRAFT is your first message, not your only message.</strong></p>\n<p>An initial response may miss your teaching context or contain unsupported assumptions. Check it before deciding whether another exchange would help.</p>\n<p>The solution is to have a conversation:</p>\n<pre><code>PROMPT 1 (CRAFT):\n&quot;You are an experienced marketing director.\nCreate a market analysis case study for my\nsecond-year students. 500 words with 4\ndiscussion questions.&quot;\n\n[AI produces a case study]\n\nPROMPT 2 (Refine):\n&quot;Good. Make the discussion questions more\nspecific — ask students to identify which\nof Porter's Five Forces apply and what data\nthey would need to support their recommendation.&quot;\n\nPROMPT 3 (Expand):\n&quot;Add a section comparing three analytical\nframeworks and how each leads to different\nconclusions.&quot;\n\nPROMPT 4 (Repurpose):\n&quot;Turn this into a 10-minute classroom activity\nwith a 2-minute intro, 5-minute group task,\nand 3-minute discussion.&quot;\n</code></pre>\n<p>You had a conversation in which each follow-up built on what was working, which is what <em>conversation, not delegation</em> means in practice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discover Your Strategy: Using AI to Help You Use AI</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model can suggest ways to use a tool, but its advice about current features or policy may be wrong. Check those claims against the product's documentation and your institution's rules.</p>\n<p>Instead of reading generic advice, you can have a personalised consultation where AI interviews you about your teaching context and then recommends both obvious and unexpected applications. Copy this prompt and try it now:</p>\n<pre><code>You're an AI expert consultant for business\neducators. I'd love your help discovering\nhow I could better use AI in my teaching.\n\nPlease ask me one question at a time. I'll\nanswer, then you'll ask the next question.\nAsk at most five questions using fictional or\nnon-sensitive context. Stop if I say STOP.\nFocus on:\n\n- My discipline and the students I teach\n- My main teaching challenges\n- My key teaching goals\n- My constraints (time, resources, skills)\n- What I've already tried with AI\n\nOnce you have enough context, provide TWO\ntypes of recommendations:\n\n1. OBVIOUS OPPORTUNITIES: Clear, straightforward\n   AI applications most educators think of\n\n2. NON-OBVIOUS OPPORTUNITIES: Unexpected or\n   creative uses specific to my discipline\n   that I might not have considered\n\nFormat your recommendations clearly with\nimplementation tips for each.\n\nPlease start by asking your first question.\n</code></pre>\n<p>Spend 10-15 minutes answering honestly. The recommendations are only part of the value; you also learn about your own teaching by having to explain it. Writing down those constraints can clarify the task whether you discuss them with a model, a colleague or on paper. Treat the model's recommendations as proposals to evaluate.</p>\n<p>Run the consultation prompt above. Answer the questions honestly, and don't polish your responses. Choose one proposal to evaluate against the outcome, data gate, access requirements and staff time. Trying it in class is a separate decision. You can carry out the same planning exercise on paper.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: inspect the proposed task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow ten minutes; no AI required.</strong> Compare the two supplied excerpts.\nName one decision the learner must make, one missing input and one criterion\nyou would use to assess the response. Then adapt the stronger request to your\nown discipline without adding real personal or confidential information.</p>\n<p>The <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a> supplies the next step: fixed\ninputs and worked checks. A usable prompt is only the beginning of a usable\nlearning activity.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Seven Essential Prompt Techniques for Business Teaching",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The right technique is not the cleverest one. It is the one that matches the kind of thinking you want your students to do.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Why These Seven?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>These seven prompting patterns offer different ways to organise practice. Their educational value depends on the task, evidence, feedback and learner activity; the list is not a claim that each pattern has been validated across every discipline.</p>\n<ol>\n<li><strong>Reverse Prompting</strong>: teaches comprehensive scoping and requirement gathering</li>\n<li><strong>Pros and Cons</strong>: builds analytical decision-making skills</li>\n<li><strong>Stepwise Tutoring</strong>: reinforces process adherence and documentation</li>\n<li><strong>Role Play</strong>: develops communication and interpersonal skills</li>\n<li><strong>Debating</strong>: strengthens strategic thinking and ethical reasoning</li>\n<li><strong>Formative Assessment Generator</strong>: supplies draft practice questions and provisional feedback</li>\n<li><strong>The Expert Panel</strong>: develops multi-perspective analysis and synthesis skills</li>\n</ol>\n<p>Each pattern needs adaptation to the discipline, supplied records and intended capability. The examples below use different disciplines to show the range, so adapt the prompts for your own field.</p>\n<p>These seven are adapted from <em>Conversation, Not Delegation</em>, which covers the same approaches for a general audience. If you want the underlying rationale for why each technique works, see the companion book.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 1: Reverse Prompting (for Scoping)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Instead of solving a problem immediately, the AI asks the student questions to help scope out all requirements, considerations, and potential issues. This mirrors professional work where defining the problem is half the battle.</p>\n<p><strong>Example (HR: policy design):</strong></p>\n<pre><code>I need to draft a new &quot;Flexible Work\nArrangement&quot; policy for a 500-employee company\nwith both office-based and remote staff.\n\nYour task: Ask me a series of questions to help\nme clarify all the requirements, considerations,\nand potential pitfalls for this policy.\n\nAsk one question at a time. Wait for my response\nbefore asking the next. Continue until you've\nhelped me think through at least 10 different\naspects.\n\nBegin with your first question.\n</code></pre>\n<p>The AI asks questions the student must think through before responding: fairness, logistics, legal compliance, technology needs, cultural impact. The questions may broaden their scope, but cannot guarantee completeness. Compare the resulting scope with the supplied task criteria.</p>\n<p><strong>Adapt for your discipline:</strong> Replace the policy topic with whatever scoping challenge fits: a market entry strategy, an audit plan, a supply chain redesign, an IT implementation. The technique is the same: AI questions, student thinks.</p>\n<p><strong>Teaching tip:</strong> Use as a pre-writing exercise. Ask for a short evidence index and the subsequent draft. Assess the reasons for consequential decisions; a complete private chat history is not required.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 2: Pros and Cons (for Decision Making)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The AI systematically analyses multiple approaches to a problem, evaluating each against specific criteria. Students must then critically evaluate the analysis rather than just accept it.</p>\n<p><strong>Example (Supply Chain: strategy evaluation):</strong></p>\n<pre><code>Compare different supply chain strategies for a\nmid-sized manufacturer: make-to-stock,\nmake-to-order, and mass customisation.\n\nFor each strategy, provide:\n1. A brief description of how it works\n2. Three key advantages\n3. Three key disadvantages\n\nEvaluate each specifically in terms of:\n- Cost efficiency\n- Responsiveness to demand changes\n- Inventory risk\n\nConclude with a recommendation for a company\nfacing unpredictable seasonal demand and justify\nyour choice.\n</code></pre>\n<p><strong>The follow-up task:</strong> Check one consequential advantage and one disadvantage against supplied evidence. Identify a genuine omission if there is one. Students may retain the recommendation when it is justified; do not require a different strategy merely to demonstrate opposition.</p>\n<p><strong>Teaching tip:</strong> Project the AI's analysis on screen. Divide students into groups, each arguing for a different strategy. They use the AI's framework but add their own reasoning.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 3: Stepwise Tutoring (for Process)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The AI walks through a complex process one step at a time, pausing after each step until the student signals readiness. Use a checked teaching procedure and inspect each learner attempt.</p>\n<p><strong>Example (Accounting: audit process):</strong></p>\n<pre><code>I am learning how to conduct an audit engagement\nfrom planning through to the audit opinion.\n\nWalk me through the entire process. For each\nstep, tell me:\n1. What action to take\n2. What to document\n3. What professional standard or legal\n   requirement applies at this stage\n\nUse the supplied teaching procedure and criteria.\nDo not invent standards or legal requirements.\nAfter each step, ask me to apply it to the\nsupplied case and justify my decision. STOP\nwhile I answer. Identify missing information.\nDo not provide the entire process at once.\n\nBegin with Step 1.\n</code></pre>\n<p>Typing “next” would not demonstrate understanding. Inspect the student's application and justification against checked teaching criteria before proceeding. A generated explanation is not a view into the model's internal reasoning.</p>\n<p><strong>Teaching tip:</strong> Have students repeat the exercise with complications introduced at each step: \"What if the client refuses to provide documentation at Step 3?\" Check any generated guidance against the supplied procedure before relying on it.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 4: Role Play (for Communication Skills)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The AI adopts a specific persona and engages in a realistic conversation. This is the \"flight simulator\" concept: students practice difficult professional interactions where the AI responds dynamically.</p>\n<p><strong>Example (Management: difficult conversation):</strong></p>\n<pre><code>Play Alex in the fictional P1 practice pack.\nUse only P1-D1 to P1-D5.\nOpen with the concern about dependencies in P1-D4.\nI am the junior adviser, not the decision-maker.\nDo not invent private history, policy or evidence.\nSay when an answer is not supplied.\nStop immediately on STOP or after six exchanges.\nDo not require disclosure, agreement or a final ruling.\nI will respond to your opening statement.\n</code></pre>\n<p>The learner practises wording, evidence checks and a bounded next step. Text role-play does not establish competence in every aspect of a live workplace meeting.</p>\n<p><strong>Adapt for your discipline:</strong> AI plays a demanding customer (marketing), a resistant employee (management), a skeptical auditor (accounting), a supplier announcing delays (supply chain), a stakeholder with unclear requirements (IT).</p>\n<p><strong>Teaching tip:</strong> Ask for a relevant excerpt or the response to the fixed opening, with a short explanation of what the learner would retain or change.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 5: Debating (for Strategic and Ethical Analysis)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The AI examines multiple perspectives on a contentious issue, argues both sides, and helps students see complexity and trade-offs.</p>\n<p><strong>Example (Economics: multi-stakeholder debate):</strong></p>\n<pre><code>Simulate a leadership debate on whether to\nimplement a carbon tax.\n\nCreate three personas who will each argue from\ntheir perspective:\n\nPersona 1: Environmental Economist\nFocus: climate impact, externalities, long-term\neconomic benefit\n\nPersona 2: Industry Representative\nFocus: competitiveness, cost burden, employment\nimpact\n\nPersona 3: Treasury Official\nFocus: revenue, fiscal policy, implementation\nfeasibility\n\nHave each persona make their opening argument.\nUse only the supplied teaching sources. Label these\nas generated perspectives, not independent evidence.\nDo not invent empirical claims or citations.\nThen have them respond to each other through\nthree rounds. After the debate, summarise the\nkey tensions and what a compromise policy might\nlook like.\n\nBegin the debate.\n</code></pre>\n<p>Students cannot just pick a side. They must understand legitimate competing perspectives and make a justified recommendation that acknowledges trade-offs.</p>\n<p><strong>Teaching tip:</strong> This can support practice in analysing a case. Instead of memorising model answers, they practise analysing competing priorities.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 6: Formative Assessment Generator (for Practice)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An educator can request draft questions, scenarios or quizzes for low-stakes practice. Review the question, intended answer and feedback before student use.</p>\n<p><strong>Example (Tourism &amp; Hospitality: scenario practice):</strong></p>\n<pre><code>I'm studying for an exam on service recovery in\nhospitality management.\n\nGenerate 10 short scenarios (2-3 sentences each)\nwhere I need to identify:\n1. What went wrong in the service delivery\n2. The appropriate recovery strategy\n3. A possible impact on guest loyalty and what\n   evidence would be needed to investigate it\n\nUse the supplied teaching criteria and answer notes.\nAfter each attempt, offer provisional feedback\nwith its source. Flag ambiguity instead of\ninventing a definitive answer.\n\nMake the scenarios progressively more complex.\n\nBegin with Scenario 1.\n</code></pre>\n<p>Students can request further practice, subject to access and tool limits. Use checked questions and feedback, then an independent changed problem to examine learning. Repetition and a model's approval do not establish mastery.</p>\n<p><strong>Critical principle:</strong> This is for practice, not graded assessment. Students need to struggle and make mistakes in low-stakes environments.</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Technique 7: The Expert Panel (for Multi-Perspective Analysis)</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Students consult multiple AI \"experts\" with different professional perspectives on the same problem, then synthesise the competing advice into a strategic recommendation.</p>\n<p><strong>Example (Information Systems: system implementation):</strong></p>\n<pre><code>Our company needs to decide on an ERP\nimplementation approach. Create three expert\npersonas:\n\nExpert 1: IT Architect\nFocus: technical feasibility, integration,\nsecurity, scalability\n\nExpert 2: Change Management Consultant\nFocus: user adoption, training, organisational\nreadiness, resistance\n\nExpert 3: CFO\nFocus: cost, ROI, risk, business case\n\nTreat these as generated viewpoints, not real\nexperts or independent evidence. For each provide:\n1. Their assessment of the key risks\n2. Their recommended approach\n3. Limitations of their recommendation\n4. What data they would need to validate it\n\nBegin with Expert 1.\n</code></pre>\n<p>After receiving the perspectives, students compare the claims, check them against supplied records or independent sources, and justify a recommendation. Agreement among personas is not corroboration.</p>\n<p><strong>Teaching tip:</strong> This technique combines well with Debating (have the experts debate each other) and Role Play (present your synthesis to a skeptical stakeholder).</p>\n<hr />"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>How to Choose Which Technique to Use</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>If you want students to...</th>\n<th>Use this technique</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Define a complex problem comprehensively</td>\n<td><strong>Reverse Prompting</strong></td>\n</tr>\n<tr>\n<td>Evaluate competing options and justify a choice</td>\n<td><strong>Pros and Cons</strong></td>\n</tr>\n<tr>\n<td>Follow a sensitive process correctly</td>\n<td><strong>Stepwise Tutoring</strong></td>\n</tr>\n<tr>\n<td>Practice difficult conversations</td>\n<td><strong>Role Play</strong></td>\n</tr>\n<tr>\n<td>Understand multiple perspectives and trade-offs</td>\n<td><strong>Debating</strong></td>\n</tr>\n<tr>\n<td>Build confidence through repetition</td>\n<td><strong>Formative Assessment Generator</strong></td>\n</tr>\n<tr>\n<td>Synthesise expert advice from different roles</td>\n<td><strong>The Expert Panel</strong></td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Combining Techniques</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You can also combine techniques into a professional workflow:</p>\n<ol>\n<li>Student uses <strong>Reverse Prompting</strong> to scope out all requirements for a new policy</li>\n<li>Student uses <strong>Pros and Cons</strong> to evaluate three different approaches</li>\n<li>Student drafts their chosen policy</li>\n<li>Student uses <strong>Role Play</strong> to practice explaining it to a skeptical stakeholder</li>\n<li>Student uses <strong>Debating</strong> to analyse potential criticisms from different perspectives</li>\n</ol>\n<p>This sequence takes the student through analysis, decision-making, communication, and critical reflection: a bounded rehearsal, not evidence of a complete professional capability.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Choose and test a pattern</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 12 minutes.</strong> Select a pattern and identify the learner action it supports.\nWrite the source/criteria check and an independent follow-up. You can do this\non paper using the pilot pack's fixed responses.</p>\n<p>For example, reverse prompting may help scope a review, but the learner must\ndecide which question is relevant and why. A role-play can rehearse wording,\nbut its emotional response is not a grade. A generated quiz needs checked\nanswers before students rely on it.</p>\n<p>Use the <a href=\"ethics-integrity.qmd\">data gate</a> for every live prompt and retain a\nnon-AI route. The <a href=\"../appendices/prompt-library.qmd\">prompt library</a> collects\nbounded versions of these patterns.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "Managing Context: A Checked Handoff",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Keep the decisions you need to carry forward, not every sentence you exchanged.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What context management is for</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A long teaching-design conversation can mix rejected ideas, current decisions,\nspeculation and authoritative source material. The next response may pick up\nthe wrong version. Context management is the practical work of deciding which\ninformation remains relevant and checking that it is used correctly.</p>\n<p>A model's context and output limits depend on the system. Do not plan around a\nuniversal token range or assume that five requested outputs receive exactly\none fifth of its attention. The useful question is whether the task is clear\nenough to produce an output you can inspect.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>One worked example: a tutorial design</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You are preparing the PDP pilot. An early conversation suggested an employee\nmust agree to a formal plan. You later checked P1-D1 and rejected that idea.\nIf you paste the whole conversation into a new session, both versions may remain.</p>\n<p>Instead, write a short current-state brief:</p>\n<pre><code class=\"language-text\">Project: PDP-2026.1 tutorial for 24 students.\nGoal: plan and justify a fair first response.\n\nAuthoritative sources: P1-D1 through P1-D5.\nThe formal performance plan is only proposed.\nThe junior adviser cannot approve changed hours.\nDo not invent a prior warning or private details.\n\nDesign decisions:\n- Paper, paired and approved-AI practice routes.\n- Same five rubric criteria across those routes.\n- Independent P2 changed-case response.\n- Only two relevant decision extracts submitted.\n\nOpen questions:\n- Which access adjustments are needed?\n- How will a second marker calibrate the examples?\n\nNext task: draft the student instructions only.\nFlag any missing information; do not invent it.\n</code></pre>\n<p>This is short because someone has decided what matters. The benefit comes from\ncuration and checking, not from starting a new chat as a ritual.</p>\n<h3>Inspect the result</h3>\n<p>Suppose the generated instructions say, “Continue until Alex accepts the plan.”\nThat conflicts with the brief and policy. Reject that sentence, state the\nrelevant rule and check the revised instructions. Do not keep iterating solely\nbecause the output sounds more polished.</p>\n<p>If the instructions omit the independent P2 task, add it explicitly. If they\nsuddenly require a paid model, restore the approved-access and non-AI choices.\nA complete-looking handout can still lose important constraints.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Break work where a decision needs review</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>For a unit redesign, a useful sequence is:</p>\n<ol>\n<li>Specify the learning outcome.</li>\n<li>Decide what evidence could demonstrate it.</li>\n<li>Draft an activity that prepares the student.</li>\n<li>Write the instructions and rubric.</li>\n<li>Test them against contrasting responses.</li>\n</ol>\n<p>Review each important dependency before building on it. This reduces the cost\nof carrying a wrong assumption through several documents. It does not make\nevery small task reliable or every large prompt poor.</p>\n<p>Batch similar, low-risk work where it helps. Asking for five alternative\ndiscussion questions can be reasonable if you will inspect all five. Requesting\na full assessment, legal rationale, rubric and student policy in one answer may\nmake omissions harder to see. The right boundary is a reviewable unit of work,\nnot an absolute “one prompt, one thing” rule.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Separate exploration from production</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An exploratory session can help you identify options. A production session\nbenefits from settled choices and explicit constraints. A separate chat is one\nway to make that distinction, but not a requirement.</p>\n<p>Before moving from exploration to drafting, write:</p>\n<ul>\n<li>What I decided.</li>\n<li>Why I decided it.</li>\n<li>Which sources support the decision.</li>\n<li>What I rejected and must not accidentally restore.</li>\n<li>What remains unresolved.</li>\n</ul>\n<p>Do this yourself, even if a model proposes a summary. Compare the summary with\nthe source cards. An unnoticed error in a handoff can become the authoritative\npremise of the next task.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When to start again</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Start a new session when it helps manage a topic change, unresolved contradictions\nor an unwieldy history. There is no reliable universal number of turns after\nwhich every conversation fails.</p>\n<p>Before switching, save the checked brief and relevant outputs using approved\nstorage. Keep the source version separate from model-generated suggestions.\nAfter switching, ask the system to identify the applicable constraints before\ndrafting, then check that answer too.</p>\n<p>If a tool offers memory, do not assume it preserves the complete case. If it\noffers retrieval, check the retrieved material and version. The source cards\nand event log remain the record of the teaching scenario.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A context ledger for the virtual company</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use one shared fact sheet and a separate entry for each approved event.\nDistinguish private role knowledge from information available to every persona.</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Example</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Scenario/version</td>\n<td>InnovateCo, PDP-2026.1</td>\n</tr>\n<tr>\n<td>Shared facts</td>\n<td>Complaint received; no finding yet</td>\n</tr>\n<tr>\n<td>Role knowledge</td>\n<td>Priya knows her request; not David's private notes</td>\n</tr>\n<tr>\n<td>Approved event</td>\n<td>Reviewer requests the rota record</td>\n</tr>\n<tr>\n<td>Unresolved</td>\n<td>Reason for the unequal schedule decision</td>\n</tr>\n<tr>\n<td>Excluded invention</td>\n<td>A model's claim that a tribunal ruled</td>\n</tr>\n</tbody>\n</table>\n<p>A generated statement can be a lead for a question. It cannot become a new\ndocument, incident or finding merely because another persona agrees with it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reusable request</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<pre><code class=\"language-text\">Use the current-state brief and source cards below.\nProduce only [one reviewable output].\nPreserve the stated constraints and uncertainty.\nList missing inputs separately.\nDo not convert suggestions into agreed decisions.\nAfter drafting, identify which source supports\neach consequential instruction.\n</code></pre>\n<p>Check the cited sources yourself. A model can fabricate an accurate-looking\ntraceability table as easily as prose.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: repair a handoff</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow ten minutes; no AI required.</strong> Correct this brief:</p>\n<blockquote>\n<p>Alex received an April warning, has agreed to a 60-day plan, and will provide\nfamily details so the junior adviser can approve flexible hours.</p>\n</blockquote>\n<p>Use P1-D1, D3 and D5. Your corrected version should distinguish the documented\nMay contact from a warning, the proposal from approval, and a work-related\nsupport request from unnecessary personal information. Finish with one missing\ninput and one authorised next step.</p>\n<p>That checked handoff is a useful artifact whether the next collaborator is a\nmodel, a colleague or your future self.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-07",
+                "title": "The Critique Toolkit: Check the Recommendation",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A recommendation can be clearly written and still fail the task.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Ask what the response must support</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model may generate a plausible plan without knowing the relevant constraints.\nThe lecturer's task is to make those constraints explicit; the learner's task\nis to evaluate the response against them.</p>\n<p>Use five checks: comprehension, practicality, obligations and risk, context,\nand stakeholders. The framework is a teaching aid, not a substitute for domain\nknowledge. Asking the model each question can surface possibilities, but the\nanswers still need independent checks.</p>\n<p>The <a href=\"ethics-integrity.qmd\">data gate</a> applies before pasting any draft or source.\nUse the fictional examples here while learning.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>1. Comprehension: can I explain the claim?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Identify what the response actually recommends and why. Translate impressive\nphrases into an action that someone could perform.</p>\n<p>“Implement a holistic performance ecosystem” is not yet a workable instruction.\nWho does what, with which evidence and authority? A simpler sentence may expose\nthat the original answer never supplied a decision.</p>\n<p>For P1-A, the key actions are issuing a plan, approving flexible hours and\ncollecting private details. Once those are visible, their defects can be checked.\nDo not let reassuring language distract from the proposed action.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>2. Practicality: does it fit the constraints?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A recommendation may be desirable but impossible within the stated time,\nbudget or capacity. Check the actual inputs rather than ask whether it “sounds\nrealistic”.</p>\n<p>In S1, B is cheaper but offers only 160 of the required 200 units by day five.\nA recommendation for B alone fails the quantity requirement. The relevant\nquestion is not whether the response lists three impressive advantages.</p>\n<p>Use a calculation, record or explicit constraint as the check. If the input is\nmissing, state the uncertainty. Do not invent resources to make the answer work.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>3. Obligations and risk: what must be verified?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Identify legal, ethical, technical and organisational requirements that matter\nto the task. Then distinguish the teaching criterion from a real-world obligation.</p>\n<p>P1-D1 is an invented policy supplied for the exercise. It permits a fair-process\ndiscussion without asking a model to establish employment law. In a real unit\nteaching legal requirements, the educator must supply reliable, current sources\nand appropriate review.</p>\n<p>A model can suggest an issue to investigate. It cannot certify that a policy\ncomplies with every applicable law. Use authorised advisers for consequential\ndecisions outside your competence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>4. Context: which assumptions are doing the work?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Look for assumptions about available staff, authority, prior events and missing\ndata. P1-A invents an April warning and treats the plan as settled. Both make\nits recommendation appear easier to justify than the actual record permits.</p>\n<p>A useful decision note says: “This conclusion depends on X, which is not\nsupplied.” That is more informative than requesting a more confident answer.</p>\n<p>The same check applies to AI-created educational content. If a case study asks\nstudents to calculate profitability without cost data, the defect is in the\ntask design unless identifying that gap is the intended outcome.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>5. Stakeholders: whose experience is assumed?</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Consider who is affected, whose information is missing and who has authority\nto decide. Generated personas can propose concerns, but do not establish what\nreal stakeholders think.</p>\n<p>In the P1 meeting, Alex can ask who receives the notes and decline to discuss\nprivate circumstances. An adviser need not persuade Alex to disclose details\nfor the exercise to count as successful.</p>\n<p>In a supplier decision, the operational team may need a delivery commitment.\nIn marketing, a client may want evidence of profit rather than a click metric.\nThose differences change what a useful recommendation must support.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Worked critique: a recognition programme</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Consider this authored draft:</p>\n<blockquote>\n<p>Improve engagement with monthly monetary awards, quarterly ceremonies,\nan annual bonus, a public recognition platform and team incentives.</p>\n</blockquote>\n<p>Without more context, it is not possible to declare every element wrong.\nThe draft does, however, leave important questions unanswered: the objective,\nbudget, administrative effort, fairness criteria, employee preferences and how\nbenefit would be measured.</p>\n<p>A defensible critique might say:</p>\n<blockquote>\n<p>I would not approve the full programme yet. First define the engagement\nproblem and budget, consult affected staff and compare a smaller trial.\nCheck the applicable payroll, privacy and fairness requirements before\nchoosing rewards or publishing employee information.</p>\n</blockquote>\n<p>That response withholds approval for specific reasons. It does not assume that\na simple programme is always better or that any paid recognition is unlawful.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A compact critique record</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use the following fields for a recommendation in any business discipline:</p>\n<ul>\n<li>Claim or action proposed.</li>\n<li>Relevant source or criterion.</li>\n<li>Check performed and result.</li>\n<li>Decision: accept, revise, reject or investigate.</li>\n<li>Remaining uncertainty and next authorised step.</li>\n</ul>\n<p>Attach only the material necessary to show the decision. A model's second\nopinion is not automatically an independent source. A direct calculation or\ncomparison with an authoritative record is usually more informative.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Connect the checks to VET</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>VET asks whether you can verify the claim, explain it in your own words and\ntest it under a changed condition. The five checks here make that concrete in\na business context.</p>\n<p>For M1, verify the rates from the supplied figures. Explain why a higher\nclick-through rate does not establish profit. Test the conclusion by asking\nwhat happens if campaign costs differ. Those actions demonstrate the method\nmore clearly than naming the framework in a reflection.</p>\n<p>The approach applies to human-written advice too. Its quality depends on the\nevidence and reasoning, not whether AI helped draft it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: agree where the evidence permits</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 12 minutes; no AI required.</strong> Critique the M1 campaign claim in the\n<a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>. Include:</p>\n<ol>\n<li>One observation you can accept.</li>\n<li>One claim you cannot support.</li>\n<li>One next measurement that would help.</li>\n</ol>\n<p>Check your calculations against the answer notes. A strong response retains\nthe higher click-through observation, rejects the unsupported profitability/\ncausality conclusions and requests relevant evidence. It does not manufacture\na fixed number of errors to look critical.</p>\n<p>Use this method next on the simulated feedback in the Flight Simulator chapter.\nThe feedback itself deserves the same scrutiny as the student's response.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-08",
+                "title": "The Flight Simulator: Bounded Conversation Practice",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A simulation is useful when its limits are visible and its feedback can be checked.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Brief, practise, debrief</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A conversation simulation gives students a chance to try questions, encounter\nresistance and revise their approach. It can supplement peer role-play and\nobserved practice. It is not a faithful model of every workplace or a substitute\nfor disciplinary teaching.</p>\n<p>Use three phases: establish the case and boundaries, practise the interaction,\nthen review the decisions against evidence. A model can play a role or propose\nfeedback, but the educator retains responsibility for the scenario and criteria.</p>\n<p>The <a href=\"critique-toolkit.qmd\">critique toolkit</a> comes first because learners need\na way to evaluate feedback before receiving it. A confident critique is itself\nan output requiring review.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Prepare the scenario</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use P1-D1 through P1-D5 in the <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>.\nAlex's manager has proposed a performance plan. The junior adviser is gathering\ninformation, not issuing an approved decision. The pack supplies the dates,\nrecords and limits of authority.</p>\n<p>Explain the capability: plan and justify a fair first response. If your unit\nalso assesses live communication, add an appropriate observed interaction.\nDo not infer that skill solely from a typed conversation.</p>\n<p>Give advance notice of the employment topic. Students can stop, take a break\nor use an agreed neutral scenario. The task does not require personal disclosure.\nThe model or peer actor should not pressure the learner, introduce abuse or\nreward extraction of private details.</p>\n<h3>Setup for a peer or approved model</h3>\n<pre><code class=\"language-text\">Use the fictional PDP-2026.1 P1 source cards.\nYou are Alex. Use P1-D4 as your opening position.\nDo not invent evidence or legal obligations.\nIf asked about missing facts, say they are not\nprovided. You may disagree or ask a question.\nYou need not disclose private information.\nStop after six exchanges or when I say STOP.\nDo not score the adviser or decide the case.\n</code></pre>\n<p>In the paper route, the fixed exchange below provides the role's responses.\nIn a paired route, the partner reads the same cards. With a model, check any\nnew claim against the pack and discard inventions. Similar instructions do not\nguarantee similar difficulty across products or runs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A worked exchange</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>This dialogue is an <strong>authored fictional example</strong>, not a captured student\nperformance or evidence that a model behaves consistently.</p>\n<p><strong>Adviser:</strong> Alex, the delivery extract lists three late milestones. Before I\nrecommend a next step, I want to understand the dependencies and your account.\nThe formal plan is a proposal at this stage.</p>\n<p><strong>Alex:</strong> I know some work was late. Two projects depended on reviews I could\nnot complete myself. I also need to discuss starting later on two mornings.</p>\n<p><strong>Adviser:</strong> Which delivery records would help us check the dependencies?\nWe can discuss the work adjustment without collecting private family or medical\ndetails. I can refer the request, but cannot approve it myself.</p>\n<p><strong>Alex:</strong> I do not want to explain the appointments. I also want to know whether\nthis meeting means the plan is already decided.</p>\n<p><strong>Adviser:</strong> You do not need to explain those details to me. The decision is\nnot made. I propose checking the records and the earlier contact note, then\narranging a follow-up after the people manager reviews the request.</p>\n<p><strong>Alex:</strong> Who will receive the notes?</p>\n<p><strong>Adviser:</strong> I will explain the authorised sharing arrangements before sharing\nthe relevant work-related record. I should not promise complete confidentiality\nwithout checking the process. We can pause if that needs clarification first.</p>\n<p>The exchange ends with work to do. That is appropriate: the missing evidence\nhas not become available merely because the conversation went well.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Inspect the decisions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The opening distinguishes the delivery record from a conclusion about fault.\nThe adviser does not invent the earlier warning, refers the support request\nwithin authority and, in the final answer, avoids a confidentiality guarantee.</p>\n<p>There are also limits. No dependency record has been examined, no support\narrangement approved and no finding reached. A reader should not label the case\nresolved or legally compliant.</p>\n<p>Try a different opening: “Your manager warned you in April, so the plan is now\nrequired.” The error is not just tone. P1-D3 does not supply an April warning,\nand P1-D1/D5 do not permit the adviser to announce the decision. Rephrasing it\nmore empathetically would leave the substantive defect intact.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Debrief before scoring</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Ask the learner to select two decisions and explain:</p>\n<ul>\n<li>What evidence was available.</li>\n<li>What they chose to do.</li>\n<li>Why that was within the task's criteria.</li>\n<li>What they would check next or change after new information.</li>\n</ul>\n<p>A useful model-feedback request is deliberately bounded:</p>\n<pre><code class=\"language-text\">Review the selected response using the supplied\nP1 cards and five rubric criteria.\nQuote the response accurately.\nFor each comment, identify a card or criterion.\nSeparate observed wording from inferred outcomes.\nFlag insufficient evidence.\nDo not give legal assurances or predict Alex's\nreal-world behaviour. Your feedback is provisional.\n</code></pre>\n<p>The learner checks the feedback rather than submitting it as the final word.\nA rubric prompt does not ensure accurate application of the rubric.</p>\n<p>The pack includes P1-F, an intentionally flawed simulated critique awarding\n90% to weak work. The educator correction scores that response 4/20 against\nthe supplied criteria. The traceable correction matters more than a claim that\none human score is universally correct. Marking teams should calibrate\ndisagreements using the evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Rehearsal and transfer are different</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Repeating P1 can help a learner practise an improved response. It can also\nteach the learner to reproduce a familiar script. Follow it with P2, where\nthe manager's alleged retaliation changes the referral decision.</p>\n<p>Compare the explanations, not the number of attempts or the model's willingness\nto cooperate. A respectful question may still receive resistance. A flawed\nquestion may receive a friendly response. Persona behaviour is not a scoring key.</p>\n<p>For solo practice, write a response to Alex's question about the notes, compare\nit with D1/D5, and explain a limitation. For paired practice, swap adviser and\nactor roles, then compare decision notes. Both can prepare the same target\ncapability without a model.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Three ways to use the activity</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Practice only:</strong> students rehearse, identify one checked improvement and\nretain their notes privately. No model score enters the grade.</p>\n<p><strong>Guided formative task:</strong> students submit two selected decision extracts and\na short revision explanation. The educator gives feedback against the rubric.</p>\n<p><strong>Assessment component:</strong> use published criteria, appropriate data handling,\nan independent demonstration and moderation. See the\n<a href=\"assessment.qmd\">assessment chapter</a>. Do not convert a practice tool into a\nhigh-stakes assessment merely by assigning a percentage.</p>\n<p>Do not require all private attempts “to prevent gaming”. Collect only the\nevidence necessary for the stated assessment purpose under the institution's\nretention rules. Process records can be fabricated and should not be treated\nas conclusive proof of independent performance.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Adapt the challenge, not just the persona name</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>For a supplier conversation, give the actor the S1 capacity limit and a clear\nauthority boundary. A confident promise to supply 200 units is not supported\nwhen the offer says 160. Practise asking for clarification and explaining a\nconstraint.</p>\n<p>For a marketing discussion, use M1's audience and cost limitations. The actor\ncan ask why the learner refuses to call the campaign more profitable. The\nlearner should distinguish a calculable rate from an unsupported business claim.</p>\n<p>Those adaptations change the evidence and criteria. They are more instructive\nthan replacing “employee” with “customer” in an unchanged HR script.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: debrief an unresolved exchange</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 12 minutes; paper or paired route available.</strong> Use the worked exchange,\nstop before the final adviser response and write your own. Explain what you\nwould record, what permission or process you must check and why the outcome\nremains open.</p>\n<p>A sound response stays within authority, avoids unnecessary disclosure and\nidentifies a next step. It need not secure Alex's agreement or close the case.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-09",
+                "title": "Self-Assessment: Judge Before Receiving Feedback",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Feedback is useful when the learner can decide what to do with it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Keep the learner in the judgement</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model commenting on a draft is giving external feedback. Self-assessment\nhappens when the learner compares their own work with criteria, identifies\nwhat is supported and decides what to revise or retain.</p>\n<p>Make that judgement before showing the model's answer. Otherwise, a student\nmay simply adopt the feedback's vocabulary and call it reflection. The same\nrisk exists with an answer key or a peer's opinion.</p>\n<p>This chapter uses the <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>. Students can\ncomplete the sequence using supplied responses and feedback, without a personal\naccount or subscription. The educator can then compare decisions across routes\nusing the same <a href=\"../appendices/rubric-system.qmd\">rubric</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The five-step cycle</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Attempt the task before receiving feedback.</li>\n<li>Assess the response against the supplied criteria.</li>\n<li>Examine feedback and verify its claims.</li>\n<li>Revise or retain the work, explaining why.</li>\n<li>Attempt a changed task independently.</li>\n</ol>\n<p>Revision is not automatically improvement. A learner may remove a justified\nqualification because a model calls it hesitant. A sound self-assessment can\ntherefore conclude that part of the original response should remain.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Worked example: from reassurance to a defensible response</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>P1-A is a fluent response to Alex. It asserts an April warning, announces a plan,\npromises to approve support and asks for personal details. Before looking at\nP1-F, ask the learner to identify evidence for each consequential statement.</p>\n<p>The cards show the problem. D3 records a May conversation without an agreed\nwarning. D1/D5 reserve approval to the people manager. D4 does not require Alex\nto explain the private circumstances behind the requested work adjustment.</p>\n<p>P1-F then praises the response and recommends asking for written family details.\nA learner who has already checked the cards can explain why that apparently\nhelpful feedback should be rejected.</p>\n<h3>The feedback decision record</h3>\n<table>\n<thead>\n<tr>\n<th>Feedback claim</th>\n<th>Decision</th>\n<th>Basis</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>April warning strengthens the case</td>\n<td>Reject</td>\n<td>D3 does not supply that warning</td>\n</tr>\n<tr>\n<td>Adviser should approve hours</td>\n<td>Reject</td>\n<td>D5 reserves the decision</td>\n</tr>\n<tr>\n<td>Communication should remain respectful</td>\n<td>Retain</td>\n<td>Consistent with a fair first response</td>\n</tr>\n<tr>\n<td>Employee will improve after the meeting</td>\n<td>Withhold</td>\n<td>No outcome evidence supplied</td>\n</tr>\n</tbody>\n</table>\n<p>There is no quota for disagreement. These decisions follow from the evidence.\nIf a model correctly identifies an unsupported date, the learner should accept\nthat criticism and explain why.</p>\n<h3>Complete the revision</h3>\n<p>P1-R shows a completed revision. It checks the delivery dependencies, keeps the\nformal recommendation open and refers the support request. Its decision note\nexplains what changed and identifies missing evidence.</p>\n<p>The polished paragraph by itself does not show the link between a defect,\na source check and a reasoned revision. A short explanation\ncan show that link better than a long account of every prompt.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>If a live model provides the feedback</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use only the approved route and supplied fictional inputs. Do not paste actual\nstudent drafts into a service without the relevant permissions, account and\nhandling decision. The <a href=\"ethics-integrity.qmd\">data gate</a> applies to feedback\nas much as to generation.</p>\n<pre><code class=\"language-text\">Here are the fictional task, source cards,\nrubric and my draft.\nGive provisional formative feedback.\nFor each comment, cite a source card or criterion\nand quote the relevant wording from my draft.\nSeparate missing evidence from incorrect evidence.\nAllow justified agreement and uncertainty.\nDo not invent laws, facts or expected outcomes.\nDo not treat length or confidence as competence.\n</code></pre>\n<p>Check that the quoted wording actually exists. If the feedback adds a legal\nrule or new case fact, do not integrate it merely because it sounds specific.\nReturn to the supplied criterion or an authorised external source.</p>\n<p>The model's score, if it gives one, is not the institutional mark. Prefer\ndescriptive feedback while students learn the criteria. The educator should\nsample for errors and disagreement before using the method, and retain\nresponsibility for formal marking.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What an educator should look for</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A useful self-assessment identifies a claim and shows how it was checked.\nIt explains a change or a justified decision not to change. It can acknowledge\nthat some uncertainty remains.</p>\n<p>Weak evidence includes a generic “I improved clarity”, repeated praise from a\nmodel or a rewritten answer with no explanation of its consequential decisions.\nThose weaknesses should guide feedback and marking. They do not, by themselves,\nprove dishonest conduct.</p>\n<p>Do not assume a student must criticise their own work to be honest. A correct\ncalculation can remain correct; the question is whether the learner can explain\nand defend it with suitable evidence.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A contrasting quantitative example</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use S1 in the pilot pack. Before feedback, calculate each quote and check the\ndeadline. The low price of B may look attractive, but its capacity is only\n160 units against a 200-unit requirement.</p>\n<p>A model might praise B's cost efficiency. The learner should retain the price\ncalculation while rejecting the claim that the requirement is met. A different\nmodel might correctly recommend A; the learner should verify and accept that\nrecommendation, while noting that real procurement would need further checks\non quality and reliability.</p>\n<p>That is self-assessment of the decision.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Independent transfer</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>After revising P1, attempt P2 without the feedback or worked answer available.\nThe retaliation allegation requires an independent review route. Simply changing\nAlex's name to Morgan in P1-R does not address the changed condition.</p>\n<p>Use the same criteria and the stated task conditions. Compare the reasoned\ndecisions, and teach gaps before increasing stakes. A single result is limited\nevidence; delayed checks and other assessments may be needed to understand\nretention and broader competence.</p>\n<p>Research on AI-assisted mathematics illustrates why supported performance and\nlater unaided performance should be measured separately. It does not establish\nthat this particular business-classroom method improves outcomes.\n<a href=\"https://hamsabastani.github.io/education_llm.pdf\">Bastani et al., author manuscript</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Fit the feedback into a unit</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You might use a first draft, a checked revision note and a later independent\ntask. Decide the workload and timing before requesting repeated submissions.</p>\n<p>If the final report is the primary outcome, its accuracy and evidence should\ncarry substantial weight. If the task assesses consultation process, observed\ndecisions may carry more. The assessment chapter gives complete illustrative\nallocations; there is no default 70/30 split that applies to every activity.</p>\n<p>Make alternative feedback available. A student can compare with the supplied\neducator annotation or receive structured peer feedback. A model-generated\ncritique is not the only route to evaluative judgement.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: retain, revise or investigate</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow ten minutes; no AI required.</strong> Review P1-F and complete three entries:</p>\n<ul>\n<li>One claim to reject, with the source that contradicts it.</li>\n<li>One useful principle to retain, with its applicable limit.</li>\n<li>One question that needs more evidence.</li>\n</ul>\n<p>Then write a two-sentence revision explanation. A good explanation links the\nchange to the criterion and record. It does not say merely that the second\nanswer sounds more professional.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-10",
+                "title": "Assessing Learning: Process, Product and Independent Capability",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A record of work gives you something to examine. It does not tell you everything about the person who submitted it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Begin with the capability</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A negotiation, a financial analysis and an evidence-based recommendation require\ndifferent assessment evidence. Start by naming what the student must be able to\ndo, then decide which parts may be supported and which need an independent\ndemonstration. AI literacy can itself be an outcome, but it should not silently\nreplace the disciplinary outcome.</p>\n<p>In the <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>, the capability is to plan and\njustify a fair first response. The learner must distinguish known facts,\nuncertainty and authority. That is narrower than conducting a full workplace\ninvestigation. An articulate chat transcript cannot establish the latter.</p>\n<p>Process and product both matter. A report that sounds thoughtful but contains\nan unsafe recommendation is deficient. A correct answer reached through a\nmethod the learner cannot explain may leave an assurance gap. Neither concern\nrequires treating all AI use as misconduct.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Three kinds of evidence</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Supported practice</strong> gives students feedback while they learn. Prompts, peers,\nworked examples and models may help. Do not treat the resulting performance as\nunaided capability.</p>\n<p><strong>Submitted process evidence</strong> makes selected decisions inspectable: what the\nlearner considered, checked, changed or retained. It can support assessment and\nfeedback, but transcripts, journals and reflections can be reconstructed or\nfabricated. Length and apparent authenticity do not make them conclusive.</p>\n<p><strong>Independent demonstration</strong> asks the student to apply relevant knowledge under\nconditions appropriate to the outcome. It might be a supervised changed-case\nresponse, an observed practical task or an accessible oral explanation with\nfollow-up questions. One short check has limited coverage; assurance generally\ndraws on several meaningful points across a unit or programme.</p>\n<p>The TEQSA-commissioned 2025 resource describes programme-level, unit-level and\nhybrid approaches. Its advice supports contextual, inclusive assurance, not a\nsingle universal format or prescribed marks split.\n<a href=\"https://www.teqsa.gov.au/sites/default/files/2025-09/enacting-assessment-reform-in-a-time-of-artificial-intelligence.pdf\">Enacting assessment reform</a>.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A worked design decision</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Suppose students submit P1-A from the pilot pack, with a long transcript showing\nseveral rounds of “improvement”. The response invents a warning and approves an\narrangement beyond the adviser's authority. A marker should score those defects\nagainst the task criteria. The number of turns earns no compensating credit.</p>\n<p>P1-B is shorter and could have been written without AI. It identifies missing\nevidence, preserves a response opportunity and refers a decision appropriately.\nThose observable qualities merit credit. A marker need not infer that every\nsentence reveals the writer's internal thinking.</p>\n<p>The independent P2 task changes the situation: the complaint concerns possible\nretaliation by the manager. A competent learner should recognise the need for\nindependent review. Repeating the P1 response without addressing that conflict\ndoes not satisfy the changed task.</p>\n<p>This three-part design gives the educator more useful evidence than a final\nsubmission alone: a practice response, a checked explanation of a revision and\na new application. It still does not prove lasting competence after one lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Three assessment models</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Model 1: simulation and process review</h3>\n<p>Students rehearse a bounded professional interaction and select two moments\nto analyse. For each, they explain the decision, the relevant criterion and\nwhat the available evidence supports. They may identify a sound decision,\nnot only mistakes.</p>\n<p>Use the conversation to assess what is visible. A typed simulation may show\nquestion selection and written communication; it cannot establish performance\nin a real-time spoken encounter. If live communication is an outcome, include\nan observed interaction and appropriate access adjustments.</p>\n<h3>Model 2: evidence-based recommendation</h3>\n<p>Supply the data and constraints. Students examine a draft recommendation,\ntest its calculations and assumptions, then justify their own recommendation.\nThe supplier task S1 gives a complete small example: the cheapest quote cannot\nmeet the deadline quantity.</p>\n<p>AI can propose alternatives, but it cannot create a missing permission, invent\ncapacity or turn an unsupported claim into a fact. Require references to the\nsupplied records and a clear statement of what remains unknown.</p>\n<h3>Model 3: feedback evaluation</h3>\n<p>Give students a response, criteria and deliberately flawed feedback. Ask them\nto accept, correct or withhold judgement on each feedback claim. They must\nexplain the basis of their choice.</p>\n<p>Do not require two overrides regardless of what the feedback says. That rewards\ndisagreement as performance. When error detection is the intended skill, use a\nchecked specimen containing known defects and explain the answer criteria.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Make process evidence manageable</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use a short evidence index instead of requiring every private conversation.</p>\n<table>\n<thead>\n<tr>\n<th>Decision</th>\n<th>Evidence/check</th>\n<th>Result</th>\n<th>Consequence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Is the plan already decided?</td>\n<td>P1-D1 and D5</td>\n<td>Proposal; approval not given</td>\n<td>Do not announce a final decision</td>\n</tr>\n<tr>\n<td>Was there an April warning?</td>\n<td>P1-D3</td>\n<td>Only May contact recorded</td>\n<td>Reject invented warning</td>\n</tr>\n<tr>\n<td>Can I approve later starts?</td>\n<td>P1-D5</td>\n<td>Adviser lacks authority</td>\n<td>Refer request</td>\n</tr>\n</tbody>\n</table>\n<p>A learner can attach a brief draft extract, working note, calculation or\nconversation passage. The marker reads the reasoning and checks the cited\nmaterial. An index is not proof that the learner performed the work; it is a\nway to locate assessable evidence efficiently.</p>\n<p>Do not map Flesch scores, prompt length or turn counts to achievement bands.\nThey measure features of text or activity, not the learning outcome. Efficient\nwork, assistive tools, language choices and task design can change those measures.\nThis book does not supply or recommend an automated engagement classifier.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Set weights deliberately</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The pilot uses five equally weighted criteria, each scored 0–4: evidence,\nprocess, judgement, communication and verification. The\n<a href=\"../appendices/rubric-system.qmd\">rubric appendix</a> explains the descriptors.</p>\n<p>For another task, a different balance may be appropriate. Two illustrative\nallocations show why:</p>\n<table>\n<thead>\n<tr>\n<th>Criterion</th>\n<th style=\"text-align: right;\">Evidence-based report</th>\n<th style=\"text-align: right;\">Observed consultation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Disciplinary accuracy</td>\n<td style=\"text-align: right;\">30%</td>\n<td style=\"text-align: right;\">20%</td>\n</tr>\n<tr>\n<td>Method and evidence</td>\n<td style=\"text-align: right;\">30%</td>\n<td style=\"text-align: right;\">25%</td>\n</tr>\n<tr>\n<td>Justified decisions</td>\n<td style=\"text-align: right;\">20%</td>\n<td style=\"text-align: right;\">20%</td>\n</tr>\n<tr>\n<td>Communication</td>\n<td style=\"text-align: right;\">10%</td>\n<td style=\"text-align: right;\">25%</td>\n</tr>\n<tr>\n<td>Limits and verification</td>\n<td style=\"text-align: right;\">10%</td>\n<td style=\"text-align: right;\">10%</td>\n</tr>\n<tr>\n<td><strong>Total</strong></td>\n<td style=\"text-align: right;\"><strong>100%</strong></td>\n<td style=\"text-align: right;\"><strong>100%</strong></td>\n</tr>\n</tbody>\n</table>\n<p>These are design examples, not validated instruments. Specify where each\ncriterion is observed and avoid rewarding the same action twice. A requirement\nto explain a decision should not also become a separate reward for producing a\nlong transcript.</p>\n<p>Students who do not use AI can submit working notes and equivalent evidence.\nIf appropriate use of AI is itself an assessed outcome, explain that requirement,\nprovide approved equitable access and agree accommodations through institutional\nprocesses. Do not disguise a compulsory AI task as an optional route.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Group work: shared output, individual assurance</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Agree at the start what counts as editing, replacing a contribution or using\nAI on another person's work. Record ownership of decisions and permission to\nshare materials. Give members a way to report concerns without public accusation.</p>\n<p>For example, a group recommendation could carry 40% of an assessment, each\nstudent's evidence-based decision note 40%, and an individual changed-case\ncheck 20%. Explain which outcomes those components cover and moderate marks.\nThis allocation is illustrative; the appropriate balance depends on the unit.</p>\n<p>A contribution log helps locate work but can be incomplete or fabricated.\nPeer reports, checkpoints and individual explanations can add evidence, without\nguaranteeing that free riding is eliminated. Do not equate polish, fluency or\nthe ability to answer one unexpected question with a whole semester's learning.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Fair follow-up and workload</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Tell students in advance what independent checks involve, their purpose,\npermitted resources, criteria and access arrangements. Ask relevant questions\nat a comparable level of difficulty. Avoid a surprise interrogation framed as\na friendly conversation.</p>\n<p>An unexplained error, weak oral answer or sudden improvement warrants careful\nfollow-up, not an automatic misconduct finding. Assess the demonstrated work\nagainst the published criteria. If misconduct is suspected, use the institution's\nevidence, notice, response and appeal procedures. Anxiety, disability and language\nfactors can affect performance and should not become proxies for dishonesty.</p>\n<p>Budget the work. Five minutes for each of 100 students is <strong>500 minutes</strong>, or\n<strong>8 hours 20 minutes</strong>, before scheduling, documentation, moderation and\naccommodations. A team might distribute checks across tutorials or choose a\ndifferent assurance design. Do not promise scalability without those costs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Design activity: an assurance map</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 15 minutes; no AI required.</strong> Choose one assessment and make four entries:</p>\n<ol>\n<li>The capability, expressed as an observable action.</li>\n<li>What supported practice prepares the learner.</li>\n<li>What submitted evidence you will inspect.</li>\n<li>Where independent capability is demonstrated and what remains untested.</li>\n</ol>\n<p>Then use the <a href=\"../appendices/stress-test-sequence.qmd\">stress-test sequence</a>.\nA sound map permits appropriate help while making the remaining assurance gap\nexplicit. If the map only says “submit the transcript”, it needs another design\ndecision before release.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-11",
+                "title": "Transforming Content: Keep the Learning Decision Visible",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>An interactive page is a delivery format, not evidence that the activity teaches well.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Start with a task that already works</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A paper activity may be effective without becoming an app. Before adding\ninteractivity, identify what the student must decide, what information is supplied\nand how the response will be checked.</p>\n<p>This chapter uses M1 in the <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>.\nStudents calculate campaign rates, distinguish an observation from an unsupported\nprofit/causal claim and request useful evidence. That task works on paper.\nA digital form offers another way to record the same reasoning.</p>\n<p>The supplied <a href=\"../tools/decision-sheet.html\">decision sheet</a> is a small,\nself-contained HTML example. It has labelled fields, a text-export button and\na print route. It does not grade, autosave, submit work to an LMS or send\nresponses to a server. Use fictional information only.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to ask AI to help produce</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>After deciding the activity, a bounded request might be:</p>\n<pre><code class=\"language-text\">Create a self-contained page for this fictional task.\nPreserve the supplied facts and learner questions.\nUse labelled fields and ordinary keyboard controls.\nNo external libraries, requests, analytics or login.\nProvide a plain-text export and printable alternative.\nState clearly whether answers are saved.\nDo not add model scoring or invent answer criteria.\n</code></pre>\n<p>A generated file still needs inspection. Do not upload it directly to a live\ncourse merely because it opens in your browser.</p>\n<p>For readers interested in the development work itself, <em>Build Web, Guide AI</em>\ncovers that route. Here the purpose is evaluating the teaching artifact, not\nlearning to maintain a web application.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Inspect the supplied example</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The M1 sheet displays the complete small dataset and asks for three decisions.\nIt does not hide an answer behind a score or require a model connection.</p>\n<p>Test the rate calculation separately: A has a 4% click-through rate; B has 5%.\nBoth have 5% click-to-purchase conversion and 20 purchases. Spend, margin and\na comparable experimental design are not supplied. A correct response retains\nthe measurable rate difference while withholding profit and causal claims.</p>\n<p>If a form displayed “B wins” merely because its click-through rate is higher,\nthe interaction would teach an unsupported conclusion. Better styling would\nnot repair it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Test delivery, saving and access</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Open the example using your intended device/browser. Enter fictional responses,\nexport the text and open the saved file. Check that every field is included and\nthat long or non-English text survives. Reloading the page loses the on-page\nanswers; the exported file is the record. There is no automatic import.</p>\n<p>Try keyboard-only navigation and the assistive technologies relevant to your\nstudents. Check zoom, contrast, labels, mobile layout and printing with long\nanswers. Source-level checks can catch some errors, but are not an accessibility\ncertification or a substitute for target-device testing.</p>\n<p>An LMS may block scripts, restrict downloads or display files differently.\nUse an approved staging area and test its settings. If the form cannot work\nthere, use the printed questions or an institutionally supported form tool\nunder the same data rules.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From analysis to a deliverable</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A model can help format a decision already checked by the learner. For M1, the\nlearner first records the calculations, missing evidence and limits. Only then\nmight a model help turn that decision into a short client memo.</p>\n<p>The learner verifies that the memo preserves uncertainty and has not added a\nprofit claim. The final artifact should be accurate as well as clear. Keep\nthe calculation and source note so the decision can be inspected.</p>\n<p>For spreadsheets, independently check formulas and totals. For charts, check\nthe underlying values and labels. A file being downloadable does not establish\nthat its analysis is correct.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Narrow the research claim</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A prompt asking a model to identify themes, interpret quotations and write a\nresearch memo delegates substantive analysis, not just formatting. Do not\ndescribe that as the model merely making a document look professional.</p>\n<p>A research activity needs a suitable method, authorised data, traceable coding,\nsource checks and review of alternative interpretations. This chapter does not\nsupply that research curriculum. Use a reviewed synthetic example or appropriate\nresearch-methods teaching before asking students to analyse real interview\ntranscripts. The <a href=\"ethics-integrity.qmd\">data gate</a> applies throughout.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: test the response artifact</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 15 minutes.</strong> Complete M1 using the decision sheet or paper. Check the\nanswer against the pack, then write a short memo preserving the verified rates\nand limitations.</p>\n<p>If using the page, export the responses and check the file. If using paper,\nensure another reader can follow the calculation and decision. Both routes\nare judged on the same reasoning, not the sophistication of the delivery format.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-12",
+                "title": "Virtual Company: Keep a Shared Record",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A persona can supply dialogue. It cannot manufacture the evidence that makes its dialogue true.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From one conversation to several perspectives</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A virtual company can extend the single-person exercise by giving students\nconflicting accounts, documents and changing conditions. The educational\nchallenge is to distinguish what each person knows, what the record supports\nand what remains unresolved.</p>\n<p>Start with a bounded case. A semester-long simulation needs maintained state,\ntested role behaviour, accessible alternatives and substantial support. A prompt\nlibrary alone is not that infrastructure.</p>\n<p>The original fictional InnovateCo case below is part of <strong>PDP-2026.1</strong>.\nIt is a teaching scenario, not a real company investigation or legal advice.\nAll four roles and the necessary documentary facts are supplied here.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Shared facts: InnovateCo I1</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The exercise date is 20 July 2026. InnovateCo is a fictional Perth technology\ncompany. Jamie leads a customer-service team. Priya has raised concerns about\ncloser monitoring and refusal of a flexible-start request. David manages the\ndepartment; Sarah is the people manager.</p>\n<p>No finding has been made. Your task as a junior reviewer is to identify the\nrecords and fair next steps needed before a decision. You are not authorised\nto approve arrangements, determine legal liability or promise a resolution.</p>\n<h3>I1-D1: practice policy</h3>\n<p>A flexible-start request must be considered on its circumstances and relevant\ncoverage requirements. Comparable arrangements are relevant but not automatically\nidentical. Record the reason for a decision. The people manager approves any\nchange. A complainant should have an opportunity to respond to relevant concerns.</p>\n<p>Use only work-related information necessary for the review. Do not collect\nunnecessary private details. A complaint about the department manager's conduct\nmust go to an independent reviewer.</p>\n<p>This is an invented teaching criterion, not employment legislation.</p>\n<h3>I1-D2: roster extract</h3>\n<p>Priya's roster is 09:00–17:00. Marcus and Lee work 11:00–19:00.\nPriya requested a 09:30 start on Tuesday and Thursday. The extract contains\nno approved revised coverage plan or analysis of alternatives.</p>\n<h3>I1-D3: dashboard extract</h3>\n<p>Priya's satisfaction score is 72%; the team summary is 81%.\nSample sizes, case mix and uncertainty are absent. These percentages warrant\nquestions; they do not by themselves establish unfair treatment or poor performance.</p>\n<h3>I1-D4: request and response</h3>\n<p>Priya's request was declined by Jamie with the note “calls start at 9”.\nThere is no documented comparison of alternatives or people-manager approval\nin the pack. Absence from the pack is an evidence gap, not proof that no other\nrecord exists.</p>\n<h3>I1-D5: development record</h3>\n<p>Jamie was promoted six months ago. No completed management-training record is\nsupplied. The reviewer should check training and support, without assuming\nthat an untrained manager must have acted improperly.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Four role cards</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Give a peer actor the relevant card and shared documents. For an approved\nmodel, use the bounded-role instruction after the cards. A solo reader can use\nthe statements as fixed interview extracts and write follow-up questions.</p>\n<h3>Jamie: team leader</h3>\n<p><strong>Knows:</strong> declined the request using the reason in D4; is being asked by David\nto improve customer outcomes; has not supplied a coverage analysis.</p>\n<p><strong>Opening:</strong> “I thought the early calls needed coverage. I used the scores to\ndecide where to focus monitoring. I did not write a detailed comparison.”</p>\n<p><strong>Does not know:</strong> Priya's private circumstances, the missing sample sizes or\nwhether an independent review will uphold the decision.</p>\n<p><strong>May do:</strong> explain the decision, ask what records are needed, acknowledge\nuncertainty. Must not invent an approved policy, hidden warning or legal ruling.</p>\n<h3>Priya: customer-service representative</h3>\n<p><strong>Knows:</strong> the request and refusal; Marcus and Lee have different start times;\nbelieves the closer monitoring is unfair.</p>\n<p><strong>Opening:</strong> “I asked to start later twice a week. Others start later, so I\nwant to understand why my request was refused and why my work is checked more.”</p>\n<p><strong>Does not know:</strong> the complete coverage needs, David's discussions with Jamie\nor the cause of the dashboard difference.</p>\n<p><strong>May do:</strong> disagree, ask for reasons or decline private questions. Need not\nreveal family circumstances or accept the reviewer's explanation.</p>\n<h3>David: department manager</h3>\n<p><strong>Knows:</strong> asked Jamie to improve outcomes; receives the summary dashboard;\nhas not supplied its sample sizes or case-mix breakdown.</p>\n<p><strong>Opening:</strong> “I asked Jamie to look at the scores, not to assume the cause.\nWe need reliable service coverage. I would want to see the alternatives before\ndeciding whether the request could work.”</p>\n<p><strong>Does not know:</strong> why the score differs or whether a modified rota is feasible.</p>\n<p><strong>May do:</strong> identify operational questions and agree to seek records. Cannot\nturn a preference into people-manager approval or pre-empt the complaint review.</p>\n<h3>Sarah: people manager</h3>\n<p><strong>Knows:</strong> the fictional policy, the pack's incomplete documentation and her\napproval role. Has not yet decided the request or complaint.</p>\n<p><strong>Opening:</strong> “I need the request, coverage options and the reasons for the\ndecision. Give Priya a chance to respond. Do not tell either party that the\noutcome is settled.”</p>\n<p><strong>Does not know:</strong> the missing operational facts or whether another record exists.</p>\n<p><strong>May do:</strong> identify the appropriate process and request relevant evidence.\nMust not certify legal compliance or invent a completed investigation.</p>\n<h3>Shared instruction for role-play</h3>\n<pre><code class=\"language-text\">Use your role card and I1-D1 through I1-D5.\nDo not add facts, records, legal rules or outcomes.\nIf information is missing, say so.\nKeep private role knowledge separate from shared facts.\nYou may disagree without becoming abusive.\nStop when I say STOP or after six exchanges.\nDo not score me or decide the complaint.\n</code></pre>\n<p>The instruction is not a security control. A student can see a supplied role\ncard, and a model may fail to follow it. Assess the learner's use of evidence\nrather than whether a fact felt “hidden”.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A bounded Level 2 assignment</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Inspect all four statements and the documents. Write one follow-up question\nfor each role, then a 250-word recommendation with a decision/evidence index.\nA paired or AI interview may extend practice, but the printed facts are sufficient.</p>\n<p>Useful questions include: Jamie, which coverage alternatives did you consider?\nPriya, which comparable treatment would you like reviewed? David, what sample\nsizes and case mix support the dashboard? Sarah, who should gather the missing\nrecords and communicate the next step?</p>\n<h3>Worked recommendation</h3>\n<p>The roster shows different shifts, so later starts are not automatically\ncomparable. It does not prove Priya's request was impractical. The dashboard\nomits information needed to interpret the score difference. Jamie's refusal\nnote gives a reason but no documented alternatives analysis.</p>\n<p>Request the coverage analysis, underlying dashboard information and relevant\ndecision records. Give Priya an opportunity to respond, then refer the request\nto Sarah for an authorised decision. Review whether Jamie needs management\nsupport. Do not find discrimination, poor performance or procedural compliance\nfrom these inputs alone.</p>\n<p>This recommendation leaves the complaint open. That is an appropriate result\nwhen the evidence is incomplete.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Continuity without invented memory</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Keep a versioned event log outside the chat. Shared facts change only when the\neducator releases an event or record.</p>\n<table>\n<thead>\n<tr>\n<th>Event</th>\n<th>Status</th>\n<th>Effect</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>E0</td>\n<td>Supplied baseline</td>\n<td>I1-D1 through I1-D5 apply</td>\n</tr>\n<tr>\n<td>E1</td>\n<td>Optional educator release</td>\n<td>A coverage trial is proposed, not approved</td>\n</tr>\n<tr>\n<td>E2</td>\n<td>Not supplied</td>\n<td>No trial result or final finding may be asserted</td>\n</tr>\n</tbody>\n</table>\n<p>At E1, the teacher may ask students what evidence would be needed to approve\nand evaluate a trial. Do not let a model jump to E2 and report success.\nA persona saying “things are much better now” is generated dialogue, not an\nobserved outcome.</p>\n<p>Use a checked context brief when changing sessions. Persistent chat history\nor a memory feature does not replace the record.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Progression and resources</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Level 1:</strong> one role, one decision and one source check.\\\n<strong>Level 2:</strong> several roles, conflicting accounts and a bounded recommendation.\\\n<strong>Level 3:</strong> maintained records and follow-up decisions over time.\\\n<strong>Level 4:</strong> controlled external events and multiple interacting tasks.</p>\n<p>Move to the next level only when the necessary materials and support exist.\nMore personas add workload and inconsistency risk as well as potential\npractice opportunities. Do not promise a reliable semester simulation from\nfour untested prompts.</p>\n<p>The <a href=\"implementation-practicalities.qmd\">implementation chapter</a> covers access,\nfallbacks and effort. Use the same data gate and stop rule as the single-person\nsimulation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: build the evidence index</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 15 minutes; no AI required.</strong> Make three rows: the roster comparison,\nthe score difference and the refusal process. For each, state what the supplied\nrecord supports, what it does not establish and the next authorised check.</p>\n<p>Success means a justified recommendation without invented closure. Agreement\nbetween Jamie and David is not a substitute for the missing record.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-13",
+                "title": "Designing an AI-Supported Unit",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Choose the evidence of learning before choosing the tool.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Start with a bounded pilot</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before redesigning a whole unit, test one activity with a colleague and, where\nappropriate, an ungraded student group. Check the source facts, rubric, access,\nfeedback quality and effort. A successful prompt demonstration does not yet\njustify a high-stakes assessment.</p>\n<p>The <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a> provides an example. Use its P3\ndecision sheet to decide what should change before expansion. The route may\nremain non-AI if that better serves the students and outcome.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Backwards design</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>First name what students should be able to do. Then identify what evidence\nwould demonstrate it, choose the assessment conditions and design practice that\nprepares them. AI can support some of that practice; it need not appear in\nevery outcome or activity.</p>\n<p>For a fictional third-year Workplace Conflict unit, possible outcomes are:</p>\n<ol>\n<li>Distinguish accounts, documents and unresolved facts.</li>\n<li>Plan a fair inquiry within role and authority.</li>\n<li>Communicate a bounded next step respectfully.</li>\n<li>Justify a recommendation using supplied policy and relevant disciplinary knowledge.</li>\n<li>Evaluate feedback and apply the learning to a changed case.</li>\n</ol>\n<p>These outcomes do not qualify students to conduct real legal investigations.\nUse appropriately reviewed sources and teaching where actual law is part\nof the curriculum.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>An illustrative assessment design</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A possible allocation is:</p>\n<ul>\n<li><strong>Practice analysis and revision, 25%:</strong> a response, selected evidence checks\n  and an explained revision. Permitted help is declared.</li>\n<li><strong>Case portfolio, 40%:</strong> a bounded multi-source recommendation and evidence\n  index, with appropriate individual contribution evidence.</li>\n<li><strong>Independent application, 35%:</strong> a supervised changed-case task and explanation\n  under published conditions, with access adjustments.</li>\n</ul>\n<p>These weights total 100%. They are a design example, not a prescribed split.\nThe programme team should approve where independent assurance occurs and\nwhether this design covers the intended outcomes.</p>\n<p>The portfolio may be assisted, so its fluency is not treated as an unaided\ndemonstration. The independent task should assess relevant understanding,\nnot whether the student can reproduce an obscure fact from memory.\nIf live communication is an outcome, include an observed interaction rather\nthan relying solely on written work.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A 12-week teaching route</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The following schedule is illustrative. It distinguishes preparation, practice,\nfeedback and assurance rather than increasing AI complexity for its own sake.</p>\n<table>\n<thead>\n<tr>\n<th>Week</th>\n<th>Learning focus</th>\n<th>Student evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Sources, permissions, access and task boundaries</td>\n<td>First-use decision and a short baseline</td>\n</tr>\n<tr>\n<td>2</td>\n<td>Facts, allegations and missing information</td>\n<td>Annotated source cards</td>\n</tr>\n<tr>\n<td>3</td>\n<td>Questions and a fair first response</td>\n<td>Paired or fixed-exchange practice</td>\n</tr>\n<tr>\n<td>4</td>\n<td>Apply the supplied policy; check feedback</td>\n<td>Correction of P1-F with reasons</td>\n</tr>\n<tr>\n<td>5</td>\n<td>Revise and explain a decision</td>\n<td>Response plus selected decision notes</td>\n</tr>\n<tr>\n<td>6</td>\n<td>First assessment and independent check</td>\n<td>Changed-case explanation</td>\n</tr>\n<tr>\n<td>7</td>\n<td>Review errors; compare stakeholder accounts</td>\n<td>Questions linked to missing evidence</td>\n</tr>\n<tr>\n<td>8</td>\n<td>Multi-source analysis</td>\n<td>InnovateCo evidence index</td>\n</tr>\n<tr>\n<td>9</td>\n<td>Adaptation, access and ethical boundaries</td>\n<td>Critique of a proposed process</td>\n</tr>\n<tr>\n<td>10</td>\n<td>Portfolio development and moderation</td>\n<td>Recommendation with uncertainty</td>\n</tr>\n<tr>\n<td>11</td>\n<td>Portfolio submission and individual review</td>\n<td>Contribution and reasoning evidence</td>\n</tr>\n<tr>\n<td>12</td>\n<td>Independent application and unit evaluation</td>\n<td>New case and pilot decision</td>\n</tr>\n</tbody>\n</table>\n<p>Critical verification starts in week 1, not after students have spent half a\nsemester trusting generated feedback. The initial baseline and later tasks\nshould be comparable enough to inform teaching, while acknowledging differences\nin assistance, task difficulty and marking.</p>\n<h3>A closer look at week 4</h3>\n<p>Students first judge P1-A against the supplied policy. Then they inspect the\ndeliberately flawed feedback. They identify the invented warning, inappropriate\napproval and unnecessary disclosure request.</p>\n<p>Only after documenting those checks do they write a revision. The teacher\ncompares two explanations and discusses why one is better supported.\nA live model is optional. Asking students to retry until a model gives 100%\nwould assess neither the source check nor independent judgement.</p>\n<h3>A closer look at week 8</h3>\n<p>Students use all four InnovateCo role cards and the documents. They identify\nwhat each source can support, formulate follow-up questions and recommend a\nbounded next step.</p>\n<p>Do not ask the model to invent whatever evidence is needed to close the case.\nThe supplied gaps are part of the task. A well-supported “not enough evidence”\nconclusion can be stronger than a confident finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Balance activities by purpose</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>There is no universal 60/40 balance between traditional and AI-supported\nteaching. Choose the mix according to the outcome, students, available support\nand assurance design.</p>\n<p>A lecture or reading may introduce a necessary concept. Peer discussion can\nreveal differences in interpretation. A role-play can rehearse a question.\nAn independent task can check transfer. AI may support some of these, but\nits presence is not itself a learning progression.</p>\n<p>Make substantial activities possible without a model. For the planning task,\nthe printed records and feedback are enough. For interaction skills, provide\na structured peer/facilitator route. For AI-specific outcomes, provide suitable\napproved access rather than pretend the tool is optional.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Two genuine disciplinary adaptations</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>For supply chain, use S1's quantity, deadline, capacity and budget. The learner\nmust calculate costs and reject an option that fails a constraint. A suitable\nindependent task changes capacity or deadline, so the student must recompute\nthe decision.</p>\n<p>For marketing, use M1's campaign figures. The learner distinguishes measured\nrates from unsupported profit and causal claims. A changed task can supply\ncosts but retain non-comparable audiences, testing whether the learner separates\nfinancial calculation from causal inference.</p>\n<p>Do not simply replace employee names with customer names. Adapt the evidence,\ndisciplinary criteria and independent check. A specialist should review added\ntechnical assumptions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A unit design record</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>For each assessment, record:</p>\n<ul>\n<li>Target outcome and prerequisite knowledge.</li>\n<li>Supplied sources and their version.</li>\n<li>What students do before receiving assistance.</li>\n<li>Permitted help, data and approved routes.</li>\n<li>Criteria, complete weights and any critical requirements.</li>\n<li>What independent evidence is collected and under what conditions.</li>\n<li>Access arrangements and a capability-matched fallback.</li>\n<li>Staff/student workload and moderation plan.</li>\n<li>What a successful and an unsuccessful response look like.</li>\n<li>Review date and unresolved limitations.</li>\n</ul>\n<p>Map the record to programme outcomes with the\n<a href=\"../appendices/institutional-alignment.qmd\">institutional alignment appendix</a>.\nDo not assume a tool-supported activity automatically satisfies an accreditation\nrequirement.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Explain the design to students</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Tell students why they receive support during practice and why a later task\nhas different conditions. Publish the distinction in the brief.</p>\n<p>For example: “During rehearsal, use the supplied records, peer feedback or\nthe approved AI route. In the independent task, apply the criteria yourself\nto a new record. We assess the decision and its basis, not the amount of chat.”</p>\n<p>Clarify the process for questions, access adjustments and technical failures.\nAn outage should not send students to an unapproved service or force a private\naccount requirement at the last minute.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evaluate cautiously</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Compare work under sufficiently similar criteria, inspect persistent errors\nand record access and effort. Higher final marks may reflect assistance,\nchanged assessment difficulty or marking changes, not necessarily learning.</p>\n<p>A small pilot can identify problems and promising practices. It cannot\nestablish that an entire approach works for all disciplines. Share the\nmaterials, assumptions and limitations along with any results.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: map one assessment</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 20 minutes; no AI required.</strong> Complete the unit design record for one\nassessment. Test it against P1-A, P1-B and a response that correctly states\ninsufficient evidence. Check whether the marks reward the intended capability.</p>\n<p>Finish with one change you would make before launch and one question a\ncolleague should challenge. Expand the design only after those questions have\na satisfactory answer.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-14",
+                "title": "Adapting to a Different Teaching Context",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Ask about the learners and institution in front of you.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Transfer the questions, check the assumptions</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The book's examples have an Australian business-education starting point.\nThey are not templates for every institution, culture or legal system.\nAdapt the evidence, criteria, language and conditions, not just the names.</p>\n<p>A national label does not tell you an individual student's communication\npreferences or an institution's assessment rules. Ask students and local\ncolleagues about the actual constraints. Avoid prompting a model to stereotype\nan entire region as indirect, hierarchical or technologically advanced.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A worked adaptation decision</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Consider a <strong>hypothetical</strong> delivery of the PDP pilot in a multilingual class\nwhere some students use shared phones and connectivity is intermittent.\nThese are supplied planning constraints, not research findings about a country.</p>\n<p>The capability remains planning and justifying a fair first response.\nThe educator provides the source cards in accessible print and digital form,\nchecks translated terminology with a suitable reviewer and permits a typed,\nhandwritten or appropriately accommodated spoken response.</p>\n<p>The model route is optional. Students can use the fixed exchange and feedback.\nNo personal account is required. Where a student chooses another language,\nthe marking plan must support judging the same reasoning rather than relying\non an unchecked machine translation.</p>\n<p>For the employment context, replace the invented policy only after suitable\nlocal review. Until then, label it clearly as an exercise criterion and do not\npresent the activity as teaching local employment law.</p>\n<p>These adaptations preserve the capability while changing how students access\nand demonstrate it. They do not claim that all differences can be solved by\ntranslating the prompt.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A local adaptation record</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<table>\n<thead>\n<tr>\n<th>Question</th>\n<th>Evidence to obtain</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>What capability is required?</td>\n<td>Unit/programme outcomes and assessor agreement</td>\n</tr>\n<tr>\n<td>What rules apply?</td>\n<td>Institutional policy and appropriate local advice</td>\n</tr>\n<tr>\n<td>What access is available?</td>\n<td>Student input and practical device/format tests</td>\n</tr>\n<tr>\n<td>What language support is needed?</td>\n<td>Learner needs and reviewed terminology</td>\n</tr>\n<tr>\n<td>What could cause harm or exclusion?</td>\n<td>Student/support-team consultation</td>\n</tr>\n<tr>\n<td>What shows independent capability?</td>\n<td>Outcome-matched assessment design</td>\n</tr>\n</tbody>\n</table>\n<p>Record who checked each item and what remains uncertain. A model's country\nsummary is not an institutional approval.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Legal summaries need scope</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>GDPR does not universally require explicit consent for every processing activity.\nArticle 6 provides several lawful bases; other rules, including special-category\nconditions, may also matter. The appropriate basis and safeguards require a\ncontext-specific decision.\n<a href=\"https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng\">GDPR official text</a>.</p>\n<p>Under FERPA, rights transfer to an eligible student at age 18 or attendance at\na postsecondary institution, including attendance below 18. A blanket rule\nabout parental consent for all minors is therefore misleading in this setting.\n<a href=\"https://studentprivacy.ed.gov/resources/eligible-student-guide-family-educational-rights-and-privacy-act-ferpa\">US Department of Education guidance</a>.</p>\n<p>These examples illustrate why short regional recipes are unreliable. Use\ninstitutional privacy and legal support for the actual activity. Do not ask\nstudents to upload records while the applicable permissions are unresolved.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Distinguish proposals from observed outcomes</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A proposed adaptation may be sensible without having been tested. State what\nwould be measured: independent-task performance, access, staff/student time and\nunintended effects. Satisfaction alone does not establish learning.</p>\n<h3>Three hypothetical planning examples</h3>\n<p>The following examples are <strong>fictional teaching scenarios</strong>, not reports about\nidentified institutions or observed results. Their constraints are invented for\nplanning practice, not claims about the countries named. None demonstrates\nimproved learning, satisfaction, access or regulatory compliance.</p>\n<h4>Example 1: a multilingual course in Germany</h4>\n<p>Suppose a business school wants to run P1 in a class using two languages of\ninstruction. The teaching team has source cards but has not yet approved an AI\nservice or checked the translated assessment terminology.</p>\n<p>A proposed first step is to have a suitable reviewer check both language versions\nagainst the same capability and criteria. Until the institution approves an AI\nroute and its data handling, learners use the fixed records and feedback.\nLocating a provider in Europe would not, by itself, establish compliance.</p>\n<p>Before a pilot, the team must agree who can assess both language versions,\nwhat students may submit and how records will be handled. After an actual pilot,\nit could inspect disagreements in marking, independent-task evidence and access\nproblems. Those observations are not supplied here.</p>\n<h4>Example 2: disagreement in a Singapore seminar</h4>\n<p>Suppose a business educator in Singapore wants students to question P1-F's\nconfident feedback. In this invented class, some learners prefer a private\nwritten response before discussing disagreement aloud. This is a supplied class\nconstraint, not a description of Singaporean students generally.</p>\n<p>The educator could let everyone annotate P1-F individually, then compare one\ndecision with a partner before choosing whether to contribute to the group.\nCredit would depend on the source-backed explanation, not on public confidence\nor willingness to oppose an authority figure.</p>\n<p>The pilot question is whether learners can identify the unsupported April warning\nand explain their response under the stated conditions. The educator would also\nask which participation routes were usable. No gain in engagement or learning\nis assumed from the proposed format.</p>\n<h4>Example 3: intermittent connectivity in Nigeria</h4>\n<p>Suppose a Nigerian business school plans an S1 supplier activity where some\nlearners share phones and the room's internet connection is unreliable. These\nare fictional local conditions, not a national infrastructure assessment.</p>\n<p>The educator could distribute a compact print sheet containing every offer,\nthe quantity, deadline and budget. Learners calculate costs and capacity before\ncomparing a fixed recommendation. A digital copy provides the same inputs;\nneither route requires a personal account or a live model.</p>\n<p>Before teaching, check printing costs, readable layout and whether every learner\ncan obtain the materials. During an actual pilot, record missing inputs, arithmetic\nerrors, completion obstacles and staff time. If either route excludes learners,\nrevise access arrangements before expansion. The scenario does not establish\nthat a mobile-first approach improves educational quality.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: adapt one constraint</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow 15 minutes; no AI required.</strong> Change one condition in the pilot:\nunreliable connectivity, a different language of instruction or a different\ninstitutional data policy. Identify what must change, what capability remains\nthe same and who needs to review the adaptation.</p>\n<p>A sound answer names a practical route and a remaining check. “Ask AI to make\nit culturally appropriate” is a proposal for another output, not evidence that\nthe adaptation works.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-15",
+                "title": "Implementation Practicalities",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Plan the fallback before the activity needs it.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Check readiness</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before introducing a student-facing activity, confirm the capability, criteria,\npermitted data, approved tool or non-AI route, support arrangements and expected\ntime. Test the material against contrasting responses, including a plausible\nbut unsafe answer.</p>\n<p>A prompt that worked once in your office is not evidence that it will behave\nconsistently for a cohort. Keep fixed source cards and answer checks so that\nthe activity survives a failed model response.</p>\n<p>The <a href=\"ethics-integrity.qmd\">data gate</a> should appear in the student instructions,\nnot only in the lecturer's planning notes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>A capability-matched fallback</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>For the pilot's planning-and-justification task, students can use the printed\nrecords and write or explain a response. For an outcome requiring live\ncommunication, offer an appropriate peer/facilitator interaction with access\nadjustments. A written case analysis alone cannot demonstrate every aspect\nof a spoken consultation.</p>\n<p>Do not switch confidential material to an unapproved platform during an outage.\nUse a previously approved alternative or the offline route. If neither supports\nthe assessment conditions, pause and apply the institution's extension or\nalternative-assessment process.</p>\n<table>\n<thead>\n<tr>\n<th>Problem</th>\n<th>Bounded response</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Tool unavailable</td>\n<td>Use approved fallback or pause; do not improvise a new data destination</td>\n</tr>\n<tr>\n<td>Persona invents facts</td>\n<td>Discard invention; return to source cards</td>\n</tr>\n<tr>\n<td>Feedback conflicts with criteria</td>\n<td>Check against records; seek educator review</td>\n</tr>\n<tr>\n<td>Save/export fails</td>\n<td>Use local notes or printed response sheet; avoid unnecessary screenshots</td>\n</tr>\n<tr>\n<td>Student needs an adjustment</td>\n<td>Arrange equivalent capability evidence through the appropriate process</td>\n</tr>\n<tr>\n<td>Sensitive information entered</td>\n<td>Stop further sharing and follow incident-reporting procedures</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Access is more than account availability</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Check mobile and desktop use, keyboard navigation, assistive technology, language\nsupport and the time needed to complete the task. A free service can still have\nlimits that make an assessment unreliable.</p>\n<p>Do not require a personal account or paid upgrade when an equivalent route can\nmeet the outcome. Where AI use itself is assessed, provide suitable approved\naccess and explain the requirement in advance.</p>\n<p>Offer clear instructions, a short demonstration and a fixed worked example.\nStudents should not have to discover the task's hidden expectations by repeatedly\nasking a chatbot what the lecturer wants.</p>\n<p>For a spoken response, assess the relevant reasoning or communication outcome,\nnot eye contact, accent, speed or confidence unless a particular feature is\ngenuinely part of the stated professional capability and assessed fairly.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Student wellbeing</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Give advance notice of complaint, discrimination or performance scenarios.\nUse fictional data, a stop instruction and an agreed neutral alternative.\nDo not ask students to disclose their own experiences to make the activity\nauthentic.</p>\n<p>A role-player may disagree, pause or ask a question. The exercise should not\nescalate emotional pressure merely to make the learner “work harder”.\nDebrief the decisions and evidence, not whether the student persuaded the persona\nto become agreeable.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Budget the whole task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Record design, testing, support, moderation and marking time separately.\nAn initial prompt takes little time; a defensible teaching activity takes more.</p>\n<p>For 24 students, eight minutes of review per submission is 192 minutes.\nA 30-minute moderation discussion brings that illustrative marking budget to\n222 minutes, or 3 hours 42 minutes. Setup and student support are additional.\nReplace these assumptions with observed times after a pilot.</p>\n<p>For 100 students, a five-minute individual check takes 8 hours 20 minutes before\nadministration. A sustainable design may distribute checks across tutorials,\nuse several staff or choose another appropriate assurance format.</p>\n<p>Do not offset those costs with an invented claim that AI always saves a fixed\nnumber of minutes per learner. Measure the actual task.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Keep an approved activity record</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Save the scenario version, student brief, rubric, tested examples, permitted\nroutes, access arrangements and known limitations. Record material changes\nbetween cohorts.</p>\n<p>For model-supported use, note the product/account and relevant features tested.\nA later tool change may require rechecking the activity. Do not assume a\nwell-worded prompt remains equally reliable across every model.</p>\n<p>Keep student evidence only for the authorised purpose and retention period.\nAn audit trail does not require retaining every private conversation indefinitely.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Evaluate the pilot</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Use P3 in the <a href=\"../appendices/pilot-pack.qmd\">pilot pack</a>. Compare the baseline\nand independent response cautiously, examine errors and record obstacles.</p>\n<p>Separate satisfaction, task completion, output quality and learning evidence.\nStudents may enjoy an activity that does not improve transfer, or find a\nchallenging activity useful despite lower satisfaction. Neither result should\nbe simplified into a universal endorsement.</p>\n<p>A reasonable decision can be to continue, revise, pause or stop. If a model\nrepeatedly invents case facts, use the fixed route while redesigning. If a\nparticular group cannot access the task, fix the access problem before increasing\nits stakes.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Activity: rehearse failure</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow ten minutes; no AI required.</strong> Imagine the service fails halfway through\nyour activity. Write what students do next, which evidence remains assessable,\nhow they save their work and who approves a changed assessment condition.</p>\n<p>Then try the fallback yourself. Check that it preserves the capability, does\nnot send data somewhere new and does not penalise students for the outage.\nThat rehearsal belongs before the first graded use.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-16",
+                "title": "Conclusion: Make the Next Decision",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A useful pilot can tell you to change course.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What you should have now</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You began with a capability, not a promise that AI would improve everything.\nThe chapters helped you specify permitted data, check a response, design practice,\nevaluate feedback and choose an appropriate independent demonstration.</p>\n<p>Your resulting pilot should contain a task, source material, rubric, worked\nexample, access route and decision about what remains untested. The supplied\nPDP-2026.1 pack demonstrates those components. It is an original teaching\nexample, not evidence that a real cohort achieved the proposed outcomes.</p>\n<p>You do not need to adopt every technique. Choose the method that serves the\ncapability and that you can support responsibly.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Review the design before launch</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Read your student instructions as someone unfamiliar with the activity.\nCan they tell what to do, which help is permitted, what to submit and how the\nwork will be judged? Can they complete an equivalent route without a paid\nsubscription or personal disclosure?</p>\n<p>Then inspect the evidence chain. Does the recommendation cite a supplied fact?\nDoes the feedback apply the actual rubric? Does the independent task require\na changed decision, rather than a renamed copy of the practice case?</p>\n<p>If those links are missing, revise the design before assigning marks.\nA polished handout is not a substitute for them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Choose one bounded next step</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>You may be ready to test the materials with a colleague, run an ungraded\ntutorial or revise an existing assessment through your institution's process.\nYou may instead need permission, better source material or an accessible\nalternative. Record that need rather than treating hesitation as failure.</p>\n<p>Use the <a href=\"../appendices/pilot-pack.qmd\">pilot decision sheet</a>. Name the outcome\nyou will inspect, the effort you can support and the condition that would make\nyou stop or change the activity.</p>\n<p>After an actual pilot, report what happened without inventing success:\nwho could participate, what the independent work showed, which errors persisted,\nwhat support was needed and what remains unknown. A small pilot cannot establish\nlong-term professional capability or general effectiveness across disciplines.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Keep the method open to correction</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Students should be able to challenge AI feedback with evidence. Colleagues\nshould be able to challenge the teaching design in the same way. Share the\nscenario, criteria and limitations, not only the attractive outputs.</p>\n<p>The free edition and downloadable resources are intended to make that scrutiny\nand adaptation possible. The printed edition offers another way to read and\nsupport the work; neither format removes the need to check local policy,\nprofessional requirements and learner needs.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Final activity: a decision note</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Allow ten minutes; no AI required.</strong> Write five sentences:</p>\n<ol>\n<li>The capability my activity targets.</li>\n<li>The evidence that will demonstrate it.</li>\n<li>The assistance and data use I permit.</li>\n<li>The access or assurance limitation I still need to address.</li>\n<li>My next action, owner and review date.</li>\n</ol>\n<p>A defensible decision may be to proceed, revise, pause or stop. What matters is\nthat the decision follows from the learning purpose and evidence, not enthusiasm\nfor the tool or confidence in its prose.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-17",
+                "title": "Checkpoint: teach as a partner",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What does \"partner, don't police\" mean in the classroom?",
+                        "options": [
+                          "Teach students to use AI with judgement rather than trying to ban or catch it",
+                          "Ignore AI completely",
+                          "Let AI do the assessment",
+                          "Police every prompt"
+                        ],
+                        "answer": 0,
+                        "explanation": "The book is about designing learning that keeps the student in the thinking loop."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What does the CRAFT framework cover?",
+                        "options": [
+                          "Context, role, audience, format and task",
+                          "Copy, revise, accept, forget and test",
+                          "Code, run, assess, fix and transmit",
+                          "Concept, rule, action, feedback and test"
+                        ],
+                        "answer": 0,
+                        "explanation": "CRAFT turns a vague request into a brief that can be reviewed."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why is one-shot prompting a weak teaching pattern?",
+                        "options": [
+                          "It hides the assumptions and the checking; a conversation can expose them",
+                          "It is too slow",
+                          "It uses too many tokens",
+                          "It is always inaccurate"
+                        ],
+                        "answer": 0,
+                        "explanation": "Conversation keeps the question, correction and evidence visible."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What should a critique of an AI response check?",
+                        "options": [
+                          "Comprehension, practicality, obligations and risk, context and stakeholders",
+                          "Only the grammar",
+                          "Only the word count",
+                          "Only whether it sounds confident"
+                        ],
+                        "answer": 0,
+                        "explanation": "A useful critique tests the claim against the task and the constraints."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "What should assessment prioritise in an AI-assisted task?",
+                        "options": [
+                          "Capability, process evidence and individual understanding",
+                          "The longest final answer",
+                          "The most confident demo",
+                          "The number of prompts used"
+                        ],
+                        "answer": 0,
+                        "explanation": "Process evidence and explanation are harder to outsource than a final artefact."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What is the first ethics question before using student material?",
+                        "options": [
+                          "What data may leave the room, and who has approved that use?",
+                          "Which model is the largest?",
+                          "How long is the prompt?",
+                          "Which student has the fastest laptop?"
+                        ],
+                        "answer": 0,
+                        "explanation": "A data gate comes before the first prompt."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

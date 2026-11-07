@@ -1,0 +1,878 @@
+{
+  "format": "lorekeeper.pack",
+  "version": 1,
+  "id": "simulate-it",
+  "title": "Simulate It, Understand It: A Practical Guide to Modelling with SimLab",
+  "author": "Michael Borck",
+  "licence": "CC BY 4.0 International",
+  "createdAt": "2026-11-07T00:33:01+00:00",
+  "courses": [
+    {
+      "slug": "simulate-it",
+      "title": "Simulate It, Understand It: A Practical Guide to Modelling with SimLab",
+      "theme": "pixel",
+      "level": "intermediate",
+      "tags": [
+        "simulation",
+        "modelling",
+        "teaching",
+        "python"
+      ],
+      "pitch": "Turn a system question into a reproducible, validated simulation.",
+      "start": "01-01",
+      "course": {
+        "schema": 1,
+        "generated_at": "2026-11-07T00:33:01+00:00",
+        "unit": {
+          "slug": "simulate-it",
+          "title": "Simulate It, Understand It: A Practical Guide to Modelling with SimLab",
+          "theme": "pixel",
+          "tags": [
+            "simulation",
+            "modelling",
+            "teaching",
+            "python"
+          ],
+          "level": "intermediate",
+          "pitch": "Turn a system question into a reproducible, validated simulation.",
+          "start": "01-01"
+        },
+        "modules": [
+          {
+            "number": 1,
+            "slug": "the-practice",
+            "title": "The Practice",
+            "lessons": [
+              {
+                "id": "01-01",
+                "title": "Simulation Is a Question",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A simulation is not a prediction. It is a question about a system, made runnable.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A simulation is a model with time. It represents the parts of a system that matter for a question, the rules that connect them, and the way state changes.</p>\n<p>The question comes first. \"What happens if demand doubles?\" is a simulation question. \"Build a stock market model\" is not. The first names a change and an outcome. The second names a tool.</p>\n<p>A useful simulation brief states:</p>\n<ul>\n<li>the system and the boundary</li>\n<li>the question</li>\n<li>the parts that matter</li>\n<li>the rules</li>\n<li>the time horizon</li>\n<li>the output that answers the question</li>\n<li>the assumption that would change the answer</li>\n</ul>\n<p>A simulation is always a simplification. The skill is choosing the simplification that preserves the answer.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Wind Tunnel</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A wind tunnel is not the aeroplane. It is a controlled model of the air and the surfaces that matter for a question about lift and drag.</p>\n<p>The tunnel is useful because the question is specific. It would be a poor model of the in-flight entertainment system.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Question with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Turn a Topic into a Question</h3>\n<p>Ask the AI to make a simulation question.</p>\n<pre><code class=\"language-text\">Topic: the effect of a supply disruption on a product's price.\nTurn it into three simulation questions. For each, name the system\nboundary, the time horizon and the output that would answer it.\n</code></pre>\n<p>A good answer will name a comparison, not just a topic.</p>\n<h3>Exploration 2: Choose the Simplification</h3>\n<p>Ask what to leave out.</p>\n<pre><code class=\"language-text\">A simulation of a queue needs to answer: how long do customers wait when\none server is added? List what you would model and what you would leave\nout. Justify each omission.\n</code></pre>\n<p>The omissions are the assumptions.</p>\n<h3>Exploration 3: Find the Assumption</h3>\n<p>Ask which assumption matters most.</p>\n<pre><code class=\"language-text\">Here is the simulation brief:\n[paste it]\n\nList the assumptions. Which one, if wrong, would change the answer most?\nHow would you test it?\n</code></pre>\n<p>The sensitive assumption is the next experiment.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A simulation brief:</p>\n<p>```markdown</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Simulation: [name]</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Question</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>System boundary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Parts</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Rules</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Time horizon</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Output</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Key assumption</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Validation</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>```</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Write a brief for one SimLab simulator. Name the question, the output and one assumption.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A simulation without a question is a toy. A simulation with a question is an argument you can test.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 1.1 (Level 1).</strong> Explain why a simulation is a question.</p>\n<p><strong>Exercise 1.2 (Level 2).</strong> Turn a topic into a simulation question.</p>\n<p><strong>Exercise 1.3 (Level 3).</strong> Name what to leave out and why.</p>\n<p><strong>Exercise 1.4 (Level 4).</strong> Find the most sensitive assumption.</p>\n<p><strong>Exercise 1.5 (Level 5).</strong> Write a complete brief for a real system.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A simulation is a model with time.</li>\n<li>The question comes before the tool.</li>\n<li>A brief names the system, rules, horizon and output.</li>\n<li>Every simulation is a simplification.</li>\n<li>The sensitive assumption is the next experiment.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Wrote a question</li>\n<li>[ ] Named the boundary</li>\n<li>[ ] Chose the output</li>\n<li>[ ] Named one omission</li>\n<li>[ ] Found one sensitive assumption</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which question was hardest to make specific?</li>\n<li>What did you leave out?</li>\n<li>Which assumption would you test first?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The question is set. The next chapter shows the shape every SimLab simulator shares.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-02",
+                "title": "The Common Shape",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Every simulator is a class with parameters, a run method and a seed.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>SimLab simulators share a consistent interface:</p>\n<ul>\n<li>a class that inherits from <code>BaseSimulation</code></li>\n<li>validated parameters</li>\n<li>a <code>run_simulation()</code> method</li>\n<li>a <code>reset()</code> method</li>\n<li><code>get_parameters_info()</code></li>\n<li>a <code>random_seed</code> for stochastic runs</li>\n</ul>\n<p>A registry maps names to classes, so you can create a simulator without importing the class directly:</p>\n<pre><code class=\"language-python\">from sim_lab.core import SimulatorRegistry\n\nsim = SimulatorRegistry.create(&quot;GameOfLife&quot;, pattern=&quot;glider&quot;, grid_size=(30, 30), days=60)\ncells = sim.run_simulation()\n</code></pre>\n<p>The common shape makes the models comparable. You can learn one interface and explore many paradigms.</p>\n<p>The interface does not make the models equivalent. A stock-market simulation and a forest-fire model answer different questions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Standard Gauge</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Model railways use standard gauge. Any compatible train can run on the track.</p>\n<p>The gauge does not make every train the same. It makes them interoperable.</p>\n<p>SimLab's interface is the gauge.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering the Shape with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Read the Interface</h3>\n<p>Ask the AI to map a simulator to the base shape.</p>\n<pre><code class=\"language-text\">Here is a SimLab simulator class:\n[paste it]\n\nIdentify its parameters, its state, its run method and its use of\nrandom_seed. Explain what the base class provides and what the simulator\nadds.\n</code></pre>\n<p>A good answer separates the shared plumbing from the model.</p>\n<h3>Exploration 2: Use the Registry</h3>\n<p>Ask how to create a simulator by name.</p>\n<pre><code class=\"language-text\">List the SimLab simulators and show how the registry creates one by name.\nExplain one advantage and one risk of dynamic creation.\n</code></pre>\n<p>The risk is a typo or an unknown name; the advantage is discovery.</p>\n<h3>Exploration 3: Test the Parameters</h3>\n<p>Ask what validation should catch.</p>\n<pre><code class=\"language-text\">A simulator takes days, volatility and random_seed. List the invalid\nvalues that should be rejected before the run and the error message a\nstudent should see.\n</code></pre>\n<p>Validation is part of the teaching.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A simulator record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Name</td>\n<td>StockMarketSimulation</td>\n</tr>\n<tr>\n<td>Parameters</td>\n<td>start price, days, volatility, drift, event</td>\n</tr>\n<tr>\n<td>State</td>\n<td>prices</td>\n</tr>\n<tr>\n<td>Run</td>\n<td><code>run_simulation()</code></td>\n</tr>\n<tr>\n<td>Seed</td>\n<td><code>random_seed</code></td>\n</tr>\n<tr>\n<td>Output</td>\n<td>list of prices</td>\n</tr>\n<tr>\n<td>Validation</td>\n<td>positive days, sensible volatility</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Create one simulator through the registry. Print its parameters. Run it twice with the same seed and compare.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The common interface lets a class explore several paradigms without relearning the plumbing. The differences then become the lesson.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 2.1 (Level 1).</strong> List the shared interface methods.</p>\n<p><strong>Exercise 2.2 (Level 2).</strong> Create a simulator through the registry.</p>\n<p><strong>Exercise 2.3 (Level 3).</strong> Identify the parameters and state.</p>\n<p><strong>Exercise 2.4 (Level 4).</strong> Test one invalid parameter.</p>\n<p><strong>Exercise 2.5 (Level 5).</strong> Compare two simulators that share the interface but model different systems.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Every simulator shares a class, parameters, run method and seed.</li>\n<li>The registry creates simulators by name.</li>\n<li>The interface makes models comparable, not equivalent.</li>\n<li>Validation is part of the teaching.</li>\n<li>The differences between models are the lesson.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Read the interface</li>\n<li>[ ] Created a simulator by name</li>\n<li>[ ] Named the parameters</li>\n<li>[ ] Tested one invalid value</li>\n<li>[ ] Compared two models</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journey</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which parameter mattered most?</li>\n<li>What did the registry hide?</li>\n<li>What did the shared shape make easier?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The shape is clear. The next chapter changes how time advances.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-03",
+                "title": "Time and Events",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>The paradigm is often a decision about how time moves.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Two common ways to advance time:</p>\n<ul>\n<li><strong>Discrete time</strong>: the simulation moves in fixed steps. Each step updates the state. Stock prices, resource levels and product demand often work this way.</li>\n<li><strong>Discrete event</strong>: the simulation jumps from one scheduled event to the next. The state changes only when something happens. Queues and service systems often work this way.</li>\n</ul>\n<p>A discrete-time model is easy to explain and easy to plot. It can waste computation on quiet periods.</p>\n<p>A discrete-event model is efficient when events are sparse. It can be harder to explain because there is no fixed clock.</p>\n<p>The choice changes what you can see. A daily price model hides intraday shocks. An event model can represent them.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Calendar</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A calendar with daily boxes is discrete time. A calendar with appointments is discrete event. Both represent a week; they answer different questions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Time with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Clock</h3>\n<p>Ask the AI to choose a paradigm.</p>\n<pre><code class=\"language-text\">A simulation needs to answer: how does a queue grow when arrivals double?\nShould time advance in fixed steps or jump between events? Explain the\ntrade-off and the output you would plot.\n</code></pre>\n<p>A queue is usually a discrete-event problem.</p>\n<h3>Exploration 2: Find the Event</h3>\n<p>Ask what counts as an event.</p>\n<pre><code class=\"language-text\">In a queueing simulation, list the events, the state they change and the\norder in which they can occur. Include arrival, start service, finish\nservice and abandonment.\n</code></pre>\n<p>The event list is the model.</p>\n<h3>Exploration 3: Compare the Outputs</h3>\n<p>Ask what each paradigm shows.</p>\n<pre><code class=\"language-text\">Compare a daily discrete-time model of a queue with a discrete-event\nmodel. What does each make visible or hide? Which would you use for a\nstaffing decision?\n</code></pre>\n<p>The answer depends on the question.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A time model record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Paradigm</td>\n<td>Discrete event</td>\n</tr>\n<tr>\n<td>Events</td>\n<td>Arrival, start service, finish</td>\n</tr>\n<tr>\n<td>State</td>\n<td>Queue length, servers busy</td>\n</tr>\n<tr>\n<td>Clock</td>\n<td>Event time</td>\n</tr>\n<tr>\n<td>Output</td>\n<td>Wait time, utilisation</td>\n</tr>\n<tr>\n<td>Risk</td>\n<td>Missing abandonment</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run one discrete-time and one discrete-event simulator. Plot the output and explain what each makes visible.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Time is a good first comparison because students can see the difference in the output. The paradigm is not abstract; it changes what the graph shows.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 3.1 (Level 1).</strong> Explain discrete time and discrete event.</p>\n<p><strong>Exercise 3.2 (Level 2).</strong> List the events in a queue.</p>\n<p><strong>Exercise 3.3 (Level 3).</strong> Run both paradigms and compare the plots.</p>\n<p><strong>Exercise 3.4 (Level 4).</strong> Choose a paradigm for a staffing decision.</p>\n<p><strong>Exercise 3.5 (Level 5).</strong> Design a model that captures one intraday shock a daily model would hide.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Discrete time moves in fixed steps.</li>\n<li>Discrete event jumps between scheduled events.</li>\n<li>The choice changes what the model can see.</li>\n<li>A queue is usually an event model.</li>\n<li>The question decides the clock.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Explained both paradigms</li>\n<li>[ ] Listed the events</li>\n<li>[ ] Ran both</li>\n<li>[ ] Compared the plots</li>\n<li>[ ] Chose one for a decision</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which clock was easier to reason about?</li>\n<li>What did the daily model hide?</li>\n<li>Which output convinced you?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Time is chosen. The next chapter adds randomness.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-04",
+                "title": "Randomness and Reproducibility",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A random simulation is an experiment. The seed is part of the method.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Many simulations use randomness: stock returns, arrivals, infection events, agent choices.</p>\n<p>A random result on its own is an anecdote. A reproducible result is evidence. The <code>random_seed</code> fixes the sequence so another person can rerun the model and get the same output.</p>\n<p>Randomness also needs a distribution. \"Random\" is not enough. Are arrivals Poisson? Are returns normal? Are agent choices uniform? The distribution is an assumption.</p>\n<p>Three common families:</p>\n<ul>\n<li><strong>Monte Carlo</strong>: sample many times to estimate a number.</li>\n<li><strong>Markov chain</strong>: move between states with probabilities.</li>\n<li><strong>Gillespie SSA</strong>: simulate individual stochastic events in continuous time.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Dice Game</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A dice game is fair if the dice are fair and the rules are clear. Rolling once tells you little. Rolling many times tells you the distribution.</p>\n<p>The seed is the record of which rolls you made. The distribution is the claim about the dice.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Randomness with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Distribution</h3>\n<p>Ask what randomness the model assumes.</p>\n<pre><code class=\"language-text\">Here is a simulator and its parameters:\n[paste it]\n\nIdentify every random process. For each, name the distribution, the\nparameter and the assumption. What would change if the distribution were\nwrong?\n</code></pre>\n<p>A good answer will not accept \"random\" as a description.</p>\n<h3>Exploration 2: Test the Seed</h3>\n<p>Ask how to prove reproducibility.</p>\n<pre><code class=\"language-text\">Run the same simulation twice with the same random_seed and once with a\ndifferent seed. Explain what should be identical and what should change.\nDesign the evidence you would record.\n</code></pre>\n<p>The same seed should reproduce the run; the different seed should show variation.</p>\n<h3>Exploration 3: Estimate with Monte Carlo</h3>\n<p>Ask how many samples are enough.</p>\n<pre><code class=\"language-text\">A Monte Carlo estimate has a standard error. Explain how the error\nchanges with sample size and how you would report the estimate with an\nuncertainty range.\n</code></pre>\n<p>The answer is a confidence interval, not a single number.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A randomness record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Process</td>\n<td>Daily return</td>\n</tr>\n<tr>\n<td>Distribution</td>\n<td>Normal</td>\n</tr>\n<tr>\n<td>Parameters</td>\n<td>Mean, standard deviation</td>\n</tr>\n<tr>\n<td>Seed</td>\n<td>42</td>\n</tr>\n<tr>\n<td>Samples</td>\n<td>1000</td>\n</tr>\n<tr>\n<td>Estimate</td>\n<td>Mean and interval</td>\n</tr>\n<tr>\n<td>Assumption</td>\n<td>Independence</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run a Monte Carlo estimator with 100, 1000 and 10000 samples. Report the estimate and the uncertainty. Repeat with the same seed.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Reproducibility is an assessment criterion. A student who reports a seed and a validation is more credible than one who reports a single lucky run.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 4.1 (Level 1).</strong> Explain why a seed matters.</p>\n<p><strong>Exercise 4.2 (Level 2).</strong> Identify the random process in a simulator.</p>\n<p><strong>Exercise 4.3 (Level 3).</strong> Reproduce a run with the same seed.</p>\n<p><strong>Exercise 4.4 (Level 4).</strong> Report a Monte Carlo estimate with uncertainty.</p>\n<p><strong>Exercise 4.5 (Level 5).</strong> Compare two distributions on the same question.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Randomness needs a distribution, not just a label.</li>\n<li>The seed makes a run reproducible.</li>\n<li>Monte Carlo estimates need uncertainty.</li>\n<li>Markov and Gillespie models have different time assumptions.</li>\n<li>Reproducibility is part of the evidence.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Found the random process</li>\n<li>[ ] Named the distribution</li>\n<li>[ ] Reproduced a run</li>\n<li>[ ] Reported uncertainty</li>\n<li>[ ] Tested a second seed</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which assumption was hidden in \"random\"?</li>\n<li>What did the second seed change?</li>\n<li>How many samples were enough?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Randomness is controlled. The next chapter looks at emergence in cells and agents.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-05",
+                "title": "Cells and Agents",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>Some behaviour is not in the rules. It appears when the rules interact.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Cellular automata update a grid of cells with local rules. Each cell looks at its neighbours and changes state. Game of Life and forest-fire models are examples.</p>\n<p>Agent-based models give each agent its own state and rules. Agents interact, move or adapt. Boids and simple market models are examples.</p>\n<p>Both produce <strong>emergence</strong>: patterns at the system level that no single rule contains. A traffic jam, a flock or a forest fire can emerge from simple local behaviour.</p>\n<p>Emergence is powerful and easy to overinterpret. A pattern in the output is a result of the model, not proof about the world.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Flock of Birds</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>No bird has a plan for the flock. Each bird follows a few rules: avoid collision, match direction, stay close.</p>\n<p>The flock is what the rules look like at scale.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Emergence with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Separate the Rules from the Pattern</h3>\n<p>Ask the AI to describe both.</p>\n<pre><code class=\"language-text\">Here is a cellular automaton or agent model:\n[paste it]\n\nList the local rules and the global pattern. Explain why the pattern is\nnot contained in any single rule. Mark what the model does not prove\nabout the real system.\n</code></pre>\n<p>A good answer will keep the model and the world apart.</p>\n<h3>Exploration 2: Change One Rule</h3>\n<p>Ask what happens.</p>\n<pre><code class=\"language-text\">Change one rule in the model, such as the infection probability or the\nseparation distance. Predict the effect, then test it. Explain whether\nthe result matched the prediction.\n</code></pre>\n<p>The experiment is the lesson.</p>\n<h3>Exploration 3: Find the Validation</h3>\n<p>Ask how to check the pattern.</p>\n<pre><code class=\"language-text\">The model produces a familiar-looking pattern. What would you compare it\nwith to validate the model? Name one qualitative and one quantitative\ncheck.\n</code></pre>\n<p>A familiar pattern is not validation.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An emergence record:</p>\n<table>\n<thead>\n<tr>\n<th>Field</th>\n<th>Entry</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Model</td>\n<td>Forest fire</td>\n</tr>\n<tr>\n<td>Local rule</td>\n<td>Tree ignites if a neighbour burns</td>\n</tr>\n<tr>\n<td>Global pattern</td>\n<td>Clusters and criticality</td>\n</tr>\n<tr>\n<td>Parameter</td>\n<td>Density, spread probability</td>\n</tr>\n<tr>\n<td>Validation</td>\n<td>Known qualitative behaviour</td>\n</tr>\n<tr>\n<td>Limitation</td>\n<td>Not a prediction for a specific forest</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run one cellular and one agent model. Change one parameter. Predict, test and explain.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Emergence is engaging and easy to demonstrate. The assessment should ask what the pattern does and does not establish.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 5.1 (Level 1).</strong> Explain emergence.</p>\n<p><strong>Exercise 5.2 (Level 2).</strong> Separate local rules from global pattern.</p>\n<p><strong>Exercise 5.3 (Level 3).</strong> Change one parameter and predict the effect.</p>\n<p><strong>Exercise 5.4 (Level 4).</strong> Validate a pattern qualitatively and quantitatively.</p>\n<p><strong>Exercise 5.5 (Level 5).</strong> Explain why a realistic-looking pattern is not proof.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Cellular and agent models use local rules.</li>\n<li>Global patterns can emerge from local interaction.</li>\n<li>Emergence is a property of the model.</li>\n<li>A familiar pattern is not validation.</li>\n<li>Change one rule at a time.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Named the local rules</li>\n<li>[ ] Described the global pattern</li>\n<li>[ ] Changed one parameter</li>\n<li>[ ] Validated the pattern</li>\n<li>[ ] Stated a limitation</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which pattern surprised you?</li>\n<li>Did the prediction match?</li>\n<li>What would count as validation?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Cells and agents are local. The next chapter adds feedback and networks.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-06",
+                "title": "Feedback and Networks",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A system with feedback can turn a small change into a large one.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>System dynamics</strong> models stocks, flows and feedback loops. A stock accumulates; a flow changes it; a feedback loop connects the state back to the flow.</p>\n<p>A reinforcing loop amplifies. A balancing loop stabilises. The same system can contain both.</p>\n<p><strong>Network models</strong> put processes on a graph. The structure of the network changes the result: a disease spreads differently on a grid, a random graph or a hub-and-spoke network.</p>\n<p>Domain models apply these ideas: predator-prey, epidemics and supply chains.</p>\n<p>The teaching point is that structure matters. A model with the same average behaviour but a different network can produce a different outcome.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Thermostat</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A thermostat is a balancing loop. The room cools, the sensor notices, the heater turns on, the room warms, the heater turns off.</p>\n<p>A broken thermostat is a reinforcing loop with no brake.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Feedback with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Find the Loop</h3>\n<p>Ask the AI to identify the feedback.</p>\n<pre><code class=\"language-text\">Here is a system dynamics or domain model:\n[paste it]\n\nIdentify the stocks, flows and feedback loops. Mark each loop as\nreinforcing or balancing. Explain what would happen if the loop were\nremoved.\n</code></pre>\n<p>A good answer will name the mechanism, not just the shape.</p>\n<h3>Exploration 2: Change the Network</h3>\n<p>Ask how structure changes the result.</p>\n<pre><code class=\"language-text\">The same epidemic model runs on a grid, a random graph and a hub-and-spoke\nnetwork. Predict how the peak and the spread change. Explain why.\n</code></pre>\n<p>The network is part of the model.</p>\n<h3>Exploration 3: Validate the Domain Model</h3>\n<p>Ask what theory predicts.</p>\n<pre><code class=\"language-text\">A predator-prey model should produce closed orbits around an equilibrium.\nExplain how you would check that against the analytic result and what a\nnumerical simulation might get wrong.\n</code></pre>\n<p>Validation is a comparison, not a vibe.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A structure record:</p>\n<table>\n<thead>\n<tr>\n<th>Model</th>\n<th>Structure</th>\n<th>Validation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Predator-prey</td>\n<td>Two populations, interaction</td>\n<td>Orbits around equilibrium</td>\n</tr>\n<tr>\n<td>SIR</td>\n<td>Susceptible, infected, recovered</td>\n<td>Peak rises with R0</td>\n</tr>\n<tr>\n<td>Supply chain</td>\n<td>Multi-tier inventory</td>\n<td>Bullwhip effect</td>\n</tr>\n<tr>\n<td>Network</td>\n<td>Graph topology</td>\n<td>Spread depends on structure</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Run one system-dynamics model and one network or domain model. Change one structural parameter. Explain the result.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Feedback and networks teach that the same local rules can produce different system behaviour. The assessment should ask which structure produced the result.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 6.1 (Level 1).</strong> Explain a reinforcing and a balancing loop.</p>\n<p><strong>Exercise 6.2 (Level 2).</strong> Identify stocks and flows.</p>\n<p><strong>Exercise 6.3 (Level 3).</strong> Change a network and predict the effect.</p>\n<p><strong>Exercise 6.4 (Level 4).</strong> Validate a domain model against theory.</p>\n<p><strong>Exercise 6.5 (Level 5).</strong> Explain why structure matters more than an average rate.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>System dynamics models stocks, flows and feedback.</li>\n<li>Reinforcing loops amplify; balancing loops stabilise.</li>\n<li>Network structure changes the outcome.</li>\n<li>Domain models need validation against theory.</li>\n<li>Structure is part of the explanation.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Found a feedback loop</li>\n<li>[ ] Named its type</li>\n<li>[ ] Changed a network</li>\n<li>[ ] Validated a domain model</li>\n<li>[ ] Explained the structure</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which loop mattered most?</li>\n<li>How did the network change the result?</li>\n<li>What did theory predict?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The structure is modelled. The final chapter validates, reproduces and teaches.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-07",
+                "title": "Validate, Reproduce, Teach",
+                "kind": "reading",
+                "xp": 10,
+                "blocks": [
+                  {
+                    "type": "html",
+                    "html": "<blockquote>\n<p>A simulation result is evidence only when someone else can reproduce it and check it against something.</p>\n</blockquote>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>The Concept First</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Three questions decide whether a simulation result is useful:</p>\n<ul>\n<li><strong>Reproducible</strong>: can another person rerun it and get the same output?</li>\n<li><strong>Validated</strong>: does it match a known analytic result, a qualitative law or a measured pattern?</li>\n<li><strong>Interpreted</strong>: does it answer the question, and what does it not prove?</li>\n</ul>\n<p>A seed is necessary but not sufficient. A model can be perfectly reproducible and still wrong.</p>\n<p>Validation examples:</p>\n<ul>\n<li>queueing: utilisation and queue length trends</li>\n<li>Lotka-Volterra: closed orbits around equilibrium</li>\n<li>exponential decay: matches the analytic curve in expectation</li>\n<li>Monte Carlo pi: converges as samples grow</li>\n<li>SIR: peak rises with R0, herd-immunity threshold</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Understanding Through a Lab Report</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>A lab report states the method, the result, the comparison with theory and the uncertainty. A result without a comparison is a number, not a finding.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Discovering Validation with Your AI Partner</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h3>Exploration 1: Choose the Check</h3>\n<p>Ask the AI to validate a model.</p>\n<pre><code class=\"language-text\">Here is a simulation result and the model:\n[paste them]\n\nPropose one analytic check, one qualitative check and one sensitivity\ntest. Explain what each would prove and what it would miss.\n</code></pre>\n<p>A good answer will not rely on a single check.</p>\n<h3>Exploration 2: Read the Uncertainty</h3>\n<p>Ask what the random variation means.</p>\n<pre><code class=\"language-text\">The result changes between seeds. Explain how to report the estimate\nwith uncertainty and how many runs you would use. Do not report a single\nrun as the answer.\n</code></pre>\n<p>The distribution of runs is the evidence.</p>\n<h3>Exploration 3: Design the Assessment</h3>\n<p>Ask how to grade the project.</p>\n<pre><code class=\"language-text\">Design a rubric for a simulation project. Reward reproducibility,\nvalidation, interpretation and code quality. Do not reward the number of\nplots.\n</code></pre>\n<p>The rubric is the teaching contract.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>From Concept to Practice</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>An assessment rubric:</p>\n<table>\n<thead>\n<tr>\n<th>Criterion</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Reproducibility</td>\n<td>Seed set, report, rerun identical</td>\n</tr>\n<tr>\n<td>Validation</td>\n<td>Comparison with theory or data</td>\n</tr>\n<tr>\n<td>Analysis</td>\n<td>Interpretation of the result</td>\n</tr>\n<tr>\n<td>Code quality</td>\n<td>Parameterised, readable, uses the API</td>\n</tr>\n</tbody>\n</table>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Build Task</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Take one simulation. Record the seed, the output, the validation and the interpretation. Ask a peer to rerun it.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Classroom Connection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Assessment should reward the reasoning, not the visual polish. A short notebook that validates and interprets one result beats ten plots with no commentary.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Practice Exercises</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><strong>Exercise 7.1 (Level 1).</strong> Name the three questions.</p>\n<p><strong>Exercise 7.2 (Level 2).</strong> Record a seed and rerun a model.</p>\n<p><strong>Exercise 7.3 (Level 3).</strong> Validate against one analytic result.</p>\n<p><strong>Exercise 7.4 (Level 4).</strong> Report uncertainty across runs.</p>\n<p><strong>Exercise 7.5 (Level 5).</strong> Write a rubric for a simulation project.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Chapter Summary</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>A result needs reproducibility, validation and interpretation.</li>\n<li>A seed is necessary but not sufficient.</li>\n<li>Compare with theory, a qualitative law or data.</li>\n<li>Report uncertainty across runs.</li>\n<li>Assess reasoning, not plot count.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Reflection</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Before moving on, ensure you:</p>\n<ul>\n<li>[ ] Recorded a seed</li>\n<li>[ ] Reran the model</li>\n<li>[ ] Validated one result</li>\n<li>[ ] Reported uncertainty</li>\n<li>[ ] Wrote a rubric</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Your Learning Journal</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ol>\n<li>Which validation was strongest?</li>\n<li>What did the seed not prove?</li>\n<li>What would you change in the assessment?</li>\n</ol>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Next Steps</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The practice is complete. The SimLab docs list every simulator and its parameters.</p>"
+                  }
+                ]
+              },
+              {
+                "id": "01-08",
+                "title": "Checkpoint: modelling choices",
+                "kind": "checkpoint",
+                "xp": 25,
+                "blocks": [
+                  {
+                    "type": "checkpoint",
+                    "questions": [
+                      {
+                        "id": "q1",
+                        "prompt": "What comes first in a simulation?",
+                        "options": [
+                          "A question about the system",
+                          "The plotting library",
+                          "The model class",
+                          "The random seed"
+                        ],
+                        "answer": 0,
+                        "explanation": "A simulation without a question is a toy. The question decides the model, the horizon and the output."
+                      },
+                      {
+                        "id": "q2",
+                        "prompt": "What is the difference between discrete-time and discrete-event simulation?",
+                        "options": [
+                          "Discrete time moves in fixed steps; discrete event jumps between scheduled events",
+                          "Discrete time is random; discrete event is deterministic",
+                          "Discrete event has no state",
+                          "They are the same"
+                        ],
+                        "answer": 0,
+                        "explanation": "The paradigm is often a decision about how time advances."
+                      },
+                      {
+                        "id": "q3",
+                        "prompt": "Why does a random simulation need a seed?",
+                        "options": [
+                          "To make the run reproducible for another person",
+                          "To make the model more accurate",
+                          "To remove randomness",
+                          "To choose the distribution"
+                        ],
+                        "answer": 0,
+                        "explanation": "A seed fixes the sequence. Reproducibility is part of the evidence."
+                      },
+                      {
+                        "id": "q4",
+                        "prompt": "What is emergence?",
+                        "options": [
+                          "A system-level pattern produced by local rules",
+                          "A random error",
+                          "A parameter value",
+                          "A plotting style"
+                        ],
+                        "answer": 0,
+                        "explanation": "The pattern is not contained in any single rule; it appears when the rules interact."
+                      },
+                      {
+                        "id": "q5",
+                        "prompt": "Why does network structure matter?",
+                        "options": [
+                          "The same process can spread differently on a grid, random graph or hub-and-spoke network",
+                          "Networks make the model faster",
+                          "The average rate is enough",
+                          "Structure only affects the plot"
+                        ],
+                        "answer": 0,
+                        "explanation": "The structure is part of the explanation, not a detail."
+                      },
+                      {
+                        "id": "q6",
+                        "prompt": "What makes a simulation result useful?",
+                        "options": [
+                          "Reproducibility, validation and interpretation",
+                          "A long plot",
+                          "A single lucky run",
+                          "The largest model"
+                        ],
+                        "answer": 0,
+                        "explanation": "A seed is necessary but not sufficient. Compare with theory, a qualitative law or data."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "stories": {}
+    }
+  ]
+}

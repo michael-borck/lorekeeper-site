@@ -5,7 +5,7 @@
   "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-06T23:56:12+00:00",
+  "createdAt": "2026-11-07T00:33:00+00:00",
   "courses": [
     {
       "slug": "test-the-claim",
@@ -23,7 +23,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-06T23:56:12+00:00",
+        "generated_at": "2026-11-07T00:33:00+00:00",
         "unit": {
           "slug": "test-the-claim",
           "title": "Test the Claim, Rate the Control: A Tessera Audit Workbook",
