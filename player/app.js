@@ -187,27 +187,16 @@ function isDone(id) {
 
 /* Progress */
 
-function progressKey() {
-  return `lorekeeper:progress:${state.course.unit.slug}`;
-}
-
 function loadProgress() {
-  try {
-    const raw = localStorage.getItem(progressKey());
-    const parsed = raw ? JSON.parse(raw) : null;
-    state.progress = parsed && parsed.completed ? parsed : { completed: {} };
-    if (!Array.isArray(state.progress.history)) state.progress.history = [];
-  } catch {
-    state.progress = { completed: {}, history: [] };
-  }
+  const parsed = window.LorekeeperPackStorage?.getProgress(state.course.unit.slug);
+  state.progress = parsed && parsed.completed ? parsed : { completed: {} };
+  if (!Array.isArray(state.progress.history)) state.progress.history = [];
 }
 
 function saveProgress() {
-  try {
-    localStorage.setItem(progressKey(), JSON.stringify(state.progress));
-  } catch {
-    /* storage disabled: progress is session-only */
-  }
+  window.LorekeeperPackStorage?.putProgress(state.course.unit.slug, state.progress).catch(() => {
+    /* progress remains in memory if IndexedDB is unavailable */
+  });
 }
 
 function stats() {
@@ -360,11 +349,12 @@ function renderLesson(entry) {
   syncCompleteControls(lesson);
 
   const blocksHost = els.content.querySelector("[data-blocks]");
+  const sanitizeProse = (html) => window.LorekeeperSanitize?.html(html) || "";
   for (const block of lesson.blocks) {
     if (block.type === "html") {
       const prose = document.createElement("div");
       prose.className = "lesson-prose";
-      prose.innerHTML = block.html;
+      prose.innerHTML = sanitizeProse(block.html);
       blocksHost.appendChild(prose);
     } else if (block.type === "checkpoint") {
       renderCheckpoint(blocksHost, block, lesson);
@@ -490,7 +480,7 @@ function renderExercise(host, block, lesson) {
   const wrap = document.createElement("div");
   wrap.className = "exercise";
   wrap.innerHTML = `
-    <div class="lesson-prose">${block.prompt}</div>
+    <div class="lesson-prose">${window.LorekeeperSanitize?.html(block.prompt) || ""}</div>
     <div class="exercise-grid${isText ? " text-only" : ""}">
       <div class="editor-pane">
         <div class="pane-label">${isText ? "Your answer" : `Editor · ${escapeHtml(block.language)}`}</div>

@@ -4,12 +4,7 @@
   const $ = (id) => document.getElementById(id);
 
   function progressFor(slug) {
-    try {
-      const raw = localStorage.getItem(`lorekeeper:progress:${slug}`);
-      return raw ? JSON.parse(raw) : null;
-    } catch {
-      return null;
-    }
+    return window.LorekeeperPackStorage?.getProgress(slug) || null;
   }
 
   function courses() {

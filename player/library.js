@@ -54,6 +54,12 @@
       for (const module of raw.course.modules) {
         for (const lesson of module.lessons) {
           for (const block of lesson.blocks || []) {
+            if (block.type === "html" && typeof block.html === "string") {
+              block.html = window.LorekeeperSanitize?.html(block.html) || "";
+            }
+            if (typeof block.prompt === "string") {
+              block.prompt = window.LorekeeperSanitize?.html(block.prompt) || "";
+            }
             if (block.type === "story" && !stories[block.src]) {
               fail(`Course "${slug}" is missing the story "${block.src}".`);
             }
@@ -179,7 +185,7 @@
     if (!pack) return null;
     await window.LorekeeperPackStorage.deletePack(id);
     for (const entry of pack.courses) {
-      localStorage.removeItem(`lorekeeper:progress:${entry.slug}`);
+      await window.LorekeeperPackStorage.deleteProgress(entry.slug);
       for (const key of Object.keys(localStorage)) {
         if (key.startsWith(`lorekeeper:sql:${entry.slug}:`) || key.startsWith(`lorekeeper:code:${entry.slug}:`)) {
           localStorage.removeItem(key);

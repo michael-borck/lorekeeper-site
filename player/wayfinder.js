@@ -64,13 +64,8 @@
   }
 
   function completedFor(slug) {
-    try {
-      const raw = localStorage.getItem(`lorekeeper:progress:${slug}`);
-      const data = raw ? JSON.parse(raw) : null;
-      return new Set(Object.keys(data?.completed || {}));
-    } catch {
-      return new Set();
-    }
+    const data = window.LorekeeperPackStorage?.getProgress(slug);
+    return new Set(Object.keys(data?.completed || {}));
   }
 
   function nextStep(path) {

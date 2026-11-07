@@ -8,7 +8,7 @@
     if (block.prompt) {
       const prompt = document.createElement("div");
       prompt.className = "lesson-prose";
-      prompt.innerHTML = block.prompt;
+      prompt.innerHTML = window.LorekeeperSanitize?.html(block.prompt) || "";
       wrap.appendChild(prompt);
     }
     host.appendChild(wrap);

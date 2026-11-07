@@ -52,6 +52,8 @@
     .step span { color:var(--muted); font-size:.92rem; }
     .install { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px; }
     .install .card code { background:var(--panel-2); padding:2px 6px; border-radius:6px; font-family:ui-monospace,monospace; }
+    .code { display:block; margin-top:12px; padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:#081020; color:var(--accent); font-family:ui-monospace,monospace; font-size:.9rem; overflow-x:auto; white-space:pre; }
+    .note { color:var(--muted); font-size:.9rem; margin:16px 0 0; }
     footer { border-top:1px solid var(--line); padding:28px 0 44px; color:var(--muted); font-size:.86rem; }
     footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
     @media (max-width:860px) {
@@ -64,7 +66,7 @@
 <body>
   <header><div class="nav">
     <a class="brand" href="./"><span class="mark">✦</span><span>Lorekeeper</span></a>
-    <nav class="nav-links"><a href="#why">Why</a><a href="#library">Library</a><a href="#install">Install</a><a class="btn ghost" href="./player/">Open</a></nav>
+    <nav class="nav-links"><a href="#why">Why</a><a href="#library">Library</a><a href="#authors">Author</a><a href="#install">Install</a><a class="btn ghost" href="./player/">Open</a></nav>
   </div></header>
 
   <main class="wrap">
@@ -120,6 +122,33 @@
         <div class="step"><strong>2. Learn</strong><span>Read short scenes, pass checkpoints and complete practical exercises.</span></div>
         <div class="step"><strong>3. Review</strong><span>Watch your journey build locally: completed lessons, achievements and next steps.</span></div>
         <div class="step"><strong>4. Carry it</strong><span>Export progress as JSON, or install the PWA and keep learning offline.</span></div>
+      </div>
+    </section>
+
+    <section id="authors">
+      <p class="eyebrow">Authors and teachers</p>
+      <h2>Build packs on your own machine.</h2>
+      <p class="section-lede">Lorekeeper includes a local authoring studio. Clone the source, install the small Python tool, and write lessons in the same format the player uses. Nothing is uploaded while you write.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Get the engine</h3>
+          <p>Install Python 3.10 or later, then clone and install Lorekeeper locally.</p>
+          <code class="code">git clone https://github.com/michael-borck/lorekeeper.git
+cd lorekeeper
+python3 -m pip install -e .</code>
+        </div>
+        <div class="card">
+          <h3>2. Open the studio</h3>
+          <p>The authoring studio is a private local workbench for lessons, checkpoints and exercises.</p>
+          <code class="code">python3 -m lorekeeper studio</code>
+          <p class="note">It opens at <code>127.0.0.1</code> and writes only inside your local content folder.</p>
+        </div>
+        <div class="card">
+          <h3>3. Submit a pack</h3>
+          <p>Validate your pack, then open a pull request to the pack queue. A GitHub account is required for the public review queue.</p>
+          <div class="cta" style="margin-top:14px"><a class="btn ghost" href="https://github.com/michael-borck/lorekeeper-packs" target="_blank" rel="noreferrer">Pack submission queue</a></div>
+          <p class="note">Accepted packs are checked, signed and published to the in-app store.</p>
+        </div>
       </div>
     </section>
 

@@ -5,7 +5,7 @@
   "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
   "author": "Michael Borck",
   "licence": "CC BY-SA 4.0",
-  "createdAt": "2026-11-07T05:05:00+00:00",
+  "createdAt": "2026-11-07T11:15:32+00:00",
   "courses": [
     {
       "slug": "the-great-silence",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-07T05:05:00+00:00",
+        "generated_at": "2026-11-07T11:15:32+00:00",
         "unit": {
           "slug": "the-great-silence",
           "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
@@ -303,7 +303,7 @@
                   },
                   {
                     "type": "html",
-                    "html": "<p>Six frames, one argument. The search for aliens is a mature literature on civilisational risk, and it asks better questions about AI than the industry currently does. The frames do not tell you what to think. They give you somewhere to stand while you think.</p>\n<p>If you want the live version, see the <a href=\"../sessions/\">session guide</a>.</p>"
+                    "html": "<p>Six frames, one argument. The search for aliens is a mature literature on civilisational risk, and it asks better questions about AI than the industry currently does. The frames do not tell you what to think. They give you somewhere to stand while you think.</p>\n<p>If you want the live version, see the <a href=\"https://thegreatsilence.borck.education/sessions/\">session guide</a>.</p>"
                   }
                 ]
               },
@@ -407,7 +407,7 @@
                 "blocks": [
                   {
                     "type": "html",
-                    "html": "<p>A hands-on lab for <a href=\"../essays/02-dark-forest.md\">02. The Dark Forest</a>.</p>\n<p>This lab turns the Dark Forest into a network defence exercise. You will take a normal Linux server, see how much it announces to the internet, then harden it until an external scan finds nothing.</p>"
+                    "html": "<p>A hands-on lab for <a href=\"https://thegreatsilence.borck.education/essays/02-dark-forest.html\">02. The Dark Forest</a>.</p>\n<p>This lab turns the Dark Forest into a network defence exercise. You will take a normal Linux server, see how much it announces to the internet, then harden it until an external scan finds nothing.</p>"
                   },
                   {
                     "type": "html",

@@ -33,11 +33,6 @@
     return courses[slug];
   }
 
-  function progressValue(value) {
-    const data = safeParse(value);
-    return data && typeof data === "object" ? data : null;
-  }
-
   function collect() {
     const courses = {};
     const other = {};
@@ -49,9 +44,16 @@
       keys = [];
     }
 
+    for (const row of window.LorekeeperPackStorage?.allProgress() || []) {
+      if (!/^[a-z0-9][a-z0-9-]*$/.test(row.slug)) continue;
+      const parsed = row.value && typeof row.value === "object" ? row.value : null;
+      if (parsed) courseEntry(courses, row.slug).progress = parsed;
+    }
+
     for (const key of keys) {
       if (!key.startsWith(PREFIX)) continue;
       if (key.startsWith("lorekeeper:pack:")) continue;
+      if (key.startsWith("lorekeeper:progress:")) continue;
       let value = "";
       try {
         value = localStorage.getItem(key) || "";
@@ -60,12 +62,6 @@
       }
       if (key === "lorekeeper:theme") {
         theme = value || null;
-        continue;
-      }
-      const progress = key.match(/^lorekeeper:progress:([a-z0-9-]+)$/);
-      if (progress) {
-        const parsed = progressValue(value);
-        if (parsed) courseEntry(courses, progress[1]).progress = parsed;
         continue;
       }
       const draft = key.match(/^lorekeeper:(sql|code):([a-z0-9-]+):(.+)$/);
@@ -215,14 +211,30 @@
     };
   }
 
-  function apply(data, mode = "merge") {
+  async function clearLearnerData() {
+    try {
+      await window.LorekeeperPackStorage?.clearProgress();
+    } catch {
+      /* fall back to clearing localStorage below */
+    }
+    try {
+      for (const key of Object.keys(localStorage)) {
+        if (key.startsWith("lorekeeper:pack:") || key.startsWith("lorekeeper:setting:")) continue;
+        if (key === "lorekeeper:theme" || key === "lorekeeper:path") {
+          localStorage.removeItem(key);
+          continue;
+        }
+        if (key.startsWith("lorekeeper:sql:") || key.startsWith("lorekeeper:code:")) localStorage.removeItem(key);
+      }
+    } catch {
+      /* storage disabled */
+    }
+  }
+
+  async function apply(data, mode = "merge") {
     const clean = validate(data);
     const replace = mode === "replace";
-    if (replace) {
-      for (const key of Object.keys(localStorage)) {
-        if (key.startsWith(PREFIX)) localStorage.removeItem(key);
-      }
-    }
+    if (replace) await clearLearnerData();
 
     if (clean.theme && (replace || !localStorage.getItem("lorekeeper:theme"))) {
       localStorage.setItem("lorekeeper:theme", clean.theme);
@@ -230,10 +242,9 @@
 
     for (const [slug, entry] of Object.entries(clean.courses)) {
       if (entry.progress) {
-        const key = `lorekeeper:progress:${slug}`;
-        const existing = replace ? null : progressValue(localStorage.getItem(key) || "");
+        const existing = replace ? null : window.LorekeeperPackStorage?.getProgress(slug);
         const value = replace ? entry.progress : mergeProgress(existing, entry.progress);
-        localStorage.setItem(key, JSON.stringify(value));
+        await window.LorekeeperPackStorage?.putProgress(slug, value);
       }
       for (const field of ["sql", "code"]) {
         for (const [id, value] of Object.entries(entry[field] || {})) {
@@ -370,7 +381,7 @@
       }
     });
 
-    $("progress-apply").addEventListener("click", () => {
+    $("progress-apply").addEventListener("click", async () => {
       if (!pending) {
         if (typeof toast === "function") toast("Choose a valid progress file first.");
         return;
@@ -386,13 +397,11 @@
 
     $("progress-cancel").addEventListener("click", resetImport);
 
-    $("progress-clear").addEventListener("click", () => {
+    $("progress-clear").addEventListener("click", async () => {
       if (!confirm("Clear all Lorekeeper progress, badges, drafts and theme on this device?")) {
         return;
       }
-      for (const key of Object.keys(localStorage)) {
-        if (key.startsWith(PREFIX)) localStorage.removeItem(key);
-      }
+      await clearLearnerData();
       location.reload();
     });
   }
