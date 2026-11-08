@@ -2603,3 +2603,28 @@ html[data-theme="quest"] .theme-picker select { border: 2px solid var(--frame); 
 @media (max-width: 860px) {
   .scene-banner-text { flex-direction: column; gap: 2px; left: 18px; right: 18px; bottom: 12px; font-size: 0.66rem; }
 }
+
+/* Workshop tools: links that leave the app ---------------------------- */
+
+.tool-note { margin: 0 0 4px; color: var(--dim); font-size: 0.68rem; line-height: 1.4; }
+.sidebar-tools a.tool-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+.tool-link > span:first-child { flex: 0 1 auto; }
+.tool-icon { width: 13px; height: 13px; flex: 0 0 13px; margin-left: auto; color: var(--dim); }
+.tool-link:hover .tool-icon,
+.tool-link:focus-visible .tool-icon { color: var(--accent); }
+.tool-tag {
+  padding: 0 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+html[data-theme="quest"] .tool-tag { border-radius: 2px; }
