@@ -16,6 +16,7 @@
       "level": "beginner",
       "pitch": "Try every interactive lesson format in one small workbench before choosing a full course.",
       "start": "01-01",
+      "narrator": "",
       "url": "field-kit/course.json",
       "modules": 1,
       "lessons": 10
@@ -36,6 +37,7 @@
       "level": "beginner",
       "pitch": "Understand the estate behind the website: operating systems, networks, identity, storage and incidents.",
       "start": "01-01",
+      "narrator": "architect",
       "url": "signal-and-noise/course.json",
       "modules": 12,
       "lessons": 47
@@ -57,6 +59,7 @@
       "level": "beginner",
       "pitch": "Build and ship a client website with an AI partner, from the first brief to the final handover.",
       "start": "01-01",
+      "narrator": "",
       "url": "ship-it/course.json",
       "modules": 12,
       "lessons": 58

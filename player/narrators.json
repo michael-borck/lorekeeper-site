@@ -1,0 +1,263 @@
+{
+  "format": "lorekeeper.narrators",
+  "version": 1,
+  "moments": ["courseStart", "chapterStart", "chapterEnd", "courseEnd", "welcomeBack", "retry", "levelUp"],
+  "standard": {
+    "reading": ["Read this through, then mark it done.", "Take this one slowly. It comes back later."],
+    "checkpoint": ["Answer these to check your understanding.", "A short quiz. Choose carefully."],
+    "exercise": ["Build it, then run the tests until they all pass.", "Write the code and let the tests guide you."],
+    "order": ["Put these steps in the right order.", "Arrange the steps, then check your order."],
+    "fill": ["Fill in the missing words.", "Complete the gaps, then check your answers."],
+    "hotspot": ["Find the targets on the board.", "Look closely and pick out what does not belong."],
+    "review": ["Find the lines that cause the problem.", "Review the change and pick out the bad lines."],
+    "scenario": ["Make a decision. Each path has a cost.", "Choose a path and see what follows."],
+    "calibration": ["Pick the stronger answer and say why.", "Compare both answers and choose the better one."],
+    "viva": ["Answer each question out loud, then type the short version.", "Defend your choices, one question at a time."],
+    "api": ["Send the requests and read the responses.", "Probe each endpoint, then answer the questions."],
+    "sql": ["Write a query that returns the right rows.", "Query the database to answer the task."],
+    "terminal": ["Use the terminal to find the problem.", "Type the commands that meet each goal."],
+    "story": ["Play through the scene. Your choices shape the ending.", "Step into the story and choose what to say."]
+  },
+  "narrators": {
+    "keeper": {
+      "name": "Orin the Archivist",
+      "topic": "Keeper of the library",
+      "src": "art/quest/keeper.webp",
+      "kinds": {
+        "reading": ["A page from the archive. Read it slowly. The margins hold as much as the text.", "Pull up a chair. This one rewards a patient reader."],
+        "checkpoint": ["Let us see what stayed with you. Take your time.", "Memory is a lantern. Let us check it still burns."],
+        "exercise": ["Now you make something. The tests will tell us when it is right.", "Reading is half the craft. Build it, and the rest follows."],
+        "order": ["These pages fell out of order. Shelve them correctly.", "Every procedure has a sequence. Restore it."],
+        "fill": ["Some words have faded from this page. Restore them.", "The ink is missing in places. Fill the gaps."],
+        "hotspot": ["Something here should not be on display. Find it.", "Look as an archivist would. What is out of place?"],
+        "review": ["One change hides a quiet mistake. Find the lines.", "Read this change as you would an old manuscript, line by line."],
+        "scenario": ["A choice lies ahead. The archive remembers every path taken.", "Choose carefully. History judges decisions by their costs."],
+        "calibration": ["Two answers, one wiser. Weigh them.", "Hold both answers to the light. Which one holds up?"],
+        "viva": ["The examiners are seated. Speak plainly and defend your reasoning.", "Answer aloud first. A thought spoken is a thought tested."],
+        "api": ["Send your questions to the service and read what it says back.", "Each endpoint is a door. Knock, and note what answers."],
+        "sql": ["The answer is in the records. Ask the database properly.", "Records keep secrets well. Write a query that finds them."],
+        "terminal": ["The terminal awaits. Find what has gone wrong.", "A quiet machine, a broken service. Investigate."],
+        "story": ["A tale begins. Your choices will be written into it.", "Step into the story. I will keep the record."]
+      },
+      "moments": {
+        "courseStart": ["Welcome to {course}. I will keep your place as we go.", "A new volume opens: {course}. Let us begin at the first page."],
+        "chapterStart": ["A new chapter: {chapter}. Turn the page.", "We begin {chapter}. Bring what you learned last time."],
+        "chapterEnd": ["The last page of {chapter}. Finish it and the chapter is yours.", "One scene stands between you and the end of {chapter}."],
+        "courseEnd": ["The final scene of {course}. Close the book well.", "This is the last page. Make it count."],
+        "welcomeBack": ["Welcome back. I kept your place in the archive.", "Ah, you have returned. The lantern is still lit."],
+        "retry": ["Not quite. Read the feedback, then try again. There is no hurry.", "A misstep, nothing more. Look again."],
+        "levelUp": ["Your name goes higher in the archive's ledger.", "Knowledge well kept. You have earned this."]
+      }
+    },
+    "sentinel": {
+      "name": "Captain Vey",
+      "topic": "Security and audit",
+      "src": "art/quest/sentinel.webp",
+      "kinds": {
+        "reading": ["Briefing first. Read it end to end before you act.", "Intel before action. Read this and mark it done."],
+        "checkpoint": ["Checkpoint. Answer clean and we move on.", "Quick drill. Show me you were listening."],
+        "exercise": ["Hands on. Build it and run the tests until they all pass.", "Build it right. The tests are your inspection."],
+        "order": ["Procedure matters. Put the steps in order.", "Wrong order costs evidence. Sequence these steps."],
+        "fill": ["Gaps in the report. Fill them in.", "Complete the record. No blanks left behind."],
+        "hotspot": ["Sweep the area. Flag everything that should not be exposed.", "Find the weak points before someone else does."],
+        "review": ["A change slipped through. Find the lines that weakened us.", "Audit this change. Point to the bad lines."],
+        "scenario": ["Decision time. Every option carries risk. Pick one.", "Make the call. Then own the trade-off."],
+        "calibration": ["Two reports. One is fit for the board. Which?", "Rate both answers. Pick the one you would sign."],
+        "viva": ["You are being questioned. Keep answers short and defensible.", "Stand behind your choices. Answer each question in turn."],
+        "api": ["Probe the endpoints. Note anything that leaks.", "Send the requests. Look for what should not be public."],
+        "sql": ["The evidence is in the tables. Query it.", "Pull the records that answer the question. Nothing extra."],
+        "terminal": ["Incident in progress. Use the terminal and find the cause.", "Service down. Diagnose it from the command line."],
+        "story": ["Field exercise. Your choices decide the outcome.", "Play it through. Treat it like a real call."]
+      },
+      "moments": {
+        "courseStart": ["{course}. Briefing starts now. Stay sharp.", "Welcome to the unit. {course} begins here."],
+        "chapterStart": ["New objective: {chapter}. Move out.", "{chapter}. Same discipline as before."],
+        "chapterEnd": ["Last task in {chapter}. Close it out.", "One more and {chapter} is secured."],
+        "courseEnd": ["Final exercise. Finish {course} the way you started it.", "Last one. Bring it home."],
+        "welcomeBack": ["You are back. Pick up where you left off.", "Good to have you on shift again."],
+        "retry": ["Not yet. Read the feedback and go again.", "Miss. Adjust and try again."],
+        "levelUp": ["Promotion earned. Keep the standard.", "Rank up. You have earned the trust."]
+      }
+    },
+    "oracle": {
+      "name": "Cog",
+      "topic": "AI and judgement",
+      "src": "art/quest/oracle.webp",
+      "kinds": {
+        "reading": ["Input: one passage. Read it fully before proceeding.", "I prepared this text for you. Read it, then mark it done."],
+        "checkpoint": ["Time to verify what you have retained. Answer below.", "A small test of your model of the world. Choose carefully."],
+        "exercise": ["Write the code. The tests compare your output with the expected result.", "Build and run. Each failing test is useful information."],
+        "order": ["These steps are unsorted. Restore the correct sequence.", "Order changes the outcome. Arrange the steps."],
+        "fill": ["Some tokens are missing. Predict them.", "Complete the sequence. Context will guide you."],
+        "hotspot": ["Scan the board. Identify what should not be exposed.", "Locate the anomalies. There may be more than one."],
+        "review": ["This change contains a fault. Identify the lines responsible.", "Compare intent with the code. Where do they diverge?"],
+        "scenario": ["Several outcomes are possible. Choose, and observe the result.", "Every option has a cost. Select the one you can justify."],
+        "calibration": ["Two outputs. Assess which is more reliable.", "Evaluate both answers. Confidence is not the same as correctness."],
+        "viva": ["Explain your reasoning as you would to a careful reviewer.", "Show how you know, not only what you know."],
+        "api": ["Send each request. Compare the responses with what you expected.", "Query the interface. Notice what it reveals."],
+        "sql": ["The data holds the answer. Write a precise query.", "Ask the database exactly what you need. No more, no less."],
+        "terminal": ["A system is misbehaving. Gather evidence from the terminal.", "Run commands, read the output, form a conclusion."],
+        "story": ["A simulation begins. Your choices change the outcome.", "Enter the scenario. I will observe how it unfolds."]
+      },
+      "moments": {
+        "courseStart": ["Initialising {course}. I am glad you are here.", "{course} begins. Let us learn how these systems really think."],
+        "chapterStart": ["New module loaded: {chapter}.", "Proceeding to {chapter}. Your earlier answers still apply."],
+        "chapterEnd": ["Final step of {chapter}. Completion is near.", "One scene remains in {chapter}."],
+        "courseEnd": ["Last scene of {course}. Let us finish with care.", "This is the final step. I have enjoyed working with you."],
+        "welcomeBack": ["Welcome back. Your progress was saved exactly as you left it.", "Session resumed. Shall we continue?"],
+        "retry": ["Result does not match. Read the feedback and adjust.", "Unexpected outcome. That is data too. Try again."],
+        "levelUp": ["Capability increased. Well done.", "Your model of the subject has improved measurably."]
+      }
+    },
+    "courier": {
+      "name": "Wren the Courier",
+      "topic": "Networks",
+      "src": "art/quest/courier.webp",
+      "kinds": {
+        "reading": ["Quick read before the next leg. Take it all in.", "Here is the route map. Read it before we set off."],
+        "checkpoint": ["Quick stop before the next leg. Answer these.", "Checkpoint on the road. Show me you know the way."],
+        "exercise": ["Build something that actually runs. The tests are your mile markers.", "Get your hands dirty. Run the tests until every light is green."],
+        "order": ["These hops are out of order. Route them correctly.", "Plan the route. Put each step where it belongs."],
+        "fill": ["A few addresses are missing. Fill them in.", "Part of the message is missing. Complete it."],
+        "hotspot": ["Something along this route is exposed. Spot it.", "Scan the map. Flag what should not be reachable."],
+        "review": ["A bad change got through. Trace it to the lines.", "Follow the change line by line. Find where it went wrong."],
+        "scenario": ["Fork in the road. Pick a route and see where it leads.", "Every path has tolls. Choose yours."],
+        "calibration": ["Two routes, one better. Which would you take?", "Compare both answers. Pick the one that gets there."],
+        "viva": ["Someone is asking questions at the gate. Answer clearly.", "Talk me through your choices, one stop at a time."],
+        "api": ["Send a few messages down the line and see what comes back.", "Ping each endpoint. Read every reply."],
+        "sql": ["The parcel is in the warehouse. Write the query to find it.", "Search the records and bring back the right rows."],
+        "terminal": ["Something on the line is down. Find out what.", "Hop on the terminal and trace the fault."],
+        "story": ["New journey, new choices. Off you go.", "Jump in. The road changes with every choice."]
+      },
+      "moments": {
+        "courseStart": ["Pack your bag. {course} starts here.", "First leg of {course}. Let's go."],
+        "chapterStart": ["Next stop: {chapter}.", "On to {chapter}. Good pace so far."],
+        "chapterEnd": ["Last stop on {chapter}. Nearly there.", "One more leg and {chapter} is done."],
+        "courseEnd": ["Final leg of {course}. Bring it home.", "Last delivery. Make it a good one."],
+        "welcomeBack": ["Back on the road! I kept your seat.", "There you are. Ready for the next leg?"],
+        "retry": ["Wrong turn. Check the feedback and try again.", "Detour! Have another look and go again."],
+        "levelUp": ["New stamp in your passport. Level up!", "You are covering ground fast. Level up."]
+      }
+    },
+    "artificer": {
+      "name": "Tink",
+      "topic": "Programming",
+      "src": "art/quest/artificer.webp",
+      "kinds": {
+        "reading": ["Quick read of the manual before we start tinkering.", "Read the schematic first. Then we build."],
+        "checkpoint": ["Let's stress-test what you've built in your head.", "Pop quiz. Let's see if the parts fit."],
+        "exercise": ["Workbench time! Build it and run the tests.", "Write it, run it, fix it. Repeat until it all passes."],
+        "order": ["The build steps got shuffled. Put them back.", "Assembly order matters. Line these up."],
+        "fill": ["A few parts are missing. Slot them in.", "Fill the gaps and see if it clicks."],
+        "hotspot": ["Something here is wired wrong. Find it.", "Inspect the machine. What should not be exposed?"],
+        "review": ["Someone's patch broke something. Find the guilty lines.", "Code review time. Which lines did the damage?"],
+        "scenario": ["Design decision! Pick one and see what breaks.", "Every build is a trade-off. Choose yours."],
+        "calibration": ["Two solutions. Which one would you ship?", "Compare both answers. Pick the one that actually works."],
+        "viva": ["Show and tell! Explain how your build works.", "Walk me through your choices like a demo."],
+        "api": ["Plug in and send some requests.", "Poke the API and see what it gives back."],
+        "sql": ["Dig through the data. Write the query.", "Time to wrangle some rows. Query away."],
+        "terminal": ["Something is broken. Grab the terminal and find out why.", "Command line time. Let's debug."],
+        "story": ["A story with choices. Tinker with it!", "Play it through. Different choices, different outcomes."]
+      },
+      "moments": {
+        "courseStart": ["New project: {course}! Let's build something.", "Tools out. {course} starts now."],
+        "chapterStart": ["Fresh workbench: {chapter}.", "Next build: {chapter}."],
+        "chapterEnd": ["Last part for {chapter}. Bolt it on!", "One more piece and {chapter} is done."],
+        "courseEnd": ["Final build of {course}. Make it shine.", "Last one. Ship it!"],
+        "welcomeBack": ["You're back! Your workbench is just as you left it.", "Welcome back. Ready to build?"],
+        "retry": ["Didn't work? Great, now we know something. Try again.", "Close! Check the feedback and tweak it."],
+        "levelUp": ["Level up! New tools unlocked.", "Your skills just got an upgrade."]
+      }
+    },
+    "architect": {
+      "name": "Master Hale",
+      "topic": "Systems and design",
+      "src": "art/quest/architect.webp",
+      "kinds": {
+        "reading": ["Study the plan before we lay a single stone.", "Read this carefully. Good structures begin with understanding."],
+        "checkpoint": ["Check the foundations before we add another floor.", "A short inspection. Confirm the groundwork holds."],
+        "exercise": ["Now construct it. The tests are your building inspector.", "Build to the specification, then let the tests verify it."],
+        "order": ["Structures rise in sequence. Restore the order.", "Foundations first. Arrange these steps correctly."],
+        "fill": ["The plan has gaps. Complete it.", "Fill in the missing details of the design."],
+        "hotspot": ["Inspect the structure. Mark every weak point.", "Find the parts that should not be exposed."],
+        "review": ["A change has weakened the structure. Find the lines responsible.", "Review this change as you would a load-bearing wall."],
+        "scenario": ["A design decision. Consider the cost of each option over time.", "Choose the option you could defend in five years."],
+        "calibration": ["Two designs. Which one would you build?", "Weigh both answers. Pick the sounder one."],
+        "viva": ["Present your design. Expect questions on every choice.", "Defend each decision with a reason and a trade-off."],
+        "api": ["Examine each interface. A system is only as clear as its boundaries.", "Send the requests and study the contracts."],
+        "sql": ["The data model holds the answer. Query it precisely.", "Write a query that respects the structure of the data."],
+        "terminal": ["Something in the system has failed. Investigate from the terminal.", "Diagnose the fault before you redesign anything."],
+        "story": ["A conversation with stakeholders. Listen before you decide.", "Play through the meeting. Your answers shape the requirements."]
+      },
+      "moments": {
+        "courseStart": ["We begin {course}. Let us lay the foundations.", "{course}. A good structure starts with a clear plan."],
+        "chapterStart": ["Next level of the build: {chapter}.", "We rise to {chapter}. The floors below are sound."],
+        "chapterEnd": ["The final element of {chapter}. Set it carefully.", "One piece remains before {chapter} is complete."],
+        "courseEnd": ["The capstone of {course}. Place it well.", "The last stone. Finish what you designed."],
+        "welcomeBack": ["Welcome back. The plans are where you left them.", "Good to see you again. Shall we continue the build?"],
+        "retry": ["It does not hold yet. Review the feedback and rebuild.", "Adjust the design and try again."],
+        "levelUp": ["A higher floor reached. Well built.", "Your foundations are strong. Level up."]
+      }
+    },
+    "mentor": {
+      "name": "Mentor Ash",
+      "topic": "Teaching",
+      "src": "art/quest/mentor.webp",
+      "kinds": {
+        "reading": ["Read this through. Notice what surprises you.", "Take your time with this one. Understanding beats speed."],
+        "checkpoint": ["No tricks here. Show me what you understood.", "A quick check. Getting one wrong is how we learn."],
+        "exercise": ["Have a go at building it. The tests will help you along.", "Try it, run the tests, and learn from what they tell you."],
+        "order": ["Think about why each step comes where it does.", "Put the steps in order, then ask yourself why."],
+        "fill": ["Fill the gaps. Try to recall before you guess.", "Complete the passage from memory where you can."],
+        "hotspot": ["Look closely. What would worry you here?", "Find the things that should not be on show."],
+        "review": ["Someone made a mistake. Can you spot it?", "Read the change slowly and find what went wrong."],
+        "scenario": ["There is no perfect answer. Choose, then reflect.", "Make a choice and notice how you justify it."],
+        "calibration": ["Which answer is stronger, and why? Say it in a sentence.", "Compare them as a teacher would mark them."],
+        "viva": ["Imagine explaining this to a friend. Answer each question.", "Speak your answer first. Then write the short version."],
+        "api": ["Send the requests and describe what you see.", "Explore each endpoint and think about who should see it."],
+        "sql": ["Write the query, then check it answers the actual question.", "Try a query, look at the result, refine it."],
+        "terminal": ["Investigate calmly. One command at a time.", "Use the terminal to find out what is happening."],
+        "story": ["Play through the scene and notice your own choices.", "Step into the story. Afterwards, think about why you chose as you did."]
+      },
+      "moments": {
+        "courseStart": ["Welcome to {course}. I am glad you are here.", "Let's begin {course} together."],
+        "chapterStart": ["A new chapter: {chapter}. Bring your questions.", "On to {chapter}. You are ready for it."],
+        "chapterEnd": ["The last scene of {chapter}. You have come a long way.", "Finish this and {chapter} is complete."],
+        "courseEnd": ["The final scene of {course}. Be proud of how far you have come.", "Last one. You have earned this moment."],
+        "welcomeBack": ["Welcome back. Let's pick up where you left off.", "Good to see you again. We start where you stopped."],
+        "retry": ["That's alright. Read the feedback and try once more.", "Mistakes are part of learning. Have another go."],
+        "levelUp": ["Look how much you have learned. Level up!", "Your effort is showing. Level up."]
+      }
+    },
+    "cartographer": {
+      "name": "Pip the Cartographer",
+      "topic": "Reference",
+      "src": "art/quest/cartographer.webp",
+      "kinds": {
+        "reading": ["Study the terrain before we set out.", "Read the field notes. They will keep you oriented."],
+        "checkpoint": ["Check your bearings before we press on.", "A quick fix on your position. Answer these."],
+        "exercise": ["Chart it yourself. The tests will confirm the route.", "Build it and run the tests. Each pass is a landmark."],
+        "order": ["The waypoints are scrambled. Put them in order.", "Plot the steps in the right sequence."],
+        "fill": ["Parts of the map are blank. Fill them in.", "Complete the legend. Some labels are missing."],
+        "hotspot": ["Survey the area. Mark what should not be there.", "Scan the map and flag the hazards."],
+        "review": ["A route was redrawn badly. Find the lines.", "Compare the change with the map. Where does it go wrong?"],
+        "scenario": ["The trail forks. Choose a path and see where it leads.", "Pick a route. Every path has its terrain."],
+        "calibration": ["Two maps of the same ground. Which is more accurate?", "Compare both answers. Which would you trust in the field?"],
+        "viva": ["Explain your route as if guiding a traveller.", "Answer each question. Show how you found your way."],
+        "api": ["Explore the endpoints like uncharted territory.", "Send the requests and map what you find."],
+        "sql": ["The records are the terrain. Query your way through.", "Find the right rows. Navigate the data."],
+        "terminal": ["Lost signal somewhere. Trace it from the terminal.", "Explore the system one command at a time."],
+        "story": ["An expedition begins. Choose your way.", "Step onto the trail. Your choices shape the journey."]
+      },
+      "moments": {
+        "courseStart": ["A new expedition: {course}. Let's set out.", "Map unrolled. {course} begins here."],
+        "chapterStart": ["New territory: {chapter}.", "We cross into {chapter}. Keep your compass handy."],
+        "chapterEnd": ["The last waypoint of {chapter}. Almost there.", "One more stop and {chapter} is charted."],
+        "courseEnd": ["The final waypoint of {course}. Plant your flag.", "Last stretch of the map. Finish strong."],
+        "welcomeBack": ["Welcome back, explorer. Your map is right where you left it.", "Back on the trail. Let's find your last waypoint."],
+        "retry": ["Off course. Check the feedback and find your bearings.", "Wrong turn. Retrace and try again."],
+        "levelUp": ["New territory unlocked. Level up!", "Your map just got bigger. Level up."]
+      }
+    }
+  }
+}

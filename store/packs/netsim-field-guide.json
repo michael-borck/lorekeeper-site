@@ -5,7 +5,7 @@
   "title": "Build the Network, Watch It Run: A NetSim Field Guide",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-08T03:01:34+00:00",
+  "createdAt": "2026-11-08T04:05:41+00:00",
   "courses": [
     {
       "slug": "netsim-field-guide",
@@ -23,7 +23,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T03:01:34+00:00",
+        "generated_at": "2026-11-08T04:05:41+00:00",
         "unit": {
           "slug": "netsim-field-guide",
           "title": "Build the Network, Watch It Run: A NetSim Field Guide",

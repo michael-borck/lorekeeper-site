@@ -134,6 +134,7 @@
           firstWrong >= 0
             ? `Not yet. Check the item in position ${firstWrong + 1}.`
             : "Not yet.";
+        window.LorekeeperApp?.narrateRetry?.();
       }
     });
 
@@ -188,6 +189,7 @@
       } else {
         feedback.className = "widget-note bad";
         feedback.textContent = "Not yet. Check the highlighted blanks. Hover a blank for a hint.";
+        window.LorekeeperApp?.narrateRetry?.();
       }
     });
 
@@ -234,6 +236,7 @@
     board.addEventListener("click", (event) => {
       if (!targets.some((target) => target.element.contains(event.target))) {
         addFeedback("Not this one", "This is not one of the exposed things.", false);
+        window.LorekeeperApp?.narrateRetry?.();
       }
     });
 
@@ -284,6 +287,7 @@
       if (!ok) {
         feedback.className = "widget-note bad";
         feedback.textContent = `Not yet. You selected ${selected.size} line${selected.size === 1 ? "" : "s"}.`;
+        window.LorekeeperApp?.narrateRetry?.();
         return;
       }
       done = true;
@@ -669,6 +673,7 @@
         } else {
           status.className = "widget-note bad";
           status.textContent = `Not the expected result yet. ${actual.values.length} row${actual.values.length === 1 ? "" : "s"} returned.`;
+          window.LorekeeperApp?.narrateRetry?.();
         }
       } catch (error) {
         status.className = "widget-note bad";

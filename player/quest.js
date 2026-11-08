@@ -103,22 +103,110 @@
     return value >>> 0;
   }
 
-  function narratorFor(course) {
-    const tags = new Set((course?.tags || []).map((tag) => String(tag).toLowerCase()));
-    let id = "keeper";
-    if (tags.has("security") || tags.has("audit") || tags.has("forensics") || tags.has("incident")) id = "sentinel";
-    else if (tags.has("ai") || tags.has("llm")) id = "oracle";
-    else if (tags.has("networking") || tags.has("networks")) id = "courier";
-    else if (tags.has("programming") || tags.has("python") || tags.has("web")) id = "artificer";
-    else if (tags.has("systems") || tags.has("analysis")) id = "architect";
-    else if (tags.has("education") || tags.has("teaching")) id = "mentor";
-    else if (tags.has("reference")) id = "cartographer";
-    return { id, ...NARRATORS[id] };
+  const PREFERENCE_KEY = "lorekeeper:narrator";
+  let data = null;
+
+  async function load() {
+    if (data) return data;
+    try {
+      const response = await fetch(new URL("narrators.json", location.href));
+      const json = response.ok ? await response.json() : null;
+      if (json && json.format === "lorekeeper.narrators" && json.narrators) data = json;
+    } catch {
+      /* offline before first cache: built-in lines are used */
+    }
+    return data;
   }
 
-  function narratorLine(lesson) {
-    const options = LINES[lesson?.kind] || LINES.reading;
-    return options[hash(lesson?.id || "") % options.length];
+  function isNarrator(id) {
+    return Object.prototype.hasOwnProperty.call(NARRATORS, String(id || ""));
+  }
+
+  function preferred() {
+    try {
+      const value = localStorage.getItem(PREFERENCE_KEY) || "";
+      return isNarrator(value) ? value : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function setPreferred(id) {
+    try {
+      if (isNarrator(id)) localStorage.setItem(PREFERENCE_KEY, id);
+      else localStorage.removeItem(PREFERENCE_KEY);
+    } catch {
+      /* storage disabled */
+    }
+  }
+
+  function byTags(course) {
+    const tags = new Set((course?.tags || []).map((tag) => String(tag).toLowerCase()));
+    if (tags.has("security") || tags.has("audit") || tags.has("forensics") || tags.has("incident")) return "sentinel";
+    if (tags.has("ai") || tags.has("llm")) return "oracle";
+    if (tags.has("networking") || tags.has("networks")) return "courier";
+    if (tags.has("programming") || tags.has("python") || tags.has("web")) return "artificer";
+    if (tags.has("systems") || tags.has("analysis")) return "architect";
+    if (tags.has("education") || tags.has("teaching")) return "mentor";
+    if (tags.has("reference")) return "cartographer";
+    return "keeper";
+  }
+
+  /* Learner preference first, then the author's choice, then the topic tags. */
+  function narratorFor(course) {
+    const mine = preferred();
+    const author = isNarrator(course?.narrator) ? course.narrator : "";
+    const id = mine || author || byTags(course);
+    const extra = data?.narrators?.[id] || {};
+    return {
+      id,
+      name: NARRATORS[id].name,
+      src: NARRATORS[id].src,
+      topic: extra.topic || "",
+      source: mine ? "learner" : author ? "author" : "tags",
+    };
+  }
+
+  function narrators() {
+    return Object.entries(NARRATORS).map(([id, info]) => ({
+      id,
+      name: info.name,
+      topic: data?.narrators?.[id]?.topic || "",
+    }));
+  }
+
+  function fill(text, vars = {}) {
+    return String(text || "").replace(/\{(chapter|course)\}/g, (_, key) => String(vars[key] || ""));
+  }
+
+  function pick(pool, seed) {
+    const lines = (pool || []).filter((line) => typeof line === "string" && line.trim());
+    return lines.length ? lines[hash(seed) % lines.length] : "";
+  }
+
+  function momentLine(narratorId, moment, vars = {}, seed = "") {
+    const line = pick(data?.narrators?.[narratorId]?.moments?.[moment], `${moment}:${seed}`);
+    return line ? fill(line, vars) : "";
+  }
+
+  /* moment: courseStart, chapterStart, chapterEnd, courseEnd, welcomeBack or retry. */
+  function narratorLine(lesson, options = {}) {
+    const narratorId = isNarrator(options.narrator) ? options.narrator : "keeper";
+    const vars = options.vars || {};
+    const moment = options.moment || "";
+    if (moment === "retry") {
+      return momentLine(narratorId, "retry", vars, `${lesson?.id}:${options.attempt || 0}`) || "Not quite. Read the feedback and try again.";
+    }
+    if (typeof lesson?.narration === "string" && lesson.narration.trim()) return fill(lesson.narration.trim(), vars);
+    if (moment) {
+      const line = momentLine(narratorId, moment, vars, lesson?.id || "");
+      if (line) return line;
+    }
+    const kindName = lesson?.kind || "reading";
+    const voiced = data?.narrators?.[narratorId]?.kinds?.[kindName] || [];
+    const standard = data?.standard?.[kindName] || [];
+    const pool = voiced.length || standard.length ? [...voiced, ...standard] : LINES[kindName] || LINES.reading;
+    return fill(pick(pool, lesson?.id || ""), vars);
   }
 
   function levelFor(xp) {
@@ -249,12 +337,17 @@
   }
 
   window.LorekeeperQuest = {
+    load,
     mode,
     kind,
     icon,
     kindBadge,
     narratorFor,
     narratorLine,
+    momentLine,
+    narrators,
+    preferred,
+    setPreferred,
     levelFor,
     player,
     streak,

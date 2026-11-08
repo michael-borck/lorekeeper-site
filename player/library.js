@@ -35,6 +35,7 @@
         lesson.title = String(lesson.title || "");
         lesson.kind = String(lesson.kind || "reading");
         if (!LESSON_KINDS.has(lesson.kind)) fail(`Course "${slug}" has an unknown lesson kind.`);
+        if (lesson.narration !== undefined) lesson.narration = String(lesson.narration).slice(0, 400);
         lesson.xp = Number(lesson.xp);
         if (!Number.isFinite(lesson.xp) || lesson.xp < 0) lesson.xp = 0;
         if (!Array.isArray(lesson.blocks)) fail(`Course "${slug}" has a lesson without blocks.`);
@@ -128,6 +129,9 @@
         tags: Array.isArray(raw.tags) ? raw.tags.map(String) : [],
         artSet: String(raw.artSet || ""),
         artScene: String(raw.artScene || ""),
+        narrator: /^[a-z]{2,20}$/.test(String(raw.narrator || raw.course.unit.narrator || ""))
+          ? String(raw.narrator || raw.course.unit.narrator)
+          : "",
         pitch: String(raw.pitch || raw.course.unit.pitch || ""),
         start: String(raw.start || raw.course.unit.start || ""),
         course: raw.course,
@@ -178,6 +182,7 @@
         level: entry.level,
         artSet: entry.artSet,
         artScene: entry.artScene,
+        narrator: entry.narrator,
         pitch: entry.pitch,
         start: entry.start,
         modules: entry.course.modules.length,

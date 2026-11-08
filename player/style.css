@@ -2628,3 +2628,35 @@ html[data-theme="quest"] .theme-picker select { border: 2px solid var(--frame); 
   text-transform: uppercase;
 }
 html[data-theme="quest"] .tool-tag { border-radius: 2px; }
+
+/* Guide picker and narrator reactions ------------------------------- */
+
+.narrator-picker {
+  display: grid;
+  gap: 4px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+.narrator-picker select {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+}
+html[data-theme="quest"] .narrator-picker select { border: 2px solid var(--frame); border-radius: 2px; }
+html[data-theme="study"] .narrator-picker { display: none; }
+.narrator.nudge .narrator-box { animation: narrator-nudge 0.36s steps(4, end); }
+.narrator.nudge .narrator-portrait { animation: narrator-hop 0.36s steps(3, end); }
+@keyframes narrator-nudge {
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+}
+@keyframes narrator-hop {
+  50% { transform: translateY(-6px); }
+}

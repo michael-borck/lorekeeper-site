@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-08T03:01:35+00:00",
+  "generated_at": "2026-11-08T04:05:42+00:00",
   "unit": {
     "slug": "signal-and-noise",
     "title": "Signal & Noise: An Enterprise Systems Field Guide",
@@ -16,7 +16,8 @@
     ],
     "level": "beginner",
     "pitch": "Understand the estate behind the website: operating systems, networks, identity, storage and incidents.",
-    "start": "01-01"
+    "start": "01-01",
+    "narrator": "architect"
   },
   "modules": [
     {

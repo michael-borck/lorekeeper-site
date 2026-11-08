@@ -6,6 +6,9 @@ const state = {
   coursePack: null,
   progress: { completed: {} },
   currentId: null,
+  narratorId: "keeper",
+  attempts: {},
+  greeted: false,
 };
 
 const els = {
@@ -86,8 +89,9 @@ async function init() {
     if (event.target.closest(".menu-item")) menu.open = false;
   });
   window.LorekeeperProgress?.init();
-  await window.LorekeeperLibrary?.ready();
+  await Promise.all([window.LorekeeperLibrary?.ready(), window.LorekeeperQuest?.load()]);
   window.LorekeeperQuest?.renderPlayerCard();
+  bindNarratorPicker();
 
   let index;
   try {
@@ -180,6 +184,68 @@ function renderCourseMeta() {
       <div class="code">${isQuest() ? "Current quest" : "Course"}</div>
       <div class="title">${escapeHtml(state.course.unit.title)}</div>
     </div>`;
+}
+
+function bindNarratorPicker() {
+  const select = document.getElementById("narrator-select");
+  if (!select || !window.LorekeeperQuest) return;
+  for (const guide of window.LorekeeperQuest.narrators()) {
+    const option = document.createElement("option");
+    option.value = guide.id;
+    option.textContent = guide.topic ? `${guide.name} (${guide.topic})` : guide.name;
+    select.append(option);
+  }
+  select.value = window.LorekeeperQuest.preferred();
+  select.addEventListener("change", () => {
+    window.LorekeeperQuest.setPreferred(select.value);
+    rerenderView();
+  });
+}
+
+function daysAway() {
+  const days = (state.progress.activity || []).filter(Boolean).sort();
+  const last = days[days.length - 1];
+  if (!last) return 0;
+  const then = new Date(`${last}T00:00:00`);
+  return Math.floor((Date.now() - then.getTime()) / 86400000);
+}
+
+/* Which story beat this scene is, so the narrator can respond to it. */
+function lessonMoment(module, lesson, position) {
+  if (isDone(lesson.id)) return "";
+  const entries = allLessons();
+  if (entries[entries.length - 1]?.lesson.id === lesson.id && entries.length > 1) return "courseEnd";
+  const othersDone = module.lessons.every((item) => item.id === lesson.id || isDone(item.id));
+  if (module.lessons.length > 1 && othersDone) return "chapterEnd";
+  if (!state.greeted && daysAway() >= 3) return "welcomeBack";
+  if (entries[0]?.lesson.id === lesson.id && stats().done === 0) return "courseStart";
+  if (position === 1 && module !== state.course.modules[0]) return "chapterStart";
+  return "";
+}
+
+function narrationVars(module) {
+  return { chapter: module?.title || "", course: state.course?.unit?.title || "" };
+}
+
+function narrateRetry() {
+  if (!isQuest() || !window.LorekeeperQuest) return;
+  const entry = currentEntry();
+  const line = els.content.querySelector("[data-narrator-line]");
+  if (!entry || !line) return;
+  const attempt = (state.attempts[entry.lesson.id] || 0) + 1;
+  state.attempts[entry.lesson.id] = attempt;
+  line.textContent = window.LorekeeperQuest.narratorLine(entry.lesson, {
+    narrator: state.narratorId,
+    moment: "retry",
+    attempt,
+    vars: narrationVars(entry.module),
+  });
+  const box = line.closest(".narrator");
+  if (box) {
+    box.classList.remove("nudge");
+    void box.offsetWidth;
+    box.classList.add("nudge");
+  }
 }
 
 function nextEntry() {
@@ -324,11 +390,12 @@ function completeLesson(lesson, { quiet = false } = {}) {
     if (after && after.level > before) {
       window.LorekeeperSound?.play("level");
       const narrator = quest.narratorFor(state.courseMeta || state.course.unit);
+      const cheer = quest.momentLine(narrator.id, "levelUp", narrationVars(module), String(after.level));
       quest.moment({
         type: "level",
         kicker: "Level up",
         title: `Level ${after.level}: ${after.title}`,
-        detail: `${after.remaining} XP to level ${after.level + 1}.`,
+        detail: cheer || `${after.remaining} XP to level ${after.level + 1}.`,
         portrait: narrator.src,
       });
     }
@@ -470,8 +537,18 @@ function renderLesson(entry) {
   const position = module.lessons.findIndex((item) => item.id === lesson.id) + 1;
   const meta = state.courseMeta || state.course.unit;
   const cover = window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(meta) : "";
-  const narrator = window.LorekeeperQuest ? window.LorekeeperQuest.narratorFor(meta) : null;
-  const line = window.LorekeeperQuest ? window.LorekeeperQuest.narratorLine(lesson) : "";
+  const narrator = window.LorekeeperQuest
+    ? window.LorekeeperQuest.narratorFor({ ...state.course.unit, ...meta, narrator: meta.narrator || state.course.unit.narrator })
+    : null;
+  if (narrator) state.narratorId = narrator.id;
+  const line = window.LorekeeperQuest
+    ? window.LorekeeperQuest.narratorLine(lesson, {
+        narrator: narrator?.id,
+        moment: lessonMoment(module, lesson, position),
+        vars: narrationVars(module),
+      })
+    : "";
+  state.greeted = true;
 
   const wide = lesson.blocks.some((block) =>
     ["exercise", "sql", "terminal", "api", "calibration"].includes(block.type)
@@ -507,7 +584,7 @@ function renderLesson(entry) {
               <img class="narrator-portrait" src="${narrator.src}" alt="" width="96" height="96">
               <div class="narrator-box">
                 <strong>${escapeHtml(narrator.name)}</strong>
-                <p>${escapeHtml(line)}</p>
+                <p data-narrator-line>${escapeHtml(line)}</p>
               </div>
             </div>`
           : ""
@@ -664,7 +741,10 @@ function renderCheckpoint(host, block, lesson) {
     checkButton.textContent = "Try again";
     checkButton.disabled = false;
     if (allCorrect) completeLesson(lesson, { quiet: true });
-    else toast("Some answers are wrong. Read the feedback and try again.");
+    else {
+      toast("Some answers are wrong. Read the feedback and try again.");
+      narrateRetry();
+    }
   });
 }
 
@@ -801,6 +881,7 @@ function renderExercise(host, block, lesson) {
       : `${passed} of ${results.length} tests passed. Keep going.`;
 
     if (allPassed) completeLesson(lesson, { quiet: true });
+    else narrateRetry();
     runButton.disabled = false;
   };
 
@@ -1111,6 +1192,7 @@ function renderPicker() {
 
 window.LorekeeperApp = window.LorekeeperApp || {};
 window.LorekeeperApp.renderPicker = renderPicker;
+window.LorekeeperApp.narrateRetry = narrateRetry;
 
 function bindPickerTools() {
   const importButton = document.getElementById("pack-import");

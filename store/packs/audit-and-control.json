@@ -5,7 +5,7 @@
   "title": "Audit and Control: A Field Guide",
   "author": "",
   "licence": "Course content",
-  "createdAt": "2026-11-08T03:01:32+00:00",
+  "createdAt": "2026-11-08T04:05:39+00:00",
   "courses": [
     {
       "slug": "audit-and-control",
@@ -21,9 +21,10 @@
       ],
       "pitch": "A field guide to audit evidence, risk, controls and professional judgement.",
       "start": "01-01",
+      "narrator": "",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T03:01:32+00:00",
+        "generated_at": "2026-11-08T04:05:39+00:00",
         "unit": {
           "slug": "audit-and-control",
           "title": "Audit and Control: A Field Guide",
@@ -37,7 +38,8 @@
           ],
           "level": "intermediate",
           "pitch": "A field guide to audit evidence, risk, controls and professional judgement.",
-          "start": "01-01"
+          "start": "01-01",
+          "narrator": ""
         },
         "modules": [
           {
