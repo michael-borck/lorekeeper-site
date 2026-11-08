@@ -18,7 +18,7 @@
   function prose(html, className = "lesson-prose") {
     const div = document.createElement("div");
     div.className = className;
-    div.innerHTML = html || "";
+    div.innerHTML = window.LorekeeperSanitize?.html(html) || "";
     return div;
   }
 
@@ -200,7 +200,7 @@
     const wrap = shell(host, block);
     const board = document.createElement("div");
     board.className = "hotspot-board";
-    board.innerHTML = block.markup;
+    board.innerHTML = window.LorekeeperSanitize?.html(block.markup) || "";
     wrap.appendChild(board);
 
     const feedback = note();
@@ -212,7 +212,7 @@
     function addFeedback(label, html, ok) {
       const item = document.createElement("div");
       item.className = `hotspot-feedback ${ok ? "ok" : "bad"}`;
-      item.innerHTML = `<strong>${escapeHtml(label)}</strong> ${html || ""}`;
+      item.innerHTML = `<strong>${escapeHtml(label)}</strong> ${window.LorekeeperSanitize?.html(html) || ""}`;
       feedback.appendChild(item);
     }
 
@@ -296,7 +296,7 @@
           if (block.lines[index].feedback) {
             const why = document.createElement("div");
             why.className = "review-why";
-            why.innerHTML = block.lines[index].feedback;
+            why.innerHTML = window.LorekeeperSanitize?.html(block.lines[index].feedback) || "";
             row.after(why);
           }
         }
@@ -333,9 +333,9 @@
           )
           .join("");
         result.innerHTML = `
-          <div class="scenario-outcome lesson-prose">${option.outcome || ""}</div>
+          <div class="scenario-outcome lesson-prose">${window.LorekeeperSanitize?.html(option.outcome) || ""}</div>
           ${effects ? `<table class="effects-table"><tbody>${effects}</tbody></table>` : ""}
-          ${option.feedback ? `<div class="widget-note ${option.recommended ? "ok" : "bad"}">${option.feedback}</div>` : ""}
+          ${option.feedback ? `<div class="widget-note ${option.recommended ? "ok" : "bad"}">${window.LorekeeperSanitize?.html(option.feedback)}</div>` : ""}
           ${!option.recommended ? `<div class="widget-note">The recommended path is marked after you choose.</div>` : ""}`;
         grid.querySelectorAll(".scenario-option").forEach((el) => {
           if (el.dataset.recommended === "true") el.classList.add("recommended");
@@ -364,7 +364,7 @@
       card.innerHTML = `
         <input type="radio" name="${escapeHtml(name)}" value="${key}">
         <span class="calibration-title">${escapeHtml(option.title)}</span>
-        <div class="lesson-prose">${option.body}</div>`;
+        <div class="lesson-prose">${window.LorekeeperSanitize?.html(option.body)}</div>`;
       grid.appendChild(card);
     });
 
@@ -398,7 +398,7 @@
         <div class="widget-note ${correct ? "ok" : "bad"}">
           ${correct ? "You chose the stronger critique." : `The stronger critique is ${escapeHtml(block.options[block.better].title)}.`}
         </div>
-        <div class="lesson-prose">${block.rationale || ""}</div>`;
+        <div class="lesson-prose">${window.LorekeeperSanitize?.html(block.rationale) || ""}</div>`;
       reveal.disabled = true;
       why.disabled = true;
       finish(lesson);
@@ -485,8 +485,8 @@
             ${matched.length ? `<div class="signal-list ok">${matched.map((label) => `<span>✓ ${escapeHtml(label)}</span>`).join("")}</div>` : ""}
             ${missing.length ? `<div class="signal-list bad">${missing.map((label) => `<span>○ ${escapeHtml(label)}</span>`).join("")}</div>` : ""}
           </div>
-          <div class="lesson-prose viva-strong"><h4>A strong answer includes</h4>${question.strong_answer || ""}</div>
-          ${question.follow_up ? `<div class="lesson-prose viva-follow"><h4>Follow-up</h4>${question.follow_up}</div>` : ""}`;
+          <div class="lesson-prose viva-strong"><h4>A strong answer includes</h4>${window.LorekeeperSanitize?.html(question.strong_answer) || ""}</div>
+          ${question.follow_up ? `<div class="lesson-prose viva-follow"><h4>Follow-up</h4>${window.LorekeeperSanitize?.html(question.follow_up)}</div>` : ""}`;
         if (text.split(/\s+/).filter(Boolean).length < 12) {
           result.insertAdjacentHTML(
             "afterbegin",
@@ -541,7 +541,7 @@
         <div class="api-status">
           <span class="method">${escapeHtml(endpoint.method)}</span>
           <code>${escapeHtml(endpoint.path)}</code>
-          <span class="${ok ? "ok" : "bad"}">${endpoint.status}</span>
+          <span class="${ok ? "ok" : "bad"}">${escapeHtml(String(endpoint.status))}</span>
         </div>
         <pre class="api-json">${escapeHtml(JSON.stringify(endpoint.body, null, 2))}</pre>`;
       questions.hidden = false;
@@ -879,7 +879,7 @@
     function print(html, className = "") {
       const line = document.createElement("div");
       if (className) line.className = className;
-      line.innerHTML = html;
+      line.innerHTML = window.LorekeeperSanitize?.html(html) || "";
       output.appendChild(line);
       output.scrollTop = output.scrollHeight;
     }

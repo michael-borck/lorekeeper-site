@@ -7,6 +7,7 @@
   const PROGRESS_STORE = "progress";
   const LEGACY_PREFIX = "lorekeeper:pack:";
   const LEGACY_PROGRESS_PREFIX = "lorekeeper:progress:";
+  const PENDING_PREFIX = "lorekeeper:pending-progress:";
 
   let db = null;
   let opening = null;
@@ -117,6 +118,30 @@
     }
   }
 
+  // A synchronous shadow copy covers writes interrupted by navigation.
+  async function replayPendingProgress() {
+    let keys = [];
+    try {
+      keys = Object.keys(localStorage).filter((key) => key.startsWith(PENDING_PREFIX));
+    } catch {
+      return;
+    }
+    for (const key of keys) {
+      const slug = key.slice(PENDING_PREFIX.length);
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || "null");
+        if (value && typeof value === "object" && slug) {
+          const transaction = db.transaction(PROGRESS_STORE, "readwrite");
+          await requestPromise(transaction.objectStore(PROGRESS_STORE).put({ slug, value }));
+          progress.set(slug, value);
+        }
+        localStorage.removeItem(key);
+      } catch {
+        /* keep the pending copy for the next load */
+      }
+    }
+  }
+
   async function ready() {
     if (db) return;
     db = await openDatabase();
@@ -132,6 +157,7 @@
       for (const row of progressRows || []) progress.set(row.slug, row.value);
       await migrateLegacyPacks();
       await migrateLegacyProgress();
+      await replayPendingProgress();
       return;
     }
     for (const pack of legacyPacks()) packs.set(pack.id, pack);
@@ -210,10 +236,17 @@
     const clean = value && typeof value === "object" ? value : { completed: {} };
     progress.set(key, clean);
     if (db) {
+      const pendingKey = `${PENDING_PREFIX}${key}`;
+      try {
+        localStorage.setItem(pendingKey, JSON.stringify(clean));
+      } catch {
+        /* storage full: rely on IndexedDB alone */
+      }
       const transaction = db.transaction(PROGRESS_STORE, "readwrite");
       await requestPromise(transaction.objectStore(PROGRESS_STORE).put({ slug: key, value: clean }));
       try {
         localStorage.removeItem(progressKey(key));
+        if (localStorage.getItem(pendingKey) === JSON.stringify(clean)) localStorage.removeItem(pendingKey);
       } catch {
         /* ignore */
       }
@@ -229,6 +262,11 @@
   async function deleteProgress(slug) {
     const key = String(slug);
     progress.delete(key);
+    try {
+      localStorage.removeItem(`${PENDING_PREFIX}${key}`);
+    } catch {
+      /* ignore */
+    }
     if (db) {
       const transaction = db.transaction(PROGRESS_STORE, "readwrite");
       await requestPromise(transaction.objectStore(PROGRESS_STORE).delete(key));
@@ -242,6 +280,13 @@
 
   async function clearProgress() {
     progress.clear();
+    try {
+      for (const key of Object.keys(localStorage)) {
+        if (key.startsWith(PENDING_PREFIX)) localStorage.removeItem(key);
+      }
+    } catch {
+      /* ignore */
+    }
     if (db) {
       const transaction = db.transaction(PROGRESS_STORE, "readwrite");
       await requestPromise(transaction.objectStore(PROGRESS_STORE).clear());

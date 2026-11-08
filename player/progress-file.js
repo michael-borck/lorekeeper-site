@@ -54,6 +54,7 @@
       if (!key.startsWith(PREFIX)) continue;
       if (key.startsWith("lorekeeper:pack:")) continue;
       if (key.startsWith("lorekeeper:progress:")) continue;
+      if (key.startsWith("lorekeeper:pending-progress:")) continue;
       let value = "";
       try {
         value = localStorage.getItem(key) || "";
@@ -172,6 +173,7 @@
         if (typeof value !== "string") continue;
         if (!key.startsWith(PREFIX) || RESERVED.has(key) || !safeKey(key.replace(PREFIX, ""))) continue;
         if (key.startsWith("lorekeeper:pack:")) continue;
+        if (key.startsWith("lorekeeper:pending-progress:")) continue;
         if (key.startsWith("lorekeeper:progress:") || /^lorekeeper:(sql|code):/.test(key)) continue;
         clean.other[key] = value;
       }

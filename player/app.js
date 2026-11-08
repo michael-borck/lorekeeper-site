@@ -1,6 +1,7 @@
 const state = {
   index: null,
   course: null,
+  courseMeta: null,
   courseBaseUrl: null,
   coursePack: null,
   progress: { completed: {} },
@@ -10,6 +11,7 @@ const state = {
 const els = {
   outline: document.getElementById("outline"),
   courseMeta: document.getElementById("course-meta"),
+  courseProgress: document.getElementById("course-progress"),
   content: document.getElementById("content"),
   xp: document.getElementById("xp"),
   progressBar: document.getElementById("progress-bar"),
@@ -17,57 +19,75 @@ const els = {
 };
 
 const THEME_KEY = "lorekeeper:theme";
-const THEMES = ["ink", "pixel", "storybook"];
+const MODES = ["quest", "study"];
+const LEGACY_MODES = { ink: "study", pixel: "quest", storybook: "quest" };
+
+function normaliseMode(name) {
+  const value = LEGACY_MODES[name] || name;
+  return MODES.includes(value) ? value : "quest";
+}
 
 function savedTheme() {
   try {
-    return localStorage.getItem(THEME_KEY) || "";
+    const raw = localStorage.getItem(THEME_KEY);
+    return raw ? normaliseMode(raw) : "";
   } catch {
     return "";
   }
 }
 
+function isQuest() {
+  return document.documentElement.dataset.theme !== "study";
+}
+
 function applyTheme(name, persist = false) {
-  const theme = THEMES.includes(name) ? name : "ink";
+  const theme = normaliseMode(name);
   document.documentElement.dataset.theme = theme;
   const select = document.getElementById("theme-select");
   if (select) select.value = theme;
+  window.LorekeeperSound?.refresh();
   if (persist) {
     try {
       localStorage.setItem(THEME_KEY, theme);
     } catch {
       /* storage disabled */
     }
+    rerenderView();
   }
 }
 
-const KIND_LABEL = {
-  reading: "read",
-  checkpoint: "quiz",
-  exercise: "code",
-  order: "sort",
-  fill: "fill",
-  hotspot: "find",
-  review: "diff",
-  scenario: "choose",
-  calibration: "judge",
-  viva: "viva",
-  api: "api",
-  sql: "sql",
-  terminal: "sh",
-  story: "story",
-};
+function rerenderView() {
+  if (!state.index) return;
+  if (!state.course) {
+    renderPicker();
+    return;
+  }
+  renderCourseMeta();
+  route();
+}
+
+function kindBadge(kind) {
+  return window.LorekeeperQuest ? window.LorekeeperQuest.kindBadge(kind) : escapeHtml(kind);
+}
 
 init().catch((error) => fatal(error.message || String(error)));
 
 async function init() {
   document.getElementById("reset-progress").addEventListener("click", resetProgress);
-  applyTheme(savedTheme() || "pixel", false);
+  applyTheme(savedTheme() || "quest", false);
   document.getElementById("theme-select").addEventListener("change", (event) => {
     applyTheme(event.target.value, true);
   });
+  document.querySelectorAll("[data-icon]").forEach((el) => {
+    el.innerHTML = window.LorekeeperQuest ? window.LorekeeperQuest.icon(el.dataset.icon) : "";
+  });
+  const menu = document.getElementById("sidebar-menu");
+  menu?.addEventListener("click", (event) => {
+    if (event.target.closest(".menu-item")) menu.open = false;
+  });
   window.LorekeeperProgress?.init();
   await window.LorekeeperLibrary?.ready();
+  window.LorekeeperQuest?.renderPlayerCard();
 
   let index;
   try {
@@ -111,46 +131,73 @@ async function loadCourse(slug) {
     course = local.course;
     state.courseBaseUrl = null;
     state.coursePack = local.packId;
+    window.LorekeeperPackAssets = local.assets || {};
+    window.LorekeeperAssetBase = null;
   } else {
-    const meta = state.index.courses.find((item) => item.slug === slug);
-    const courseUrl = new URL(meta ? `../build/${meta.slug}/course.json` : slug, location.href);
+    const meta = (state.index.allCourses || state.index.courses).find((item) => item.slug === slug);
+    if (!meta) {
+      fatal(
+        `Course "${slug}" is not in this library. Open Manage library to add it, or browse the pack store.`
+      );
+      return;
+    }
+    const courseUrl = new URL(`../build/${meta.slug}/course.json`, location.href);
     try {
       course = await getJSON(courseUrl.href);
     } catch {
-      fatal(`Could not load course "${slug}".`);
+      fatal(`Could not load course "${slug}". Run lorekeeper build, then reload.`);
       return;
     }
     state.courseBaseUrl = new URL(".", courseUrl).href;
     state.coursePack = null;
+    window.LorekeeperPackAssets = {};
+    window.LorekeeperAssetBase = state.courseBaseUrl;
   }
 
   state.course = course;
-  applyTheme(savedTheme() || course.unit.theme || "pixel", false);
+  state.courseMeta =
+    (state.index.allCourses || state.index.courses).find((item) => item.slug === course.unit.slug) ||
+    course.unit;
   loadProgress();
   window.LorekeeperBadges?.init();
   window.LorekeeperWayfinder?.renderSidebarTrail();
   document.title = `${course.unit.title} · Lorekeeper`;
-  const emblem = window.LorekeeperArt
-    ? window.LorekeeperArt.courseEmblem(course.unit.slug)
-    : "";
-  els.courseMeta.innerHTML = `
-    <div class="course-emblem">${emblem}</div>
-    <div class="course-meta-text">
-      <div class="code">course</div>
-      <div class="title">${escapeHtml(course.unit.title)}</div>
-    </div>`;
+  renderCourseMeta();
+  if (els.courseProgress) els.courseProgress.hidden = false;
 
   window.addEventListener("popstate", route);
   window.addEventListener("hashchange", route);
   route();
 }
 
+function renderCourseMeta() {
+  const emblem = window.LorekeeperArt
+    ? window.LorekeeperArt.courseEmblem(state.course.unit.slug, state.courseMeta || state.course.unit)
+    : "";
+  els.courseMeta.innerHTML = `
+    <div class="course-emblem">${emblem}</div>
+    <div class="course-meta-text">
+      <div class="code">${isQuest() ? "Current quest" : "Course"}</div>
+      <div class="title">${escapeHtml(state.course.unit.title)}</div>
+    </div>`;
+}
+
+function nextEntry() {
+  const entries = allLessons();
+  return entries.find((entry) => !isDone(entry.lesson.id)) || entries[0] || null;
+}
+
 function route() {
+  if (!state.course) return;
   const wanted = decodeURIComponent(location.hash.replace(/^#/, ""));
+  if (wanted === "map") {
+    renderMap();
+    return;
+  }
   const entries = allLessons();
   if (!entries.length) return;
   const match = entries.find((entry) => entry.lesson.id === wanted);
-  const target = (match || entries[0]).lesson.id;
+  const target = (match || nextEntry()).lesson.id;
   if (!wanted) {
     history.replaceState({ id: target }, "", `#${encodeURIComponent(target)}`);
   }
@@ -160,10 +207,14 @@ function route() {
 function showLesson(id, push = true) {
   const entry = allLessons().find((item) => item.lesson.id === id);
   if (!entry) return;
+  if (state.currentId && state.currentId !== id) {
+    window.LorekeeperSound?.play(push ? "step" : "back");
+  }
   state.currentId = id;
   if (push && location.hash !== `#${id}`) {
     history.pushState({ id }, "", `#${encodeURIComponent(id)}`);
   }
+  document.getElementById("map-link")?.classList.remove("active");
   renderSidebar();
   renderLesson(entry);
   updateStats();
@@ -185,6 +236,10 @@ function isDone(id) {
   return Boolean(state.progress.completed[id]);
 }
 
+function moduleDone(module) {
+  return module.lessons.length > 0 && module.lessons.every((lesson) => isDone(lesson.id));
+}
+
 /* Progress */
 
 function loadProgress() {
@@ -194,6 +249,7 @@ function loadProgress() {
 }
 
 function saveProgress() {
+  if (state.course) state.progress.xp = stats().xp;
   window.LorekeeperPackStorage?.putProgress(state.course.unit.slug, state.progress).catch(() => {
     /* progress remains in memory if IndexedDB is unavailable */
   });
@@ -214,10 +270,15 @@ function updateStats() {
   els.xp.textContent = String(summary.xp);
   const percent = summary.total ? (summary.done / summary.total) * 100 : 0;
   els.progressBar.style.width = `${percent}%`;
+  window.LorekeeperQuest?.renderPlayerCard();
 }
 
 function completeLesson(lesson, { quiet = false } = {}) {
   if (isDone(lesson.id)) return;
+  const quest = window.LorekeeperQuest;
+  const before = quest ? quest.player().level : 1;
+  const module = state.course.modules.find((item) => item.lessons.some((entry) => entry.id === lesson.id));
+
   state.progress.completed[lesson.id] = true;
   if (!Array.isArray(state.progress.history)) state.progress.history = [];
   state.progress.history.push({
@@ -234,8 +295,48 @@ function completeLesson(lesson, { quiet = false } = {}) {
   renderSidebar();
   updateStats();
   syncCompleteControls(lesson);
-  if (!quiet) toast(`Lesson complete +${lesson.xp} XP`);
-  else toast(`Passed. +${lesson.xp} XP`);
+
+  const after = quest ? quest.player() : null;
+  const chapterDone = module && moduleDone(module);
+  const nextModule = module
+    ? state.course.modules[state.course.modules.indexOf(module) + 1] || null
+    : null;
+  window.LorekeeperSound?.play("complete");
+
+  if (quest && isQuest()) {
+    quest.moment({
+      type: "complete",
+      kicker: quiet ? "Challenge passed" : "Scene complete",
+      title: lesson.title,
+      detail: `+${lesson.xp} XP`,
+      icon: quest.kind(lesson.kind).icon,
+    });
+    if (chapterDone) {
+      window.LorekeeperSound?.play("chapter");
+      quest.moment({
+        type: "chapter",
+        kicker: "Chapter complete",
+        title: `Chapter ${module.number}: ${module.title}`,
+        detail: nextModule ? `Next: Chapter ${nextModule.number}, ${nextModule.title}` : "Every chapter of this quest is done.",
+        icon: "map",
+      });
+    }
+    if (after && after.level > before) {
+      window.LorekeeperSound?.play("level");
+      const narrator = quest.narratorFor(state.courseMeta || state.course.unit);
+      quest.moment({
+        type: "level",
+        kicker: "Level up",
+        title: `Level ${after.level}: ${after.title}`,
+        detail: `${after.remaining} XP to level ${after.level + 1}.`,
+        portrait: narrator.src,
+      });
+    }
+  } else {
+    toast(quiet ? `Passed. +${lesson.xp} XP` : `Lesson complete +${lesson.xp} XP`);
+    if (chapterDone) setTimeout(() => toast(`Chapter ${module.number} complete`), 2300);
+    if (after && after.level > before) setTimeout(() => toast(`Level ${after.level} reached`), 4600);
+  }
   window.LorekeeperBadges?.sync(true);
   window.LorekeeperWayfinder?.renderSidebarTrail();
 }
@@ -259,33 +360,38 @@ function resetProgress() {
 function renderSidebar() {
   const openSlugs = new Set();
   for (const module of state.course.modules) {
-    if (module.number === 1) openSlugs.add(module.slug);
-    if (module.lessons.some((lesson) => lesson.id === state.currentId)) {
-      openSlugs.add(module.slug);
-    }
+    if (module.lessons.some((lesson) => lesson.id === state.currentId)) openSlugs.add(module.slug);
   }
+  if (!openSlugs.size && state.course.modules[0]) openSlugs.add(state.course.modules[0].slug);
 
   els.outline.innerHTML = state.course.modules
     .map((module) => {
       const open = openSlugs.has(module.slug) ? " open" : "";
+      const done = module.lessons.filter((lesson) => isDone(lesson.id)).length;
+      const status = moduleDone(module) ? " complete" : openSlugs.has(module.slug) ? " current" : "";
       const lessons = module.lessons
         .map((lesson) => {
           const classes = ["lesson-link"];
           if (lesson.id === state.currentId) classes.push("current");
           if (isDone(lesson.id)) classes.push("done");
+          const info = window.LorekeeperQuest ? window.LorekeeperQuest.kind(lesson.kind) : { verb: lesson.kind, icon: "book" };
           return `
-            <a class="${classes.join(" ")}" href="#${encodeURIComponent(lesson.id)}" data-lesson="${escapeHtml(lesson.id)}">
-              <span class="dot"></span>
+            <a class="${classes.join(" ")}" href="#${encodeURIComponent(lesson.id)}" data-lesson="${escapeHtml(lesson.id)}" title="${escapeHtml(info.verb)}">
+              <span class="dot">${window.LorekeeperQuest ? window.LorekeeperQuest.icon(info.icon) : ""}</span>
               <span class="label">${escapeHtml(lesson.title)}</span>
-              <span class="kind">${KIND_LABEL[lesson.kind] || lesson.kind}</span>
+              <span class="sr-only">${escapeHtml(info.verb)}${isDone(lesson.id) ? ", done" : ""}</span>
             </a>`;
         })
         .join("");
       return `
-        <details class="outline-module"${open}>
+        <details class="outline-module${status}"${open}>
           <summary>
-            <span class="num">${String(module.number).padStart(2, "0")}</span>
-            <span>${escapeHtml(module.title)}</span>
+            <span class="num">${module.number}</span>
+            <span class="chapter-text">
+              <span class="chapter-label">Chapter ${module.number}</span>
+              <span class="chapter-title">${escapeHtml(module.title)}</span>
+            </span>
+            <span class="chapter-count">${done}/${module.lessons.length}</span>
           </summary>
           ${lessons}
         </details>`;
@@ -300,6 +406,57 @@ function renderSidebar() {
   });
 }
 
+/* Course map */
+
+function renderMap() {
+  const quest = isQuest();
+  const unit = quest ? "scenes" : "lessons";
+  const summary = stats();
+  const modules = state.course.modules;
+  const currentIndex = modules.findIndex((module) => !moduleDone(module));
+  document.getElementById("map-link")?.classList.add("active");
+  renderSidebar();
+  updateStats();
+  els.content.className = "content map-content";
+  els.content.innerHTML = `
+    <div class="map-head">
+      <p class="eyebrow">Course map</p>
+      <h1>${escapeHtml(state.course.unit.title)}</h1>
+      <p>${summary.done} of ${summary.total} ${unit} complete</p>
+    </div>
+    <ol class="map-path">
+      ${modules
+        .map((module, index) => {
+          const done = module.lessons.filter((lesson) => isDone(lesson.id)).length;
+          const total = module.lessons.length;
+          const percent = total ? Math.round((done / total) * 100) : 0;
+          const status = moduleDone(module) ? "complete" : index === currentIndex ? "current" : "upcoming";
+          const label = status === "complete" ? "Complete" : status === "current" ? "You are here" : "Ahead";
+          return `
+            <li class="map-stop ${status}">
+              <button class="map-stop-button" type="button" data-map-module="${index}">
+                <span class="map-node" aria-hidden="true">${module.number}</span>
+                <span class="map-body">
+                  <span class="map-label">Chapter ${module.number} · ${label}</span>
+                  <strong>${escapeHtml(module.title)}</strong>
+                  <span class="map-count">${done} of ${total} ${unit}</span>
+                  <span class="map-bar" aria-hidden="true"><span style="width:${percent}%"></span></span>
+                </span>
+              </button>
+            </li>`;
+        })
+        .join("")}
+    </ol>`;
+  els.content.querySelectorAll("[data-map-module]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const module = modules[Number(button.dataset.mapModule)];
+      const target = module.lessons.find((lesson) => !isDone(lesson.id)) || module.lessons[0];
+      if (target) showLesson(target.id);
+    });
+  });
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
 /* Lesson rendering */
 
 function renderLesson(entry) {
@@ -308,20 +465,54 @@ function renderLesson(entry) {
   const index = entries.findIndex((item) => item.lesson.id === lesson.id);
   const previous = index > 0 ? entries[index - 1] : null;
   const next = index < entries.length - 1 ? entries[index + 1] : null;
+  const quest = isQuest();
+  const sceneWord = quest ? "Scene" : "Lesson";
+  const position = module.lessons.findIndex((item) => item.id === lesson.id) + 1;
+  const meta = state.courseMeta || state.course.unit;
+  const cover = window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(meta) : "";
+  const narrator = window.LorekeeperQuest ? window.LorekeeperQuest.narratorFor(meta) : null;
+  const line = window.LorekeeperQuest ? window.LorekeeperQuest.narratorLine(lesson) : "";
 
   const wide = lesson.blocks.some((block) =>
     ["exercise", "sql", "terminal", "api", "calibration"].includes(block.type)
   );
-  els.content.className = wide ? "content wide" : "content";
+  els.content.className = `content lesson-content${wide ? " wide" : ""}`;
   els.content.innerHTML = `
-    <div class="crumbs">
-      <span>Module ${String(module.number).padStart(2, "0")}</span>
-      <span class="sep">/</span>
-      <span>${escapeHtml(module.title)}</span>
-      <span class="pill ${lesson.kind}">${lesson.kind}</span>
-      <span class="xp-pill">${lesson.xp} XP</span>
-    </div>
-    <h1 class="lesson-title">${escapeHtml(lesson.title)}</h1>
+    <header class="scene-head">
+      ${
+        quest && cover
+          ? `<div class="scene-banner">
+              <img class="scene-art" src="${cover}" alt="" width="1216" height="832">
+              <div class="scene-banner-text">
+                <span>Chapter ${module.number}: ${escapeHtml(module.title)}</span>
+                <span>${sceneWord} ${position} of ${module.lessons.length}</span>
+              </div>
+            </div>`
+          : ""
+      }
+      <div class="lesson-heading">
+        <div class="crumbs">
+          <span>Chapter ${module.number}</span>
+          <span class="sep">/</span>
+          <span>${escapeHtml(module.title)}</span>
+          <span class="pill kind-pill ${lesson.kind}">${kindBadge(lesson.kind)}</span>
+          <span class="xp-pill">${lesson.xp} XP</span>
+        </div>
+        <p class="scene-count">${sceneWord} ${position} of ${module.lessons.length}</p>
+        <h1 class="lesson-title">${escapeHtml(lesson.title)}</h1>
+      </div>
+      ${
+        quest && narrator
+          ? `<div class="narrator">
+              <img class="narrator-portrait" src="${narrator.src}" alt="" width="96" height="96">
+              <div class="narrator-box">
+                <strong>${escapeHtml(narrator.name)}</strong>
+                <p>${escapeHtml(line)}</p>
+              </div>
+            </div>`
+          : ""
+      }
+    </header>
     <div data-blocks></div>
     <div class="lesson-footer" data-footer>
       <button class="btn" type="button" data-prev ${previous ? "" : "disabled"}>Previous</button>
@@ -329,11 +520,17 @@ function renderLesson(entry) {
       <span class="spacer"></span>
       ${
         lesson.kind === "reading"
-          ? `<button class="btn primary" type="button" data-complete>${isDone(lesson.id) ? "Completed" : "Mark as read"}</button>`
+          ? `<button class="btn primary" type="button" data-complete>${isDone(lesson.id) ? "Completed" : "Done reading"}</button>`
           : ""
       }
       <button class="btn primary" type="button" data-next ${next ? "" : "disabled"}>Next</button>
     </div>`;
+
+  els.content.classList.remove("motion-quest");
+  if (quest) {
+    void els.content.offsetWidth;
+    els.content.classList.add("motion-quest");
+  }
 
   if (previous) {
     els.content.querySelector("[data-prev]").addEventListener("click", () => showLesson(previous.lesson.id));
@@ -372,7 +569,7 @@ function syncCompleteControls(lesson) {
   const button = els.content.querySelector("[data-complete]");
   if (button) {
     const done = isDone(lesson.id);
-    button.textContent = done ? "Completed" : "Mark as read";
+    button.textContent = done ? "Completed" : "Done reading";
     button.disabled = done;
   }
   if (status && lesson.kind !== "reading") {
@@ -773,42 +970,133 @@ function assertEqual(actual, expected, message) {
 
 /* Course picker and errors */
 
+function courseStatus(course) {
+  const progress = window.LorekeeperPackStorage?.getProgress(course.slug) || {};
+  const done = Object.keys(progress.completed || {}).length;
+  const total = Number(course.lessons) || 0;
+  const percent = total ? Math.min(100, Math.round((done / total) * 100)) : 0;
+  const history = Array.isArray(progress.history) ? progress.history : [];
+  const last = history.reduce((latest, item) => (String(item.at) > latest ? String(item.at) : latest), "");
+  return { done, total, percent, last };
+}
+
+function continueCandidate() {
+  return (state.index?.courses || [])
+    .map((course) => ({ course, ...courseStatus(course) }))
+    .filter((item) => item.done > 0 && item.done < item.total)
+    .sort((a, b) => b.last.localeCompare(a.last) || b.percent - a.percent)[0] || null;
+}
+
+async function fetchCourseData(slug) {
+  const local = window.LorekeeperLibrary?.course(slug);
+  if (local) return local.course;
+  return getJSON(new URL(`../build/${slug}/course.json`, location.href).href);
+}
+
+async function fillContinue(candidate) {
+  const hero = document.getElementById("quest-hero");
+  if (!hero) return;
+  try {
+    const data = await fetchCourseData(candidate.course.slug);
+    const completed = window.LorekeeperPackStorage?.getProgress(candidate.course.slug)?.completed || {};
+    for (const module of data.modules || []) {
+      const position = module.lessons.findIndex((lesson) => !completed[lesson.id]);
+      if (position < 0) continue;
+      const lesson = module.lessons[position];
+      const word = isQuest() ? "Scene" : "Lesson";
+      const next = hero.querySelector("[data-hero-next]");
+      if (next) {
+        next.textContent = `Next: Chapter ${module.number}, ${word} ${position + 1}. ${lesson.title}`;
+      }
+      const link = hero.querySelector("[data-hero-continue]");
+      if (link) link.href = `?course=${encodeURIComponent(candidate.course.slug)}#${encodeURIComponent(lesson.id)}`;
+      return;
+    }
+  } catch {
+    /* keep the generic continue link */
+  }
+}
+
 function renderPicker() {
-  els.content.innerHTML = `
-    <div class="placeholder">
-      <div class="picker-hero">
-        ${window.LorekeeperArt ? window.LorekeeperArt.picker() : ""}
-        <div class="picker-intro">
-          <p class="eyebrow">Lorekeeper · field notes</p>
-          <h1>Choose your path</h1>
-          <p>Story-driven courses for your personal learning path. Your progress stays on this device.</p>
+  const quest = isQuest();
+  els.content.className = "content picker-content";
+  if (els.courseProgress) els.courseProgress.hidden = true;
+  const idleEmblem = window.LorekeeperArt ? window.LorekeeperArt.courseEmblem("library") : "";
+  els.courseMeta.innerHTML = `
+    <div class="course-emblem">${idleEmblem}</div>
+    <div class="course-meta-text">
+      <div class="code">${quest ? "No quest open" : "Library"}</div>
+      <div class="title">Choose a course to begin</div>
+    </div>`;
+
+  const candidate = continueCandidate();
+  const unit = quest ? "scenes" : "lessons";
+  const heroArt = candidate
+    ? window.LorekeeperArt?.courseCoverUrl(candidate.course) || "art/quest/hero.webp"
+    : "art/quest/hero.webp";
+  const hero = candidate
+    ? `
+      <section class="quest-hero continuing" id="quest-hero">
+        <img class="quest-hero-art" src="${heroArt}" alt="" width="1216" height="832">
+        <div class="quest-hero-body">
+          <p class="eyebrow">${quest ? "Continue your quest" : "Continue where you left off"}</p>
+          <h1>${escapeHtml(candidate.course.title)}</h1>
+          <p class="picker-lede" data-hero-next>${candidate.done} of ${candidate.total} ${unit} complete</p>
+          <div class="hero-progress" aria-hidden="true"><span style="width:${candidate.percent}%"></span></div>
+          <a class="btn primary hero-cta" data-hero-continue href="?course=${encodeURIComponent(candidate.course.slug)}">Continue</a>
         </div>
-      </div>
-      <div id="wayfinder-host"></div>
-      <div class="course-list${state.index.courses.length ? "" : " empty"}">
-        ${state.index.courses.length ? state.index.courses
-          .map(
-            (course) => `
+      </section>`
+    : `
+      <section class="quest-hero" id="quest-hero">
+        <img class="quest-hero-art" src="${heroArt}" alt="" width="1216" height="832">
+        <div class="quest-hero-body">
+          <p class="eyebrow">Lorekeeper</p>
+          <h1>${quest ? "Choose your quest" : "Choose a course"}</h1>
+          <p class="picker-lede">Story-driven courses for your personal learning path. Your progress stays on this device.</p>
+        </div>
+      </section>`;
+
+  const cards = state.index.courses.length
+    ? state.index.courses
+        .map((course) => {
+          const status = courseStatus(course);
+          const label =
+            status.done === 0
+              ? quest ? "New quest" : "Not started"
+              : status.done >= status.total
+                ? quest ? "Quest complete" : "Completed"
+                : `In progress · ${status.percent}%`;
+          return `
           <div class="course-row">
             <a class="course-card" href="?course=${encodeURIComponent(course.slug)}">
-              <img class="course-cover" src="${window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(course) : ""}" alt="" loading="lazy" width="54" height="54">
-              <span class="course-card-body">
-                <span class="title">${escapeHtml(course.title)}</span>
-                <span class="meta">${course.modules} modules · ${course.lessons} lessons
-                  <span class="skin-tag">${escapeHtml(window.LorekeeperArt ? window.LorekeeperArt.skinName(course.theme) : (course.theme || "ink"))}</span>
-                  ${course.source === "local" ? '<span class="skin-tag local-tag">Local pack</span>' : ""}
-                </span>
+              <span class="course-cover-frame">
+                <img class="course-cover" src="${window.LorekeeperArt ? window.LorekeeperArt.courseCoverUrl(course) : ""}" alt="" loading="lazy" width="640" height="360">
+                <span class="course-emblem-badge">${window.LorekeeperArt ? window.LorekeeperArt.courseEmblem(course.slug, course) : ""}</span>
               </span>
+              <span class="course-card-body">
+                <span class="course-card-kicker">${label}</span>
+                <span class="title">${escapeHtml(course.title)}</span>
+                <span class="meta">${course.modules} chapters · ${course.lessons} ${unit}${course.source === "local" ? " · Local pack" : ""}</span>
+                <span class="course-card-bar" aria-hidden="true"><span style="width:${status.percent}%"></span></span>
+              </span>
+              <span class="course-open" aria-hidden="true">Open <span>→</span></span>
             </a>
-          </div>`
-          )
-          .join("") : `
-          <div class="empty-library">
-            <h2>Your library is empty</h2>
-            <p>Add a pack from the store, import one, or start with the built-in starter kit.</p>
-            <button class="btn primary" type="button" data-starter>Add the starter kit</button>
-          </div>`}
-      </div>
+          </div>`;
+        })
+        .join("")
+    : `
+      <div class="empty-library">
+        <h2>Your library is empty</h2>
+        <p>Add a pack from the store, import one, or start with the built-in starter kit.</p>
+        <button class="btn primary" type="button" data-starter>Add the starter kit</button>
+      </div>`;
+
+  els.content.innerHTML = `
+    <div class="placeholder picker">
+      ${hero}
+      <div id="wayfinder-host"></div>
+      <h2 class="library-heading">${quest ? "Your quests" : "Your library"}</h2>
+      <div class="course-list${state.index.courses.length ? "" : " empty"}">${cards}</div>
       <div class="picker-tools">
         <button id="store-open" class="btn" type="button" data-store-open>Browse packs</button>
         <button id="manage-open" class="btn" type="button" data-manage-open>Manage library</button>
@@ -818,6 +1106,7 @@ function renderPicker() {
     </div>`;
   bindPickerTools();
   window.LorekeeperWayfinder?.renderPicker();
+  if (candidate) fillContinue(candidate);
 }
 
 window.LorekeeperApp = window.LorekeeperApp || {};

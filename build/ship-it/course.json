@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-07T11:15:33+00:00",
+  "generated_at": "2026-11-08T02:55:01+00:00",
   "unit": {
     "slug": "ship-it",
     "title": "Ship It: Web Craft with an AI Partner",
@@ -1041,7 +1041,7 @@
             },
             {
               "type": "html",
-              "html": "<p>Add three states:</p>\n<ul>\n<li><strong>Loading</strong>: a message or skeleton while the request is in flight.</li>\n<li><strong>Error</strong>: a friendly message when the request fails, with a way to retry.</li>\n<li><strong>Empty</strong>: a message when the API returns no data.</li>\n</ul>\n<p>Test each one. Turn off the network, use a wrong URL, and return an empty array.</p>\n<p><strong>Done when:</strong> the page never shows a blank space or a spinner that never stops.</p>"
+              "html": "<p>Add three states:</p>\n<ul>\n<li><strong>Loading</strong>: a message or skeleton while the request is in flight.</li>\n<li><strong>Error</strong>: a friendly message when the request fails, with a way to retry.</li>\n<li><strong>Empty</strong>: a message when the API returns no data.</li>\n</ul>\n<p>Test each one. Turn off the network, use a wrong URL, and return an empty array.\nThrottle DevTools to Slow 3G. The loading state should appear within a second.\nIf the page looks frozen, the state is missing.</p>\n<p><strong>Done when:</strong> the page never shows a blank space or a spinner that never stops.</p>"
             },
             {
               "type": "html",

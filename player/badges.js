@@ -178,8 +178,10 @@
     badges.forEach((badge) => {
       const card = document.createElement("div");
       card.className = `badge-card ${badge.earned ? "earned" : "locked"}`;
+      card.dataset.badge = badge.id;
       const icon = document.createElement("div");
       icon.className = "badge-icon";
+      icon.setAttribute("aria-hidden", "true");
       icon.textContent = badge.icon;
       const body = document.createElement("div");
       body.className = "badge-body";
@@ -211,7 +213,8 @@
       saveProgress();
     }
 
-    if (announce) {
+    if (announce && fresh.length) {
+      window.LorekeeperSound?.play("badge");
       fresh.forEach((badge) => {
         if (typeof toast === "function") toast(`Achievement: ${badge.title}`);
       });

@@ -2,6 +2,15 @@
 (function () {
   const MAX_CHARS = 4_500_000;
   const SLUG = /^[a-z0-9][a-z0-9-]*$/;
+  const ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+  const LESSON_KINDS = new Set([
+    "reading", "checkpoint", "exercise", "order", "fill", "hotspot", "review",
+    "scenario", "calibration", "viva", "api", "sql", "terminal", "story",
+  ]);
+  const BLOCK_TYPES = new Set([
+    "html", "checkpoint", "exercise", "order", "fill", "hotspot", "review",
+    "scenario", "calibration", "viva", "api", "sql", "terminal", "story",
+  ]);
   const DANGEROUS = new Set(["__proto__", "constructor", "prototype"]);
 
   function fail(message) {
@@ -13,7 +22,36 @@
     if (!course.unit || course.unit.slug !== slug) fail(`Course "${slug}" has the wrong unit slug.`);
     if (!Array.isArray(course.modules)) fail(`Course "${slug}" has no modules.`);
     for (const module of course.modules) {
+      if (!module || typeof module !== "object") fail(`Course "${slug}" has an invalid module.`);
+      module.number = Number(module.number);
+      if (!Number.isFinite(module.number)) fail(`Course "${slug}" has a module without a number.`);
+      module.title = String(module.title || "");
+      module.slug = String(module.slug || "");
       if (!Array.isArray(module.lessons)) fail(`Course "${slug}" has a module without lessons.`);
+      for (const lesson of module.lessons) {
+        if (!lesson || typeof lesson !== "object") fail(`Course "${slug}" has an invalid lesson.`);
+        lesson.id = String(lesson.id || "");
+        if (!ID.test(lesson.id)) fail(`Course "${slug}" has an invalid lesson id.`);
+        lesson.title = String(lesson.title || "");
+        lesson.kind = String(lesson.kind || "reading");
+        if (!LESSON_KINDS.has(lesson.kind)) fail(`Course "${slug}" has an unknown lesson kind.`);
+        lesson.xp = Number(lesson.xp);
+        if (!Number.isFinite(lesson.xp) || lesson.xp < 0) lesson.xp = 0;
+        if (!Array.isArray(lesson.blocks)) fail(`Course "${slug}" has a lesson without blocks.`);
+        for (const block of lesson.blocks) {
+          if (!block || typeof block !== "object") fail(`Course "${slug}" has an invalid block.`);
+          block.type = String(block.type || "");
+          if (!BLOCK_TYPES.has(block.type)) fail(`Course "${slug}" has an unknown block type.`);
+          if (block.id !== undefined) block.id = String(block.id);
+          if (block.viewport && typeof block.viewport === "object") {
+            block.viewport.width = Number(block.viewport.width) || 1024;
+            block.viewport.height = Number(block.viewport.height) || 768;
+          }
+          if (block.tests !== undefined && !Array.isArray(block.tests)) {
+            fail(`Course "${slug}" has malformed exercise tests.`);
+          }
+        }
+      }
     }
   }
 
@@ -51,19 +89,34 @@
         stories[src] = story;
       }
 
-      for (const module of raw.course.modules) {
-        for (const lesson of module.lessons) {
-          for (const block of lesson.blocks || []) {
-            if (block.type === "html" && typeof block.html === "string") {
-              block.html = window.LorekeeperSanitize?.html(block.html) || "";
-            }
-            if (typeof block.prompt === "string") {
-              block.prompt = window.LorekeeperSanitize?.html(block.prompt) || "";
-            }
-            if (block.type === "story" && !stories[block.src]) {
-              fail(`Course "${slug}" is missing the story "${block.src}".`);
+      const previousAssetResolve = window.LorekeeperAssetResolve;
+      window.LorekeeperAssetResolve = false;
+      try {
+        for (const module of raw.course.modules) {
+          for (const lesson of module.lessons) {
+            for (const block of lesson.blocks || []) {
+              if (block.type === "html" && typeof block.html === "string") {
+                block.html = window.LorekeeperSanitize?.html(block.html) || "";
+              }
+              if (typeof block.prompt === "string") {
+                block.prompt = window.LorekeeperSanitize?.html(block.prompt) || "";
+              }
+              if (block.type === "story" && !stories[block.src]) {
+                fail(`Course "${slug}" is missing the story "${block.src}".`);
+              }
             }
           }
+        }
+      } finally {
+        window.LorekeeperAssetResolve = previousAssetResolve;
+      }
+
+      const assets = {};
+      if (raw.assets && typeof raw.assets === "object") {
+        for (const [name, value] of Object.entries(raw.assets)) {
+          if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(name)) continue;
+          if (typeof value !== "string" || !/^data:image\//i.test(value)) continue;
+          assets[name] = value;
         }
       }
 
@@ -79,6 +132,7 @@
         start: String(raw.start || raw.course.unit.start || ""),
         course: raw.course,
         stories,
+        assets,
       });
     }
     return clean;
@@ -128,6 +182,7 @@
         start: entry.start,
         modules: entry.course.modules.length,
         lessons: entry.course.modules.reduce((sum, module) => sum + module.lessons.length, 0),
+        assets: entry.assets || {},
         source: "local",
         packId: pack.id,
       }))
@@ -138,7 +193,12 @@
     for (const pack of packs()) {
       const entry = pack.courses.find((item) => item.slug === slug);
       if (entry) {
-        return { packId: pack.id, course: entry.course, stories: entry.stories };
+        return {
+          packId: pack.id,
+          course: entry.course,
+          stories: entry.stories,
+          assets: entry.assets || {},
+        };
       }
     }
     return null;

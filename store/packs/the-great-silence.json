@@ -5,7 +5,7 @@
   "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
   "author": "Michael Borck",
   "licence": "CC BY-SA 4.0",
-  "createdAt": "2026-11-07T11:15:32+00:00",
+  "createdAt": "2026-11-08T02:55:00+00:00",
   "courses": [
     {
       "slug": "the-great-silence",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-07T11:15:32+00:00",
+        "generated_at": "2026-11-08T02:55:00+00:00",
         "unit": {
           "slug": "the-great-silence",
           "title": "The Great Silence: Six Frames for Thinking About AI at Civilisational Scale",
@@ -45,7 +45,7 @@
             "lessons": [
               {
                 "id": "01-01",
-                "title": "The silence that isn't",
+                "title": "01-silence",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -59,15 +59,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>The interesting question is not \"where is everybody?\" but \"what would have to be true for the silence to be informative?\" That reframing turns a curiosity into a method.</li>\n<li>In systems, the same logic applies. A server that stops logging, a customer who stops complaining, a metric that flatlines, a queue that is suspiciously short. Each is a signal precisely because it is missing.</li>\n<li>Good operators monitor absences as carefully as they monitor events. Bad ones wait for an error message from a system that has already stopped speaking.</li>\n</ul>"
+                    "html": "<p>The Fermi Paradox is useful because it forces a choice between three explanations, and each explanation carries a different action.</p>\n<p><strong>The model is wrong.</strong> Maybe we expect too much. Maybe interstellar travel is impossible, or civilisations destroy themselves before they expand, or the window for detection is narrow. In technology, this means the monitoring assumption is wrong: you expected the dashboard to show something, and it shows nothing, because you are measuring the wrong thing. A healthy server with no traffic produces no errors. A quiet customer who churned produces no complaints. The absence you observed is real, but it does not mean what you thought.</p>\n<p><strong>The observation is incomplete.</strong> Maybe they are out there, but you are not listening on the right frequency. In technology, this means your instrumentation has a gap. The logs exist but nobody reads them. The metric is collected but not alerting. The customer sent feedback but it went to a mailbox nobody checks.</p>\n<p><strong>Something is actively hiding.</strong> Maybe civilisations are deliberately quiet because broadcasting is dangerous. In technology, this is the most interesting case, because it means the silence is a strategy. A system that has been compromised often goes quiet: the attacker disables logging, kills the monitoring agent, and the dashboard goes green. The absence is the attack.</p>\n<p>Most monitoring is built to detect presence: an error, an anomaly, a threshold crossed. The harder skill is detecting absence: the log that stops, the metric that flatlines, the customer who goes quiet, the automated process that silently stops running. Good operators treat absence as an event.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>A team monitors error rates but not request volume. A service stops receiving traffic and every dashboard stays green, because zero requests produce zero errors. The system is healthy and the business is down. Nothing in the monitoring lied. The team simply measured presence and ignored absence.</p>"
+                    "html": "<p><strong>The quiet customer.</strong> A SaaS company tracks support tickets, feature requests and churn. A long-time customer stops submitting tickets. The support dashboard shows a decline, which looks like improvement. The customer has actually moved to a competitor, but nobody notices until the renewal fails. The ticket count was measuring engagement; the absence of tickets was the churn signal.</p>\n<p><strong>The flatlined metric.</strong> A data pipeline feeds a dashboard from a production database. The pipeline fails silently on a Friday evening. The dashboard continues to display Friday's data over the weekend. Every number looks reasonable. Nothing alerts. On Monday, someone notices the numbers are stale. Two days of decisions were made on data that was frozen at the moment of failure. The monitoring checked for errors in the pipeline, not for staleness in the output.</p>\n<p><strong>The log that stopped.</strong> During a security incident, an investigator notices that a server's authentication logs stopped twelve hours before the alert. The server is still running and still accepting connections. Someone disabled the logging daemon. Every event after that point is unaudited. The silence is not the absence of activity. It is the presence of an attacker who turned the lights off.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The obvious objection: \"You cannot monitor every absence. The combinatorics are impossible.\" That is correct. The skill is not monitoring every absence. It is choosing which absences matter.</p>\n<p>The test is: what would have to be true for this silence to be a problem? If you cannot answer that, the silence is not a signal; it is just quiet. If you can answer it, and you are not monitoring it, you have found a gap.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Absence is not always informative. Sometimes a system is quiet because nothing is happening. The skill is calibrating which silences you investigate and which you accept. Over-monitoring absence produces false positives and alert fatigue, which is its own failure mode.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Conversation, Not Delegation</em> teaches the underlying habit: check from outside the tool. If the AI output is fluent but the expected counter-evidence is missing, that absence is a signal. <em>Model Data, Verify AI</em> applies the same logic to data: a known answer that changes after a query runs is evidence that the query is wrong. The missing counter-evidence is the finding.</p>"
                   },
                   {
                     "type": "html",
@@ -76,6 +100,22 @@
                   {
                     "type": "html",
                     "html": "<p>Pick a system you use every day. List three things you would expect to see on a normal day and would notice only by their absence. Then find out whether anyone actually monitors those absences. Most people cannot answer the second part.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>Conversation, Not Delegation</em>: the VET framework checks for missing evidence, not just wrong evidence.</li>\n<li><em>Model Data, Verify AI</em>: the known-answer checks test whether the query detects the absence it should detect.</li>\n<li><em>The Human Edge</em>: the Check Loop includes a step that asks \"what am I not seeing?\"</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Absence is data. A system that says nothing is still telling you something.</li>\n<li>Choose which absences matter, then monitor them.</li>\n<li>The interesting question is not \"why is it quiet?\" but \"what would have to be true for this silence to be informative?\"</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -89,7 +129,7 @@
               },
               {
                 "id": "01-02",
-                "title": "The Dark Forest",
+                "title": "02-dark-forest",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -103,15 +143,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>Attack surface is not only the software you expose. It is the sum of everything an observer can learn about you without touching you.</li>\n<li>Competitive intelligence and security are the same discipline seen from two sides. What a competitor learns from your public material is what an attacker learns before choosing a target.</li>\n<li>Silence has a cost. Going dark reduces risk and also reduces reach, discoverability and revenue. The question is never \"should we be quiet?\" but \"which signals are worth sending?\"</li>\n</ul>"
+                    "html": "<p>Attack surface is not only the software you expose. It is the sum of everything an observer can learn about you without touching you.</p>\n<p><strong>Infrastructure leaks.</strong> Job ads reveal the stack. DNS records reveal the hosting. Certificate transparency logs reveal subdomains, including internal naming conventions that hint at architecture. Vendor status pages reveal dependencies. Error messages reveal frameworks and versions. None of these is a vulnerability. Together, they are a map.</p>\n<p><strong>People leak.</strong> Conference talks reveal projects. LinkedIn profiles reveal team structure. Stack Overflow questions reveal the problems a team is facing right now. Open-source contributions reveal internal tooling. A developer who asks a detailed question about a specific API has told the world what the product does.</p>\n<p><strong>AI leaks.</strong> An organisation that uses AI tools sends data to third-party providers. Prompt logs, fine-tuning data and retrieval indexes are new broadcast surfaces that did not exist five years ago. The privacy chapter of this series covers the data map; the Dark Forest is the frame that makes the map urgent.</p>\n<p><strong>Silence has a cost.</strong> Going dark reduces risk and also reduces reach, discoverability and revenue. The question is never \"should we be quiet?\" but \"which signals are worth sending?\" A company that publishes documentation is broadcasting, and that broadcast is usually a feature, not a bug. The skill is choosing which broadcasts serve you and which expose you.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>Shodan and similar search engines index internet-connected devices continuously. A company can appear in those results because a development server was left reachable, or because a vendor's device shipped with a default port open. No one was attacked. The organisation simply never audited what it was announcing.</p>"
+                    "html": "<p><strong>The conference talk.</strong> A developer presents at a meetup: \"How we scaled our event pipeline with Kafka and Flink.\" The talk is useful and the slides are public. An attacker now knows the message queue, the stream processor, the scale, and the fact that the team is proud enough of the architecture to present it publicly. This is not a vulnerability. It is a target profile.</p>\n<p><strong>The help-wanted ad.</strong> A job listing for a \"Senior Kubernetes Engineer with Istio experience on GCP\" tells an attacker: the company runs Kubernetes, uses Istio as a service mesh, and is on Google Cloud. It also tells the attacker that the team may be understaffed in this area, because they are hiring. Job ads are intelligence.</p>\n<p><strong>The open-source commit.</strong> A developer pushes a commit to a public repository that includes a configuration file with an internal hostname. The hostname reveals the naming convention, which reveals the department structure, which reveals which teams exist and what they work on. The commit is reverted in an hour. The repository history preserves it forever.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The obvious objection: \"You cannot run a modern organisation without broadcasting. Hiring, marketing, open-source contribution and documentation all require it.\" That is correct, and the frame does not say stop. It says choose.</p>\n<p>The Dark Forest is not an argument for silence. It is an argument for deliberateness. Most organisations broadcast by default and audit by accident. The frame asks you to reverse that: decide what you broadcast, audit what you are already broadcasting, and accept the cost of the signals you choose to send.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Some organisations use the Dark Forest as an excuse for security through obscurity: \"we are safe because nobody knows we exist.\" That is wrong. The frame does not say hide. It says know what you are revealing. A company that is invisible but has no defences is a company that is safe until it is found.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Assume Breach</em> is the hands-on version of this frame. The entire book is built around the question \"what is my attack surface, and what would an attacker do with it?\" <em>Substantiate, Don't Assume</em> applies the same logic to audit: a policy that exists is not a control that works. <em>Speak Software</em> adds the agent layer: an AI agent with access to your systems broadcasts through every tool call it makes.</p>\n<p><em>Model Data, Verify AI</em> adds the data layer: a database schema, a query log and a data pipeline are all broadcasts. The Dark Forest asks who is reading them.</p>"
                   },
                   {
                     "type": "html",
@@ -120,6 +184,22 @@
                   {
                     "type": "html",
                     "html": "<p>Audit your own public footprint as if you were a competitor or an attacker. Check job ads, DNS records, certificate transparency logs, GitHub activity, social posts and any vendor status pages. Write down three things you did not realise you were broadcasting.</p>\n<p><strong>Go further.</strong> <a href=\"../labs/silent-server.md\">The Silent Server</a> is the hands-on version: harden a Linux server until an external scan finds nothing.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>Assume Breach</em>: the entire book is the defensive counterpart to this frame.</li>\n<li><em>Model Data, Verify AI</em>: Chapter 11 covers privacy, retention and injection. A data schema is a broadcast.</li>\n<li><em>Speak Software</em>: Chapter 5 covers the slop defence, which includes auditing what an agent broadcasts through its tool calls.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Attack surface is the sum of everything observable, not just the software.</li>\n<li>People, process and AI tools all broadcast.</li>\n<li>Silence has a cost. The question is which signals are worth sending.</li>\n<li>Audit by default, not by accident.</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -133,7 +213,7 @@
               },
               {
                 "id": "01-03",
-                "title": "The Aestivation Hypothesis",
+                "title": "03-aestivation",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -147,15 +227,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>Efficiency is a survival metric. A system that spends more energy than it needs is more fragile than one that does not, whether the constraint is a planetary boundary or a cloud bill.</li>\n<li>Big O notation is an energy metric in disguise. An algorithm that grows quadratically does not just get slower. It consumes more, and the difference compounds with scale.</li>\n<li>The AI boom has made this concrete. Data centres are a visible and growing share of electricity demand, and the industry now has to answer questions about siting, water and grid capacity that it previously left to others.</li>\n</ul>"
+                    "html": "<p><strong>Efficiency is a survival metric.</strong> A system that spends more energy than it needs is more fragile than one that does not, whether the constraint is a planetary boundary or a cloud bill. An algorithm that scales quadratically does not just get slower. It consumes more, and the difference compounds with scale.</p>\n<p><strong>Waste is a design decision.</strong> Every time you choose an O(n²) algorithm over an O(n log n) alternative, run a model that is larger than the task requires, or leave a service running because nobody remembers why it exists, you are making an energy decision. The decision is usually invisible because the cost is invisible: it arrives as a bill, not as a dashboard alert.</p>\n<p><strong>The AI boom made it concrete.</strong> Data centres are a visible and growing share of electricity demand. Training a large model consumes as much energy as hundreds of homes use in a year. Inference is cheaper but happens at a volume that training never reaches. Most of the people building these systems were not trained to think about energy, and most of the people who think about energy were not trained to build these systems.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>The International Energy Agency estimated in 2024 that data centres used around 1.5% of global electricity, with demand projected to rise sharply as AI workloads grow. The exact number matters less than the structure: a general-purpose technology became an energy policy problem in about a decade, and most of the people building it were not trained to think about that.</p>"
+                    "html": "<p><strong>The model that was too big.</strong> A team uses a frontier model to classify support tickets into three categories. The model is accurate. It also costs $0.04 per classification, and the team processes 10,000 tickets per day. A smaller, fine-tuned model does the same job for $0.001 per classification. The frontier model is 40 times more expensive and no more accurate for this task. The waste is not a bug. It is a design choice that nobody made deliberately.</p>\n<p><strong>The always-on service.</strong> A development environment runs 24/7 because someone forgot to shut it down. It costs $200 per month in cloud charges. Over three years, that is $7,200 for a server nobody remembers creating. The cost is small enough to escape notice and large enough to matter. Multiply by the number of forgotten services in a large organisation.</p>\n<p><strong>The quadratic report.</strong> A reporting script compares every customer against every other customer to find duplicates. With 1,000 customers, it takes a minute. With 10,000 customers, it takes 100 minutes. With 100,000, it would take 166 hours. The algorithm was fine when it was written. The data outgrew it. Nobody noticed because the script still ran. It just ran longer each month until someone complained about the cloud bill.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>\"Renewable energy solves this. Just use solar or wind.\" Renewable energy changes the carbon cost but not the engineering cost. The data centre still needs cooling, the GPU still draws power, the bill still arrives. Efficiency is a cost discipline and a design discipline, regardless of where the electricity comes from.</p>\n<p>\"When AI gets more efficient, the problem solves itself.\" More efficient models enable more use. A model that costs half as much gets used twice as much. Jevons' paradox applies: efficiency increases consumption. The fix is not better hardware. It is better decisions about what is worth running.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Some computation is worth the energy. Training a model that saves lives, detects fraud or replaces a carbon-intensive physical process is a good trade. The frame does not say stop computing. It says know what you are spending and why, and choose the cheapest option that meets the bar.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Speak Software</em> teaches the gate discipline that catches waste before it ships: lint, test, audit. <em>Model Data, Verify AI</em> teaches the index and query plan discipline that catches computational waste in the data layer. <em>The Human Edge</em> teaches the trust discipline that prevents the most expensive waste: running the wrong thing confidently.</p>"
                   },
                   {
                     "type": "html",
@@ -164,6 +268,22 @@
                   {
                     "type": "html",
                     "html": "<p>Take a script or notebook you already run. Profile it for CPU time and memory. Find the single biggest inefficiency, fix it, and measure the difference. Report the saving as a number, not a feeling.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>Speak Software</em>: the gate is the mechanism that catches waste before it ships.</li>\n<li><em>Model Data, Verify AI</em>: Chapter 8 covers indexes and query plans, which are the data-layer version of this frame.</li>\n<li><em>The Human Edge</em>: the Opportunity Finder includes a prioritisation step that counts the cost of checking.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Heat is waste, and waste is a design decision.</li>\n<li>Efficiency is a survival metric, not a virtue.</li>\n<li>The gap between the thermodynamic floor and the engineering reality is the part you can act on.</li>\n<li>Jevons' paradox applies: efficiency without deliberate decisions increases consumption.</li>\n<li>Profile your work and report the saving as a number.</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -177,7 +297,7 @@
               },
               {
                 "id": "01-04",
-                "title": "The Zoo Hypothesis",
+                "title": "04-zoo",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -191,15 +311,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>Observing behaviour changes behaviour, even when no intervention is intended. This is not a metaphor. It is a well-established effect in measurement, testing and workplace monitoring.</li>\n<li>Analytics teams often describe their work as understanding users. The same data, in a different room, is called surveillance. The technology does not decide which word applies. The relationship does.</li>\n<li>Good observability is legitimate. A system needs to know its own state. The ethical question is who else gets to see that state, and what they are allowed to do with it.</li>\n</ul>"
+                    "html": "<p><strong>Observation changes behaviour.</strong> The Hawthorne effect is not a metaphor. It is a well-established finding: people who know they are being observed behave differently from people who are not. A workplace that tracks keystrokes, breaks and bathroom visits is not measuring performance. It is performance, because the measurement has become the management.</p>\n<p><strong>The same data, different rooms.</strong> Analytics teams describe their work as understanding users. The same data, in a compliance department, is called monitoring. In a legal department, it is called evidence. In a marketing department, it is called targeting. The technology does not decide which word applies. The relationship does.</p>\n<p><strong>AI makes it invisible.</strong> A traditional supervisor who watches workers is visible. Workers know they are being watched and can respond. An algorithmic management system that sets targets, tracks pace and automatically issues warnings is invisible to the people it manages. The observation is continuous, the intervention is automated, and the governed cannot see the governor.</p>\n<p><strong>Good observability is legitimate.</strong> A system needs to know its own state. The ethical question is who else gets to see that state, and what they are allowed to do with it. The answer is a governance question, not a technical one.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>Warehouse and gig platforms track worker movements, pace and breaks in fine detail, then use that data to set targets and discipline. The stated purpose is efficiency. The effect is a workplace where the measurement is the management. The workers usually cannot see the model that judges them.</p>"
+                    "html": "<p><strong>The delivery driver's app.</strong> A gig platform tracks a driver's location, speed, route, acceptance rate and customer rating in real time. The app automatically deactivates drivers whose acceptance rate falls below a threshold. No human manager makes this decision. The algorithm does, and the driver cannot appeal to a person because the decision was made by a system that does not explain itself. The driver is in the enclosure.</p>\n<p><strong>The classroom dashboard.</strong> A school deploys a learning analytics dashboard that tracks every student's page views, time on task and assignment submissions. Teachers use it to identify struggling students. That is the stated purpose. The same dashboard identifies which students log in from home, which have internet access and which do not. That is a different kind of data, and it reveals socioeconomic status. The dashboard was designed for one purpose and is being used for another.</p>\n<p><strong>The AI prompt log.</strong> An organisation deploys an AI assistant and logs every prompt and response for quality assurance. The logs contain employees' questions about their own health, their frustrations with management, and their ideas for side projects. The quality assurance team can read all of it. The employees did not know the logs were readable by anyone other than the AI system.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>\"Observability is necessary. Without it, you cannot debug, secure or improve a system.\" That is true, and this frame does not argue against observability. It argues for knowing who is in the enclosure. A system that observes its own state is legitimate. A system where the observation is invisible to the observed and feeds decisions they cannot see or appeal is a governance problem.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Some observation is genuinely anonymous and aggregate. A system that reports \"response times increased 15% this month\" without identifying individuals is different from a system that reports \"Employee 42 was 4 minutes slower today.\" The frame applies to individual-level observation that feeds decisions about individuals, not to aggregate metrics that inform system-level decisions.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>The Human Edge</em> teaches the Trust Tool, which is a trust calibration device. The Zoo Hypothesis is the reason the Trust Tool exists: you need to know how much to trust an output, and the system observing you also needs to be observed. <em>Partner, Don't Police</em> applies the same logic to education: the difference between an assessment tool and a surveillance tool is who holds the data and whether the assessed can see it.</p>\n<p><em>Model Data, Verify AI</em> covers the technical implementation: row-level security, access rules, audit trails. The database is where the enclosure is built or dismantled.</p>"
                   },
                   {
                     "type": "html",
@@ -208,6 +352,22 @@
                   {
                     "type": "html",
                     "html": "<p>Map every point where a product or workplace collects data about a person's behaviour. For each one, write down who can see the data, what decision it feeds, and whether the person it describes can see it too. The last column is usually the shortest.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>The Human Edge</em>: Chapter 10, \"Design the Human In\", is the workplace version of this frame.</li>\n<li><em>Partner, Don't Police</em>: the assessment ethics chapters ask the same question about students.</li>\n<li><em>Model Data, Verify AI</em>: Chapter 10 covers access, roles and row-level security. The enclosure is the schema.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The line between watching and controlling is drawn by power.</li>\n<li>Observing behaviour changes behaviour.</li>\n<li>The same data is analytics in one room and surveillance in another.</li>\n<li>AI makes the observation invisible to the observed.</li>\n<li>Name who is in the enclosure and who is holding the clipboard.</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -221,7 +381,7 @@
               },
               {
                 "id": "01-05",
-                "title": "The Byzantine Generals",
+                "title": "05-byzantine",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -235,15 +395,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>Byzantine fault tolerance requires a known set of participants, a bounded number of faulty ones, and some guarantee about message delivery. Change any assumption and the guarantee changes with it.</li>\n<li>Most organisations run governance that looks distributed but assumes a centre. The chair resolves ties, the executive overrides, or the loudest person wins. That is not consensus. It is a hierarchy with extra meetings.</li>\n<li>Naming the assumptions is the useful move. If you cannot say how many participants may defect and still reach a decision, you do not have a governance model. You have a hope.</li>\n</ul>"
+                    "html": "<p><strong>The assumptions are the governance.</strong> Byzantine fault tolerance requires a known set of participants, a bounded number of faulty ones, and some guarantee about message delivery. Change any assumption and the guarantee changes with it. Most organisations run governance that looks distributed but assumes a centre: the chair resolves ties, the executive overrides, or the loudest person wins.</p>\n<p><strong>AI agents are the new generals.</strong> An organisation that deploys multiple AI agents — one to draft, one to review, one to approve — has created a Byzantine system without naming it. Each agent is a participant. Each can produce plausible but wrong output. The question is not whether the agents are dishonest. It is whether the organisation has specified how many can be wrong before the decision stops meaning anything.</p>\n<p><strong>Naming the assumptions is the useful move.</strong> If you cannot say how many participants may defect and still reach a decision, you do not have a governance model. You have a hope. The assumptions to name: who participates, what counts as faulty, what happens when fault is detected, and whether the honest participants can distinguish honest messages from faulty ones.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>The DAO in 2016 was a decentralised investment fund governed by code and token votes. When a flaw let an attacker drain funds, the community split over whether to reverse the transaction. The split produced two chains and a lasting argument about legitimacy. Consensus had a technical mechanism and no agreed process for the case the mechanism could not handle.</p>"
+                    "html": "<p><strong>The two-agent review.</strong> A team deploys a drafting agent and a reviewing agent. The drafting agent produces a report. The reviewing agent checks it and approves it. The team assumes the reviewer catches errors. But both agents use the same underlying model. They share the same blind spots, the same training data and the same failure modes. The review is not a check; it is the same opinion in a different format. The governance model assumed independent participants. The implementation used the same model twice.</p>\n<p><strong>The committee without assumptions.</strong> A standards committee meets monthly to decide priorities. Twelve people attend. Some are experts, some are stakeholders, some are there because they were told to attend. The committee reaches decisions by consensus, which means nobody explicitly objects. The process looks democratic. It actually assumes that everyone at the table has the expertise to evaluate every proposal, that nobody has a hidden agenda, and that silence means agreement. None of those assumptions is named, tested or enforced.</p>\n<p><strong>The AI chain.</strong> An organisation chains three AI agents: one extracts data from a document, one summarises the extracted data, one writes a client report from the summary. Each stage looks like a check on the previous stage. But the agents share a model and a context window. If the extraction stage hallucinates a fact, the summarisation stage inherits the hallucination, and the report stage writes it into client-facing prose. The chain is not three independent checks. It is one hallucination amplified through three voices.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>\"This is too theoretical. In practice, someone senior reviews the output and catches the errors.\" That is true, and it works — until the senior person is unavailable, or the volume exceeds the review capacity, or the senior person shares the blind spots. The frame does not say stop using hierarchies. It says name the assumptions. If the fallback is \"the senior person catches it,\" that assumption should be written down, tested and bounded.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>The frame is weakest when the participants genuinely are independent and the stakes are low. A team of three people using three different AI tools to draft, review and fact-check a blog post does not need a formal Byzantine fault tolerance model. The frame matters when the stakes are high, the participants share failure modes, or the organisation is large enough that the governance assumptions are invisible.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>Speak Software</em> teaches the gate discipline that catches faulty output: lint, test, audit. The Byzantine frame explains why the gate needs independent participants, not the same model reviewing its own work. <em>Conversation, Not Delegation</em> teaches the conversation loop: check from outside the tool. The Byzantine frame explains why checking from outside matters — because agents that share a model share failure modes.</p>\n<p><em>Model Data, Verify AI</em> covers transactions and isolation, which are the data-layer version of consensus: multiple sessions writing to the same rows need a protocol for who wins when they disagree.</p>"
                   },
                   {
                     "type": "html",
@@ -252,6 +436,22 @@
                   {
                     "type": "html",
                     "html": "<p>Map a real decision process you are part of, at work or in a community. Identify who the participants are, what counts as a faulty participant, and what happens if the faulty ones cannot be distinguished from the honest ones. Then ask whether the process would survive one deliberate liar.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>Speak Software</em>: Chapter 17, \"The Mini CEO's Staff\", covers agent teams and the separation-of-duties boundary.</li>\n<li><em>Conversation, Not Delegation</em>: the Conversation Loop is the human version of consensus: iterate, check, revise.</li>\n<li><em>Model Data, Verify AI</em>: Chapter 5 covers transactions and isolation, the data-layer consensus problem.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>Name the assumptions or the governance is a hope.</li>\n<li>Agents that share a model share failure modes.</li>\n<li>A chain of AI steps is not three independent checks.</li>\n<li>The useful question is not \"can we trust the participants?\" but \"how many can be wrong before the decision stops meaning anything?\"</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -265,7 +465,7 @@
               },
               {
                 "id": "01-06",
-                "title": "The Great Filter",
+                "title": "06-great-filter",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [
@@ -279,15 +479,39 @@
                   },
                   {
                     "type": "html",
-                    "html": "<ul>\n<li>The alignment problem is the gap between what we meant and what we specified. A system that optimises the wrong objective does not need to be malicious to be dangerous. It needs to be competent.</li>\n<li>Capability without accountability is the actual risk. A model that can act, but cannot be stopped by anyone with the authority and the information to stop it, is a governance failure regardless of how well it performs.</li>\n<li>Fail-safe design is older than AI. Aviation, nuclear power and medicine all have kill switches, review boards and incident processes. AI mostly does not, or has them on paper only.</li>\n</ul>"
+                    "html": "<p><strong>Capability without accountability is the actual risk.</strong> A model that can act, but cannot be stopped by anyone with the authority and the information to stop it, is a governance failure regardless of how well it performs. The risk is not malice. It is competence without oversight.</p>\n<p><strong>The alignment problem is the specification problem.</strong> A system that optimises the wrong objective does not need to be malicious to be dangerous. It needs to be competent. The gap between what we meant and what we specified is where the damage happens. This is the same gap the series calls the delegation trap: accepting a result without understanding what it rests on.</p>\n<p><strong>Fail-safe design is older than AI.</strong> Aviation has kill switches, review boards, incident processes and mandatory reporting. Nuclear power has containment, redundancy and a regulatory body with the authority to shut down a reactor. Medicine has informed consent, double-blind trials and a duty of care. AI mostly does not, or has them on paper only. The difference is not the technology. It is the governance.</p>"
                   },
                   {
                     "type": "html",
-                    "html": "<h2>A real case</h2>"
+                    "html": "<h2>Extended examples</h2>"
                   },
                   {
                     "type": "html",
-                    "html": "<p>The 2023 governance crisis at OpenAI showed how quickly a safety structure can become a negotiation between board, investors and staff. Whatever one thinks of the outcome, the episode made the accountability question concrete: who actually has the authority to stop a deployment, and on what information?</p>"
+                    "html": "<p><strong>The flash crash.</strong> On 6 May 2010, the US stock market dropped nearly 1,000 points in minutes and recovered. Automated trading systems, each responding to the others' signals, produced a cascade that no individual trader intended and no individual trader could stop. The circuit breakers that exist today were built after the crash, not before. The system was competent. It was not accountable.</p>\n<p><strong>The deployment that could not be rolled back.</strong> A team deploys an AI feature that auto-generates customer email responses. The feature works well in testing. In production, it starts generating responses that are technically accurate but legally problematic: promises the company cannot keep, commitments that contradict the terms of service. The team cannot roll back because the feature is deeply integrated into the email pipeline. The rollback plan was not written because nobody expected to need one. The system is capable. It is not stoppable.</p>\n<p><strong>The prompt that spread.</strong> An employee discovers that a specific phrasing makes an AI assistant produce unusually confident answers. They share the phrasing with colleagues. Within a week, the phrasing has become standard practice across the team. Nobody evaluated whether the confident answers were more accurate. They were preferred because they felt more authoritative. The organisation has adopted a behaviour nobody chose, based on a quality nobody measured.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Counter-argument</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>\"This is alarmist. AI systems have off switches, and organisations can disable them.\" The question is not whether an off switch exists. The question is who knows where it is, who has the authority to use it, and whether anyone is watching closely enough to know when it should be used. A kill switch that nobody knows about is not a kill switch.</p>\n<p>\"Regulation will solve this.\" Regulation is necessary but not sufficient. Regulation operates after deployment, on a timescale of years. AI systems operate before deployment review, on a timescale of seconds. The gap is where the filter lives.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>When this frame fails</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p>Not every AI deployment needs a kill switch. A model that drafts a birthday message does not need a governance board. The frame applies to systems that act in the world, affect people, or make decisions that are hard to reverse. The skill is knowing which category your system falls into, which is what the Trust Tool in <em>The Human Edge</em> teaches.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Where the series picks this up</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<p><em>The Human Edge</em> teaches the delivery discipline: design the human in, set a gate, run a 30-day review. The Great Filter is the reason the gate matters. <em>Speak Software</em> teaches the launch record, the audit and the rollback plan. The Great Filter is the reason those documents exist. <em>Model Data, Verify AI</em> teaches the restore test and the kill switch policy. The Great Filter is the reason a backup you have not restored is not a backup.</p>\n<p>All three books are instances of the same frame: capability without accountability is the risk. The accountability is not a feeling. It is a person, a process and a switch.</p>"
                   },
                   {
                     "type": "html",
@@ -296,6 +520,22 @@
                   {
                     "type": "html",
                     "html": "<p>Write a kill switch policy for one AI tool you actually use. Name who can stop it, what triggers the stop, who is told, and what happens to work already in progress. If you cannot fill in those four fields, you have found the gap.</p>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>Cross-references</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li><em>The Human Edge</em>: Chapter 10, \"Design the Human In\", covers checkpoints, gates and the Scale/Pivot/Kill decision.</li>\n<li><em>Speak Software</em>: Chapter 16 covers the launch record and the signed accountability that makes shipping deliberate.</li>\n<li><em>Model Data, Verify AI</em>: Chapter 9 covers backups and restore tests, and Chapter 10 covers access, roles and row-level security.</li>\n<li><em>Conversation, Not Delegation</em>: Chapter 2, \"The Delegation Trap\", is the source argument for why capability without understanding is dangerous.</li>\n</ul>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<h2>What to carry forward</h2>"
+                  },
+                  {
+                    "type": "html",
+                    "html": "<ul>\n<li>The alignment problem is the specification problem.</li>\n<li>Capability without accountability is the risk.</li>\n<li>Fail-safe design is older than AI. Use it.</li>\n<li>Write the kill switch policy before you need it.</li>\n<li>The filter is not an asteroid. It is a species that builds systems it cannot stop.</li>\n</ul>"
                   },
                   {
                     "type": "html",
@@ -401,7 +641,7 @@
             "lessons": [
               {
                 "id": "02-01",
-                "title": "The Silent Server",
+                "title": "silent-server",
                 "kind": "reading",
                 "xp": 10,
                 "blocks": [

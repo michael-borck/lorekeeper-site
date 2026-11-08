@@ -51,20 +51,22 @@
     const category = categoryFor(pack);
     return `
       <article class="store-card" data-pack="${escapeHtml(pack.id)}">
-        <div class="store-card-head">
-          <img class="store-cover" src="../store/art/${encodeURIComponent(pack.artSet || category.id)}/${encodeURIComponent(pack.artScene || "advisor")}.webp" alt="" loading="lazy" width="48" height="48">
+        <div class="store-cover-frame">
+          <img class="store-cover" src="../store/art/${encodeURIComponent(pack.artSet || category.id)}/${encodeURIComponent(pack.artScene || "advisor")}.webp" alt="" loading="lazy" width="640" height="280">
           <span class="store-level">${escapeHtml(pack.level || "pack")}</span>
         </div>
-        <h3>${escapeHtml(pack.title || pack.id)}</h3>
-        <p>${escapeHtml(pack.description || "")}</p>
-        <div class="store-meta">
-          ${(pack.tags || []).slice(0, 5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
-        </div>
-        <div class="store-card-foot">
-          <span class="widget-note">${pack.lessons || 0} lessons · ${Math.round((pack.size || 0) / 1024)} KB</span>
-          <button class="btn ${installed ? "" : "primary"}" type="button" data-store-add="${escapeHtml(pack.id)}" ${installed ? "disabled" : ""}>
-            ${installed ? "Installed" : "Add"}
-          </button>
+        <div class="store-card-body">
+          <h3>${escapeHtml(pack.title || pack.id)}</h3>
+          <p>${escapeHtml(pack.description || "")}</p>
+          <div class="store-meta">
+            ${(pack.tags || []).slice(0, 5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+          </div>
+          <div class="store-card-foot">
+            <span class="widget-note">${pack.lessons || 0} lessons · ${Math.round((pack.size || 0) / 1024)} KB</span>
+            <button class="btn ${installed ? "" : "primary"}" type="button" data-store-add="${escapeHtml(pack.id)}" ${installed ? "disabled" : ""}>
+              ${installed ? "Installed" : "Add"}
+            </button>
+          </div>
         </div>
       </article>`;
   }

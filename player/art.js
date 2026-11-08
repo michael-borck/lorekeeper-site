@@ -120,6 +120,54 @@
       </svg>`,
   };
 
+  const CRESTS = {
+    security: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M32 18 v16 M25 26 h14" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="32" cy="40" r="4" fill="var(--amber)"/>
+      </svg>`,
+    ai: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M32 17 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3 z" fill="var(--amber)"/>
+        <circle cx="20" cy="22" r="2" fill="var(--blue)"/>
+        <circle cx="44" cy="40" r="2" fill="var(--blue)"/>
+      </svg>`,
+    networks: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M22 24 L42 24 M22 24 L32 39 M42 24 L32 39" stroke="var(--blue)" stroke-width="2"/>
+        <circle cx="22" cy="24" r="4" fill="var(--accent)"/>
+        <circle cx="42" cy="24" r="4" fill="var(--accent)"/>
+        <circle cx="32" cy="39" r="5" fill="var(--amber)"/>
+      </svg>`,
+    programming: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M27 22 l-8 10 8 10 M37 22 l8 10 -8 10" fill="none" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`,
+    systems: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="32" cy="31" r="10" fill="none" stroke="var(--blue)" stroke-width="2"/>
+        <circle cx="32" cy="31" r="4" fill="var(--amber)"/>
+        <path d="M32 17 v5 M32 40 v5 M18 31 h5 M41 31 h5" stroke="var(--accent)" stroke-width="2"/>
+      </svg>`,
+    education: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M21 23 q11 -5 22 0 v20 q-11 -5 -22 0 z" fill="none" stroke="var(--amber)" stroke-width="2"/>
+        <path d="M32 23 v20" stroke="var(--amber)" stroke-width="2"/>
+      </svg>`,
+    reference: `
+      <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 7 L52 15 v15 c0 13 -9 21 -20 27 C21 51 12 43 12 30 V15 z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="32" cy="31" r="12" fill="none" stroke="var(--blue)" stroke-width="2"/>
+        <path d="M32 22 l4 9 -4 -2 -4 2 z" fill="var(--amber)"/>
+      </svg>`,
+  };
+
   const PACK_ART = {
     "pocket-incidents": ["cybersecurity", "crisis"],
     "information-security": ["cybersecurity", "advisor"],
@@ -181,10 +229,18 @@
       return `<div class="picker-art" aria-hidden="true">${PIXEL}${STORYBOOK}${INK}</div>`;
     },
     skinName(theme) {
-      return { pixel: "Pixel", storybook: "Storybook", ink: "Ink" }[theme] || "Ink";
+      return { ink: "Study", study: "Study" }[theme] || "Quest";
     },
-    courseEmblem(slug) {
-      return EMBLEMS[slug] || EMBLEMS.default;
+    courseEmblem(slug, course = null) {
+      if (EMBLEMS[slug]) return EMBLEMS[slug];
+      const tags = new Set((course?.tags || []).map((tag) => String(tag).toLowerCase()));
+      if (tags.has("security") || tags.has("audit") || tags.has("forensics")) return CRESTS.security;
+      if (tags.has("ai") || tags.has("llm")) return CRESTS.ai;
+      if (tags.has("networking") || tags.has("networks")) return CRESTS.networks;
+      if (tags.has("programming") || tags.has("python") || tags.has("web")) return CRESTS.programming;
+      if (tags.has("systems") || tags.has("analysis")) return CRESTS.systems;
+      if (tags.has("education") || tags.has("teaching")) return CRESTS.education;
+      return CRESTS.reference;
     },
     courseCoverUrl,
   };

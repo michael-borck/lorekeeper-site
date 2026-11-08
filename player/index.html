@@ -19,34 +19,48 @@
         <span class="brand-mark">✦</span>
         <span class="brand-text">Lorekeeper<span class="brand-sub">field notes</span></span>
       </a>
+      <section id="player-card" class="player-card" aria-label="Your level"></section>
       <div id="course-meta" class="course-meta"></div>
-      <div id="trail-card" class="trail-card" hidden></div>
-      <nav id="outline" class="outline"></nav>
-      <div class="sidebar-footer">
-        <div class="xp-row"><span>XP</span><strong id="xp">0</strong></div>
+      <div id="course-progress" class="course-progress" hidden>
+        <div class="xp-row"><span>Course XP</span><strong id="xp">0</strong></div>
         <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
-        <label class="theme-picker" for="theme-select">
-          <span>Skin</span>
-          <select id="theme-select" aria-label="Skin">
-            <option value="ink">Ink</option>
-            <option value="pixel">Pixel</option>
-            <option value="storybook">Storybook</option>
-          </select>
-        </label>
-        <button id="journey-button" class="ghost small" type="button" data-journey-open>Journey</button>
-        <button id="tutor-button" class="ghost small" type="button" data-tutor-open>AI tutor</button>
-        <button id="badges-button" class="ghost small" type="button">Achievements <span id="badge-count">0</span></button>
-        <button id="progress-button" class="ghost small" type="button">Progress</button>
-        <button id="reset-progress" class="ghost small" type="button">Reset progress</button>
-        <div class="sidebar-tools">
-          <span>Workshop tools</span>
-          <a href="https://aitoys.borck.education/" target="_blank" rel="noreferrer">AI Toys</a>
-          <a href="https://securitytoys.borck.education/" target="_blank" rel="noreferrer">Security Toys</a>
-          <a href="https://netsim.borck.education/" target="_blank" rel="noreferrer">NetSim</a>
-          <a href="https://michael-borck.github.io/programming-labs/" target="_blank" rel="noreferrer">Programming Labs</a>
-          <a href="https://github.com/michael-borck/study-buddy/releases/latest" target="_blank" rel="noreferrer">Study Buddy (desktop)</a>
-          <a href="https://github.com/michael-borck/career-compass/releases/latest" target="_blank" rel="noreferrer">Career Compass (desktop)</a>
-        </div>
+        <a id="map-link" class="map-link" href="#map"><span data-icon="map"></span><span>Course map</span></a>
+      </div>
+      <div id="trail-card" class="trail-card" hidden></div>
+      <nav id="outline" class="outline" aria-label="Chapters"></nav>
+      <div class="sidebar-footer">
+        <details id="sidebar-menu" class="sidebar-menu">
+          <summary id="menu-toggle">Menu</summary>
+          <div class="menu-panel">
+            <label class="theme-picker" for="theme-select">
+              <span>Mode</span>
+              <select id="theme-select" aria-label="Mode">
+                <option value="quest">Quest</option>
+                <option value="study">Study</option>
+              </select>
+            </label>
+            <label class="sound-picker" id="sound-picker" hidden>
+              <span>Quest sound</span>
+              <input id="sound-toggle" type="checkbox">
+            </label>
+            <div class="menu-actions">
+              <button id="journey-button" class="menu-item" type="button" data-journey-open>Journey</button>
+              <button id="badges-button" class="menu-item" type="button">Achievements <span id="badge-count">0</span></button>
+              <button id="tutor-button" class="menu-item" type="button" data-tutor-open>AI tutor</button>
+              <button id="progress-button" class="menu-item" type="button">Backup and restore</button>
+              <button id="reset-progress" class="menu-item danger" type="button">Reset this course</button>
+            </div>
+            <div class="sidebar-tools">
+              <span>Workshop tools</span>
+              <a href="https://aitoys.borck.education/" target="_blank" rel="noreferrer">AI Toys</a>
+              <a href="https://securitytoys.borck.education/" target="_blank" rel="noreferrer">Security Toys</a>
+              <a href="https://netsim.borck.education/" target="_blank" rel="noreferrer">NetSim</a>
+              <a href="https://michael-borck.github.io/programming-labs/" target="_blank" rel="noreferrer">Programming Labs</a>
+              <a href="https://github.com/michael-borck/study-buddy/releases/latest" target="_blank" rel="noreferrer">Study Buddy (desktop)</a>
+              <a href="https://github.com/michael-borck/career-compass/releases/latest" target="_blank" rel="noreferrer">Career Compass (desktop)</a>
+            </div>
+          </div>
+        </details>
       </div>
     </aside>
 
@@ -167,6 +181,8 @@
   <script src="progress-file.js"></script>
   <script src="storage.js"></script>
   <script src="sanitize.js"></script>
+  <script src="sound.js"></script>
+  <script src="quest.js"></script>
   <script src="library.js"></script>
   <script src="wayfinder.js"></script>
   <script src="trusted-keys.js"></script>

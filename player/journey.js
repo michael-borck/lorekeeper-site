@@ -66,10 +66,10 @@
     const activity = recent(statuses);
     body.innerHTML = `
       <div class="journey-stats">
-        <div><strong>${doneLessons}</strong><span>lessons complete</span></div>
-        <div><strong>${completedCourses}</strong><span>courses complete</span></div>
-        <div><strong>${badges}</strong><span>achievements</span></div>
-        <div><strong>${statuses.length}</strong><span>courses in library</span></div>
+        <div class="journey-stat"><strong>${doneLessons}</strong><span>lessons complete</span></div>
+        <div class="journey-stat"><strong>${completedCourses}</strong><span>courses complete</span></div>
+        <div class="journey-stat"><strong>${badges}</strong><span>achievements</span></div>
+        <div class="journey-stat"><strong>${statuses.length}</strong><span>courses in library</span></div>
       </div>
       ${
         next
@@ -81,8 +81,8 @@
             </div>`
           : ""
       }
-      <h3 class="journey-heading">Your courses</h3>
-      <div class="journey-list">
+      <h3 class="journey-heading">Your path</h3>
+      <div class="journey-list journey-map">
         ${statuses
           .map(
             (item) => `
@@ -97,7 +97,7 @@
           )
           .join("")}
       </div>
-      <h3 class="journey-heading">Recent activity</h3>
+      <h3 class="journey-heading">Field notes</h3>
       ${
         activity.length
           ? `<ol class="journey-activity">${activity
