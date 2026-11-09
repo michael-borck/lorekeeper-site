@@ -1,15 +1,19 @@
-/* Local, deterministic wayfinder for the course picker. */
+/* Wayfinder: four questions plan a trail across courses, drawn on the world map. */
 (function () {
   const PATH_KEY = "lorekeeper:path";
+  const PANEL_KEY = "lorekeeper:trail-open";
+  const LEVEL_RANK = { beginner: 0, intermediate: 1, advanced: 2 };
   const QUESTIONS = [
     {
       id: "goal",
       title: "What do you want to be able to do?",
       options: [
-        { label: "Build and ship a client website", tags: ["web", "design", "client", "accessibility", "ai"] },
-        { label: "Troubleshoot systems and networks", tags: ["systems", "networking", "operations", "incident"] },
-        { label: "Work with business data", tags: ["data", "sql", "api"] },
-        { label: "Review security, risk and controls", tags: ["security", "incident", "systems"] },
+        { label: "Build and ship a website or app", tags: ["web", "design", "client", "accessibility", "html", "javascript"] },
+        { label: "Program, and direct AI while I do it", tags: ["python", "programming", "computational-thinking", "prompting"] },
+        { label: "Use AI with good judgement", tags: ["ai", "judgement", "verification", "evaluation", "llm"] },
+        { label: "Troubleshoot systems and networks", tags: ["systems", "networking", "operations", "routing", "troubleshooting"] },
+        { label: "Review security, risk and controls", tags: ["security", "audit", "risk", "incident", "forensics"] },
+        { label: "Teach with these tools", tags: ["teaching", "education", "projects", "assessment"] },
       ],
     },
     {
@@ -27,26 +31,29 @@
       options: [
         { label: "A client wants a launch date", tags: ["client", "web", "design"] },
         { label: "A service is down and nobody knows why", tags: ["systems", "networking", "incident", "operations"] },
-        { label: "A spreadsheet is the real source of truth", tags: ["data", "sql", "api"] },
-        { label: "A vendor proposal needs a risk review", tags: ["security", "incident", "systems"] },
+        { label: "Someone trusts the AI's answer without checking", tags: ["ai", "judgement", "verification", "evidence"] },
+        { label: "A vendor proposal needs a risk review", tags: ["security", "risk", "audit", "evidence"] },
+        { label: "A spreadsheet is the real source of truth", tags: ["data", "sql", "api", "python"] },
       ],
     },
     {
       id: "style",
       title: "How do you want to start?",
       options: [
-        { label: "Build something first", tags: ["exercise", "web", "practice"] },
+        { label: "Build something first", tags: ["exercise", "web", "practice", "projects", "python"] },
         { label: "Follow a story and a client", tags: ["story", "client", "incident"] },
-        { label: "Try a quick workbench", tags: ["quick", "tools", "practice"] },
+        { label: "Try something quick and playful", tags: ["quick", "tools", "practice", "interactive", "misconceptions"] },
       ],
     },
   ];
 
   let bound = false;
-
+  let refreshing = null;
   const $ = (id) => document.getElementById(id);
 
-  function currentPath() {
+  /* Storage --------------------------------------------------------- */
+
+  function readPath() {
     try {
       const raw = localStorage.getItem(PATH_KEY);
       return raw ? JSON.parse(raw) : null;
@@ -63,56 +70,43 @@
     }
   }
 
+  /* Version 1 trails were one course plus a secondary course. */
+  function migrate(path) {
+    if (!path || typeof path !== "object") return null;
+    if (path.version === 2 && Array.isArray(path.stops)) return path;
+    if (!path.course) return null;
+    const stops = [
+      {
+        slug: path.course,
+        title: path.title || path.course,
+        goal: Array.isArray(path.steps) ? path.steps.map(({ id, title, kind }) => ({ id, title, kind })) : [],
+        chapter: "",
+      },
+    ];
+    if (path.secondary?.slug) stops.push({ slug: path.secondary.slug, title: path.secondary.title || "", goal: [], chapter: "" });
+    return { version: 2, answers: path.answers || {}, stops, createdAt: path.createdAt || new Date().toISOString() };
+  }
+
+  function currentPath() {
+    const raw = readPath();
+    const path = migrate(raw);
+    if (path && raw?.version !== 2) savePath(path);
+    return path;
+  }
+
   function completedFor(slug) {
     const data = window.LorekeeperPackStorage?.getProgress(slug);
     return new Set(Object.keys(data?.completed || {}));
   }
 
-  function nextStep(path) {
-    if (!path || !Array.isArray(path.steps)) return null;
-    const completed = completedFor(path.course);
-    return path.steps.find((step) => !completed.has(step.id)) || null;
-  }
+  /* Course lookup -------------------------------------------------- */
 
-  function go(path, step) {
-    const url = new URL(location.href);
-    url.search = `?course=${encodeURIComponent(path.course)}`;
-    url.hash = step?.id || path.start || "";
-    location.href = url.href;
-  }
-
-  function scoreCourses(answers) {
-    const courses = state.index?.courses || [];
-    const scores = new Map(courses.map((course) => [course.slug, 0]));
-    const add = (tags, weight) => {
-      courses.forEach((course) => {
-        const courseTags = new Set(course.tags || []);
-        if (tags.some((tag) => courseTags.has(tag))) {
-          scores.set(course.slug, (scores.get(course.slug) || 0) + weight);
-        }
-      });
-    };
-
-    QUESTIONS.forEach((question) => {
-      const option = question.options[answers[question.id]];
-      if (!option || !option.tags) return;
-      add(option.tags, question.id === "goal" ? 3 : question.id === "situation" ? 2 : 1);
-    });
-
-    const experience = QUESTIONS[1].options[answers.experience]?.value;
-    for (const course of courses) {
-      const level = String(course.level || "beginner");
-      if (experience === "new" && level === "beginner") scores.set(course.slug, scores.get(course.slug) + 2);
-      if (experience === "some" && level === "intermediate") scores.set(course.slug, scores.get(course.slug) + 2);
-      if (experience === "confident" && level === "intermediate") scores.set(course.slug, scores.get(course.slug) + 1);
-      const done = completedFor(course.slug).size;
-      if (course.lessons && done > 0 && done < course.lessons) scores.set(course.slug, scores.get(course.slug) + 2);
-      if (course.lessons && done >= course.lessons) scores.set(course.slug, scores.get(course.slug) - 4);
-    }
-
-    return courses
-      .map((course, index) => ({ course, index, score: scores.get(course.slug) || 0 }))
-      .sort((a, b) => b.score - a.score || a.index - b.index);
+  function lookup(slug) {
+    const visible = state.index?.courses || [];
+    const all = state.index?.allCourses || visible;
+    const course = all.find((item) => item.slug === slug);
+    if (!course) return { status: "store", course: null };
+    return { status: visible.some((item) => item.slug === slug) ? "installed" : "hidden", course };
   }
 
   async function fetchCourse(slug) {
@@ -123,62 +117,221 @@
     return response.json();
   }
 
-  async function buildSteps(course) {
+  /* A stop's goal is the chapter that holds the course's starting scene. */
+  async function goalFor(slug, start) {
     try {
-      const data = await fetchCourse(course.slug);
-      const flat = [];
-      for (const module of data.modules || []) {
-        for (const lesson of module.lessons || []) {
-          flat.push({ ...lesson, moduleNumber: module.number, moduleTitle: module.title });
-        }
-      }
-      let start = flat.findIndex((lesson) => lesson.id === (course.start || ""));
-      if (start < 0) start = 0;
-      const candidates = flat.slice(start);
-      if (!candidates.length) return [];
-      const selected = candidates.slice(0, 3);
-      const story = candidates.slice(0, 5).find((lesson) => lesson.kind === "story");
-      if (story && !selected.includes(story)) selected[2] = story;
-      return selected.filter(Boolean).map((lesson) => ({
-        id: lesson.id,
-        title: lesson.title,
-        kind: lesson.kind,
-        module: `${lesson.moduleNumber}. ${lesson.moduleTitle}`,
-      }));
+      const data = await fetchCourse(slug);
+      const modules = data.modules || [];
+      const module =
+        modules.find((item) => (item.lessons || []).some((lesson) => lesson.id === (start || data.unit?.start))) ||
+        modules[0];
+      if (!module) return { goal: [], chapter: "" };
+      return {
+        goal: (module.lessons || []).map(({ id, title, kind }) => ({ id, title, kind })),
+        chapter: `Chapter ${module.number}: ${module.title}`,
+      };
     } catch {
-      return [];
+      return { goal: [], chapter: "" };
     }
   }
 
+  /* Fill goals for stops that have become available since the trail was made. */
+  async function refreshPath() {
+    if (refreshing) return refreshing;
+    refreshing = (async () => {
+      const path = currentPath();
+      if (!path) return null;
+      let changed = false;
+      for (const stop of path.stops) {
+        const { status, course } = lookup(stop.slug);
+        if (status !== "store" && !stop.goal?.length) {
+          Object.assign(stop, await goalFor(stop.slug, course?.start));
+          changed = true;
+        }
+      }
+      if (changed) savePath(path);
+      return path;
+    })();
+    try {
+      return await refreshing;
+    } finally {
+      refreshing = null;
+    }
+  }
+
+  /* Trail state ----------------------------------------------------- */
+
+  function trailState(path = currentPath()) {
+    if (!path?.stops?.length) return null;
+    let currentFound = false;
+    const stops = path.stops.map((stop) => {
+      const { status, course } = lookup(stop.slug);
+      const completed = completedFor(stop.slug);
+      const goal = stop.goal || [];
+      const done = goal.length > 0 && status !== "store" && goal.every((lesson) => completed.has(lesson.id));
+      const next = goal.find((lesson) => !completed.has(lesson.id)) || null;
+      const current = !done && !currentFound;
+      if (current) currentFound = true;
+      return {
+        ...stop,
+        title: course?.title || stop.title,
+        course: course || { slug: stop.slug, title: stop.title, tags: stop.tags || [], narrator: stop.narrator || "" },
+        status,
+        done,
+        current,
+        next,
+        goalDone: goal.filter((lesson) => completed.has(lesson.id)).length,
+      };
+    });
+    const doneCount = stops.filter((stop) => stop.done).length;
+    return { path, stops, doneCount, complete: doneCount === stops.length, current: stops.find((stop) => stop.current) || null };
+  }
+
+  function nextStep(path = currentPath()) {
+    return trailState(path)?.current?.next || null;
+  }
+
+  async function act(stop) {
+    if (!stop) return;
+    if (stop.status === "installed") {
+      const url = new URL(location.href);
+      url.search = `?course=${encodeURIComponent(stop.slug)}`;
+      url.hash = stop.next?.id || "";
+      location.href = url.href;
+      return;
+    }
+    if (stop.status === "hidden") {
+      const hidden = new Set(window.LorekeeperPackStorage?.getSetting("hidden-courses", []) || []);
+      hidden.delete(stop.slug);
+      await window.LorekeeperPackStorage?.setSetting("hidden-courses", [...hidden]);
+      location.href = `?course=${encodeURIComponent(stop.slug)}${stop.next ? `#${encodeURIComponent(stop.next.id)}` : ""}`;
+      return;
+    }
+    $("wayfinder-dialog")?.close();
+    window.LorekeeperStore?.open({ query: stop.title });
+  }
+
+  function actionLabel(stop) {
+    if (!stop) return "";
+    if (stop.status === "installed") return stop.goalDone ? "Continue" : "Start";
+    if (stop.status === "hidden") return "Add to library";
+    return "Find in store";
+  }
+
+  /* Recommendation -------------------------------------------------- */
+
+  async function candidates() {
+    const list = window.LorekeeperWorld ? await window.LorekeeperWorld.places() : (state.index?.courses || []).map((course) => ({ ...course, status: "installed" }));
+    return list;
+  }
+
+  function scoreCourses(answers, list) {
+    const experience = QUESTIONS[1].options[answers.experience]?.value;
+    return list
+      .map((course, index) => {
+        const tags = new Set((course.tags || []).map((tag) => String(tag).toLowerCase()));
+        let score = 0;
+        QUESTIONS.forEach((question) => {
+          const option = question.options[answers[question.id]];
+          if (!option?.tags) return;
+          const weight = question.id === "goal" ? 3 : question.id === "situation" ? 2 : 1;
+          if (option.tags.some((tag) => tags.has(tag))) score += weight;
+        });
+        const level = String(course.level || "beginner");
+        if (experience === "new" && level === "beginner") score += 2;
+        if (experience === "some" && level === "intermediate") score += 2;
+        if (experience === "confident" && level !== "beginner") score += 1;
+        if (course.status === "installed") score += 1;
+        const done = completedFor(course.slug).size;
+        if (course.lessons && done > 0 && done < course.lessons) score += 2;
+        if (course.lessons && done >= course.lessons) score -= 6;
+        return { course, index, score };
+      })
+      .sort((a, b) => b.score - a.score || a.index - b.index);
+  }
+
   async function recommend(answers) {
-    const ranked = scoreCourses(answers);
+    const ranked = scoreCourses(answers, await candidates());
     if (!ranked.length) return null;
-    const primary = ranked[0].course;
-    const secondary = ranked.slice(1).find((item) => item.score > 0)?.course || ranked[1]?.course || null;
-    const steps = await buildSteps(primary);
-    const path = {
-      version: 1,
-      course: primary.slug,
-      title: primary.title,
-      pitch: primary.pitch || "",
-      start: primary.start || "",
-      answers,
-      steps,
-      secondary: secondary
-        ? { slug: secondary.slug, title: secondary.title }
-        : null,
-      createdAt: new Date().toISOString(),
-    };
+    const firstIndex = ranked.findIndex((item) => item.course.status === "installed");
+    const first = ranked[firstIndex >= 0 ? firstIndex : 0];
+    const rest = ranked
+      .filter((item) => item !== first && item.score > 0)
+      .slice(0, 3)
+      .sort(
+        (a, b) =>
+          (LEVEL_RANK[a.course.level] ?? 1) - (LEVEL_RANK[b.course.level] ?? 1) || b.score - a.score
+      );
+    if (!rest.length && ranked.length > 1) rest.push(ranked.find((item) => item !== first));
+    const stops = [];
+    for (const { course } of [first, ...rest]) {
+      const goal = course.status === "store" ? { goal: [], chapter: "" } : await goalFor(course.slug, course.start);
+      stops.push({ slug: course.slug, title: course.title, tags: course.tags || [], narrator: course.narrator || "", ...goal });
+    }
+    const path = { version: 2, answers, stops, createdAt: new Date().toISOString() };
     savePath(path);
     renderSidebarTrail();
     renderPicker();
     return path;
   }
 
+  /* Rendering ------------------------------------------------------- */
+
+  function regionName(course) {
+    return window.LorekeeperWorld ? window.LorekeeperWorld.region(course).name : "";
+  }
+
+  function stopStatus(stop) {
+    if (stop.done) return "Done";
+    if (stop.status === "store") return "Unexplored · in the pack store";
+    if (stop.status === "hidden") return "Unexplored · built in";
+    if (stop.goal?.length) return `${stop.goalDone} of ${stop.goal.length} · ${stop.chapter || "first chapter"}`;
+    return "Ready";
+  }
+
+  function stripHtml(trail, { compact = false } = {}) {
+    const emblem = (stop) => (window.LorekeeperArt ? window.LorekeeperArt.courseEmblem(stop.slug, stop.course) : "");
+    const shortTitle = (title) => (window.LorekeeperWorld ? window.LorekeeperWorld.shortTitle(title) : title);
+    return `
+      <ol class="trail-strip${compact ? " compact" : ""}">
+        ${trail.stops
+          .map(
+            (stop, index) => `
+          <li class="trail-stop${stop.done ? " done" : ""}${stop.current ? " current" : ""}${stop.status !== "installed" ? " unexplored" : ""}">
+            <span class="trail-node" aria-hidden="true">${emblem(stop)}<span>${stop.done ? "✓" : index + 1}</span></span>
+            <span class="trail-stop-text">
+              <strong>${escapeHtml(compact ? shortTitle(stop.title) : stop.title)}</strong>
+              <small>${escapeHtml(compact ? stopStatus(stop) : `${regionName(stop.course)} · ${stopStatus(stop)}`)}</small>
+            </span>
+          </li>`
+          )
+          .join("")}
+      </ol>`;
+  }
+
+  function celebrate(trail) {
+    if (!trail?.complete || trail.path.completedAt) return;
+    trail.path.completedAt = new Date().toISOString();
+    savePath(trail.path);
+    const quest = window.LorekeeperQuest;
+    if (quest && document.documentElement.dataset.theme !== "study") {
+      window.LorekeeperSound?.play("level");
+      quest.moment({
+        type: "level",
+        kicker: "Trail complete",
+        title: "Pathfinder",
+        detail: `You walked all ${trail.stops.length} stops of your trail.`,
+        icon: "map",
+      });
+    } else if (typeof toast === "function") {
+      toast("Trail complete. You earned Pathfinder.");
+    }
+  }
+
   function renderQuestions() {
     const body = $("wayfinder-body");
     if (!body) return;
-    $("wayfinder-intro").textContent = "Four quick questions. Nothing leaves this device.";
+    $("wayfinder-intro").textContent = "Four quick questions plot a trail across the realm. Nothing leaves this device.";
     body.innerHTML = `
       <form id="wayfinder-form">
         ${QUESTIONS.map(
@@ -206,9 +359,7 @@
     const form = $("wayfinder-form");
     const submit = $("wayfinder-submit");
     const update = () => {
-      submit.disabled = !QUESTIONS.every((question) =>
-        form.querySelector(`input[name="${question.id}"]:checked`)
-      );
+      submit.disabled = !QUESTIONS.every((question) => form.querySelector(`input[name="${question.id}"]:checked`));
     };
     form.addEventListener("change", update);
     $("wayfinder-skip").addEventListener("click", () => $("wayfinder-dialog").close());
@@ -216,14 +367,12 @@
       event.preventDefault();
       const answers = {};
       QUESTIONS.forEach((question) => {
-        answers[question.id] = Number(
-          form.querySelector(`input[name="${question.id}"]:checked`)?.value || 0
-        );
+        answers[question.id] = Number(form.querySelector(`input[name="${question.id}"]:checked`)?.value || 0);
       });
       submit.disabled = true;
-      submit.textContent = "Finding your trail...";
+      submit.textContent = "Plotting your trail...";
       const path = await recommend(answers);
-      if (path) renderResult(path);
+      if (path) renderResult();
       else {
         $("wayfinder-intro").textContent = "No courses are available yet.";
         submit.disabled = false;
@@ -232,154 +381,111 @@
     });
   }
 
-  function renderResult(path) {
+  function renderResult() {
     const body = $("wayfinder-body");
-    const next = nextStep(path);
-    $("wayfinder-intro").textContent = "Your trail is saved on this device.";
+    const trail = trailState();
+    if (!body || !trail) return;
+    $("wayfinder-intro").textContent = `Your trail has ${trail.stops.length} stops. It is saved on this device.`;
     body.innerHTML = `
       <p class="eyebrow">Your trail</p>
-      <h3 class="wayfinder-course">${escapeHtml(path.title)}</h3>
-      ${path.pitch ? `<p class="widget-note">${escapeHtml(path.pitch)}</p>` : ""}
-      <ol class="trail-steps">
-        ${path.steps
-          .map(
-            (step, index) => `
-          <li class="trail-step ${next && next.id === step.id ? "next" : ""}">
-            <span class="trail-index">${index + 1}</span>
-            <span><strong>${escapeHtml(step.title)}</strong><small>${escapeHtml(step.module || "")}</small></span>
-          </li>`
-          )
-          .join("")}
-      </ol>
-      ${
-        path.secondary
-          ? `<p class="widget-note">Then explore <strong>${escapeHtml(path.secondary.title)}</strong>.</p>`
-          : ""
-      }
+      ${stripHtml(trail)}
+      <p class="widget-note">Each stop asks you to clear its first chapter. Unexplored stops can be added from the store.</p>
       <div class="toolbar">
-        <button class="btn primary" type="button" data-wayfinder-start>Start this trail</button>
+        <button class="btn primary" type="button" data-trail-act>${escapeHtml(actionLabel(trail.current))}: ${escapeHtml(window.LorekeeperWorld?.shortTitle(trail.current?.title || "") || "")}</button>
+        <a class="btn" href="?view=world">See it on the world map</a>
         <button class="btn" type="button" data-wayfinder-retake>Change answers</button>
       </div>`;
-    body.querySelector("[data-wayfinder-start]").addEventListener("click", () => {
-      $("wayfinder-dialog").close();
-      go(path, next || path.steps[0]);
-    });
     body.querySelector("[data-wayfinder-retake]").addEventListener("click", renderQuestions);
-  }
-
-  function pathAvailable(path) {
-    if (!path) return false;
-    return (state.index?.courses || []).some((course) => course.slug === path.course);
   }
 
   function renderPicker() {
     const host = $("wayfinder-host");
     if (!host) return;
-    const courses = state.index?.courses || [];
-    if (!courses.length) {
-      host.innerHTML = `
-        <div class="wayfinder-cta">
-          <div>
-            <p class="eyebrow">Your library</p>
-            <h2>Add a pack to start</h2>
-            <p>Browse the store or restore the starter kit. Your progress stays on this device.</p>
-          </div>
-          <button class="btn primary" type="button" data-store-open>Browse packs</button>
-        </div>`;
-      return;
-    }
-    const path = currentPath();
-    if (path && !pathAvailable(path)) {
-      host.innerHTML = `
-        <div class="wayfinder-cta">
-          <div>
-            <p class="eyebrow">Your trail</p>
-            <h2>Your trail course is no longer installed</h2>
-            <p>Choose a new trail from the courses in your library.</p>
-          </div>
-          <button class="btn primary" type="button" data-wayfinder-open>Find a new trail</button>
-        </div>`;
-      return;
-    }
-    if (!path) {
+    const trail = trailState();
+    if (!trail) {
       host.innerHTML = `
         <div class="wayfinder-cta">
           <div>
             <p class="eyebrow">New here?</p>
             <h2>Find your trail</h2>
-            <p>Four quick questions point you at a starting course and three lessons. Nothing leaves this device.</p>
+            <p>Four quick questions plot a route across the realm, from your first course to the next few worth exploring.</p>
           </div>
-          <button class="btn primary" type="button" data-wayfinder-open>Find my trail</button>
+          <div class="wayfinder-cta-actions">
+            <button class="btn primary" type="button" data-wayfinder-open>Find my trail</button>
+            <a class="btn" href="?view=world">World map</a>
+          </div>
         </div>`;
       return;
     }
-    const next = nextStep(path);
-    const completed = completedFor(path.course);
+    celebrate(trail);
     host.innerHTML = `
       <div class="trail-card picker-trail">
         <div class="trail-head">
-          <span>Your trail</span>
+          <span>Your trail · ${trail.doneCount} of ${trail.stops.length} stops</span>
           <button class="ghost small" type="button" data-wayfinder-open>Change</button>
         </div>
-        <strong class="trail-course">${escapeHtml(path.title)}</strong>
-        <ol class="trail-steps">
-          ${path.steps
-            .map(
-              (step, index) => `
-            <li class="trail-step ${completed.has(step.id) ? "done" : ""} ${next && next.id === step.id ? "next" : ""}">
-              <span class="trail-index">${completed.has(step.id) ? "✓" : index + 1}</span>
-              <span>${escapeHtml(step.title)}</span>
-            </li>`
-            )
-            .join("")}
-        </ol>
-        ${
-          next
-            ? `<button class="btn primary" type="button" data-wayfinder-start>Continue</button>`
-            : `<p class="widget-note ok">Trail complete.</p>${
-                path.secondary
-                  ? `<button class="btn" type="button" data-wayfinder-secondary="${escapeHtml(path.secondary.slug)}">Explore ${escapeHtml(path.secondary.title)}</button>`
-                  : ""
-              }`
-        }
+        ${stripHtml(trail)}
+        <div class="toolbar">
+          ${
+            trail.complete
+              ? '<p class="widget-note ok">Trail complete. You earned Pathfinder.</p>'
+              : `<button class="btn primary" type="button" data-trail-act>${escapeHtml(actionLabel(trail.current))}</button>`
+          }
+          <a class="btn" href="?view=world">World map</a>
+        </div>
       </div>`;
   }
 
+  function panelOpen() {
+    try {
+      return localStorage.getItem(PANEL_KEY) !== "closed";
+    } catch {
+      return true;
+    }
+  }
+
   function renderSidebarTrail() {
-    const card = $("trail-card");
-    if (!card) return;
-    const path = currentPath();
-    if (!path || !pathAvailable(path)) {
-      card.hidden = true;
+    const panel = $("trail-card");
+    if (!panel) return;
+    const trail = trailState();
+    if (!trail) {
+      panel.hidden = true;
       return;
     }
-    const next = nextStep(path);
-    card.hidden = false;
-    card.innerHTML = `
-      <div class="trail-head">
-        <span>Your trail</span>
-        <button class="ghost small" type="button" data-wayfinder-open>Change</button>
-      </div>
-      <div class="trail-course">${escapeHtml(path.title)}</div>
-      ${
-        next
-          ? `<div class="trail-next">Next: ${escapeHtml(next.title)}</div>`
-          : `<div class="trail-next">Trail complete.${path.secondary ? ` Try ${escapeHtml(path.secondary.title)}.` : ""}</div>`
-      }
-      ${
-        next
-          ? `<button class="btn primary small" type="button" data-wayfinder-start>Continue</button>`
-          : path.secondary
-            ? `<button class="btn small" type="button" data-wayfinder-secondary="${escapeHtml(path.secondary.slug)}">Explore next course</button>`
-            : ""
-      }`;
+    celebrate(trail);
+    panel.hidden = false;
+    panel.open = panelOpen();
+    const current = trail.current;
+    panel.innerHTML = `
+      <summary>
+        <span class="trail-summary-title">Your trail</span>
+        <span class="trail-summary-count">${trail.doneCount}/${trail.stops.length}</span>
+      </summary>
+      <div class="trail-panel-body">
+        ${stripHtml(trail, { compact: true })}
+        ${
+          current
+            ? `<button class="btn primary small" type="button" data-trail-act>${escapeHtml(actionLabel(current))}: ${escapeHtml(window.LorekeeperWorld?.shortTitle(current.title) || current.title)}</button>`
+            : '<p class="trail-next">Trail complete. Pathfinder earned.</p>'
+        }
+        <div class="trail-links">
+          <a href="./?view=world">World map</a>
+          <button class="link-button" type="button" data-wayfinder-open>Change trail</button>
+        </div>
+      </div>`;
   }
 
   function openWizard() {
-    renderQuestions();
+    const trail = trailState();
+    if (trail) renderResult();
+    else renderQuestions();
     const dialog = $("wayfinder-dialog");
     if (typeof dialog.showModal === "function") dialog.showModal();
     else dialog.setAttribute("open", "");
+    if (trail) {
+      const retake = $("wayfinder-body").querySelector("[data-wayfinder-retake]");
+      retake?.focus();
+    }
   }
 
   function bind() {
@@ -392,32 +498,41 @@
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) dialog.close();
     });
+    const remember = (open) => {
+      try {
+        localStorage.setItem(PANEL_KEY, open ? "open" : "closed");
+      } catch {
+        /* session only */
+      }
+    };
+    const panel = $("trail-card");
+    // Click fires before the details element toggles, so store the state it is about to take.
+    panel?.addEventListener("click", (event) => {
+      if (event.target.closest("summary")) remember(!panel.open);
+    });
+    panel?.addEventListener("toggle", () => remember(panel.open));
     document.addEventListener("click", (event) => {
-      const open = event.target.closest("[data-wayfinder-open]");
-      if (open) {
+      if (event.target.closest("[data-wayfinder-open]")) {
         event.preventDefault();
         openWizard();
         return;
       }
-      const start = event.target.closest("[data-wayfinder-start]");
-      if (start) {
+      if (event.target.closest("[data-trail-act]")) {
         event.preventDefault();
-        const path = currentPath();
-        if (path) go(path, nextStep(path) || path.steps[0]);
-        return;
-      }
-      const secondary = event.target.closest("[data-wayfinder-secondary]");
-      if (secondary) {
-        event.preventDefault();
-        location.href = `?course=${encodeURIComponent(secondary.dataset.wayfinderSecondary)}`;
+        act(trailState()?.current);
       }
     });
   }
 
-  function init() {
+  async function init() {
     bind();
     renderPicker();
     renderSidebarTrail();
+    if (currentPath()) {
+      await refreshPath();
+      renderPicker();
+      renderSidebarTrail();
+    }
   }
 
   window.LorekeeperWayfinder = {
@@ -427,6 +542,7 @@
     renderPicker,
     renderSidebarTrail,
     currentPath,
+    trailState,
     nextStep,
   };
 })();

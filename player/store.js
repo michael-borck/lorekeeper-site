@@ -191,7 +191,10 @@
     }
   }
 
-  async function open() {
+  async function open(options = {}) {
+    if (typeof options.query === "string") {
+      filters = { ...filters, q: options.query, category: "all", level: "all", installed: false };
+    }
     const dialog = $("store-dialog");
     if (!dialog) return;
     if (typeof dialog.showModal === "function") dialog.showModal();

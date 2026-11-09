@@ -152,6 +152,11 @@
     return "keeper";
   }
 
+  /* The course's own guide: the author's choice, then the topic tags. Sets the map region. */
+  function topicNarrator(course) {
+    return isNarrator(course?.narrator) ? course.narrator : byTags(course);
+  }
+
   /* Learner preference first, then the author's choice, then the topic tags. */
   function narratorFor(course) {
     const mine = preferred();
@@ -343,6 +348,7 @@
     icon,
     kindBadge,
     narratorFor,
+    topicNarrator,
     narratorLine,
     momentLine,
     narrators,

@@ -5,7 +5,7 @@
   "title": "Speak Software: Programming at the Natural-Language Layer",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-08T04:05:39+00:00",
+  "createdAt": "2026-11-09T14:20:27+00:00",
   "courses": [
     {
       "slug": "speak-software",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T04:05:39+00:00",
+        "generated_at": "2026-11-09T14:20:27+00:00",
         "unit": {
           "slug": "speak-software",
           "title": "Speak Software: Programming at the Natural-Language Layer",
@@ -35,7 +35,8 @@
           ],
           "level": "beginner",
           "pitch": "Program at the natural-language layer: specify, verify, decompose and ship software with an AI agent.",
-          "start": "01-01"
+          "start": "01-01",
+          "narrator": "oracle"
         },
         "modules": [
           {
@@ -2328,7 +2329,8 @@
           }
         ]
       },
-      "stories": {}
+      "stories": {},
+      "narrator": "oracle"
     }
   ]
 }

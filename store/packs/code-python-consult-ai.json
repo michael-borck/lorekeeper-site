@@ -5,7 +5,7 @@
   "title": "Code Python, Consult AI: Python Fundamentals for the AI Era",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-08T04:05:41+00:00",
+  "createdAt": "2026-11-09T14:20:29+00:00",
   "courses": [
     {
       "slug": "code-python-consult-ai",
@@ -21,7 +21,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T04:05:41+00:00",
+        "generated_at": "2026-11-09T14:20:29+00:00",
         "unit": {
           "slug": "code-python-consult-ai",
           "title": "Code Python, Consult AI: Python Fundamentals for the AI Era",
@@ -33,7 +33,8 @@
           ],
           "level": "beginner",
           "pitch": "Build Python fundamentals by consulting AI and verifying the result.",
-          "start": "01-01"
+          "start": "01-01",
+          "narrator": "artificer"
         },
         "modules": [
           {
@@ -2050,7 +2051,8 @@
           }
         ]
       },
-      "stories": {}
+      "stories": {},
+      "narrator": "artificer"
     }
   ]
 }

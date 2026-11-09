@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-08T04:05:42+00:00",
+  "generated_at": "2026-11-09T14:20:30+00:00",
   "unit": {
     "slug": "ship-it",
     "title": "Ship It: Web Craft with an AI Partner",
@@ -18,7 +18,7 @@
     "level": "beginner",
     "pitch": "Build and ship a client website with an AI partner, from the first brief to the final handover.",
     "start": "01-01",
-    "narrator": ""
+    "narrator": "artificer"
   },
   "modules": [
     {

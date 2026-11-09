@@ -5,7 +5,7 @@
   "title": "Information Security: A Field Guide",
   "author": "",
   "licence": "Course content",
-  "createdAt": "2026-11-08T04:05:38+00:00",
+  "createdAt": "2026-11-09T14:20:27+00:00",
   "courses": [
     {
       "slug": "information-security",
@@ -20,10 +20,10 @@
       ],
       "pitch": "A field guide to software security, malware, cryptography and incident planning.",
       "start": "01-01",
-      "narrator": "",
+      "narrator": "sentinel",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T04:05:38+00:00",
+        "generated_at": "2026-11-09T14:20:27+00:00",
         "unit": {
           "slug": "information-security",
           "title": "Information Security: A Field Guide",
@@ -37,7 +37,7 @@
           "level": "beginner",
           "pitch": "A field guide to software security, malware, cryptography and incident planning.",
           "start": "01-01",
-          "narrator": ""
+          "narrator": "sentinel"
         },
         "modules": [
           {

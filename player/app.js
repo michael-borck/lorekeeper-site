@@ -62,7 +62,8 @@ function applyTheme(name, persist = false) {
 function rerenderView() {
   if (!state.index) return;
   if (!state.course) {
-    renderPicker();
+    if (new URLSearchParams(location.search).get("view") === "world") renderWorldView();
+    else renderPicker();
     return;
   }
   renderCourseMeta();
@@ -125,7 +126,28 @@ async function init() {
   const params = new URLSearchParams(location.search);
   const requested = params.get("course");
   if (requested) return loadCourse(requested);
+  if (params.get("view") === "world") return renderWorldView();
   renderPicker();
+}
+
+function renderIdleMeta(code, title) {
+  const idleEmblem = window.LorekeeperArt ? window.LorekeeperArt.courseEmblem("library") : "";
+  els.courseMeta.innerHTML = `
+    <div class="course-emblem">${idleEmblem}</div>
+    <div class="course-meta-text">
+      <div class="code">${escapeHtml(code)}</div>
+      <div class="title">${escapeHtml(title)}</div>
+    </div>`;
+}
+
+async function renderWorldView() {
+  if (els.courseProgress) els.courseProgress.hidden = true;
+  renderIdleMeta("World map", "Every course is a place in the realm");
+  document.title = "World map · Lorekeeper";
+  els.outline.innerHTML = `<a class="world-back" href="./">← Back to your library</a>`;
+  els.content.className = "content world-content";
+  els.content.innerHTML = '<p class="widget-note">Unrolling the map...</p>';
+  await window.LorekeeperWorld?.render(els.content);
 }
 
 async function loadCourse(slug) {
@@ -1102,13 +1124,7 @@ function renderPicker() {
   const quest = isQuest();
   els.content.className = "content picker-content";
   if (els.courseProgress) els.courseProgress.hidden = true;
-  const idleEmblem = window.LorekeeperArt ? window.LorekeeperArt.courseEmblem("library") : "";
-  els.courseMeta.innerHTML = `
-    <div class="course-emblem">${idleEmblem}</div>
-    <div class="course-meta-text">
-      <div class="code">${quest ? "No quest open" : "Library"}</div>
-      <div class="title">Choose a course to begin</div>
-    </div>`;
+  renderIdleMeta(quest ? "No quest open" : "Library", "Choose a course to begin");
 
   const candidate = continueCandidate();
   const unit = quest ? "scenes" : "lessons";
@@ -1179,6 +1195,7 @@ function renderPicker() {
       <h2 class="library-heading">${quest ? "Your quests" : "Your library"}</h2>
       <div class="course-list${state.index.courses.length ? "" : " empty"}">${cards}</div>
       <div class="picker-tools">
+        <a class="btn" href="?view=world">World map</a>
         <button id="store-open" class="btn" type="button" data-store-open>Browse packs</button>
         <button id="manage-open" class="btn" type="button" data-manage-open>Manage library</button>
         <button id="pack-import" class="btn" type="button">Import a pack</button>

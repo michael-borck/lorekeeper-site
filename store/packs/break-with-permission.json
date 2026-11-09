@@ -5,7 +5,7 @@
   "title": "Break with Permission: Ethical Hacking in Practice",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-08T04:05:40+00:00",
+  "createdAt": "2026-11-09T14:20:28+00:00",
   "courses": [
     {
       "slug": "break-with-permission",
@@ -23,7 +23,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T04:05:40+00:00",
+        "generated_at": "2026-11-09T14:20:28+00:00",
         "unit": {
           "slug": "break-with-permission",
           "title": "Break with Permission: Ethical Hacking in Practice",
@@ -37,7 +37,8 @@
           ],
           "level": "intermediate",
           "pitch": "Scope, test and report an authorised security assessment without crossing the boundary.",
-          "start": "01-01"
+          "start": "01-01",
+          "narrator": "sentinel"
         },
         "modules": [
           {
@@ -1505,7 +1506,8 @@
           }
         ]
       },
-      "stories": {}
+      "stories": {},
+      "narrator": "sentinel"
     }
   ]
 }

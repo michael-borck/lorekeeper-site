@@ -5,7 +5,7 @@
   "title": "Assume Breach: A First Course in Defensive Security",
   "author": "Michael Borck",
   "licence": "CC BY 4.0 International",
-  "createdAt": "2026-11-08T04:05:39+00:00",
+  "createdAt": "2026-11-09T14:20:27+00:00",
   "courses": [
     {
       "slug": "assume-breach",
@@ -22,7 +22,7 @@
       "start": "01-01",
       "course": {
         "schema": 1,
-        "generated_at": "2026-11-08T04:05:39+00:00",
+        "generated_at": "2026-11-09T14:20:27+00:00",
         "unit": {
           "slug": "assume-breach",
           "title": "Assume Breach: A First Course in Defensive Security",
@@ -35,7 +35,8 @@
           ],
           "level": "beginner",
           "pitch": "A first course in defensive security: what to protect, where to spend, and how to respond.",
-          "start": "01-01"
+          "start": "01-01",
+          "narrator": "sentinel"
         },
         "modules": [
           {
@@ -1707,7 +1708,8 @@
           }
         ]
       },
-      "stories": {}
+      "stories": {},
+      "narrator": "sentinel"
     }
   ]
 }
